@@ -1,0 +1,37 @@
+@import url(./imports.css);
+
+header>a>img[src="./assets/capsule.webp"] {
+    width: calc(var(--head) / 2);
+    height: var(--a);
+    margin: calc(var(--head) / 4) calc(var(--head) / 4) calc(var(--head) / 10) calc(var(--head) / 4);
+}
+
+#heure-date {
+    text-align: var(--c);
+}
+
+#emplacements {
+    width: calc(var(--head) / 2);
+    font-size: calc(var(--head) / 2);
+    line-height: calc(var(--head) / 5);
+    margin: calc(var(--head) / 4) calc(var(--head) / 4) calc(var(--head) / 10) calc(var(--head) / 4);
+}
+
+#menu {
+    position: var(--abs);
+    top: var(--head);
+    left: var(--z);
+    width: calc(var(--min-w) * 10);
+    height: calc(var(--min-h) * 18);
+    border-radius: calc(var(--head) / 2);
+    background: var(--menu);
+    color: var(--texte);
+    transition: var(--tmn);
+    opacity: var(--z);
+    visibility: var(--hid);
+}
+
+#menu.visible {
+    opacity: 1;
+    visibility: var(--vis);
+}

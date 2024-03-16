@@ -1,0 +1,57 @@
+@import url(./imports.css);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--texte);
+    font-family: var(--font);
+}
+
+body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    overflow: var(--n);
+}
+
+header {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--head);
+    background: var(--noir);
+    font-weight: bold;
+}
+
+main {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--h80);
+}
+
+iframe[src="./pages/menu.html"] {
+    width: var(--full);
+    height: var(--full);
+}
+
+footer {
+    position: var(--abs);
+    bottom: calc(var(--head) / 2);
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: calc(var(--full) - var(--full) / 2);
+    height: calc(var(--head) * 2);
+    border-radius: var(--head) var(--head) 0 0;
+    background: var(--t);
+    z-index: 1000;
+}
