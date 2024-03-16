@@ -1,5 +1,5 @@
-@import url(./reset.css);
-@import url(./variables.css);
+@import url(../../../../style/reset.css);
+@import url(../../../../style/variables.css);
 @import url(./animations.css);
 @import url(./header.css);
 @import url(./footer.css);
