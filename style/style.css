@@ -1,0 +1,54 @@
+@import url(./imports.css);
+
+body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--max-w);
+    height: var(--max-h);
+    font-family: var(--font);
+}
+
+main {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--max-w) - var(--min-w) * 3);
+    height: calc(var(--max-h) - var(--min-h) * 3);
+}
+
+a {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--mid) / 1.4);
+    height: calc(var(--head) * 5);
+    margin: var(--head);
+    text-decoration: var(--n);
+    font-size: var(--head);
+    font-weight: var(--wb);
+    border-radius: calc(var(--head) / 1);
+    background: var(--noir);
+    box-shadow: var(--bo);
+    transition: var(--eas2);
+}
+
+a:hover {
+    transform: var(--tsc) var(--trt);
+}
+
+a>section {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+    height: var(--full);
+}
+a>section>img {
+    width: var(--a);
+    height: calc(var(--head) * 2.2);
+}
