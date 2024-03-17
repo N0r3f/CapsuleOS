@@ -1,10 +1,32 @@
-footer>menu>a,
+footer>menu {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--mid);
+    height: var(--full);
+    z-index: 5;
+}
+
+footer>menu>a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) + var(--head) / 3);
+    height: calc(var(--head) + var(--head) / 3);
+    padding: calc(var(--head) / 10);
+    z-index: 6;
+}
+
+footer>menu>a:hover {
+    background: var(--hovwin);
+}
+
 footer>menu>a>img {
     width: var(--a);
     height: var(--head);
-}
-footer>menu>a:nth-child(2) {
-    filter: var(--inv);
+    z-index: 7;
 }
 
 #menu {
@@ -24,4 +46,10 @@ footer>menu>a:nth-child(2) {
 #menu.visible {
     opacity: 1;
     visibility: var(--vis);
+}
+
+footer>#heure-date {
+    width: var(--head);
+    height: var(--head);
+    text-wrap
 }

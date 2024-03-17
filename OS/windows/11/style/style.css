@@ -52,7 +52,7 @@ footer {
     align-items: var(--c);
     justify-content: var(--sa);
     width: var(--full);
-    height: var(--head);
+    height: calc(var(--head) + var(--head) / 3);
     background: var(--noir);
-    z-index: 1000;
+    z-index: 5;
 }
