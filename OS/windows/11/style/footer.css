@@ -52,4 +52,5 @@ footer>#heure-date {
     width: calc(var(--head) * 4);
     height: calc(var(--head) + var(--head) / 3);
     margin-right: calc(var(--head) / 10);
+    font-weight: var(--wb);
 }
