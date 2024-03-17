@@ -3,7 +3,7 @@
     top: var(--z);
     left: var(--z);
     width: var(--full);
-    height: calc(var(--full) - var(--head));
+    height: calc(var(--full) - calc(var(--head) + var(--head) / 3));
     background-color: var(--noir);
     border-radius: calc(var(--head) / 2);
     box-shadow: var(--frame);
