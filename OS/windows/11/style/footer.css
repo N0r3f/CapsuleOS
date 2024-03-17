@@ -49,6 +49,10 @@ footer>menu>a>img {
 }
 
 footer>#heure-date {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--c);
+    justify-content: var(--fs);
     width: calc(var(--head) * 4);
     height: calc(var(--head) + var(--head) / 3);
     margin-right: calc(var(--head) / 10);
