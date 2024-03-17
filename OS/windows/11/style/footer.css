@@ -1,3 +1,6 @@
+footer>a {
+    width: calc(var(--head) * 5);
+}
 footer>menu {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -50,7 +53,7 @@ footer>menu>a>img {
 
 footer>#heure-date {
     display: var(--f);
-    flex-flow: var(--rw);
+    flex-flow: var(--crnw);
     align-items: var(--c);
     justify-content: var(--fs);
     width: calc(var(--head) * 5);

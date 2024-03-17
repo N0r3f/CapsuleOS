@@ -21,6 +21,7 @@
     --rw: row wrap;
     --rnw: row nowrap;
     --cnw: column nowrap;
+    --crnw: column-reverse nowrap;
     --fs: flex-start;
     --fe: flex-end;
     --c: center;
