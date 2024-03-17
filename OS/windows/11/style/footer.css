@@ -53,7 +53,7 @@ footer>#heure-date {
     flex-flow: var(--rw);
     align-items: var(--c);
     justify-content: var(--fs);
-    width: calc(var(--head) * 6);
+    width: calc(var(--head) * 5);
     height: calc(var(--head) + var(--head) / 3);
     margin-right: calc(var(--head) / 10);
     font-weight: var(--wb);
