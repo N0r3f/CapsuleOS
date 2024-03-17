@@ -70,6 +70,15 @@
     --hid: hidden;
     --vis: visible;
 
+    /************* BACKGROUND *************/
+    --w11: url(../media/img/fond.jpg);
+    --scon: contain;
+    --scov: cover;
+    --nr: no-repeat;
+
+    /*************** FILTER ***************/
+    --inv: invert(2);
+
     /**************** LINUX ***************/
     --bbtn1: 1px solid var(--btn1);
     --bbtn3: 1px solid var(--btn3);

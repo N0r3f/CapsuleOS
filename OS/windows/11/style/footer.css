@@ -1,0 +1,8 @@
+footer>menu>a,
+footer>menu>a>img {
+    width: var(--a);
+    height: var(--head);
+}
+footer>menu>a:nth-child(2) {
+    filter: var(--inv);
+}
