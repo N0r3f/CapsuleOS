@@ -1,10 +1,11 @@
 #windowContainer {
     position: var(--fix);
-    top: var(--head);
+    top: var(--z);
     left: var(--z);
     width: var(--full);
     height: calc(var(--full) - var(--head));
     background-color: var(--noir);
+    border-radius: calc(var(--head) / 2);
     border: var(--min-bt);
     box-shadow: var(--frame);
     z-index: 5;
