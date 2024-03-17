@@ -54,8 +54,8 @@ footer>menu>a>img {
 footer>#heure-date {
     display: var(--f);
     flex-flow: var(--cnw);
-    align-items: var(--c);
-    justify-content: var(--fs);
+    align-items: var(--fs);
+    justify-content: var(--c);
     width: calc(var(--head) * 5);
     height: calc(var(--head) + var(--head) / 3);
     margin-right: calc(var(--head) / 10);
