@@ -33,6 +33,12 @@ main {
     background-repeat: var(--nr);
 }
 
+main>a,
+main>a>img {
+    width: var(--a);
+    height: calc(var(--head) * 1.2);
+    margin: calc(var(--head) / 4);
+}
 iframe[src="./pages/menu.html"] {
     width: var(--full);
     height: var(--full);
