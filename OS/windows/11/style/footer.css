@@ -6,3 +6,22 @@ footer>menu>a>img {
 footer>menu>a:nth-child(2) {
     filter: var(--inv);
 }
+
+#menu {
+    position: var(--abs);
+    top: var(--head);
+    left: var(--z);
+    width: calc(var(--min-w) * 10);
+    height: calc(var(--min-h) * 18);
+    border-radius: calc(var(--head) / 2);
+    background: var(--menu);
+    color: var(--texte);
+    transition: var(--tmn);
+    opacity: var(--z);
+    visibility: var(--hid);
+}
+
+#menu.visible {
+    opacity: 1;
+    visibility: var(--vis);
+}

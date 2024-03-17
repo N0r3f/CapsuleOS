@@ -41,6 +41,7 @@
     /************** POSITION **************/
     --abs: absolute;
     --rel: relative;
+    --fix: fixed;
 
     /*************** BORDER ***************/
     --min-bt: 1px solid var(--texte);
@@ -64,6 +65,7 @@
         inset -12px -12px 20px var(--violet);
     --bo: 2px 2px 20px hsla(240, 20%, 3%, 0.5),
          2px 2px 20px hsla(240, 20%, 3%, 0.5);
+    --frame: 0 0 10px rgba(0, 0, 0, 0.5);
 
     /************* VISIBILITY *************/
     --n: none;

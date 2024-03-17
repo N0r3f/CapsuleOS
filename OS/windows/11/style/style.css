@@ -33,6 +33,11 @@ main {
     background-repeat: var(--nr);
 }
 
+iframe[src="./pages/menu.html"] {
+    width: var(--full);
+    height: var(--full);
+}
+
 footer {
     position: var(--abs);
     bottom: var(--z);
