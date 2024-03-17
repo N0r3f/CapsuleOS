@@ -24,7 +24,7 @@ a {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--c);
-    width: calc(var(--mid) / 1.4);
+    width: calc(var(--head) * 10);
     height: calc(var(--head) * 5);
     margin: var(--head);
     text-decoration: var(--n);
@@ -51,4 +51,10 @@ a>section {
 a>section>img {
     width: var(--a);
     height: calc(var(--head) * 2.2);
+}
+@media screen and (max-width: 1000px) {
+    a:nth-child(-n + 4) {
+        display: var(--n);
+    }
+
 }
