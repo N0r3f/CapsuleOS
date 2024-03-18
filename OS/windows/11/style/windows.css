@@ -38,17 +38,15 @@
     height: calc(var(--head) / 2);
     margin-left: calc(var(--head) / 8);
     outline: var(--n);
-    border-radius: var(--mid);
+    color: var(--texte);
+    font-weight: var(--wb);
+    font-size: calc(var(--head) / 2.5);
+    border: var(--min-bb);
+    background: var(--noir);
 }
 
 #windowHeader>button:nth-child(3) {
-    border: var(--bbtn1);
-    background: var(--btn1);
-}
-
-#windowHeader>button:nth-child(4) {
-    border: var(--bbtn3);
-    background: var(--btn3);
+    font-size: calc(var(--head) / 1.5);
 }
 
 #windowIframe {

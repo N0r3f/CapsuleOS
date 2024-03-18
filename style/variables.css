@@ -33,6 +33,7 @@
     --z: 0;
     --max-w: 100vw;
     --max-h: 100vh;
+    --w80: 80vw;
     --h80: 80vh;
     --full: 100%;
     --head: 40px;
@@ -47,6 +48,7 @@
 
     /*************** BORDER ***************/
     --min-bt: 1px solid var(--texte);
+    --min-bb: 1px solid var(--noir);
     --bor-mn: 2px solid var(--violet);
 
     /************* TRANSITION *************/

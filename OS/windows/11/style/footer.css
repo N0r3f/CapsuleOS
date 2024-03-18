@@ -11,7 +11,8 @@ footer>menu {
     z-index: 5;
 }
 
-footer>menu>a {
+footer>menu>a,
+footer>menu>i {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
@@ -22,42 +23,26 @@ footer>menu>a {
     z-index: 6;
 }
 
-footer>menu>a:hover {
+footer>menu>a:hover,
+footer>menu>i:hover {
     background: var(--hovwin);
 }
 
-footer>menu>a>img {
+footer>menu>a>img,
+footer>menu>i>img {
     width: var(--a);
     height: var(--head);
     z-index: 7;
 }
 
-#menu {
-    position: var(--abs);
-    top: var(--head);
-    left: var(--z);
-    width: calc(var(--min-w) * 10);
-    height: calc(var(--min-h) * 18);
-    border-radius: calc(var(--head) / 2);
-    background: var(--menu);
-    color: var(--texte);
-    transition: var(--tmn);
-    opacity: var(--z);
-    visibility: var(--hid);
-}
-
-#menu.visible {
-    opacity: 1;
-    visibility: var(--vis);
-}
-
 footer>#heure-date {
     display: var(--f);
-    flex-flow: var(--crnw);
-    align-items: var(--fs);
+    flex-flow: var(--rw);
+    align-items: var(--c);
     justify-content: var(--c);
-    width: calc(var(--head) * 5);
+    width: calc(var(--head) * 4);
     height: calc(var(--head) + var(--head) / 3);
+    text-align: var(--c);
     margin-right: calc(var(--head) / 10);
     font-weight: var(--wb);
 }

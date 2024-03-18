@@ -39,9 +39,29 @@ main>a>img {
     height: calc(var(--head) * 1.2);
     margin: calc(var(--head) / 4);
 }
+
 iframe[src="./pages/menu.html"] {
     width: var(--full);
     height: var(--full);
+}
+
+div#menu {
+    position: var(--abs);
+    bottom: calc(var(--head) + var(--head) /3);
+    align-self: var(--c);
+    width: calc(var(--min-w) * 12);
+    height: calc(var(--min-h) * 22);
+    border-radius: calc(var(--head) / 2);
+    background: var(--menu);
+    color: var(--texte);
+    transition: var(--tmn);
+    opacity: var(--z);
+    visibility: var(--hid);
+}
+
+div#menu.visible {
+    opacity: 1;
+    visibility: var(--vis);
 }
 
 footer {

@@ -11,13 +11,13 @@
 <body>
     <header></header>
     <main>
-        <a href="./pages/corbeille.html" target="lien" title="Accéder à la corbeille">
-            <img src="./media/img/corbeille.png" alt="Corbeille" title="Accéder à la corbeille">
-        </a>
         <div id="menu">
             <iframe src="./pages/menu.html" frameborder="0" name="lien" rel="noopener noreferrer"
                 sandbox="allow-same-origin allow-popups allow-scripts" loading="lazy"></iframe>
         </div>
+        <a href="./pages/corbeille.html" target="lien" title="Accéder à la corbeille">
+            <img src="./media/img/corbeille.png" alt="Corbeille" title="Accéder à la corbeille">
+        </a>
         <div id="windowContainer" style="display: none;">
             <div id="windowHeader">
                     <span></span>
@@ -32,9 +32,9 @@
     <footer>
         <a href="#"></a>
         <menu>
-            <a href="./pages/menu.html" target="lien" title="Accéder au menu démarrer">
+            <i>
                 <img src="./media/img/win11.png" alt="Logo de Windows" title="Accéder au menu démarrer">
-            </a>
+            </i>
             <a href="./pages/explorateur.html" target="lien" title="Accéder à l'explorateur de fichiers de Windows">
                 <img src="./media/img/folder.png" alt="Logo de l'explorateur de fichiers" title="Accéder à l'explorateur de fichiers de Windows">
             </a>
@@ -47,10 +47,10 @@
         </menu>
         <span id="heure-date"></span>
     </footer>
-    <script type="module" src="../../../js/background.js"></script>
-    <script type="module" src="../../../js/date.js"></script>
-    <script type="module" src="../../../js/dock.js"></script>
-    <script type="module" src="../../../js/menu.js"></script>
-    <script type="module" src="../../../js/windows.js"></script>
+    <script src="../../../js/background.js"></script>
+    <script src="../../../js/date.js"></script>
+    <script src="../../../js/dock.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="../../../js/windows.js"></script>
 </body>
 </html>
