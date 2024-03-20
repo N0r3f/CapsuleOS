@@ -19,3 +19,4 @@ document.body.addEventListener("click", function(event) {
 
 // Ajout d'un écouteur d'événements pour activer/désactiver le menu
 menu.addEventListener("click", menuActive);
+

@@ -10,12 +10,12 @@
     </span>
     <span>
         <p>Épinglé</p>
-        <a href="#">
+        <a href="./applications.html"  target="lien">
             <button> Toutes les applications &#x202F; > </button>
         </a>
     </span>
     <span>
-        <a href="./edge.html" onclick="openInMain('./edge.html')" target="lien" title="Edge">
+        <a href="./edge.html" target="lien" onclick="openInMain('./edge.html')" title="Edge">
             <figure>
                 <img src="../media/img/edge.png" alt="edge" title="Ouvrir le navigateur web Edge">
                 <figcaption>Edge</figcaption>
@@ -64,18 +64,9 @@
                 <figcaption>Utilisateur</figcaption>
             </figure>
         </a>
-        <a href="./eteindre.html">
+        <a href="./eteindre.html" target="lien">
             <img src="../media/img/shut.png" alt="éteindre" title="éteindre, redémarrer ou mettre en veille">
         </a>
     </span>
 </section>
-<script>
-    function openInMain(url) {
-    // Envoyer un message à la page principale pour ouvrir l'URL dans l'iframe principal
-    window.parent.postMessage({ action: 'openInMain', url: url }, '*');
-
-    // Faire disparaître l'iframe de menu.html
-    window.parent.document.getElementById('menu').style.display = 'none';
-}
-
-</script>
+<script src="../../../../js/windows.js"></script>

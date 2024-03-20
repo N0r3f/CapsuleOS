@@ -52,20 +52,5 @@
     <script src="../../../js/dock.js"></script>
     <script src="./js/menu.js"></script>
     <script src="../../../js/windows.js"></script>
-    <script>
-        window.addEventListener('message', function(event) {
-    // Vérifier l'origine du message pour des raisons de sécurité
-    // Notez que pour les tests locaux (file://), vous pouvez utiliser '*' ou spécifier l'origine exacte
-    if (event.origin !== 'http://n0r3f.github.io/CapsuleOS/*' && event.origin !== 'file://*') return;
-
-    // Vérifier l'action du message
-    if (event.data.action === 'openInMain') {
-        var mainIframe = document.getElementById('windowIframe');
-        mainIframe.src = event.data.url;
-        mainIframe.style.display = 'block'; // Assurez-vous que l'iframe est visible
-    }
-});
-
-    </script>
 </body>
 </html>

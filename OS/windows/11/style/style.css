@@ -39,11 +39,6 @@ main>a>img {
     margin: calc(var(--head) / 4);
 }
 
-iframe[src="./pages/menu.html"] {
-    width: var(--full);
-    height: var(--full);
-}
-
 div#menu {
     position: var(--abs);
     bottom: calc(var(--head) + var(--head) /3);
@@ -63,6 +58,11 @@ div#menu {
 div#menu.visible {
     opacity: 1;
     visibility: var(--vis);
+}
+
+iframe[src="./pages/menu.html"] {
+    width: var(--full);
+    height: var(--full);
 }
 
 footer {
