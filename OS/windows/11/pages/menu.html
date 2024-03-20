@@ -69,4 +69,13 @@
         </a>
     </span>
 </section>
-<script src="../../../../js/windows.js"></script>
+<script>
+    function openInMain(url) {
+    // Envoyer un message à la page principale pour ouvrir l'URL dans l'iframe principal
+    window.parent.postMessage({ action: 'openInMain', url: url }, '*');
+
+    // Faire disparaître l'iframe de menu.html
+    window.parent.document.getElementById('menu').style.display = 'none';
+}
+
+</script>
