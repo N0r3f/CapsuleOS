@@ -1,20 +1,60 @@
 <!DOCTYPE html>
+
 <head>
     <link rel="stylesheet" href="../style/menu.css">
 </head>
 <section>
     <span>
-        <a href="#dossier">
-        <img src="../media/img/folder.png" alt="Dossiers" title="Explorateur de fichiers">
-    </a>
-    <iframe id="dossier" src="./dossier.html" frameborder="0" name="lien" rel="noopener noreferrer"
-        sandbox="allow-same-origin allow-popups allow-scripts" loading="lazy" style="display: none">
-    </iframe>
-        <a href="#office">
-            <img src="../media/img/365.png" alt="Office 365" title="Office 365">
+        <input type="search" placeholder=" Rechercher des applications, des paramètres et des documents">
+        </input>
+    </span>
+    <span>
+        <p>Épinglé</p>
+        <a href="#">
+            <button> Toutes les applications &#x202F; > </button>
         </a>
-        <iframe id="office" src="./office.html" frameborder="0" name="lien" rel="noopener noreferrer"
+    </span>
+    <span>
+        <a href="./edge.html" target="lien" title="Edge">
+            <figure>
+                <img src="../media/img/edge.png" alt="edge" title="Ouvrir le navigateur web Edge">
+                <figcaption>Edge</figcaption>
+            </figure>
+        </a>
+        <iframe id="edge" src="./edge.html" frameborder="0" name="lien" rel="noopener noreferrer"
             sandbox="allow-same-origin allow-popups allow-scripts" loading="lazy" style="display: none">
         </iframe>
+        <a href="./settings.html" target="lien" title="Paramètres">
+            <figure>
+                <img src="../media/img/settings.png" alt="paramètres" title="Voir et modifier les paramètres">
+                <figcaption>Paramètres</figcaption>
+            </figure>
+        </a>
+        <a href="./office.html" target="lien" title="Office 365">
+            <figure>
+                <img src="../media/img/365.png" alt="Office 365" title="Ouvrir Office 365">
+                <figcaption>Office 365</figcaption>
+            </figure>
+        </a>
+        <a href="./explorateur.html" target="lien" title="Explorateur de fichiers">
+            <figure>
+                <img src="../media/img/folder.png" alt="Dossiers" title="Explorateur de fichiers">
+                <figcaption>Explorateur de fichiers</figcaption>
+            </figure>
+        </a>
+    </span>
+    <span>
+        <p>Nos recommandations</p>
+    </span>
+    <span>
+        <a href="./aide.html" target="aide" title="Aide à propos de Windows">
+            <figure>
+                <img src="../media/img/aide.png" alt="Aide" title="Aide à propos de Windows">
+                <figcaption>
+                    <p>Prise en main</p>
+                    <p>Bienvenue dans Windows</p>
+                </figcaption>
+            </figure>
+        </a>
     </span>
 </section>

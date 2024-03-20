@@ -1,32 +1,34 @@
+@import url(../../../../style/reset.css);
 @import url(../../../../style/variables.css);
 
-body {
+html {
+    width: var(--full);
+    height: var(--full);
     margin: var(--z);
     height: var(--z);
+    color: var(--texte);
 }
 
 section {
     display: var(--f);
-    flex-flow: var(--rnw);
+    flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--c);
     width: var(--full);
     height: var(--full);
     border-radius: calc(var(--head) / 2);
-    box-shadow: var(--bs);
     background: var(--t);
 }
 
 span {
     display: var(--f);
     flex-flow: var(--rw);
-    align-items: var(--fs);
+    align-items: var(--c);
     justify-content: var(--sb);
-    width: var(--full);
-    height: var(--full);
-    padding-top: var(--head);
-    margin: var(--head) calc(var(--head) / 1.2);
-    border: var(--bor-mn);
+    width: calc(var(--w80) + var(--min-w));
+    height: var(--a);
+    margin-top: var(--head);
+    border-radius: calc(var(--head) / 2);
 }
 
 section>span>a {
@@ -36,10 +38,145 @@ section>span>a {
 
 section>span>a>img {
     width: var(--head);
-    height: var(--a);
+    height: var(--head);
     transition: var(--eas2);
 }
 
 section>span>a>img:hover {
     transform: scale(.9);
+}
+
+section>span:nth-child(1) {
+    width: calc(var(--full) - var(--full) / 10);
+    height: calc(var(--head) * 1.5);
+    margin-top: var(--z);
+}
+
+input[type="search"] {
+    width: var(--full);
+    height: calc(var(--head) / 1.2);
+    margin-top: var(--head);
+    padding-left: var(--head);
+    border-radius: calc(var(--head) / 2);
+    border: var(--bor-mnw);
+    background: var(--ndembk2);
+    font-size: calc(var(--head) / 3);
+    color: var(--ph);
+}
+
+span:nth-child(1):before {
+    content: url(../media/img/loupe.webp);
+    display: var(--fr);
+    position: var(--abs);
+    width: calc(var(--head) / 3);
+    height: calc(var(--head) / 3);
+    margin-top: calc(var(--head) + var(--head) / 8);
+    margin-left: calc(var(--head) / 2.8);
+    filter: var(--inv);
+} 
+
+input[type="search"]:focus {
+    outline: var(--n);
+}
+
+section>span:nth-child(2) {
+    height: var(--head);
+}
+
+section>span:nth-child(2)>p {
+    width: var(--head);
+    font-weight: var(--wb);
+}
+
+section>span:nth-child(2)>a {
+    width: calc(var(--head) * 4.7);
+    height: calc(var(--head) / 1.8);
+}
+
+section>span:nth-child(2)>a>button {
+    width: calc(var(--head) * 4.7);
+    height: calc(var(--head) / 1.8);
+    border: var(--z);
+    border-radius: calc(var(--head) / 10);
+    font-size: calc(var(--head) / 2.8);
+    color: var(--texte);
+    background: var(--winmnbk);
+}
+
+section>span:nth-child(3) {
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    height: calc(var(--head) * 6);
+    margin-top: calc(var(--head) / 2);
+    gap: calc(var(--head) * 1.2);
+}
+
+section>span:nth-child(3)>a>figure {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: calc(var(--head) * 2);
+    height: calc(var(--head) * 2);
+    margin: var(--s); 
+    gap: calc(var(--head) / 7);
+}
+
+section>span:nth-child(3)>a>figure>img {
+    width: var(--head);
+    height: var(--head);
+    transition: var(--eas2);
+}
+
+section>span:nth-child(3)>a>figure>figcaption {
+    font-size: calc(var(--head) / 3);
+    text-align: var(--c);
+}
+
+section>span:nth-child(4) {
+    height: calc(var(--head) * 1.1);
+    margin: var(--z);
+    font-weight: var(--wb);
+}
+
+section>span:nth-child(5) {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--sa);
+    justify-content: var(--fs);
+    height: calc(var(--head) * 3);
+    margin-top: calc(var(--head) / 2);
+    gap: var(--head);
+}
+
+section>span:nth-child(5)>a,
+section>span:nth-child(5)>a>figure {
+    width: calc(var(--head) * 5 + var(--head) / 2);
+    height: var(--head);
+    margin: var(--z);
+}
+
+section>span:nth-child(5)>a>figure {
+    display: var(--f);
+    flex-flow: var(--cw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+}
+
+section>span:nth-child(5)>a>figure>img {
+    width: var(--head);
+    height: var(--head);
+}
+
+section>span:nth-child(5)>a>figure>figcaption {
+    font-size: calc(var(--head) / 2.8);
+}
+
+section>span:nth-child(5)>a>figure>figcaption>p {
+    margin: calc(var(--head) / 18) calc(var(--head) / 12) var(--z) calc(var(--head) / 6);
+}
+
+section>span:nth-child(5)>a>figure>figcaption>p:nth-child(1) {
+    font-size: calc(var(--head) / 2.6);
+    font-weight: var(--wb);
 }

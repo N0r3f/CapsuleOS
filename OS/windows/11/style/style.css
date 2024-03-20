@@ -4,7 +4,6 @@ html {
     scrollbar-color: var(--background);
     scroll-behavior: smooth;
     color: var(--texte);
-    font-family: var(--font);
 }
 
 body {
@@ -49,10 +48,12 @@ div#menu {
     position: var(--abs);
     bottom: calc(var(--head) + var(--head) /3);
     align-self: var(--c);
-    width: calc(var(--min-w) * 12);
-    height: calc(var(--min-h) * 22);
-    border-radius: calc(var(--head) / 2);
-    background: var(--menu);
+    width: calc(var(--head) * 16);
+    height: calc(var(--head) * 18);
+    margin-bottom: calc(var(--head) / 3);
+    border: var(--bor-mnw);
+    border-radius: calc(var(--head) / 4);
+    background: var(--ndembk);
     color: var(--texte);
     transition: var(--tmn);
     opacity: var(--z);

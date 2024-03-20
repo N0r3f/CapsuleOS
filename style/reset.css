@@ -6,6 +6,7 @@
 
 *, *:before, *:after {
   box-sizing: border-box;
+  font-family: var(--font);
 }
 
 /* Document
@@ -177,6 +178,20 @@ textarea {
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
 }
+
+/* Placeholders */
+::-webkit-input-placeholder { opacity: 1; transition: opacity .5s; }  /* Chrome 56, Safari 9 */
+:-moz-placeholder { opacity: 1; transition: opacity .5s; } /* FF 4-18 */
+::-moz-placeholder { opacity: 1; transition: opacity .5s; } /* FF 19-51 */
+:-ms-input-placeholder { opacity: 1; -ms-transition: opacity .5s; transition: opacity .5s; } /* IE 10+ */
+::placeholder { opacity: 1; transition: opacity .5s; } /* Modern Browsers */
+
+/* Focus */
+*:focus::-webkit-input-placeholder { opacity: 0; } /* Chrome 56, Safari 9 */
+*:focus:-moz-placeholder { opacity: 0; } /* FF 4-18 */
+*:focus::-moz-placeholder { opacity: 0; } /* FF 19-50 */
+*:focus:-ms-input-placeholder { opacity: 0; } /* IE 10+ */
+*:focus::placeholder { opacity: 0; } /* Modern Browsers */
 
 /**
  * Show the overflow in IE.

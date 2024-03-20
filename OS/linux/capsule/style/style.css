@@ -4,7 +4,6 @@ html {
     scrollbar-color: var(--background);
     scroll-behavior: smooth;
     color: var(--texte);
-    font-family: var(--font);
 }
 
 body {

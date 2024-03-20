@@ -7,7 +7,6 @@ body {
     justify-content: var(--c);
     width: var(--max-w);
     height: var(--max-h);
-    font-family: var(--font);
 }
 
 main {

@@ -7,8 +7,12 @@
     --bleu: hsl(240, 45%, 12%);
     --violet: hsl(240, 66%, 11%);
     --texte: hsl(216, 100%, 95%);
+    --ph: hsl(0, 0%, 64%);
     --hovwin: hsla(216, 100%, 95%, .2);
     --noir: hsl(231, 100%, 4%);
+    --ndembk: hsl(0, 0%, 14%);
+    --ndembk2: hsl(0, 0%, 13%);
+    --winmnbk: hsl(0, 0%, 18%);
     --btn1: hsl(48, 100%, 63%);
     --btn3: hsl(0, 100%, 63%);
     --t: transparent;
@@ -16,11 +20,22 @@
     /************* COULEURS **************/
     --menu: linear-gradient(45deg, var(--noir), var(--background));
 
+    /************** DISPLAY **************/
+    --bl: block;
+    --in-bl: inline-block;
+
+    /************* POSITION **************/
+    --abs: absolute;
+    --rel: relative;
+    --fix: fixed;
+    --fr: flow-root;
+
     /************* TEMPLATE **************/
     --f: flex;
     --rw: row wrap;
     --rnw: row nowrap;
     --cnw: column nowrap;
+    --cw: column wrap;
     --crnw: column-reverse nowrap;
     --fs: flex-start;
     --fe: flex-end;
@@ -41,15 +56,11 @@
     --min-w: 3vw;
     --min-h: 3vh;
 
-    /************** POSITION **************/
-    --abs: absolute;
-    --rel: relative;
-    --fix: fixed;
-
     /*************** BORDER ***************/
     --min-bt: 1px solid var(--texte);
     --min-bb: 1px solid var(--noir);
     --bor-mn: 2px solid var(--violet);
+    --bor-mnw: 1px solid var(--gdemtxt);
 
     /************* TRANSITION *************/
     --ease: .4s ease-in-out;
