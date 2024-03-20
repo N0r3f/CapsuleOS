@@ -65,8 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Script pour que les <iframe> du menu.html s'ouvrent dans le <main> d'index.html
 
 function openInMain(url) {
-    // Envoyer un message à la page principale pour ouvrir l'URL dans l'iframe principal
-    window.parent.postMessage({ action: 'openInMain', url: url }, '*');
+    // Ouvrir la page dans l'iframe de la page principale
+    var mainIframe = window.parent.document.getElementById('windowIframe');
+    mainIframe.src = url;
+    mainIframe.style.display = 'block'; // Assurez-vous que l'iframe est visible
 
     // Faire disparaître l'iframe de menu.html
     window.parent.document.getElementById('menu').style.display = 'none';
