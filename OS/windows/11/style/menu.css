@@ -144,7 +144,7 @@ section>span:nth-child(5) {
     flex-flow: var(--cnw);
     align-items: var(--sa);
     justify-content: var(--fs);
-    height: calc(var(--head) * 3);
+    height: calc(var(--head) * 4.4);
     margin-top: calc(var(--head) / 2);
     gap: var(--head);
 }
@@ -179,4 +179,44 @@ section>span:nth-child(5)>a>figure>figcaption>p {
 section>span:nth-child(5)>a>figure>figcaption>p:nth-child(1) {
     font-size: calc(var(--head) / 2.6);
     font-weight: var(--wb);
+}
+
+section>span:nth-child(6) {
+    width: var(--full);
+    height: calc(var(--head) * 2);
+    margin: var(--z);
+    border-radius: var(--z) var(--z) calc(var(--head) / 3) calc(var(--head) / 3);
+    background: var(--ndembk2);
+}
+
+section>span:nth-child(6)>a,
+section>span:nth-child(6)>a>figure {
+    width: calc(var(--head) * 3);
+    height: var(--head);
+}
+
+
+section>span:nth-child(6)>a:nth-child(1)>figure {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    margin-top: var(--z);
+}
+
+section>span:nth-child(6)>a>figure>img {
+    width: var(--head);
+    height: var(--head);
+}
+
+section>span:nth-child(6)>a:nth-child(2) {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    width: calc(var(--head) * 2);
+}
+section>span:nth-child(6)>a>img {
+    width: calc(var(--head) / 1.4);
+    height: calc(var(--head) / 1.4);
+    filter: var(--inv);
 }
