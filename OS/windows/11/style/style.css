@@ -53,16 +53,13 @@ div#menu {
     transition: var(--tmn);
     opacity: var(--z);
     visibility: var(--hid);
+    z-index: 15;
 }
 
 div#menu.visible {
     opacity: 1;
     visibility: var(--vis);
-}
-
-iframe[src="./pages/menu.html"] {
-    width: var(--full);
-    height: var(--full);
+    z-index: 15;
 }
 
 footer {

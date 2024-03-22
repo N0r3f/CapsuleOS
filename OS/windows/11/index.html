@@ -12,8 +12,6 @@
     <header></header>
     <main>
         <div id="menu">
-            <!--<iframe src="./pages/menu.html" frameborder="0" name="lien" crossorigin="anonymous"
-            allowfullscreen="" loading="lazy"></iframe>-->
         </div>
         <a href="./pages/corbeille.html" target="lien" title="Accéder à la corbeille">
             <img src="./media/img/corbeille.png" alt="Corbeille" title="Accéder à la corbeille">
@@ -25,8 +23,8 @@
                     <button id="minimizeBtn">-</button>
                     <button id="closeBtn">x</button>
             </div>
-            <iframe id="windowIframe" src="" frameborder="0" name="lien" crossorigin="anonymous"
-            allowfullscreen="" loading="lazy"></iframe>
+            <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer"
+                sandbox="allow-same-origin allow-popups allow-scripts" crossorigin="anonymous" loading="lazy"></iframe>
         </div>
     </main>
     <footer>
@@ -49,9 +47,8 @@
     </footer>
     <script src="../../../js/background.js"></script>
     <script src="../../../js/date.js"></script>
-    <script src="../../../js/dock.js"></script>
-    <script src="../../../js/windows.js"></script>
     <script src="./js/demarrer.js"></script>
     <script src="./js/menu.js"></script>
+    <script src="../../../js/windows.js"></script>
 </body>
 </html>
