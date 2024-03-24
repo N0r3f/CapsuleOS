@@ -1,7 +1,7 @@
 footer>a {
     width: calc(var(--head) * 2); 
     height: calc(var(--head) * 2);
-    margin: var(--z) calc(var(--head) / 6);
+    margin: var(--z) calc(var(--head) / 8);
     background: var(--t);
     transition: var(--eas2);
     z-index: 0;
@@ -26,7 +26,7 @@ footer>a:active {
     margin-bottom: var(--min-h);
 }
 
-.scale-effect {
+.scale-effect:not(hr) {
     transform: scale(1.1);
     transition: var(--ease);
     margin-bottom: calc(var(--min-h) - var(--min-h) / 2);
@@ -40,8 +40,9 @@ footer>a>img {
 }
 
 hr {
-    width: calc(var(--head) * 6);
+    width: calc(var(--head) * 2);
     height: calc(var(--head) / 50);
+    margin: var(--z);
     transform: var(--hr);
     background: var(--hrmac);
 }

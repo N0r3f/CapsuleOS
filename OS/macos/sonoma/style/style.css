@@ -53,9 +53,9 @@ footer {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sa);
-    width: calc(var(--head) * 46);
+    width: calc(var(--head) * 44);
     height: calc(var(--head) * 2);
-    padding: calc(var(--head) / 1.2) calc(var(--head) / 3);
+    padding: calc(var(--head) / 1.2) calc(var(--head) / 3.5);
     border-radius: calc(var(--head) / 2);
     background: var(--sonofoot);
     backdrop-filter: var(--blur);
