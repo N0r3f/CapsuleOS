@@ -60,6 +60,26 @@ margin-bottom: 4px;
 margin-left: 10px;
 ```
 
+### La convention des styles ▼ 
+
+Les déclarations CSS suivent un schéma conventionnel.
+
+- position (si absolute, le positionnement est précisé à la suite)
+- display + templating (ex : si flexbox, le flow, l'alignement et la justification sont précisé à la suite)
+- width
+- height
+- margin
+- padding
+- border
+- font
+- color
+- background
+- transform
+- animation
+- transition
+- overflow
+- z-index
+
 ### Les scripts ▼
 
 Afin de permettre une exécution pondérée des scripts, de soulager les threads et de permettre une prise en main facile, chaque script est commenté de manière claire.
