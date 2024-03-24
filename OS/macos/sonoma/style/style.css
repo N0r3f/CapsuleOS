@@ -14,6 +14,9 @@ body {
     width: var(--max-w);
     height: var(--max-h);
     overflow: var(--n);
+    background-image: var(--macsono);
+    background-size: var(--scov);
+    background-repeat: var(--nr);
 }
 
 header {
@@ -21,10 +24,12 @@ header {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sb);
-    width: calc(var(--max-w) - var(--min-w) / 3);
-    height: var(--head);
-    background: var(--noir);
+    width: var(--max-w);
+    height: calc(var(--head) / 1.5);
+    padding-right: calc(var(--head) / 2); 
     font-weight: bold;
+    background: var(--sonohead);
+    backdrop-filter: var(--blur);
 }
 
 main {
@@ -48,9 +53,11 @@ footer {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sa);
-    width: calc(var(--full) - var(--full) / 2);
+    width: calc(var(--head) * 46);
     height: calc(var(--head) * 2);
-    border-radius: var(--head) var(--head) 0 0;
-    background: var(--t);
+    padding: calc(var(--head) / 1.2) calc(var(--head) / 3);
+    border-radius: calc(var(--head) / 2);
+    background: var(--sonofoot);
+    backdrop-filter: var(--blur);
     z-index: 1000;
 }

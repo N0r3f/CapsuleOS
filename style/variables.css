@@ -2,6 +2,8 @@
     /*************** FONT ****************/
     --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --wb: bold;
+    --wbr: bolder;
+
     /************* COULEURS **************/
     --background: hsl(237, 32%, 14%);
     --bleu: hsl(240, 45%, 12%);
@@ -9,6 +11,9 @@
     --texte: hsl(216, 100%, 95%);
     --ph: hsl(0, 0%, 64%);
     --hovwin: hsla(216, 100%, 95%, .2);
+    --sonohead: linear-gradient(90deg, hsla(254, 69%, 46%, 0.4), hsla(254, 62%, 25%, 0.4), hsla(254, 36%, 25%, 0.4));
+    --sonofoot: hsla(0, 0%, 100%, .2);
+    --hrmac: hsla(0, 0%, 0%, .4);
     --noir: hsl(231, 100%, 4%);
     --ndembk: hsl(0, 0%, 14%);
     --ndembk2: hsl(0, 0%, 10%);
@@ -69,6 +74,7 @@
     /************** TRANSFORM *************/
     --tsc: scale(1.1);
     --trt: rotate(-2deg);
+    --hr: rotate(90deg);
 
     /************* BOX-SIZING *************/
     --bb: border-box;
@@ -89,12 +95,14 @@
 
     /************* BACKGROUND *************/
     --w11: url(../media/img/fond.jpg);
+    --macsono: url(../media/img/assets/background.jpg);
     --scon: contain;
     --scov: cover;
     --nr: no-repeat;
 
     /*************** FILTER ***************/
     --inv: invert(2);
+    --blur: blur(var(--head));
 
     /**************** LINUX ***************/
     --bbtn1: 1px solid var(--btn1);

@@ -110,9 +110,14 @@ function loadMenuStyles() {
         justify-content: var(--fs);
         height: calc(var(--head) * 6);
         margin-top: calc(var(--head) / 2);
-        gap: calc(var(--head) * 1.2);
+        gap: calc(var(--head) / 2);
     }
     
+    section>nav:nth-child(3)>a {
+        width: calc(var(--head) * 2);
+        height: calc(var(--head) * 2);
+    }
+
     section>nav:nth-child(3)>a>figure {
         display: var(--f);
         flex-flow: var(--cnw);

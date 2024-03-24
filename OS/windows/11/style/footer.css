@@ -1,6 +1,12 @@
 footer>a {
     width: calc(var(--head) * 5);
 }
+
+footer>a:nth-child(1)>img {
+    width: calc(var(--head) + var(--head) / 8);
+    height: calc(var(--head) + var(--head) / 8);
+}
+
 footer>menu {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -40,7 +46,7 @@ footer>#heure-date {
     flex-flow: var(--rw);
     align-items: var(--c);
     justify-content: var(--c);
-    width: calc(var(--head) * 4);
+    width: calc(var(--head) * 5);
     height: calc(var(--head) + var(--head) / 3);
     text-align: var(--c);
     margin-right: calc(var(--head) / 10);

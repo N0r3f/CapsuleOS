@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('footer a');
+    const images = document.querySelectorAll('footer menu a');
     const windowContainer = document.getElementById('windowContainer');
     const windowIframe = document.getElementById('windowIframe');
     const minimizeBtn = document.getElementById('minimizeBtn');

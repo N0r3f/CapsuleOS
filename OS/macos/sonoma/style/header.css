@@ -1,0 +1,25 @@
+@import url(./imports.css);
+
+header>menu {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: calc(var(--head) * 12);
+    height: calc(var(--head) / 1.5);
+}
+
+header>menu>a>img {
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    margin-top: calc(var(--head) / 10);
+}
+
+header>menu>a:nth-child(2) {
+    font-weight: var(--wbr);
+}
+
+#heure-date {
+    text-align: var(--c);
+}
+

@@ -10,11 +10,10 @@ header>a>img[src="./assets/capsule.webp"] {
     text-align: var(--c);
 }
 
-#emplacements {
-    width: calc(var(--head) / 2);
-    font-size: calc(var(--head) / 2);
-    line-height: calc(var(--head) / 5);
-    margin: calc(var(--head) / 4) calc(var(--head) / 4) calc(var(--head) / 10) calc(var(--head) / 4);
+header>a:last-child,
+header>a:last-child>img {
+    width: calc(var(--head) / 1.4);
+    height: calc(var(--head) / 1.4);
 }
 
 #menu {
