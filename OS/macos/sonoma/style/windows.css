@@ -1,0 +1,57 @@
+#windowContainer {
+    position: var(--fix);
+    top: calc(var(--head) - calc(var(--head) / 3));
+    left: var(--z);
+    width: var(--full);
+    height: calc(var(--full) - calc(var(--head) - var(--head) / 4));
+    background-color: var(--noir);
+    border: var(--min-bt);
+    box-shadow: var(--frame);
+    z-index: 5;
+}
+
+#windowHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    width: var(--full);
+    padding: calc(var(--head) / 4);
+    background: var(--noir);
+}
+
+#windowHeader>button {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    margin-left: calc(var(--head) / 8);
+    outline: var(--n);
+    border-radius: var(--mid);
+}
+
+#windowHeader>button:nth-child(1) {
+    border: var(--bbtn1);
+    background: var(--btn1);
+}
+
+#windowHeader>button:nth-child(2) {
+    border: var(--bbtn3);
+    background: var(--btn3);
+}
+
+#windowHeader>span:nth-child(4) {
+    width: calc(var(--head) + var(--head) / 8);
+}
+
+#windowTitle {
+    width: calc(var(--full) - var(--head) * 2);
+    text-align: var(--c);
+}
+
+#windowIframe {
+    width: var(--full);
+    height: calc(var(--full) - var(--head));
+}
