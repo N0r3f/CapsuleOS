@@ -19,7 +19,16 @@ header>menu>a:nth-child(2) {
     font-weight: var(--wbr);
 }
 
+header>menu:nth-child(2)>a>img {
+    filter: var(--inv);
+}
+
+header>menu:nth-child(2)>a:nth-child(6)>img {
+    filter: var(--bright);
+}
+
 #heure-date {
     text-align: var(--c);
 }
+
 

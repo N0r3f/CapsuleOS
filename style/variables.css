@@ -103,6 +103,7 @@
     /*************** FILTER ***************/
     --inv: invert(2);
     --blur: blur(var(--head));
+    --bright: brightness(2);
 
     /**************** LINUX ***************/
     --bbtn1: 1px solid var(--btn1);
