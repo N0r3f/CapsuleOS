@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('footer a');
+    const images = document.querySelectorAll('a[target="lien"]');
     const windowContainer = document.getElementById('windowContainer');
     const mainElement = document.querySelector('main'); // Sélectionne l'élément <main>
 
