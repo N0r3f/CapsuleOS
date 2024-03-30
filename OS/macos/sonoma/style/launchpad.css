@@ -1,0 +1,92 @@
+@import url(../../../../style/imports.css);
+
+body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+}
+
+main {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--full);
+    background: var(--t);
+    backdrop-filter: var(--launchb);
+}
+
+main>section:nth-child(1) {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: calc(var(--head) * 2);
+}
+
+main>section>nav:nth-child(1) { 
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: calc(var(--head) * 2);
+    margin-top: var(--z);
+}
+
+main>section>nav:nth-child(1)>input[type="search"] {
+    width: calc(var(--head) * 6);
+    height: calc(var(--head) / 1.8);
+    margin-top: var(--head);
+    border-radius: calc(var(--head) / 6);
+    border: var(--sonofoot);
+    font-size: calc(var(--head) / 3);
+    text-align: var(--c);
+    color: var(--ph);
+    background: var(--sonofoot);
+    backdrop-filter: var(--blaunch);
+}
+
+main>section>nav:nth-child(1)>input[type="search"]:focus {
+    outline: var(--n);
+}
+
+main>section:nth-child(2) {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--sa);
+    justify-content: var(--sa);
+    width: var(--w80);
+    height: var(--full);
+    margin-top: var(--head);
+}
+
+main>section:nth-child(2)>a {
+    margin: calc(var(--head) / 2);
+}
+
+main>section:nth-child(2)>a,
+main>section:nth-child(2)>a>figure>img {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 2);
+    height: calc(var(--head) * 2);
+}
+
+main>section:nth-child(2)>a>figure {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+    height: var(--full);
+    font-size: calc(var(--head) / 4);
+    font-weight: var(--wb);
+}

@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="./style/style.css">
     <title>MacOS Sonoma</title>
 </head>
+
 <body>
     <header>
         <menu>
-        <a href="#">
-            <img src="./media/img/assets/logo.png" alt="Logo de lacapsule" title="Menu principal">
-        </a>
+            <a href="#">
+                <img src="./media/img/assets/logo.png" alt="Logo de lacapsule" title="Menu principal">
+            </a>
             <a href="./pages/finder.html" title="Ouvrir le Finder">Finder</a>
             <a href="./pages/file.html" title="Ouvrir les fichiers">File</a>
             <a href="./pages/editer.html" title="Ouvrir les options d'édition'">Edit</a>
@@ -39,86 +40,87 @@
                 <img src="./media/img/header/search.png" alt="Search" title="Rechercher">
             </a>
             <a href="./pages/controlCenter.html">
-                <img src="./media/img/header/controlCenter.png" alt="Control center" title="Accéder au centre de contrôle">
+                <img src="./media/img/header/controlCenter.png" alt="Control center"
+                    title="Accéder au centre de contrôle">
             </a>
-        <span id="heure-date"></span>
+            <span id="heure-date"></span>
         </menu>
     </header>
     <main>
         <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
             <div id="windowHeader">
+                <nav>
                     <button id="closeBtn"></button>
                     <button id="minimizeBtn"></button>
                     <button id="resizeBtn"></button>
-                    <span id="windowTitle"></span>
-                    <span></span>
+                </nav>
+                <span id="windowTitle"></span>
+                <nav></nav>
             </div>
             <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer"
-                sandbox="allow-same-origin allow-popups allow-scripts" 
-                allowfullscreen="" loading="lazy"></iframe>
+                sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </main>
+    <div id="launchpad"></div>
     <footer>
-        <a href="https://github.com/lacapsule" target="lien" title="Github de La Capsule">
-            <img src="./media/img/dock/finder.png" alt="Le github de la capsule" title="Github de La Capsule">
+        <a href="./pages/finder.html" target="lien" title="Ouvrir le finder">
+            <img src="./media/img/dock/finder.png" alt="Finder" title="Ouvrir le finder">
         </a>
-        <a href="../../../index.html" target="lien" title="Vidéos de La Capsule">
-            <img src="./media/img/dock/launchpad.png" alt="Les vidéos de la capsule" title="Vidéos de La Capsule">
+        <a href="./pages/launchpad.html" target="lien" title="Ouvrir le launchpad">
+            <img src="./media/img/dock/launchpad.png" alt="Launchpad" title="Ouvrir le launchpad">
         </a>
-        <a href="https://lacapsule.org/ressources/index.php" target="lien" title="Moteur de recherche">
-            <img src="./media/img/dock/safari.png" alt="Safari" title="Moteur de recherche">
+        <a href="https://lacapsule.org/ressources/index.php" target="lien" title="Ouvrir le navigateur WEB">
+            <img src="./media/img/dock/safari.png" alt="Safari" title="Ouvrir le navigateur WEB">
         </a>
-        <a href="https://discord.gg/rDb4UWzjPy" target="lien" title="Discord de La Capsule">
-            <img src="./media/img/dock/messages.png" alt="Le Discord de la capsule" title="Discord de La Capsule">
+        <a href="./pages/mail.html" target="lien" title="Ouvrir Messages">
+            <img src="./media/img/dock/messages.png" alt="Messages" title="Ouvrir Messages">
         </a>
-        <a href="./pages/cours.html" target="lien" title="Les cours gratuits de La Capsule">
-            <img src="./media/img/dock/mail.png" alt="Les cours de la capsule"
-                title="Les cours gratuits de La Capsule">
+        <a href="./pages/mail.html" target="lien" title="Ouvrir le client mail">
+            <img src="./media/img/dock/mail.png" alt="Mail" title="Ouvrir le client mail">
         </a>
-        <a href="./pages/photos.html" target="lien" title="Les photos de La Capsule">
-            <img src="./media/img/dock/maps.png" alt="Les photos de la capsule" title="Les photos de La Capsule">
+        <a href="https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            target="lien" title="Map">
+            <img src="./media/img/dock/maps.png" alt="Ouvrir Map" title="Map">
         </a>
-        <a href="./pages/contact.html" target="lien" title="Contacter La Capsule">
-            <img src="./media/img/dock/photos.png" alt="Rubrique contact" title="Contacter La Capsule">
+        <a href="./pages/photos.html" target="lien" title="Ouvrir la galerie photo">
+            <img src="./media/img/dock/photos.png" alt="Photos" title="Ouvrir la galerie photo">
         </a>
-        <a href="./pages/iso.html" target="lien" title="Télécharger la distribution Linux de La Capsule">
-            <img src="./media/img/dock/faceTime.png" alt="Distribution de la capsule"
-                title="Télécharger la distribution Linux de La Capsule">
+        <a href="./pages/facetime.html" target="lien" title="Ouvrir Facetime">
+            <img src="./media/img/dock/faceTime.png" alt="Facetime" title="Ouvrir Facetime">
         </a>
-        <a href="./pages/ressources.html" target="lien" title="Accéder au centre de ressources de La Capsule">
-            <img src="./media/img/dock/calendar.png" alt="Centre de ressources de la capsule"
-                title="Accéder au centre de ressources de La Capsule">
+        <a href="./pages/calendrier.html" target="lien" title="Ouvrir le calendrier">
+            <img src="./media/img/dock/calendar.png" alt="Calendrier" title="Ouvrir le calendrier">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/contacts.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/contacts.html" target="lien" title="Ouvrir le répertoire des contacts">
+            <img src="./media/img/dock/contacts.png" alt="Contacts" title="Ouvrir le répertoire des contacts">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/reminders.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/reminders.html" target="lien" title="Gérer les rappels">
+            <img src="./media/img/dock/reminders.png" alt="Reminders" title="Gérer les rappels">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/notes.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/notes.html" target="lien" title="Gérer les notes">
+            <img src="./media/img/dock/notes.png" alt="Notes" title="Gérer les notes">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/freeform.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/freeform.html" target="lien" title="Ouvrir Freeform">
+            <img src="./media/img/dock/freeform.png" alt="Freeform" title="Ouvrir Freeform">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/TV.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/tv.html" target="lien" title="Ouvrir la TV">
+            <img src="./media/img/dock/TV.png" alt="TV" title="Ouvrir la TV">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/music.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/musique.html" target="lien" title="Ouvrir Musique">
+            <img src="./media/img/dock/music.png" alt="Musique" title="Ouvrir Musique">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/appStore.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/appstore.html" target="lien" title="Ouvrir l'app store">
+            <img src="./media/img/dock/appStore.png" alt="App Store" title="Ouvrir l'app store">
         </a>
         <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/settings.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+            <img src="./media/img/dock/settings.png" alt="Paramètres" title="Gérer les paramètres">
         </a>
         <hr>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/downloadsFolder.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/telechargements.html" target="lien" title="Ouvir les téléchargements">
+            <img src="./media/img/dock/downloadsFolder.png" alt="Téléchargements" title="Ouvir les téléchargements">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-            <img src="./media/img/dock/bin.png" alt="Gérer les paramètres" title="Gérer les paramètres">
+        <a href="./pages/corbeille.html" target="lien" title="Ouvrir la corbeille">
+            <img src="./media/img/dock/bin.png" alt="Corbeille" title="Ouvrir la corbeille">
         </a>
     </footer>
     <script src="../../../js/background.js"></script>
@@ -127,6 +129,7 @@
     <script src="../../../js/resizeWindow.js"></script>
     <script src="../../../js/dock.js"></script>
     <script src="./js/footer.js"></script>
+    <script src="./js/launchpad.js"></script>
     <script src="../../../js/macos.js"></script>
 </body>
 

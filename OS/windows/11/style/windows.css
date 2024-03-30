@@ -47,6 +47,11 @@
     background: var(--noir);
 }
 
+#windowHeader>button:nth-child(2) {
+    font-size: calc(var(--head) / 1.5);
+    font-weight: var(--wbr);
+}
+
 #windowHeader>button:nth-child(3) {
     font-size: calc(var(--head) / 1.5);
 }

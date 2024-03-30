@@ -108,6 +108,8 @@
     /*************** FILTER ***************/
     --inv: invert(2);
     --blur: blur(var(--head));
+    --launchb: blur(calc(var(--head) / 8));
+    --blaunch: blur(calc(var(--head) * 2));
     --bright: brightness(2);
 
     /**************** LINUX ***************/

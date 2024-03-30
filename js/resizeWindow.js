@@ -1,36 +1,33 @@
-class Resizer {
-    constructor(element) {
-        this.element = element;
-        this.handle = document.createElement('div');
-        this.handle.className = 'resize-handle';
-        this.element.appendChild(this.handle);
-        this.handle.addEventListener('mousedown', this.initResize.bind(this));
+document.addEventListener('DOMContentLoaded', function () {
+    class Resizer {
+    constructor(elementId) {
+       this.element = document.getElementById(elementId);
+       this.element.addEventListener('mousedown', this.startResize.bind(this));
+       this.element.addEventListener('mousemove', this.checkBorder.bind(this));
+       this.element.addEventListener('mouseup', this.stopResize.bind(this));
     }
-
-    initResize(event) {
-        this.startX = event.clientX;
-        this.startY = event.clientY;
-        this.startWidth = parseFloat(getComputedStyle(this.element).width);
-        this.startHeight = parseFloat(getComputedStyle(this.element).height);
-        document.addEventListener('mousemove', this.doResize.bind(this));
-        document.addEventListener('mouseup', this.stopResize.bind(this));
+   
+    startResize(e) {
+       this.resizing = true;
+       this.startX = e.clientX;
+       this.startY = e.clientY;
+       this.startWidth = this.element.offsetWidth;
+       this.startHeight = this.element.offsetHeight;
     }
-
-    doResize(event) {
-        const dx = event.clientX - this.startX;
-        const dy = event.clientY - this.startY;
-        this.element.style.width = `${this.startWidth + dx}px`;
-        this.element.style.height = `${this.startHeight + dy}px`;
+   
+    checkBorder(e) {
+       if (!this.resizing) return;
+       const dx = e.clientX - this.startX;
+       const dy = e.clientY - this.startY;
+       this.element.style.width = `${this.startWidth + dx}px`;
+       this.element.style.height = `${this.startHeight + dy}px`;
     }
-
+   
     stopResize() {
-        document.removeEventListener('mousemove', this.doResize);
-        document.removeEventListener('mouseup', this.stopResize);
+       this.resizing = false;
     }
-}
-
-// Utilisation de la classe Resizer
-document.addEventListener('DOMContentLoaded', () => {
-    const windowContainer = document.getElementById('windowContainer');
-    new Resizer(windowContainer);
+   }
+   
+   // Initialisation du redimensionnement pour l'élément #windowContainer
+   const resizer = new Resizer('windowContainer');
 });
