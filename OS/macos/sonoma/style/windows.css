@@ -1,12 +1,14 @@
 #windowContainer {
     position: var(--fix);
-    top: calc(var(--head) - calc(var(--head) / 3));
-    left: var(--z);
-    width: var(--full);
-    height: calc(var(--full) - calc(var(--head) - var(--head) / 4));
-    background-color: var(--noir);
+    top: calc(var(--head) + calc(var(--head) / 3));
+    width: calc(var(--mid) + var(--mid) / 4);
+    height: calc(var(--mid) + var(--mid) / 1.5);
     border: var(--min-bt);
+    border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
+    background: var(--sonofoot);
+    resize: both;
+    overflow: auto;
     z-index: 5;
 }
 
@@ -17,7 +19,7 @@
     justify-content: var(--fe);
     width: var(--full);
     padding: calc(var(--head) / 4);
-    background: var(--noir);
+    background: var(--sonofoot);
 }
 
 #windowHeader>button {
@@ -30,19 +32,23 @@
     margin-left: calc(var(--head) / 8);
     outline: var(--n);
     border-radius: var(--mid);
+    border: calc(var(--head) / 40) var(--t);
 }
 
-#windowHeader>button:nth-child(1) {
-    border: var(--bbtn1);
-    background: var(--btn1);
+#closeBtn {
+    background-image: url(../media/img/header/close.png);
+    background-size: cover;
+}
+#minimizeBtn {
+    background-image: url(../media/img/header/minimize.png);
+    background-size: cover;
+}
+#resizeBtn {
+    background-image: url(../media/img/header/resize.png);
+    background-size: cover;
 }
 
-#windowHeader>button:nth-child(2) {
-    border: var(--bbtn3);
-    background: var(--btn3);
-}
-
-#windowHeader>span:nth-child(4) {
+#windowHeader>span:nth-child(5) {
     width: calc(var(--head) + var(--head) / 8);
 }
 

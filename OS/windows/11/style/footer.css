@@ -1,5 +1,5 @@
 footer>a {
-    width: calc(var(--head) * 5);
+    width: calc(var(--head) * 3);
 }
 
 footer>a:nth-child(1)>img {
@@ -41,14 +41,13 @@ footer>menu>i>img {
     z-index: 7;
 }
 
-footer>#heure-date {
+footer>a>#heure-date {
     display: var(--f);
     flex-flow: var(--rw);
     align-items: var(--c);
-    justify-content: var(--c);
-    width: calc(var(--head) * 5);
+    justify-content: var(--fe);
+    width: calc(var(--head) * 3);
     height: calc(var(--head) + var(--head) / 3);
     text-align: var(--c);
-    margin-right: calc(var(--head) / 10);
     font-weight: var(--wb);
 }

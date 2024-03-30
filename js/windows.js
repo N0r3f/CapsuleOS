@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const mainElement = document.querySelector('main');
     const images = document.querySelectorAll('footer menu a');
     const windowContainer = document.getElementById('windowContainer');
     const windowIframe = document.getElementById('windowIframe');
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Crée une nouvelle fenêtre pour chaque clic
             const newWindow = windowContainer.cloneNode(true);
             newWindow.style.zIndex = ++zIndex; // Incrémente le z-index pour chaque nouvelle fenêtre
-            document.body.appendChild(newWindow);
+            mainElement.appendChild(newWindow); // Ajoute la nouvelle fenêtre à <main>
 
             // Définit la source de l'iframe avec l'URL du lien
             newWindow.querySelector('#windowIframe').src = this.href;
@@ -40,10 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Ajoute la fenêtre ouverte au tableau de suivi
             openWindows.push(newWindow);
+
+            // Rendre la newWindow draggable et gérer les événements de drag and drop
+            makeDraggable(newWindow);
         });
     });
-
-
 
     // Gestion des boutons de rétricissement et de fermeture pour toutes les fenêtres
     document.addEventListener('click', function (event) {
@@ -59,8 +61,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 openWindows = openWindows.filter(win => win !== window);
             });
         }
+
+        // Gestionnaire d'événements pour le bouton de redimensionnement
+        if (event.target.matches('#resizeBtn')) {
+            const window = event.target.closest('#windowContainer');
+            // Vérifie si la fenêtre est en plein écran
+            if (window.style.width === '100%' && window.style.height === '100%') {
+                // Reprend la dimension d'origine
+                window.style.width = '';
+                window.style.height = '';
+                window.style.position = '';
+                window.style.top = '';
+                window.style.left = '';
+            } else {
+                // Ajuste la fenêtre pour qu'elle prenne 100% de la largeur et de la hauteur du <main>
+                window.style.width = '100%';
+                window.style.height = '100%';
+                window.style.position = 'absolute';
+                window.style.top = '0';
+                window.style.left = '0';
+            }
+        }
     });
 });
-
-
-

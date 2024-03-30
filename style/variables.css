@@ -3,6 +3,7 @@
     --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --wb: bold;
     --wbr: bolder;
+    --midl: middle;
 
     /************* COULEURS **************/
     --background: hsl(237, 32%, 14%);
@@ -18,8 +19,9 @@
     --ndembk: hsl(0, 0%, 14%);
     --ndembk2: hsl(0, 0%, 10%);
     --winmnbk: hsl(0, 0%, 18%);
-    --btn1: hsl(48, 100%, 63%);
-    --btn3: hsl(0, 100%, 63%);
+    --btn1: hsl(0, 100%, 63%);
+    --btn2: hsl(48, 100%, 63%);
+    --btn3: hsl(127, 74%, 50%);
     --t: transparent;
 
     /************* COULEURS **************/
@@ -99,6 +101,9 @@
     --scon: contain;
     --scov: cover;
     --nr: no-repeat;
+
+    /*************** MACOS ****************/
+    --sonobor: 1px solid var(--sonofoot);
 
     /*************** FILTER ***************/
     --inv: invert(2);

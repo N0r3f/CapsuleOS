@@ -2,11 +2,13 @@
     position: var(--fix);
     top: var(--head);
     left: var(--z);
-    width: var(--full);
-    height: calc(var(--full) - var(--head));
+    width: calc(var(--mid) + var(--mid) / 4);
+    height: calc(var(--mid) + var(--mid) / 1.5);
     background-color: var(--noir);
     border: var(--min-bt);
     box-shadow: var(--frame);
+    resize: both;
+    overflow: auto;
     z-index: 5;
 }
 
@@ -47,6 +49,11 @@
 }
 
 #windowHeader>button:nth-child(4) {
+    border: var(--bbtn2);
+    background: var(--btn2);
+}
+
+#windowHeader>button:nth-child(5) {
     border: var(--bbtn3);
     background: var(--btn3);
 }

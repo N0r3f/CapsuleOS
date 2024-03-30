@@ -24,16 +24,16 @@
                 sandbox="allow-same-origin allow-popups allow-scripts"
                 allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <div id="windowContainer" style="display: none;">
+         <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
             <div id="windowHeader">
-                    <span></span>
-                    <span id="windowTitle"></span>
-                    <button id="minimizeBtn">-</button>
-                    <button id="closeBtn">x</button>
+                <span></span>
+                <span id="windowTitle"></span>
+                <button id="minimizeBtn">-</button>
+                <button id="resizeBtn">□</button>
+                <button id="closeBtn">x</button>
             </div>
             <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer"
-                sandbox="allow-same-origin allow-popups allow-scripts" 
-                allowfullscreen="" loading="lazy"></iframe>
+                sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </main>
     <footer>
@@ -73,9 +73,11 @@
     </footer>
     <script src="../../../js/background.js"></script>
     <script src="../../../js/date.js"></script>
+    <script src="../../../js/windowDrag.js"></script>
+    <script src="../../../js/resizeWindow.js"></script>
+    <script src="../../../js/macos.js"></script>
     <script src="../../../js/dock.js"></script>
     <script src="./js/menu.js"></script>
-    <script src="../../../js/macos.js"></script>
 </body>
 
 </html>

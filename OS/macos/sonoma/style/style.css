@@ -36,9 +36,9 @@ main {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
-    justify-content: var(--c);
+    justify-content: var(--fs);
     width: var(--full);
-    height: var(--h80);
+    height: calc(var(--h80) + calc(var(--h80) / 4));
 }
 
 iframe[src="./pages/menu.html"] {

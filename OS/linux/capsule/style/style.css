@@ -33,7 +33,7 @@ main {
     align-items: var(--c);
     justify-content: var(--c);
     width: var(--full);
-    height: var(--h80);
+    height: var(--full);
 }
 
 iframe[src="./pages/menu.html"] {

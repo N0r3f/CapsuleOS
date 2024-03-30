@@ -45,10 +45,11 @@
         </menu>
     </header>
     <main>
-        <div id="windowContainer" style="display: none;">
+        <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
             <div id="windowHeader">
-                    <button id="minimizeBtn">-</button>
-                    <button id="closeBtn">x</button>
+                    <button id="closeBtn"></button>
+                    <button id="minimizeBtn"></button>
+                    <button id="resizeBtn"></button>
                     <span id="windowTitle"></span>
                     <span></span>
             </div>
@@ -64,8 +65,8 @@
         <a href="../../../index.html" target="lien" title="Vidéos de La Capsule">
             <img src="./media/img/dock/launchpad.png" alt="Les vidéos de la capsule" title="Vidéos de La Capsule">
         </a>
-        <a href="https://github.com/lacapsule/cleanux_by_foreach" target="lien" title="Logiciel de nettoyage Linux">
-            <img src="./media/img/dock/safari.png" alt="Clean Linux" title="Logiciel de nettoyage Linux">
+        <a href="https://lacapsule.org/ressources/index.php" target="lien" title="Moteur de recherche">
+            <img src="./media/img/dock/safari.png" alt="Safari" title="Moteur de recherche">
         </a>
         <a href="https://discord.gg/rDb4UWzjPy" target="lien" title="Discord de La Capsule">
             <img src="./media/img/dock/messages.png" alt="Le Discord de la capsule" title="Discord de La Capsule">
@@ -122,8 +123,10 @@
     </footer>
     <script src="../../../js/background.js"></script>
     <script src="../../../js/date.js"></script>
+    <script src="../../../js/windowDrag.js"></script>
+    <script src="../../../js/resizeWindow.js"></script>
     <script src="../../../js/dock.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="./js/footer.js"></script>
     <script src="../../../js/macos.js"></script>
 </body>
 

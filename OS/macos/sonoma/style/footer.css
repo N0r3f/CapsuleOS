@@ -46,3 +46,7 @@ hr {
     transform: var(--hr);
     background: var(--hrmac);
 }
+
+.footer-hidden {
+    display: none;
+}

@@ -2,11 +2,13 @@
     position: var(--fix);
     top: var(--z);
     left: var(--z);
-    width: var(--full);
-    height: calc(var(--full) - calc(var(--head) + var(--head) / 3));
+    width: calc(var(--mid) + var(--mid) / 4);
+    height: calc(var(--mid) + var(--mid) / 1.5);
     background-color: var(--noir);
     border-radius: calc(var(--head) / 2);
     box-shadow: var(--frame);
+    resize: both;
+    overflow: auto;
     z-index: 5;
 }
 
