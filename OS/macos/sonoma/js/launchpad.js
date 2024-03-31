@@ -69,15 +69,13 @@ main>section>a>figure {
 
 // Fonction pour créer les éléments HTML
 function createMenuElements() {
-    // Sélectionne le <main> existant
     const existingMain = document.querySelector('main');
     let main;
 
-    // Si le <main> existe, utilise-le
     if (existingMain) {
         main = existingMain;
+        main.innerHTML = ''; // Nettoie le contenu du main
     } else {
-        // Si le <main> n'existe pas, crée un nouveau <main>
         main = document.createElement('main');
         document.body.appendChild(main);
     }

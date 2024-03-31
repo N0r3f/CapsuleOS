@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('click', function (event) {
             event.preventDefault();
 
+            // Supprime les éléments <section> existants dans le <main>
+            const sections = mainElement.querySelectorAll('section');
+            sections.forEach(section => section.remove());
+
             // Vérifie si une fenêtre pour cet <a> est déjà ouverte
             const existingWindow = openWindows.find(win => win.querySelector('#windowIframe').src === this.href);
             if (existingWindow) {
@@ -81,3 +85,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
