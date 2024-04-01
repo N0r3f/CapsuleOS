@@ -3,12 +3,16 @@
     top: var(--z);
     left: var(--z);
     width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
     height: calc(var(--mid) + var(--mid) / 1.5);
+    min-height: calc(var(--head) * 12);
+    margin-top: var(--z);
     background-color: var(--noir);
     border-radius: calc(var(--head) / 2);
     box-shadow: var(--frame);
     resize: both;
     overflow: auto;
+    overflow-y: hidden;
     z-index: 5;
 }
 

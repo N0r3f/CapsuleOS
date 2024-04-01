@@ -74,11 +74,41 @@ function createMenuElements() {
 
     if (existingMain) {
         main = existingMain;
-        main.innerHTML = ''; // Nettoie le contenu du main
     } else {
         main = document.createElement('main');
         document.body.appendChild(main);
     }
+
+    // Sélectionne tous les iframes #windowIframe dans le main
+    const iframes = main.querySelectorAll('#windowIframe');
+
+    // Parcourt chaque iframe
+    iframes.forEach(iframe => {
+        // Vérifie si le src de l'iframe est vide
+        if (iframe.src === '') {
+            // Trouve le conteneur parent #windowContainer et le supprime
+            const container = iframe.closest('#windowContainer');
+            if (container) {
+                container.remove();
+            }
+        }
+    });
+
+    // Nettoie le contenu du main après avoir traité les iframes
+    main.innerHTML = '\
+    <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">\
+    <div id="windowHeader">\
+    <nav>\
+    <button id="closeBtn"></button>\
+    <button id = "minimizeBtn" ></button >\
+    <button id="resizeBtn"></button>\
+    </nav >\
+    <span id="windowTitle"></span>\
+    <nav></nav>\
+    </div >\
+    <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy">\
+    </iframe>\
+    </div>';
 
     // Créer le premier <section> pour le champ de recherche
     const section1 = document.createElement('section');
@@ -101,67 +131,67 @@ function createMenuElements() {
 // Fonction pour ajouter tous les liens à la deuxième section
 function addLinksToSection2(section2) {
     const linksData = [
-        { href: './pages/appstore.html', title: 'Accéder à l\'App store', imgSrc: './media/img/dock/appStore.png', imgAlt: 'App store', figcaption: 'App Store' },
-        { href: 'https://lacapsule.org/ressources/index.php', title: 'Moteur de recherche', imgSrc: './media/img/dock/safari.png', imgAlt: 'Safari', figcaption: 'Safari' },
-        { href: './pages/mail.html', title: 'Accéder à la boîte mail', imgSrc: './media/img/dock/mail.png', imgAlt: 'Mail', figcaption: 'Mail' },
-        { href: './pages/contacts.html', title: 'Accéder aux contacts', imgSrc: './media/img/dock/contacts.png', imgAlt: 'Contacts', figcaption: 'Contact' },
-        { href: './pages/calendrier.html', title: 'Calendrier', imgSrc: './media/img/dock/calendar.png', imgAlt: 'Calendrier', figcaption: 'Calendrier' },
-        { href: './pages/reminders.html', title: 'Rappel de tâches', imgSrc: './media/img/dock/reminders.png', imgAlt: 'Tâches', figcaption: 'Rappel' },
-        { href: './pages/notes.html', title: 'Ouvrir Notes', imgSrc: './media/img/dock/notes.png', imgAlt: 'Notes', figcaption: 'Notes' },
-        { href: './pages/facetime.html', title: 'Ouvrir Facetime', imgSrc: './media/img/dock/faceTime.png', imgAlt: 'Facetime', figcaption: 'Facetime' },
-        { href: './pages/messages.html', title: 'Ouvrir Messages', imgSrc: './media/img/dock/messages.png', imgAlt: 'Messages', figcaption: 'Messages' },
-        { href: 'https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed', title: 'Map', imgSrc: './media/img/dock/maps.png', imgAlt: 'Ouvrir Plan', figcaption: 'Plan' },
-        { href: './pages/findMy.html', title: 'Localiser mon appareil', imgSrc: './media/img/dock/findMy.png', imgAlt: 'Localisation', figcaption: 'Localiser' },
-        { href: './pages/photoBooth.html', title: 'Photo Booth', imgSrc: './media/img/dock/photoBooth.png', imgAlt: 'Localisation', figcaption: 'Photo booth' },
-        { href: './pages/photo.html', title: 'Photos', imgSrc: './media/img/dock/photos.png', imgAlt: 'Galerie photos', figcaption: 'Photos' },
-        { href: './pages/preview.html', title: 'Preview', imgSrc: './media/img/dock/preview.png', imgAlt: 'Preview', figcaption: 'Preview' },
-        { href: './pages/musique.html', title: 'Musique', imgSrc: './media/img/dock/music.png', imgAlt: 'Musique', figcaption: 'Musique' },
-        { href: './pages/podcast.html', title: 'Podcast', imgSrc: './media/img/dock/podcasts.png', imgAlt: 'Podcast', figcaption: 'Podcast' },
-        { href: './pages/tv.html', title: 'TV', imgSrc: './media/img/dock/TV.png', imgAlt: 'TV', figcaption: 'TV' },
-        { href: './pages/dictaphone.html', title: 'Dictaphone', imgSrc: './media/img/dock/voiceMemos.png', imgAlt: 'Dictaphone', figcaption: 'Dictaphone' },
-        { href: './pages/meteo.html', title: 'Météo', imgSrc: './media/img/dock/weather.png', imgAlt: 'Météo', figcaption: 'Météo' },
-        { href: './pages/nouvelles.html', title: 'Nouvelles', imgSrc: './media/img/dock/news.png', imgAlt: 'Nouvelles', figcaption: 'Nouvelles' },
-        { href: './pages/bourse.html', title: 'Bourses', imgSrc: './media/img/dock/stocks.png', imgAlt: 'Bourses', figcaption: 'Bourses' },
-        { href: './pages/livres.html', title: 'Livres', imgSrc: './media/img/dock/books.png', imgAlt: 'Livres', figcaption: 'Livres' },
-        { href: './pages/dictionnaire.html', title: 'Dictionnaire', imgSrc: './media/img/dock/dictionary.png', imgAlt: 'Dictionnaire', figcaption: 'Dictionnaire' },
-        { href: './pages/calculatrice.html', title: 'Calculatrice', imgSrc: './media/img/dock/calculator.png', imgAlt: 'Calculatrice', figcaption: 'Calculatrice' },
-        { href: './pages/freeform.html', title: 'Freeform', imgSrc: './media/img/dock/freeform.png', imgAlt: 'Freeform', figcaption: 'Freeform' },
-        { href: './pages/home.html', title: 'Home', imgSrc: './media/img/dock/home.png', imgAlt: 'Home', figcaption: 'Home' },
-        { href: './pages/horloge.html', title: 'Horloge', imgSrc: './media/img/dock/clock.png', imgAlt: 'Horloge', figcaption: 'Horloge' },
-        { href: './pages/siri.html', title: 'Siri', imgSrc: './media/img/dock/siri.png', imgAlt: 'Siri', figcaption: 'Siri' },
-        { href: './pages/parametres.html', title: 'Paramètres', imgSrc: './media/img/dock/settings.png', imgAlt: 'Paramètres', figcaption: 'Paramètres' },
-        { href: './pages/pages.html', title: 'Pages', imgSrc: './media/img/dock/pages.png', imgAlt: 'Pages', figcaption: 'Pages' },
-        { href: './pages/numbers.html', title: 'Numbers', imgSrc: './media/img/dock/numbers.png', imgAlt: 'Numbers', figcaption: 'Numbers' },
-        { href: './pages/keynotes.html', title: 'Keynotes', imgSrc: './media/img/dock/keynote.png', imgAlt: 'Keynotes', figcaption: 'Keynotes' },
+        { href: './pages/appstore.html', target: 'lien', title: 'Accéder à l\'App store', imgSrc: './media/img/dock/appStore.png', imgAlt: 'App store', figcaption: 'App Store' },
+        { href: 'https://lacapsule.org/ressources/index.php', target: 'lien', title: 'Moteur de recherche', imgSrc: './media/img/dock/safari.png', imgAlt: 'Safari', figcaption: 'Safari' },
+        { href: './pages/mail.html', target: 'lien', title: 'Accéder à la boîte mail', imgSrc: './media/img/dock/mail.png', imgAlt: 'Mail', figcaption: 'Mail' },
+        { href: './pages/contacts.html', target: 'lien', title: 'Accéder aux contacts', imgSrc: './media/img/dock/contacts.png', imgAlt: 'Contacts', figcaption: 'Contact' },
+        { href: './pages/calendrier.html', target: 'lien', title: 'Calendrier', imgSrc: './media/img/dock/calendar.png', imgAlt: 'Calendrier', figcaption: 'Calendrier' },
+        { href: './pages/reminders.html', target: 'lien', title: 'Rappel de tâches', imgSrc: './media/img/dock/reminders.png', imgAlt: 'Tâches', figcaption: 'Rappel' },
+        { href: './pages/notes.html', target: 'lien', title: 'Ouvrir Notes', imgSrc: './media/img/dock/notes.png', imgAlt: 'Notes', figcaption: 'Notes' },
+        { href: './pages/facetime.html', target: 'lien', title: 'Ouvrir Facetime', imgSrc: './media/img/dock/faceTime.png', imgAlt: 'Facetime', figcaption: 'Facetime' },
+        { href: './pages/messages.html', target: 'lien', title: 'Ouvrir Messages', imgSrc: './media/img/dock/messages.png', imgAlt: 'Messages', figcaption: 'Messages' },
+        { href: 'https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed', target: 'lien', title: 'Map', imgSrc: './media/img/dock/maps.png', imgAlt: 'Ouvrir Plan', figcaption: 'Plan' },
+        { href: './pages/findMy.html', target: 'lien', title: 'Localiser mon appareil', imgSrc: './media/img/dock/findMy.png', imgAlt: 'Localisation', figcaption: 'Localiser' },
+        { href: './pages/photoBooth.html', target: 'lien', title: 'Photo Booth', imgSrc: './media/img/dock/photoBooth.png', imgAlt: 'Localisation', figcaption: 'Photo booth' },
+        { href: './pages/photo.html', target: 'lien', title: 'Photos', imgSrc: './media/img/dock/photos.png', imgAlt: 'Galerie photos', figcaption: 'Photos' },
+        { href: './pages/preview.html', target: 'lien', title: 'Preview', imgSrc: './media/img/dock/preview.png', imgAlt: 'Preview', figcaption: 'Preview' },
+        { href: './pages/musique.html', target: 'lien', title: 'Musique', imgSrc: './media/img/dock/music.png', imgAlt: 'Musique', figcaption: 'Musique' },
+        { href: './pages/podcast.html', target: 'lien', title: 'Podcast', imgSrc: './media/img/dock/podcasts.png', imgAlt: 'Podcast', figcaption: 'Podcast' },
+        { href: './pages/tv.html', target: 'lien', title: 'TV', imgSrc: './media/img/dock/TV.png', imgAlt: 'TV', figcaption: 'TV' },
+        { href: './pages/dictaphone.html', target: 'lien', title: 'Dictaphone', imgSrc: './media/img/dock/voiceMemos.png', imgAlt: 'Dictaphone', figcaption: 'Dictaphone' },
+        { href: './pages/meteo.html', target: 'lien', title: 'Météo', imgSrc: './media/img/dock/weather.png', imgAlt: 'Météo', figcaption: 'Météo' },
+        { href: './pages/nouvelles.html', target: 'lien', title: 'Nouvelles', imgSrc: './media/img/dock/news.png', imgAlt: 'Nouvelles', figcaption: 'Nouvelles' },
+        { href: './pages/bourse.html', target: 'lien', title: 'Bourses', imgSrc: './media/img/dock/stocks.png', imgAlt: 'Bourses', figcaption: 'Bourses' },
+        { href: './pages/livres.html', target: 'lien', title: 'Livres', imgSrc: './media/img/dock/books.png', imgAlt: 'Livres', figcaption: 'Livres' },
+        { href: './pages/dictionnaire.html', target: 'lien', title: 'Dictionnaire', imgSrc: './media/img/dock/dictionary.png', imgAlt: 'Dictionnaire', figcaption: 'Dictionnaire' },
+        { href: './pages/calculatrice.html', target: 'lien', title: 'Calculatrice', imgSrc: './media/img/dock/calculator.png', imgAlt: 'Calculatrice', figcaption: 'Calculatrice' },
+        { href: './pages/freeform.html', target: 'lien', title: 'Freeform', imgSrc: './media/img/dock/freeform.png', imgAlt: 'Freeform', figcaption: 'Freeform' },
+        { href: './pages/home.html', target: 'lien', title: 'Home', imgSrc: './media/img/dock/home.png', imgAlt: 'Home', figcaption: 'Home' },
+        { href: './pages/horloge.html', target: 'lien', title: 'Horloge', imgSrc: './media/img/dock/clock.png', imgAlt: 'Horloge', figcaption: 'Horloge' },
+        { href: './pages/siri.html', target: 'lien', title: 'Siri', imgSrc: './media/img/dock/siri.png', imgAlt: 'Siri', figcaption: 'Siri' },
+        { href: './pages/parametres.html', target: 'lien', title: 'Paramètres', imgSrc: './media/img/dock/settings.png', imgAlt: 'Paramètres', figcaption: 'Paramètres' },
+        { href: './pages/pages.html', target: 'lien', title: 'Pages', imgSrc: './media/img/dock/pages.png', imgAlt: 'Pages', figcaption: 'Pages' },
+        { href: './pages/numbers.html', target: 'lien', title: 'Numbers', imgSrc: './media/img/dock/numbers.png', imgAlt: 'Numbers', figcaption: 'Numbers' },
+        { href: './pages/keynotes.html', target: 'lien', title: 'Keynotes', imgSrc: './media/img/dock/keynote.png', imgAlt: 'Keynotes', figcaption: 'Keynotes' },
     ];
 
-linksData.forEach(linkData => {
-    const a = document.createElement('a');
-    a.href = linkData.href;
-    a.target = 'lien';
-    a.title = linkData.title;
+    linksData.forEach(linkData => {
+        const a = document.createElement('a');
+        a.href = linkData.href;
+        a.target = linkData.target;
+        a.title = linkData.title;
 
-    const figure = document.createElement('figure');
-    const img = document.createElement('img');
-    img.src = linkData.imgSrc;
-    img.alt = linkData.imgAlt;
-    img.title = linkData.title;
-    figure.appendChild(img);
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = linkData.imgSrc;
+        img.alt = linkData.imgAlt;
+        img.title = linkData.title;
+        figure.appendChild(img);
 
-    const figcaption = document.createElement('figcaption');
-    figcaption.textContent = linkData.figcaption;
-    figure.appendChild(figcaption);
+        const figcaption = document.createElement('figcaption');
+        figcaption.textContent = linkData.figcaption;
+        figure.appendChild(figcaption);
 
-    a.appendChild(figure);
-    section2.appendChild(a);
-});
+        a.appendChild(figure);
+        section2.appendChild(a);
+    });
 }
 
 // Ajoutez le code d'écoute d'événements ici
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const launchpadLink = document.querySelector('a[href="./pages/launchpad.html"]');
     if (launchpadLink) {
-        launchpadLink.addEventListener('click', function(event) {
+        launchpadLink.addEventListener('click', function (event) {
             event.preventDefault();
             createMenuElements();
         });
