@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="macosHeader">
         <menu>
             <a href="#">
                 <img src="./media/img/assets/logo.png" alt="Logo de lacapsule" title="Menu principal">
@@ -47,6 +47,23 @@
         </menu>
     </header>
     <main>
+        <div data-link="finder" class="finder" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="launchpad" class="launchpad" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="messages" class="messages" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="mail" class="mail" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="photos" class="photos" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="facetime" class="facetime" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="calendar" class="calendar" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="contacts" class="contacts" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="reminders" class="reminders" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="notes" class="notes" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="freeform" class="freeform" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="TV" class="TV" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="musique" class="musique" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="appstore" class="appstore" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="settings" class="settings" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="telechargements" class="telechargements" id="windowElement" style="display: none; position: fixed;"></div>
+        <div data-link="corbeille" class="corbeille" id="window" style="display: none; position: fixed;"></div>
         <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
             <div id="windowHeader">
                 <nav>
@@ -62,73 +79,75 @@
         </div>
     </main>
     <footer>
-        <a href="./pages/finder.html" target="lien" title="Ouvrir le finder">
+        <a target="windowElement" data-link="finder" title="Ouvrir le finder">
             <img src="./media/img/dock/finder.png" alt="Finder" title="Ouvrir le finder">
         </a>
-        <a href="./pages/launchpad.html" title="Ouvrir le launchpad">
+        <a target="launchpad" data-link="launchpad" title="Ouvrir le launchpad">
             <img src="./media/img/dock/launchpad.png" alt="Launchpad" title="Ouvrir le launchpad">
         </a>
         <a href="https://lacapsule.org/ressources/index.php" target="lien" title="Ouvrir le navigateur WEB">
             <img src="./media/img/dock/safari.png" alt="Safari" title="Ouvrir le navigateur WEB">
         </a>
-        <a href="./pages/mail.html" target="lien" title="Ouvrir Messages">
+        <a target="windowElement" data-link="messages" title="Ouvrir Messages">
             <img src="./media/img/dock/messages.png" alt="Messages" title="Ouvrir Messages">
         </a>
-        <a href="./pages/mail.html" target="lien" title="Ouvrir le client mail">
+        <a target="windowElement" data-link="mail" title="Ouvrir le client mail">
             <img src="./media/img/dock/mail.png" alt="Mail" title="Ouvrir le client mail">
         </a>
         <a href="https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed"
             target="lien" title="Map">
             <img src="./media/img/dock/maps.png" alt="Ouvrir Map" title="Map">
         </a>
-        <a href="./pages/photos.html" target="lien" title="Ouvrir la galerie photo">
+        <a target="windowElement" data-link="photos" title="Ouvrir la galerie photo">
             <img src="./media/img/dock/photos.png" alt="Photos" title="Ouvrir la galerie photo">
         </a>
-        <a href="./pages/facetime.html" target="lien" title="Ouvrir Facetime">
+        <a target="windowElement" data-link="facetime" title="Ouvrir Facetime">
             <img src="./media/img/dock/faceTime.png" alt="Facetime" title="Ouvrir Facetime">
         </a>
-        <a href="./pages/calendrier.html" target="lien" title="Ouvrir le calendrier">
+        <a target="windowElement" data-link="calendar" title="Ouvrir le calendrier">
             <img src="./media/img/dock/calendar.png" alt="Calendrier" title="Ouvrir le calendrier">
         </a>
-        <a href="./pages/contacts.html" target="lien" title="Ouvrir le répertoire des contacts">
+        <a target="windowElement" data-link="contacts" title="Ouvrir le répertoire des contacts">
             <img src="./media/img/dock/contacts.png" alt="Contacts" title="Ouvrir le répertoire des contacts">
         </a>
-        <a href="./pages/reminders.html" target="lien" title="Gérer les rappels">
+        <a target="windowElement" data-link="reminders" title="Gérer les rappels">
             <img src="./media/img/dock/reminders.png" alt="Reminders" title="Gérer les rappels">
         </a>
-        <a href="./pages/notes.html" target="lien" title="Gérer les notes">
+        <a target="windowElement" data-link="notes" title="Gérer les notes">
             <img src="./media/img/dock/notes.png" alt="Notes" title="Gérer les notes">
         </a>
-        <a href="./pages/freeform.html" target="lien" title="Ouvrir Freeform">
+        <a target="windowElement" data-link="freeform" title="Ouvrir Freeform">
             <img src="./media/img/dock/freeform.png" alt="Freeform" title="Ouvrir Freeform">
         </a>
-        <a href="./pages/tv.html" target="lien" title="Ouvrir la TV">
+        <a target="windowElement" data-link="TV" title="Ouvrir la TV">
             <img src="./media/img/dock/TV.png" alt="TV" title="Ouvrir la TV">
         </a>
-        <a href="./pages/musique.html" target="lien" title="Ouvrir Musique">
+        <a target="windowElement" data-link="musique" title="Ouvrir Musique">
             <img src="./media/img/dock/music.png" alt="Musique" title="Ouvrir Musique">
         </a>
-        <a href="./pages/appstore.html" target="lien" title="Ouvrir l'app store">
+        <a target="windowElement" data-link="appstore" title="Ouvrir l'app store">
             <img src="./media/img/dock/appStore.png" alt="App Store" title="Ouvrir l'app store">
         </a>
-        <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
+        <a target="windowElement" data-link="settings" title="Gérer les paramètres">
             <img src="./media/img/dock/settings.png" alt="Paramètres" title="Gérer les paramètres">
         </a>
         <hr>
-        <a href="./pages/telechargements.html" target="lien" title="Ouvir les téléchargements">
+        <a target="windowElement" data-link="telechargements" title="Ouvir les téléchargements">
             <img src="./media/img/dock/downloadsFolder.png" alt="Téléchargements" title="Ouvir les téléchargements">
         </a>
-        <a href="./pages/corbeille.html" target="lien" title="Ouvrir la corbeille">
+        <a target="windowElement" data-link="corbeille" title="Ouvrir la corbeille">
             <img src="./media/img/dock/bin.png" alt="Corbeille" title="Ouvrir la corbeille">
         </a>
     </footer>
-    <script src="./js/footer.js"></script>
-    <script src="./js/launchpad.js"></script>
-    <script src="../../../js/LocalStorageManager.js"></script>
     <script src="../../../js/date.js"></script>
-    <script src="../../../js/windowDrag.js"></script>
-    <script src="../../../js/resizeWindow.js"></script>
     <script src="../../../js/dock.js"></script>
     <script src="../../../js/macos.js"></script>
+    <script src="../../../js/windowContainer.js"></script>
+    <script src="../../../js/windowHeaderButton.js"></script>
+    <script src="../../../js/resizeWindow.js"></script>
+    <script src="../../../js/windowDrag.js"></script>
+    <script src="./js/launchpad.js"></script>
+    <script src="./js/finder.js"></script>
 </body>
+
 </html>

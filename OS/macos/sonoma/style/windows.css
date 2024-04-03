@@ -3,9 +3,27 @@
     top: calc(var(--head) + calc(var(--head) / 3));
     width: calc(var(--mid) + var(--mid) / 4);
     min-width: calc(var(--head) * 16);
-    height: calc(var(--mid) + var(--mid) / 1.5);
+    height: calc(var(--mid) + var(--mid) / 2);
     min-height: calc(var(--head) * 12);
-    border: var(--min-bt);
+    border: calc(var(--min-bt) * 4) var(--t);
+    border-radius: calc(var(--head) / 4);
+    box-shadow: var(--frame);
+    background: var(--sonofoot);
+    resize: both;
+    overflow: auto;
+    overflow-y: hidden;
+    scrollbar-width: var(--z);
+    z-index: 5;
+}
+
+div[id^="windowElement"] {
+    position: var(--fix);
+    top: calc(var(--head) + calc(var(--head) / 3));
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: calc(var(--mid) + var(--mid) / 2);
+    min-height: calc(var(--head) * 12);
+    border: calc(var(--min-bt) * 4) var(--t);
     border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
     background: var(--sonofoot);
@@ -26,6 +44,7 @@
     padding: calc(var(--head) / 4);
     background: var(--sonofoot);
     backdrop-filter: var(--blur);
+    z-index: 6;
 }
 
 #windowHeader>nav {
@@ -35,6 +54,7 @@
     justify-content: var(--sa);
     width: calc(var(--head) * 2.2);
     height: var(--head);
+    z-index: 7;
 }
 
 #windowHeader>nav>button {
@@ -47,6 +67,7 @@
     outline: var(--n);
     border-radius: var(--mid);
     border: calc(var(--head) / 40) var(--t);
+    z-index: 8;
 }
 
 #closeBtn {

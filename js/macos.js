@@ -57,13 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (event) {
         if (event.target.matches('#minimizeBtn') || event.target.matches('#closeBtn')) {
             const window = event.target.closest('#windowContainer');
+            if (window) {
             window.style.display = 'none';
 
             images.forEach(img => {
                 img.style.borderBottom = '';
 
                 openWindows = openWindows.filter(win => win !== window);
-            });
+            })};
         }
 
         if (event.target.matches('#resizeBtn')) {

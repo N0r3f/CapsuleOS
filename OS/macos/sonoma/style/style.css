@@ -19,7 +19,7 @@ body {
     background-repeat: var(--nr);
 }
 
-header {
+#macosHeader {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
@@ -47,7 +47,7 @@ iframe[src="./pages/menu.html"] {
 }
 
 footer {
-    position: var(--abs);
+    position: var(--fix);
     bottom: calc(var(--head) / 2);
     display: var(--f);
     flex-flow: var(--rnw);
@@ -59,5 +59,11 @@ footer {
     border-radius: calc(var(--head) / 2);
     background: var(--sonofoot);
     backdrop-filter: var(--blur);
+    transition: transform .5s ease-out;
+    transform: translateY(0);
     z-index: 1000;
+}
+
+footer.hidden {
+    transform: translateY(100%);
 }

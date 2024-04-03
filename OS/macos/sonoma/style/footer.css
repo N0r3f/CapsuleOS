@@ -7,6 +7,10 @@ footer>a {
     z-index: 0;
 }
 
+.active-link {
+    border-bottom: 2px solid white;
+}
+
 footer>a:hover {
     width: calc(var(--head) * 2); 
     height: calc(var(--head) * 2);

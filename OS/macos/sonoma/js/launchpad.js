@@ -95,20 +95,7 @@ function createMenuElements() {
     });
 
     // Nettoie le contenu du main après avoir traité les iframes
-    main.innerHTML = '\
-    <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">\
-    <div id="windowHeader">\
-    <nav>\
-    <button id="closeBtn"></button>\
-    <button id = "minimizeBtn" ></button >\
-    <button id="resizeBtn"></button>\
-    </nav >\
-    <span id="windowTitle"></span>\
-    <nav></nav>\
-    </div >\
-    <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy">\
-    </iframe>\
-    </div>';
+    main.innerHTML = '';
 
     // Créer le premier <section> pour le champ de recherche
     const section1 = document.createElement('section');
@@ -189,7 +176,7 @@ function addLinksToSection2(section2) {
 
 // Ajoutez le code d'écoute d'événements ici
 document.addEventListener('DOMContentLoaded', function () {
-    const launchpadLink = document.querySelector('a[href="./pages/launchpad.html"]');
+    const launchpadLink = document.querySelector('a[target="launchpad"]');
     if (launchpadLink) {
         launchpadLink.addEventListener('click', function (event) {
             event.preventDefault();

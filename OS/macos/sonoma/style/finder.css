@@ -1,0 +1,42 @@
+.finder {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--full);
+}
+
+.finderMain {
+    display: var(--f);
+    flex-flow: var(--cw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: calc(var(--full) - var(--head));
+}
+
+.finderHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--max-w);
+    height: var(--head);
+    background: var(--noir);
+}
+
+.finderAside {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: calc(var(--min-w) / 4);
+    height: var(--full);
+    background: var(--noir);
+}
+
+.finderFooter {
+
+}
+
