@@ -1,4 +1,5 @@
-#windowContainer {
+#windowContainer,
+div[class^="windowElement"] {
     position: var(--fix);
     top: calc(var(--head) + calc(var(--head) / 3));
     width: calc(var(--mid) + var(--mid) / 4);
@@ -8,30 +9,15 @@
     border: calc(var(--min-bt) * 4) var(--t);
     border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
-    background: var(--sonofoot);
+    background: var(--sonohead);
     resize: both;
     overflow: auto;
     overflow-y: hidden;
     scrollbar-width: var(--z);
-    z-index: 5;
 }
 
-div[id^="windowElement"] {
-    position: var(--fix);
-    top: calc(var(--head) + calc(var(--head) / 3));
-    width: calc(var(--mid) + var(--mid) / 4);
-    min-width: calc(var(--head) * 16);
-    height: calc(var(--mid) + var(--mid) / 2);
-    min-height: calc(var(--head) * 12);
-    border: calc(var(--min-bt) * 4) var(--t);
-    border-radius: calc(var(--head) / 4);
-    box-shadow: var(--frame);
-    background: var(--sonofoot);
-    resize: both;
-    overflow: auto;
-    overflow-y: hidden;
-    scrollbar-width: var(--z);
-    z-index: 5;
+.windowElementActive {
+    z-index: 500;
 }
 
 #windowHeader {
@@ -39,12 +25,12 @@ div[id^="windowElement"] {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sb);
-    max-width: var(--full);
+    max-width: var(--max-w);
     height: calc(var(--head) / 1.3);
     padding: calc(var(--head) / 4);
     background: var(--sonofoot);
     backdrop-filter: var(--blur);
-    z-index: 6;
+    user-select: none;
 }
 
 #windowHeader>nav {
@@ -54,7 +40,6 @@ div[id^="windowElement"] {
     justify-content: var(--sa);
     width: calc(var(--head) * 2.2);
     height: var(--head);
-    z-index: 7;
 }
 
 #windowHeader>nav>button {
@@ -67,17 +52,18 @@ div[id^="windowElement"] {
     outline: var(--n);
     border-radius: var(--mid);
     border: calc(var(--head) / 40) var(--t);
-    z-index: 8;
 }
 
 #closeBtn {
     background-image: url(../media/img/header/close.png);
     background-size: cover;
 }
+
 #minimizeBtn {
     background-image: url(../media/img/header/minimize.png);
     background-size: cover;
 }
+
 #resizeBtn {
     background-image: url(../media/img/header/resize.png);
     background-size: cover;
@@ -94,7 +80,7 @@ div[id^="windowElement"] {
     height: calc(var(--full) - calc(var(--head) / 1.5));
 }
 
-#windowsIframe[src="./pages/launchpad.html"] ~ #windowContainer {
+#windowsIframe[src="./pages/launchpad.html"]~#windowContainer {
     width: var(--full);
     height: var(--full);
 }

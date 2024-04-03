@@ -8,6 +8,7 @@ class Resizer {
     }
 
     startResize(e) {
+        e.preventDefault();
         const BORDER_SIZE = 4;
         if (e.offsetX < BORDER_SIZE || e.offsetY < BORDER_SIZE ||
             e.offsetX > this.element.offsetWidth - BORDER_SIZE ||
@@ -21,6 +22,7 @@ class Resizer {
     }
 
     checkBorder(e) {
+        e.preventDefault();
         if (!this.resizing) return;
         const dx = e.clientX - this.startX;
         const dy = e.clientY - this.startY;
@@ -33,12 +35,14 @@ class Resizer {
     }
 
     stopResize() {
+        e.preventDefault();
         this.resizing = false;
         // Réinitialiser le curseur
         this.element.style.cursor = 'auto';
     }
 
     changeCursor(e) {
+        e.preventDefault();
         const BORDER_SIZE = 4;
         if (e.offsetX < BORDER_SIZE || e.offsetY < BORDER_SIZE ||
             e.offsetX > this.element.offsetWidth - BORDER_SIZE ||

@@ -40,6 +40,18 @@ const makeDraggable = (element) => {
             element.style.left = `${newX}px`;
             element.style.top = `${newY}px`;
         }
+        document.addEventListener('click', function(event) {
+            // Supprimer la classe active de tous les éléments
+            document.querySelectorAll('.windowElement' , '#windowContainer').forEach(function(element) {
+                element.classList.remove('windowElementActive');
+            });
+        
+            // Ajouter la classe active à l'élément cliqué
+            const clickedElement = event.target.closest('.windowElement' , '#windowContainer');
+            if (clickedElement) {
+                clickedElement.classList.add('windowElementActive');
+            }
+        });
     });
 
     document.addEventListener('mouseup', () => {

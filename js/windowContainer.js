@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajout du contenu HTML pour la div#windowHeader
     windowHeader.id = 'windowHeader';
-    windowHeader.style.width = '100%';
+    windowHeader.style.minWidth = 'calc(var(--head) * 16)';
 
     closeBtn.id = 'closeBtn';
     minimizeBtn.id = 'minimizeBtn';
@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 // Ajouter la classe active-link au lien actif
                 link.classList.add('active-link');
+                 // Ajouter la classe active à l'élément de fenêtre
+                 container.classList.add('active');
                 // Utiliser le data-link pour mettre à jour le windowTitle
                 const windowTitle = container.querySelector('#windowTitle');
                 if (windowTitle) {
@@ -52,6 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 container.style.display = "none";
                 // Retirer la classe active-link du lien actif
                 link.classList.remove('active-link');
+                 // Retirer la classe active de l'élément de fenêtre
+                 container.classList.remove('active');
+                 container.classList.remove('windowElementActive');
             }
         }
     }
