@@ -6,11 +6,11 @@ class Resizer {
         this.startX = 0;
         this.startY = 0;
         this.startLeft = 0;
-        this.startTop = 0; // Ajout de la variable startTop
+        this.startTop = 0;
         this.startWidth = 0;
         this.startHeight = 0;
         this.BORDER_SIZE = 8;
-        this.isMouseDown = false; // Ajout de la variable isMouseDown
+        this.isMouseDown = false;
         document.addEventListener('mousedown', this.startResize.bind(this));
         document.addEventListener('mousemove', this.checkBorder.bind(this));
         document.addEventListener('mouseup', this.stopResize.bind(this));
@@ -19,11 +19,24 @@ class Resizer {
 
     startResize(e) {
         e.preventDefault();
+        if (e.target !== this.element) return; // Vérifier si l'événement est déclenché à l'intérieur de l'élément cible
         const rect = this.element.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
         const offsetY = e.clientY - rect.top;
-
-        if (offsetX < this.BORDER_SIZE) {
+    
+        if (offsetX < this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
+            this.resizing = true;
+            this.resizeDirection = 'top-left';
+        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
+            this.resizing = true;
+            this.resizeDirection = 'top-right';
+        } else if (offsetX < this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
+            this.resizing = true;
+            this.resizeDirection = 'bottom-left';
+        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
+            this.resizing = true;
+            this.resizeDirection = 'bottom-right';
+        } else if (offsetX < this.BORDER_SIZE) {
             this.resizing = true;
             this.resizeDirection = 'left';
         } else if (offsetX > rect.width - this.BORDER_SIZE) {
@@ -36,18 +49,19 @@ class Resizer {
             this.resizing = true;
             this.resizeDirection = 'bottom';
         }
-
+    
         if (this.resizing) {
             this.startX = e.clientX;
             this.startY = e.clientY;
             this.startLeft = this.element.getBoundingClientRect().left;
-            this.startTop = this.element.getBoundingClientRect().top; // Initialisation de startTop
+            this.startTop = this.element.getBoundingClientRect().top;
             this.startWidth = this.element.offsetWidth;
             this.startHeight = this.element.offsetHeight;
-            this.isMouseDown = true; // Définir isMouseDown à true
+            this.isMouseDown = true;
             this.updateWindowSize();
         }
     }
+    
 
     checkBorder(e) {
         e.preventDefault();
@@ -59,7 +73,7 @@ class Resizer {
         let newWidth = this.startWidth;
         let newLeft = this.startLeft;
         let newHeight = this.startHeight;
-        let newTop = this.startTop; // Utilisation de startTop
+        let newTop = this.startTop;
 
         switch (this.resizeDirection) {
             case 'left':
@@ -74,6 +88,26 @@ class Resizer {
                 newTop += dy;
                 break;
             case 'bottom':
+                newHeight += dy;
+                break;
+            case 'top-left':
+                newWidth -= dx;
+                newLeft += dx;
+                newHeight -= dy;
+                newTop += dy;
+                break;
+            case 'top-right':
+                newWidth += dx;
+                newHeight -= dy;
+                newTop += dy;
+                break;
+            case 'bottom-left':
+                newWidth -= dx;
+                newLeft += dx;
+                newHeight += dy;
+                break;
+            case 'bottom-right':
+                newWidth += dx;
                 newHeight += dy;
                 break;
         }
@@ -96,7 +130,7 @@ class Resizer {
         if (this.resizing) {
             this.resizing = false;
             this.resizeDirection = null;
-            this.isMouseDown = false; // Réinitialiser isMouseDown à false
+            this.isMouseDown = false;
             this.element.style.cursor = 'auto';
         }
     }
@@ -108,10 +142,22 @@ class Resizer {
         const offsetX = e.clientX - rect.left;
         const offsetY = e.clientY - rect.top;
 
-        if (offsetX < this.BORDER_SIZE || offsetX > rect.width - this.BORDER_SIZE) {
-            this.element.style.cursor = 'ew-resize';
-        } else if (offsetY < this.BORDER_SIZE || offsetY > rect.height - this.BORDER_SIZE) {
-            this.element.style.cursor = 'ns-resize';
+        if (offsetX < this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
+            this.element.style.cursor = 'nwse-resize'; // Diagonale haut-gauche
+        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
+            this.element.style.cursor = 'nesw-resize'; // Diagonale haut-droite
+        } else if (offsetX < this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
+            this.element.style.cursor = 'nesw-resize'; // Diagonale bas-gauche
+        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
+            this.element.style.cursor = 'nwse-resize'; // Diagonale bas-droite
+        } else if (offsetX < this.BORDER_SIZE) {
+            this.element.style.cursor = 'ew-resize'; // Redimensionnement horizontal
+        } else if (offsetX > rect.width - this.BORDER_SIZE) {
+            this.element.style.cursor = 'ew-resize'; // Redimensionnement horizontal
+        } else if (offsetY < this.BORDER_SIZE) {
+            this.element.style.cursor = 'ns-resize'; // Redimensionnement vertical
+        } else if (offsetY > rect.height - this.BORDER_SIZE) {
+            this.element.style.cursor = 'ns-resize'; // Redimensionnement vertical
         } else {
             this.element.style.cursor = 'auto';
         }
