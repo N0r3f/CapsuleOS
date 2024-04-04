@@ -62,7 +62,7 @@
                             <figcaption>App Store</figcaption>
                         </figure>
                     </a>
-                    <a href="https://lacapsule.org/ressources/index.php" target="lien" data-link=""
+                    <a target="windowElement" data-link="safari" target="lien" data-link="safari"
                         title="Moteur de recherche">
                         <figure>
                             <img src="./media/img/dock/safari.png" alt="Safari" title="Moteur de recherche">
@@ -111,8 +111,7 @@
                             <figcaption>Messages</figcaption>
                         </figure>
                     </a>
-                    <a href="https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        target="lien" data-link="" title="Map">
+                    <a target="windowElement" data-link="plan" title="Map">
                         <figure>
                             <img src="./media/img/dock/maps.png" alt="Ouvrir Plan" title="Map">
                             <figcaption>Plan</figcaption>
@@ -235,8 +234,12 @@
                 <a class="pad_2">.</a>
             </section>
         </div>
+        <div class="windowElement" data-link="safari" id="safari" style="display: none; position: fixed;">
+            <iframe id="windowIframe" src="https://lacapsule.org/ressources/index.php" frameborder="0" name="lien" rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe></div>
         <div class="windowElement" data-link="messages" id="messages" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="mail" id="mail" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="plan" id="plan" style="display: none; position: fixed;">
+            <iframe id="windowIframe" src="https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" name="lien" rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe></div>
         <div class="windowElement" data-link="photos" id="photos" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="facetime" id="facetime" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="calendar" id="calendar" style="display: none; position: fixed;"></div>
@@ -250,19 +253,6 @@
         <div class="windowElement" data-link="settings" id="settings" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="telechargements" id="telechargements" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="corbeille" id="corbeille" style="display: none; position: fixed;"></div>
-        <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
-            <div id="windowHeader">
-                <nav>
-                    <button id="closeBtn"></button>
-                    <button id="minimizeBtn"></button>
-                    <button id="resizeBtn"></button>
-                </nav>
-                <span id="windowTitle"></span>
-                <nav></nav>
-            </div>
-            <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer"
-                sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe>
-        </div>
     </main>
     <footer>
         <a target="windowElement" data-link="finder" title="Ouvrir le finder">
@@ -271,7 +261,7 @@
         <a target="windowElement" data-link="launchpad" title="Ouvrir le launchpad">
             <img src="./media/img/dock/launchpad.png" alt="Launchpad" title="Ouvrir le launchpad">
         </a>
-        <a href="https://lacapsule.org/ressources/index.php" target="lien" title="Ouvrir le navigateur WEB">
+        <a target="windowElement" data-link="safari" title="Ouvrir le navigateur WEB">
             <img src="./media/img/dock/safari.png" alt="Safari" title="Ouvrir le navigateur WEB">
         </a>
         <a target="windowElement" data-link="messages" title="Ouvrir Messages">
@@ -280,9 +270,8 @@
         <a target="windowElement" data-link="mail" title="Ouvrir le client mail">
             <img src="./media/img/dock/mail.png" alt="Mail" title="Ouvrir le client mail">
         </a>
-        <a href="https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            target="lien" title="Map">
-            <img src="./media/img/dock/maps.png" alt="Ouvrir Map" title="Map">
+        <a target="windowElement" data-link="plan" title="plan">
+            <img src="./media/img/dock/maps.png" alt="Ouvrir plan" title="plan">
         </a>
         <a target="windowElement" data-link="photos" title="Ouvrir la galerie photo">
             <img src="./media/img/dock/photos.png" alt="Photos" title="Ouvrir la galerie photo">
@@ -327,7 +316,6 @@
     </footer>
     <script src="../../../js/date.js"></script>
     <script src="../../../js/dock.js"></script>
-    <script src="../../../js/macos.js"></script>
     <script src="../../../js/windowContainer.js"></script>
     <script src="../../../js/windowHeaderButton.js"></script>
     <script src="../../../js/resizeWindow.js"></script>
