@@ -10,7 +10,6 @@ div[class^="windowElement"] {
     border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
     background: var(--sonohead);
-    resize: both;
     overflow: auto;
     overflow-y: hidden;
     scrollbar-width: var(--z);
