@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 // Ajouter la classe active-link au lien actif
                 link.classList.add('active-link');
-                 // Ajouter la classe active à l'élément de fenêtre
-                 container.classList.add('active');
+                // Ajouter la classe active à l'élément de fenêtre
+                container.classList.add('active');
                 // Utiliser le data-link pour mettre à jour le windowTitle
                 const windowTitle = container.querySelector('#windowTitle');
                 if (windowTitle) {
@@ -50,13 +50,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 // Rendre la fenêtre déplacable
                 makeDraggable(container);
+                // Rendre la fenêtre redimensionnable
+                makeResizable(container);
             } else {
                 container.style.display = "none";
                 // Retirer la classe active-link du lien actif
                 link.classList.remove('active-link');
-                 // Retirer la classe active de l'élément de fenêtre
-                 container.classList.remove('active');
-                 container.classList.remove('windowElementActive');
+                // Retirer la classe active de l'élément de fenêtre
+                container.classList.remove('active');
+                container.classList.remove('windowElementActive');
             }
         }
     }
@@ -68,4 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
             handleOpenwindow(this); // Utilisez 'this' pour référencer l'élément de lien
         });
     });
+
+    // Fonction pour rendre une fenêtre redimensionnable
+    function makeResizable(element) {
+        const resizer = new Resizer(element);
+    }
 });
