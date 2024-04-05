@@ -1,7 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelectorAll(`div[data-link="${link.dataset.link}"]`);
     // Sélectionne le footer pour la délégation d'événements
+    
+
     const footer = document.querySelector('footer');
+
+    const padContainer = document.querySelector('.padContainer');
+    const padIcons = padContainer.querySelectorAll('a');
+
+
+    const isDisplayed = Boolean(false);
+
 
     // Fonction pour basculer la visibilité des éléments du main
     function toggleVisibility(event) {
@@ -25,4 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajouter un écouteur d'événements de clic sur le footer pour la délégation
     footer.addEventListener('click', toggleVisibility);
+
+    padIcons.forEach(padIcon => {
+        console.log("Icone trouvée");
+    });
 });

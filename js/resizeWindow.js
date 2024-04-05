@@ -11,15 +11,22 @@ class Resizer {
         this.startHeight = 0;
         this.BORDER_SIZE = 8;
         this.isMouseDown = false;
+        this.horizontalLimit = 640; // Définir la limite de taille horizontale
         document.addEventListener('mousedown', this.startResize.bind(this));
         document.addEventListener('mousemove', this.checkBorder.bind(this));
         document.addEventListener('mouseup', this.stopResize.bind(this));
         document.addEventListener('mousemove', this.changeCursor.bind(this));
+        this.isResizable = Boolean(true);
+
+
     }
 
     startResize(e) {
+
         e.preventDefault();
         if (e.target !== this.element) return; // Vérifier si l'événement est déclenché à l'intérieur de l'élément cible
+
+        this.element.style.position = 'fixed';        
         const rect = this.element.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
         const offsetY = e.clientY - rect.top;
@@ -39,7 +46,18 @@ class Resizer {
         } else if (offsetX < this.BORDER_SIZE) {
             this.resizing = true;
             this.resizeDirection = 'left';
+            console.log(rect.width);
+            if(rect.width == 640)
+            {
+                console.log("là ça s'arrête");
+            }
+        
+
         } else if (offsetX > rect.width - this.BORDER_SIZE) {
+            // Vérifier si la largeur actuelle est inférieure ou égale à la limite horizontale
+            if (rect.width >= this.horizontalLimit) {
+                this.resizing = false; // Ne pas autoriser le redimensionnement
+            }
             this.resizing = true;
             this.resizeDirection = 'right';
         } else if (offsetY < this.BORDER_SIZE) {
@@ -61,22 +79,30 @@ class Resizer {
             this.updateWindowSize();
         }
     }
-    
 
     checkBorder(e) {
         e.preventDefault();
-        if (!this.resizing) return;
+        if (!this.resizing && !this.isMouseDown) return; // Vérifier si aucun redimensionnement ni déplacement n'est en cours
+    
+        const rect = this.element.getBoundingClientRect();
 
         const dx = e.clientX - this.startX;
         const dy = e.clientY - this.startY;
-
+    
         let newWidth = this.startWidth;
         let newLeft = this.startLeft;
         let newHeight = this.startHeight;
         let newTop = this.startTop;
-
+    
         switch (this.resizeDirection) {
             case 'left':
+                if(rect.width <= 640)
+                {
+                    this.stopResize();
+                    this.isResizable = false;
+
+                }
+
                 newWidth -= dx;
                 newLeft += dx;
                 break;
@@ -111,20 +137,25 @@ class Resizer {
                 newHeight += dy;
                 break;
         }
-
-        newWidth = Math.max(newWidth, this.BORDER_SIZE * 2);
-        newHeight = Math.max(newHeight, this.BORDER_SIZE * 2);
-
-        const windowRect = document.documentElement.getBoundingClientRect();
-        newLeft = Math.max(Math.min(newLeft, windowRect.width - newWidth), 0);
-        newTop = Math.max(Math.min(newTop, windowRect.height - newHeight), 0);
-
+    
+        // Vérifier si la largeur dépasse la taille minimale ou maximale
+        newWidth = Math.max(this.BORDER_SIZE * 2, Math.min(newWidth, this.startLeft + this.startWidth - this.BORDER_SIZE)); // Limiter le redimensionnement à la position initiale du bord droit
+        newHeight = Math.max(this.BORDER_SIZE * 2, Math.min(newHeight, window.innerHeight - newTop));
+    
+        // Vérifier si le redimensionnement est limité par la taille minimale de l'élément
+        if (newWidth === this.BORDER_SIZE * 2) {
+            // Si la largeur atteint la taille minimale, arrêter le redimensionnement horizontal et ajuster la position de gauche
+            newLeft = this.startLeft + this.startWidth - this.BORDER_SIZE * 2;
+        }
+    
+        // Appliquer les nouvelles dimensions et la nouvelle position
         this.element.style.width = `${newWidth}px`;
         this.element.style.height = `${newHeight}px`;
         this.element.style.left = `${newLeft}px`;
         this.element.style.top = `${newTop}px`;
         this.updateWindowSize();
     }
+    
 
     stopResize() {
         if (this.resizing) {
@@ -133,6 +164,7 @@ class Resizer {
             this.isMouseDown = false;
             this.element.style.cursor = 'auto';
         }
+        this.element.style.position = '';
     }
 
     changeCursor(e) {
