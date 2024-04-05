@@ -17,14 +17,7 @@ html>body {
 }
 
 html>body>header {
-    display: var(--f);
-    flex-flow: var(--rnw);
-    align-items: var(--c);
-    justify-content: var(--sb);
-    width: calc(var(--max-w) - var(--min-w) / 3);
-    height: var(--head);
-    background: var(--noir);
-    font-weight: bold;
+    display: var(--n);
 }
 
 html>body>main {
@@ -41,16 +34,14 @@ iframe[src="./pages/menu.html"] {
     height: var(--full);
 }
 
-html>body>main>footer {
-    position: var(--abs);
-    bottom: calc(var(--head) / 2);
+html>body>footer {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
-    justify-content: var(--sa);
-    width: calc(var(--full) - var(--full) / 2);
-    height: calc(var(--head) * 2);
-    border-radius: var(--head) var(--head) 0 0;
-    background: var(--t);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: calc(var(--head) * 1.5);
+    padding: var(--z) calc(var(--head) / 4) var(--z) calc(var(--head) / 4);
+    background: var(--noir);
     z-index: 1000;
 }
