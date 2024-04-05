@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const container = document.querySelectorAll(`div[data-link="${link.dataset.link}"]`);
+    //const container = document.querySelectorAll(`div[data-link="${link.dataset.link}"]`);
     // Sélectionne le footer pour la délégation d'événements
     
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const padFooter = document.querySelector('.launchPadFoot');
     const padIcons = padContainer.querySelectorAll('a');
 
-    var isDisplayed = Boolean(false);
+    var isDisplayed = Boolean(true);
 
     // Fonction pour basculer la visibilité des éléments du main
     function toggleVisibility(event) {
@@ -30,10 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 windowElements.style.display = 'none';
             }
 
-            if(padContainer.style.display != 'none')
-            {
-                isDisplayed = true;
-            }
             if(isDisplayed == false)
             {
                 padContainer.style.display = 'none',
@@ -41,13 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 padFooter.style.display = 'none'
                 
             }
+
+            padIcons.forEach(padIcon => {
+                padIcon.addEventListener('click', e => 
+                isDisplayed = false,
+                console.log(isDisplayed))});
         }
     }
 
     // Ajouter un écouteur d'événements de clic sur le footer pour la délégation
     footer.addEventListener('click', toggleVisibility);
 
-    padIcons.forEach(padIcon => {
-        padIcon.addEventListener('click', e => 
-        console.log(isDisplayed))});
+
 });
