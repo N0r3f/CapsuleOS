@@ -10,9 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const padFooter = document.querySelector('.launchPadFoot');
     const padIcons = padContainer.querySelectorAll('a');
 
-
     var isDisplayed = Boolean(false);
-
 
     // Fonction pour basculer la visibilité des éléments du main
     function toggleVisibility(event) {
