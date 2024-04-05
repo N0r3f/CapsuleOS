@@ -42,31 +42,44 @@ div[class^="windowElement"] {
     text-align: var(--c);
 }
 
-#windowHeader>button {
+#windowHeader>nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: calc(var(--head) * 2.2);
+    height: var(--head);
+}
+
+#windowHeader>nav>button {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--c);
     width: calc(var(--head) / 2);
     height: calc(var(--head) / 2);
-    margin-left: calc(var(--head) / 8);
+    padding: var(--z);
     outline: var(--n);
     border-radius: var(--mid);
+    border: 1px var(--t);
 }
 
-#windowHeader>button:nth-child(3) {
-    border: var(--bbtn1);
-    background: var(--btn1);
+#closeBtn {
+    background-image: url(../media/img/header/close.png);
+    background-size: cover;
+    background-color: #ee515b;
 }
 
-#windowHeader>button:nth-child(4) {
-    border: var(--bbtn2);
-    background: var(--btn2);
+#minimizeBtn {
+    background-image: url(../media/img/header/minimize.png);
+    background-size: cover;
+    background-color: #eeb042;
 }
 
-#windowHeader>button:nth-child(5) {
-    border: var(--bbtn3);
-    background: var(--btn3);
+#resizeBtn {
+    background-image: url(../media/img/header/resize.png);
+    background-size: cover;
+    background-color: #4ec844;
 }
 
 #windowIframe {
