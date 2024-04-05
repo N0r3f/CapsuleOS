@@ -27,23 +27,14 @@ header>section{
     align-items: center;
     padding: 0 5px;
 }
-header>section:first-child>div{
-    position: absolute;
-    right: 5px;
-}
-h1{
-    font-size: 15px;
-    font-weight: bold;
-}
+
 header>section:first-child{
-    justify-content: center;
-}
-header>section:nth-child(2){
     justify-content: flex-start;
     gap: 15px;
 }
 main{
     width: 100%;
+    height: auto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -87,6 +78,8 @@ footer{
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    bottom: 0;
 }
 footer>section{
     display: flex;
