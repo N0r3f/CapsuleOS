@@ -6,7 +6,7 @@ html {
     color: var(--texte);
 }
 
-body {
+html>body {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
@@ -16,7 +16,7 @@ body {
     overflow: var(--n);
 }
 
-header {
+html>body>header {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
@@ -27,7 +27,7 @@ header {
     font-weight: bold;
 }
 
-main {
+html>body>main {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
@@ -41,7 +41,7 @@ iframe[src="./pages/menu.html"] {
     height: var(--full);
 }
 
-footer {
+html>body>main>footer {
     position: var(--abs);
     bottom: calc(var(--head) / 2);
     display: var(--f);

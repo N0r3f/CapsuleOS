@@ -1,7 +1,7 @@
 @import url(../../../../style/reset.css);
 @import url(../../../../style/variables.css);
 
-body {
+html>body {
     margin: var(--z);
     height: var(--z);
 }

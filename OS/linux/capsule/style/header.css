@@ -1,6 +1,6 @@
 @import url(./imports.css);
 
-header>a>img[src="./assets/capsule.webp"] {
+html>body>header>a>img[src="./assets/capsule.webp"] {
     width: calc(var(--head) / 2);
     height: var(--a);
     margin: calc(var(--head) / 4) calc(var(--head) / 4) calc(var(--head) / 10) calc(var(--head) / 4);
@@ -10,8 +10,8 @@ header>a>img[src="./assets/capsule.webp"] {
     text-align: var(--c);
 }
 
-header>a:last-child,
-header>a:last-child>img {
+html>body>header>a:last-child,
+html>body>header>a:last-child>img {
     width: calc(var(--head) / 1.4);
     height: calc(var(--head) / 1.4);
 }
