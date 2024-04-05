@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const footer = document.querySelector('footer');
 
     const padContainer = document.querySelector('.padContainer');
+    const padSearchBar = document.querySelector('.search');
+    const padFooter = document.querySelector('.launchPadFoot');
     const padIcons = padContainer.querySelectorAll('a');
 
 
-    const isDisplayed = Boolean(false);
+    var isDisplayed = Boolean(false);
 
 
     // Fonction pour basculer la visibilité des éléments du main
@@ -29,6 +31,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 targetElement.style.display = 'block';
                 windowElements.style.display = 'none';
             }
+
+            if(padContainer.style.display != 'none')
+            {
+                isDisplayed = true;
+            }
+            if(isDisplayed == false)
+            {
+                padContainer.style.display = 'none',
+                padSearchBar.style.display = 'none',
+                padFooter.style.display = 'none'
+                
+            }
         }
     }
 
@@ -36,6 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
     footer.addEventListener('click', toggleVisibility);
 
     padIcons.forEach(padIcon => {
-        console.log("Icone trouvée");
-    });
+        padIcon.addEventListener('click', e => 
+        console.log(isDisplayed))});
 });

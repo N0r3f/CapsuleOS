@@ -9,7 +9,7 @@ class Resizer {
         this.startTop = 0;
         this.startWidth = 0;
         this.startHeight = 0;
-        this.BORDER_SIZE = 8;
+        this.BORDER_SIZE = 12;
         this.isMouseDown = false;
         this.horizontalLimit = 640; // Définir la limite de taille horizontale
         document.addEventListener('mousedown', this.startResize.bind(this));
