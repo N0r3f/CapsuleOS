@@ -1,0 +1,88 @@
+div[class^="windowElement"] {
+    position: var(--fix);
+    top: calc(var(--head) + calc(var(--head) / 3));
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: calc(var(--mid) + var(--mid) / 1.8);
+    min-height: calc(var(--head) * 12);
+    padding: calc(var(--head) / 20);
+    border: calc(var(--min-bt) * 4) var(--t);
+    border-radius: calc(var(--head) / 4);
+    box-shadow: var(--frame);
+    background: var(--sonohead);
+    overflow: hidden;
+    scrollbar-width: var(--z);
+    scrollbar-color: black;
+}
+
+.windowElementActive {
+    z-index: 500;
+}
+
+#windowHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    width: var(--full);
+    padding: calc(var(--head) / 4);
+    background: var(--noir);
+}
+
+#windowHeader>span:nth-child(1) {
+    width: calc(var(--head) + var(--head) / 8);
+}
+
+#windowTitle {
+    width: calc(var(--full) - var(--head) * 2);
+    text-align: var(--c);
+}
+
+#windowHeader>nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: calc(var(--head) * 2.2);
+    height: var(--head);
+}
+
+#windowHeader>nav>button {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    padding: var(--z);
+    outline: var(--n);
+    border-radius: var(--mid);
+    border: 1px var(--t);
+}
+
+#closeBtn {
+    background-image: url(../media/img/header/close.png);
+    background-size: cover;
+    background-color: #ee515b;
+}
+
+#minimizeBtn {
+    background-image: url(../media/img/header/minimize.png);
+    background-size: cover;
+    background-color: #eeb042;
+}
+
+#resizeBtn {
+    background-image: url(../media/img/header/resize.png);
+    background-size: cover;
+    background-color: #4ec844;
+}
+
+#windowIframe {
+    width: var(--full);
+    height: calc(var(--full) - var(--head));
+}

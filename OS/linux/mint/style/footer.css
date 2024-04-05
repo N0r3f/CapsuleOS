@@ -1,0 +1,14 @@
+html>body>footer>nav>a {
+    width: calc(var(--head) * 1.2); 
+    height: var(--head);
+    margin: calc(var(--head) - calc(var(--head) / 1.1));
+    background: var(--t);
+    transition: var(--eas2);
+    z-index: 0;
+}
+
+html>body>footer>nav>a>img {
+    width: var(--a);
+    height: var(--head);
+    image-rendering: auto;
+}

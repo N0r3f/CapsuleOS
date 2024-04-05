@@ -1,0 +1,52 @@
+@import url(./imports.css);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--texte);
+}
+
+html>body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    overflow: var(--n);
+}
+
+html>body>header {
+    display: var(--n);
+}
+
+html>body>main {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+    background-image: var(--mint);
+    background-size: var(--scov);
+    background-repeat: var(--nr);
+    background-position: var(--c);
+}
+
+iframe[src="./pages/menu.html"] {
+    width: var(--full);
+    height: var(--full);
+}
+
+html>body>footer {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: calc(var(--head) * 1.5);
+    padding: var(--z) calc(var(--head) / 4) var(--z) calc(var(--head) / 4);
+    border: var(--n);
+    background: var(--noir);
+    z-index: 1000;
+}
