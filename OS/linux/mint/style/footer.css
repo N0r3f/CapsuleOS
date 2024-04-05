@@ -1,3 +1,10 @@
+html>body>footer>nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+}
+
 html>body>footer>nav>a {
     width: calc(var(--head) * 1.2); 
     height: var(--head);
@@ -10,5 +17,9 @@ html>body>footer>nav>a {
 html>body>footer>nav>a>img {
     width: var(--a);
     height: var(--head);
-    image-rendering: auto;
+    image-rendering: var(--a);
+}
+
+html>body>footer>nav>a:nth-child(1)>img {
+    filter: var(--inv) var(--bright);
 }

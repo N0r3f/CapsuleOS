@@ -1,4 +1,4 @@
-div[class^="windowElement"] {
+div[class^="windowElement"]:not(data-link="mainMenu") {
     position: var(--fix);
     top: calc(var(--head) + calc(var(--head) / 3));
     display: var(--f);

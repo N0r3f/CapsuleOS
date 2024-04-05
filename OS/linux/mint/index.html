@@ -12,9 +12,25 @@
 <body>
     <header></header>
     <main>
-        <div id="menu">
-            <iframe src="./pages/menu.html" frameborder="0" name="lien" rel="noopener noreferrer"
-                sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe>
+        <div class="windowElement" data-link="mainMenu" id="mainMenuContainer" style="display: none; position: fixed;">
+            <section id="mainMenu">
+                <span class="mainMenuCol">
+                    <a href="#google">
+                        <img src="./media/img/menu/google.png" alt="Google" title="Rechercher sur Google">
+                    </a>
+                    <iframe id="google" src="https://google.fr" frameborder="0" name="lien" rel="noopener noreferrer"
+                        sandbox="allow-same-origin allow-popups allow-scripts" loading="lazy" style="display: none">
+                    </iframe>
+                    <a href="#dossier">
+                        <img src="./media/img/menu/folder.png" alt="Google" title="Rechercher sur Google">
+                    </a>
+                    <iframe id="dossier" src="./dossier.html" frameborder="0" name="lien" rel="noopener noreferrer"
+                        sandbox="allow-same-origin allow-popups allow-scripts" loading="lazy" style="display: none">
+                    </iframe>
+                </span>
+                <span class="mainMenuCol"></span>
+                <span class="mainMenuCol"></span>
+            </section>
         </div>
         <div class="windowElement" data-link="xed" id="xed" style="display: none; position: fixed;">
             <section id="gestionnaire">
@@ -129,8 +145,8 @@
     </main>
     <footer>
         <nav>
-            <a href="#">
-                <img src="./assets/mint.webp" alt="Logo de Linux Mint" title="Menu principal">
+            <a target="windowElement" data-link="mainMenu">
+                <img src="./media/img/assets/logo.svg" alt="Logo de Linux Mint" title="Menu principal">
             </a>
             <a href="../../../index.html">
                 <img src="../../../assets/accueil.svg" alt="Retour à l'accueil" title="Retour à l'accueil">

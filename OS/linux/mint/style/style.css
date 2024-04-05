@@ -10,7 +10,7 @@ html>body {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
-    justify-content: var(--sb);
+    justify-content: var(--fs);
     width: var(--max-w);
     height: var(--max-h);
     overflow: var(--n);
@@ -31,11 +31,6 @@ html>body>main {
     background-size: var(--scov);
     background-repeat: var(--nr);
     background-position: var(--c);
-}
-
-iframe[src="./pages/menu.html"] {
-    width: var(--full);
-    height: var(--full);
 }
 
 html>body>footer {
