@@ -24,21 +24,16 @@
                 sandbox="allow-same-origin allow-popups allow-scripts"
                 allowfullscreen="" loading="lazy"></iframe>
         </div>
-         <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
-            <div id="windowHeader">
-                <span></span>
-                <span id="windowTitle"></span>
-                <button id="minimizeBtn">-</button>
-                <button id="resizeBtn">□</button>
-                <button id="closeBtn">x</button>
-            </div>
-            <iframe id="windowIframe" src="" frameborder="0" name="lien" rel="noopener noreferrer"
-                sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        <div class="windowElement" data-link="xed" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
     </main>
     <footer>
-        <a href="https://stackblitz.com/~/github.com/N0r3f/CapsuleOS" target="lien" title="Github de La Capsule">
-            <img src="./media/img/dock/github.png" alt="Le github de la capsule" title="Github de La Capsule">
+        <a target="windowElement" title="Explorateur de fichiers Xed">
+            <img src="./media/img/dock/photos.png" alt="Xed" title="Explorateur de fichiers Xed">
         </a>
         <a href="./pages/video.html" target="lien" title="Vidéos de La Capsule">
             <img src="./media/img/dock/video.png" alt="Les vidéos de la capsule" title="Vidéos de La Capsule">

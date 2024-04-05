@@ -32,14 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleOpenwindow(link) {
         const container = document.querySelector(`div[data-link="${link.dataset.link}"]`);
-
+        
         if (container) {
             if (container.style.display === "none") {
                 container.style.display = "block";
                 if (!container.querySelector('#windowHeader')) {
                     container.insertBefore(windowHeader.cloneNode(true), container.firstChild);
-                }
-                // Ajouter la classe active-link au lien actif
+                }        
                 link.classList.add('active-link');
                 // Ajouter la classe active à l'élément de fenêtre
                 container.classList.add('active');
@@ -54,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 makeResizable(container);
             } else {
                 container.style.display = "none";
-                // Retirer la classe active-link du lien actif
-                link.classList.remove('active-link');
                 // Retirer la classe active de l'élément de fenêtre
                 container.classList.remove('active');
                 container.classList.remove('windowElementActive');

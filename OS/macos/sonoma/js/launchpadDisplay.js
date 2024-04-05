@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelectorAll(`div[data-link="${link.dataset.link}"]`);
     // Sélectionne le footer pour la délégation d'événements
     const footer = document.querySelector('footer');
 
@@ -9,14 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault(); // Empêche le comportement par défaut du lien
 
             // Passer tous les éléments à display: none;
-            document.querySelectorAll('main > .windowElement').forEach(element => {
-                element.style.display = 'none';
+            document.querySelectorAll('.windowElement').forEach(elements => {
+                elements.style.display = 'none';
             });
 
             // Trouver l'élément correspondant au data-link et le passer à display: block;
-            const targetElement = document.querySelector(`#${event.target.dataset.link}`);
+            const targetElement = document.querySelector(`div[data-link="launchpad"]`);
             if (targetElement) {
                 targetElement.style.display = 'block';
+                windowElements.style.display = 'none';
             }
         }
     }

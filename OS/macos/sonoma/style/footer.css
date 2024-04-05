@@ -8,7 +8,9 @@ footer>a {
 }
 
 .active-link {
-    border-bottom: 2px solid white;
+    border-bottom: 5px solid transparent;
+    border-image: linear-gradient(90deg, transparent 45%, white 50%, transparent 55%);
+    border-image-slice: 2;
 }
 
 footer>a:hover {

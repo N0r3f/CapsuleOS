@@ -14,9 +14,9 @@ div[class^="windowElement"] {
     border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
     background: var(--sonohead);
-    overflow: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     scrollbar-width: var(--z);
+    scrollbar-color: black;
 }
 
 .windowElementActive {
@@ -52,24 +52,28 @@ div[class^="windowElement"] {
     justify-content: var(--c);
     width: calc(var(--head) / 2);
     height: calc(var(--head) / 2);
+    padding: var(--z);
     outline: var(--n);
     border-radius: var(--mid);
-    border: calc(var(--head) / 40) var(--t);
+    border: 1px var(--t);
 }
 
 #closeBtn {
     background-image: url(../media/img/header/close.png);
     background-size: cover;
+    background-color: #ee515b;
 }
 
 #minimizeBtn {
     background-image: url(../media/img/header/minimize.png);
     background-size: cover;
+    background-color: #eeb042;
 }
 
 #resizeBtn {
     background-image: url(../media/img/header/resize.png);
     background-size: cover;
+    background-color: #4ec844;
 }
 
 #windowTitle {
@@ -85,5 +89,6 @@ div[class^="windowElement"] {
     justify-content: var(--c);
     width: var(--full);
     height: calc(var(--full) - calc(var(--head) / 1.2));
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
     overflow: var(--h);
 }
