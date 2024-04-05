@@ -105,7 +105,7 @@
        id="g40072"
        inkscape:label="folder-remote" />
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#102b68;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#1f1f1f;fill-opacity:1;stroke:#102b68;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="M 5,2 4,4 2,4 C 1.44601,4 1,4.44601 1,5 l 0,7 c 0,0.554 0.44601,1 1,1 l 12,0 c 0.55401,0 1,-0.446 1,-1 L 15,5 C 15,4.44601 14.553319,4.0276659 14,4 L 12,4 11,2 8,2 Z m 3,3 c 1.65686,0 3,1.34315 3,3 0,1.65686 -1.34314,3 -3,3 C 6.34315,11 5,9.65686 5,8 5,6.34315 6.34315,5 8,5 Z"
        transform="translate(482,176)"
        id="rect3990-7"

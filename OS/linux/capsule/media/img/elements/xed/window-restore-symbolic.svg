@@ -40,7 +40,7 @@
      id="namedview10"
      showgrid="true"
      inkscape:zoom="14.75"
-     inkscape:cx="2.4067797"
+     inkscape:cx="2.4745763"
      inkscape:cy="7.9661017"
      inkscape:window-x="422"
      inkscape:window-y="137"
@@ -54,17 +54,17 @@
   <g
      font-weight="400"
      id="g6"
-     style="color:#000000;font-weight:400;font-family:sans-serif;white-space:normal;fill:#000000;fill-opacity:1">
+     style="color:#000000;font-weight:400;font-family:sans-serif;white-space:normal;fill:#1f1f1f;fill-opacity:1">
     <path
        d="m 3,5 v 8 h 8 V 5 Z m 1,1 h 6 v 6 H 4 Z"
-       style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;overflow:visible;isolation:auto;mix-blend-mode:normal;fill:#000000;fill-opacity:1"
+       style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;overflow:visible;isolation:auto;mix-blend-mode:normal;fill:#1f1f1f;fill-opacity:1"
        overflow="visible"
        id="path2"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccc" />
     <path
        d="m 5,3 v 1 h 7 v 7 h 1 V 3 Z"
-       style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;overflow:visible;opacity:0.5;isolation:auto;mix-blend-mode:normal;fill:#000000;fill-opacity:1"
+       style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;shape-padding:0;overflow:visible;opacity:0.5;isolation:auto;mix-blend-mode:normal;fill:#1f1f1f;fill-opacity:1"
        overflow="visible"
        id="path4"
        inkscape:connector-curvature="0"
