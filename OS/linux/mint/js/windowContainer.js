@@ -5,30 +5,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Création de la div#windowHeader
     const windowHeader = document.createElement('div');
     const left = document.createElement('nav');
-    const closeBtn = document.createElement('button');
-    const minimizeBtn = document.createElement('button');
-    const maximizeBtn = document.createElement('button');
     const title = document.createElement('span');
     const right = document.createElement('nav');
-
+    const minimizeBtn = document.createElement('button');
+    const maximizeBtn = document.createElement('button');
+    const closeBtn = document.createElement('button');
+    
     // Ajout du contenu HTML pour la div#windowHeader
     windowHeader.id = 'windowHeader';
     windowHeader.style.minWidth = 'calc(var(--head) * 16)';
-
-    closeBtn.id = 'closeBtn';
-    minimizeBtn.id = 'minimizeBtn';
-    maximizeBtn.id = 'resizeBtn';
 
     title.id = 'windowTitle';
     // Utilisez document.title pour obtenir le titre de la page par défaut
     title.textContent = document.title;
 
+    minimizeBtn.id = 'minimizeBtn';
+    maximizeBtn.id = 'resizeBtn';
+    closeBtn.id = 'closeBtn';
+
     windowHeader.appendChild(left);
     windowHeader.appendChild(title);
     windowHeader.appendChild(right);
-    right.appendChild(closeBtn);
     right.appendChild(minimizeBtn);
     right.appendChild(maximizeBtn);
+    right.appendChild(closeBtn);
     
     function handleOpenwindow(link) {
         const container = document.querySelector(`div[data-link="${link.dataset.link}"]`);
@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 container.style.display = "none";
                 // Retirer la classe active de l'élément de fenêtre
                 container.classList.remove('active');
-                container.classList.remove('windowElementActive');
             }
         }
     }

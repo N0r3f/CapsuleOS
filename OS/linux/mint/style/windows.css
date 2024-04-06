@@ -1,25 +1,26 @@
 div[class^="windowElement"]:not(data-link="mainMenu") {
     position: var(--fix);
-    top: calc(var(--head) + calc(var(--head) / 3));
+    top: var(--z);
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--fs);
     width: calc(var(--mid) + var(--mid) / 4);
     min-width: calc(var(--head) * 16);
-    height: calc(var(--mid) + var(--mid) / 1.8);
+    height: calc(var(--max-h) - var(--min-h) * 4);
     min-height: calc(var(--head) * 12);
     padding: calc(var(--head) / 20);
     border: calc(var(--min-bt) * 4) var(--t);
     border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
-    background: var(--sonohead);
+    background: var(--ph);
     overflow: hidden;
     scrollbar-width: var(--z);
     scrollbar-color: black;
 }
 
-.windowElementActive {
+.windowElement.active {
+    min-height: calc(var(--head) * 12);
     z-index: 500;
 }
 
@@ -27,19 +28,18 @@ div[class^="windowElement"]:not(data-link="mainMenu") {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
-    justify-content: var(--fe);
-    width: var(--full);
+    justify-content: var(--sb);
+    max-width: var(--max-w);
+    height: calc(var(--head) / 1.3);
     padding: calc(var(--head) / 4);
     background: var(--noir);
-}
-
-#windowHeader>span:nth-child(1) {
-    width: calc(var(--head) + var(--head) / 8);
+    user-select: none;
 }
 
 #windowTitle {
-    width: calc(var(--full) - var(--head) * 2);
+    width: calc(var(--head) * 20);
     text-align: var(--c);
+    text-shadow: var(--bs);
 }
 
 #windowHeader>nav {
@@ -64,12 +64,6 @@ div[class^="windowElement"]:not(data-link="mainMenu") {
     border: 1px var(--t);
 }
 
-#closeBtn {
-    background-image: url(../media/img/header/close.png);
-    background-size: cover;
-    background-color: #ee515b;
-}
-
 #minimizeBtn {
     background-image: url(../media/img/header/minimize.png);
     background-size: cover;
@@ -82,7 +76,19 @@ div[class^="windowElement"]:not(data-link="mainMenu") {
     background-color: #4ec844;
 }
 
-#windowIframe {
+#closeBtn {
+    background-image: url(../media/img/header/close.png);
+    background-size: cover;
+    background-color: #ee515b;
+}
+
+#windowIframe { 
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
     width: var(--full);
-    height: calc(var(--full) - var(--head));
+    height: calc(var(--full) - calc(var(--head) / 1.2));
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    overflow: var(--h);
 }

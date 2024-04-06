@@ -10,8 +10,7 @@
 </head>
 
 <body>
-    <header></header>
-    <main>
+    <main id="mainMint">
         <div class="windowElement" data-link="mainMenu" id="mainMenuContainer" style="display: none; position: fixed;">
             <section id="mainMenu">
                 <span class="mainMenuCol">
@@ -34,8 +33,8 @@
         </div>
         <div class="windowElement" data-link="xed" id="xed" style="display: none; position: fixed;">
             <section id="gestionnaire">
-                <header>
-                    <section>
+                <header id="xedHeaderContainer">
+                    <section class="menuOutils">
                         <a href="#">Fichier</a>
                         <a href="#">Edition</a>
                         <a href="#">Affichage</a>
@@ -43,150 +42,99 @@
                         <a href="#">Marque-pages</a>
                         <a href="#">Aide</a>
                     </section>
-                    <section>
-                        <div>
-                            <a href="#"><img src="./media/img/elements/xed/go-previous-symbolic.svg"
-                                    title="Va à l'emplacement visité précédent"></a>
-                            <a href="#"><img src="./media/img/elements/xed/go-next-symbolic.svg"
-                                    title="Va à l'emplacement visité suivant"></a>
-                            <a href="#"><img src="./media/img/elements/xed/go-up-symbolic.svg"
-                                    title="Aller au dossier parent"></a>
+                    <section class="menuOutils">
+                        <div class="sousMenuOutils">
+                            <a href="#"><img src="./media/img/elements/xed/go-previous-symbolic.svg" title="Va à l'emplacement visité précédent"></a>
+                            <a href="#"><img src="./media/img/elements/xed/go-next-symbolic.svg" title="Va à l'emplacement visité suivant"></a>
+                            <a href="#"><img src="./media/img/elements/xed/go-up-symbolic.svg" title="Aller au dossier parent"></a>
                             <a href="#"><img src="./media/img/elements/xed/pan-start-symbolic.svg"></a>
-                            <a href="#">blabla</a>
-                            <a href="#"><img src="./media/img/elements/xed/pan-end-symbolic.svg"></a>
-                        </div>
-                        <div>
-                            <a href="#"><img src="./media/img/elements/xed/location-symbolic.svg"
-                                    title="Basculer le mode de navigation"></a>
-                            <a href="#"><img src="./media/img/elements/xed/search-symbolic.svg"
-                                    title="Chercher des documents et des dossiers"></a>
-                            <a href="#"><img src="./media/img/elements/xed/view-grid-symbolic.svg"
-                                    title="Vue en icônes"></a>
-                            <a href="#"><img src="./media/img/elements/xed/view-list-symbolic.svg"
-                                    title="Vue en liste"></a>
-                            <a href="#"><img src="./media/img/elements/xed/view-compact-symbolic.svg"
-                                    title="Vue compacte"></a>
+                            <a href="#">Dossier personnel</a>
+                            <a href="#"><img src="./media/img/elements/xed/pan-end-symbolic.svg"></a></div>
+                        <div class="sousMenuOutils">
+                            <a href="#"><img src="./media/img/elements/xed/location-symbolic.svg" title="Basculer le mode de navigation"></a>
+                            <a href="#"><img src="./media/img/elements/xed/search-symbolic.svg" title="Chercher des documents et des dossiers"></a>
+                            <a href="#"><img src="./media/img/elements/xed/view-grid-symbolic.svg" title="Vue en icônes"></a>
+                            <a href="#"><img src="./media/img/elements/xed/view-list-symbolic.svg" title="Vue en liste"></a>
+                            <a href="#"><img src="./media/img/elements/xed/view-compact-symbolic.svg" title="Vue compacte"></a>
                         </div>
                     </section>
                 </header>
-                <main>
-                    <section>
+                <main id="xedMainContainer">
+                    <aside>
                         <a href="#"><img src="./media/img/elements/xed/pan-down-symbolic.svg">Poste de travail</a>
                         <div>
-                            <a href="#"><img src="./media/img/elements/xed/user-home-symbolic.svg"
-                                    title="Ouvrir votre dossier personnel. Espace disponible : ... Go">Dossier
-                                personnel</a>
-                            <a href="#"><img src="./media/img/elements/xed/user-desktop-symbolic.svg"
-                                    title="Ouvre le contenu de votre bureau dans un dossier">Bureau</a>
-                            <a href="#"><img src="./media/img/elements/xed/folder-documents-symbolic.svg"
-                                    title="/home/utilisateur.../Documents">Documents</a>
-                            <a href="#"><img src="./media/img/elements/xed/folder-music-symbolic.svg"
-                                    title="/home/utilisateur.../Musique">Musique</a>
-                            <a href="#"><img src="./media/img/elements/xed/folder-pictures-symbolic.svg"
-                                    title="/home/utilisateur.../Images">Images</a>
-                            <a href="#"><img src="./media/img/elements/xed/folder-videos-symbolic.svg"
-                                    title="/home/utilisateur.../Vidéos">Vidéos</a>
-                            <a href="#"><img src="./media/img/elements/xed/older-download-symbolic.svg"
-                                    title="/home/utilisateur.../Téléchargements">Téléchargements</a>
-                            <a href="#"><img src="./media/img/elements/xed/recent.svg"
-                                    title="Fichiers récents">Récent</a>
-                            <a href="#"><img src="./media/img/elements/xed/hdd.svg"
-                                    title="Ouvrir le contenu du Système de fichiers. Espace disponible : ... Go">Système
-                                de fichiers</a>
-                            <a href="#"><img src="./media/img/elements/xed/user-trash-symbolic.svg"
-                                    title="Ouvrir la corbeille">Corbeille</a>
+                            <a href="#"><img src="./media/img/elements/xed/user-home-symbolic.svg" title="Ouvrir votre dossier personnel. Espace disponible : ... Go">Dossier personnel</a>
+                            <a href="#"><img src="./media/img/elements/xed/user-desktop-symbolic.svg" title="Ouvre le contenu de votre bureau dans un dossier">Bureau</a>
+                            <a href="#"><img src="./media/img/elements/xed/folder-documents-symbolic.svg" title="/home/utilisateur.../Documents">Documents</a>
+                            <a href="#"><img src="./media/img/elements/xed/folder-music-symbolic.svg" title="/home/utilisateur.../Musique">Musique</a>
+                            <a href="#"><img src="./media/img/elements/xed/folder-pictures-symbolic.svg" title="/home/utilisateur.../Images">Images</a>
+                            <a href="#"><img src="./media/img/elements/xed/folder-videos-symbolic.svg" title="/home/utilisateur.../Vidéos">Vidéos</a>
+                            <a href="#"><img src="./media/img/elements/xed/folder-download-symbolic.svg" title="/home/utilisateur.../Téléchargements">Téléchargements</a>
+                            <a href="#"><img src="./media/img/elements/xed/recent.svg" title="Fichiers récents">Récent</a>
+                            <a href="#"><img src="./media/img/elements/xed/hdd.svg" title="Ouvrir le contenu du Système de fichiers. Espace disponible : ... Go">Système de fichiers</a>
+                            <a href="#"><img src="./media/img/elements/xed/user-trash-symbolic.svg" title="Ouvrir la corbeille">Corbeille</a>
                         </div>
                         <a href="#"><img src="./media/img/elements/xed/pan-down-symbolic.svg">Marque-pages</a>
-                        <div>
-                            <a href="#"><img src="./media/img/elements/xed/user-desktop-symbolic.svg"
-                                    title="/home/utilisateur.../Bureau">Bureau</a>
-                        </div>
+                        <div><a href="#"><img src="./media/img/elements/xed/user-desktop-symbolic.svg" title="/home/utilisateur.../Bureau">Bureau</a></div>
                         <a href="#"><img src="./media/img/elements/xed/pan-down-symbolic.svg">Réseau</a>
-                        <div>
-                            <a href="#"><img src="./media/img/elements/xed/network-workgroup-symbolic.svg"
-                                    title="Parcourt le contenu du réseau">Réseau</a>
-                        </div>
-                    </section>
-                    <section>
+                        <div><a href="#"><img src="./media/img/elements/xed/network-workgroup-symbolic.svg" title="Parcourt le contenu du réseau">Réseau</a></div>
+                    </aside>
+                    <section class="fileArea">
                         <a href="#"><img src="./media/img/elements/xed/folder-documents.png">Documents</a>
                         <a href="#"><img src="./media/img/elements/xed/folder-pictures.png">Images</a>
-                        <a href="#"><img src="./media/img/elements/xed/library-music.png">Musique</a>
+                        <a href="#"><img src="./media/img/elements/xed/folder-music.png">Musique</a>
                         <a href="#"><img src="./media/img/elements/xed/folder-publicshare.png">Public</a>
                         <a href="#"><img src="./media/img/elements/xed/folder-download.png">Téléchargements</a>
                         <a href="#"><img src="./media/img/elements/xed/folder-videos.png">Vidéos</a>
                     </section>
                 </main>
-                <footer>
+                <footer id="xedFooterContainer">
                     <section>
-                        <a href="#"><img src="./media/img/elements/xed/sidebar-places-symbolic.svg"
-                                title="Montrer les emplacements"></a>
-                        <a href="#"><img src="./media/img/elements/xed/sidebar-tree-symbolic.svg"
-                                title="Montrer l'arborescence"></a>
-                        <a href="#"><img src="../media/img/elements/xed/sidebar-hide-symbolic.svg"
-                                title="Masquer le Panneau latéral (F9)"></a>
+                        <a href="#"><img src="./media/img/elements/xed/sidebar-places-symbolic.svg" title="Montrer les emplacements"></a>
+                        <a href="#"><img src="./media/img/elements/xed/sidebar-tree-symbolic.svg" title="Montrer l'arborescence"></a>
+                        <a href="#"><img src="./media/img/elements/xed/sidebar-hide-symbolic.svg" title="Masquer le Panneau latéral (F9)"></a>
                     </section>
-                    <p>... éléments, espace disponible : ... Go</p>
-                    <p title="Ajuster le niveau du zoom">curseur de zooom</p>
+                    <section>
+                    <p>6 éléments, espace disponible : 237 Go</p>
+                    </section>
+                    <section>
+                        <input type="range" name="zoom" id="zoom">
+                    </section>
                 </footer>
             </section>
         </div>
-        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
-        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
-        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
-        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="firefox" id="firefox" style="display: none; position: fixed;">
+            <iframe id="windowIframe" src="https://lacapsule.org/ressources/index.php" frameborder="0" name="lien"
+                rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen=""
+                loading="lazy"></iframe>
+        </div>
+        <div class="windowElement" data-link="terminal" id="terminal" style="display: none; position: fixed;"></div>
     </main>
     <footer>
         <nav>
             <a target="windowElement" data-link="mainMenu">
                 <img src="./media/img/assets/logo.svg" alt="Logo de Linux Mint" title="Menu principal">
             </a>
+            <a target="windowElement" data-link="xed" title="Explorateur de fichiers Xed">
+                <img src="./media/img/elements/xed/folder.png" alt="Xed" title="Explorateur de fichiers Xed">
+            </a>
+            <a target="windowElement" data-link="firefox" title="Ouvrir un navigateur WEB">
+                <img src="./media/img/dock/photos.png" alt="Firefox" title="Ouvrir un navigateur WEB">
+            </a>
+            <a target="windowElement" data-link="terminal" title="Ouvrir un terminal">
+                <img src="./media/img/dock/photos.png" alt="terminal" title="Ouvrir un terminal">
+            </a>
             <a href="../../../index.html">
                 <img src="../../../assets/accueil.svg" alt="Retour à l'accueil" title="Retour à l'accueil">
-            </a>
-            <a target="windowElement" data-link="xed" title="Explorateur de fichiers Xed">
-                <img src="./media/img/dock/photos.png" alt="Xed" title="Explorateur de fichiers Xed">
-            </a>
-            <a href="./pages/video.html" target="lien" title="Vidéos de La Capsule">
-                <img src="./media/img/dock/video.png" alt="Les vidéos de la capsule" title="Vidéos de La Capsule">
-            </a>
-            <a href="https://github.com/lacapsule/cleanux_by_foreach" target="lien" title="Logiciel de nettoyage Linux">
-                <img src="./media/img/dock/clean.png" alt="Clean Linux" title="Logiciel de nettoyage Linux">
-            </a>
-            <a href="https://discord.gg/rDb4UWzjPy" target="lien" title="Discord de La Capsule">
-                <img src="./media/img/dock/discord.png" alt="Le Discord de la capsule" title="Discord de La Capsule">
-            </a>
-            <a href="./pages/cours.html" target="lien" title="Les cours gratuits de La Capsule">
-                <img src="./media/img/dock/cours.png" alt="Les cours de la capsule"
-                    title="Les cours gratuits de La Capsule">
-            </a>
-            <a href="./pages/photos.html" target="lien" title="Les photos de La Capsule">
-                <img src="./media/img/dock/photos.png" alt="Les photos de la capsule" title="Les photos de La Capsule">
-            </a>
-            <a href="./pages/contact.html" target="lien" title="Contacter La Capsule">
-                <img src="./media/img/dock/contact.png" alt="Rubrique contact" title="Contacter La Capsule">
-            </a>
-            <a href="./pages/iso.html" target="lien" title="Télécharger la distribution Linux de La Capsule">
-                <img src="./media/img/dock/iso.png" alt="Distribution de la capsule"
-                    title="Télécharger la distribution Linux de La Capsule">
-            </a>
-            <a href="./pages/ressources.html" target="lien" title="Accéder au centre de ressources de La Capsule">
-                <img src="./media/img/dock/ressources.png" alt="Centre de ressources de la capsule"
-                    title="Accéder au centre de ressources de La Capsule">
-            </a>
-            <a href="./pages/parametres.html" target="lien" title="Gérer les paramètres">
-                <img src="./media/img/dock/parametres.png" alt="Gérer les paramètres" title="Gérer les paramètres">
             </a>
         </nav>
         <span id="heure-date"></span>
     </footer>
-    <script src="../../../js/background.js"></script>
-    <script src="../../../js/date.js"></script>
-    <script src="../../../js/mint/windowContainer.js"></script>
-    <script src="../../../js/windowHeaderButton.js"></script>
-    <script src="../../../js/resizeWindow.js"></script>
-    <script src="../../../js/windowDrag.js"></script>
-    <script src="../../../js/dock.js"></script>
-    <script src="./js/menu.js"></script>
+    <script src="./js/date.js"></script>
+    <script src="./js/windowContainer.js"></script>
+    <script src="./js/windowHeaderButton.js"></script>
+    <script src="./js/resizeWindow.js"></script>
+    <script src="./js/windowDrag.js"></script>
 </body>
 
 </html>

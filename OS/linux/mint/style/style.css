@@ -6,31 +6,27 @@ html {
     color: var(--texte);
 }
 
-html>body {
+body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    background-image: var(--mint);
+    background-size: var(--scov);
+    background-repeat: var(--nr);
+    background-position: var(--c);
+    overflow: var(--n);
+}
+
+#mainMint {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--fs);
     width: var(--max-w);
-    height: var(--max-h);
-    overflow: var(--n);
-}
-
-html>body>header {
-    display: var(--n);
-}
-
-html>body>main {
-    display: var(--f);
-    flex-flow: var(--cnw);
-    align-items: var(--c);
-    justify-content: var(--c);
-    width: var(--full);
-    height: var(--full);
-    background-image: var(--mint);
-    background-size: var(--scov);
-    background-repeat: var(--nr);
-    background-position: var(--c);
+    height: calc(var(--full) - calc(var(--head) * 1.5));
 }
 
 html>body>footer {
@@ -43,5 +39,4 @@ html>body>footer {
     padding: var(--z) calc(var(--head) / 4) var(--z) calc(var(--head) / 4);
     border: var(--n);
     background: var(--noir);
-    z-index: 1000;
 }

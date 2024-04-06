@@ -10,6 +10,12 @@
     --bleu: hsl(240, 45%, 12%);
     --violet: hsl(240, 66%, 11%);
     --texte: hsl(216, 100%, 95%);
+    /** MINT **/
+    --bgw: white;
+    --xedHC: #e8e8e8;
+    --xedHCB: #c7c7c7;
+    --xedMCSF: #f3f2f2;
+    --xedfoot: #f5f5f5;
     --ph: hsl(0, 0%, 64%);
     --hovwin: hsla(216, 100%, 95%, .2);
     --sonohead: linear-gradient(90deg, hsla(254, 69%, 46%, 0.4), hsla(254, 62%, 25%, 0.4), hsla(254, 36%, 25%, 0.4));
@@ -30,6 +36,7 @@
     /************** DISPLAY **************/
     --bl: block;
     --in-bl: inline-block;
+    --stck: sticky;
 
     /************* POSITION **************/
     --abs: absolute;
