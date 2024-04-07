@@ -7,8 +7,8 @@ div[class^="windowElement"]:not(#mainMenu) {
     justify-content: var(--c);
     width: calc(var(--mid) + var(--mid) / 4);
     min-width: calc(var(--head) * 16);
-    height: var(--full);
-    min-height: var(--a);
+    height: calc(var(--head) * 10);
+    min-height: calc(var(--head) * 10);
     padding: calc(var(--head) / 20);
     border: calc(var(--min-bt) * 4) var(--t);
     border-radius: calc(var(--head) / 4);

@@ -24,7 +24,7 @@ main#gestionnaire {
     align-items: var(--sa);
     justify-content: var(--sa);
     width: var(--full);
-    height: calc(var(--head) + calc(var(--head) / 2));
+    height: calc(var(--head) * 2);
     margin-top: var(--z);
     border-bottom: solid 1px var(--xedHCB);
     background-color: var(--xedHC);
@@ -37,6 +37,7 @@ main#gestionnaire {
     align-items: var(--c);
     justify-content: var(--fs);
     width: var(--full);
+    height: var(--head);
     gap: calc(var(--head) - 25px);
     padding: var(--z) calc(var(--head) / 4);
 }
@@ -77,8 +78,8 @@ main#gestionnaire {
     justify-content: var(--fs);
     align-items: var(--fs);
     width: var(--full);
-    height: calc(var(--full) - var(--head));
-    min-height: calc(var(--a) - var(--head));
+    height: calc(var(--full) - calc(var(--head) * 2));
+    min-height: calc(var(--a) - calc(var(--head) * 2));
     margin: var(--z);
 }
 
