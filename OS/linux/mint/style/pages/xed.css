@@ -12,7 +12,6 @@ main#gestionnaire {
     height: calc(var(--full) - calc(var(--head) / 1.5));
     min-height: calc(var(--a) - calc(var(--head) / 1.5));
     font-size: calc(var(--head) - 25px);
-    border-radius: var(--z) var(--z) calc(var(--head) / 4);
     background-color: var(--bgw);
     overflow: var(--h);
 }
@@ -83,7 +82,7 @@ main#gestionnaire {
     margin: var(--z);
 }
 
-#xedMainContainer>aside {
+#xedMainContainer>#voletXed {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--fs);
@@ -98,8 +97,8 @@ main#gestionnaire {
     overflow: var(--a);
 }
 
-#xedMainContainer>aside>a,
-#xedMainContainer>aside>div>a {
+#xedMainContainer>#voletXed>a,
+#xedMainContainer>#voletXed>div>a {
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--fs);
@@ -109,7 +108,7 @@ main#gestionnaire {
     color: var(--noir);
 }
 
-#xedMainContainer>aside>div {
+#xedMainContainer>#voletXed>div {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--fs);
@@ -119,11 +118,11 @@ main#gestionnaire {
     gap: calc(var(--head) / 8);
 }
 
-#xedMainContainer>aside>div>a>img {
+#xedMainContainer>#voletXed>div>a>img {
     padding-right: calc(var(--head) / 8);
 }
 
-#xedMainContainer>.windowElement {
+#xedMainContainer>section.windowElement {
     display: var(--f);
     flex-flow: var(--rw);
     justify-content: var(--fs);
@@ -134,7 +133,7 @@ main#gestionnaire {
     overflow: var(--a);
 }
 
-#xedMainContainer>.windowElement>a {
+section.windowElement>a {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--sa);
@@ -144,7 +143,7 @@ main#gestionnaire {
     color: var(--noir);
 }
 
-#xedMainContainer>.windowElement img {
+section.windowElement>a>img {
     width: 75px;
     margin: 10px 40px;
 }

@@ -31,29 +31,38 @@
         </section>
     </header>
     <main id="xedMainContainer">
-        <aside>
+        <aside id="voletXed">
             <a href="#"><img src="./media/img/elements/xed/pan-down-symbolic.svg">Poste de travail</a>
             <div>
-                <a href="#"><img src="./media/img/elements/xed/user-home-symbolic.svg"
+                <a target="windowElement" data-link="Dossier Personnel" title="Ouvrir le dossier personnel"><img
+                        src="./media/img/elements/xed/user-home-symbolic.svg"
                         title="Ouvrir votre dossier personnel. Espace disponible : ... Go">Dossier personnel</a>
-                <a href="#"><img src="./media/img/elements/xed/user-desktop-symbolic.svg"
+                <a target="windowElement" data-link="Bureau" title="Ouvrir le bureau"><img
+                        src="./media/img/elements/xed/user-desktop-symbolic.svg"
                         title="Ouvre le contenu de votre bureau dans un dossier">Bureau</a>
-                <a href="#"><img src="./media/img/elements/xed/folder-documents-symbolic.svg"
+                <a target="windowElement" data-link="Documents" title="Ouvrir les documents"><img
+                        src="./media/img/elements/xed/folder-documents-symbolic.svg"
                         title="/home/utilisateur.../Documents">Documents</a>
-                <a href="#"><img src="./media/img/elements/xed/folder-music-symbolic.svg"
+                <a target="windowElement" data-link="Musique" title="Ouvrir la musique"><img
+                        src="./media/img/elements/xed/folder-music-symbolic.svg"
                         title="/home/utilisateur.../Musique">Musique</a>
-                <a href="#"><img src="./media/img/elements/xed/folder-pictures-symbolic.svg"
+                <a target="windowElement" data-link="Images" title="Ouvrir les images"><img
+                        src="./media/img/elements/xed/folder-pictures-symbolic.svg"
                         title="/home/utilisateur.../Images">Images</a>
-                <a href="#"><img src="./media/img/elements/xed/folder-videos-symbolic.svg"
+                <a target="windowElement" data-link="Vidéos" title="Ouvrir les vidéos"><img
+                        src="./media/img/elements/xed/folder-videos-symbolic.svg"
                         title="/home/utilisateur.../Vidéos">Vidéos</a>
-                <a href="#"><img src="./media/img/elements/xed/folder-download-symbolic.svg"
+                <a target="windowElement" data-link="Téléchargements" title="Ouvrir les téléchargements"><img
+                        src="./media/img/elements/xed/folder-download-symbolic.svg"
                         title="/home/utilisateur.../Téléchargements">Téléchargements</a>
-                <a href="#"><img src="./media/img/elements/xed/recent.svg" title="Fichiers récents">Récent</a>
-                <a href="#"><img src="./media/img/elements/xed/hdd.svg"
+                <a target="windowElement" data-link="Récent" title="Ouvert récemment"><img
+                        src="./media/img/elements/xed/recent.svg" title="Fichiers récents">Récent</a>
+                <a target="windowElement" data-link="Corbeille" title="Ouvrir la corbeille"><img
+                        src="./media/img/elements/xed/hdd.svg"
                         title="Ouvrir le contenu du Système de fichiers. Espace disponible : ... Go">Système de
                     fichiers</a>
-                <a href="#"><img src="./media/img/elements/xed/user-trash-symbolic.svg"
-                        title="Ouvrir la corbeille">Corbeille</a>
+                <a target="windowElement" data-link="" title="Ouvrir "><img
+                        src="./media/img/elements/xed/user-trash-symbolic.svg" title="Ouvrir la corbeille">Corbeille</a>
             </div>
             <a href="#"><img src="./media/img/elements/xed/pan-down-symbolic.svg">Marque-pages</a>
             <div><a href="#"><img src="./media/img/elements/xed/user-desktop-symbolic.svg"
@@ -62,7 +71,25 @@
             <div><a href="#"><img src="./media/img/elements/xed/network-workgroup-symbolic.svg"
                         title="Parcourt le contenu du réseau">Réseau</a></div>
         </aside>
-        <section class="windowElement" data-link="dossierPersonnel" id="dossierPersonnel"></section>
+            <section class="windowElement" data-link="Dossier Personnel" id="dossierPersonnel" style="display: block; position: relative;">
+                <a target="windowElement" data-link="Documents personnel"><img src="./media/img/elements/xed/folder-documents.png">Documents</a>
+                <a target="windowElement" data-link="Images" title=""><img src="./media/img/elements/xed/folder-pictures.png">Images</a>
+                <a target="windowElement" data-link="Musique" title=""><img src="./media/img/elements/xed/folder-music.png">Musique</a>
+                <a target="windowElement" data-link="Public" title=""><img src="./media/img/elements/xed/folder-publicshare.png">Public</a>
+                <a target="windowElement" data-link="Téléchargements" title=""><img src="./media/img/elements/xed/folder-download.png">Téléchargements</a>
+                <a target="windowElement" data-link="Vidéos" title=""><img src="./media/img/elements/xed/folder-videos.png">Vidéos</a>
+            </section>
+            <section class="windowElement" data-link="Bureau" id="bureau" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Documents" id="documents" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Musique" id="musique" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Images" id="images" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Vidéos" id="videos" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Téléchargements" id="telechargements" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Récent" id="recent" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Système de fichiers" id="systemDeFichiers" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Corbeille" id="corbeille" style="display: none; position: relative;"></section>
+            <section class="windowElement" data-link="Réseau" id="reseau" style="display: none; position: relative;">
+            </section>
     </main>
     <footer id="xedFooterContainer">
         <section>

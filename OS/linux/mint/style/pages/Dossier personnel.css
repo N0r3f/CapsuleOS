@@ -1,0 +1,25 @@
+#dossierPersonnel {
+    display: var(--f);
+    flex-flow: var(--rw);
+    justify-content: var(--fs);
+    align-items: var(--fs);
+    width: var(--full);
+    height: var(--full);
+    min-height: var(--a);
+    overflow: var(--a);
+}
+
+#dossierPersonnel>a {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--sa);
+    align-items: var(--c);
+    width: calc(var(--head) * 2);
+    margin: 10px 40px;
+    color: var(--noir);
+}
+
+#dossierPersonnel>a>img {
+    width: 75px;
+    margin: 10px 40px;
+}
