@@ -6,11 +6,11 @@ main#gestionnaire {
     left: var(--z);
     display: var(--f);
     flex-flow: var(--cnw);
-    justify-content: var(--sb);
-    align-items: var(--c);
+    justify-content: var(--fs);
+    align-items: var(--fs);
     width: var(--full);
-    height: calc(var(--full) - calc(var(--head) * 3));
-    min-height: calc(var(--head) * 6);
+    height: calc(var(--full) - calc(var(--head) / 1.5));
+    min-height: calc(var(--a) - calc(var(--head) / 1.5));
     font-size: calc(var(--head) - 25px);
     border-radius: var(--z) var(--z) calc(var(--head) / 4);
     background-color: var(--bgw);
@@ -69,13 +69,16 @@ main#gestionnaire {
 #xedMainContainer {
     position: var(--rel);
     top: var(--z);
+    right: var(--z);
     bottom: var(--head);
+    left: var(--z);
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--fs);
     align-items: var(--fs);
     width: var(--full);
-    height: var(--a);
+    height: calc(var(--full) - var(--head));
+    min-height: calc(var(--a) - var(--head));
     margin: var(--z);
 }
 
@@ -85,9 +88,10 @@ main#gestionnaire {
     justify-content: var(--fs);
     align-items: var(--fs);
     width: calc(var(--head) * 6);
-    height: var(--a);
-    min-height: var(--full);
-    padding-left: calc(var(--head) / 12);
+    min-width: calc(calc(var(--head) * 6) + calc(var(--head) / 12));
+    height: var(--full);
+    min-height: var(--a);
+    padding: calc(var(--head) / 12);
     border-right: solid 1px var(--xedHCB);
     background-color: var(--xedMCSF);
     overflow: var(--a);
@@ -124,8 +128,8 @@ main#gestionnaire {
     justify-content: var(--fs);
     align-items: var(--fs);
     width: var(--full);
-    height: var(--a);
-    min-height: var(--full);
+    height: var(--full);
+    min-height: var(--a);
     overflow: var(--a);
 }
 
@@ -145,8 +149,6 @@ main#gestionnaire {
 }
 
 #xedFooterContainer {
-    position: var(--stck);
-    bottom: var(--z);
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--sb);
