@@ -8,9 +8,11 @@ main#gestionnaire {
     flex-flow: var(--cnw);
     justify-content: var(--fs);
     align-items: var(--fs);
-    width: var(--full);
-    height: calc(var(--full) - calc(var(--head) / 1.5));
-    min-height: calc(var(--a) - calc(var(--head) / 1.5));
+    width: calc(var(--full) - calc(var(--head) / 20));
+    height: calc(var(--full) - calc(var(--head) / 1.4));
+    min-height: calc(var(--a) - calc(var(--head) / 1.4));
+    margin-bottom: calc(var(--head) / 12);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
     font-size: calc(var(--head) - 25px);
     background-color: var(--bgw);
     overflow: var(--h);
@@ -77,8 +79,8 @@ main#gestionnaire {
     justify-content: var(--fs);
     align-items: var(--fs);
     width: var(--full);
-    height: calc(var(--full) - calc(var(--head) * 2));
-    min-height: calc(var(--a) - calc(var(--head) * 2));
+    height: calc(var(--full) - calc(var(--head) * 2.5));
+    min-height: calc(var(--a) - calc(var(--head) * 2.5));
     margin: var(--z);
 }
 
@@ -122,18 +124,18 @@ main#gestionnaire {
     padding-right: calc(var(--head) / 8);
 }
 
-.xedElement {
+#xedMainContainer>.xedElement {
     display: var(--f);
     flex-flow: var(--rw);
     justify-content: var(--fs);
     align-items: var(--fs);
     width: var(--full);
-    height: var(--full);
+    height: var(--a);
     min-height: var(--a);
     overflow: var(--a);
 }
 
-section.xedElement>a {
+#xedMainContainer>section.xedElement>a {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--sa);
@@ -143,7 +145,7 @@ section.xedElement>a {
     color: var(--noir);
 }
 
-section.xedElement>a>img {
+#xedMainContainer>section.xedElement>a>img {
     width: 75px;
     margin: 10px 40px;
 }
@@ -155,7 +157,7 @@ section.xedElement>a>img {
     align-items: var(--c);
     width: var(--full);
     height: var(--head);
-    margin-bottom: var(--z);
+    margin-bottom: calc(var(--head) / 12);
     padding: var(--z) calc(var(--head) / 2); 
     border-top: solid 1px var(--xedHCB);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);

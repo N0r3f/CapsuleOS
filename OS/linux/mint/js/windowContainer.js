@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajout du contenu HTML pour la div#windowHeader
     windowHeader.id = 'windowHeader';
-    windowHeader.style.minWidth = 'calc(var(--head) * 16)';
+    windowHeader.style.minWidth = 'var(--full)';
 
     title.id = 'windowTitle';
     // Utilisez document.title pour obtenir le titre de la page par défaut
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         if (container) {
             if (container.style.display === "none") {
-                container.style.display = "block";
+                container.style.display = "flex";
                 if (!container.querySelector('#windowHeader')) {
                     container.insertBefore(windowHeader.cloneNode(true), container.firstChild);
                 }        
