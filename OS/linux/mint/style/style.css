@@ -26,8 +26,8 @@ html {
     align-items: var(--c);
     justify-content: var(--fs);
     width: var(--max-w);
-    height: calc(var(--full) - calc(var(--head) * 2));
-    max-height: calc(var(--full) - calc(var(--head) * 2));
+    height: calc(var(--full) - calc(var(--head) * 1.5));
+    max-height: calc(var(--full) - calc(var(--head) * 1.5));
 }
 
 #tableau {
