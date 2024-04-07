@@ -1,15 +1,18 @@
-#dossierPersonnel {
+@import url(../imports.css);
+
+#dossierPersonnel.xedElement {
     display: var(--f);
     flex-flow: var(--rw);
     justify-content: var(--fs);
     align-items: var(--fs);
     width: var(--full);
+    min-width: calc(var(--head) * 6);
     height: var(--full);
     min-height: var(--a);
     overflow: var(--a);
 }
 
-#dossierPersonnel>a {
+#dossierPersonnel.xedElement>a {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--sa);
@@ -19,7 +22,7 @@
     color: var(--noir);
 }
 
-#dossierPersonnel>a>img {
+#dossierPersonnel.xedElement>a>img {
     width: 75px;
     margin: 10px 40px;
 }

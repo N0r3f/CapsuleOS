@@ -122,7 +122,7 @@ main#gestionnaire {
     padding-right: calc(var(--head) / 8);
 }
 
-#xedMainContainer>section.windowElement {
+.xedElement {
     display: var(--f);
     flex-flow: var(--rw);
     justify-content: var(--fs);
@@ -133,7 +133,7 @@ main#gestionnaire {
     overflow: var(--a);
 }
 
-section.windowElement>a {
+section.xedElement>a {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--sa);
@@ -143,7 +143,7 @@ section.windowElement>a {
     color: var(--noir);
 }
 
-section.windowElement>a>img {
+section.xedElement>a>img {
     width: 75px;
     margin: 10px 40px;
 }
