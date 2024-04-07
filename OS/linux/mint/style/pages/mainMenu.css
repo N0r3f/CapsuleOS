@@ -1,6 +1,4 @@
-@import url(../../../../style/imports.css);
-
-main>div[data-link="mainMenu"] {
+object>div[data-link="mainMenu"] {
     position: var(--abs);
     left: var(--z);
     bottom: var(--head);
@@ -8,7 +6,7 @@ main>div[data-link="mainMenu"] {
     height: calc(var(--head) * 12);
 }
 
-main>div[data-link="mainMenu"]>#windowContainer {
+object>div[data-link="mainMenu"]>#windowContainer {
     margin: var(--z);
     padding: var(--z);
 }

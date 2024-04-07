@@ -1,0 +1,5 @@
+iframe {
+    width: var(--full);
+    height: var(--full);
+    background: var(--texte);
+}

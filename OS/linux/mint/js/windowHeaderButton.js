@@ -26,8 +26,8 @@ document.addEventListener('click', function (event) {
             windowElement.style.left = '';
         } else {
             windowElement.style.width = '100%';
-            windowElement.style.height = '95vh';
-            windowElement.style.position = 'fixed';
+            windowElement.style.height = '100%';
+            windowElement.style.position = 'relative';
             windowElement.style.top = '0';
             windowElement.style.left = '0';
         }

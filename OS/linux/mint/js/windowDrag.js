@@ -25,7 +25,7 @@ const makeDraggable = (element) => {
         if (isDragging) {
             e.preventDefault(); // Empêche la sélection de texte
             // Obtenez les limites du parent main
-            const mainElement = document.querySelector('#mainMint');
+            const mainElement = document.querySelector('object');
             const mainRect = mainElement.getBoundingClientRect();
 
             // Calculez les nouvelles positions de la fenêtre
@@ -42,14 +42,14 @@ const makeDraggable = (element) => {
         }
         document.addEventListener('click', function(event) {
             // Supprimer la classe active de tous les éléments
-            document.querySelectorAll('.windowElement').forEach(function(element) {
-                element.classList.remove('active');
+            document.querySelectorAll('.windowElement' , '#windowContainer').forEach(function(element) {
+                element.classList.remove('windowElementActive');
             });
         
             // Ajouter la classe active à l'élément cliqué
-            const clickedElement = event.target.closest('.windowElement');
+            const clickedElement = event.target.closest('.windowElement' , '#windowContainer');
             if (clickedElement) {
-                clickedElement.classList.add('active');
+                clickedElement.classList.add('windowElementActive');
             }
         });
     });

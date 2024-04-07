@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const minimizeBtn = document.createElement('button');
     const maximizeBtn = document.createElement('button');
     const closeBtn = document.createElement('button');
-    
+
     // Ajout du contenu HTML pour la div#windowHeader
     windowHeader.id = 'windowHeader';
     windowHeader.style.minWidth = 'calc(var(--head) * 16)';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     right.appendChild(minimizeBtn);
     right.appendChild(maximizeBtn);
     right.appendChild(closeBtn);
-    
+
     function handleOpenwindow(link) {
         const container = document.querySelector(`div[data-link="${link.dataset.link}"]`);
         
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 container.style.display = "none";
                 // Retirer la classe active de l'élément de fenêtre
                 container.classList.remove('active');
+                container.classList.remove('windowElementActive');
             }
         }
     }
