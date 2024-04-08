@@ -6,43 +6,85 @@
                                         <li>
                                                 <a href="#">Fichier</a>
                                                 <ul class="listeSousMenu">
-                                                        <li><a href="#">A</a></li>
-                                                        <li><a href="#">B</a></li>
+                                                        <a href="#">
+                                                                <li><img src="./media/img/elements/xed/tab-new.svg">Nouvel onglet</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>Nouvel fenêtre</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li><img src="./media/img/elements/xed/new-folder.svg">Créer un nouveau dossier</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li><img src="./media/img/elements/xed/add-new-file.svg">Créer un nouveau document<img src="./media/img/elements/xed/pan-end-symbolic.svg"></li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>Se connecter au serveur...</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li><img src="./media/img/elements/xed/document-properties.svg">Propriétés</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>Fermer toutes les fenêtres</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li><img src="./media/img/elements/xed/cross.svg">Fermer</li>
+                                                        </a>
                                                 </ul>
                                         </li>
                                         <li>
                                                 <a href="#">Edition</a>
                                                 <ul class="listeSousMenu">
-                                                        <li><a href="#">A</a></li>
-                                                        <li><a href="#">B</a></li>
+                                                        <a href="#">
+                                                                <li>A</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>B</li>
+                                                        </a>
                                                 </ul>
                                         </li>
                                         <li>
                                                 <a href="#">Affichage</a>
                                                 <ul class="listeSousMenu">
-                                                        <li><a href="#">A</a></li>
-                                                        <li><a href="#">B</a></li>
+                                                        <a href="#">
+                                                                <li>A</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>B</li>
+                                                        </a>
                                                 </ul>
                                         </li>
                                         <li>
                                                 <a href="#">Aller à</a>
                                                 <ul class="listeSousMenu">
-                                                        <li><a href="#">A</a></li>
-                                                        <li><a href="#">B</a></li>
+                                                        <a href="#">
+                                                                <li>A</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>B</li>
+                                                        </a>
                                                 </ul>
                                         </li>
                                         <li>
                                                 <a href="#">Marque-pages</a>
                                                 <ul class="listeSousMenu">
-                                                        <li><a href="#">A</a></li>
-                                                        <li><a href="#">B</a></li>
+                                                        <a href="#">
+                                                                <li>A</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>B</li>
+                                                        </a>
                                                 </ul>
                                         </li>
                                         <li>
                                                 <a href="#">Aide</a>
                                                 <ul class="listeSousMenu">
-                                                        <li><a href="#">A</a></li>
-                                                        <li><a href="#">B</a></li>
+                                                        <a href="#">
+                                                                <li>A</li>
+                                                        </a>
+                                                        <a href="#">
+                                                                <li>B</li>
+                                                        </a>
                                                 </ul>
                                         </li>
                                 </ul>
@@ -178,15 +220,14 @@
         </footer>
 </main>
 <script>
-        document.querySelectorAll('.menuHeader li').forEach(function(li) {
-         li.addEventListener('click', function(event) {
-            var sousMenu = this.querySelector('.listeSousMenu');
-            if (listeSousMenu.style.display === 'none') {
-              sousMenu.style.display = 'block';
-            } else {
-              sousMenu.style.display = 'none';
-            }
-         });
+        document.querySelectorAll('.menuHeader li').forEach(function (li) {
+                li.addEventListener('click', function (event) {
+                        var sousMenu = this.querySelector('.listeSousMenu');
+                        if (sousMenu.style.display === 'none') {
+                                sousMenu.style.display = 'block';
+                        } else {
+                                sousMenu.style.display = 'none';
+                        }
+                });
         });
-        </script>
-        
+</script>
