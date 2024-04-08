@@ -35,7 +35,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     height: calc(var(--head) / 1.3);
     padding: calc(var(--head) / 4);
     border-radius: calc(var(--head) / 4) calc(var(--head) / 4) var(--z) var(--z);
-    background: var(--noir);
+    background: var(--xedHC);
     user-select: none;
 }
 
@@ -68,21 +68,18 @@ div[class^="windowElement"]:not(#mainMenu) {
 }
 
 #minimizeBtn {
-    background-image: url(../media/img/header/minimize.png);
+    background-image: url(../media/img/header/minimize.svg);
     background-size: cover;
-    background-color: #eeb042;
 }
 
 #resizeBtn {
-    background-image: url(../media/img/header/resize.png);
+    background-image: url(../media/img/header/maximize.svg);
     background-size: cover;
-    background-color: #4ec844;
 }
 
 #closeBtn {
-    background-image: url(../media/img/header/close.png);
+    background-image: url(../media/img/header/close.svg);
     background-size: cover;
-    background-color: #ee515b;
 }
 
 #windowIframe { 
