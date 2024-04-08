@@ -15,6 +15,7 @@ main#gestionnaire {
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
     font-size: calc(var(--head) - 25px);
     background-color: var(--bgw);
+    user-select: var(--n);
     overflow: var(--h);
 }
 
@@ -140,13 +141,14 @@ main#gestionnaire {
     flex-flow: var(--cnw);
     justify-content: var(--sa);
     align-items: var(--c);
-    width: calc(var(--head) * 2);
+    width: calc(var(--mid) / 4);
     margin: 10px 40px;
     color: var(--noir);
 }
 
 #xedMainContainer>section.xedElement>a>img {
-    width: 75px;
+    width: var(--full);
+    height: var(--a);
     margin: 10px 40px;
 }
 
