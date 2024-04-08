@@ -1,6 +1,7 @@
 div[class^="windowElement"]:not(#mainMenu) {
     position: var(--fix);
-    top: calc(var(--head) * 1.2);
+    top: var(--head);
+    bottom: calc(var(--head) * 1.5);
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
@@ -18,9 +19,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     scrollbar-width: var(--z);
 }
 
-.windowElement .active {
-    height: var(--a);
-    min-height: calc(var(--head) * 18);
+.windowElementActive {
     z-index: 500;
 }
 
@@ -52,6 +51,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     width: calc(var(--head) * 20);
     text-align: var(--c);
     text-shadow: var(--bs);
+    filter: var(--inv);
 }
 
 #windowHeader>nav>button {

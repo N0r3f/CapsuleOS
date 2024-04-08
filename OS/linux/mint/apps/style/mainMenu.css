@@ -1,9 +1,10 @@
 object>div[data-link="mainMenu"] {
     position: var(--abs);
     left: var(--z);
-    bottom: var(--head);
-    width: calc(var(--head) * 12);
-    height: calc(var(--head) * 12);
+    bottom: calc(var(--head) * 1.5);
+    width: calc(var(--head) * 8);
+    height: calc(var(--head) * 7);
+    background: var(--genMenu);
 }
 
 object>div[data-link="mainMenu"]>#windowContainer {
@@ -20,46 +21,71 @@ div[data-link="mainMenu"]>#windowHeader {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
-    justify-content: var(--c);
-    width: var(--full);
-    height: var(--full);
+    justify-content: var(--fs);
+    width: calc(var(--head) * 18);
+    height: calc(var(--head) * 16);
     margin-bottom: var(--z);
-    box-shadow: var(--bs);
-    background: var(--t);
+    border-radius: var(--z) calc(var(--head) / 10) var(--z) var(--z);
+    background: var(--genMenu);
 }
 
-.mainMenuCol {
+#mainMenuCol {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 3.5);
+    height: var(--full);
+}
+
+#menuItems {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--fs);
-    height: var(--full);
-    border: var(--bor-mn);
+    width: calc(var(--head) * 2.3);
+    height: calc(var(--full) - calc(var(--head) * 1.2));
+    border: var(--menu-mint);
+    border-radius: calc(var(--head) / 10);
 }
 
-.mainMenuCol:nth-child(1) {
-    width: calc(var(--min-w) * 4);
+#menuItems>a {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 1.7);
+    height: calc(var(--head) * 1.7);
 }
 
-#mainMenu>.mainMenuCol>a {
-    width: calc(var(--head) + var(--head) / 4);
-    height: var(--a);
+#menuItems>a:nth-child(1) {
+    margin-top: calc(var(--head) / 3);
 }
 
-#mainMenu>.mainMenuCol>a>img {
-    width: calc(var(--head) + var(--head) / 4);
+#menuItems>a:hover {
+    background: var(--menuHover);
+    border-radius: calc(var(--head) / 10);
+}
+
+#menuItems>a>img {
+    width: calc(var(--head) - calc(var(--head) / 30));
     height: var(--a);
     transition: var(--eas2);
 }
 
-#mainMenu>.mainMenuCol>a>img:hover {
-    transform: scale(.9);
+#menuContainer { 
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+    height: var(--full);
 }
 
-.mainMenuCol:nth-child(2) {
-    width: calc(var(--min-w) * 16);
-}
-
-.mainMenuCol:nth-child(3) {
-    width: calc(var(--min-w) * 16);
+#menuContainer>input {
+    width: calc(var(--full) - var(--head));
+    height: calc(var(--head) / 1.5);
+    border: 2px solid rgb(11, 91, 195);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menuInput);
 }

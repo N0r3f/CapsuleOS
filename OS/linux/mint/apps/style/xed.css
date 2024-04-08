@@ -147,9 +147,9 @@ main#gestionnaire {
 }
 
 #xedMainContainer>section.xedElement>a>img {
-    width: var(--full);
+    width: calc(var(--head) * 2);
     height: var(--a);
-    margin: 10px 40px;
+    margin: calc(var(--head) / 4) var(--head);
 }
 
 #xedFooterContainer {
