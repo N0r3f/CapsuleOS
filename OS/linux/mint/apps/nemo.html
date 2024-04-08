@@ -1,0 +1,117 @@
+<main id="gestionnaire">
+    <header id="nemoHeaderContainer">
+        <section class="menuOutils">
+            <a href="#">Fichier</a>
+            <a href="#">Edition</a>
+            <a href="#">Affichage</a>
+            <a href="#">Aller à</a>
+            <a href="#">Marque-pages</a>
+            <a href="#">Aide</a>
+        </section>
+        <section class="menuOutils">
+            <div class="sousMenuOutils">
+                <a href="#"><img src="./media/img/elements/nemo/go-previous-symbolic.svg"
+                        title="Va à l'emplacement visité précédent"></a>
+                <a href="#"><img src="./media/img/elements/nemo/go-next-symbolic.svg"
+                        title="Va à l'emplacement visité suivant"></a>
+                <a href="#"><img src="./media/img/elements/nemo/go-up-symbolic.svg" title="Aller au dossier parent"></a>
+                <a href="#"><img src="./media/img/elements/nemo/pan-start-symbolic.svg"></a>
+                <a href="#">Dossier personnel</a>
+                <a href="#"><img src="./media/img/elements/nemo/pan-end-symbolic.svg"></a>
+            </div>
+            <div class="sousMenuOutils">
+                <a href="#"><img src="./media/img/elements/nemo/location-symbolic.svg"
+                        title="Basculer le mode de navigation"></a>
+                <a href="#"><img src="./media/img/elements/nemo/search-symbolic.svg"
+                        title="Chercher des documents et des dossiers"></a>
+                <a href="#"><img src="./media/img/elements/nemo/view-grid-symbolic.svg" title="Vue en icônes"></a>
+                <a href="#"><img src="./media/img/elements/nemo/view-list-symbolic.svg" title="Vue en liste"></a>
+                <a href="#"><img src="./media/img/elements/nemo/view-compact-symbolic.svg" title="Vue compacte"></a>
+            </div>
+        </section>
+    </header>
+    <main id="nemoMainContainer">
+        <aside id="voletnemo">
+            <a href="#"><img src="./media/img/elements/nemo/pan-down-symbolic.svg">Poste de travail</a>
+            <div>
+                <a target="windowElement" data-link="Dossier Personnel" title="Ouvrir le dossier personnel"><img
+                        src="./media/img/elements/nemo/user-home-symbolic.svg"
+                        title="Ouvrir votre dossier personnel. Espace disponible : ... Go">Dossier personnel</a>
+                <a target="windowElement" data-link="Bureau" title="Ouvrir le bureau"><img
+                        src="./media/img/elements/nemo/user-desktop-symbolic.svg"
+                        title="Ouvre le contenu de votre bureau dans un dossier">Bureau</a>
+                <a target="windowElement" data-link="Documents" title="Ouvrir les documents"><img
+                        src="./media/img/elements/nemo/folder-documents-symbolic.svg"
+                        title="/home/utilisateur.../Documents">Documents</a>
+                <a target="windowElement" data-link="Musique" title="Ouvrir la musique"><img
+                        src="./media/img/elements/nemo/folder-music-symbolic.svg"
+                        title="/home/utilisateur.../Musique">Musique</a>
+                <a target="windowElement" data-link="Images" title="Ouvrir les images"><img
+                        src="./media/img/elements/nemo/folder-pictures-symbolic.svg"
+                        title="/home/utilisateur.../Images">Images</a>
+                <a target="windowElement" data-link="Vidéos" title="Ouvrir les vidéos"><img
+                        src="./media/img/elements/nemo/folder-videos-symbolic.svg"
+                        title="/home/utilisateur.../Vidéos">Vidéos</a>
+                <a target="windowElement" data-link="Téléchargements" title="Ouvrir les téléchargements"><img
+                        src="./media/img/elements/nemo/folder-download-symbolic.svg"
+                        title="/home/utilisateur.../Téléchargements">Téléchargements</a>
+                <a target="windowElement" data-link="Récent" title="Ouvert récemment"><img
+                        src="./media/img/elements/nemo/recent.svg" title="Fichiers récents">Récent</a>
+                <a target="windowElement" data-link="Corbeille" title="Ouvrir la corbeille"><img
+                        src="./media/img/elements/nemo/hdd.svg"
+                        title="Ouvrir le contenu du Système de fichiers. Espace disponible : ... Go">Système de
+                    fichiers</a>
+                <a target="windowElement" data-link="" title="Ouvrir "><img
+                        src="./media/img/elements/nemo/user-trash-symbolic.svg" title="Ouvrir la corbeille">Corbeille</a>
+            </div>
+            <a href="#"><img src="./media/img/elements/nemo/pan-down-symbolic.svg">Marque-pages</a>
+            <div><a href="#"><img src="./media/img/elements/nemo/user-desktop-symbolic.svg"
+                        title="/home/utilisateur.../Bureau">Bureau</a></div>
+            <a href="#"><img src="./media/img/elements/nemo/pan-down-symbolic.svg">Réseau</a>
+            <div><a href="#"><img src="./media/img/elements/nemo/network-workgroup-symbolic.svg"
+                        title="Parcourt le contenu du réseau">Réseau</a></div>
+        </aside>
+            <section class="nemoElement" class="active" data-link="Dossier Personnel" id="dossierPersonnel" style="display: flex;">
+                <a target="nemoElement" data-link="Documents"><img src="./media/img/elements/nemo/folder-documents.png">Documents</a>
+                <a target="nemoElement" data-link="Images" title="Ouvrir le dossier Images"><img src="./media/img/elements/nemo/folder-pictures.png">Images</a>
+                <a target="nemoElement" data-link="Musique" title="Ouvrir le dossier Musique"><img src="./media/img/elements/nemo/folder-music.png">Musique</a>
+                <a target="nemoElement" data-link="Public" title="Ouvrir le dossier Public"><img src="./media/img/elements/nemo/folder-publicshare.png">Public</a>
+                <a target="nemoElement" data-link="Téléchargements" title="Ouvrir le dossier Téléchargements"><img src="./media/img/elements/nemo/folder-download.png">Téléchargements</a>
+                <a target="nemoElement" data-link="Vidéos" title="Ouvrir le dossier Vidéos"><img src="./media/img/elements/nemo/folder-videos.png">Vidéos</a>
+            </section>
+            <section class="nemoElement" data-link="Bureau" id="bureau" style="display: none;">
+            </section>
+            <section class="nemoElement" data-link="Documents" id="documents" style="display: none;">
+                <a target="nemoElement" data-link="Défis" title="Ouvrir le dossier Défis"><img src="./media/img/elements/nemo/folder.png">Défis</a>
+                <a target="nemoElement" data-link="Formations" title="Ouvrir le dossier Formations"><img src="./media/img/elements/nemo/folder.png">Formations</a>
+                <a target="nemoElement" data-link="Métiers" title="Ouvrir le dossier Métiers"><img src="./media/img/elements/nemo/folder.png">Métiers</a>
+                <a target="nemoElement" data-link="Tutoriels" title="Ouvrir le dossier Tutoriels"><img src="./media/img/elements/nemo/folder.png">Tutoriels</a>
+            </section>
+            <section class="nemoElement" data-link="Musique" id="musique" style="display: none;"></section>
+            <section class="nemoElement" data-link="Images" id="images" style="display: none;"></section>
+            <section class="nemoElement" data-link="Vidéos" id="videos" style="display: none;"></section>
+            <section class="nemoElement" data-link="Téléchargements" id="telechargements" style="display: none;"></section>
+            <section class="nemoElement" data-link="Récent" id="recent" style="display: none;"></section>
+            <section class="nemoElement" data-link="Système de fichiers" id="systemDeFichiers" style="display: none;"></section>
+            <section class="nemoElement" data-link="Corbeille" id="corbeille" style="display: none;"></section>
+            <section class="nemoElement" data-link="Réseau" id="reseau" style="display: none;">
+            </section>
+    </main>
+    <footer id="nemoFooterContainer">
+        <section>
+            <a href="#"><img src="./media/img/elements/nemo/sidebar-places-symbolic.svg"
+                    title="Montrer les emplacements"></a>
+            <a href="#"><img src="./media/img/elements/nemo/sidebar-tree-symbolic.svg"
+                    title="Montrer l'arborescence"></a>
+            <a href="#"><img src="./media/img/elements/nemo/sidebar-hide-symbolic.svg"
+                    title="Masquer le Panneau latéral (F9)"></a>
+        </section>
+        <section>
+            <p>6 éléments, espace disponible : 237 Go</p>
+        </section>
+        <section>
+            <input type="range" name="zoom" id="zoom" min="0" max="100">
+        </section>
+    </footer>
+</main>
+<script src="../js/nemoContainer.js"></script>

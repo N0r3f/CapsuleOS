@@ -19,7 +19,7 @@ main#gestionnaire {
     overflow: var(--h);
 }
 
-#xedHeaderContainer {
+#nemoHeaderContainer {
     top: var(--z);
     display: var(--f);
     flex-flow: var(--cnw);
@@ -28,11 +28,11 @@ main#gestionnaire {
     width: var(--full);
     height: calc(var(--head) * 2);
     margin-top: var(--z);
-    border-bottom: solid 1px var(--xedHCB);
-    background-color: var(--xedHC);
+    border-bottom: solid 1px var(--nemoHCB);
+    background-color: var(--nemoHC);
 }
 
-#xedHeaderContainer>.menuOutils:nth-child(1),
+#nemoHeaderContainer>.menuOutils:nth-child(1),
 .menuOutils>.sousMenuOutils {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -49,7 +49,7 @@ main#gestionnaire {
     text-align: center;
 }
 
-#xedHeaderContainer>.menuOutils:nth-child(2) {
+#nemoHeaderContainer>.menuOutils:nth-child(2) {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
@@ -69,7 +69,7 @@ main#gestionnaire {
     color: var(--noir);
 }
 
-#xedMainContainer {
+#nemoMainContainer {
     position: var(--rel);
     top: var(--z);
     right: var(--z);
@@ -85,7 +85,7 @@ main#gestionnaire {
     margin: var(--z);
 }
 
-#xedMainContainer>#voletXed {
+#nemoMainContainer>#voletnemo {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--fs);
@@ -95,13 +95,13 @@ main#gestionnaire {
     height: var(--full);
     min-height: var(--a);
     padding: calc(var(--head) / 12);
-    border-right: solid 1px var(--xedHCB);
-    background-color: var(--xedMCSF);
+    border-right: solid 1px var(--nemoHCB);
+    background-color: var(--nemoMCSF);
     overflow: var(--a);
 }
 
-#xedMainContainer>#voletXed>a,
-#xedMainContainer>#voletXed>div>a {
+#nemoMainContainer>#voletnemo>a,
+#nemoMainContainer>#voletnemo>div>a {
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--fs);
@@ -111,7 +111,7 @@ main#gestionnaire {
     color: var(--noir);
 }
 
-#xedMainContainer>#voletXed>div {
+#nemoMainContainer>#voletnemo>div {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--fs);
@@ -121,11 +121,11 @@ main#gestionnaire {
     gap: calc(var(--head) / 8);
 }
 
-#xedMainContainer>#voletXed>div>a>img {
+#nemoMainContainer>#voletnemo>div>a>img {
     padding-right: calc(var(--head) / 8);
 }
 
-#xedMainContainer>.xedElement {
+#nemoMainContainer>.nemoElement {
     display: var(--f);
     flex-flow: var(--rw);
     justify-content: var(--fs);
@@ -136,7 +136,7 @@ main#gestionnaire {
     overflow: var(--a);
 }
 
-#xedMainContainer>section.xedElement>a {
+#nemoMainContainer>section.nemoElement>a {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--sa);
@@ -146,13 +146,13 @@ main#gestionnaire {
     color: var(--noir);
 }
 
-#xedMainContainer>section.xedElement>a>img {
+#nemoMainContainer>section.nemoElement>a>img {
     width: calc(var(--head) * 2);
     height: var(--a);
     margin: calc(var(--head) / 4) var(--head);
 }
 
-#xedFooterContainer {
+#nemoFooterContainer {
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--sb);
@@ -161,12 +161,12 @@ main#gestionnaire {
     height: var(--head);
     margin-bottom: calc(var(--head) / 12);
     padding: var(--z) calc(var(--head) / 2); 
-    border-top: solid 1px var(--xedHCB);
+    border-top: solid 1px var(--nemoHCB);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
-    background-color: var(--xedfoot);
+    background-color: var(--nemofoot);
 }
 
-#xedFooterContainer>section:nth-child(1) {
+#nemoFooterContainer>section:nth-child(1) {
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--fs);
@@ -174,7 +174,7 @@ main#gestionnaire {
     width: calc(var(--head) * 4);
 }
 
-#xedFooterContainer>section:nth-child(1)>a {
+#nemoFooterContainer>section:nth-child(1)>a {
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--c);
@@ -182,19 +182,19 @@ main#gestionnaire {
     width: calc(var(--head) / 2);
 }
 
-#xedFooterContainer>section:nth-child(1)>a:nth-child(3) {
+#nemoFooterContainer>section:nth-child(1)>a:nth-child(3) {
     width: var(--head);
 }
 
-#xedFooterContainer>section:nth-child(2) {
+#nemoFooterContainer>section:nth-child(2) {
     width: calc(var(--head) * 8);
 }
 
-#xedFooterContainer>section:nth-child(2)>p {
+#nemoFooterContainer>section:nth-child(2)>p {
     color: var(--noir);
 }
 
-#xedFooterContainer>section:nth-child(3) {
+#nemoFooterContainer>section:nth-child(3) {
     display: var(--f);
     flex-flow: var(--rnw);
     justify-content: var(--fe);
@@ -202,6 +202,6 @@ main#gestionnaire {
     width: calc(var(--head) * 4);
 }
 
-#xedFooterContainer>section:nth-child(3)>input {
+#nemoFooterContainer>section:nth-child(3)>input {
     width: calc(var(--head) * 2);
 }
