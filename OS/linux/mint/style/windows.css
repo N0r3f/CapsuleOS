@@ -87,7 +87,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--c);
-    width: var(--full);
+    width: calc(var(--full) - calc(var(--head) / 20));
     height: var(--a);
     min-height: calc(var(--full) - calc(var(--head) / 1.2));
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
