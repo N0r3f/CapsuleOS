@@ -22,7 +22,7 @@ div[data-link="mainMenu"]>#windowHeader {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--fs);
-    width: calc(var(--head) * 18);
+    width: calc(var(--head) * 16);
     height: calc(var(--head) * 16);
     margin-bottom: var(--z);
     border-radius: var(--z) calc(var(--head) / 10) var(--z) var(--z);
@@ -43,7 +43,7 @@ div[data-link="mainMenu"]>#windowHeader {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--fs);
-    width: calc(var(--head) * 2.3);
+    width: calc(var(--head) * 2.1);
     height: calc(var(--full) - calc(var(--head) * 1.2));
     border: var(--menu-mint);
     border-radius: calc(var(--head) / 10);
@@ -54,8 +54,12 @@ div[data-link="mainMenu"]>#windowHeader {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--c);
-    width: calc(var(--head) * 1.7);
-    height: calc(var(--head) * 1.7);
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+}
+
+#menuItems>a:nth-child(6) {
+    margin-top: calc(var(--head) * 2.2);
 }
 
 #menuItems>a:nth-child(1) {
@@ -84,8 +88,18 @@ div[data-link="mainMenu"]>#windowHeader {
 
 #menuContainer>input {
     width: calc(var(--full) - var(--head));
-    height: calc(var(--head) / 1.5);
+    height: calc(var(--head) / 1.2);
+    margin-top: calc(var(--head) / 6);
     border: 2px solid rgb(11, 91, 195);
     border-radius: calc(var(--head) / 10);
     background: var(--menuInput);
+}
+
+#menuItemsDetails {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+    height: calc(var(--full) - calc(var(--head) * 2.8));
 }
