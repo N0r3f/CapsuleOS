@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     divs.forEach(div => {
         const id = div.getAttribute('data-link');
-        const htmlFile = `./pages/${id}.html`;
-        const cssFile = `./style/pages/${id}.css`;
+        const htmlFile = `./apps/${id}.html`;
+        const cssFile = `./apps/style/${id}.css`;
 
         // Chargement du contenu HTML
         fetch(htmlFile)

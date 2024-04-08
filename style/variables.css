@@ -57,6 +57,7 @@
     --c: center;
     --sa: space-around;
     --sb: space-between;
+    --se: space-evenly;
 
     /************** TAILLES **************/
     --a: auto;
