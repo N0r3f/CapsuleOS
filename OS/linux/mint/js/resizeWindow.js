@@ -22,8 +22,6 @@ class Resizer {
     }
 
     startResize(e) {
-
-        e.preventDefault();
         if (e.target !== this.element) return; // Vérifier si l'événement est déclenché à l'intérieur de l'élément cible
 
         this.element.style.position = 'fixed';        
