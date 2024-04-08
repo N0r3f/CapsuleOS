@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="71.71965mm"
+   height="71.71965mm"
+   viewBox="0 0 71.719649 71.719658"
+   version="1.1"
+   id="svg5520"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="tab-new.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5522"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="92.685112"
+     inkscape:cy="209.3997"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5517" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-80.02158,-92.959714)">
+    <g
+       fill="#2e3436"
+       id="g7337"
+       transform="matrix(4.4824781,0,0,4.4824781,80.02158,92.959714)"
+       style="fill:#1f1f1f;fill-opacity:1">
+      <path
+         d="M 3,0 C 1.3555,0 0,1.3555 0,3 v 10 c 0,1.6445 1.3555,3 3,3 h 10 c 1.6445,0 3,-1.3555 3,-3 V 3 C 16,1.3555 14.6445,0 13,0 Z m 0,2 h 10 c 0.57031,0 1,0.42969 1,1 v 10 c 0,0.57031 -0.42969,1 -1,1 H 3 C 2.42969,14 2,13.57031 2,13 V 3 C 2,2.42969 2.42969,2 3,2 Z"
+         id="path7331"
+         style="fill:#1f1f1f;fill-opacity:1" />
+      <path
+         d="m 4,7 h 8 V 9 H 4 Z"
+         id="path7333"
+         style="fill:#1f1f1f;fill-opacity:1" />
+      <path
+         d="m 9,4 v 8 H 7 V 4 Z"
+         id="path7335"
+         style="fill:#1f1f1f;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

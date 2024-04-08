@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50.166439mm"
+   height="50.166439mm"
+   viewBox="0 0 50.166437 50.166443"
+   version="1.1"
+   id="svg5520"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="about.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5522"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="-15.447519"
+     inkscape:cy="207.68331"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5517">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter832"
+       x="-1.2000476e-06"
+       width="1.0000024"
+       y="-1.1999524e-06"
+       height="1.0000024">
+      <feGaussianBlur
+         stdDeviation="7.5036824e-06"
+         id="feGaussianBlur834" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-108.93023,-93.710532)">
+    <path
+       d="m 134.01352,143.87697 c -2.57999,0 -6.5575,-14.87426 -8.38502,-16.69826 -1.82387,-1.82739 -16.69827,-5.80491 -16.69827,-8.38489 0,-2.57999 14.8744,-6.5575 16.69827,-8.38502 1.82752,-1.82387 5.80503,-16.698268 8.38502,-16.698268 2.57998,0 6.55736,14.874398 8.38489,16.698268 1.82386,1.82752 16.69826,5.80503 16.69826,8.38502 0,2.57998 -14.8744,6.5575 -16.69826,8.38489 -1.82753,1.824 -5.80491,16.69826 -8.38489,16.69826 z"
+       fill="#474747"
+       overflow="visible"
+       id="path9039"
+       style="fill:#1f1f1f;fill-opacity:1;stroke-width:3.58331" />
+  </g>
+</svg>

@@ -20,7 +20,7 @@
     --ph: hsl(0, 0%, 64%);
     --hovwin: hsla(216, 100%, 95%, .2);
     --sonohead: linear-gradient(90deg, hsla(254, 69%, 46%, 0.4), hsla(254, 62%, 25%, 0.4), hsla(254, 36%, 25%, 0.4));
-    --sonofoot: hsla(0, 0%, 100%, .2);
+    --sonofoot: hsla(0, 0%, 100%, 0.2);
     --hrmac: hsla(0, 0%, 0%, .4);
     --noir: hsl(231, 100%, 4%);
     --ndembk: hsl(0, 0%, 14%);

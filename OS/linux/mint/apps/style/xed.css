@@ -32,7 +32,7 @@ main#gestionnaire {
     background-color: var(--xedHC);
 }
 
-#xedHeaderContainer>.menuOutils:nth-child(1),
+.menuHeader,
 .menuOutils>.sousMenuOutils {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -43,6 +43,36 @@ main#gestionnaire {
     gap: calc(var(--head) - 25px);
     padding: var(--z) calc(var(--head) / 4);
 }
+.menuHeader{
+    list-style-type: none;
+    overflow: hidden;
+    margin-top: var(--z);
+    margin-bottom: var(--z);
+}
+.menuHeader>li>a{
+    display: var(--bl);
+    text-align: var(--fs);
+    color: var(--menuDefaultCcol);
+}
+.menuHeader>li:active, .listeSousMenu>li:hover{
+    background-color: #d0d0d0;
+}
+.listeSousMenu{
+    display: none;
+    position: var(--abs);
+    background-color: var(--bgw);
+    min-width: calc(var(--head) * 4);
+    box-shadow: var(--frame);
+    z-index: 1;
+}
+.listeSousMenu>a{
+    display: var(--bl);
+    text-align: left;
+}
+.menuHeader>li:hover .listeSousMenu{
+    display: var(--bl);
+}
+
 
 .menuOutils>.sousMenuOutils:nth-child(1)>a:nth-child(5) {
     min-width: calc(var(--head) * 4);

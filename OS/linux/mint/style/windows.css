@@ -18,7 +18,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     scrollbar-width: var(--z);
 }
 
-.windowElement .active {
+.windowElementActive {
     height: var(--a);
     min-height: calc(var(--head) * 18);
     z-index: 500;
@@ -29,9 +29,9 @@ div[class^="windowElement"]:not(#mainMenu) {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sb);
-    width: var(--full);
-    min-width: var(--a);
-    max-width: var(--max-w);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    min-width: calc(var(--a) - calc(var(--head) / 20));
+    max-width: calc(var(--amax-w) - calc(var(--head) / 20));
     height: calc(var(--head) / 1.3);
     padding: calc(var(--head) / 4);
     border-radius: calc(var(--head) / 4) calc(var(--head) / 4) var(--z) var(--z);
@@ -52,6 +52,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     width: calc(var(--head) * 20);
     text-align: var(--c);
     text-shadow: var(--bs);
+    filter: var(--inv);
 }
 
 #windowHeader>nav>button {
@@ -87,7 +88,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--c);
-    width: var(--full);
+    width: calc(var(--full) - calc(var(--head) / 20));
     height: var(--a);
     min-height: calc(var(--full) - calc(var(--head) / 1.2));
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
