@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajout du contenu HTML pour la div#windowHeader
     windowHeader.id = 'windowHeader';
-    windowHeader.style.minWidth = 'var(--full)';
+    windowHeader.style.minWidth = 'calc(var(--full) - calc(var(--head) / 20))';
 
     title.id = 'windowTitle';
     // Utilisez document.title pour obtenir le titre de la page par défaut
