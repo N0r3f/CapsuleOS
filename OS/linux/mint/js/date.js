@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function () {
 // Fonction pour mettre à jour l'heure et la date
 function updateDateTime() {
     var date = new Date();
@@ -8,3 +9,4 @@ function updateDateTime() {
 
 // Mettre à jour l'heure et la date toutes les secondes
 setInterval(updateDateTime, 1000);
+});

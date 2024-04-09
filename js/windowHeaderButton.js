@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('click', function (event) {
     if (event.target.matches('#minimizeBtn') || event.target.matches('#closeBtn')) {
         const windowElement = event.target.closest('.windowElement');
@@ -32,4 +33,5 @@ document.addEventListener('click', function (event) {
             windowElement.style.left = '0';
         }
     }
+});
 });

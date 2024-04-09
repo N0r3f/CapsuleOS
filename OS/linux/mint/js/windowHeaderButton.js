@@ -1,4 +1,5 @@
 document.addEventListener('click', function (event) {
+
     if (event.target.matches('#minimizeBtn') || event.target.matches('#closeBtn')) {
         const windowElement = event.target.closest('.windowElement');
         windowElement.style.display = 'none';

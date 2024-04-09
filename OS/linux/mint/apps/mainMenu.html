@@ -1,8 +1,8 @@
 <section id="mainMenu">
     <menu id="mainMenuCol">
         <nav id="menuItems">
-            <a href="#google">
-                <img src="./media/img/apps/firefox.png" alt="Google" title="Rechercher sur Google">
+            <a target="windowElement" data-link="firefox" title="Ouvrir un navigateur WEB">
+                <img src="./media/img/apps/firefox.png" alt="Firefox" title="Ouvrir un navigateur WEB">
             </a>
             <a href="#logitheque">
                 <img src="./media/img/apps/mintinstall.png" alt="Google" title="Rechercher sur Google">
@@ -30,7 +30,11 @@
     <menu id="menuContainer">
         <input type="search" name="menu" id="menuSearch">
         <nav id="menuItemsDetails">
-            <span class="menuCategory"></span>
+            <span class="menuCategory">
+                <a target="windowElement" data-link="firefox" title="Ouvrir un navigateur WEB">
+                    <img src="./media/img/apps/firefox.png" alt="Firefox" title="Ouvrir un navigateur WEB"> 
+                </a>
+            </span>
             <span class="menuSubCategory"></span>
         </nav>
     </menu>
