@@ -1,34 +1,4 @@
 let output, commandInput, prompt;
-const fileSystem = {
-    '/': {
-        '/bin': {},
-        '/home': {},
-        '/lib64': {},
-        '/media': {},
-        '/proc': {},
-        '/sbin': {},
-        '/swapfile': {},
-        '/tmp': {},
-        '/boot': {},
-        '/dev': {},
-        '/lib': {},
-        '/libx32': {},
-        '/lost+found': {},
-        '/opt': {},
-        '/run': {},
-        '/srv': {},
-        '/timeshift': {},
-        '/var': {},
-    },
-    '/home': {
-        '/user': {},
-    },
-    '/usr': {
-        '/bin': {},
-        '/lib': {},
-    },
-};
-
 let currentPath = '/';
 
 function updatePrompt() {
@@ -110,7 +80,7 @@ function executeCommand(command) {
             result = `Fichier ${args[0]} supprimé.`;
             break;
         default:
-            result = `command not found: ${cmd}`;
+            result = `command not found : ${cmd}`;
     }
 
     outputLine.textContent = result;
