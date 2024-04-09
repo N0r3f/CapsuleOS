@@ -5,7 +5,7 @@ const fileSystem = {
         '/media': {},
         '/proc': {},
         '/sbin': {},
-        '/swapfile': {},
+        'swapfile': {},
         '/tmp': {},
         '/boot': {},
         '/dev': {},
@@ -33,6 +33,16 @@ const fileSystem = {
     },
     '/home': {
         '/user': {},
+    },
+    '/user': {
+        '/Bureau': {},
+        '/Documents': {},
+        '/Images': {},
+        '/Modèles': {},
+        '/Musique': {},
+        '/Public': {},
+        '/Téléchargements': {},
+        '/Vidéos': {},
     },
     '/media' : {
         '/disque amovible' : {},
@@ -64,6 +74,13 @@ const fileSystem = {
         'update-grub' : {},
         'wpa-cli' : {},
         'xfs-repair': {},
+    },
+    '/tmp': {
+        'lavie.exe': {},
+        'Emmanuel_Macron.pdf': {},
+        'COVID-19.dll': {},
+        'Windows11.bat': {},
+        'trojan_au_secours': {},
     },
     '/usr': {
         '/bin': {},
