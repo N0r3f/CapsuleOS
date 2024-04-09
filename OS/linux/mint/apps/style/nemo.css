@@ -19,6 +19,10 @@ main#gestionnaire {
     overflow: var(--h);
 }
 
+#gestionnaire a {
+    cursor: default;
+}
+
 #nemoHeaderContainer {
     top: var(--z);
     display: var(--f);
@@ -42,6 +46,76 @@ main#gestionnaire {
     height: var(--head);
     gap: calc(var(--head) - 25px);
     padding: var(--z) calc(var(--head) / 4);
+}
+
+.menuOutils>.sousMenuOutils {
+    gap: calc(var(--head) - 25px);
+}
+
+.menuHeader {
+    list-style-type: none;
+    overflow: hidden;
+    margin: var(--z);
+    padding: var(--z);
+}
+
+.menuHeader>li>a {
+    display: var(--bl);
+    text-align: var(--fs);
+    color: var(--menuDefaultCcol);
+    padding: calc(var(--head) / 8) calc(var(--head) / 4);
+}
+
+.menuHeader>li:active {
+    background-color: #d0d0d0;
+}
+
+.listeSousMenu>a:hover {
+    background-color: var(--xedHC);
+}
+
+.listeSousMenu {
+    display: none;
+    position: var(--abs);
+    background-color: var(--bgw);
+    min-width: calc(var(--head) * 8);
+    z-index: 1;
+    list-style-type: none;
+    border: solid 1px var(--xedHCB);
+}
+
+.listeSousMenu>a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--fs);
+    align-items: var(--c);
+    text-align: left;
+    margin-left: calc(var(--head) * (-1));
+    padding-left: calc(var(--head) / 5);
+    color: var(--menuDefaultCcol)
+}
+
+.listeSousMenu>a>li {
+    padding: calc(var(--head) / 6) var(--z);
+    padding-left: calc(var(--head) / 2 + var(--head) / 8);
+}
+
+.lineUnder {
+    border-bottom: solid 1px var(--xedHCB);
+}
+
+.listeSousMenu>a>img {
+    width: calc(var(--head) / 2);
+    margin-right: calc(var(--head) / -2);
+}
+
+.listeSousMenu>a>li>img {
+    position: absolute;
+    right: 5px;
+}
+
+.menuHeader>li:hover .listeSousMenu {
+    display: var(--bl);
 }
 
 .menuOutils>.sousMenuOutils:nth-child(1)>a:nth-child(5) {
@@ -160,7 +234,7 @@ main#gestionnaire {
     width: var(--full);
     height: var(--head);
     margin-bottom: calc(var(--head) / 12);
-    padding: var(--z) calc(var(--head) / 2); 
+    padding: var(--z) calc(var(--head) / 2);
     border-top: solid 1px var(--nemoHCB);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
     background-color: var(--nemofoot);
