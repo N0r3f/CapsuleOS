@@ -14,6 +14,17 @@
     background: var(--noir);
 }
 
+#input:nth-child(1) {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: calc(var(--head) / 1.7);
+    margin-left: calc(var(--head) / 10);
+    padding-left: calc(var(--head) / 10);
+}
+
 #input {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -25,24 +36,13 @@
     padding: calc(var(--head) / 20);
 }
 
-#prompt:first-child {
-    display: var(--f);
-    flex-flow: var(--rnw);
-    align-items: var(--c);
-    justify-content: var(--fs);
-    width: calc(var(--head) * 3.4);
-    margin-left: calc(var(--head) / 20);
-    color: var(--btn1);
-    font-size: calc(var(--head) / 2);
-    font-weight: var(--wbr);
-}
-
 #prompt {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--fs);
     width: calc(var(--head) * 3.4);
+    margin-left: calc(var(--head) / 20);
     color: var(--btn1);
     font-size: calc(var(--head) / 2);
     font-weight: var(--wbr);
@@ -74,7 +74,7 @@
     justify-content: var(--fs);
     width: var(--full);
     height: var(--a);
-    margin-top: calc(var(head) / 2);
+    margin-top: calc(var(--head) / 40);
     margin-bottom: calc(var(--head) / 3);
 }
 
