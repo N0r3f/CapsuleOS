@@ -1,9 +1,8 @@
 let output, commandInput, prompt;
 let currentPath = '/';
-let firstInput = null; // Ajoutez cette variable pour suivre le premier input créé
 
 function updatePrompt() {
-    prompt.textContent = `user@host:/${currentPath.substring(1)} $ `;
+    prompt.textContent = `user@host:/${currentPath.substring(1)}$ `;
 }
 
 function createNewInput() {
@@ -13,12 +12,30 @@ function createNewInput() {
     return newInput;
 }
 
+function splitResultIntoElements(result) {
+    return result.split('\n');
+}
+
 function executeCommand(command) {
     const [cmd, ...args] = command.split(' ');
     const outputLine = document.createElement('div');
 
     let result;
     switch (cmd) {
+        case 'man':
+            if (args.length === 0) {
+                result = "Utilisation : man [commande]";
+            } else {
+                const commandHelp = manuel.man[args[0]];
+                if (commandHelp) {
+                    const helpText = `${args[0]} : ${commandHelp.help}\nExemples d'utilisation :`;
+                    const examples = commandHelp.examples.map(example => `  ${example}`).join('\n');
+                    result = `${helpText}\n${examples}`;
+                } else {
+                    result = `Aucune aide disponible pour ${args[0]}`;
+                }
+            }
+            break;
         case 'cd':
             if (args.length === 0) {
                 currentPath = '/';
@@ -49,6 +66,7 @@ function executeCommand(command) {
                     result = `bash: cd: ${args[0]}: No such file or directory`;
                 }
             }
+            updatePrompt();
             break;
         case 'ls':
             const files = Object.keys(fileSystem[currentPath]);
@@ -97,20 +115,25 @@ function executeCommand(command) {
             // Effacer tous les éléments enfants de l'élément 'output'
             while (output.firstChild) {
                 output.removeChild(output.firstChild);
+            } 
+            const firstInputContainer = document.getElementById('input');
+            if (firstInputContainer) {
+                firstInputContainer.remove();
             }
-            // Supprimer le premier input créé
-            if (firstInput) {
-                firstInput.remove();
-                firstInput = null; // Réinitialiser la référence
-            }
-            result = "Terminal nettoyé.";
             break;
         default:
             result = `command not found : ${cmd}`;
     }
 
     if (cmd !== 'clear') {
-        outputLine.textContent = result;
+        const resultElements = splitResultIntoElements(result);
+
+        resultElements.forEach(element => {
+            const codeElement = document.createElement('code');
+            codeElement.textContent = element;
+            outputLine.appendChild(codeElement);
+        });
+
         output.appendChild(outputLine);
         output.scrollTop = output.scrollHeight;
     }
@@ -128,11 +151,6 @@ function executeCommand(command) {
 
     // Mettre à jour commandInput avec le nouvel input
     commandInput = newInput;
-
-    // Si c'est le premier input créé, le suivre
-    if (!firstInput) {
-        firstInput = commandInput;
-    }
 
     // Appeler focus() sur le nouvel input pour basculer le curseur dessus
     commandInput.focus();
@@ -152,6 +170,36 @@ function initTerminalWhenReady() {
     output = document.getElementById('output');
     commandInput = document.getElementById('command');
     prompt = document.getElementById('prompt');
+
+    // Vérifiez si l'élément 'input' existe déjà
+    let inputContainer = document.getElementById('input');
+    if (!inputContainer) {
+        // Si non, créez le premier input et prompt
+        inputContainer = document.createElement('div');
+        inputContainer.id = 'input';
+
+        prompt = document.createElement('span');
+        prompt.id = 'prompt';
+        prompt.textContent = `user@host:/$ `;
+        inputContainer.appendChild(prompt);
+
+        commandInput = createNewInput();
+        inputContainer.appendChild(commandInput);
+
+        // Ajoutez le conteneur d'input au terminalContainer
+        const terminalContainer = document.getElementById('terminalContainer');
+        terminalContainer.appendChild(inputContainer);
+    }
+    // Vérifiez si l'élément 'output' existe déjà
+    if (!output) {
+        // Si non, créez l'élément 'output'
+        output = document.createElement('div');
+        output.id = 'output';
+
+        // Ajoutez l'élément 'output' au terminalContainer
+        const terminalContainer = document.getElementById('terminalContainer');
+        terminalContainer.appendChild(output);
+    }
 
     if (output && commandInput && prompt) {
         initTerminal();

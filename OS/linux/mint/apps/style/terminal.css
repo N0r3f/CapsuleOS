@@ -21,7 +21,7 @@
     flex-flow: var(--rnw);
     align-items: var(--fs);
     justify-content: var(--fs);
-    width: var(--full);
+    width: var(--a);
     height: calc(var(--head) / 1.7);
     margin: calc(var(--head) / 20);
     margin-bottom: calc(var(--head) / 10);
@@ -48,7 +48,7 @@
     flex-flow: var(--rnw);
     align-items: var(--fs);
     justify-content: var(--fs);
-    width: calc(var(--full) - calc(var(--head) * 3.8));
+    width: var(--a);
     height: calc(var(--head) / 1.7);
     padding-left: calc(var(--head) / 40);
     color: var(--texte);
@@ -75,6 +75,15 @@
 }
 
 #output>div {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--a);
+}
+
+#output>div>code {
     display: var(--f);
     flex-flow: var(--rw);
     align-items: var(--fs);
