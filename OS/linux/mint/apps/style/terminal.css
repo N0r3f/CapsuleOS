@@ -16,17 +16,6 @@
     background: var(--noir);
 }
 
-#input:nth-child(1) {
-    display: var(--f);
-    flex-flow: var(--rnw);
-    align-items: var(--fs);
-    justify-content: var(--sb);
-    width: var(--full);
-    height: calc(var(--head) / 1.7);
-    margin-left: calc(var(--head) / 10);
-    padding-left: calc(var(--head) / 10);
-}
-
 #input {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -35,6 +24,7 @@
     width: var(--full);
     height: calc(var(--head) / 1.7);
     margin: calc(var(--head) / 20);
+    margin-bottom: calc(var(--head) / 10);
     padding: calc(var(--head) / 20);
 }
 
@@ -43,8 +33,9 @@
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--fs);
-    width: calc(var(--head) * 3.4);
+    width: var(--a);
     margin-left: calc(var(--head) / 20);
+    margin-right: calc(var(--head) / 10);
     color: var(--btn1);
     font-size: calc(var(--head) / 2);
     font-weight: var(--wbr);
@@ -69,6 +60,10 @@
     background: var(--noir);
 }
 
+#command:focus {
+    box-shadow: var(--z) var(--t);
+}
+
 #output {    
     display: var(--f);
     flex-flow: var(--rw);
@@ -77,7 +72,6 @@
     width: var(--full);
     height: var(--a);
     margin-top: calc(var(--head) / 40);
-    margin-bottom: calc(var(--head) / 3);
 }
 
 #output>div {
@@ -87,14 +81,4 @@
     justify-content: var(--fs);
     width: var(--full);
     height: var(--a);
-    gap: calc(var(--head) / 3);
-}
-
-#input>div {
-    padding: calc(var(--head) / 8);
-    min-width: var(--full);
-}
-
-#command:focus {
-    box-shadow: var(--z) var(--t);
 }

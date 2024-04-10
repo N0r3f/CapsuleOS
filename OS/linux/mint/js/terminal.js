@@ -1,5 +1,6 @@
 let output, commandInput, prompt;
 let currentPath = '/';
+let firstInput = null; // Ajoutez cette variable pour suivre le premier input créé
 
 function updatePrompt() {
     prompt.textContent = `user@host:/${currentPath.substring(1)} $ `;
@@ -92,11 +93,27 @@ function executeCommand(command) {
                 result = `Fichier ${file} non trouvé.`;
             }
             break;
+        case 'clear':
+            // Effacer tous les éléments enfants de l'élément 'output'
+            while (output.firstChild) {
+                output.removeChild(output.firstChild);
+            }
+            // Supprimer le premier input créé
+            if (firstInput) {
+                firstInput.remove();
+                firstInput = null; // Réinitialiser la référence
+            }
+            result = "Terminal nettoyé.";
+            break;
+        default:
+            result = `command not found : ${cmd}`;
     }
 
-    outputLine.textContent = result;
-    output.appendChild(outputLine);
-    output.scrollTop = output.scrollHeight;
+    if (cmd !== 'clear') {
+        outputLine.textContent = result;
+        output.appendChild(outputLine);
+        output.scrollTop = output.scrollHeight;
+    }
 
     // Créer un nouveau div pour le prompt et l'input
     const newInputContainer = document.createElement('div');
@@ -111,6 +128,11 @@ function executeCommand(command) {
 
     // Mettre à jour commandInput avec le nouvel input
     commandInput = newInput;
+
+    // Si c'est le premier input créé, le suivre
+    if (!firstInput) {
+        firstInput = commandInput;
+    }
 
     // Appeler focus() sur le nouvel input pour basculer le curseur dessus
     commandInput.focus();
