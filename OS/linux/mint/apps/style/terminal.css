@@ -90,4 +90,5 @@
     justify-content: var(--fs);
     width: var(--full);
     height: var(--a);
+    margin-bottom: calc(var(--head) / 10);
 }
