@@ -11,6 +11,8 @@
     font-size: calc(var(--head) / 2);
     font-weight: var(--wbr);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    overflow-y: var(--a);
+    overflow-x: var(--hid);
     background: var(--noir);
 }
 

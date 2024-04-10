@@ -24,7 +24,15 @@ function executeCommand(command) {
                 result = "Dossier racine";
             } else {
                 let newPath;
-                if (args[0].startsWith('/')) {
+                if (args[0] === '..') {
+                    // Remonter d'un niveau
+                    const pathParts = currentPath.split('/');
+                    pathParts.pop(); // Retire le dernier élément du chemin
+                    newPath = pathParts.join('/');
+                    if (newPath === '') {
+                        newPath = '/'; // Assure que le chemin ne devient pas vide
+                    }
+                } else if (args[0].startsWith('/')) {
                     // Chemin absolu
                     newPath = args[0];
                 } else {
@@ -76,11 +84,14 @@ function executeCommand(command) {
             }
             break;
         case 'rm':
-            // Simule la suppression d'un fichier
-            result = `Fichier ${args[0]} supprimé.`;
+            const file = args[0];
+            if (fileSystem[currentPath][file]) {
+                delete fileSystem[currentPath][file]; // Supprime le fichier de l'objet fileSystem
+                result = `Fichier ${file} supprimé.`;
+            } else {
+                result = `Fichier ${file} non trouvé.`;
+            }
             break;
-        default:
-            result = `command not found : ${cmd}`;
     }
 
     outputLine.textContent = result;
