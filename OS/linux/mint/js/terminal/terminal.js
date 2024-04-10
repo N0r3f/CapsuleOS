@@ -22,20 +22,22 @@ function executeCommand(command) {
 
     let result;
     switch (cmd) {
-        case 'man':
-            if (args.length === 0) {
-                result = "Utilisation : man [commande]";
-            } else {
-                const commandHelp = manuel.man[args[0]];
-                if (commandHelp) {
-                    const helpText = `${args[0]} : ${commandHelp.help}\nExemples d'utilisation :`;
-                    const examples = commandHelp.examples.map(example => `  ${example}`).join('\n');
-                    result = `${helpText}\n${examples}`;
-                } else {
-                    result = `Aucune aide disponible pour ${args[0]}`;
-                }
-            }
-            break;
+       case 'man':
+    if (args.length === 0) {
+        // Liste des commandes disponibles dans le manuel
+        const commandNames = Object.keys(manuel.man);
+        result = "Commandes disponibles :\n" + commandNames.join('\n') + "\n Utilisation : man [commande]";
+    } else {
+        const commandHelp = manuel.man[args[0]];
+        if (commandHelp) {
+            const helpText = `${args[0]} : ${commandHelp.help}\nExemples d'utilisation :`;
+            const examples = commandHelp.examples.map(example => ` ${example}`).join('\n');
+            result = `${helpText}\n${examples}`;
+        } else {
+            result = `Aucune aide disponible pour ${args[0]}`;
+        }
+    }
+    break;
         case 'cd':
             if (args.length === 0) {
                 currentPath = '/';
@@ -63,7 +65,7 @@ function executeCommand(command) {
                     currentPath = newPath;
                     result = `Dossier changé en ${newPath}`;
                 } else {
-                    result = `bash: cd: ${args[0]}: No such file or directory`;
+                    result = `cd: ${args[0]}: Aucun fichier ou dossier de ce type`;
                 }
             }
             updatePrompt();
@@ -115,14 +117,14 @@ function executeCommand(command) {
             // Effacer tous les éléments enfants de l'élément 'output'
             while (output.firstChild) {
                 output.removeChild(output.firstChild);
-            } 
+            }
             const firstInputContainer = document.getElementById('input');
             if (firstInputContainer) {
                 firstInputContainer.remove();
             }
             break;
         default:
-            result = `command not found : ${cmd}`;
+            result = `Commande inexistante : ${cmd} \n Essayez la commande : man`;
     }
 
     if (cmd !== 'clear') {
