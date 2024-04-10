@@ -90,7 +90,7 @@
     gap: calc(var(--head) / 3);
 }
 
-div {
+#input>div {
     padding: calc(var(--head) / 8);
     min-width: var(--full);
 }
