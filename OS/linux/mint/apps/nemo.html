@@ -370,44 +370,8 @@
                         <div><a href="#"><img src="./media/img/elements/nemo/network-workgroup-symbolic.svg"
                                                 title="Parcourt le contenu du réseau">Réseau</a></div>
                 </aside>
-                <section class="nemoElement" class="active" data-link="Dossier Personnel" id="dossierPersonnel"
-                        style="display: flex;">
-                        <a target="nemoElement" data-link="Documents"><img
-                                        src="./media/img/elements/nemo/folder-documents.png">Documents</a>
-                        <a target="nemoElement" data-link="Images" title="Ouvrir le dossier Images"><img
-                                        src="./media/img/elements/nemo/folder-pictures.png">Images</a>
-                        <a target="nemoElement" data-link="Musique" title="Ouvrir le dossier Musique"><img
-                                        src="./media/img/elements/nemo/folder-music.png">Musique</a>
-                        <a target="nemoElement" data-link="Public" title="Ouvrir le dossier Public"><img
-                                        src="./media/img/elements/nemo/folder-publicshare.png">Public</a>
-                        <a target="nemoElement" data-link="Téléchargements"
-                                title="Ouvrir le dossier Téléchargements"><img
-                                        src="./media/img/elements/nemo/folder-download.png">Téléchargements</a>
-                        <a target="nemoElement" data-link="Vidéos" title="Ouvrir le dossier Vidéos"><img
-                                        src="./media/img/elements/nemo/folder-videos.png">Vidéos</a>
-                </section>
-                <section class="nemoElement" data-link="Bureau" id="bureau" style="display: none;">
-                </section>
-                <section class="nemoElement" data-link="Documents" id="documents" style="display: none;">
-                        <a target="nemoElement" data-link="Défis" title="Ouvrir le dossier Défis"><img
-                                        src="./media/img/elements/nemo/folder.png">Défis</a>
-                        <a target="nemoElement" data-link="Formations" title="Ouvrir le dossier Formations"><img
-                                        src="./media/img/elements/nemo/folder.png">Formations</a>
-                        <a target="nemoElement" data-link="Métiers" title="Ouvrir le dossier Métiers"><img
-                                        src="./media/img/elements/nemo/folder.png">Métiers</a>
-                        <a target="nemoElement" data-link="Tutoriels" title="Ouvrir le dossier Tutoriels"><img
-                                        src="./media/img/elements/nemo/folder.png">Tutoriels</a>
-                </section>
-                <section class="nemoElement" data-link="Musique" id="musique" style="display: none;"></section>
-                <section class="nemoElement" data-link="Images" id="images" style="display: none;"></section>
-                <section class="nemoElement" data-link="Vidéos" id="videos" style="display: none;"></section>
-                <section class="nemoElement" data-link="Téléchargements" id="telechargements" style="display: none;">
-                </section>
-                <section class="nemoElement" data-link="Récent" id="recent" style="display: none;"></section>
-                <section class="nemoElement" data-link="Système de fichiers" id="systemDeFichiers"
-                        style="display: none;"></section>
-                <section class="nemoElement" data-link="Corbeille" id="corbeille" style="display: none;"></section>
-                <section class="nemoElement" data-link="Réseau" id="reseau" style="display: none;">
+                <section class="nemoElement">
+                        <!--   LISTING DU CONTENU DES DOSSIERS-->
                 </section>
         </main>
         <footer id="nemoFooterContainer">
@@ -427,16 +391,6 @@
                 </section>
         </footer>
 </main>
-<script src="../js/nemoContainer.js"></script>
-<script>
-        document.querySelectorAll('.menuHeader li').forEach(function (li) {
-                li.addEventListener('click', function (event) {
-                        var sousMenu = this.querySelector('.listeSousMenu');
-                        if (sousMenu.style.display === 'none') {
-                                sousMenu.style.display = 'block';
-                        } else {
-                                sousMenu.style.display = 'none';
-                        }
-                });
-        });
-</script>
+<script src="../js/nemo/nemoContainer.js"></script>
+<script src="../js/nemo/fileSystem.js"></script>
+<script src="../js/nemo/menuHeader.js"></script>
