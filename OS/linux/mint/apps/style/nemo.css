@@ -211,28 +211,64 @@ main#gestionnaire {
     padding-right: calc(var(--head) / 8);
 }
 
-#nemoMainContainer>.nemoElement {
+#nemoMainContainer>#voletContainer {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+}
+
+#nemoMainContainer>#voletContainer>.nemoElement {
     display: var(--f);
     flex-flow: var(--rw);
     justify-content: var(--fs);
     align-items: var(--fs);
-    width: var(--full);
+    width: calc(var(--full) - calc(var(--full) / 20));
     height: var(--a);
-    min-height: var(--a);
+    padding-bottom: calc(var(--head) * 1.5);
     overflow: var(--a);
 }
 
-#nemoMainContainer>section.nemoElement>a {
+#nemoMainContainer>#voletContainer>section.nemoElement>a {
     display: var(--f);
     flex-flow: var(--cnw);
     justify-content: var(--sa);
     align-items: var(--c);
-    width: calc(var(--mid) / 4);
-    margin: 10px 40px;
+    width: calc(var(--head) * 3.5);
+    height: calc(var(--head) * 3.5);
+    margin: calc(var(--head) / 10);
     color: var(--noir);
 }
 
-#nemoMainContainer>section.nemoElement>a>img {
+#voletContainer>.nemoElement>a {
+    position: var(--rel);
+}
+
+#voletContainer>.nemoElement>a::after {
+    content: attr(data-details);
+    position: var(--abs);
+    top: calc(var(--head) * 3.5);
+    display: var(--n);
+    width: var(--a);
+    height: var(--a);
+    text-align: var(--c);
+    align-items: var(--c);
+    background: var(--noir);
+    color: var(--texte);
+    padding: calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 8);
+}
+
+#voletContainer>.nemoElement>a:hover::after {
+    display: var(--bl);
+    width: var(--a);
+    height: var(--a);
+    z-index: 500;
+}
+
+#nemoMainContainer>#voletContainer>section.nemoElement>a>img {
     width: calc(var(--head) * 2);
     height: var(--a);
     margin: calc(var(--head) / 4) var(--head);
