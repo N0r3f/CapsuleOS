@@ -51,3 +51,5 @@ const loadDirectory = (directory) => {
         })
         .catch(error => console.error('Erreur lors de la récupération des fichiers:', error));
 };
+// Charge le contenu du "Dossier personnel" par défaut
+loadDirectory('./apps/system/Dossier personnel/');
