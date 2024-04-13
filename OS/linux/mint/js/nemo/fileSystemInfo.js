@@ -15,7 +15,7 @@ const fileSystemLink = {
             ]
         },
         "mint": {
-            "image": "../../../../../media/img/Mint.png",
+            "image": "../../../../../media/img/mint.png",
             "link": "../../../../../OS/linux/mint/index.html",
             "détails": [
                 "Tester Mint"
@@ -91,7 +91,7 @@ const fileSystemLink = {
             ]
         },
         "Home": { 
-            "image": "./media/img/elements/nemo/user-home-symbolic.svg",
+            "image": "./media/img/elements/nemo/user-home.png",
             "détails": [
                 "1 élément",
                 "230 kb"
