@@ -3,6 +3,7 @@ var messagesList = document.querySelector('.messages-list')
 document.onload = () => {
 	fetch('./ressources/messages.json')
 		.then((response) => {
+			console.log('Messages chargés avec succés')
 			return response.json()
 		})
 		.then((messages) => {

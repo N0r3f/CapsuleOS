@@ -1,133 +1,146 @@
 :root {
-    /*************** FONT ****************/
-    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --wb: bold;
-    --wbr: bolder;
-    --midl: middle;
+	/*************** FONT ****************/
+	--font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--wb: bold;
+	--wbr: bolder;
+	--midl: middle;
 
-    /************* COULEURS **************/
-    --background: hsl(237, 32%, 14%);
-    --bleu: hsl(240, 45%, 12%);
-    --violet: hsl(240, 66%, 11%);
-    --texte: hsl(216, 100%, 95%);
-    /** MINT **/
-    --menuDefaultCcol: #2e2e2e;
-    --bgw: white;
-    --nemoHC: #e8e8e8;
-    --nemoHCB: #c7c7c7;
-    --nemoMCSF: #f3f2f2;
-    --nemofoot: #f5f5f5;
-    --genMenu: #2f2f2e;
-    --menuInput: #3d3d3d;
-    --menuHover: #4d4e4d;
-    /** OTHER **/
-    --ph: hsl(0, 0%, 64%);
-    --hovwin: hsla(216, 100%, 95%, .2);
-    --sonohead: linear-gradient(90deg, hsla(254, 69%, 46%, 0.4), hsla(254, 62%, 25%, 0.4), hsla(254, 36%, 25%, 0.4));
-    --sonofoot: hsla(0, 0%, 100%, .2);
-    --hrmac: hsla(0, 0%, 0%, .4);
-    --noir: hsl(231, 100%, 4%);
-    --ndembk: hsl(0, 0%, 14%);
-    --ndembk2: hsl(0, 0%, 10%);
-    --winmnbk: hsl(0, 0%, 18%);
-    --btn1: hsl(0, 100%, 63%);
-    --btn2: hsl(48, 100%, 63%);
-    --btn3: hsl(127, 74%, 50%);
-    --t: transparent;
+	/************* COULEURS **************/
+	--background: hsl(237, 32%, 14%);
+	--bleu: hsl(240, 45%, 12%);
+	--violet: hsl(240, 66%, 11%);
+	--texte: hsl(216, 100%, 95%);
+	--orange: #ee7633;
+	/** MINT **/
+	--menuDefaultCcol: #2e2e2e;
+	--bgw: white;
+	--nemoHC: #e8e8e8;
+	--nemoHCB: #c7c7c7;
+	--nemoMCSF: #f3f2f2;
+	--nemofoot: #f5f5f5;
+	--genMenu: #2f2f2e;
+	--menuInput: #3d3d3d;
+	--menuHover: #4d4e4d;
+	--androidmhead: #20232a;
+	--androidbg: #181c1f;
+	/** OTHER **/
+	--ph: hsl(0, 0%, 64%);
+	--hovwin: hsla(216, 100%, 95%, 0.2);
+	--sonohead: linear-gradient(
+		90deg,
+		hsla(254, 69%, 46%, 0.4),
+		hsla(254, 62%, 25%, 0.4),
+		hsla(254, 36%, 25%, 0.4)
+	);
+	--sonofoot: hsla(0, 0%, 100%, 0.2);
+	--hrmac: hsla(0, 0%, 0%, 0.4);
+	--noir: hsl(231, 100%, 4%);
+	--ndembk: hsl(0, 0%, 14%);
+	--ndembk2: hsl(0, 0%, 10%);
+	--winmnbk: hsl(0, 0%, 18%);
+	--btn1: hsl(0, 100%, 63%);
+	--btn2: hsl(48, 100%, 63%);
+	--btn3: hsl(127, 74%, 50%);
+	--t: transparent;
 
-    /************* COULEURS **************/
-    --menu: linear-gradient(45deg, var(--noir), var(--background));
+	/************* COULEURS **************/
+	--menu: linear-gradient(45deg, var(--noir), var(--background));
 
-    /************** DISPLAY **************/
-    --bl: block;
-    --in-bl: inline-block;
-    --stck: sticky;
+	/************** DISPLAY **************/
+	--bl: block;
+	--in-bl: inline-block;
+	--stck: sticky;
 
-    /************* POSITION **************/
-    --abs: absolute;
-    --rel: relative;
-    --fix: fixed;
-    --fr: flow-root;
+	/************* POSITION **************/
+	--abs: absolute;
+	--rel: relative;
+	--fix: fixed;
+	--fr: flow-root;
 
-    /************* TEMPLATE **************/
-    --f: flex;
-    --rw: row wrap;
-    --rnw: row nowrap;
-    --cnw: column nowrap;
-    --cw: column wrap;
-    --crnw: column-reverse nowrap;
-    --fs: flex-start;
-    --fe: flex-end;
-    --c: center;
-    --sa: space-around;
-    --sb: space-between;
-    --se: space-evenly;
+	/************* TEMPLATE **************/
+	--f: flex;
+	--rw: row wrap;
+	--rnw: row nowrap;
+	--cnw: column nowrap;
+	--cw: column wrap;
+	--crnw: column-reverse nowrap;
+	--fs: flex-start;
+	--fe: flex-end;
+	--c: center;
+	--sa: space-around;
+	--sb: space-between;
+	--se: space-evenly;
 
-    /************** TAILLES **************/
-    --a: auto;
-    --z: 0;
-    --max-w: 100vw;
-    --max-h: 100vh;
-    --w80: 80vw;
-    --h80: 80vh;
-    --full: 100%;
-    --head: 40px;
-    --mid: 50%;
-    --min-w: 3vw;
-    --min-h: 3vh;
+	/************** TAILLES **************/
+	--a: auto;
+	--z: 0;
+	--max-w: 100vw;
+	--max-h: 100vh;
+	--w80: 80vw;
+	--h80: 80vh;
+	--full: 100%;
+	--head: 40px;
+	--mid: 50%;
+	--min-w: 3vw;
+	--min-h: 3vh;
 
-    /*************** BORDER ***************/
-    --min-bt: 1px solid var(--texte);
-    --min-bb: 1px solid var(--noir);
-    --bor-mn: 2px solid var(--violet);
-    --bor-mnw: 1px solid var(--gdemtxt);
-    --menu-mint: 1.5px solid #1d1d1d;
+	/*************** BORDER ***************/
+	--min-bt: 1px solid var(--texte);
+	--min-bb: 1px solid var(--noir);
+	--bor-mn: 2px solid var(--violet);
+	--bor-mnw: 1px solid var(--gdemtxt);
+	--menu-mint: 1.5px solid #1d1d1d;
 
-    /************* TRANSITION *************/
-    --ease: .4s ease-in-out;
-    --eas2: .2s ease-in-out;
+	/************* TRANSITION *************/
+	--ease: 0.4s ease-in-out;
+	--eas2: 0.2s ease-in-out;
 
-    /************** TRANSFORM *************/
-    --tsc: scale(1.1);
-    --trt: rotate(-2deg);
-    --hr: rotate(90deg);
+	/************** TRANSFORM *************/
+	--tsc: scale(1.1);
+	--trt: rotate(-2deg);
+	--hr: rotate(90deg);
 
-    /************* BOX-SIZING *************/
-    --bb: border-box;
-    --cb: content-box;
-    --tmn: opacity 0.4s ease-in-out;
+	/************* BOX-SIZING *************/
+	--bb: border-box;
+	--cb: content-box;
+	--tmn: opacity 0.4s ease-in-out;
 
-    /************* BOX-SHADOW *************/
-    --bs: inset -12px -12px 20px var(--violet),
-        inset -12px -12px 20px var(--violet);
-    --bo: 2px 2px 20px hsla(240, 20%, 3%, 0.5),
-         2px 2px 20px hsla(240, 20%, 3%, 0.5);
-    --frame: 0 0 10px rgba(0, 0, 0, 0.5);
+	/************* BOX-SHADOW *************/
+	--bs: inset -12px -12px 20px var(--violet),
+		inset -12px -12px 20px var(--violet);
+	--bo: 2px 2px 20px hsla(240, 20%, 3%, 0.5),
+		2px 2px 20px hsla(240, 20%, 3%, 0.5);
+	--frame: 0 0 10px rgba(0, 0, 0, 0.5);
 
-    /************* VISIBILITY *************/
-    --n: none;
-    --hid: hidden;
-    --vis: visible;
+	/************* VISIBILITY *************/
+	--n: none;
+	--hid: hidden;
+	--vis: visible;
 
-    /************* BACKGROUND *************/
-    --w11: url(../media/img/fond.jpg);
-    --macsono: url(../media/img/assets/background.jpg);
-    --mint: url(../media/img/assets/mintBackground.jpeg);
-    --scon: contain;
-    --scov: cover;
-    --nr: no-repeat;
+	/************* BACKGROUND *************/
+	--w11: url(../media/img/fond.jpg);
+	--macsono: url(../media/img/assets/background.jpg);
+	--mint: url(../media/img/assets/mintBackground.jpeg);
+	--android: url(./../assets/images/android_background.jpg);
+	--scon: contain;
+	--scov: cover;
+	--nr: no-repeat;
 
-    /*************** MACOS ****************/
-    --sonobor: 1px solid var(--sonofoot);
+	/*************** MACOS ****************/
+	--sonobor: 1px solid var(--sonofoot);
 
-    /*************** FILTER ***************/
-    --inv: invert(2);
-    --blur: blur(var(--head));
-    --launchb: blur(calc(var(--head) / 8));
-    --blaunch: blur(calc(var(--head) * 2));
-    --bright: brightness(2);
+	/*************** FILTER ***************/
+	--inv: invert(2);
+	--blur: blur(var(--head));
+	--launchb: blur(calc(var(--head) / 8));
+	--blaunch: blur(calc(var(--head) * 2));
+	--bright: brightness(2);
 
-    /**************** LINUX ***************/
-    --bbtn1: 1px solid var(--btn1);
-    --bbtn3: 1px solid var(--btn3);
+	/**************** LINUX ***************/
+	--bbtn1: 1px solid var(--btn1);
+	--bbtn3: 1px solid var(--btn3);
+
+	/**************** CURSOR ***************/
+	--p: pointer;
 }

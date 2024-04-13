@@ -1,0 +1,59 @@
+@import url(./style/fonts.css);
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.appels-list {
+	padding-top: calc(var(--head) * 2.2);
+	width: var(--full);
+	height: var(--full);
+	background: var(--androidbg);
+	color: var(--nemoHC);
+	font-family: 'Roboto-Regular';
+}
+
+.appels-header {
+	display: var(--f);
+	height: calc(var(--head) * 1.5);
+	flex-flow: var(--rnw);
+	justify-content: var(--sb);
+	align-items: var(--c);
+	background: var(--androidmhead);
+	padding: var(--z) calc(var(--head) / 2);
+}
+
+.appels-title {
+	font-size: calc(var(--head) / 1.5);
+	display: var(--f);
+	justify-content: start;
+	color: var(--texte);
+	font-weight: var(--wb);
+}
+
+.appel {
+	padding: calc(var(--head) / 8) calc(var(--head) / 2);
+	width: var(--full);
+	height: calc(var(--head) * 3);
+	display: var(--f);
+	flex-flow: var(--rnw);
+	justify-content: var(--sb);
+	background: var(--androidbg);
+	align-items: var(--c);
+	gap: 10px;
+}
+
+.appel-icon img {
+	width: var(--head);
+	height: var(--head);
+	object-fit: var(--scov);
+	border-radius: var(--mid);
+}
+
+.appel-body {
+	width: var(--full);
+	justify-self: flex-start;
+	gap: 5px;
+}

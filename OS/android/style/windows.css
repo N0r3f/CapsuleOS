@@ -16,12 +16,10 @@ div[class^='windowElement']:not(#mainMenu) {
 	/* min-width: calc(var(--head) * 16); */
 	height: var(--full);
 	min-height: calc(var(--head) * 18);
-	padding: calc(var(--head) / 20);
-	margin: calc(var(--z) - 1px);
 	/* border: calc(var(--min-bt) * 4) solid var(--t); */
 	border-radius: calc(var(--head) / 4);
 	box-shadow: var(--frame);
-	background: var(--menuDefaultCol);
+	background: var(--android);
 	overflow: var(--h);
 	scrollbar-width: var(--z);
 }
