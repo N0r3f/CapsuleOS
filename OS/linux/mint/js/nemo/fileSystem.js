@@ -14,14 +14,82 @@ const loadDirectory = (directory) => {
             nemoElement.innerHTML = ''; // Vide le contenu actuel
             links.forEach(link => {
                 // Filtrer ~ et ..
+                if (link.textContent.includes('~') || link.textContent.includes('..')) {
+                    return; // Ignore les liens qui permettent de remonter dans le système de fichiers
+                }
+
                 // Récupération du nom de l'élément
                 const name = link.textContent.replace(/\.[^/.]+$/, '').replace(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/g, ' ').split(' ')[0].replace(/[..]+/g, 'Retour').replace(/[~]+/g, 'Home').replace(/ /g, '\n');
 
                 // Ajout des détails comme attribut data-details
                 const details = link.textContent.replace(/[^0-9\,\:\/]/g, "").replace(/(\d{2}\/\d{2}\/\d{4})(\d{2}:\d{2}:\d{2})/g, '$1 $2').replace(/ /g, '\n');
-                
+
                 // Récupération du chemin de l'image correspondant
-                const imagePath = fileSystemLink.files[name]?.image;
+                let imagePath = fileSystemLink.files[name]?.image; // Utilisez 'let' au lieu de 'const'
+
+                // Bloc logique de détection d'extension de fichier et d'application d'icône
+                const extension = link.href.match(/\.([^.]+)$/)[1]; // Extrait l'extension du fichier
+
+                switch (extension) {
+                    // Logique pour les types de Documents écrits
+                    case 'pdf':
+                        imagePath = fileSystemLink.files.pdf.image;
+                        break;
+                    case 'doc':
+                        imagePath = fileSystemLink.files.doc.image;
+                        break;
+                    case 'txt':
+                        imagePath = fileSystemLink.files.txt.image;
+                        break;
+                    case 'sh':
+                        imagePath = fileSystemLink.files.sh.image;
+                        break;
+                    case 'html':
+                        imagePath = fileSystemLink.files.html.image;
+                        break;
+                    case 'css':
+                        imagePath = fileSystemLink.files.css.image;
+                        break;
+                    case 'js':
+                        imagePath = fileSystemLink.files.js.image;
+                        break;
+                    // Logique pour les types de Documents audio
+                    case 'ogg':
+                        imagePath = fileSystemLink.files.ogg.image;
+                        break;
+                    case 'mp3':
+                        imagePath = fileSystemLink.files.mp3.image;
+                        break;
+                    case 'wav':
+                        imagePath = fileSystemLink.files.wav.image;
+                        break;
+                    // Logique pour les types de Documents video
+                    case 'mp4':
+                        imagePath = fileSystemLink.files.mp4.image;
+                        break;
+                    case 'avi':
+                        imagePath = fileSystemLink.files.avi.image;
+                        break;
+                    // Logique pour les types de Documents photo
+                    case 'jpeg':
+                        imagePath = fileSystemLink.files.jpeg.image;
+                        break;
+                    case 'jpg':
+                        imagePath = fileSystemLink.files.jpg.image;
+                        break;
+                    case 'png':
+                        imagePath = fileSystemLink.files.png.image;
+                        break;
+                    case 'webp':
+                        imagePath = fileSystemLink.files.webp.image;
+                        break;
+                    default:
+                    // Logique par défaut pour les autres types de fichiers
+                }
+                // Vérifiez si le lien pointe vers un répertoire dans "Dossier"
+                if (!link.href.includes('Dossier')) {
+                    return; // Ignore les liens qui ne pointent pas vers "Dossier"
+                }
 
                 const linkFromJson = fileSystemLink.files[name]?.link;
                 // Création de l'élément <a>
