@@ -23,6 +23,9 @@ divs.forEach(div => {
             if (id === 'terminal') {
                 initTerminalWhenReady();
             }
+
+            // Charge le contenu du "Dossier personnel" par défaut
+            loadDirectory('./apps/system/Dossier');
         })
 
         .catch(error => console.error('Erreur lors du chargement des fichiers:', error));
