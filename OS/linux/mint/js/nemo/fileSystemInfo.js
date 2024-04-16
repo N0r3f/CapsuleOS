@@ -1,7 +1,7 @@
 const fileSystemLink = {
     'files': {
         //////////////////////////// DOSSIER ////////////////////////////////
-        "Dossier": { 
+        "Dossier_personnel": { 
             "image": "./media/img/elements/nemo/folder.png"
         },
         "Documents": { 
