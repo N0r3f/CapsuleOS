@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/mint.webp" type="image/x-icon">
     <link rel="stylesheet" href="./style/style.css" type="text/css">
+    <link rel="stylesheet" href="./style/windows.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/Dossier personnel.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/firefox.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/mainMenu.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/nemo.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/terminal.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/visionneur_images.css" type="text/css"> 
     <title>Mint</title>
 </head>
 <body id="mint">
@@ -14,6 +21,7 @@
         <div class="windowElement" data-link="nemo" id="nemo" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="firefox" id="firefox" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="terminal" id="terminal" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none; position: fixed;"></div>
     </object>
     <footer id="tableau">
         <nav>
@@ -21,13 +29,16 @@
                 <img src="./media/img/assets/logo.svg" alt="Logo de Linux Mint" title="Menu principal">
             </a>
             <a target="windowElement" data-link="nemo" title="Explorateur de fichiers nemo">
-                <img src="./media/img/elements/nemo/folder.png" alt="nemo" title="Explorateur de fichiers nemo">
+                <img src="./media/img/elements/nemo/folder.png" alt="Nemo" title="Explorateur de fichiers nemo">
             </a>
             <a target="windowElement" data-link="firefox" title="Ouvrir un navigateur WEB">
                 <img src="./media/img/apps/firefox.png" alt="Firefox" title="Ouvrir un navigateur WEB">
             </a>
             <a target="windowElement" data-link="terminal" title="Ouvrir un terminal">
-                <img src="./media/img/apps/utilities-terminal.png" alt="terminal" title="Ouvrir un terminal">
+                <img src="./media/img/apps/utilities-terminal.png" alt="Terminal" title="Ouvrir un terminal">
+            </a>
+            <a target="windowElement" data-link="visionneur_images" title="Ouvrir le visionneur d'images">
+                <img src="./media/img/apps/multimedia-photo-viewer.png" alt="Visionneur d'images" title="Ouvrir  le visionneur d'images">
             </a>
             <a href="../../../index.html">
                 <img src="../../../assets/accueil.svg" alt="Retour à l'accueil" title="Retour à l'accueil">
