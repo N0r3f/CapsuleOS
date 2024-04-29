@@ -27,7 +27,7 @@ const loadDirectory = (directory) => {
 
                 // Récupération du chemin de l'image correspondant
                 let imagePath = fileSystemLink.files[name]?.image; // Utilisez 'let' au lieu de 'const'
-
+                
                 // Bloc logique de détection d'extension de fichier et d'application d'icône
                 const extension = link.href.match(/\.([^.]+)$/)[1]; // Extrait l'extension du fichier
 
@@ -102,19 +102,21 @@ const loadDirectory = (directory) => {
                 newLink.setAttribute('data-details', details);
                 newLink.href = link.href;
 
+                
+
                 // Création de l'élément image et définition de son attribut src
                 const img = document.createElement('img');
                 img.src = imagePath; // Utilisation du chemin récupéré
                 img.alt = name; // Ajout d'un texte alternatif pour l'accessibilité
                 newLink.appendChild(img); // Ajout de l'image à l'élément <a>
-
                 // Ajout du texte au lien
                 newLink.appendChild(document.createTextNode(name));
-
+                
                 newLink.addEventListener('click', (event) => {
                     event.preventDefault(); // Empêche le comportement par défaut du lien
                     loadDirectory(newLink.href); // Charge le nouveau répertoire
                 });
+                
                 nemoElement.appendChild(newLink);
             });
         })
