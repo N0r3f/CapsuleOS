@@ -12,21 +12,22 @@ const loadDirectory = (directory) => {
             const links = doc.querySelectorAll('a');
             const nemoElement = document.querySelector('.nemoElement');
             nemoElement.innerHTML = ''; // Vide le contenu actuel
+
             links.forEach(link => {
                 // Filtrer ~ et ..
-                if (link.textContent.includes('~') || link.textContent.includes('..')) {
+                if (link.textContent.includes('~') || link.textContent.includes('..') || link.textContent.includes('Dossier_personnel')) {
                     return; // Ignore les liens qui permettent de remonter dans le système de fichiers
                 }
 
                 // Récupération du nom de l'élément
-                const name = link.textContent.replace(/\.[^/.]+$/, '').replace(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/g, ' ').split(' ')[0].replace(/[~]+/g, 'Home').replace(/ /g, '\n');
+                let name = link.textContent.replace(/\.[^/.]+$/, '').replace(/(?<=\D)(?=\d)|(?<=\d)(?=\D)/g, ' ').split(' ')[0].replace(/[~]+/g, 'Home').replace(/ /g, '\n');
 
                 // Ajout des détails comme attribut data-details
                 const details = link.textContent.replace(/[^0-9\,\:\/]/g, "").replace(/(\d{2}\/\d{2}\/\d{4})(\d{2}:\d{2}:\d{2})/g, '$1 $2').replace(/ /g, '\n');
 
                 // Récupération du chemin de l'image correspondant
                 let imagePath = fileSystemLink.files[name]?.image; // Utilisez 'let' au lieu de 'const'
-
+                
                 // Bloc logique de détection d'extension de fichier et d'application d'icône
                 const extension = link.href.match(/\.([^.]+)$/)[1]; // Extrait l'extension du fichier
 
@@ -86,9 +87,9 @@ const loadDirectory = (directory) => {
                     default:
                     // Logique par défaut pour les autres types de fichiers
                 }
-                // Vérifiez si le lien pointe vers un répertoire dans "Dossier"
-                if (!link.href.includes('Dossier')) {
-                    return; // Ignore les liens qui ne pointent pas vers "Dossier"
+                // Vérifiez si le lien pointe vers un répertoire dans "Dossier_personnel"
+                if (!link.href.includes('Dossier_personnel')) {
+                    return; // Ignore les liens qui ne pointent pas vers "Dossier_personnel"
                 }
 
                 const linkFromJson = fileSystemLink.files[name]?.link;
@@ -101,19 +102,21 @@ const loadDirectory = (directory) => {
                 newLink.setAttribute('data-details', details);
                 newLink.href = link.href;
 
+                
+
                 // Création de l'élément image et définition de son attribut src
                 const img = document.createElement('img');
                 img.src = imagePath; // Utilisation du chemin récupéré
                 img.alt = name; // Ajout d'un texte alternatif pour l'accessibilité
                 newLink.appendChild(img); // Ajout de l'image à l'élément <a>
-
                 // Ajout du texte au lien
                 newLink.appendChild(document.createTextNode(name));
-
+                
                 newLink.addEventListener('click', (event) => {
                     event.preventDefault(); // Empêche le comportement par défaut du lien
                     loadDirectory(newLink.href); // Charge le nouveau répertoire
                 });
+                
                 nemoElement.appendChild(newLink);
             });
         })
