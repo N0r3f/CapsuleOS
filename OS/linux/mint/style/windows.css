@@ -43,7 +43,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sa);
-    width: calc(var(--head) * 2.2);
+    min-width: calc(var(--head) * 2.2);
     height: var(--head);
 }
 
