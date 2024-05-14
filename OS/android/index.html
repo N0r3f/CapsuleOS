@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="shortcut icon"
+			href="./assets/icones/android.png"
+			type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="./style/style.css" />
+		<title>Android</title>
+	</head>
+	<body id="android">
+		<header id="notifications">
+			<div class="network-time">
+				<div class="network-name">
+					<span>CapsuleOS</span>
+				</div>
+				<div class="time">
+					<span id="heure-date"></span>
+				</div>
+			</div>
+			<div class="informations">
+				<img
+					src="./assets/icones/bluetooth.svg"
+					alt="bluetooth" />
+				<img
+					src="./assets/icones/wifi.svg"
+					alt="wifi level" />
+				<span>5G</span>
+				<img
+					src="./assets/icones/network.svg"
+					alt="network level" />
+				<img
+					src="./assets/icones/battery.svg"
+					alt="battery level" />
+			</div>
+		</header>
+		<main>
+			<object data="desktop">
+				<div
+					class="windowElement"
+					data-link="messages"
+					id="messages"
+					style="display: none; position: fixed"></div>
+				<div
+					class="windowElement"
+					data-link="appels"
+					id="appels"
+					style="display: none; position: fixed"></div>
+				<div
+					class="windowElement"
+					data-link="contacts"
+					id="contacts"
+					style="display: none; position: fixed"></div>
+				<div
+					class="windowElement"
+					data-link="chrome"
+					id="chrome"
+					style="display: none; position: fixed"></div>
+			</object>
+		</main>
+
+		<footer>
+			<nav id="shortcut">
+				<a
+					target="windowElement"
+					data-link="messages"
+					title="Messages">
+					<img
+						src="./assets/icones/messages.webp"
+						alt="Messages"
+						title="Messages"
+						class="icon" />
+				</a>
+				<a
+					target="windowElement"
+					data-link="appels"
+					title="Appels">
+					<img
+						src="./assets/icones/appel.webp"
+						alt="Appels"
+						title="Appels"
+						class="icon" />
+				</a>
+				<a
+					target="windowElement"
+					data-link="contacts"
+					title="Contacts">
+					<img
+						src="./assets/icones/contacts.png"
+						alt="Contacts"
+						title="Contacts"
+						class="icon" />
+				</a>
+				<a
+					target="windowElement"
+					data-link="chrome"
+					title="Chrome">
+					<img
+						src="./assets/icones/chrome.webp"
+						alt="Chrome"
+						title="Chrome"
+						class="icon" />
+				</a>
+			</nav>
+			<nav id="navigation">
+				<ul>
+					<li class="apps">
+						<img
+							src="./assets/icones/bars.svg"
+							alt="Menu"
+							title="Applications ouvertes" />
+					</li>
+					<li class="home">
+						<img
+							src="./assets/icones/square.svg"
+							alt="Home"
+							title="Home" />
+					</li>
+					<li class="back">
+						<img
+							src="./assets/icones/left-arrow.svg"
+							alt="Back"
+							title="Revenir en arrière" />
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
+	<script src="./js/date.js"></script>
+	<script src="./js/contentLoader.js"></script>
+	<script src="./js/windowContainer.js"></script>
+	<script src="./js/messages.js"></script>
+	<script src="./js/navigation.js"></script>
+</html>
