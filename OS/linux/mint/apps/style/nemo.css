@@ -225,8 +225,8 @@ main#gestionnaire {
     flex-flow: var(--rw);
     justify-content: var(--fs);
     align-items: var(--fs);
-    width: calc(var(--full) - calc(var(--full) / 20));
-    height: var(--a);
+    width: var(--full);
+    height: var(--full);
     padding-bottom: calc(var(--head) * 1.5);
     overflow: var(--a);
 }

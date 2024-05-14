@@ -9,7 +9,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     width: calc(var(--mid) + var(--mid) / 4);
     min-width: calc(var(--head) * 16);
     height: calc(var(--head) * 10);
-    min-height: calc(var(--head) * 18);
+    min-height: calc(var(--head) * 12);
     padding: calc(var(--head) / 20);
     border: calc(var(--min-bt) * 4) solid var(--t);
     border-radius: calc(var(--head) / 4);
@@ -43,7 +43,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sa);
-    width: calc(var(--head) * 2.2);
+    min-width: calc(var(--head) * 2.2);
     height: var(--head);
 }
 
