@@ -20,31 +20,25 @@
 header {
 	width: var(--full);
 	height: calc(var(--head) / 4 * 3);
-	background: var(--androidmhead);
 	display: var(--f);
 	justify-content: var(--sb);
-	padding: 0 10px;
+	padding: calc(var(--head) / 8) calc(var(--head) / 4);
 	align-items: var(--c);
 	color: var(--nemofoot);
 	z-index: 50001;
-}
-
-.network-time {
-	display: var(--f);
-	justify-content: var(--se);
-	gap: calc(var(--head) / 4);
+	font-weight: var(--wb);
 }
 
 .informations {
 	display: var(--f);
 	justify-content: var(--c);
 	align-items: var(--c);
-	gap: calc(var(--head) / 40 * 3);
+	gap: calc(var(--head) / 8);
 }
 
 main {
 	width: var(--max-w);
-	height: calc(var(--max-h) - 70px);
+	height: calc(var(--max-h) - calc(var(--head) * 1.75));
 }
 
 footer {
@@ -54,7 +48,7 @@ footer {
 	flex-flow: var(--cnw);
 	justify-content: var(--sb);
 	align-items: var(--c);
-	gap: calc(var(--head) + 10px);
+	gap: calc(var(--head) + calc(var(--head) / 4));
 	z-index: 1;
 }
 
@@ -66,17 +60,20 @@ footer {
 	justify-content: var(--se);
 	align-items: var(--c);
 }
+header img{
+	height: calc(var(--head) / 6 * 3);
+	width: calc(var(--head) / 6 * 3);
+}
 
 .icon {
-	width: 64px;
-	height: 64px;
+	width: calc(var(--head) * 1.2);
 	object-fit: var(--scov);
-	border-radius: calc(var(--head) / 4) calc(var(--head) / 2);
+	border-radius: calc(var(--head) / 3);
 }
 
 #navigation {
 	width: var(--full);
-	height: 70px;
+	height: calc(var(--head) * 1.75);
 	display: var(--f);
 	justify-content: var(--c);
 	align-items: var(--c);

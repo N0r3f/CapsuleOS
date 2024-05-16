@@ -26,7 +26,7 @@ html {
     justify-content: var(--sb);
     width: var(--full);
     height: calc(var(--head) * 1);
-    padding: calc(var(--head) / 10) calc(var(--head) / 5);
+    padding: calc(var(--head) / 15) calc(var(--head) / 5);
     font-size: 0.8em;
 }
 #headercellular{
@@ -45,10 +45,10 @@ html {
     padding-left: calc(var(--head) / 5);
 }
 #headerbattery>img{
-    padding-left: calc(var(--head) / 5);
+    padding-left: calc(var(--head) / 10);
 }
 #heure{
-    font-weight: bold;
+    font-weight: var(--wb);
 }
 #headerbattery{
     display: var(--f);

@@ -1,6 +1,7 @@
 :root {
     /*************** FONT ****************/
-    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --wb: bold;
     --wbr: bolder;
     --midl: middle;
@@ -10,6 +11,7 @@
     --bleu: hsl(240, 45%, 12%);
     --violet: hsl(240, 66%, 11%);
     --texte: hsl(216, 100%, 95%);
+    --orange: #ee7633;
     /** MINT **/
     --menuDefaultCcol: #2e2e2e;
     --bgw: white;
@@ -20,12 +22,17 @@
     --genMenu: #2f2f2e;
     --menuInput: #3d3d3d;
     --menuHover: #4d4e4d;
+    --androidmhead: #20232a;
+    --androidbg: #181c1f;
     /** OTHER **/
     --ph: hsl(0, 0%, 64%);
-    --hovwin: hsla(216, 100%, 95%, .2);
-    --sonohead: linear-gradient(90deg, hsla(254, 69%, 46%, 0.4), hsla(254, 62%, 25%, 0.4), hsla(254, 36%, 25%, 0.4));
-    --sonofoot: hsla(0, 0%, 100%, .2);
-    --hrmac: hsla(0, 0%, 0%, .4);
+    --hovwin: hsla(216, 100%, 95%, 0.2);
+    --sonohead: linear-gradient(90deg,
+            hsla(254, 69%, 46%, 0.4),
+            hsla(254, 62%, 25%, 0.4),
+            hsla(254, 36%, 25%, 0.4));
+    --sonofoot: hsla(0, 0%, 100%, 0.2);
+    --hrmac: hsla(0, 0%, 0%, 0.4);
     --noir: hsl(231, 100%, 4%);
     --ndembk: hsl(0, 0%, 14%);
     --ndembk2: hsl(0, 0%, 10%);
@@ -84,8 +91,8 @@
     --menu-mint: 1.5px solid #1d1d1d;
 
     /************* TRANSITION *************/
-    --ease: .4s ease-in-out;
-    --eas2: .2s ease-in-out;
+    --ease: 0.4s ease-in-out;
+    --eas2: 0.2s ease-in-out;
 
     /************** TRANSFORM *************/
     --tsc: scale(1.1);
@@ -101,7 +108,7 @@
     --bs: inset -12px -12px 20px var(--violet),
         inset -12px -12px 20px var(--violet);
     --bo: 2px 2px 20px hsla(240, 20%, 3%, 0.5),
-         2px 2px 20px hsla(240, 20%, 3%, 0.5);
+        2px 2px 20px hsla(240, 20%, 3%, 0.5);
     --frame: 0 0 10px rgba(0, 0, 0, 0.5);
 
     /************* VISIBILITY *************/
@@ -113,6 +120,7 @@
     --w11: url(../media/img/fond.jpg);
     --macsono: url(../media/img/assets/background.jpg);
     --mint: url(../media/img/assets/mintBackground.jpeg);
+    --android: url(./../assets/images/android_background.jpg);
     --ios: url(../media/img/background.webp);
     --scon: contain;
     --scov: cover;
@@ -131,4 +139,7 @@
     /**************** LINUX ***************/
     --bbtn1: 1px solid var(--btn1);
     --bbtn3: 1px solid var(--btn3);
+
+    /**************** CURSOR ***************/
+    --p: pointer;
 }
