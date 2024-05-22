@@ -1,4 +1,4 @@
-@import url(./imports.css);
+@import url(imports.css);
 
 html {
     scrollbar-color: var(--background);
