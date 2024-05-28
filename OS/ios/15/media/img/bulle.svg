@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="23.283333mm"
+   height="20.505209mm"
+   viewBox="0 0 23.283333 20.505209"
+   version="1.1"
+   id="svg863"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="bulle.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview865"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="68.655638"
+     inkscape:cy="113.2818"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs860">
+    <mask
+       id="c"
+       fill="#ffffff">
+      <rect
+         id="use10"
+         width="120"
+         height="120"
+         x="0"
+         y="0"
+         rx="28" />
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-86.904205,-118.71987)">
+    <path
+       fill="#ffffff"
+       d="M 47.881,91.617 C 51.731,92.517 55.797,93 60,93 84.3,93 104,76.882 104,57 104,37.118 84.3,21 60,21 35.7,21 16,37.118 16,57 16,69.976 24.39,81.348 36.975,87.683 36.285,92.59 34.292,96.195 31,98.5 c 6.58,0 12.207,-2.294 16.881,-6.883 z"
+       mask="url(#c)"
+       id="path15"
+       transform="matrix(0.26458333,0,0,0.26458333,82.670872,113.16362)"
+       style="fill:#949494;fill-opacity:1" />
+  </g>
+</svg>
