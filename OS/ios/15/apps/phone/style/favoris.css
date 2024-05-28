@@ -160,6 +160,9 @@ main>section:nth-child(2)>ul>li:last-child {
     justify-content: var(--fs);
     width: var(--max-w);
 }
+.favorite-contact>article>img{
+    width: calc(var(--head) * 0.9);
+}
 .salete{
     height: 40px;
 }
