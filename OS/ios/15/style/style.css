@@ -61,6 +61,9 @@ html {
 #ios15 a>img{
     width: calc(var(--head) * 1.2);
 }
+#ios15 a>img:active{
+    filter:brightness(50%);
+}
 #tableau, #tableau>nav {
     display: var(--f);
     flex-flow: var(--rnw);
