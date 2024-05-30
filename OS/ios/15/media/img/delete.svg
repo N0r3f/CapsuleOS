@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="54.145622mm"
+   height="38.470081mm"
+   viewBox="0 0 54.145622 38.470081"
+   version="1.1"
+   id="svg10628"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="delete.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview10630"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="346.71097"
+     inkscape:cy="274.62255"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs10625" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-13.344618,-75.677804)">
+    <g
+       id="g10473"
+       transform="translate(-299.98136,-75.567926)">
+      <path
+         id="rect2647"
+         style="opacity:1;fill:#e5e5e5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.12114;stroke-linecap:round;stroke-linejoin:round"
+         d="m 330.78784,151.24573 h 29.08812 c 4.20798,0 7.59564,3.27406 7.59564,7.34095 v 23.78818 c 0,4.06689 -3.38766,7.34095 -7.59564,7.34095 H 331.317 c -2.79201,-0.008 -3.5618,-1.1106 -9.90486,-8.31656 -6.34306,-7.20595 -8.15946,-8.07809 -8.08392,-10.43355 0.0755,-2.35545 1.58073,-3.1576 7.97073,-10.47297 6.38999,-7.31536 6.8682,-9.0739 9.48889,-9.247 z"
+         sodipodi:nodetypes="cssssczzzc" />
+      <g
+         id="g10466"
+         transform="translate(0,0.19437671)">
+        <g
+           id="g7670"
+           transform="translate(4.3923922,60.193504)"
+           style="fill:#000000">
+          <rect
+             style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.3039;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+             id="rect7042"
+             width="24.912914"
+             height="3.4109378"
+             x="307.94839"
+             y="-162.72122"
+             rx="1.5481346"
+             ry="1.7054689"
+             transform="rotate(44.554787)" />
+          <rect
+             style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.3039;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+             id="rect7042-3"
+             width="24.912914"
+             height="3.4109378"
+             x="148.53943"
+             y="318.73099"
+             rx="1.5481346"
+             ry="1.7054689"
+             transform="rotate(-45.445213)" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

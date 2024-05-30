@@ -110,14 +110,52 @@ main {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--c);
+    width: var(--w80)
 }
-.numbers>section{
+.numbers>article{
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+    margin: 5px 0;
+}
+.numbers>article>a:not(.icon){
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    background-color: #c7c7c9;
+    border-radius: calc(var(--head) * 1.2);
+    color: var(--noir);
+}
+.numbers>article>a:not(.symbol):not(.icon){
+    justify-content: var(--fs);
+    padding-top: calc(var(--head) / 4);
+}
+.number{
+    font-size: x-large;
+}
+.letter{
+    font-size: x-small;
+}
+.symbol{
     justify-content: var(--c);
 }
 
+.numbers>article:last-child>a{
+    width: calc(var(--head) * 1.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.numbers>article:last-child>a>img{
+    width: calc(var(--head) * 1.5);
+}
+.numbers>article:last-child>a:last-child>img{
+    width: calc(var(--head) * 0.8);
+}
 
 
 
