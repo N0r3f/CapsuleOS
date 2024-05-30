@@ -114,8 +114,8 @@ main {
     flex-flow: var(--rnw);
     justify-content: var(--c);
     align-items: var(--c);
-    border: 1px solid #c7c7c9;
-    background-color: #c7c7c9;
+    border: 1px solid #e5e5e5;
+    background-color: #e5e5e5;
     border-radius: calc(var(--head) / 8);
     font-size: small;
 }
@@ -164,6 +164,9 @@ button:not(.active){
     justify-content: var(--sb);
     align-items: var(--c);
     padding-right: var(--min-w);
+}
+.contact-recent:active{
+    background-color: #e5e5e5;
 }
 
 .contact-recent:last-child {

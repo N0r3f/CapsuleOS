@@ -154,11 +154,15 @@ main>section:nth-child(2)>ul>li:last-child {
 }
 
 .favorite-contact {
+    width: calc(var(--full) - calc(var(--head) / 6));
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--sb);
     padding: calc(var(--head) / 4);
+}
+.favorite-contact:active{
+    background-color: #e5e5e5;
 }
 
 .favorite-contact>article {

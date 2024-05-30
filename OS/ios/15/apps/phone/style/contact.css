@@ -125,7 +125,7 @@ main {
 
 .app-head input {
     width: calc(var(--max-w) - calc(var(--min-w) * 2));
-    background-color: #eeeeef;
+    background-color: #e5e5e5;
     border: var(--n);
     border-radius: calc(var(--head) / 8);
     color: #959594;
@@ -220,7 +220,7 @@ main>section:nth-child(2)>article>div:nth-child(2) a {
 }
 
 main>section:nth-child(2)>article>div:nth-child(2) a:active {
-    background-color: #959594;
+    background-color: #e5e5e5;
 }
 
 

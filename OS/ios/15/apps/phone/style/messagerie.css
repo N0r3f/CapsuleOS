@@ -81,15 +81,37 @@ a {
 main {
     display: var(--f);
     flex-flow: var(--cnw);
-    align-items: var(--c);
-    justify-content: var(--fs);
+    align-items: var(--fs);
+    justify-content: var(--sb);
     width: var(--max-w);
     height: calc(var(--max-h) - var(--head) * 1.2);
     position: var(--abs);
     padding-top: var(--head);
 }
 
+h1{
+    margin: calc(var(--head) / 4) calc(var(--head) / 2);
+}
 
+section{
+    width: var(--full);
+    height: calc(var(--max-h) - var(--head) * 2.2);
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+}
+section>button{
+    border: 1px solid #c7c7c9;
+    color: #959594;
+    background-color: var(--n);
+    border-radius: calc(var(--head) / 10);
+    font-size: small;
+    padding: calc(var(--head) / 10) calc(var(--head) / 4);
+    cursor: pointer;
+}
+section>button:active{
+    background-color: #e5e5e5;
+}
 
 
 
