@@ -7,8 +7,6 @@ var inputField = document.querySelector('input[type="text"]');
 // Parcourez chaque élément <a> et ajoutez un écouteur d'événements click
 anchorElements.forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
-        // Empêchez l'action par défaut du lien (si nécessaire)
-        e.preventDefault();
 
         // Trouvez le premier <p> enfant avec la classe.number à l'intérieur de l'élément <a> cliqué
         var numberParagraph = this.querySelector('.number');
