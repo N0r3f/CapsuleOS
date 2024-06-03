@@ -140,6 +140,7 @@ section:nth-child(3)>a{
     justify-content: var(--c);
     background-color: var(--bgw);
     width: calc(var(--head) * 1.65);
+    height: calc(var(--head) * 1.25);
     padding: calc(var(--head) / 6);
     border-radius: calc(var(--head) / 5);
 }
@@ -173,6 +174,9 @@ main>a:nth-child(4)>p:nth-child(2){
     padding-top: calc(var(--head) / 10);
     color: #007aff;
 }
+main>a:nth-child(4):active, main>a:nth-child(7):active, main>a:nth-child(8):active, main>a:nth-child(9):active, main>section:nth-child(6)>a:active{
+    background-color: #c7c7c9;
+}
 
 main>section:nth-child(5){
     color: var(--noir);
@@ -190,6 +194,9 @@ main>section:nth-child(5)>input{
     width: var(--full);
     height: 3em;
     border: var(--n);
+}
+main>section:nth-child(5)>input:focus-visible{
+    outline: var(--n);
 }
 
 main>section:nth-child(6){
