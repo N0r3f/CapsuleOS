@@ -96,9 +96,14 @@ main {
     justify-content: var(--c);
 }
 .app-head>input{
-    font-size: large;
+    font-size: x-large;
+    width: var(--full);
+    text-align: center;
     border: none;
     margin: 10px 0;
+}
+.app-head>input:focus-visible{
+    outline: var(--n);
 }
 .app-head>a{
     color: #007aff;
