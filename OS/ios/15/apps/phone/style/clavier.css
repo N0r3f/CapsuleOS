@@ -58,6 +58,9 @@ a {
 #headercellular>img {
     padding-right: calc(var(--head) / 10);
 }
+#heure{
+    margin-right: 8vw;
+}
 
 #headercellular>p:last-child {
     padding-left: calc(var(--head) / 5);

@@ -53,7 +53,9 @@ li {
 #headercellular>img {
     padding-right: calc(var(--head) / 10);
 }
-
+#heure{
+    margin-right: 8vw;
+}
 #headercellular>p:last-child {
     padding-left: calc(var(--head) / 5);
 }
@@ -160,7 +162,7 @@ main>section:nth-child(2)>article {
     padding: calc(var(--head) / 4) var(--z);
 }
 
-main>section:nth-child(2)>article>div:first-child {
+main>section:nth-child(2)>article>a:first-child {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
@@ -169,7 +171,7 @@ main>section:nth-child(2)>article>div:first-child {
     padding: calc(var(--head) / 4) var(--min-w);
 }
 
-main>section:nth-child(2)>article>div:first-child>div {
+main>section:nth-child(2)>article>a:first-child>div {
     display: var(--f);
     flex-flow: var(--cnw);
     align-items: var(--fs);
@@ -177,16 +179,17 @@ main>section:nth-child(2)>article>div:first-child>div {
     padding: var(--z) var(--min-w);
 }
 
-main>section:nth-child(2)>article>div:first-child>div>h3,
-main>section:nth-child(2)>article:first-child>div>p {
+main>section:nth-child(2)>article>a:first-child>div>h3,
+main>section:nth-child(2)>article>a:first-child>div>p {
     margin: var(--z);
     font-weight: normal;
 }
-
-main>section:nth-child(2)>article>div:first-child>div>p {
+main>section:nth-child(2)>article>a:first-child>div>h3{
+    color: var(--noir);
+}
+main>section:nth-child(2)>article>a:first-child>div>p {
     font-size: small;
     color: #959594;
-    margin: var(--z);
 }
 
 
@@ -219,6 +222,7 @@ main>section:nth-child(2)>article>div:nth-child(2) a {
     padding: calc(var(--head) / 5) var(--z);
 }
 
+main>section:nth-child(2)>article>a:active,
 main>section:nth-child(2)>article>div:nth-child(2) a:active {
     background-color: #e5e5e5;
 }

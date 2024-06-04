@@ -58,6 +58,9 @@ a {
 #headercellular>img {
     padding-right: calc(var(--head) / 10);
 }
+#heure{
+    margin-right: 8vw;
+}
 
 #headercellular>p:last-child {
     padding-left: calc(var(--head) / 5);
@@ -179,6 +182,7 @@ button:not(.active){
     align-items: var(--fs);
     justify-content: var(--c);
     padding: calc(var(--head) / 4) 0;
+    width: 60vw;
 }
 .contact-recent>a>p:first-child{
     color: var(--noir);

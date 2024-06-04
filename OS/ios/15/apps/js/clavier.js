@@ -45,3 +45,4 @@ deleteImages.forEach(function(image) {
         }
     });
 });
+
