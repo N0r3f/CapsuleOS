@@ -4,6 +4,7 @@ html {
     scrollbar-color: var(--background);
     scroll-behavior: smooth;
     color: var(--noir);
+    user-select: var(--n);
 }
 
 ul,
