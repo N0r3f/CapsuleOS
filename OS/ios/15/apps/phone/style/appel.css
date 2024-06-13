@@ -29,6 +29,7 @@ a, h1 {
     width: var(--max-w);
     height: var(--max-h);
     background-image: url(../../../media/img/background2.webp);
+    background-size: cover;
     overflow: var(--n);
 }
 
