@@ -77,9 +77,22 @@ const renderViewerMessage = (contentElement, message, href) => {
 
 const openMintWindow = (appId) => {
     const container = document.querySelector(`div[data-link="${appId}"]`);
+
+    if (!container) {
+        return false;
+    }
+
+    if (typeof openWindowByDataLink === 'function') {
+        const opened = openWindowByDataLink(appId);
+        if (opened) {
+            setWindowTitle(appId);
+        }
+        return opened;
+    }
+
     const link = document.querySelector(`a[target="windowElement"][data-link="${appId}"]`);
 
-    if (!container || !link || typeof handleOpenwindow !== 'function') {
+    if (!link || typeof handleOpenwindow !== 'function') {
         return false;
     }
 

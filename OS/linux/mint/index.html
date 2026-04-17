@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/mint.webp" type="image/x-icon">
-    <link rel="stylesheet" href="./style/style.css" type="text/css">
-    <link rel="stylesheet" href="./style/windows.css" type="text/css">
+    <link rel="stylesheet" href="./style/style.css?v=20260417a" type="text/css">
+    <link rel="stylesheet" href="./style/windows.css?v=20260417a" type="text/css">
     <link rel="stylesheet" href="./apps/style/Dossier personnel.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/firefox.css" type="text/css">
-    <link rel="stylesheet" href="./apps/style/mainMenu.css" type="text/css">
-    <link rel="stylesheet" href="./apps/style/themes.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/mainMenu.css?v=20260417a" type="text/css">
+    <link rel="stylesheet" href="./apps/style/themes.css?v=20260417a" type="text/css">
     <link rel="stylesheet" href="./apps/style/profile.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/checklist.css" type="text/css">
     <link rel="stylesheet" href="./style/tour.css" type="text/css">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./apps/style/visionneur_images.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/visionneur_pdf.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/lecteur_multimedia.css" type="text/css">
+        <link rel="stylesheet" href="./apps/style/librewriter.css" type="text/css">
     <title>Mint</title>
 </head>
 <body id="mint">
@@ -37,6 +38,7 @@
         <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
     </object>
     <footer id="tableau">
         <nav>
@@ -52,30 +54,28 @@
             <a target="windowElement" data-link="terminal" title="Ouvrir un terminal">
                 <img src="./media/img/apps/utilities-terminal.png" alt="Terminal" title="Ouvrir un terminal">
             </a>
-            <a target="windowElement" data-link="checklist" title="Missions de découverte">
-                <img src="./media/img/apps/checkbox.png" alt="Checklist" title="Missions de découverte">
+            <a target="windowElement" data-link="librewriter" title="LibreOffice Writer">
+                <img src="./media/img/apps/libreoffice-writer.png" alt="LibreOffice Writer" title="LibreOffice Writer">
             </a>
             <a target="windowElement" data-link="themes" title="Ouvrir les themes">
                 <img src="./media/img/apps/preferences-desktop-theme.png" alt="Themes" title="Ouvrir les themes">
             </a>
-            <a target="windowElement" data-link="visionneur_images" title="Ouvrir le visionneur d'images">
-                <img src="./media/img/apps/multimedia-photo-viewer.png" alt="Visionneur d'images" title="Ouvrir  le visionneur d'images">
-            </a>
-            <a target="windowElement" data-link="visionneur_pdf" title="Ouvrir le visionneur PDF">
-                <img src="./media/img/apps/okular.png" alt="Visionneur PDF" title="Ouvrir le visionneur PDF">
-            </a>
-            <a target="windowElement" data-link="lecteur_multimedia" title="Ouvrir le lecteur multimédia">
-                <img src="./media/img/apps/multimedia-video-player.png" alt="Lecteur multimédia" title="Ouvrir le lecteur multimédia">
+            <a target="windowElement" data-link="checklist" title="Missions de découverte">
+                <img src="./media/img/apps/checkbox.png" alt="Checklist" title="Missions de découverte">
             </a>
             <a href="../../../index.html">
                 <img src="../../../assets/accueil.svg" alt="Retour à l'accueil" title="Retour à l'accueil">
             </a>
         </nav>
         <div class="taskbar-right">
-            <div class="taskbar-tray" aria-hidden="true">
-                <span class="taskbar-tray__icon taskbar-tray__icon--shield" title="Sécurité système"></span>
-                <span class="taskbar-tray__icon taskbar-tray__icon--network" title="Réseau"></span>
-                <span class="taskbar-tray__icon taskbar-tray__icon--sound" title="Son"></span>
+            <div class="taskbar-tray">
+                <span class="taskbar-tray__icon taskbar-tray__icon--shield" aria-hidden="true" title="Sécurité système"></span>
+                <span class="taskbar-tray__icon taskbar-tray__icon--network" aria-hidden="true" title="Réseau"></span>
+                <button type="button" class="taskbar-tray__btn" id="tray-sound-btn"
+                        aria-expanded="false" aria-controls="volume-popover"
+                        aria-label="Contrôle du volume">
+                    <span class="taskbar-tray__icon" id="tray-sound-icon" aria-hidden="true"></span>
+                </button>
             </div>
             <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger" aria-expanded="false" aria-controls="taskbar-calendar-popover" aria-label="Date et heure">
                 <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
@@ -112,6 +112,21 @@
             <button type="button" class="calendar-popover__settings-btn">Paramètres de date et d'heure</button>
         </footer>
     </div>
+    <div class="volume-popover" id="volume-popover" role="dialog" aria-label="Volume" hidden>
+        <div class="volume-popover__header">
+            <span class="volume-popover__label">Volume</span>
+            <span class="volume-popover__value" id="volume-value">100%</span>
+        </div>
+        <div class="volume-popover__body">
+            <button type="button" class="volume-popover__mute-btn" id="volume-mute-btn"
+                    aria-label="Couper le son" aria-pressed="false">
+                <span class="volume-popover__mute-icon" id="volume-mute-icon" aria-hidden="true"></span>
+            </button>
+            <input type="range" class="volume-slider" id="volume-slider"
+                   min="0" max="100" value="100" step="1"
+                   aria-label="Niveau du volume" aria-valuetext="100%">
+        </div>
+    </div>
     <div id="tourOverlay" hidden aria-modal="true" role="dialog" aria-label="Visite guidée">
         <div id="tourSpotlight" hidden aria-hidden="true"></div>
         <div id="tourTooltip">
@@ -127,18 +142,18 @@
             </div>
         </div>
     </div>
-    <script src="./js/windowContainer.js"></script>
-    <script src="./js/windowHeaderButton.js"></script>
+    <script src="./js/windowContainer.js?v=20260417a"></script>
+    <script src="./js/windowHeaderButton.js?v=20260417a"></script>
     <script src="./js/resizeWindow.js"></script>
     <script src="./js/windowDrag.js"></script>
-    <script src="./js/mainMenu-data.js"></script>
-    <script src="./js/mainMenu.js"></script>
-    <script src="./js/themes.js"></script>
+    <script src="./js/mainMenu-data.js?v=20260417a"></script>
+    <script src="./js/mainMenu.js?v=20260417a"></script>
+    <script src="./js/themes.js?v=20260417a"></script>
     <script src="./js/profile-data.js"></script>
     <script src="./js/profile.js"></script>
     <script src="./js/checklist.js"></script>
     <script src="./js/firefoxBrowser.js"></script>
-    <script src="./js/contentLoader.js"></script>
+    <script src="./js/contentLoader.js?v=20260417a"></script>
     <script src="./js/nemo/menuHeader.js"></script>
     <script src="./js/nemo/nemoContainer.js"></script>
     <script src="./js/nemo/fileSystem.js"></script>
@@ -153,5 +168,7 @@
     <script src="./js/terminal/manuel.js"></script>
     <script src="./js/tour-data.js"></script>
     <script src="./js/tour.js"></script>
+    <script src="./js/volume.js"></script>
+    <script src="./js/librewriter.js"></script>
 </body>
 </html>

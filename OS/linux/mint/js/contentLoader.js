@@ -6,8 +6,8 @@ divs.forEach(div => {
     const cssFile = `./apps/style/${id}.css`;
 
     Promise.all([
-        fetch(htmlFile).then(response => response.text()),
-        fetch(cssFile).then(response => response.text())
+        fetch(htmlFile, { cache: 'no-store' }).then(response => response.text()),
+        fetch(cssFile, { cache: 'no-store' }).then(response => response.text())
     ])
         .then(([html, css]) => {
             div.innerHTML = html;
@@ -45,6 +45,10 @@ divs.forEach(div => {
 
             if (id === 'checklist') {
                 if (typeof initChecklistApp === 'function') initChecklistApp();
+
+                        if (id === 'librewriter') {
+                            if (typeof initLibreWriter === 'function') initLibreWriter();
+                        }
             }
 
             if (

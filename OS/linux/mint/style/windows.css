@@ -17,10 +17,13 @@ div[class^="windowElement"]:not(#mainMenu) {
     background: var(--menuDefaultCcol);
     overflow: var(--h);
     scrollbar-width: var(--z);
+    transition: border-color var(--eas2), box-shadow var(--ease), transform var(--eas2);
 }
 
 .windowElementActive {
     z-index: 500;
+    border-color: var(--menu-accent);
+    box-shadow: 0 0 0 2px var(--menu-accent), var(--frame);
 }
 
 #windowHeader {
@@ -36,6 +39,13 @@ div[class^="windowElement"]:not(#mainMenu) {
     border-radius: calc(var(--head) / 4) calc(var(--head) / 4) var(--z) var(--z);
     background: var(--nemoHC);
     user-select: none;
+    border-bottom: 1px solid var(--mint-window-header-border);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+.windowElementActive #windowHeader {
+    background: var(--nemoMCSF);
+    border-bottom: 1px solid var(--mint-window-header-border-active);
 }
 
 #windowHeader>nav {
@@ -65,6 +75,13 @@ div[class^="windowElement"]:not(#mainMenu) {
     outline: var(--n);
     border-radius: var(--mid);
     border: 1px var(--t);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+}
+
+#windowHeader>nav>button:hover {
+    transform: translateY(-1px);
+    border-color: var(--mint-window-control-border-hover);
+    background-color: var(--mint-window-control-bg-hover);
 }
 
 #minimizeBtn {

@@ -69,6 +69,7 @@ div[data-link="nemo"] .nemo-app__toolbar {
     background: var(--nemo-toolbar-bg);
     border-top: solid 1px var(--nemo-border);
     border-bottom: solid 1px var(--nemo-toolbar-border);
+    box-sizing: border-box;
 }
 
 div[data-link="nemo"] .nemo-app__toolbar-group {
@@ -98,10 +99,13 @@ div[data-link="nemo"] .nemo-app__toolbar-group > a {
     border: solid 1px var(--nemo-toolbar-button-border);
     border-radius: calc(var(--head) / 12);
     background: var(--nemo-toolbar-button-bg);
+    transition: background-color var(--eas2), border-color var(--eas2), transform var(--eas2);
 }
 
 div[data-link="nemo"] .nemo-app__toolbar-group > a:hover {
     background: var(--nemo-toolbar-button-hover-bg);
+    border-color: var(--menu-accent);
+    transform: translateY(-1px);
 }
 
 div[data-link="nemo"] .nemo-app__toolbar-group--view > a {
@@ -119,6 +123,7 @@ div[data-link="nemo"] .nemo-app__path-current {
     white-space: nowrap;
     overflow: var(--h);
     text-overflow: ellipsis;
+    border-radius: calc(var(--head) / 12);
 }
 
 div[data-link="nemo"] .nemo-app__toolbar-group img {
@@ -333,10 +338,12 @@ div[data-link="nemo"] .nemo-app__sidebar {
 div[data-link="nemo"] .nemo-app__sidebar a:hover {
     background: var(--nemo-item-active-bg);
     border-radius: calc(var(--head) / 12);
+    border-left: 2px solid var(--menu-accent);
 }
 
 div[data-link="nemo"] .nemo-app__content-wrap {
     background: var(--nemo-bg-primary);
+    border-left: 1px solid var(--nemo-border);
 }
 
 div[data-link="nemo"] .nemo-app__content-grid {

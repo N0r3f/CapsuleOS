@@ -4,6 +4,7 @@ const windowElements = document.querySelectorAll('.windowElement');
 let zCounter = 50;
 const WINDOW_TITLE_MAP = {
     profile: 'À Propos',
+    librewriter: 'Sans nom 1 — LibreOffice Writer',
 };
 
 function activateWindow(container) {
@@ -106,6 +107,51 @@ links.forEach((link) => {
 		}
 	})
 })
+
+function createVirtualLauncher(dataLink) {
+    return {
+        dataset: { link: dataLink },
+        classList: {
+            add() {},
+            remove() {},
+        },
+    };
+}
+
+function openWindowByDataLink(dataLink) {
+    if (!dataLink) {
+        return false;
+    }
+
+    const container = document.querySelector(`div[data-link="${dataLink}"]`);
+    if (!container) {
+        return false;
+    }
+
+    const launcher = document.querySelector(`a[target="windowElement"][data-link="${dataLink}"]`) || createVirtualLauncher(dataLink);
+    const isVisible = container.style.display !== 'none';
+
+    if (isVisible) {
+        activateWindow(container);
+        launcher.classList.add('active-link');
+        return true;
+    }
+
+    if (typeof handleOpenwindow !== 'function') {
+        return false;
+    }
+
+    handleOpenwindow(launcher);
+
+    const windowTitle = container.querySelector('#windowTitle');
+    if (windowTitle) {
+        windowTitle.textContent = WINDOW_TITLE_MAP[dataLink] || dataLink;
+    }
+
+    return container.style.display !== 'none';
+}
+
+window.openWindowByDataLink = openWindowByDataLink;
 
 // Fonction pour rendre une fenêtre redimensionnable
 function makeResizable(element) {

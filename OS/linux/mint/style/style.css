@@ -43,15 +43,19 @@ html {
     padding: calc(var(--head) / 6);
     gap: calc(var(--head) / 8);
     border-radius: calc(var(--head) / 8);
-    color: #fff;
+    color: var(--desktop-shortcut-text);
     text-decoration: var(--n);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+    text-shadow: var(--desktop-shortcut-shadow);
+    border: 1px solid var(--t);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
     z-index: 10;
 }
 
 .desktop-shortcut:hover,
 .desktop-shortcut.active-link {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: var(--menu-accent);
+    transform: translateY(-1px);
 }
 
 .desktop-shortcut > img {

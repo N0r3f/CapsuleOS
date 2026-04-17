@@ -7,6 +7,7 @@ object > div[data-link="mainMenu"] {
     height: calc(var(--head) * 12);
     border-radius: var(--z) calc(var(--head) / 8) var(--z) var(--z);
     background: var(--menu-apps-bg);
+    border: 1px solid var(--menu-shell-border);
     overflow: var(--hid);
 }
 
@@ -39,6 +40,7 @@ div[data-link="mainMenu"] > #windowHeader {
     width: calc(var(--head) * 3.5);
     height: var(--full);
     background: var(--menu-sidebar-bg);
+    border-right: 1px solid var(--menu-sidebar-separator);
     overflow: var(--hid);
 }
 
@@ -99,12 +101,27 @@ div[data-link="mainMenu"] > #windowHeader {
     color: var(--texte);
     font-size: calc(var(--head) / 3);
     cursor: var(--p);
-    transition: background var(--eas2);
+    transition: background var(--eas2), border-color var(--eas2);
     white-space: nowrap;
     overflow: hidden;
+    border-left: 2px solid var(--t);
 }
 
 .menu-shortcut:hover { background: var(--menu-shortcut-hover); }
+
+.menu-shortcut:focus-visible {
+    border-left-color: var(--menu-accent);
+    outline: none;
+}
+
+.menu-shortcut.is-unavailable {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.menu-shortcut.is-unavailable:hover {
+    background: transparent;
+}
 
 .menu-shortcut img {
     width: calc(var(--head) / 2.2);
@@ -142,10 +159,16 @@ div[data-link="mainMenu"] > #windowHeader {
     border-radius: calc(var(--head) / 8);
     background: var(--t);
     cursor: var(--p);
-    transition: background var(--eas2);
+    transition: background var(--eas2), border-color var(--eas2);
+    border: 1px solid var(--t);
 }
 
 .menu-action:hover { background: var(--menu-action-hover); }
+
+.menu-action:focus-visible {
+    border-color: var(--menu-accent);
+    outline: none;
+}
 
 .menu-action img {
     width: calc(var(--head) / 1.9);
@@ -193,7 +216,7 @@ div[data-link="mainMenu"] > #windowHeader {
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: var(--font-ui);
-    transition: background var(--eas2), border-color var(--eas2);
+    transition: background var(--eas2), border-color var(--eas2), color var(--eas2);
     user-select: none;
 }
 
@@ -202,6 +225,11 @@ div[data-link="mainMenu"] > #windowHeader {
 .menu-cat.is-active {
     background: var(--menu-item-active-bg);
     border-left-color: var(--menu-accent);
+}
+
+.menu-cat:focus-visible {
+    border-left-color: var(--menu-accent);
+    outline: none;
 }
 
 /* Barre de recherche */
@@ -224,9 +252,14 @@ div[data-link="mainMenu"] > #windowHeader {
     font-family: var(--font-ui);
     font-size: calc(var(--head) / 3);
     outline: none;
+    transition: border-color var(--eas2), background-color var(--eas2);
 }
 
-.menu-search:focus { border-color: var(--menu-search-border-focus); }
+.menu-search:focus {
+    border-color: var(--a11y-contrast-border);
+    background: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+}
 
 /* ── Liste des applications ──────────────────────────────────── */
 .menu-apps {
@@ -257,11 +290,17 @@ div[data-link="mainMenu"] > #windowHeader {
     padding: calc(var(--head) / 8) calc(var(--head) / 4);
     box-sizing: border-box;
     cursor: var(--p);
-    transition: background var(--eas2);
+    transition: background var(--eas2), border-color var(--eas2);
     min-height: calc(var(--head) * 1.1);
+    border-left: 2px solid var(--t);
 }
 
 .menu-app-item:hover:not(.is-unavailable) { background: var(--menuHover); }
+
+.menu-app-item:focus-visible {
+    border-left-color: var(--menu-accent);
+    outline: none;
+}
 
 .menu-app-item.is-unavailable {
     opacity: 0.45;

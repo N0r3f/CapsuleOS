@@ -16,14 +16,21 @@ html>body>footer>nav>a {
     margin: var(--z) calc(var(--head) - calc(var(--head) / 1.1));
     background: var(--t);
     border-radius: calc(var(--head) / 10);
-    transition: var(--eas2);
+    border: 1px solid var(--t);
+    transition: transform var(--eas2), background-color var(--eas2), border-color var(--eas2), box-shadow var(--eas2);
     z-index: 0;
 }
 
-html>body>footer>nav>a:hover,
+html>body>footer>nav>a:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+    transform: translateY(-1px);
+}
+
 html>body>footer>nav>a.active-link {
     background: var(--mint-clock-hover-bg);
-    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.2);
+    border-color: var(--menu-accent);
+    box-shadow: inset 0 -2px 0 var(--menu-accent);
 }
 
 html>body>footer>nav>a>img {
@@ -54,6 +61,8 @@ html>body>footer>nav>a:nth-child(1)>img {
     gap: calc(var(--head) / 8);
     color: var(--mint-tray-color);
     padding-right: calc(var(--head) / 9);
+    border-left: 1px solid var(--mint-tray-separator);
+    padding-left: calc(var(--head) / 6);
 }
 
 .taskbar-tray__icon {
@@ -103,10 +112,14 @@ html>body>footer>nav>a:nth-child(1)>img {
     font-size: calc(var(--head) / 2.2);
     cursor: default;
     white-space: nowrap;
+    transition: background-color var(--eas2), border-color var(--eas2), transform var(--eas2);
+    border: 1px solid var(--t);
 }
 
 .taskbar-clock-trigger:hover {
     background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+    transform: translateY(-1px);
 }
 
 .taskbar-clock-trigger > .taskbar__clock {

@@ -25,4 +25,25 @@
             Le theme sombre est actif.
         </p>
     </section>
+
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Contraste</h2>
+        <div class="themes-app__cards" role="radiogroup" aria-label="Mode contraste">
+            <button type="button" class="themes-contrast-card" data-contrast-option="normal" role="radio" aria-checked="true">
+                <span class="themes-card__title">Standard</span>
+            </button>
+            <button type="button" class="themes-contrast-card" data-contrast-option="high" role="radio" aria-checked="false">
+                <span class="themes-card__title">Renforcé</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Taille du texte</h2>
+        <div class="themes-app__scale" role="radiogroup" aria-label="Taille du texte">
+            <button type="button" class="themes-scale-button" data-font-scale-option="100" role="radio" aria-checked="true">100%</button>
+            <button type="button" class="themes-scale-button" data-font-scale-option="110" role="radio" aria-checked="false">110%</button>
+            <button type="button" class="themes-scale-button" data-font-scale-option="125" role="radio" aria-checked="false">125%</button>
+        </div>
+    </section>
 </main>
