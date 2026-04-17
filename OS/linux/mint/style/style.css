@@ -25,9 +25,46 @@ html {
     flex-flow: var(--cnw);
     align-items: var(--c);
     justify-content: var(--fs);
+    position: var(--rel);
     width: var(--max-w);
-    height: calc(var(--max-h) - calc(var(--head) * 1.5));
-    max-height: calc(var(--max-h) - calc(var(--head) * 1.5));
+    height: calc(var(--max-h) - var(--taskbar-height));
+    max-height: calc(var(--max-h) - var(--taskbar-height));
+}
+
+.desktop-shortcut {
+    position: var(--abs);
+    top: calc(var(--head) / 2);
+    left: calc(var(--head) / 2);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 3.4);
+    padding: calc(var(--head) / 6);
+    gap: calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 8);
+    color: #fff;
+    text-decoration: var(--n);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+    z-index: 10;
+}
+
+.desktop-shortcut:hover,
+.desktop-shortcut.active-link {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.desktop-shortcut > img {
+    width: calc(var(--head) * 1.3);
+    height: calc(var(--head) * 1.3);
+    object-fit: contain;
+}
+
+.desktop-shortcut > span {
+    max-width: var(--full);
+    text-align: var(--c);
+    line-height: 1.2;
+    font-size: calc(var(--head) / 3.2);
 }
 
 #tableau {
@@ -36,8 +73,8 @@ html {
     align-items: var(--c);
     justify-content: var(--sb);
     width: var(--full);
-    height: calc(var(--head) * 1.5);
+    height: var(--taskbar-height);
     padding: var(--z) calc(var(--head) / 4) var(--z) calc(var(--head) / 4);
     border: var(--n);
-    background: var(--noir);
+    background: var(--mint-taskbar-bg);
 }

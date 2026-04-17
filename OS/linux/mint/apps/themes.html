@@ -1,0 +1,28 @@
+<main id="themesApp" class="themes-app" aria-label="Parametres des themes">
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Style</h2>
+        <div class="themes-app__control">
+            <button type="button" class="themes-app__select" aria-haspopup="listbox" aria-expanded="false">
+                <span>Mint-Y</span>
+                <span class="themes-app__caret" aria-hidden="true">▼</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Apparence</h2>
+        <div class="themes-app__cards" role="radiogroup" aria-label="Choix du theme">
+            <button type="button" class="themes-card" data-theme-option="dark" role="radio" aria-checked="true">
+                <span class="themes-card__preview themes-card__preview--dark" aria-hidden="true"></span>
+                <span class="themes-card__title">Sombre</span>
+            </button>
+            <button type="button" class="themes-card" data-theme-option="light" role="radio" aria-checked="false">
+                <span class="themes-card__preview themes-card__preview--light" aria-hidden="true"></span>
+                <span class="themes-card__title">Clair</span>
+            </button>
+        </div>
+        <p class="themes-app__help" data-themes-help>
+            Le theme sombre est actif.
+        </p>
+    </section>
+</main>

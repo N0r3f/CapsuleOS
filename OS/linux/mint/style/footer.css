@@ -6,20 +6,119 @@ html>body>footer>nav {
 }
 
 html>body>footer>nav>a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
     width: calc(var(--head) * 1.2); 
     height: var(--head);
-    margin: calc(var(--head) - calc(var(--head) / 1.1));
+    margin: var(--z) calc(var(--head) - calc(var(--head) / 1.1));
     background: var(--t);
+    border-radius: calc(var(--head) / 10);
     transition: var(--eas2);
     z-index: 0;
 }
 
+html>body>footer>nav>a:hover,
+html>body>footer>nav>a.active-link {
+    background: var(--mint-clock-hover-bg);
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.2);
+}
+
 html>body>footer>nav>a>img {
-    width: var(--a);
-    height: var(--head);
+    display: var(--bl);
+    width: calc(var(--head) * 0.9);
+    height: calc(var(--head) * 0.9);
+    object-fit: contain;
     image-rendering: var(--a);
 }
 
 html>body>footer>nav>a:nth-child(1)>img {
     filter: var(--inv) var(--bright);
+}
+
+.taskbar-right {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 12);
+}
+
+.taskbar-tray {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 8);
+    color: var(--mint-tray-color);
+    padding-right: calc(var(--head) / 9);
+}
+
+.taskbar-tray__icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.5);
+    height: calc(var(--head) * 0.5);
+    opacity: 0.9;
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.taskbar-tray__icon--shield {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--network {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.87 2.13 7.13 2.13 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.87 2.13 7.13 2.13 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--sound {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
+}
+
+.taskbar-clock-trigger {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    min-width: calc(var(--head) * 1.7);
+    height: var(--head);
+    margin: var(--z);
+    margin-left: calc(var(--head) / 14);
+    padding: var(--z) calc(var(--head) / 10);
+    border: var(--n);
+    border-radius: calc(var(--head) / 8);
+    background: var(--t);
+    color: var(--texte);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.2);
+    cursor: default;
+    white-space: nowrap;
+}
+
+.taskbar-clock-trigger:hover {
+    background: var(--mint-clock-hover-bg);
+}
+
+.taskbar-clock-trigger > .taskbar__clock {
+    color: inherit;
+    font-size: calc(var(--head) / 2.2);
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .taskbar-tray__icon {
+        width: calc(var(--head) * 0.44);
+        height: calc(var(--head) * 0.44);
+    }
 }

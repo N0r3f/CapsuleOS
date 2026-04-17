@@ -10,18 +10,33 @@
     <link rel="stylesheet" href="./apps/style/Dossier personnel.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/firefox.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/mainMenu.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/themes.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/profile.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/checklist.css" type="text/css">
+    <link rel="stylesheet" href="./style/tour.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/nemo.css" type="text/css">
     <link rel="stylesheet" href="./apps/style/terminal.css" type="text/css">
-    <link rel="stylesheet" href="./apps/style/visionneur_images.css" type="text/css"> 
+    <link rel="stylesheet" href="./apps/style/visionneur_images.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/visionneur_pdf.css" type="text/css">
+    <link rel="stylesheet" href="./apps/style/lecteur_multimedia.css" type="text/css">
     <title>Mint</title>
 </head>
 <body id="mint">
     <object id="desktop">
+        <a class="desktop-shortcut" target="windowElement" data-link="profile" title="Linux Mint Cinnamon À Propos">
+            <img src="./media/img/apps/user-info.png" alt="Linux Mint Cinnamon À Propos">
+            <span>Linux Mint Cinnamon<br>À Propos</span>
+        </a>
         <div class="windowElement" data-link="mainMenu" id="mainMenu" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="nemo" id="nemo" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="firefox" id="firefox" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="terminal" id="terminal" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="themes" id="themes" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="profile" id="profile" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="checklist" id="checklist" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
     </object>
     <footer id="tableau">
         <nav>
@@ -37,29 +52,106 @@
             <a target="windowElement" data-link="terminal" title="Ouvrir un terminal">
                 <img src="./media/img/apps/utilities-terminal.png" alt="Terminal" title="Ouvrir un terminal">
             </a>
+            <a target="windowElement" data-link="checklist" title="Missions de découverte">
+                <img src="./media/img/apps/checkbox.png" alt="Checklist" title="Missions de découverte">
+            </a>
+            <a target="windowElement" data-link="themes" title="Ouvrir les themes">
+                <img src="./media/img/apps/preferences-desktop-theme.png" alt="Themes" title="Ouvrir les themes">
+            </a>
             <a target="windowElement" data-link="visionneur_images" title="Ouvrir le visionneur d'images">
                 <img src="./media/img/apps/multimedia-photo-viewer.png" alt="Visionneur d'images" title="Ouvrir  le visionneur d'images">
+            </a>
+            <a target="windowElement" data-link="visionneur_pdf" title="Ouvrir le visionneur PDF">
+                <img src="./media/img/apps/okular.png" alt="Visionneur PDF" title="Ouvrir le visionneur PDF">
+            </a>
+            <a target="windowElement" data-link="lecteur_multimedia" title="Ouvrir le lecteur multimédia">
+                <img src="./media/img/apps/multimedia-video-player.png" alt="Lecteur multimédia" title="Ouvrir le lecteur multimédia">
             </a>
             <a href="../../../index.html">
                 <img src="../../../assets/accueil.svg" alt="Retour à l'accueil" title="Retour à l'accueil">
             </a>
         </nav>
-        <span id="heure-date"></span>
+        <div class="taskbar-right">
+            <div class="taskbar-tray" aria-hidden="true">
+                <span class="taskbar-tray__icon taskbar-tray__icon--shield" title="Sécurité système"></span>
+                <span class="taskbar-tray__icon taskbar-tray__icon--network" title="Réseau"></span>
+                <span class="taskbar-tray__icon taskbar-tray__icon--sound" title="Son"></span>
+            </div>
+            <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger" aria-expanded="false" aria-controls="taskbar-calendar-popover" aria-label="Date et heure">
+                <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
+            </button>
+        </div>
     </footer>
+
+    <div class="calendar-popover" id="taskbar-calendar-popover" role="dialog" aria-label="Calendrier" hidden>
+        <header class="calendar-popover__top">
+            <div class="calendar-popover__long-date" id="cal-long-date"></div>
+        </header>
+        <div class="calendar-popover__columns">
+            <div class="calendar-popover__events">
+                <div class="calendar-popover__events-inner">
+                    <span class="calendar-popover__events-icon" aria-hidden="true"></span>
+                    <p class="calendar-popover__events-text">Aucun évènement</p>
+                </div>
+            </div>
+            <div class="calendar-popover__calendar">
+                <div class="calendar-popover__cal-head">
+                    <div class="calendar-popover__weekday-big" id="cal-weekday-big"></div>
+                    <div class="calendar-popover__date-sub" id="cal-date-sub"></div>
+                </div>
+                <div class="calendar-popover__month-nav">
+                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month" aria-label="Mois précédent">‹</button>
+                    <span class="calendar-popover__month-label" id="cal-month-label"></span>
+                    <button type="button" class="calendar-popover__arrow" id="cal-next-month" aria-label="Mois suivant">›</button>
+                </div>
+                <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
+                <div class="calendar-popover__days" id="cal-days-grid"></div>
+            </div>
+        </div>
+        <footer class="calendar-popover__bottom">
+            <button type="button" class="calendar-popover__settings-btn">Paramètres de date et d'heure</button>
+        </footer>
+    </div>
+    <div id="tourOverlay" hidden aria-modal="true" role="dialog" aria-label="Visite guidée">
+        <div id="tourSpotlight" hidden aria-hidden="true"></div>
+        <div id="tourTooltip">
+            <h2 id="tourTitle"></h2>
+            <p id="tourBody"></p>
+            <div class="tour-tooltip__footer">
+                <button type="button" class="tour-btn" id="tourSkip">Passer</button>
+                <span id="tourCounter" aria-live="polite"></span>
+                <div class="tour-tooltip__nav">
+                    <button type="button" class="tour-btn" id="tourPrev" disabled>&lsaquo; Préc</button>
+                    <button type="button" class="tour-btn tour-btn--primary" id="tourNext">Suivant &rsaquo;</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./js/windowContainer.js"></script>
     <script src="./js/windowHeaderButton.js"></script>
     <script src="./js/resizeWindow.js"></script>
     <script src="./js/windowDrag.js"></script>
+    <script src="./js/mainMenu-data.js"></script>
+    <script src="./js/mainMenu.js"></script>
+    <script src="./js/themes.js"></script>
+    <script src="./js/profile-data.js"></script>
+    <script src="./js/profile.js"></script>
+    <script src="./js/checklist.js"></script>
+    <script src="./js/firefoxBrowser.js"></script>
     <script src="./js/contentLoader.js"></script>
     <script src="./js/nemo/menuHeader.js"></script>
     <script src="./js/nemo/nemoContainer.js"></script>
     <script src="./js/nemo/fileSystem.js"></script>
     <script src="./js/nemo/fileSystemInfo.js"></script>
+    <script src="./js/fileViewerRouter.js"></script>
     <script src="./js/nemo/nemoLoader.js"></script>
     <script src="./js/date.js"></script>
+    <script src="./js/calendar-popover.js"></script>
     <script src="./js/terminal/terminal.js"></script>
     <script src="./js/terminal/executeCommand.js"></script>
     <script src="./js/terminal/filesystem.js"></script>
     <script src="./js/terminal/manuel.js"></script>
+    <script src="./js/tour-data.js"></script>
+    <script src="./js/tour.js"></script>
 </body>
 </html>

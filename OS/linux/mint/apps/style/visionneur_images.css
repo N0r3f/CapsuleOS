@@ -6,126 +6,97 @@ main#visionneurImages {
     left: var(--z);
     display: var(--f);
     flex-flow: var(--cnw);
-    justify-content: var(--fs);
     align-items: var(--fs);
+    justify-content: var(--fs);
     width: calc(var(--full) - calc(var(--head) / 20));
     height: calc(var(--full) - calc(var(--head) / 1.4));
-    min-height: calc(var(--a) - calc(var(--head) / 1.4));
     margin-bottom: calc(var(--head) / 12);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
-    font-size: calc(var(--head) - 25px);
-    background-color: var(--bgw);
-    user-select: var(--n);
+    color: var(--nemo-text-primary);
+    background-color: var(--nemo-bg-primary);
     overflow: var(--h);
 }
 
-#visionneurImages a {
-    cursor: default;
+div[data-link="visionneur_images"] #windowHeader {
+    background: var(--nemo-header-bg);
 }
 
-#nemoHeaderContainer {
-    top: var(--z);
-    display: var(--f);
-    flex-flow: var(--cnw);
-    align-items: var(--sa);
-    justify-content: var(--sa);
-    width: var(--full);
-    height: calc(var(--head) * 2);
-    margin-top: var(--z);
-    border-bottom: solid 1px var(--nemoHCB);
-    background-color: var(--nemoHC);
+div[data-link="visionneur_images"] #windowTitle {
+    color: var(--nemo-text-primary);
+    text-shadow: var(--n);
+    filter: var(--n);
 }
 
-.menuHeader {
+#visionneurImages .viewer-app__toolbar {
+    position: var(--rel);
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--fs);
     width: var(--full);
-    height: var(--head);
-    list-style-type: none;
-    overflow: hidden;
+    margin: var(--z);
+    padding: calc(var(--head) / 5) calc(var(--head) / 3);
+    border-bottom: solid 1px var(--nemo-border);
+    color: var(--nemo-text-primary);
+    background: var(--nemo-header-bg);
+    overflow: var(--h);
+}
+
+#visionneurImages .viewer-app__label {
     margin: var(--z);
     padding: var(--z);
+    font-weight: var(--wb);
+    color: var(--nemo-text-muted);
 }
 
-.menuOutis {
+#visionneurImages .viewer-app__filename {
+    margin: var(--z) var(--z) var(--z) calc(var(--head) / 6);
+    padding: var(--z);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: var(--h);
+}
+
+#visionneurImages .viewer-app__content {
+    position: var(--rel);
     display: var(--f);
-    flex-flow: var(--rnw);
+    flex-flow: var(--cnw);
     align-items: var(--c);
-    justify-content: var(--fs);
-    width: calc(var(--head) * 3);
-    height: var(--head);
-    padding: var(--z) calc(var(--head) / 4);
-    gap: calc(var(--head) - 25px);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+    margin: var(--z);
+    padding: calc(var(--head) / 3);
+    background-color: var(--nemo-bg-primary);
+    overflow: var(--a);
 }
 
-.menuHeader>li>a {
+#visionneurImages .viewer-app__image {
     display: var(--bl);
-    text-align: var(--fs);
-    color: var(--menuDefaultCcol);
-    padding: calc(var(--head) / 8) calc(var(--head) / 4);
-}
-
-.menuHeader>li:active {
-    background-color: #d0d0d0;
-}
-
-.listeSousMenu>a:hover {
-    background-color: var(--nemoHC);
-}
-
-.listeSousMenu {
-    display: none;
-    position: var(--abs);
+    max-width: var(--full);
+    max-height: var(--full);
+    margin: var(--z);
+    border: solid 1px var(--nemo-border);
+    border-radius: calc(var(--head) / 8);
     background-color: var(--bgw);
-    min-width: calc(var(--head) * 8);
-    z-index: 1;
-    list-style-type: none;
-    border: solid 1px var(--nemoHCB);
+    object-fit: contain;
 }
 
-.listeSousMenu>a {
-    display: var(--f);
-    flex-flow: var(--rnw);
-    justify-content: var(--fs);
-    align-items: var(--c);
-    text-align: left;
-    margin-left: calc(var(--head) * (-1));
-    padding-left: calc(var(--head) / 5);
-    color: var(--menuDefaultCcol)
+#visionneurImages .viewer-app__message {
+    margin: var(--z);
+    padding: calc(var(--head) / 3);
+    border: solid 1px var(--nemo-border);
+    border-radius: calc(var(--head) / 8);
+    color: var(--nemo-text-muted);
+    background-color: var(--nemo-menu-surface-bg);
 }
 
-.listeSousMenu>a>li {
-    padding: calc(var(--head) / 6) var(--z);
-    padding-left: calc(var(--head) / 2 + var(--head) / 8);
-}
-
-.lineUnder {
-    border-bottom: solid 1px var(--nemoHCB);
-}
-
-.listeSousMenu>a>img {
-    width: calc(var(--head) / 2);
-    margin-right: calc(var(--head) / -2);
-}
-
-.listeSousMenu>a>li>img {
-    position: absolute;
-    right: 5px;
-}
-
-.menuHeader>li:hover .listeSousMenu {
-    display: var(--bl);
-}
-
-.menuOutils>.sousMenuOutils {
-    display: var(--f);
-    flex-flow: var(--rnw);
-    align-items: var(--c);
-    justify-content: var(--fs);
-    width: calc(var(--head) * 3);
-    height: var(--head);
-    padding: var(--z) calc(var(--head) / 4);
-    gap: calc(var(--head) - 25px);
+#visionneurImages .viewer-app__external-link {
+    display: var(--in-bl);
+    margin-top: calc(var(--head) / 4);
+    padding: calc(var(--head) / 6) calc(var(--head) / 4);
+    border: solid 1px var(--nemo-border);
+    border-radius: calc(var(--head) / 8);
+    color: var(--nemo-text-primary);
+    background-color: var(--nemo-toolbar-bg);
 }

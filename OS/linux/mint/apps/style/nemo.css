@@ -14,9 +14,20 @@ main#gestionnaire {
     margin-bottom: calc(var(--head) / 12);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
     font-size: calc(var(--head) - 25px);
-    background-color: var(--bgw);
+    background-color: var(--nemo-bg-primary);
     user-select: var(--n);
     overflow: var(--h);
+}
+
+/* Override the shared window chrome only for Nemo containers. */
+div[data-link="nemo"] #windowHeader {
+    background: var(--nemo-header-bg);
+}
+
+div[data-link="nemo"] #windowTitle {
+    color: var(--nemo-text-primary);
+    text-shadow: var(--n);
+    filter: var(--n);
 }
 
 #gestionnaire a {
@@ -32,8 +43,116 @@ main#gestionnaire {
     width: var(--full);
     height: calc(var(--head) * 2);
     margin-top: var(--z);
-    border-bottom: solid 1px var(--nemoHCB);
-    background-color: var(--nemoHC);
+    border-bottom: solid 1px var(--nemo-border);
+    background-color: var(--nemo-header-bg);
+}
+
+/* Keep Nemo header dark even when other app styles reuse same generic ids/classes. */
+div[data-link="nemo"] #nemoHeaderContainer {
+    border-bottom: solid 1px var(--nemo-border);
+    background-color: var(--nemo-header-bg);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .menuHeader,
+div[data-link="nemo"] #nemoHeaderContainer .menuOutils,
+div[data-link="nemo"] #nemoHeaderContainer .sousMenuOutils,
+div[data-link="nemo"] #nemoHeaderContainer nav {
+    background-color: var(--nemo-header-bg);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 2.2);
+    padding: calc(var(--head) / 7) calc(var(--head) / 5);
+    background: var(--nemo-toolbar-bg);
+    border-top: solid 1px var(--nemo-border);
+    border-bottom: solid 1px var(--nemo-toolbar-border);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 8);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--path {
+    flex: 1;
+    min-width: 0;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--view {
+    margin-left: var(--a);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group > a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    min-width: calc(var(--head) / 1.4);
+    height: calc(var(--head) / 1.4);
+    padding: calc(var(--head) / 8);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 12);
+    background: var(--nemo-toolbar-button-bg);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group > a:hover {
+    background: var(--nemo-toolbar-button-hover-bg);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--view > a {
+    min-width: calc(var(--head) / 1.5);
+}
+
+div[data-link="nemo"] .nemo-app__path-current {
+    flex: 1;
+    justify-content: var(--fs);
+    min-width: 0;
+    padding: calc(var(--head) / 7) calc(var(--head) / 3);
+    border: solid 1px var(--nemo-pathbar-border);
+    background: var(--nemo-pathbar-bg);
+    color: var(--nemo-pathbar-text);
+    white-space: nowrap;
+    overflow: var(--h);
+    text-overflow: ellipsis;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group img {
+    filter: var(--nemo-toolbar-icon-filter);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer a {
+    color: var(--nemo-text-primary);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .menuHeader>li:active {
+    background-color: var(--nemo-item-active-bg);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu {
+    background-color: var(--nemo-menu-surface-bg);
+    border: solid 1px var(--nemo-border);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu>a {
+    color: var(--nemo-text-primary);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu>a:hover {
+    background-color: var(--nemo-item-active-bg);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu .lineUnder {
+    border-bottom: solid 1px var(--nemo-border);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .menuOutils img,
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu img {
+    filter: var(--nemo-toolbar-icon-filter);
 }
 
 .menuHeader {
@@ -63,26 +182,26 @@ main#gestionnaire {
 .menuHeader>li>a {
     display: var(--bl);
     text-align: var(--fs);
-    color: var(--menuDefaultCcol);
+    color: var(--nemo-text-primary);
     padding: calc(var(--head) / 8) calc(var(--head) / 4);
 }
 
 .menuHeader>li:active {
-    background-color: #d0d0d0;
+    background-color: var(--nemo-item-active-bg);
 }
 
 .listeSousMenu>a:hover {
-    background-color: var(--nemoHC);
+    background-color: var(--nemo-item-active-bg);
 }
 
 .listeSousMenu {
     display: none;
     position: var(--abs);
-    background-color: var(--bgw);
+    background-color: var(--nemo-bg-primary);
     min-width: calc(var(--head) * 8);
     z-index: 1;
     list-style-type: none;
-    border: solid 1px var(--nemoHCB);
+    border: solid 1px var(--nemo-border);
 }
 
 .listeSousMenu>a {
@@ -93,7 +212,7 @@ main#gestionnaire {
     text-align: left;
     margin-left: calc(var(--head) * (-1));
     padding-left: calc(var(--head) / 5);
-    color: var(--menuDefaultCcol)
+    color: var(--nemo-text-primary)
 }
 
 .listeSousMenu>a>li {
@@ -102,7 +221,7 @@ main#gestionnaire {
 }
 
 .lineUnder {
-    border-bottom: solid 1px var(--nemoHCB);
+    border-bottom: solid 1px var(--nemo-border);
 }
 
 .listeSousMenu>a>img {
@@ -152,7 +271,7 @@ main#gestionnaire {
 .menuOutils>a,
 .sousMenuOutils>a {
     text-decoration: var(--n);
-    color: var(--noir);
+    color: var(--nemo-text-primary);
 }
 
 #nemoMainContainer {
@@ -181,8 +300,8 @@ main#gestionnaire {
     height: var(--full);
     min-height: var(--a);
     padding: calc(var(--head) / 12);
-    border-right: solid 1px var(--nemoHCB);
-    background-color: var(--nemoMCSF);
+    border-right: solid 1px var(--nemo-border);
+    background-color: var(--nemo-sidebar-bg);
     overflow: var(--a);
 }
 
@@ -194,7 +313,7 @@ main#gestionnaire {
     align-items: var(--c);
     padding: calc(var(--head) / 4) var(--z) var(--z) calc(var(--head) / 8);
     font-weight: var(--wb);
-    color: var(--noir);
+    color: var(--nemo-text-primary);
 }
 
 #nemoMainContainer>#voletnemo>div {
@@ -205,6 +324,29 @@ main#gestionnaire {
     width: 190px;
     margin-left: calc(var(--head) / 2);
     gap: calc(var(--head) / 8);
+}
+
+div[data-link="nemo"] .nemo-app__sidebar {
+    padding-top: calc(var(--head) / 6);
+}
+
+div[data-link="nemo"] .nemo-app__sidebar a:hover {
+    background: var(--nemo-item-active-bg);
+    border-radius: calc(var(--head) / 12);
+}
+
+div[data-link="nemo"] .nemo-app__content-wrap {
+    background: var(--nemo-bg-primary);
+}
+
+div[data-link="nemo"] .nemo-app__content-grid {
+    --nemo-item-card-size: calc(var(--nemo-item-base-size) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    --nemo-item-icon-size: calc(var(--nemo-item-icon-base-size) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    --nemo-item-icon-margin-x: calc(var(--nemo-item-icon-margin-base) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    --nemo-item-label-size: calc(var(--nemo-item-label-base-size) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    align-content: var(--fs);
+    padding: calc(var(--head) / 5);
+    gap: calc(var(--head) / 6);
 }
 
 #nemoMainContainer>#voletnemo>div>a>img {
@@ -236,10 +378,11 @@ main#gestionnaire {
     flex-flow: var(--cnw);
     justify-content: var(--sa);
     align-items: var(--c);
-    width: calc(var(--head) * 3.5);
-    height: calc(var(--head) * 3.5);
+    width: var(--nemo-item-card-size);
+    height: var(--nemo-item-card-size);
     margin: calc(var(--head) / 10);
-    color: var(--noir);
+    color: var(--nemo-text-primary);
+    font-size: var(--nemo-item-label-size);
 }
 
 #voletContainer>.nemoElement>a {
@@ -249,14 +392,14 @@ main#gestionnaire {
 #voletContainer>.nemoElement>a::after {
     content: attr(data-details);
     position: var(--abs);
-    top: calc(var(--head) * 3.5);
+    top: var(--nemo-item-card-size);
     display: var(--n);
     width: var(--a);
     height: var(--a);
     text-align: var(--c);
     align-items: var(--c);
-    background: var(--noir);
-    color: var(--texte);
+    background: var(--nemo-tooltip-bg);
+    color: var(--nemo-tooltip-text);
     padding: calc(var(--head) / 8);
     border-radius: calc(var(--head) / 8);
 }
@@ -269,9 +412,21 @@ main#gestionnaire {
 }
 
 #nemoMainContainer>#voletContainer>section.nemoElement>a>img {
-    width: calc(var(--head) * 2);
+    width: var(--nemo-item-icon-size);
     height: var(--a);
-    margin: calc(var(--head) / 4) var(--head);
+    margin: calc(var(--head) / 4) var(--nemo-item-icon-margin-x);
+}
+
+div[data-link="nemo"] .nemo-app__content-grid > a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: calc(var(--head) / 8);
+}
+
+div[data-link="nemo"] .nemo-app__empty {
+    width: var(--full);
+    padding: calc(var(--head) / 2);
+    color: var(--nemo-text-muted);
+    text-align: var(--c);
 }
 
 #nemoFooterContainer {
@@ -283,9 +438,17 @@ main#gestionnaire {
     height: var(--head);
     margin-bottom: calc(var(--head) / 12);
     padding: var(--z) calc(var(--head) / 2);
-    border-top: solid 1px var(--nemoHCB);
+    border-top: solid 1px var(--nemo-border);
     border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
-    background-color: var(--nemofoot);
+    background-color: var(--nemo-footer-bg);
+}
+
+div[data-link="nemo"] .nemo-app__statusbar {
+    color: var(--nemo-status-text);
+}
+
+div[data-link="nemo"] .nemo-app__status-center > p {
+    color: var(--nemo-status-text);
 }
 
 #nemoFooterContainer>section:nth-child(1) {
@@ -313,7 +476,7 @@ main#gestionnaire {
 }
 
 #nemoFooterContainer>section:nth-child(2)>p {
-    color: var(--noir);
+    color: var(--nemo-text-primary);
 }
 
 #nemoFooterContainer>section:nth-child(3) {
@@ -325,5 +488,6 @@ main#gestionnaire {
 }
 
 #nemoFooterContainer>section:nth-child(3)>input {
-    width: calc(var(--head) * 2);
+    width: var(--nemo-zoom-slider-width);
+    accent-color: var(--nemo-accent);
 }

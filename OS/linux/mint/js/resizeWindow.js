@@ -2,105 +2,77 @@ class Resizer {
     constructor(element) {
         this.element = element;
         this.resizing = false;
-        this.resizeDirection = null;
+        this.resizeDirection = '';
         this.startX = 0;
         this.startY = 0;
         this.startLeft = 0;
         this.startTop = 0;
         this.startWidth = 0;
         this.startHeight = 0;
-        this.BORDER_SIZE = 12;
-        this.isMouseDown = false;
-        this.horizontalLimit = 640; // Définir la limite de taille horizontale
-        document.addEventListener('mousedown', this.startResize.bind(this));
-        document.addEventListener('mousemove', this.checkBorder.bind(this));
-        document.addEventListener('mouseup', this.stopResize.bind(this));
-        document.addEventListener('mousemove', this.changeCursor.bind(this));
-        this.isResizable = Boolean(true);
+        this.BORDER_SIZE = 10;
 
+        this.onMouseDown = this.startResize.bind(this);
+        this.onMouseMove = this.checkBorder.bind(this);
+        this.onMouseUp = this.stopResize.bind(this);
+        this.onCursorMove = this.changeCursor.bind(this);
 
+        this.element.addEventListener('mousedown', this.onMouseDown);
+        this.element.addEventListener('mousemove', this.onCursorMove);
     }
 
     startResize(e) {
-        if (e.target !== this.element) return; // Vérifier si l'événement est déclenché à l'intérieur de l'élément cible
+        if (e.button !== 0) return;
+        if (e.target.closest('#windowHeader, button, input, textarea, select, a')) return;
 
-        this.element.style.position = 'fixed';        
         const rect = this.element.getBoundingClientRect();
         const offsetX = e.clientX - rect.left;
         const offsetY = e.clientY - rect.top;
-    
-        if (offsetX < this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'top-left';
-        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'top-right';
-        } else if (offsetX < this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'bottom-left';
-        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'bottom-right';
-        } else if (offsetX < this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'left';
-            console.log(rect.width);
-            if(rect.width == 640)
-            {
-                console.log("là ça s'arrête");
-            }
-        
 
-        } else if (offsetX > rect.width - this.BORDER_SIZE) {
-            // Vérifier si la largeur actuelle est inférieure ou égale à la limite horizontale
-            if (rect.width >= this.horizontalLimit) {
-                this.resizing = false; // Ne pas autoriser le redimensionnement
-            }
-            this.resizing = true;
-            this.resizeDirection = 'right';
-        } else if (offsetY < this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'top';
-        } else if (offsetY > rect.height - this.BORDER_SIZE) {
-            this.resizing = true;
-            this.resizeDirection = 'bottom';
-        }
-    
-        if (this.resizing) {
-            this.startX = e.clientX;
-            this.startY = e.clientY;
-            this.startLeft = this.element.getBoundingClientRect().left;
-            this.startTop = this.element.getBoundingClientRect().top;
-            this.startWidth = this.element.offsetWidth;
-            this.startHeight = this.element.offsetHeight;
-            this.isMouseDown = true;
-            this.updateWindowSize();
-        }
+        const left = offsetX <= this.BORDER_SIZE;
+        const right = offsetX >= rect.width - this.BORDER_SIZE;
+        const top = offsetY <= this.BORDER_SIZE;
+        const bottom = offsetY >= rect.height - this.BORDER_SIZE;
+
+        let direction = '';
+        if (top && left) direction = 'top-left';
+        else if (top && right) direction = 'top-right';
+        else if (bottom && left) direction = 'bottom-left';
+        else if (bottom && right) direction = 'bottom-right';
+        else if (left) direction = 'left';
+        else if (right) direction = 'right';
+        else if (top) direction = 'top';
+        else if (bottom) direction = 'bottom';
+
+        if (!direction) return;
+
+        e.preventDefault();
+        this.resizing = true;
+        this.resizeDirection = direction;
+        this.startX = e.clientX;
+        this.startY = e.clientY;
+        this.startLeft = rect.left;
+        this.startTop = rect.top;
+        this.startWidth = rect.width;
+        this.startHeight = rect.height;
+
+        document.addEventListener('mousemove', this.onMouseMove);
+        document.addEventListener('mouseup', this.onMouseUp);
     }
 
     checkBorder(e) {
+        if (!this.resizing) return;
         e.preventDefault();
-        if (!this.resizing && !this.isMouseDown) return; // Vérifier si aucun redimensionnement ni déplacement n'est en cours
-    
-        const rect = this.element.getBoundingClientRect();
 
         const dx = e.clientX - this.startX;
         const dy = e.clientY - this.startY;
-    
+
         let newWidth = this.startWidth;
         let newLeft = this.startLeft;
         let newHeight = this.startHeight;
         let newTop = this.startTop;
-    
+
         switch (this.resizeDirection) {
             case 'left':
-                if(rect.width <= 640)
-                {
-                    this.stopResize();
-                    this.isResizable = false;
-
-                }
-
                 newWidth -= dx;
                 newLeft += dx;
                 break;
@@ -135,34 +107,54 @@ class Resizer {
                 newHeight += dy;
                 break;
         }
-    
-        // Vérifier si la largeur dépasse la taille minimale ou maximale
-        newWidth = Math.max(this.BORDER_SIZE * 2, Math.min(newWidth, this.startLeft + this.startWidth - this.BORDER_SIZE)); // Limiter le redimensionnement à la position initiale du bord droit
-        newHeight = Math.max(this.BORDER_SIZE * 2, Math.min(newHeight, window.innerHeight - newTop));
-    
-        // Vérifier si le redimensionnement est limité par la taille minimale de l'élément
-        if (newWidth === this.BORDER_SIZE * 2) {
-            // Si la largeur atteint la taille minimale, arrêter le redimensionnement horizontal et ajuster la position de gauche
-            newLeft = this.startLeft + this.startWidth - this.BORDER_SIZE * 2;
+
+        const computed = window.getComputedStyle(this.element);
+        const minWidth = parseFloat(computed.minWidth) || 320;
+        const minHeight = parseFloat(computed.minHeight) || 180;
+
+        if (newWidth < minWidth) {
+            if (this.resizeDirection.includes('left')) {
+                newLeft -= (minWidth - newWidth);
+            }
+            newWidth = minWidth;
         }
-    
-        // Appliquer les nouvelles dimensions et la nouvelle position
+
+        if (newHeight < minHeight) {
+            if (this.resizeDirection.includes('top')) {
+                newTop -= (minHeight - newHeight);
+            }
+            newHeight = minHeight;
+        }
+
+        const desktop = document.getElementById('desktop');
+        if (desktop) {
+            const dRect = desktop.getBoundingClientRect();
+            const maxRight = dRect.right;
+            const maxBottom = dRect.bottom;
+
+            newLeft = Math.max(dRect.left, newLeft);
+            newTop = Math.max(dRect.top, newTop);
+            newWidth = Math.min(newWidth, maxRight - newLeft);
+            newHeight = Math.min(newHeight, maxBottom - newTop);
+
+            newWidth = Math.max(minWidth, newWidth);
+            newHeight = Math.max(minHeight, newHeight);
+        }
+
         this.element.style.width = `${newWidth}px`;
         this.element.style.height = `${newHeight}px`;
         this.element.style.left = `${newLeft}px`;
         this.element.style.top = `${newTop}px`;
-        this.updateWindowSize();
     }
-    
 
     stopResize() {
-        if (this.resizing) {
-            this.resizing = false;
-            this.resizeDirection = null;
-            this.isMouseDown = false;
-            this.element.style.cursor = 'auto';
-        }
-        this.element.style.position = '';
+        if (!this.resizing) return;
+
+        this.resizing = false;
+        this.resizeDirection = '';
+        this.element.style.cursor = 'auto';
+        document.removeEventListener('mousemove', this.onMouseMove);
+        document.removeEventListener('mouseup', this.onMouseUp);
     }
 
     changeCursor(e) {
@@ -172,28 +164,21 @@ class Resizer {
         const offsetX = e.clientX - rect.left;
         const offsetY = e.clientY - rect.top;
 
-        if (offsetX < this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
-            this.element.style.cursor = 'nwse-resize'; // Diagonale haut-gauche
-        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY < this.BORDER_SIZE) {
-            this.element.style.cursor = 'nesw-resize'; // Diagonale haut-droite
-        } else if (offsetX < this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
-            this.element.style.cursor = 'nesw-resize'; // Diagonale bas-gauche
-        } else if (offsetX > rect.width - this.BORDER_SIZE && offsetY > rect.height - this.BORDER_SIZE) {
-            this.element.style.cursor = 'nwse-resize'; // Diagonale bas-droite
-        } else if (offsetX < this.BORDER_SIZE) {
-            this.element.style.cursor = 'ew-resize'; // Redimensionnement horizontal
-        } else if (offsetX > rect.width - this.BORDER_SIZE) {
-            this.element.style.cursor = 'ew-resize'; // Redimensionnement horizontal
-        } else if (offsetY < this.BORDER_SIZE) {
-            this.element.style.cursor = 'ns-resize'; // Redimensionnement vertical
-        } else if (offsetY > rect.height - this.BORDER_SIZE) {
-            this.element.style.cursor = 'ns-resize'; // Redimensionnement vertical
+        const left = offsetX <= this.BORDER_SIZE;
+        const right = offsetX >= rect.width - this.BORDER_SIZE;
+        const top = offsetY <= this.BORDER_SIZE;
+        const bottom = offsetY >= rect.height - this.BORDER_SIZE;
+
+        if ((left && top) || (right && bottom)) {
+            this.element.style.cursor = 'nwse-resize';
+        } else if ((right && top) || (left && bottom)) {
+            this.element.style.cursor = 'nesw-resize';
+        } else if (left || right) {
+            this.element.style.cursor = 'ew-resize';
+        } else if (top || bottom) {
+            this.element.style.cursor = 'ns-resize';
         } else {
             this.element.style.cursor = 'auto';
         }
-    }
-
-    updateWindowSize() {
-        // Ne pas mettre à jour la taille de l'élément ici, cela pourrait entraîner des problèmes de saut pendant le redimensionnement
     }
 }

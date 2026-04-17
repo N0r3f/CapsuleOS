@@ -1,0 +1,191 @@
+main#profileApp {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    height: calc(var(--full) - calc(var(--head) / 1.4));
+    margin-bottom: calc(var(--head) / 12);
+    padding: calc(var(--head) / 2);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    gap: calc(var(--head) / 2);
+    color: var(--nemo-text-primary);
+    background: var(--menu-apps-bg);
+    overflow-y: var(--a);
+    overflow-x: hidden;
+}
+
+div[data-link="profile"] #windowHeader {
+    background: var(--nemo-header-bg);
+}
+
+div[data-link="profile"] #windowTitle {
+    color: var(--nemo-text-primary);
+    text-shadow: var(--n);
+    filter: var(--n);
+}
+
+/* Header */
+.profile-app__header {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    gap: calc(var(--head) / 1.5);
+    width: var(--full);
+    padding: calc(var(--head) / 3) calc(var(--head) / 2);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 8);
+    background: var(--menu-cats-bg);
+}
+
+.profile-app__logo {
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+    border-radius: calc(var(--head) / 8);
+    object-fit: contain;
+}
+
+.profile-app__header-text {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 8);
+}
+
+.profile-app__name {
+    font-size: calc(var(--head) / 1.8);
+    font-weight: 600;
+    color: var(--nemo-text-primary);
+}
+
+.profile-app__version {
+    font-size: calc(var(--head) / 2.8);
+    color: var(--nemo-text-secondary);
+}
+
+/* Tagline / Description */
+.profile-app__tagline {
+    font-size: calc(var(--head) / 2.2);
+    font-weight: 500;
+    color: var(--nemo-text-primary);
+    margin: var(--z);
+}
+
+.profile-app__description {
+    font-size: calc(var(--head) / 2.5);
+    color: var(--nemo-text-secondary);
+    line-height: 1.5;
+    margin: var(--z);
+}
+
+/* Sections */
+.profile-app__section {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 4);
+    width: var(--full);
+}
+
+.profile-app__section-title {
+    font-size: calc(var(--head) / 2.4);
+    font-weight: normal;
+    color: var(--nemo-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Stats */
+.profile-app__stats {
+    list-style: var(--n);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 5);
+    padding: calc(var(--head) / 3);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 8);
+    background: var(--menu-cats-bg);
+}
+
+.profile-stat {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    gap: calc(var(--head) / 3);
+}
+
+.profile-stat__label {
+    font-size: calc(var(--head) / 2.5);
+    color: var(--nemo-text-primary);
+    min-width: calc(var(--head) * 4);
+}
+
+.profile-stat__stars {
+    font-size: calc(var(--head) / 2.2);
+    letter-spacing: 0.1em;
+    color: var(--menu-accent);
+}
+
+/* Highlights */
+.profile-app__highlights {
+    list-style: var(--n);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--head) / 4);
+    padding: var(--z);
+}
+
+.profile-highlight {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 4);
+    padding: calc(var(--head) / 4) calc(var(--head) / 3);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menu-cats-bg);
+    font-size: calc(var(--head) / 2.5);
+    color: var(--nemo-text-primary);
+}
+
+.profile-highlight__icon {
+    font-size: calc(var(--head) / 2);
+}
+
+/* Footer link */
+.profile-app__footer {
+    width: var(--full);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 4);
+    padding: calc(var(--head) / 4) var(--z);
+    margin-top: var(--a);
+}
+
+.profile-app__link {
+    display: inline-block;
+    padding: calc(var(--head) / 5) calc(var(--head) / 1.5);
+    border: solid 1px var(--menu-accent);
+    border-radius: calc(var(--head) / 8);
+    font-size: calc(var(--head) / 2.4);
+    color: var(--menu-accent);
+    background: transparent;
+    text-decoration: var(--n);
+}
+
+.profile-app__button {
+    font-family: inherit;
+    cursor: var(--p);
+}
+
+.profile-app__link:hover,
+.profile-app__button:hover {
+    background: var(--menuHover);
+}

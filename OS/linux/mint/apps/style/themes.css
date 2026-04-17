@@ -1,0 +1,167 @@
+main#themesApp {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    height: calc(var(--full) - calc(var(--head) / 1.4));
+    margin-bottom: calc(var(--head) / 12);
+    padding: calc(var(--head) / 2);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    color: var(--nemo-text-primary);
+    background: var(--menu-apps-bg);
+    overflow: var(--a);
+}
+
+div[data-link="themes"] #windowHeader {
+    background: var(--nemo-header-bg);
+}
+
+div[data-link="themes"] #windowTitle {
+    color: var(--nemo-text-primary);
+    text-shadow: var(--n);
+    filter: var(--n);
+}
+
+.themes-app {
+    gap: calc(var(--head) / 2);
+}
+
+.themes-app__section {
+    width: var(--full);
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    gap: calc(var(--head) / 3);
+}
+
+.themes-app__label {
+    width: calc(var(--head) * 3);
+    margin: calc(var(--head) / 6) var(--z) var(--z);
+    font-size: calc(var(--head) / 2.2);
+    font-weight: normal;
+    color: var(--nemo-text-primary);
+}
+
+.themes-app__control {
+    flex: 1;
+}
+
+.themes-app__select {
+    width: var(--full);
+    height: calc(var(--head) / 1.3);
+    padding: calc(var(--head) / 8) calc(var(--head) / 3);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menuInput);
+    color: var(--nemo-text-primary);
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    font-size: calc(var(--head) / 2.4);
+}
+
+.themes-app__cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(var(--head) / 3);
+    padding: calc(var(--head) / 3);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menu-cats-bg);
+}
+
+.themes-card {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    gap: calc(var(--head) / 4);
+    min-height: calc(var(--head) * 3.4);
+    padding: calc(var(--head) / 4);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menu-apps-bg);
+    color: var(--nemo-text-primary);
+    cursor: var(--p);
+}
+
+.themes-card:hover {
+    background: var(--menuHover);
+}
+
+.themes-card.is-active {
+    border: solid 2px var(--menu-accent);
+}
+
+.themes-card__preview {
+    width: calc(var(--head) * 1.6);
+    height: calc(var(--head) * 0.95);
+    border-radius: calc(var(--head) / 12);
+    position: var(--rel);
+    border: solid 1px var(--nemo-toolbar-button-border);
+}
+
+.themes-card__preview::after {
+    content: "";
+    position: var(--abs);
+    top: calc(var(--head) / 8);
+    left: calc(var(--head) / 2.8);
+    width: calc(var(--head) * 0.9);
+    height: calc(var(--head) * 0.55);
+    border-radius: calc(var(--head) / 20);
+}
+
+.themes-card__preview--dark {
+    background: #2a2c38;
+}
+
+.themes-card__preview--dark::after {
+    background: #5a5c62;
+}
+
+.themes-card__preview--light {
+    background: #e7e9ef;
+}
+
+.themes-card__preview--light::after {
+    background: #ffffff;
+}
+
+.themes-card__title {
+    font-size: calc(var(--head) / 2.3);
+    font-weight: var(--wb);
+}
+
+.themes-app__help {
+    flex: 1;
+    margin: calc(var(--head) / 4) var(--z) var(--z);
+    padding: calc(var(--head) / 6) calc(var(--head) / 4);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    color: var(--nemo-text-muted);
+    background: var(--nemo-toolbar-bg);
+    font-size: calc(var(--head) / 2.6);
+}
+
+@media (max-width: 760px) {
+    .themes-app__section {
+        flex-flow: var(--cnw);
+    }
+
+    .themes-app__label {
+        width: var(--full);
+    }
+
+    .themes-app__cards {
+        grid-template-columns: 1fr;
+    }
+}

@@ -18,11 +18,11 @@
     justify-content: var(--sa);
     align-items: var(--c);
     width: calc(var(--head) * 2);
-    margin: 10px 40px;
+    margin: var(--dossier-personnel-margin-y) var(--dossier-personnel-margin-x);
     color: var(--noir);
 }
 
 #dossierPersonnel.xedElement>a>img {
-    width: 75px;
-    margin: 10px 40px;
+    width: var(--dossier-personnel-icon-width);
+    margin: var(--dossier-personnel-margin-y) var(--dossier-personnel-margin-x);
 }

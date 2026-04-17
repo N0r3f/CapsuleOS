@@ -1,5 +1,404 @@
-iframe {
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+div[data-link="firefox"] #windowHeader {
+    background: var(--firefox-window-header-bg);
+}
+
+div[data-link="firefox"] #windowTitle {
+    color: var(--firefox-home-shortcut-title);
+    text-shadow: var(--n);
+    filter: var(--n);
+}
+
+.mint-browser {
     width: var(--full);
     height: var(--full);
-    background: var(--texte);
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(circle at 12% 12%, var(--firefox-bg-accent-1), transparent 40%),
+        radial-gradient(circle at 88% 0%, var(--firefox-bg-accent-2), transparent 35%),
+        var(--firefox-bg-main);
+    color: var(--firefox-text-main);
+}
+
+.mint-browser__chrome {
+    border-bottom: var(--firefox-chrome-border);
+    background: var(--firefox-chrome-bg);
+}
+
+.mint-browser__tabsbar {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.28rem 0.45rem 0;
+    border-bottom: var(--firefox-tabs-border);
+    background: var(--firefox-tabs-bg);
+}
+
+.mint-browser__tab {
+    border: var(--firefox-tab-border);
+    border-bottom: 0;
+    background: var(--firefox-tab-bg);
+    color: var(--firefox-tab-text);
+    border-radius: 0.58rem 0.58rem 0 0;
+    height: 2.1rem;
+    max-width: 220px;
+    padding: 0 0.62rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+    font-size: 0.76rem;
+    cursor: default;
+}
+
+.mint-browser__tab span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mint-browser__tab-icon {
+    width: 1.06rem;
+    height: 1.06rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--firefox-tab-icon-text);
+    background: var(--firefox-tab-icon-bg);
+}
+
+.mint-browser__tab-icon--firefox {
+    background: var(--firefox-tab-fire-gradient);
+    font-size: 0.67rem;
+}
+
+.mint-browser__tab-close {
+    color: var(--firefox-tab-close);
+    font-size: 0.86rem;
+    margin-left: 0.08rem;
+}
+
+.mint-browser__tab--active {
+    color: var(--firefox-tab-active-text);
+    background: var(--firefox-tab-active-bg);
+}
+
+.mint-browser__tab-add {
+    border: 0;
+    background: transparent;
+    color: var(--firefox-tab-add-text);
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 0.45rem;
+    font-size: 1.02rem;
+    cursor: pointer;
+    margin-left: 0.08rem;
+}
+
+.mint-browser__tab-add:hover {
+    background: var(--firefox-hover-soft);
+}
+
+.mint-browser__toolbar {
+    display: flex;
+    gap: 0.55rem;
+    align-items: center;
+    padding: 0.36rem 0.56rem;
+    border-bottom: var(--firefox-toolbar-border);
+    background: var(--firefox-toolbar-bg);
+}
+
+.mint-browser__nav-actions {
+    display: flex;
+    gap: 0.45rem;
+    flex-shrink: 0;
+}
+
+.mint-browser__btn {
+    border: 0;
+    background: transparent;
+    color: var(--firefox-btn-text);
+    border-radius: 0.42rem;
+    height: 1.86rem;
+    min-width: 1.86rem;
+    padding: 0 0.45rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.24rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.mint-browser__btn:hover:not(:disabled) {
+    background: var(--firefox-hover-soft);
+}
+
+.mint-browser__btn:focus-visible,
+.mint-browser__address-input:focus-visible {
+    outline: 2px solid var(--firefox-focus-outline);
+    outline-offset: 1px;
+}
+
+.mint-browser__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.mint-browser__btn--go {
+    border-radius: 0.56rem;
+    background: var(--firefox-btn-go-bg);
+    min-width: auto;
+    padding: 0 0.7rem;
+    border: var(--firefox-btn-go-border);
+}
+
+.mint-browser__btn--go:hover {
+    background: var(--firefox-btn-go-hover-bg);
+}
+
+.mint-browser__btn--ghost {
+    font-size: 0.86rem;
+    color: var(--firefox-btn-ghost-text);
+}
+
+.mint-browser__addressbar {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex: 1;
+    min-width: 0;
+    border: var(--firefox-address-border);
+    border-radius: 0.56rem;
+    background: var(--firefox-address-bg);
+    padding: 0 0.32rem;
+}
+
+.mint-browser__address-prefix {
+    width: 1.08rem;
+    height: 1.08rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--firefox-tab-icon-text);
+    background: var(--firefox-address-prefix-gradient);
+    flex-shrink: 0;
+}
+
+.mint-browser__address-input {
+    height: 1.9rem;
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: var(--firefox-address-text);
+    padding: 0 0.15rem;
+    font-size: 0.83rem;
+}
+
+.mint-browser__address-input::placeholder {
+    color: var(--firefox-address-placeholder);
+}
+
+.mint-browser__toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.12rem;
+    flex-shrink: 0;
+}
+
+.mint-browser__bookmarks {
+    display: flex;
+    align-items: center;
+    gap: 0.16rem;
+    padding: 0.2rem 0.42rem 0.24rem;
+    overflow-x: auto;
+    border-bottom: var(--firefox-tabs-border);
+    background: var(--firefox-bookmarks-bg);
+}
+
+.mint-browser__bookmarks::-webkit-scrollbar {
+    height: 0;
+}
+
+.mint-browser__bookmark {
+    display: inline-flex;
+    align-items: center;
+    height: 1.5rem;
+    border-radius: 0.32rem;
+    padding: 0 0.45rem;
+    text-decoration: none;
+    color: var(--firefox-bookmark-text);
+    font-size: 0.72rem;
+    white-space: nowrap;
+}
+
+.mint-browser__bookmark--primary {
+    background: var(--firefox-bookmark-primary-bg);
+    color: var(--firefox-bookmark-primary-text);
+}
+
+.mint-browser__bookmark:hover {
+    background: var(--firefox-hover-soft);
+}
+
+.mint-browser__status {
+    margin: 0;
+    padding: 0.36rem 0.62rem;
+    font-size: 0.72rem;
+    color: var(--firefox-status-text);
+    border-bottom: var(--firefox-tabs-border);
+    background: var(--firefox-status-bg);
+}
+
+.mint-browser__viewport {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.mint-browser-redirect {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: block;
+}
+
+.mint-browser-redirect__frame {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border: 0;
+    border-radius: 0;
+    background: var(--firefox-frame-bg);
+}
+
+.mint-browser-home {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.mint-browser-home__hero {
+    border: var(--firefox-home-card-border);
+    border-radius: 0.9rem;
+    padding: 1.1rem;
+    background: var(--firefox-home-card-bg);
+}
+
+.mint-browser-home__label {
+    margin: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--firefox-home-label);
+}
+
+.mint-browser-home__title {
+    margin: 0.32rem 0;
+    font-size: 1.28rem;
+    color: var(--firefox-home-title);
+}
+
+.mint-browser-home__lead {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--firefox-home-lead);
+    max-width: 68ch;
+}
+
+.mint-browser-home__panel {
+    border: var(--firefox-home-panel-border);
+    border-radius: 0.9rem;
+    padding: 1rem;
+    background: var(--firefox-home-panel-bg);
+}
+
+.mint-browser-home__panel-title {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--firefox-home-panel-title);
+}
+
+.mint-browser-home__shortcuts {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
+
+.mint-browser-home__shortcut {
+    border: var(--firefox-home-card-border);
+    border-radius: 0.72rem;
+    background: var(--firefox-home-shortcut-bg);
+    padding: 0.7rem;
+}
+
+.mint-browser-home__shortcut h3 {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--firefox-home-shortcut-title);
+}
+
+.mint-browser-home__shortcut p {
+    margin: 0.42rem 0 0;
+    font-size: 0.78rem;
+    color: var(--firefox-home-shortcut-text);
+    line-height: 1.34;
+}
+
+@media (max-width: 760px) {
+    .mint-browser__tabsbar {
+        padding-top: 0.2rem;
+    }
+
+    .mint-browser__tab {
+        max-width: 150px;
+    }
+
+    .mint-browser__toolbar {
+        flex-wrap: wrap;
+        padding: 0.45rem;
+    }
+
+    .mint-browser__nav-actions {
+        order: 1;
+    }
+
+    .mint-browser__addressbar {
+        width: 100%;
+        order: 3;
+    }
+
+    .mint-browser__toolbar-actions {
+        margin-left: auto;
+        order: 2;
+    }
+
+    .mint-browser__viewport {
+        padding: 0;
+    }
 }

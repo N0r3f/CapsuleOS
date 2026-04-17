@@ -1,46 +1,40 @@
 function initNemoContainer() {
-    let nemoLinks;
+    const folderMap = {
+        'Dossier Personnel': './apps/system/Dossier_personnel',
+        'Bureau': './apps/system/Dossier_personnel/Bureau',
+        'Documents': './apps/system/Dossier_personnel/Documents',
+        'Musique': './apps/system/Dossier_personnel/Musique',
+        'Images': './apps/system/Dossier_personnel/Images',
+        'Vidéos': './apps/system/Dossier_personnel/Vidéos',
+        'Téléchargements': './apps/system/Dossier_personnel/Téléchargements'
+    };
 
-    function initNemoWhenReady() {
-        if (!nemoLinks) {
-            nemoLinks = document.querySelectorAll('a[target="nemoElement"]');
-        }
-
-        if (nemoLinks.length > 0) {
-            initNemo();
-        } else {
-            setTimeout(initNemoWhenReady, 100);
-        }
+    const nemoRoot = document.getElementById('nemo');
+    if (!nemoRoot || nemoRoot.dataset.nemoInit === 'true') {
+        return;
     }
 
-    function initNemo() {
-        // Lancer la fonction d'ouverture pour chaque lien
-        nemoLinks.forEach(link => {
-            link.addEventListener("click", function (event) {
-                event.preventDefault(); // Empêche le comportement par défaut du lien
-                handleOpenwindow(this); // Utilisez 'this' pour référencer l'élément de lien
-            });
-        });
-    }
+    // Les raccourcis Nemo sont injectés dynamiquement dans la fenêtre et utilisent target="windowElement".
+    const nemoLinks = nemoRoot.querySelectorAll('#voletnemo a[target="windowElement"][data-link]');
 
-    function handleOpenwindow(link) {
-        const container = document.querySelector(`section[data-link="${link.dataset.link}"]`);
+    nemoLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
 
-        if (container) {
-            if (container.style.display === "none") {
-                container.style.display = "flex";
+            const key = link.dataset.link;
+            const directory = folderMap[key];
 
-                // Ajouter la classe active à l'élément de fenêtre
-                container.classList.add('nemoActive');
-            } else {
-                container.style.display = "none";
-                // Retirer la classe active de l'élément de fenêtre
-                container.classList.remove('nemoActive');
+            if (directory && typeof navigateToDirectory === 'function') {
+                navigateToDirectory(directory);
+            } else if (directory && typeof loadDirectory === 'function') {
+                loadDirectory(directory);
             }
-        }
+        });
+    });
+
+    if (typeof bindNemoNavigationControls === 'function') {
+        bindNemoNavigationControls();
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        initNemoWhenReady();
-    });
+    nemoRoot.dataset.nemoInit = 'true';
 }

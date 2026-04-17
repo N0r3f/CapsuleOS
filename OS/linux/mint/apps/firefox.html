@@ -1,3 +1,102 @@
-  <iframe id="windowIframe" src="https://lacapsule.org/ressources/index.php" frameborder="0" name="lien"
-                rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen=""
-                loading="lazy"></iframe>
+  <section class="mint-browser" data-firefox-app>
+    <header class="mint-browser__chrome" aria-label="Interface navigateur">
+      <div class="mint-browser__tabsbar" aria-label="Onglets">
+            <button type="button" class="mint-browser__tab mint-browser__tab--active" data-browser-action="home" data-browser-tab="Nouvel onglet" aria-current="page">
+          <span class="mint-browser__tab-icon mint-browser__tab-icon--firefox" aria-hidden="true">&#x1F525;</span>
+          <span>Nouvel onglet</span>
+          <span class="mint-browser__tab-close" aria-hidden="true">&#x00D7;</span>
+        </button>
+            <button type="button" class="mint-browser__tab-add" data-browser-action="new-tab" aria-label="Nouvel onglet">+</button>
+      </div>
+
+      <div class="mint-browser__toolbar" aria-label="Barre de navigation">
+        <div class="mint-browser__nav-actions">
+          <button type="button" class="mint-browser__btn" data-browser-action="back" disabled aria-label="Retour">
+            <span aria-hidden="true">&#x2039;</span>
+          </button>
+          <button type="button" class="mint-browser__btn" data-browser-action="forward" disabled aria-label="Avant">
+            <span aria-hidden="true">&#x203A;</span>
+          </button>
+          <button type="button" class="mint-browser__btn" data-browser-action="reload" aria-label="Recharger">
+            <span aria-hidden="true">&#x21BB;</span>
+          </button>
+        </div>
+
+        <form class="mint-browser__addressbar" data-browser-form>
+          <label class="sr-only" for="mint-browser-address-input">Adresse</label>
+          <span class="mint-browser__address-prefix" aria-hidden="true">G</span>
+          <input
+            id="mint-browser-address-input"
+            class="mint-browser__address-input"
+            type="text"
+            data-browser-address
+            placeholder="Rechercher avec Google ou saisir une adresse"
+            autocomplete="off"
+            spellcheck="false"
+            value="capsuleos://accueil"
+          >
+          <button type="submit" class="mint-browser__btn mint-browser__btn--go" aria-label="Valider l'adresse">
+            Aller
+          </button>
+        </form>
+
+        <div class="mint-browser__toolbar-actions" aria-label="Actions navigateur">
+          <button type="button" class="mint-browser__btn mint-browser__btn--ghost" data-browser-action="home" aria-label="Accueil">&#x2302;</button>
+          <button type="button" class="mint-browser__btn mint-browser__btn--ghost" aria-label="Bibliotheque">&#x1F4D6;</button>
+          <button type="button" class="mint-browser__btn mint-browser__btn--ghost" aria-label="Favoris">&#x2606;</button>
+          <button type="button" class="mint-browser__btn mint-browser__btn--ghost" aria-label="Menu">&#x2630;</button>
+        </div>
+      </div>
+
+      <nav class="mint-browser__bookmarks" aria-label="Favoris">
+        <a href="#" class="mint-browser__bookmark mint-browser__bookmark--primary" data-browser-bookmark="Accueil" data-browser-route="home">Accueil</a>
+        <a href="#" class="mint-browser__bookmark" data-browser-bookmark="Localhost" data-browser-route="noop">Localhost</a>
+        <a href="#" class="mint-browser__bookmark" data-browser-bookmark="La Capsule" data-browser-route="os-lacapsule">La Capsule</a>
+        <a href="#" class="mint-browser__bookmark" data-browser-bookmark="os-lacapsule" data-browser-route="os-lacapsule">os-lacapsule</a>
+      </nav>
+    </header>
+
+    <p class="mint-browser__status" data-browser-status role="status" aria-live="polite">
+      Mode simulation actif: la vue Accueil ouvre la page interne du navigateur.
+    </p>
+
+    <main class="mint-browser__viewport" data-browser-view="home">
+      <section class="mint-browser-home" data-browser-home>
+        <div class="mint-browser-home__hero">
+          <p class="mint-browser-home__label">CapsuleOS Navigateur</p>
+          <h1 class="mint-browser-home__title">Bienvenue</h1>
+          <p class="mint-browser-home__lead">
+            Accueil simulation actif. Utilise le favori os-lacapsule pour afficher l'entree reelle du site.
+          </p>
+        </div>
+
+        <section class="mint-browser-home__panel" aria-label="Raccourcis pedagogiques">
+          <h2 class="mint-browser-home__panel-title">Raccourcis pedagogiques</h2>
+          <div class="mint-browser-home__shortcuts">
+            <article class="mint-browser-home__shortcut">
+              <h3>Accueil</h3>
+              <p>Cette vue sert de page d'accueil de la simulation du navigateur.</p>
+            </article>
+            <article class="mint-browser-home__shortcut">
+              <h3>os-lacapsule</h3>
+              <p>Ce favori ouvre la page d'entree reelle CapsuleOS dans le faux navigateur.</p>
+            </article>
+            <article class="mint-browser-home__shortcut">
+              <h3>Navigation controlee</h3>
+              <p>Les autres entrees restent en mode simulation tant que non mappees.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="mint-browser-redirect" data-browser-redirect hidden>
+        <iframe
+          class="mint-browser-redirect__frame"
+          data-browser-redirect-frame
+          title="os-lacapsule"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </section>
+    </main>
+  </section>

@@ -14,7 +14,7 @@ div[class^="windowElement"]:not(#mainMenu) {
     border: calc(var(--min-bt) * 4) solid var(--t);
     border-radius: calc(var(--head) / 4);
     box-shadow: var(--frame);
-    background: var(--menuDefaultCol);
+    background: var(--menuDefaultCcol);
     overflow: var(--h);
     scrollbar-width: var(--z);
 }

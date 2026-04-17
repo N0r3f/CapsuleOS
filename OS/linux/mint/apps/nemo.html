@@ -1,8 +1,8 @@
-<main id="gestionnaire">
-        <header id="nemoHeaderContainer">
-                <section class="menuOutils">
-                        <nav>
-                                <ul class="menuHeader">
+<main id="gestionnaire" class="nemo-app">
+        <header id="nemoHeaderContainer" class="nemo-app__header">
+                <section class="menuOutils nemo-app__menubar">
+                        <nav class="nemo-app__menubar-nav">
+                                <ul class="menuHeader nemo-app__menu">
                                         <li>
                                                 <a href="#">Fichier</a>
                                                 <ul class="listeSousMenu">
@@ -301,18 +301,18 @@
                                 </ul>
                         </nav>
                 </section>
-                <section class="menuOutils">
-                        <div class="sousMenuOutils">
+                <section class="menuOutils nemo-app__toolbar">
+                        <div class="sousMenuOutils nemo-app__toolbar-group nemo-app__toolbar-group--path">
                             <a href="#" id="precedent"><img src="./media/img/elements/nemo/go-previous-symbolic.svg"
                                     title="Va à l'emplacement visité précédent"></a>
                             <a href="#" id="suivant"><img src="./media/img/elements/nemo/go-next-symbolic.svg"
                                     title="Va à l'emplacement visité suivant"></a>
-                            <a href="#"><img src="./media/img/elements/nemo/go-up-symbolic.svg" title="Aller au dossier parent"></a>
-                            <a href="#"><img src="./media/img/elements/nemo/pan-start-symbolic.svg"></a>
-                            <a href="#">Dossier personnel</a>
+                            <a href="#" id="parent"><img src="./media/img/elements/nemo/go-up-symbolic.svg" title="Aller au dossier parent"></a>
+                            <a href="#" id="home"><img src="./media/img/elements/nemo/pan-start-symbolic.svg" title="Retourner au dossier personnel"></a>
+                            <a href="#" class="nemo-app__path-current">Dossier personnel</a>
                             <a href="#"><img src="./media/img/elements/nemo/pan-end-symbolic.svg"></a>
                         </div>
-                        <div class="sousMenuOutils">
+                        <div class="sousMenuOutils nemo-app__toolbar-group nemo-app__toolbar-group--view">
                             <a href="#"><img src="./media/img/elements/nemo/location-symbolic.svg"
                                     title="Basculer le mode de navigation"></a>
                             <a href="#"><img src="./media/img/elements/nemo/search-symbolic.svg"
@@ -323,8 +323,8 @@
                         </div>
                     </section>
         </header>
-        <main id="nemoMainContainer">
-                <aside id="voletnemo">
+        <main id="nemoMainContainer" class="nemo-app__main">
+                <aside id="voletnemo" class="nemo-app__sidebar">
                         <a href="#"><img src="./media/img/elements/nemo/pan-down-symbolic.svg">Poste de travail</a>
                         <div>
                                 <a target="windowElement" data-link="Dossier Personnel"
@@ -370,14 +370,14 @@
                         <div><a href="#"><img src="./media/img/elements/nemo/network-workgroup-symbolic.svg"
                                                 title="Parcourt le contenu du réseau">Réseau</a></div>
                 </aside>
-                <aside id="voletContainer">
-                        <section class="nemoElement">
+                <aside id="voletContainer" class="nemo-app__content-wrap">
+                        <section class="nemoElement nemo-app__content-grid">
                                 <!-- AFFICHAGE DES DOSSIERS ET FICHIERS -->
                         </section>
                 </aside>
         </main>
-        <footer id="nemoFooterContainer">
-                <section>
+        <footer id="nemoFooterContainer" class="nemo-app__statusbar">
+                <section class="nemo-app__status-left">
                         <a href="#"><img src="./media/img/elements/nemo/sidebar-places-symbolic.svg"
                                         title="Montrer les emplacements"></a>
                         <a href="#"><img src="./media/img/elements/nemo/sidebar-tree-symbolic.svg"
@@ -385,11 +385,11 @@
                         <a href="#"><img src="./media/img/elements/nemo/sidebar-hide-symbolic.svg"
                                         title="Masquer le Panneau latéral (F9)"></a>
                 </section>
-                <section>
+                <section class="nemo-app__status-center">
                         <p>6 éléments, espace disponible : 237 Go</p>
                 </section>
-                <section>
-                        <input type="range" name="zoom" id="zoom" min="0" max="100">
+                <section class="nemo-app__status-right">
+                        <input type="range" name="zoom" id="zoom" min="80" max="140" step="10" value="100" aria-label="Zoom des icones">
                 </section>
         </footer>
 </main>

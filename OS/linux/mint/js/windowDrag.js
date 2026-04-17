@@ -1,60 +1,70 @@
 const makeDraggable = (element) => {
-    let isDragging = false;
-    let offsetX, offsetY;
-
-    const headerElement = element.querySelector('#windowHeader');
-    if (headerElement) {
-        headerElement.addEventListener('mousedown', (e) => {
-            e.preventDefault(); // Empêche la sélection de texte
-            isDragging = true;
-            const rect = element.getBoundingClientRect();
-            offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
-        });
-    } else {
-        element.addEventListener('mousedown', (e) => {
-            e.preventDefault(); // Empêche la sélection de texte
-            isDragging = true;
-            const rect = element.getBoundingClientRect();
-            offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
-        });
+    if (!element || element.dataset.dragInit === 'true') {
+        return;
     }
 
-    document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-            e.preventDefault(); // Empêche la sélection de texte
-            // Obtenez les limites du parent main
-            const mainElement = document.querySelector('object');
-            const mainRect = mainElement.getBoundingClientRect();
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
 
-            // Calculez les nouvelles positions de la fenêtre
-            let newX = e.clientX - offsetX;
-            let newY = e.clientY - offsetY;
-
-            // Limitez la position de la fenêtre aux limites du parent main
-            newX = Math.max(mainRect.left, Math.min(newX, mainRect.right - element.offsetWidth));
-            newY = Math.max(mainRect.top, Math.min(newY, mainRect.bottom - element.offsetHeight));
-
-            // Mettez à jour la position de la fenêtre
-            element.style.left = `${newX}px`;
-            element.style.top = `${newY}px`;
+    const getDesktopRect = () => {
+        const desktop = document.getElementById('desktop');
+        if (desktop) {
+            return desktop.getBoundingClientRect();
         }
-        document.addEventListener('click', function(event) {
-            // Supprimer la classe active de tous les éléments
-            document.querySelectorAll('.windowElement' , '#windowContainer').forEach(function(element) {
-                element.classList.remove('windowElementActive');
-            });
-        
-            // Ajouter la classe active à l'élément cliqué
-            const clickedElement = event.target.closest('.windowElement' , '#windowContainer');
-            if (clickedElement) {
-                clickedElement.classList.add('windowElementActive');
-            }
-        });
-    });
+        return document.body.getBoundingClientRect();
+    };
 
-    document.addEventListener('mouseup', () => {
+    const onMouseMove = (e) => {
+        if (!isDragging) {
+            return;
+        }
+
+        const desktopRect = getDesktopRect();
+        let newX = e.clientX - offsetX;
+        let newY = e.clientY - offsetY;
+
+        const maxLeft = desktopRect.right - element.offsetWidth;
+        const maxTop = desktopRect.bottom - element.offsetHeight;
+
+        newX = Math.max(desktopRect.left, Math.min(newX, maxLeft));
+        newY = Math.max(desktopRect.top, Math.min(newY, maxTop));
+
+        element.style.left = `${newX}px`;
+        element.style.top = `${newY}px`;
+    };
+
+    const stopDragging = () => {
+        if (!isDragging) {
+            return;
+        }
+
         isDragging = false;
-    });
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', stopDragging);
+    };
+
+    const startDragging = (e) => {
+        if (e.button !== 0) {
+            return;
+        }
+
+        if (e.target.closest('button, input, textarea, select, a')) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const rect = element.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        isDragging = true;
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', stopDragging);
+    };
+
+    const dragHandle = element.querySelector('#windowHeader') || element;
+    dragHandle.addEventListener('mousedown', startDragging);
+    element.dataset.dragInit = 'true';
 };
