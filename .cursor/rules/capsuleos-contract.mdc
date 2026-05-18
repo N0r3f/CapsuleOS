@@ -1,0 +1,13 @@
+---
+description: Contrat CapsuleOS — lire STRICT_CONTRACT et CONTRACT_CHECKLIST avant changements front / OS simulés
+alwaysApply: true
+---
+
+# CapsuleOS — contrat et checklist (source de vérité)
+
+Avant toute modification substantielle du front, des OS simulés (`OS/`), du Service Worker ou de la structure pédagogique :
+
+1. **Lire et respecter** `STRICT_CONTRACT.md` à la racine du dépôt (stack, fidélité UI, offline, structure, règles HTML/CSS/JS, Linux `CAPSULE_*`, etc.).
+2. **Avant merge ou release**, vérifier les points applicables de `CONTRACT_CHECKLIST.md` (même racine).
+
+Ne pas introduire de framework front, de préprocesseur CSS, ni de dépendance réseau obligatoire pour l’usage principal, **sauf** évolution explicite et alignée du contrat. En cas de doute sur une dérogation, la priorité est au texte des deux fichiers ci-dessus plutôt qu’à cette règle résumée.

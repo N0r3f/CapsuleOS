@@ -1,0 +1,47 @@
+<div id="terminalContainer" class="capsule-terminal-shell">
+    <header class="capsule-terminal-toolbar" data-konsole-toolbar aria-label="Barre d'outils Konsole">
+        <div class="capsule-terminal-toolbar__group capsule-terminal-toolbar__group--left">
+            <button type="button" class="capsule-terminal-toolbar__btn" data-konsole-action="new-tab">
+                <span class="capsule-terminal-toolbar__icon capsule-terminal-toolbar__icon--tab-new" aria-hidden="true"></span>
+                <span class="capsule-terminal-toolbar__label">Nouvel onglet</span>
+            </button>
+            <button type="button" class="capsule-terminal-toolbar__btn capsule-terminal-toolbar__btn--menu" data-konsole-action="split-view">
+                <span class="capsule-terminal-toolbar__icon capsule-terminal-toolbar__icon--split" aria-hidden="true"></span>
+                <span class="capsule-terminal-toolbar__label">Scinder la vue</span>
+                <span class="capsule-terminal-toolbar__chevron" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="capsule-terminal-toolbar__separator" aria-hidden="true"></div>
+        <div class="capsule-terminal-toolbar__group capsule-terminal-toolbar__group--right">
+            <button type="button" class="capsule-terminal-toolbar__btn capsule-terminal-toolbar__btn--disabled" data-konsole-action="copy" disabled aria-disabled="true">
+                <span class="capsule-terminal-toolbar__icon capsule-terminal-toolbar__icon--copy" aria-hidden="true"></span>
+                <span class="capsule-terminal-toolbar__label">Copier</span>
+            </button>
+            <button type="button" class="capsule-terminal-toolbar__btn" data-konsole-action="paste">
+                <span class="capsule-terminal-toolbar__icon capsule-terminal-toolbar__icon--paste" aria-hidden="true"></span>
+                <span class="capsule-terminal-toolbar__label">Coller</span>
+            </button>
+            <button type="button" class="capsule-terminal-toolbar__btn" data-konsole-action="search">
+                <span class="capsule-terminal-toolbar__icon capsule-terminal-toolbar__icon--search" aria-hidden="true"></span>
+                <span class="capsule-terminal-toolbar__label">Rechercher</span>
+            </button>
+            <button type="button" class="capsule-terminal-toolbar__btn capsule-terminal-toolbar__btn--menu-only" data-konsole-action="menu" aria-label="Menu">
+                <span class="capsule-terminal-toolbar__icon capsule-terminal-toolbar__icon--menu" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+    <section class="capsule-terminal" data-terminal-app>
+        <div id="output" class="capsule-terminal__output" data-terminal-output></div>
+        <form id="input" class="capsule-terminal__input" data-terminal-form>
+            <span id="prompt" class="capsule-terminal__prompt" data-terminal-prompt></span>
+            <input
+                id="command"
+                class="capsule-terminal__command"
+                data-terminal-command
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+            >
+        </form>
+    </section>
+</div>

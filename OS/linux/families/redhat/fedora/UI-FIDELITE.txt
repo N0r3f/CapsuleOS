@@ -1,0 +1,29 @@
+Checklist fidélité Fedora Workstation / GNOME — passe v2 (2026-04)
+==================================================================
+
+Références visuelles
+--------------------
+- Captures optionnelles : voir media/reference/README.txt
+- En l’absence de fichiers dans ce dossier, la cible par défaut est **GNOME Shell / Adwaita sombre** (Workstation ~46).
+
+Réglages appliqués (passe v2)
+-----------------------------
+- [x] Top bar : hauteur ~36px, fond semi-transparent + backdrop-filter (repli sans flou si non supporté)
+- [x] Typo shell : Cantarell en tête de pile sur #fedora
+- [x] Dock : largeur resserrée, indicateur actif type « barre » à gauche (GNOME 40+)
+- [x] Bureau : dégradé bleu Fedora affiné
+- [x] Popovers : rayons 12px, ombres et gris type libadwaita (via tokens)
+- [x] Fenêtres : header légèrement plus clair que le corps, coins 11px
+- [x] Nemo : palette affinée (sidebar / grille / pathbar)
+- [x] Menu Activités : coins 14px, ombre adoucie, bordures type shell
+- [x] Thème clair CapsuleOS : bloc html[data-theme="light"]:has(#fedora) dans tokens.css
+
+À recocher après nouvelles captures
+-----------------------------------
+- [ ] Comparaison pixel avec vos fichiers dans media/reference/
+- [ ] Fond d’écran image si vous fournissez un asset dans media/img/assets/
+
+Historique
+----------
+- v1 : découplage gnome-shell/ sans import Mint
+- v2 : fidélité Adwaita / shell GNOME + thème clair

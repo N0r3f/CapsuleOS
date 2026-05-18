@@ -1,0 +1,658 @@
+/* Surcouche MX-KDE — fidélité Dolphin (référence dolph.png).
+   Règle de frontière: structure partagée dans dolphin.base.css,
+   ici uniquement densité/couleurs/icônes spécifiques MX-KDE. */
+
+body#mx-kde div[data-link="nemo"] {
+    --dolphin-chrome: #23282f;
+    --dolphin-chrome-border: #343a44;
+    --dolphin-view: #0f1318;
+    --dolphin-sidebar: #1a2128;
+    --dolphin-sidebar-border: #2a313b;
+    --dolphin-text: #e6ebf0;
+    --dolphin-text-muted: #9ea8b3;
+    --dolphin-toolbar-text: #e4e9ef;
+    --dolphin-accent: #35a6e7;
+    --dolphin-accent-soft: rgba(53, 166, 231, 0.24);
+    --dolphin-accent-ring: rgba(53, 166, 231, 0.4);
+    --dolphin-hover: rgba(53, 166, 231, 0.25);
+    --dolphin-shadow: none;
+    --dolphin-header-gradient-start: #23282f;
+    --dolphin-header-gradient-end: #23282f;
+    --dolphin-menu-surface-bg: #252b33;
+    --dolphin-content-split-border: #222a33;
+    --dolphin-icon-filter-sidebar: brightness(0) invert(1);
+    --dolphin-folder-filter-grid: brightness(1.14) saturate(1.25);
+    --dolphin-pathbar-border-strong: #4a525e;
+    --dolphin-window-header-start: #23282f;
+    --dolphin-window-header-end: #23282f;
+    --dolphin-window-header-active-start: #23282f;
+    --dolphin-window-header-active-end: #23282f;
+    --dolphin-sidebar-w: clamp(178px, calc(var(--head) * 4.8), 208px);
+    --nemo-toolbar-icon-filter: brightness(0) invert(1);
+    --dolphin-toolbar-margin-top: 0.96rem;
+    --dolphin-toolbar-pad-top-bottom: calc(var(--head) / 8);
+    --dolphin-toolbar-pad-right: calc(var(--head) / 11);
+    --dolphin-toolbar-pad-left: calc(var(--head) / 22);
+    --dolphin-toolbar-gap: calc(var(--head) / 12);
+    --dolphin-actions-gap: calc(var(--head) / 13);
+    --dolphin-actions-right-offset: calc(var(--head) / 5.5);
+    --dolphin-actions-icon-shift-x: calc(var(--head) / -4.2);
+    --dolphin-split-min-width: calc(var(--head) * 1.45);
+    --dolphin-split-pad-right: calc(var(--head) / 9.5);
+    --dolphin-split-pad-left: calc(var(--head) / 15);
+    --dolphin-split-gap: calc(var(--head) / 20);
+    --dolphin-split-margin-right: calc(var(--head) / 10);
+    --dolphin-content-grid-pad-x: calc(var(--head) / 1.25);
+    --dolphin-nav-block-width: calc((var(--head) / 1.32) * 2 + var(--head) / 28);
+    --dolphin-path-gap: calc(var(--head) / 9.5);
+    --dolphin-path-left-offset: max(
+        0px,
+        calc(
+            (
+                var(--dolphin-sidebar-w) + var(--dolphin-content-grid-pad-x) -
+                var(--dolphin-toolbar-pad-left) - var(--dolphin-nav-block-width) -
+                var(--dolphin-toolbar-gap)
+            ) * 3 / 8
+        )
+    );
+    --dolphin-path-right-offset: 0;
+    --dolphin-crumb-left: calc(var(--head) / 6.8);
+    --dolphin-pathbar-min-height: calc(var(--head) / 1.42);
+    --dolphin-pathbar-padding-left: calc(var(--head) / 4.6);
+    --dolphin-pathbar-padding-right: calc(var(--head) / 5.4);
+    --dolphin-pathbar-font-size: calc(var(--head) / 2.55);
+}
+
+/* Thème sombre : path entre chrome et vue (lisible sans casser le bloc gris). */
+html:not([data-theme="light"]) body#mx-kde div[data-link="nemo"] {
+    --dolphin-pathbar-border-strong: #434b57;
+}
+
+html:not([data-theme="light"]) body#mx-kde div[data-link="nemo"] .dolphin-app {
+    --nemo-pathbar-bg: #161b21;
+    --nemo-pathbar-border: #2f3640;
+}
+
+/* Thème clair : même levier que dolphin.base (variables sur le shell nemo + .dolphin-app pour --nemo-*). */
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] {
+    --dolphin-chrome: #dfe8f3;
+    --dolphin-chrome-border: #b8c6d8;
+    --dolphin-view: #f5f8fc;
+    --dolphin-sidebar: #e8eef6;
+    --dolphin-sidebar-border: #c9d4e4;
+    --dolphin-text: #1a2332;
+    --dolphin-text-muted: #5a6578;
+    --dolphin-toolbar-text: #243348;
+    --dolphin-accent: #1f8fd0;
+    --dolphin-accent-soft: rgba(31, 143, 208, 0.16);
+    --dolphin-accent-ring: rgba(31, 143, 208, 0.42);
+    --dolphin-hover: rgba(31, 143, 208, 0.12);
+    --dolphin-shadow: 0 10px 26px rgba(23, 41, 68, 0.16);
+    --dolphin-header-gradient-start: #e8eef4;
+    --dolphin-header-gradient-end: #dfe8f3;
+    --dolphin-menu-surface-bg: #ffffff;
+    --dolphin-submenu-shadow: 0 10px 28px rgba(23, 41, 68, 0.18);
+    --dolphin-content-split-border: #d0dae8;
+    --dolphin-icon-filter-toolbar: brightness(0) saturate(100%);
+    --dolphin-icon-filter-sidebar: none;
+    --dolphin-icon-opacity-sidebar: 0.92;
+    --dolphin-icon-filter-footer: brightness(0) saturate(100%);
+    --dolphin-icon-opacity-footer: 0.88;
+    --dolphin-folder-filter-grid: brightness(0.92) saturate(1.15);
+    --dolphin-sidebar-hover-bg: rgba(31, 143, 208, 0.12);
+    --dolphin-sidebar-hover-border: rgba(31, 143, 208, 0.38);
+    --dolphin-sidebar-active-bg: rgba(31, 143, 208, 0.22);
+    --dolphin-sidebar-static-hover-bg: rgba(0, 0, 0, 0.04);
+    --dolphin-grid-hover-bg: rgba(31, 143, 208, 0.08);
+    --dolphin-grid-item-hover-bg: rgba(31, 143, 208, 0.12);
+    --dolphin-grid-item-hover-outline: rgba(31, 143, 208, 0.35);
+    --dolphin-pill-text: #243348;
+    --dolphin-pill-bg: rgba(255, 255, 255, 0.9);
+    --dolphin-pill-border: rgba(0, 0, 0, 0.1);
+    --dolphin-pill-shadow: 0 2px 10px rgba(23, 41, 68, 0.12);
+    --dolphin-pathbar-border-strong: #7a8aa0;
+    --dolphin-usage-track-bg: #c5d2e4;
+    --dolphin-usage-fill-start: #1a9d7a;
+    --dolphin-usage-fill-end: #2dcc70;
+    --dolphin-window-header-start: #e8eef4;
+    --dolphin-window-header-end: #dfe8f3;
+    --dolphin-window-header-active-start: #dbe4f0;
+    --dolphin-window-header-active-end: #d0dbeb;
+    --dolphin-window-title-shadow: none;
+    box-shadow: 0 10px 26px rgba(23, 41, 68, 0.14);
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app {
+    --nemo-bg-primary: var(--dolphin-view);
+    --nemo-header-bg: var(--dolphin-chrome);
+    --nemo-border: var(--dolphin-chrome-border);
+    --nemo-text-primary: var(--dolphin-text);
+    --nemo-text-muted: var(--dolphin-text-muted);
+    --nemo-item-active-bg: var(--dolphin-accent-soft);
+    --nemo-menu-surface-bg: var(--dolphin-menu-surface-bg);
+    --nemo-toolbar-bg: #eef3f9;
+    --nemo-toolbar-border: #b8c6d8;
+    --nemo-toolbar-button-border: #a9b7c9;
+    --nemo-toolbar-button-bg: linear-gradient(180deg, #f6f9fe 0%, #e4edf8 100%);
+    --nemo-toolbar-button-hover-bg: linear-gradient(180deg, #ffffff 0%, #dce8f6 100%);
+    --nemo-pathbar-bg: #f0f4fa;
+    --nemo-pathbar-border: #9eb0c8;
+    --nemo-pathbar-text: var(--dolphin-text);
+    --nemo-sidebar-bg: var(--dolphin-sidebar);
+    --nemo-footer-bg: var(--dolphin-chrome);
+    --nemo-status-text: var(--dolphin-text-muted);
+    --nemo-tooltip-bg: #ffffff;
+    --nemo-tooltip-text: #1a2332;
+    --nemo-toolbar-icon-filter: var(--dolphin-icon-filter-toolbar);
+    --nemo-accent: var(--dolphin-accent);
+}
+
+body#mx-kde div[data-link="nemo"] {
+    border-radius: 2px;
+    border-color: var(--dolphin-chrome-border);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.52);
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 1.12rem;
+    padding: 0 0.34rem;
+    border: 0;
+    border-radius: 0;
+    color: var(--mx-kde-window-titlebar-fg);
+    background: var(--mx-kde-window-titlebar-bg);
+    box-shadow: none;
+    pointer-events: auto;
+}
+
+/* Sombre : même bandeau que #nemoHeaderContainer (chrome Dolphin). */
+html:not([data-theme="light"]) body#mx-kde div[data-link="nemo"] #windowHeader {
+    background: var(--dolphin-chrome);
+}
+
+html:not([data-theme="light"]) body#mx-kde div[data-link="nemo"].windowElementActive #windowHeader {
+    background: var(--dolphin-chrome);
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"].windowElementActive #windowHeader {
+    background: var(--mx-kde-window-titlebar-bg-active);
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:first-child {
+    position: absolute;
+    top: 0;
+    left: 0.3rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.22rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    transform: translateY(0.35rem);
+    pointer-events: auto;
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:first-child::before,
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:first-child::after {
+    content: "";
+    display: block;
+    width: 0.82rem;
+    height: 0.82rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.92;
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:first-child::before {
+    background-image: url("./media/img/apps/org.kde.dolphin.svg");
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:first-child::after {
+    width: 0.68rem;
+    height: 0.68rem;
+    background-image: url("./media/img/elements/nemo/add-pin.svg");
+    opacity: 0.78;
+}
+
+body#mx-kde div[data-link="nemo"] #windowTitle {
+    display: block;
+    width: auto;
+    max-width: calc(100% - 15rem);
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    color: var(--mx-kde-window-titlebar-fg-muted);
+    transform: translateY(0.35rem);
+    filter: none;
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: 0.3rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.24rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    transform: translateY(0.35rem);
+    pointer-events: auto;
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:last-child > button {
+    position: relative;
+    width: 1.34rem;
+    height: 1.34rem;
+    margin: 0;
+    border: 0;
+    border-radius: 0.2rem;
+    color: var(--dolphin-text);
+    background-color: transparent;
+}
+
+body#mx-kde div[data-link="nemo"] #minimizeBtn {
+    background-image: url("./media/img/header/go-down.svg");
+    background-size: 0.76rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+}
+
+body#mx-kde div[data-link="nemo"] #resizeBtn {
+    background-image: url("./media/img/header/window-restore.svg");
+    background-size: 0.76rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#mx-kde div[data-link="nemo"] #closeBtn {
+    background-image: url("./media/img/header/window-close.svg");
+    background-size: 0.76rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#mx-kde div[data-link="nemo"] #windowHeader > nav:last-child > button:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+    transform: none;
+}
+
+body#mx-kde div[data-link="nemo"] #closeBtn:hover {
+    background-color: rgba(205, 74, 93, 0.32);
+}
+
+html[data-theme="light"] #mx-kde div[data-link="nemo"] #windowHeader > nav:last-child > button,
+html[data-theme="light"] #mx-kde div[data-link="nemo"] #minimizeBtn {
+    filter: brightness(0) saturate(100%);
+}
+
+html[data-theme="light"] #mx-kde div[data-link="nemo"] #closeBtn:hover {
+    background-color: rgba(205, 74, 93, 0.22);
+}
+
+body#mx-kde div[data-link="nemo"] #gestionnaire {
+    margin-bottom: 0;
+    font-family: "Cantarell", var(--font-ui);
+}
+
+body#mx-kde div[data-link="nemo"].windowElement {
+    padding-bottom: 0;
+}
+
+body#mx-kde div[data-link="nemo"] #nemoHeaderContainer {
+    min-height: calc(var(--head) * 1.34);
+    padding-top: 0;
+    border-bottom: 0;
+    background: var(--dolphin-chrome);
+}
+
+body#mx-kde div[data-link="nemo"].windowElementActive #nemoHeaderContainer {
+    background: var(--dolphin-chrome);
+}
+
+body#mx-kde div[data-link="nemo"] #nemoMainContainer {
+    bottom: 0;
+    height: calc(var(--full) - calc(var(--head) * 1.38));
+    min-height: calc(var(--a) - calc(var(--head) * 1.38));
+    margin: 0;
+}
+
+body#mx-kde div[data-link="nemo"] #voletnemo,
+body#mx-kde div[data-link="nemo"] #voletContainer {
+    height: 100%;
+    min-height: 0;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__toolbar.dolphin-toolbar {
+    min-height: calc(var(--head) * 0.98);
+    margin-top: var(--dolphin-toolbar-margin-top);
+    padding: var(--dolphin-toolbar-pad-top-bottom) var(--dolphin-toolbar-pad-right) var(--dolphin-toolbar-pad-top-bottom) var(--dolphin-toolbar-pad-left);
+    gap: var(--dolphin-toolbar-gap);
+    background: var(--dolphin-chrome);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__toolbar.dolphin-toolbar > .sousMenuOutils {
+    background-color: transparent;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__nav {
+    order: 1;
+    margin-right: calc(var(--head) / 28);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view {
+    display: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn {
+    min-width: calc(var(--head) / 1.32);
+    height: calc(var(--head) / 1.32);
+    border-radius: 3px;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    transition: border-color var(--eas2), background-color var(--eas2), box-shadow var(--eas2), transform var(--eas2);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    transform: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn:focus-visible {
+    outline: 2px solid rgba(132, 188, 255, 0.72);
+    outline-offset: 1px;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn img {
+    width: calc(var(--head) / 2.05);
+    height: calc(var(--head) / 2.05);
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn .dolphin-toolbar__svg {
+    color: var(--dolphin-toolbar-text);
+    opacity: 0.92;
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn {
+    border-color: #a9b7c9;
+    background: linear-gradient(180deg, #f6f9fe 0%, #e4edf8 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn:hover {
+    border-color: #7e95b2;
+    background: linear-gradient(180deg, #ffffff 0%, #dce8f6 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn img {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.9;
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn .dolphin-toolbar__svg {
+    color: #2e435f;
+    opacity: 0.9;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child {
+    width: auto;
+    min-width: var(--dolphin-split-min-width);
+    padding: 0 var(--dolphin-split-pad-right) 0 var(--dolphin-split-pad-left);
+    gap: var(--dolphin-split-gap);
+    font-size: calc(var(--head) / 4.05);
+    font-weight: 500;
+    margin-right: var(--dolphin-split-margin-right);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child .dolphin-toolbar__svg {
+    display: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child::after {
+    content: "Scinder";
+    color: var(--dolphin-toolbar-text);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path {
+    order: 3;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: var(--dolphin-path-gap);
+    margin-left: var(--dolphin-path-left-offset);
+    margin-right: var(--dolphin-path-right-offset);
+    max-width: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path .nemo-app__path-current {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__crumb-prefix {
+    position: absolute;
+    top: 50%;
+    left: var(--dolphin-crumb-left);
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions {
+    order: 4;
+    margin-left: 0;
+    gap: var(--dolphin-actions-gap);
+    margin-right: var(--dolphin-actions-right-offset);
+    transform: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:nth-child(2),
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:last-child {
+    margin-left: var(--dolphin-actions-icon-shift-x);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:last-child {
+    margin-right: calc(var(--head) / 18);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__path-current {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--nemo-pathbar-bg);
+    border-color: var(--nemo-pathbar-border);
+    border-radius: 2px;
+    min-height: var(--dolphin-pathbar-min-height);
+    padding-left: var(--dolphin-pathbar-padding-left);
+    padding-right: var(--dolphin-pathbar-padding-right);
+    font-size: var(--dolphin-pathbar-font-size);
+    color: var(--nemo-pathbar-text);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__path-current {
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+html:not([data-theme="light"]) body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__path-current {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.028);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #nemoMainContainer > #voletnemo.dolphin-sidebar {
+    width: var(--dolphin-sidebar-w);
+    min-width: var(--dolphin-sidebar-w);
+    max-width: var(--dolphin-sidebar-w);
+    padding: calc(var(--head) / 9.5) calc(var(--head) / 9.5);
+    background: linear-gradient(180deg, #22272e 0%, #20252c 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: none;
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app #nemoMainContainer > #voletnemo.dolphin-sidebar {
+    background: var(--dolphin-sidebar);
+    border-right: 1px solid var(--dolphin-sidebar-border);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.06);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__heading {
+    margin: calc(var(--head) / 6) 0 calc(var(--head) / 11) calc(var(--head) / 16);
+    font-size: calc(var(--head) / 3.15);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--dolphin-text-muted);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link {
+    gap: calc(var(--head) / 7);
+    padding: calc(var(--head) / 7.2) calc(var(--head) / 8.2);
+    border-radius: 2px;
+    border-left-width: 0;
+    font-size: calc(var(--head) / 2.6);
+    font-weight: 500;
+    color: var(--dolphin-text);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img,
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img {
+    width: calc(var(--head) / 2.25);
+    height: calc(var(--head) / 2.25);
+    object-fit: contain;
+    filter: var(--dolphin-icon-filter-sidebar);
+    opacity: var(--dolphin-icon-opacity-sidebar, 0.9);
+}
+
+/* Normalize KDE sidebar icon contrast per theme. */
+body#mx-kde div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img[src*="/media/img/elements/kde/"],
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img[src*="/media/img/elements/kde/"] {
+    filter: var(--dolphin-icon-filter-sidebar);
+    opacity: 0.95;
+}
+
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img[src*="/media/img/elements/kde/"],
+html[data-theme="light"] body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img[src*="/media/img/elements/kde/"] {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.92;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link--active {
+    background: var(--dolphin-sidebar-active-bg);
+    border-left-color: transparent;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link--active img {
+    opacity: 1;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row {
+    gap: calc(var(--head) / 7);
+    padding: calc(var(--head) / 7.2) calc(var(--head) / 8.2);
+    margin-left: 0;
+    border-radius: 2px;
+    font-size: calc(var(--head) / 2.6);
+    color: var(--dolphin-text);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-path {
+    display: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__usage {
+    height: 3px;
+    margin: 1px calc(var(--head) / 9) calc(var(--head) / 6) calc(var(--head) / 1.45);
+    background: var(--dolphin-usage-track-bg);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-sidebar__usage-fill {
+    width: 70%;
+    background: linear-gradient(90deg, var(--dolphin-usage-fill-start), var(--dolphin-usage-fill-end));
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid {
+    gap: calc(var(--head) / 3);
+    padding: calc(var(--head) / 1.55) var(--dolphin-content-grid-pad-x) calc(var(--head) * 1.9);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a {
+    width: calc(var(--head) * 2.55);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #voletContainer > .nemoElement > a:hover,
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:hover {
+    background: transparent;
+    outline: none;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a > img {
+    width: calc(var(--head) * 1.35);
+    height: calc(var(--head) * 1.15);
+    padding: calc(var(--head) / 9);
+    border-radius: 3px;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:hover > img,
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:focus-visible > img,
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:focus > img {
+    background: var(--dolphin-grid-item-hover-bg);
+    box-shadow: inset 0 0 0 1px var(--dolphin-grid-item-hover-outline);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a > span {
+    font-size: calc(var(--head) / 2.5);
+    color: var(--dolphin-text);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app .dolphin-folder-pill {
+    display: block;
+}
+
+body#mx-kde .dolphin-sidebar__section--removable {
+    display: none;
+}
+
+body#mx-kde .dolphin-sidebar__root-label {
+    font-size: calc(var(--head) / 2.25);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #nemoFooterContainer {
+    display: none;
+    min-height: calc(var(--head) / 1.35);
+    border-top: 1px solid var(--dolphin-chrome-border);
+    background: var(--dolphin-chrome);
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #nemoFooterContainer .nemo-app__status-center {
+    justify-content: flex-start;
+}
+
+body#mx-kde div[data-link="nemo"] .dolphin-app #nemoFooterContainer .nemo-app__status-center p {
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.5);
+}

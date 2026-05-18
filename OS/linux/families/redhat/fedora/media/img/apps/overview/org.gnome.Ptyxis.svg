@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="128px" viewBox="0 0 128 128" width="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="12.000257" x2="116.000257" y1="63.999762" y2="63.999762">
+        <stop offset="0" stop-color="#3d3846"/>
+        <stop offset="0.05" stop-color="#77767b"/>
+        <stop offset="0.1" stop-color="#5e5c64"/>
+        <stop offset="0.899999" stop-color="#5e5c64"/>
+        <stop offset="0.95" stop-color="#77767b"/>
+        <stop offset="1" stop-color="#3d3846"/>
+    </linearGradient>
+    <linearGradient id="b" gradientTransform="matrix(1 0 0 1.041669 0.000267 -179.667363)" gradientUnits="userSpaceOnUse" x1="11.999734" x2="115.947823" y1="190.000244" y2="190.000244">
+        <stop offset="0" stop-color="#5e5c64"/>
+        <stop offset="0.0378316" stop-color="#8a8791"/>
+        <stop offset="0.079384" stop-color="#78747f"/>
+        <stop offset="0.904298" stop-color="#72707a"/>
+        <stop offset="0.945175" stop-color="#77747e"/>
+        <stop offset="1" stop-color="#37363b"/>
+    </linearGradient>
+    <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="74.559555" x2="74.559555" y1="5.440298" y2="86.167944">
+        <stop offset="0" stop-color="#3d3846"/>
+        <stop offset="1" stop-color="#241f31"/>
+    </linearGradient>
+    <path d="m 20 22 h 88 c 4.417969 0 8 3.582031 8 8 v 78 c 0 4.417969 -3.582031 8 -8 8 h -88 c -4.417969 0 -8 -3.582031 -8 -8 v -78 c 0 -4.417969 3.582031 -8 8 -8 z m 0 0" fill="url(#a)"/>
+    <path d="m 20 12 h 88 c 4.417969 0 8 3.730469 8 8.332031 v 83.335938 c 0 4.601562 -3.582031 8.332031 -8 8.332031 h -88 c -4.417969 0 -8 -3.730469 -8 -8.332031 v -83.335938 c 0 -4.601562 3.582031 -8.332031 8 -8.332031 z m 0 0" fill="url(#b)"/>
+    <path d="m 20 14 h 88 c 4.417969 0 8 3.582031 8 8 v 80 c 0 4.417969 -3.582031 8 -8 8 h -88 c -4.417969 0 -8 -3.582031 -8 -8 v -80 c 0 -4.417969 3.582031 -8 8 -8 z m 0 0" fill="url(#c)"/>
+    <g fill="#62c9ea">
+        <path d="m 48 76.777344 l -16 -10.777344 v 6.824219 l 10 6.417969 v 0.199218 l -10 7.121094 v 6.96875 l 16 -11.625 z m 0 0"/>
+        <path d="m 50 92 v 4 h 22 v -4 z m 0 0"/>
+    </g>
+</svg>

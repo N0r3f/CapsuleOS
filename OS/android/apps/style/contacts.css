@@ -1,0 +1,18 @@
+.contacts-root {
+	padding: 16px;
+	font-family: sans-serif;
+}
+
+.contacts-header {
+	margin-bottom: 12px;
+}
+
+.contacts-title {
+	margin: 0;
+	font-size: 1.25rem;
+}
+
+.contacts-empty {
+	margin: 0;
+	color: #666;
+}

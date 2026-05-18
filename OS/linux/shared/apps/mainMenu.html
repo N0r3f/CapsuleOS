@@ -1,0 +1,89 @@
+<section class="menu-root">
+
+    <!-- Sidebar : profil + raccourcis + boutons système -->
+    <aside class="menu-sidebar">
+        <div class="menu-user">
+            <img class="menu-user__avatar" src="./media/img/apps/user-info.png" alt="Utilisateur">
+            <span class="menu-user__name" data-capsule-text="mainMenu.userName">utilisateur</span>
+        </div>
+
+        <ul class="menu-shortcuts">
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="desktop" title="Bureau">
+                    <img src="./media/img/elements/nemo/folder.png" alt="">
+                    <span>Bureau</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="downloads" title="Téléchargements">
+                    <img src="./media/img/elements/nemo/folder-download.png" alt="">
+                    <span>Téléchargements</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="calculator" title="Calculatrice">
+                    <img src="./media/img/apps/accessories-calculator.png" alt="">
+                    <span>Calculatrice</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="agenda" title="Agenda">
+                    <img src="./media/img/apps/agenda.png" alt="">
+                    <span>Agenda</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="text-editor" title="Éditeur de texte">
+                    <img src="./media/img/apps/accessories-text-editor.png" alt="">
+                    <span>Éditeur de texte</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="software-manager" title="Logithèque">
+                    <img src="./media/img/apps/mintinstall.png" alt="">
+                    <span>Logithèque</span>
+                </a>
+            </li>
+            <li>
+                <a class="menu-shortcut" data-shortcut-id="system-settings" title="Paramètres du système">
+                    <img src="./media/img/apps/preferences-system.png" alt="">
+                    <span>Paramètres du sys...</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="menu-actions">
+            <button type="button" class="menu-action" id="menu-btn-lock" title="Verrouiller la session">
+                <img src="./media/img/assets/system-lock-screen.png" alt="Verrouiller">
+            </button>
+            <button type="button" class="menu-action" id="menu-btn-logout" title="Se déconnecter">
+                <img src="./media/img/assets/system-log-out.png" alt="Se déconnecter">
+            </button>
+            <button type="button" class="menu-action" id="menu-btn-power" title="Arrêter le système">
+                <img src="./media/img/assets/system-shutdown.png" alt="Arrêter">
+            </button>
+        </div>
+    </aside>
+
+    <!-- Colonne centrale : catégories + recherche -->
+    <div class="menu-categories">
+        <ul class="menu-cats" id="menu-cats"></ul>
+        <div class="menu-search-wrap">
+            <input
+                type="search"
+                class="menu-search"
+                id="menu-search"
+                data-capsule-attr="placeholder:mainMenu.searchPlaceholder"
+                placeholder="Rechercher..."
+                autocomplete="off"
+                spellcheck="false"
+            >
+        </div>
+    </div>
+
+    <!-- Colonne droite : liste des applications -->
+    <div class="menu-apps">
+        <ul class="menu-app-list" id="menu-app-list"></ul>
+    </div>
+
+</section>

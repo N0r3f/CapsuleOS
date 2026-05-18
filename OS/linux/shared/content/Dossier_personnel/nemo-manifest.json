@@ -1,0 +1,109 @@
+{
+  "root": "../../../shared/content/Dossier_personnel",
+  "rootLabel": "Dossier personnel",
+  "folders": {
+    "../../../shared/content/Dossier_personnel": {
+      "label": "Dossier personnel",
+      "items": [
+        {
+          "type": "folder",
+          "name": "Bureau",
+          "path": "../../../shared/content/Dossier_personnel/Bureau"
+        },
+        {
+          "type": "folder",
+          "name": "Documents",
+          "path": "../../../shared/content/Dossier_personnel/Documents"
+        },
+        {
+          "type": "folder",
+          "name": "Images",
+          "path": "../../../shared/content/Dossier_personnel/Images"
+        },
+        {
+          "type": "folder",
+          "name": "Musique",
+          "path": "../../../shared/content/Dossier_personnel/Musique"
+        },
+        {
+          "type": "folder",
+          "name": "Téléchargements",
+          "path": "../../../shared/content/Dossier_personnel/Téléchargements"
+        },
+        {
+          "type": "folder",
+          "name": "Public",
+          "path": "../../../shared/content/Dossier_personnel/Public"
+        },
+        {
+          "type": "folder",
+          "name": "Vidéos",
+          "path": "../../../shared/content/Dossier_personnel/Vidéos"
+        }
+      ]
+    },
+    "../../../shared/content/Dossier_personnel/Public": {
+      "label": "Public",
+      "items": []
+    },
+    "../../../shared/content/Dossier_personnel/Bureau": {
+      "label": "Bureau",
+      "items": []
+    },
+    "../../../shared/content/Dossier_personnel/Documents": {
+      "label": "Documents",
+      "items": [
+        {
+          "type": "file",
+          "name": "Bash.pdf",
+          "extension": "pdf",
+          "href": "../../../shared/content/Dossier_personnel/Documents/Bash.pdf"
+        }
+      ]
+    },
+    "../../../shared/content/Dossier_personnel/Images": {
+      "label": "Images",
+      "items": [
+        {
+          "type": "file",
+          "name": "lunaire-bureau.png",
+          "extension": "png",
+          "href": "../../../shared/content/Dossier_personnel/Images/lunaire-bureau.png"
+        }
+      ]
+    },
+    "../../../shared/content/Dossier_personnel/Musique": {
+      "label": "Musique",
+      "items": [
+        {
+          "type": "file",
+          "name": "mheuuuu.ogg",
+          "extension": "ogg",
+          "href": "../../../shared/content/Dossier_personnel/Musique/mheuuuu.ogg"
+        }
+      ]
+    },
+    "../../../shared/content/Dossier_personnel/Téléchargements": {
+      "label": "Téléchargements",
+      "items": [
+        {
+          "type": "file",
+          "name": "Géodésie.pdf",
+          "extension": "pdf",
+          "href": "../../../shared/content/Dossier_personnel/Téléchargements/Géodésie.pdf"
+        }
+      ]
+    },
+    "../../../shared/content/Dossier_personnel/Vidéos": {
+      "label": "Vidéos",
+      "items": [
+        {
+          "type": "file",
+          "name": "Capsule_s.mp4",
+          "extension": "mp4",
+          "href": "../../../shared/content/Dossier_personnel/Vidéos/Capsule_s.mp4"
+        }
+      ]
+    }
+  }
+}

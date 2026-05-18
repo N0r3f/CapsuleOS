@@ -87,6 +87,26 @@ Chaque script est écrit from scratch en ecmascript 6 et s’exécute côté nav
 Ils sont tous réutilisables dans chaque environnement.
 Ceci évite d'atteindre un nombre critique de scripts et permet d'alléger la charge sur le navigateur et le système hôte.  
 
+### Ouverture en `file://` et gabarits embarqués ▼
+
+Les navigateurs bloquent ou restreignent `fetch()` sur des fichiers locaux. Pour que les bureaux Linux et Android fonctionnent **sans serveur HTTP** (double-clic sur `index.html`), le dépôt inclut des scripts générés : `OS/linux/kernel/js/capsule-app-embed.js` et `OS/android/js/capsule-android-embed.js`.
+
+Après modification des gabarits sous `OS/linux/shared/apps/` ou des skins `style/apps/*.skin.css` (Mint, Ubuntu, Fedora), régénérer le fichier Linux :
+
+```bash
+node scripts/build-capsule-embed.mjs
+```
+
+Après modification des apps sous `OS/android/apps/` ou de `OS/android/ressources/messages.json` :
+
+```bash
+node scripts/build-android-embed.mjs
+```
+
+Chaque `index.html` de skin Linux définit `window.CAPSULE_EMBED_SKIN_KEY` (`mint`, `ubuntu` ou `fedora`) avant le script embed, afin d’appliquer les bonnes feuilles `.skin.css` embarquées.
+
+Sous `http://` ou `https://`, le noyau continue de charger les gabarits avec `fetch` pour refléter les fichiers à jour sans régénérer l’embed. Pour forcer l’usage des données embarquées même en HTTP (tests), définir `window.CAPSULE_FORCE_APP_EMBED = true` avant les scripts embed.
+
 ## Définition de l'arborescence ▼
 
 📄 index.html
@@ -115,41 +135,45 @@ Ceci évite d'atteindre un nombre critique de scripts et permet d'alléger la ch
 
 ​	📁 linux ▼
 
-​		📁 capsule ▼
+​		📁 kernel ▼ (noyau Linux : styles + logique JS)
 
-​			📄 index.html
-
-​			📁 assets ▼
-
-​				☰ menu_logo
-
-​			📁 media ▼
-
-​				📁 img ▼
-
-​					📁 dock ▼
-
-​					📁 menu ▼
-
-​			📁 pages ▼
-
-​				📄 menu.html
+​			📄 README.md
 
 ​			📁 style ▼
 
-​				📄 animations.css
+​				📄 variables-linux.css
 
-​				📄 footer.css
+​			📁 js ▼ (scripts du bureau simulé : fenêtres, Nemo, apps, `capsule-app-embed.js` généré, etc.)
 
-​				📄 header.css
+​		📁 shared ▼ (apps HTML/CSS `.base.css` + contenu pédagogique commun)
 
-​				📄 imports.css
+​			📄 README.md
 
-​				📄 menu.css
+​			📁 apps ▼
 
-​				📄 style.css
+​			📁 content ▼ (ex. Dossier_personnel, manifest Nemo)
 
-​				📄 windows.css				
+​		📁 families ▼
+
+​			📁 debian ▼
+
+​				📁 mint ▼
+
+​					📄 index.html
+
+​					📁 media, style, assets (thème Mint)
+
+​				📁 ubuntu ▼
+
+​					📄 index.html (même noyau + shared ; médias réutilisés depuis mint en attendant des assets Ubuntu)
+
+​			📁 redhat ▼
+
+​				📁 fedora ▼
+
+​					📄 index.html (shell GNOME Workstation, Fichiers / Nemo, assets sous media/)
+
+📄 sw.js (Service Worker, mode offline après premier chargement)
 
 📁 pages ▼
 

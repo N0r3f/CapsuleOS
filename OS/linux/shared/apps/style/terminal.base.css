@@ -1,0 +1,145 @@
+.capsule-terminal-toolbar {
+    display: none;
+}
+
+#terminalContainer,
+.capsule-terminal-shell {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--full);
+    margin: var(--z);
+    padding: calc(var(--head) / 4);
+    color: var(--texte);
+    font-size: calc(var(--head) / 2);
+    font-weight: var(--wbr);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    overflow-y: var(--a);
+    overflow-x: var(--hid);
+    background: var(--noir);
+}
+
+.capsule-terminal,
+[data-terminal-app] {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--full);
+}
+
+#input,
+.capsule-terminal__input,
+[data-terminal-form] {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--a);
+    height: calc(var(--head) / 1.7);
+    margin: calc(var(--head) / 20);
+    margin-bottom: calc(var(--head) / 10);
+    padding: calc(var(--head) / 20);
+}
+
+#prompt,
+.capsule-terminal__prompt,
+[data-terminal-prompt],
+.capsule-terminal__prompt-copy {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: var(--a);
+    margin-left: calc(var(--head) / 20);
+    margin-right: calc(var(--head) / 10);
+    color: var(--btn1);
+    font-size: calc(var(--head) / 2);
+    font-weight: var(--wbr);
+    white-space: pre;
+}
+
+#command,
+#command:focus,
+#command:active,
+.capsule-terminal__command,
+.capsule-terminal__command:focus,
+.capsule-terminal__command:active,
+[data-terminal-command],
+[data-terminal-command]:focus,
+[data-terminal-command]:active {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--a);
+    height: calc(var(--head) / 1.7);
+    padding-left: calc(var(--head) / 40);
+    color: var(--texte);
+    font-size: calc(var(--head) / 2);
+    font-weight: var(--wbr);
+    outline: var(--n);
+    border: var(--z) solid var(--t);
+    box-shadow: var(--n);
+    background: var(--noir);
+}
+
+#command:focus,
+.capsule-terminal__command:focus,
+[data-terminal-command]:focus {
+    box-shadow: var(--z) var(--t);
+}
+
+#output,
+.capsule-terminal__output,
+[data-terminal-output] {    
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    flex: 1 1 var(--a);
+    min-height: var(--z);
+    margin-top: calc(var(--head) / 40);
+    overflow-y: var(--a);
+    overflow-x: var(--hid);
+}
+
+#output>div,
+.capsule-terminal__line {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--a);
+}
+
+#output>div>code,
+.capsule-terminal__line>code {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--a);
+    margin-bottom: calc(var(--head) / 10);
+}
+
+.capsule-terminal__line--command {
+    flex-wrap: nowrap;
+}
+
+#output>div>code.capsule-terminal__prompt-copy,
+#output>div>code.capsule-terminal__command-copy,
+.capsule-terminal__command-copy {
+    width: var(--a);
+    white-space: pre-wrap;
+}
+
+.capsule-terminal__line--error code {
+    color: #ff8a8a;
+}

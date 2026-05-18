@@ -1,48 +1,84 @@
-var messagesList = document.querySelector('.messages-list')
-
-document.onload = () => {
-	fetch('./ressources/messages.json')
-		.then((response) => {
-			console.log('Messages chargés avec succés')
-			return response.json()
-		})
-		.then((messages) => {
-			for (const message of messages) {
-				createMessage(message.expediteur, message.contenu)
-			}
-		})
-}
-
 function createMessage(expediteur, message) {
-	//Création des balises
-	let messageItem = document.createElement('div')
-	let messageIcone = document.createElement('div')
+    const messagesList = document.querySelector('.messages-list');
+    if (!messagesList) {
+        return;
+    }
 
-	let messageImage = document.createElement('img')
-	messageImage.setAttribute('src', './../assets/icones/default.png')
-	messageImage.setAttribute('alt', 'Icône de contact')
+    const messageItem = document.createElement('div');
+    const messageIcone = document.createElement('div');
 
-	let messageContent = document.createElement('div')
+    const messageImage = document.createElement('img');
+    messageImage.setAttribute('src', './assets/icones/default.png');
+    messageImage.setAttribute('alt', 'Icône de contact');
 
-	let messageExpediteur = document.createElement('span')
-	let messageText = document.createElement('p')
+    const messageContent = document.createElement('div');
 
-	//Ajout des classes aux éléments
-	messageItem.classList.add('message')
-	messageIcone.classList.add('message-icone')
-	messageContent.classList.add('message-content')
-	messageExpediteur.classList.add('message-exp')
-	messageText.classList.add('message-text')
+    const messageExpediteur = document.createElement('span');
+    const messageText = document.createElement('p');
 
-	//Ajout des données
-	messageExpediteur.innerText = expediteur
-	messageText.innerText = message
+    messageItem.classList.add('message');
+    messageIcone.classList.add('message-icone');
+    messageContent.classList.add('message-content');
+    messageExpediteur.classList.add('message-exp');
+    messageText.classList.add('message-text');
 
-	// assemblage des éléments
-	messagesList.appendChild(messageItem)
-	messageItem.appendChild(messageIcone)
-	messageIcone.appendChild(messageImage)
-	messageItem.appendChild(messageContent)
-	messageContent.appendChild(messageExpediteur)
-	messageContent.appendChild(messageText)
+    messageExpediteur.innerText = expediteur;
+    messageText.innerText = message;
+
+    messagesList.appendChild(messageItem);
+    messageItem.appendChild(messageIcone);
+    messageIcone.appendChild(messageImage);
+    messageItem.appendChild(messageContent);
+    messageContent.appendChild(messageExpediteur);
+    messageContent.appendChild(messageText);
 }
+
+window.initCapsuleAndroidMessages = function initCapsuleAndroidMessages() {
+    const messagesList = document.querySelector('.messages-list');
+    if (!messagesList) {
+        return;
+    }
+
+    const appendFromJson = (messages) => {
+        if (!Array.isArray(messages)) {
+            return;
+        }
+        messages.forEach((m) => {
+            if (m && m.expediteur != null && m.contenu != null) {
+                createMessage(m.expediteur, m.contenu);
+            }
+        });
+    };
+
+    const useEmbed = () => {
+        if (typeof window === 'undefined' || !Array.isArray(window.CAPSULE_ANDROID_MESSAGES_EMBED)) {
+            return false;
+        }
+        if (window.CAPSULE_FORCE_APP_EMBED === true) {
+            return true;
+        }
+        if (typeof location !== 'undefined' && location.protocol === 'file:') {
+            return true;
+        }
+        return false;
+    };
+
+    if (useEmbed()) {
+        appendFromJson(window.CAPSULE_ANDROID_MESSAGES_EMBED);
+        return;
+    }
+
+    fetch('./ressources/messages.json')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((messages) => {
+            appendFromJson(messages);
+        })
+        .catch((err) => {
+            console.error('Messages: échec du chargement', err);
+        });
+};

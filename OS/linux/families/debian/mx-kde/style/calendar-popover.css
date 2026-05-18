@@ -1,0 +1,210 @@
+#mx-kde .calendar-popover {
+  position: fixed;
+  right: var(--calendar-popover-offset);
+  bottom: calc(var(--taskbar-height) + var(--calendar-popover-offset));
+  z-index: var(--z-calendar-popover);
+  width: var(--calendar-popover-width);
+  min-height: min(30rem, calc(100vh - var(--taskbar-height) - 2.5rem));
+  max-height: var(--calendar-popover-max-height);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--calendar-popover-radius);
+  overflow: hidden;
+  background: var(--calendar-popover-bg);
+  border: var(--calendar-popover-border);
+  box-shadow: var(--calendar-popover-shadow);
+  color: var(--calendar-popover-text);
+  font-family: var(--font-ui);
+  font-size: var(--calendar-popover-font-size);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+#mx-kde .calendar-popover[hidden] {
+  display: none;
+}
+
+#mx-kde .calendar-popover__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.95rem 1.1rem 0.65rem;
+}
+
+#mx-kde .calendar-popover__month-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+#mx-kde .calendar-popover__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#mx-kde .calendar-popover__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.35rem;
+  background: transparent;
+  opacity: 0.85;
+}
+
+#mx-kde .calendar-popover__icon-btn > img {
+  width: 1.15rem;
+  height: 1.15rem;
+  object-fit: contain;
+}
+
+#mx-kde .calendar-popover__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 0 1rem;
+  border-bottom: var(--calendar-popover-divider);
+}
+
+#mx-kde .calendar-popover__tab {
+  padding: 0.6rem 0.5rem 0.7rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--calendar-popover-week-label);
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: default;
+}
+
+#mx-kde .calendar-popover__tab.is-active {
+  color: var(--calendar-popover-text);
+  border-bottom-color: var(--calendar-popover-today-bg);
+}
+
+#mx-kde .calendar-popover__tab:disabled {
+  opacity: 0.55;
+}
+
+#mx-kde .calendar-popover__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 0.55rem;
+}
+
+#mx-kde .calendar-popover__today-btn {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--calendar-popover-text);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: default;
+}
+
+#mx-kde .calendar-popover__today-btn:hover {
+  background: var(--calendar-popover-day-hover-bg);
+}
+
+#mx-kde .calendar-popover__month-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+#mx-kde .calendar-popover__arrow {
+  width: var(--calendar-popover-arrow-size);
+  height: var(--calendar-popover-arrow-size);
+  padding: 0;
+  border: none;
+  border-radius: var(--calendar-popover-arrow-radius);
+  background: var(--calendar-popover-arrow-bg);
+  color: var(--calendar-popover-arrow-text);
+  font-size: var(--calendar-popover-arrow-font-size);
+  line-height: 1;
+  cursor: default;
+}
+
+#mx-kde .calendar-popover__arrow:hover {
+  background: var(--calendar-popover-arrow-hover-bg);
+}
+
+#mx-kde .calendar-popover__week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--calendar-popover-week-row-gap);
+  padding: 0.35rem 1rem 0.15rem;
+  font-size: var(--calendar-popover-week-label-size);
+  color: var(--calendar-popover-week-label);
+  text-align: center;
+}
+
+#mx-kde .calendar-popover__week-cell {
+  padding: var(--calendar-popover-week-cell-padding);
+}
+
+#mx-kde .calendar-popover__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--calendar-popover-days-gap);
+  flex: 1;
+  align-content: start;
+  padding: 0.35rem 1rem 1.1rem;
+}
+
+#mx-kde .calendar-popover__day {
+  aspect-ratio: 1;
+  max-height: var(--calendar-popover-day-max-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--calendar-popover-day-radius);
+  background: transparent;
+  color: var(--calendar-popover-day-text);
+  font: inherit;
+  font-size: var(--calendar-popover-day-size);
+  cursor: default;
+}
+
+#mx-kde .calendar-popover__day:hover:not(:disabled) {
+  background: var(--calendar-popover-day-hover-bg);
+}
+
+#mx-kde .calendar-popover__day--outside {
+  color: var(--calendar-popover-events-muted);
+  opacity: 0.72;
+}
+
+#mx-kde .calendar-popover__day--today {
+  background: var(--calendar-popover-today-bg);
+  color: var(--calendar-popover-today-text);
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+
+#mx-kde .calendar-popover__day--today:hover:not(:disabled) {
+  background: var(--calendar-popover-today-hover-bg);
+}
+
+#mx-kde .calendar-popover__day--selected:not(.calendar-popover__day--today) {
+  box-shadow: var(--calendar-popover-selected-ring);
+}
+
+@media (max-width: 400px) {
+  #mx-kde .calendar-popover {
+    right: 0.2rem;
+    left: 0.2rem;
+    width: auto;
+  }
+}

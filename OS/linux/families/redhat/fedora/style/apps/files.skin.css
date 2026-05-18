@@ -1,0 +1,413 @@
+/**
+ * Fedora - Fichiers GNOME.
+ * Skin uniquement : le HTML shared et le moteur Nemo restent la source de verite.
+ */
+body#fedora {
+    --nemo-bg-primary: #242428;
+    --nemo-header-bg: #303034;
+    --nemo-header-active-bg: #3b3b40;
+    --nemo-border: rgba(0, 0, 0, 0.42);
+    --nemo-text-primary: #f1f1f3;
+    --nemo-text-muted: #b7b7bc;
+    --nemo-item-active-bg: rgba(53, 132, 228, 0.32);
+    --nemo-menu-surface-bg: #303034;
+    --nemo-toolbar-bg: #303034;
+    --nemo-toolbar-border: rgba(0, 0, 0, 0.34);
+    --nemo-toolbar-button-border: transparent;
+    --nemo-toolbar-button-bg: transparent;
+    --nemo-toolbar-button-hover-bg: rgba(255, 255, 255, 0.09);
+    --nemo-toolbar-button-plain-hover: rgba(255, 255, 255, 0.09);
+    --nemo-pathbar-bg: #45454b;
+    --nemo-pathbar-border: rgba(255, 255, 255, 0.08);
+    --nemo-pathbar-text: #f1f1f3;
+    --nemo-sidebar-bg: #2a2a2e;
+    --nemo-sidebar-text: #e9e9eb;
+    --nemo-sidebar-muted: #b9b9bd;
+    --nemo-footer-bg: #2a2a2e;
+    --nemo-status-text: #c8c8cc;
+    --nemo-accent: #3584e4;
+    --nemo-tooltip-bg: #1d1d20;
+    --nemo-tooltip-text: #f5f5f5;
+    --nemo-file-icon-bg: #cfd2d8;
+    --nemo-file-icon-fold: #ffffff;
+    --nemo-symbolic-icon-filter: brightness(0) invert(1);
+    --nemo-toolbar-icon-filter: var(--nemo-symbolic-icon-filter);
+}
+
+html[data-theme="light"]:has(#fedora) body#fedora {
+    --nemo-bg-primary: #ffffff;
+    --nemo-header-bg: #f3f3f3;
+    --nemo-header-active-bg: #ffffff;
+    --nemo-border: rgba(0, 0, 0, 0.12);
+    --nemo-text-primary: #1f1f22;
+    --nemo-text-muted: #606066;
+    --nemo-item-active-bg: rgba(53, 132, 228, 0.18);
+    --nemo-menu-surface-bg: #ffffff;
+    --nemo-toolbar-bg: #f3f3f3;
+    --nemo-toolbar-border: rgba(0, 0, 0, 0.1);
+    --nemo-toolbar-button-hover-bg: rgba(0, 0, 0, 0.06);
+    --nemo-toolbar-button-plain-hover: rgba(0, 0, 0, 0.06);
+    --nemo-pathbar-bg: #e6e6e8;
+    --nemo-pathbar-border: rgba(0, 0, 0, 0.08);
+    --nemo-pathbar-text: #1f1f22;
+    --nemo-sidebar-bg: #2f2f34;
+    --nemo-sidebar-text: #f4f4f6;
+    --nemo-sidebar-muted: #c5c5c9;
+    --nemo-footer-bg: #f4f4f4;
+    --nemo-status-text: #5a5a60;
+    --nemo-tooltip-bg: #2c2c30;
+    --nemo-tooltip-text: #ffffff;
+    --nemo-file-icon-bg: #d8dbe2;
+    --nemo-file-icon-fold: #ffffff;
+    --nemo-symbolic-icon-filter: brightness(0) invert(1);
+}
+
+body#fedora div[data-link="nemo"] {
+    width: min(61rem, calc(100vw - var(--fedora-dock-width) - 2rem));
+    height: min(38.5rem, calc(100vh - var(--fedora-top-bar-height) - 2rem));
+    min-width: 39rem;
+    border-color: var(--nemo-border);
+    border-radius: 0.9rem;
+    background: var(--nemo-bg-primary);
+    overflow: hidden;
+}
+
+body#fedora div[data-link="nemo"] #windowHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 8;
+    display: flex;
+    justify-content: flex-end;
+    width: 8.2rem !important;
+    min-width: 8.2rem !important;
+    max-width: 8.2rem !important;
+    height: 2.8rem;
+    padding: 0 0.58rem 0 0;
+    border: 0;
+    border-radius: 0 0.9rem 0 0;
+    color: var(--nemo-text-primary);
+    background: transparent;
+    pointer-events: none;
+}
+
+body#fedora div[data-link="nemo"] #windowHeader > nav:first-child,
+body#fedora div[data-link="nemo"] #windowTitle {
+    display: none;
+}
+
+body#fedora div[data-link="nemo"] #windowHeader > nav:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.38rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#fedora div[data-link="nemo"] #windowHeader > nav:last-child > button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.42rem;
+    height: 1.42rem;
+    margin: 0;
+    border: 0;
+    border-radius: 999px;
+    color: var(--nemo-text-primary);
+    background: transparent;
+    background-image: none;
+}
+
+body#fedora div[data-link="nemo"] #windowHeader > nav:last-child > button::before {
+    content: "";
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#fedora div[data-link="nemo"] #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+}
+
+body#fedora div[data-link="nemo"] #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+}
+
+body#fedora div[data-link="nemo"] #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+}
+
+body#fedora div[data-link="nemo"] #windowHeader > nav:last-child > button:hover {
+    background: var(--nemo-toolbar-button-hover-bg);
+    transform: none;
+}
+
+body#fedora div[data-link="nemo"] #closeBtn {
+    background: rgba(255, 255, 255, 0.11);
+}
+
+html[data-theme="light"]:has(#fedora) body#fedora div[data-link="nemo"] #closeBtn {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+body#fedora div[data-link="nemo"] #closeBtn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="light"]:has(#fedora) body#fedora div[data-link="nemo"] #closeBtn:hover {
+    background: rgba(0, 0, 0, 0.13);
+}
+
+body#fedora div[data-link="nemo"] #gestionnaire {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    border-radius: inherit;
+    color: var(--nemo-text-primary);
+    background: var(--nemo-bg-primary);
+    font-family: "Cantarell", var(--font-ui);
+    font-size: 0.82rem;
+}
+
+body#fedora div[data-link="nemo"] #nemoHeaderContainer {
+    height: auto;
+    border-bottom: 1px solid var(--nemo-toolbar-border);
+    background: var(--nemo-header-bg);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__menubar {
+    display: none;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar {
+    min-height: 2.8rem;
+    gap: 0.48rem;
+    padding: 0.35rem 8.55rem 0.35rem 0.55rem;
+    border: 0;
+    background: var(--nemo-toolbar-bg);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar::before {
+    content: "Fichiers";
+    flex: 0 0 auto;
+    min-width: 4.7rem;
+    color: var(--nemo-text-primary);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group {
+    gap: 0.22rem;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group--path {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group--view {
+    flex: 0 0 auto;
+    margin-left: 0.35rem;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group > a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 0.55rem;
+    color: var(--nemo-text-primary);
+    background: transparent;
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group > a[aria-disabled="true"] {
+    cursor: default;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group > a:hover {
+    border-color: transparent;
+    background: var(--nemo-toolbar-button-hover-bg);
+    transform: none;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__toolbar-group img {
+    width: 1rem;
+    height: 1rem;
+    filter: var(--nemo-toolbar-icon-filter);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__path-current {
+    flex: 1 1 auto;
+    min-width: 6rem;
+    height: 2rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 0.6rem;
+    color: var(--nemo-pathbar-text);
+    background: var(--nemo-pathbar-bg);
+    font-weight: 700;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__path-current::before {
+    display: none;
+}
+
+body#fedora div[data-link="nemo"] #nemoMainContainer {
+    height: calc(100% - 2.8rem);
+    background: var(--nemo-bg-primary);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar {
+    flex: 0 0 13.8rem;
+    width: 13.8rem;
+    padding: 0.72rem 0.62rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.26);
+    color: var(--nemo-sidebar-text);
+    background: var(--nemo-sidebar-bg);
+    overflow: auto;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.42rem;
+    filter: var(--nemo-symbolic-icon-filter);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar > a {
+    height: auto;
+    margin: 0.7rem 0 0.24rem;
+    padding: 0 0.42rem;
+    color: var(--nemo-sidebar-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: transparent;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar > a:first-child {
+    margin-top: 0.12rem;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar div {
+    gap: 0.1rem;
+    margin: 0;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar div > a {
+    display: flex;
+    align-items: center;
+    min-height: 2rem;
+    margin: 0.02rem 0;
+    padding: 0 0.55rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--nemo-sidebar-text);
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: transparent;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__sidebar div > a:hover,
+body#fedora div[data-link="nemo"] .nemo-app__sidebar div > a.dolphin-sidebar__link--active {
+    border-left: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__content-wrap {
+    flex: 1 1 auto;
+    width: auto;
+    border-left: 0;
+    background: var(--nemo-bg-primary);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__content-grid {
+    --nemo-item-card-size: 7rem;
+    --nemo-item-icon-size: 4.35rem;
+    align-content: flex-start;
+    gap: 1.1rem 1.35rem;
+    padding: 1.35rem 1.6rem 2rem;
+    background: var(--nemo-bg-primary);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__content-grid > a {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: var(--nemo-item-card-size);
+    height: 6.55rem;
+    margin: 0;
+    padding: 0.35rem 0.25rem;
+    border-radius: 0.65rem;
+    color: var(--nemo-text-primary);
+    font-size: 0.82rem;
+    line-height: 1.15;
+    text-align: center;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__content-grid > a::before {
+    display: none;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__content-grid > a:hover {
+    background: var(--nemo-item-active-bg);
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__content-grid > a > img {
+    display: block;
+    flex: 0 0 auto;
+    width: var(--nemo-item-icon-size);
+    height: var(--nemo-item-icon-size);
+    margin: 0 auto 0.45rem;
+    object-fit: contain;
+    filter: none;
+}
+
+body#fedora div[data-link="nemo"] .nemo-app__empty {
+    padding: 2rem;
+    color: var(--nemo-text-muted);
+}
+
+body#fedora div[data-link="nemo"] #nemoFooterContainer {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    body#fedora div[data-link="nemo"] {
+        min-width: 0;
+        width: calc(100vw - 1rem);
+    }
+
+    body#fedora div[data-link="nemo"] .nemo-app__sidebar {
+        flex-basis: 11.8rem;
+        width: 11.8rem;
+    }
+
+    body#fedora div[data-link="nemo"] .nemo-app__toolbar {
+        padding-right: 8rem;
+    }
+}

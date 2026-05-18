@@ -1,0 +1,11 @@
+@import url(../../../../../../style/reset.css);
+@import url(../../../../../../style/variables.css);
+@import url(../../../../kernel/style/variables-linux.css);
+@import url(gnome-shell/tokens.css);
+@import url(gnome-shell/windows-chrome.css);
+@import url(gnome-shell/tray.css);
+@import url(gnome-shell/calendar-popover.css);
+@import url(gnome-shell/volume-popover.css);
+@import url(gnome-shell/a11y-fedora.css);
+@import url(gnome-workstation.css);
+@import url(gnome-shell/overview.css);

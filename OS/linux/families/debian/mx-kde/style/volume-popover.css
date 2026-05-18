@@ -1,0 +1,165 @@
+/* ---- Sound tray button ---- */
+.taskbar-tray__btn {
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--mint-tray-item-size);
+    height: var(--mint-tray-item-size);
+    padding: 0;
+    border: 1px solid var(--t);
+    border-radius: calc(var(--head) / 10);
+    background: var(--t);
+    cursor: var(--p);
+    color: var(--mint-tray-color);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+.taskbar-tray__btn:hover {
+    background: var(--mint-tray-item-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+.taskbar-tray__btn[aria-expanded="true"] {
+    background: var(--mint-tray-item-hover-bg);
+    border-color: var(--menu-accent);
+}
+
+/* ---- Volume popover panel ---- */
+.volume-popover {
+    position: fixed;
+    bottom: calc(var(--taskbar-height) + var(--calendar-popover-offset));
+    right: var(--calendar-popover-offset);
+    z-index: var(--z-calendar-popover);
+    width: 13rem;
+    padding: calc(var(--head) / 3) calc(var(--head) / 2.5);
+    border-radius: var(--calendar-popover-radius);
+    background: var(--volume-popover-bg);
+    border: var(--volume-popover-border);
+    box-shadow: var(--volume-popover-shadow);
+    color: var(--volume-popover-text);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.5);
+}
+
+.volume-popover[hidden] {
+    display: none;
+}
+
+.volume-popover__header {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: space-between;
+    align-items: var(--c);
+    margin-bottom: calc(var(--head) / 4);
+}
+
+.volume-popover__label {
+    font-weight: 600;
+}
+
+.volume-popover__value {
+    font-size: calc(var(--head) / 2.9);
+    opacity: 0.68;
+    min-width: 2.8em;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.volume-popover__body {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 4);
+}
+
+/* Mute toggle button */
+.volume-popover__mute-btn {
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) * 0.72);
+    height: calc(var(--head) * 0.72);
+    padding: 0;
+    border: 1px solid var(--t);
+    border-radius: calc(var(--head) / 10);
+    background: var(--t);
+    cursor: var(--p);
+    color: var(--volume-popover-text);
+    transition: background-color var(--eas2), border-color var(--eas2), opacity var(--eas2);
+}
+
+.volume-popover__mute-btn:hover {
+    background: var(--mint-tray-item-hover-bg);
+    border-color: var(--menu-accent);
+}
+
+.volume-popover__mute-btn[aria-pressed="true"] {
+    border-color: var(--menu-accent);
+    background: var(--mint-tray-item-hover-bg);
+    opacity: 0.65;
+}
+
+.volume-popover__mute-icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.46);
+    height: calc(var(--head) * 0.46);
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* Range slider */
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    min-width: 0;
+    height: calc(var(--head) * 0.14);
+    border-radius: 100px;
+    background: var(--volume-popover-track-bg);
+    outline: none;
+    cursor: var(--p);
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(var(--head) * 0.44);
+    height: calc(var(--head) * 0.44);
+    border-radius: 50%;
+    background: var(--volume-popover-thumb-bg);
+    cursor: var(--p);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: transform var(--eas2), box-shadow var(--eas2);
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: calc(var(--head) * 0.44);
+    height: calc(var(--head) * 0.44);
+    border-radius: 50%;
+    border: none;
+    background: var(--volume-popover-thumb-bg);
+    cursor: var(--p);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: transform var(--eas2);
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+.volume-slider:focus-visible {
+    outline: 2px solid var(--menu-accent);
+    outline-offset: 3px;
+    border-radius: 100px;
+}
