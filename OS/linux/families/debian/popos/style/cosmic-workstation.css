@@ -1,0 +1,99 @@
+/**
+ * Layout global Pop!_OS — fond nébuleuse, stage plein écran, raccourcis bureau.
+ */
+body#popos {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--popos-shell-text);
+    background: #121214 url("../media/img/assets/wallpaper-cosmic.jpg") center / cover no-repeat fixed;
+}
+
+body#popos.cosmic-overlay-open {
+    overflow: hidden;
+}
+
+body#popos .cosmic-stage {
+    position: fixed;
+    inset: var(--popos-top-bar-height) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+body#popos #desktop {
+    flex: 1;
+    display: block;
+    width: 100%;
+    min-height: 0;
+    border: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+body#popos #desktop .desktop-shortcut,
+body#popos #desktop .windowElement {
+    pointer-events: auto;
+}
+
+body#popos .desktop-shortcut {
+    position: absolute;
+    top: calc(var(--head) * 0.5);
+    left: calc(var(--head) * 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--head) / 6);
+    width: calc(var(--head) * 4.2);
+    padding: calc(var(--head) / 5);
+    border: 1px solid transparent;
+    border-radius: var(--popos-panel-radius);
+    color: var(--desktop-shortcut-text);
+    text-decoration: none;
+    text-align: center;
+    font-size: calc(var(--head) / 2.8);
+    line-height: 1.25;
+    text-shadow: var(--desktop-shortcut-shadow);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .desktop-shortcut:hover {
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos .desktop-shortcut img {
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+    object-fit: contain;
+}
+
+body#popos .cosmic-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: var(--popos-overlay-bg);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--eas2);
+}
+
+body#popos.cosmic-overlay-open .cosmic-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+body#popos .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

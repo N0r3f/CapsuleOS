@@ -141,7 +141,11 @@ function createFedoraTerminalTabs(windowElement) {
 }
 
 function isGnomeTerminalChrome() {
-    return Boolean(document.body && document.body.id === 'ubuntu');
+    return Boolean(document.body && (document.body.id === 'ubuntu' || document.body.id === 'popos'));
+}
+
+function isCosmicTerminalChrome() {
+    return Boolean(document.body && document.body.id === 'popos');
 }
 
 function isUbuntuTerminalPromptContext(promptEl) {
@@ -281,7 +285,7 @@ function decorateGnomeTerminalWindow(container) {
         return;
     }
 
-    windowElement.classList.add('terminal-window--gnome');
+    windowElement.classList.add(isCosmicTerminalChrome() ? 'terminal-window--cosmic' : 'terminal-window--gnome');
 
     const applyChrome = () => {
         const header = windowElement.querySelector('#windowHeader');

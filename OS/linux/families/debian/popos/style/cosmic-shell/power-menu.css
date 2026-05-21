@@ -1,0 +1,71 @@
+/**
+ * Menu alimentation Cosmic — shutdown.png (3 boutons cyan).
+ */
+body#popos .cosmic-power-menu {
+    position: fixed;
+    top: calc(var(--popos-top-bar-height) + calc(var(--head) / 3));
+    right: calc(var(--head) / 3);
+    z-index: 250;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--head) / 5);
+    min-width: calc(var(--head) * 9);
+    padding: calc(var(--head) / 3);
+    border-radius: var(--popos-panel-radius);
+    background: var(--popos-panel-bg);
+    border: var(--popos-panel-border);
+    box-shadow: var(--popos-panel-shadow);
+}
+
+body#popos .cosmic-power-menu[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-power-menu__btn {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 4);
+    width: 100%;
+    padding: calc(var(--head) / 4) calc(var(--head) / 3);
+    border: 1px solid rgba(98, 208, 233, 0.35);
+    border-radius: calc(var(--head) / 7);
+    background: rgba(98, 208, 233, 0.12);
+    color: var(--popos-accent);
+    font-size: calc(var(--head) / 2.5);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .cosmic-power-menu__btn:hover {
+    background: rgba(98, 208, 233, 0.22);
+    border-color: var(--popos-accent);
+}
+
+body#popos .cosmic-power-menu__icon {
+    width: calc(var(--head) / 2.2);
+    height: calc(var(--head) / 2.2);
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    flex-shrink: 0;
+}
+
+body#popos .cosmic-power-menu__icon--suspend {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M14 9V5h-4v4H7l5 5 5-5h-3zm-4 11c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M14 9V5h-4v4H7l5 5 5-5h-3zm-4 11c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/%3E%3C/svg%3E");
+}
+
+body#popos .cosmic-power-menu__icon--restart {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z'/%3E%3C/svg%3E");
+}
+
+body#popos .cosmic-power-menu__icon--power {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z'/%3E%3C/svg%3E");
+}

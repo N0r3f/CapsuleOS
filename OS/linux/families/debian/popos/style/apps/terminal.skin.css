@@ -1,0 +1,58 @@
+/**
+ * Pop!_OS — Terminal Cosmic (phase 2 amorcée, réf. terminal_cosmic.png).
+ */
+body#popos {
+    --popos-app-terminal-surface: #1a1a1e;
+    --popos-app-terminal-header-bg: #242428;
+    --popos-terminal-prompt-user: #62d0e9;
+    --popos-terminal-prompt-path: #f0f0f2;
+    --popos-terminal-prompt-path-seg: #7ad8ef;
+    --popos-terminal-dir-color: #62d0e9;
+    --popos-terminal-ls-col-gap: 3;
+    --popos-terminal-history-weight: 600;
+}
+
+body#popos #terminal.terminal-window--cosmic {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    width: min(44rem, calc(100vw - 2rem));
+    height: min(32rem, calc(100vh - var(--popos-top-bar-height) - calc(var(--head) * 3)));
+    min-width: 36rem;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: var(--popos-window-radius);
+    color: var(--popos-terminal-prompt-path);
+    background: var(--popos-app-terminal-surface);
+    box-shadow: var(--popos-window-shadow);
+    overflow: hidden;
+}
+
+body#popos #terminal.terminal-window--cosmic #windowHeader {
+    background: var(--popos-app-terminal-header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    color: var(--popos-shell-text);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowIframe,
+body#popos #terminal.terminal-window--cosmic .capsule-terminal {
+    background: var(--popos-app-terminal-surface);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-user {
+    color: var(--popos-terminal-prompt-user);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-path {
+    color: var(--popos-terminal-prompt-path);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__dir {
+    color: var(--popos-terminal-dir-color);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__output {
+    font-weight: var(--popos-terminal-history-weight);
+    color: #f4f4f6;
+}

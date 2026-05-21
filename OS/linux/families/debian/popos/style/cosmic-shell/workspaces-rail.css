@@ -1,0 +1,81 @@
+/**
+ * Rail workspaces à gauche — vue workspace.png.
+ */
+body#popos .cosmic-workspaces-rail {
+    position: fixed;
+    top: var(--popos-top-bar-height);
+    left: calc(var(--head) / 3);
+    bottom: calc(var(--popos-dock-bottom) + calc(var(--head) * 2.5));
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--head) / 5);
+    width: calc(var(--head) * 5.5);
+    padding: calc(var(--head) / 4);
+    border-radius: var(--popos-panel-radius);
+    background: var(--popos-panel-bg);
+    border: var(--popos-panel-border);
+    box-shadow: var(--popos-panel-shadow);
+}
+
+body#popos .cosmic-workspaces-rail[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-workspaces-rail__title {
+    margin: 0 0 calc(var(--head) / 8);
+    font-size: calc(var(--head) / 2.6);
+    font-weight: 600;
+    color: var(--popos-shell-text);
+    opacity: 0.85;
+}
+
+body#popos .cosmic-workspaces-rail__list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--head) / 6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body#popos .cosmic-workspaces-rail__card {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: calc(var(--head) / 8);
+    background: url("../media/img/assets/wallpaper-cosmic.jpg") center / cover no-repeat;
+    cursor: pointer;
+    transition: border-color var(--eas2), box-shadow var(--eas2);
+}
+
+body#popos .cosmic-workspaces-rail__card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body#popos .cosmic-workspaces-rail__card--active {
+    border-color: var(--popos-accent);
+    box-shadow: 0 0 0 1px var(--popos-accent);
+}
+
+body#popos .cosmic-workspaces-rail__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(var(--head) * 1.2);
+    margin-top: auto;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: calc(var(--head) / 8);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.2);
+    cursor: pointer;
+}
+
+body#popos .cosmic-workspaces-rail__add:hover {
+    border-color: var(--popos-accent);
+    color: var(--popos-accent);
+}

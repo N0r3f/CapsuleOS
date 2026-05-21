@@ -31,6 +31,11 @@ const SKIN_DIRS = [
         strings: path.join(ROOT, 'OS/linux/families/debian/ubuntu/content/strings.json')
     },
     {
+        key: 'popos',
+        dir: path.join(ROOT, 'OS/linux/families/debian/popos/style/apps'),
+        strings: path.join(ROOT, 'OS/linux/families/debian/popos/content/strings.json')
+    },
+    {
         key: 'mxkde',
         dir: path.join(ROOT, 'OS/linux/families/debian/mx-kde/style/apps'),
         strings: path.join(ROOT, 'OS/linux/families/debian/mx-kde/content/strings.json')

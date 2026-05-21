@@ -1,0 +1,76 @@
+/**
+ * Barre supérieure COSMIC — Workspaces | Applications | horloge | tray.
+ */
+body#popos .cosmic-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--popos-top-bar-height);
+    padding: 0 calc(var(--head) / 4);
+    background: var(--popos-top-bar-bg);
+    border-bottom: var(--popos-top-bar-border);
+    color: var(--popos-shell-text);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+}
+
+body#popos .cosmic-top-bar__left,
+body#popos .cosmic-top-bar__center,
+body#popos .cosmic-top-bar__right {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+
+body#popos .cosmic-top-bar__left {
+    justify-content: flex-start;
+    gap: calc(var(--head) / 8);
+}
+
+body#popos .cosmic-top-bar__center {
+    justify-content: center;
+    flex: 0 1 auto;
+}
+
+body#popos .cosmic-top-bar__right {
+    justify-content: flex-end;
+}
+
+body#popos .cosmic-top-bar__nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--head) / 10) calc(var(--head) / 3.2);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 6);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.55);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2), color var(--eas2);
+}
+
+body#popos .cosmic-top-bar__nav-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos .cosmic-top-bar__nav-btn[aria-pressed="true"] {
+    background: rgba(98, 208, 233, 0.18);
+    border-color: rgba(98, 208, 233, 0.35);
+    color: var(--popos-accent);
+}
+
+body#popos .popos-clock-date {
+    font-size: calc(var(--head) / 2.7);
+    opacity: 0.9;
+    margin-right: calc(var(--head) / 6);
+}

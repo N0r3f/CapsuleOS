@@ -1,0 +1,20 @@
+/**
+ * Pop!_OS — Fichiers Cosmic (phase 2 amorcée ; template nemo-gnome en transition).
+ */
+body#popos {
+    --nemo-bg-primary: #1e1e22;
+    --nemo-header-bg: #2e2e34;
+    --nemo-header-active-bg: #36363c;
+    --nemo-border: rgba(0, 0, 0, 0.45);
+    --nemo-text-primary: #f0f0f2;
+    --nemo-text-muted: #a0a0a8;
+    --nemo-sidebar-bg: #242428;
+    --nemo-sidebar-text: #ececee;
+    --nemo-accent: #62d0e9;
+    --nemo-pathbar-bg: #34343a;
+    --nemo-toolbar-bg: #2e2e34;
+}
+
+body#popos #nemo .nemo-sidebar__item--active {
+    border-left-color: var(--nemo-accent);
+}

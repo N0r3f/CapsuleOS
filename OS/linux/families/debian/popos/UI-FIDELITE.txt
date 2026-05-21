@@ -1,0 +1,38 @@
+Checklist fidélité Pop!_OS / COSMIC — architecture CapsuleOS
+============================================================
+
+Références visuelles
+--------------------
+- Captures : media/reference/ (copies de visuel/screenshot/popos_cosmic/)
+- Fond : media/img/assets/wallpaper-cosmic.jpg (source visuel/wallpapper/cosmic.jpg)
+- Icônes dock : media/img/dock/ — voir media/img/ICONS-POP.md (sources visuel/icons_Pop!_OS/)
+
+Base technique
+--------------
+- Famille Debian (fork squelette Ubuntu, pas Fedora)
+- Shell COSMIC entièrement distinct de gnome-shell/ Ubuntu
+- Apps partagées : kernel/ + shared/apps (profil terminal debian)
+
+Mapping capture → implémentation
+--------------------------------
+| Capture | Fichiers |
+|---------|----------|
+| desktop.png | style/cosmic-workstation.css, cosmic-shell/top-bar.css, cosmic-shell/dock.css, popos-tokens.css |
+| launcher.png | cosmic-shell/launcher.css, js/cosmic-launcher.js |
+| workspace.png | cosmic-shell/workspaces-rail.css, js/cosmic-workspaces.js |
+| Apps.png | cosmic-shell/applications.css |
+| calendar.png | cosmic-shell/calendar-popover.css |
+| shutdown.png | cosmic-shell/power-menu.css, js/cosmic-power-menu.js |
+| terminal_cosmic.png | style/apps/terminal.skin.css (phase 2) |
+| dossier_*.png | style/apps/files.skin.css, template nemo-cosmic (phase 2) |
+
+État architecture (structure)
+-----------------------------
+- [x] Arborescence families/debian/popos/
+- [x] Hub OS/linux/index.html
+- [x] SKIN_DIRS popos + build-capsule-embed
+- [x] index.html shell Cosmic (body#popos)
+- [x] Tokens + imports cosmic-shell/*
+- [x] JS shell : workspaces, launcher, dock, power-menu
+- [ ] Pixel-perfect par capture (phases fidélité suivantes)
+- [ ] Skins apps complets — voir style/apps/APPS-SKINS-PHASE2.md

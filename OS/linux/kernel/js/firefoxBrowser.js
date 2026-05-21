@@ -20,7 +20,7 @@ function supportsFirefoxGnomeChrome() {
     if (!document.body || !document.body.id) {
         return false;
     }
-    return document.body.id === 'fedora' || document.body.id === 'ubuntu';
+    return document.body.id === 'fedora' || document.body.id === 'ubuntu' || document.body.id === 'popos';
 }
 
 function decorateFedoraFirefoxWindow(browserRoot) {

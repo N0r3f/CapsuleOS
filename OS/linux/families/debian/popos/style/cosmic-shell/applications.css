@@ -1,0 +1,75 @@
+/**
+ * Grille Applications — Apps.png (barre « Applications »).
+ */
+body#popos .cosmic-applications {
+    position: fixed;
+    inset: var(--popos-top-bar-height) 0 0 0;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--head) * 0.6) calc(var(--head) * 0.8);
+    background: rgba(14, 14, 16, 0.88);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+}
+
+body#popos .cosmic-applications[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-applications__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: calc(var(--head) * 0.5);
+}
+
+body#popos .cosmic-applications__title {
+    margin: 0;
+    font-size: calc(var(--head) / 1.8);
+    font-weight: 600;
+    color: var(--popos-shell-text);
+}
+
+body#popos .cosmic-applications__close {
+    width: calc(var(--head) * 0.9);
+    height: calc(var(--head) * 0.9);
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2);
+    cursor: pointer;
+}
+
+body#popos .cosmic-applications__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--head) * 3.5), 1fr));
+    gap: calc(var(--head) / 2);
+    max-width: calc(var(--head) * 36);
+}
+
+body#popos .cosmic-applications__app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--head) / 7);
+    padding: calc(var(--head) / 3);
+    border: none;
+    border-radius: var(--popos-panel-radius);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.7);
+    cursor: pointer;
+    transition: background-color var(--eas2);
+}
+
+body#popos .cosmic-applications__app:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#popos .cosmic-applications__app img {
+    width: calc(var(--head) * 1.25);
+    height: calc(var(--head) * 1.25);
+    object-fit: contain;
+}
