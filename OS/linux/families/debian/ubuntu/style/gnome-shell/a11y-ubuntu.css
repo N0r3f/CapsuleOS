@@ -1,0 +1,81 @@
+/**
+ * Accessibilité shell Ubuntu — fork ciblé de mint/style/a11y-overrides.css (#mint → #ubuntu).
+ * Les règles html[data-font-scale] racines restent dans variables / mint sur autres pages ;
+ * ici uniquement ce qui concerne le corps #ubuntu.
+ */
+
+html[data-font-scale="100"] #ubuntu,
+html[data-font-scale="110"] #ubuntu,
+html[data-font-scale="125"] #ubuntu {
+    font-size: calc(1rem * var(--a11y-font-scale-factor));
+}
+
+#ubuntu :where(a, button, input, [role="button"], [role="radio"], [tabindex="0"]):focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 1px;
+    box-shadow: var(--a11y-focus-shadow);
+}
+
+#ubuntu .menu-shortcut,
+#ubuntu .menu-cat,
+#ubuntu .menu-app-item,
+#ubuntu .themes-card,
+#ubuntu .themes-app__select,
+#ubuntu .themes-scale-button,
+#ubuntu .themes-contrast-card {
+    font-size: calc(var(--head) / 3 * var(--a11y-font-scale-factor));
+}
+
+#ubuntu #windowTitle,
+#ubuntu .taskbar__clock,
+#ubuntu .desktop-shortcut > span,
+#ubuntu .themes-app__help,
+#ubuntu .menu-app-item__desc,
+#ubuntu .menu-app-item__name {
+    font-size: calc((var(--head) / 3) * var(--a11y-font-scale-factor));
+}
+
+html[data-contrast-mode="high"] #ubuntu {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] .menu-root,
+html[data-contrast-mode="high"] .menu-sidebar,
+html[data-contrast-mode="high"] .menu-categories,
+html[data-contrast-mode="high"] .menu-apps,
+html[data-contrast-mode="high"] #ubuntu #tableau,
+html[data-contrast-mode="high"] #ubuntu .windowElement,
+html[data-contrast-mode="high"] #ubuntu #windowHeader,
+html[data-contrast-mode="high"] .themes-app,
+html[data-contrast-mode="high"] .themes-app__cards,
+html[data-contrast-mode="high"] .themes-app__help,
+html[data-contrast-mode="high"] .themes-card,
+html[data-contrast-mode="high"] .themes-contrast-card,
+html[data-contrast-mode="high"] .menu-search,
+html[data-contrast-mode="high"] .calendar-popover {
+    background: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+    border-color: var(--a11y-contrast-border);
+}
+
+html[data-contrast-mode="high"] .menu-shortcut:hover,
+html[data-contrast-mode="high"] .menu-cat:hover,
+html[data-contrast-mode="high"] .menu-app-item:hover:not(.is-unavailable),
+html[data-contrast-mode="high"] .themes-card:hover,
+html[data-contrast-mode="high"] .themes-contrast-card:hover,
+html[data-contrast-mode="high"] .themes-scale-button:hover,
+html[data-contrast-mode="high"] .menu-action:hover {
+    background: var(--a11y-contrast-hover);
+}
+
+html[data-contrast-mode="high"] .menu-app-item__desc,
+html[data-contrast-mode="high"] .themes-app__help,
+html[data-contrast-mode="high"] .menu-user__name,
+html[data-contrast-mode="high"] #ubuntu .taskbar__clock {
+    color: var(--a11y-contrast-muted);
+}
+
+html[data-contrast-mode="high"] .menu-app-item.is-unavailable,
+html[data-contrast-mode="high"] .menu-shortcut.is-unavailable {
+    opacity: 0.6;
+}

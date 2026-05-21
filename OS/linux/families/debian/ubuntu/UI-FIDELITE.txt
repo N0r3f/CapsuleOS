@@ -1,0 +1,36 @@
+Checklist fidélité Ubuntu 25.10 / GNOME — base CapsuleOS
+========================================================
+
+Références visuelles
+--------------------
+- Captures versionnées : media/reference/ (copies de visuel/screenshot/)
+- Fond : media/img/assets/wallpaper-racoon.png (Resolute Raccoon, source visuel/wallpapper/racoon.png)
+- Socle shell : dérivé Fedora GNOME, tokens Ubuntu (orange #E95420)
+
+Mapping capture → implémentation
+--------------------------------
+| Capture | Fichiers |
+|---------|----------|
+| screen_idle.png | style/gnome-workstation.css, gnome-shell/ubuntu-tokens.css |
+| bouton_haut_gauche.png | gnome-shell/overview.css, js/overview.js |
+| bouton_haut_droite.png | gnome-shell/tray.css, gnome-shell/volume-popover.css |
+| calendar.png | gnome-shell/calendar-popover.css |
+| app_bouton_bas.png | gnome-workstation.css (#tableau.fedora-dock) |
+| naut.png | style/apps/files.skin.css |
+| terminal.png | style/apps/terminal.skin.css |
+
+Réglages appliqués (base)
+-------------------------
+- [x] Structure HTML GNOME (top bar, dock, overview) — index.html
+- [x] Découplage Linux Mint (plus de ../mint/ pour le shell)
+- [x] CAPSULE_EXPLORER_SKIN_KEY = files, profil terminal debian
+- [x] Fond Resolute Raccoon sur #ubuntu
+- [x] Accent menu #E95420 (Yaru/Ubuntu)
+
+À affiner après comparaison navigateur / captures
+-------------------------------------------------
+- [ ] Pixel-perfect overview vs bouton_haut_gauche.png
+- [ ] Quick settings vs bouton_haut_droite.png
+- [ ] Nautilus vs naut.png
+- [ ] Terminal vs terminal.png
+- [ ] Remplacement progressif icônes Fedora par Yaru (visuel/icons_ubuntu_gnome)

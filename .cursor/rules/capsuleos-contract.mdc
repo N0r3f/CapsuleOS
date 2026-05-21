@@ -1,5 +1,5 @@
 ---
-description: Contrat CapsuleOS — lire STRICT_CONTRACT et CONTRACT_CHECKLIST avant changements front / OS simulés
+description: Contrat CapsuleOS — STRICT_CONTRACT, checklist, skills projet (always on)
 alwaysApply: true
 ---
 
@@ -7,7 +7,30 @@ alwaysApply: true
 
 Avant toute modification substantielle du front, des OS simulés (`OS/`), du Service Worker ou de la structure pédagogique :
 
-1. **Lire et respecter** `STRICT_CONTRACT.md` à la racine du dépôt (stack, fidélité UI, offline, structure, règles HTML/CSS/JS, Linux `CAPSULE_*`, etc.).
-2. **Avant merge ou release**, vérifier les points applicables de `CONTRACT_CHECKLIST.md` (même racine).
+1. **Lire et respecter** `.cursor/rules/STRICT_CONTRACT.md` (stack, fidélité UI, offline, structure, règles HTML/CSS/JS, Linux `CAPSULE_*`, etc.).
+2. **Avant merge ou release**, vérifier les points applicables de `CONTRACT_CHECKLIST.md` à la racine du dépôt.
 
-Ne pas introduire de framework front, de préprocesseur CSS, ni de dépendance réseau obligatoire pour l’usage principal, **sauf** évolution explicite et alignée du contrat. En cas de doute sur une dérogation, la priorité est au texte des deux fichiers ci-dessus plutôt qu’à cette règle résumée.
+Ne pas introduire de framework front, de préprocesseur CSS, ni de dépendance réseau obligatoire pour l’usage principal, **sauf** évolution explicite et alignée du contrat.
+
+## Hiérarchie
+
+En cas de conflit : **STRICT_CONTRACT** + **CONTRACT_CHECKLIST** > **skills** (`.cursor/skills/`) > cette règle résumée > improvisation.
+
+## Skills projet (à la demande)
+
+Index : `.cursor/skills/README.md`. Invoquer explicitement le skill adapté (ex. « utilise capsule-css-engineer ») plutôt que dupliquer leur contenu ici.
+
+| Situation | Skill |
+|-----------|--------|
+| HTML bureau / apps | `capsule-html-purist` |
+| CSS, skins, variables | `capsule-css-engineer` |
+| Noyau `kernel/js`, souris | `capsule-js-core-developer` |
+| Nouvelle distro Linux, chemins | `capsule-os-architect` |
+| Capture → fidélité visuelle | `capsule-visual-replicator` |
+| SW, `file://`, embed build | `capsule-offline-embed` |
+| Revue avant merge / release | `capsule-contract-review` |
+| Arbitrage pédagogique | `capsule-pedagogy` |
+
+Périmètre actif : **Linux** (`OS/linux/`). Autres familles OS : hors scope jusqu’à stabilisation Linux.
+
+Référence UI optionnelle (non always on) : `.cursor/rules/ui-ux-gestalt-reference.mdc`.

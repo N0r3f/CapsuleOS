@@ -1,0 +1,14 @@
+/**
+ * Surcharges Ubuntu (dernier lien CSS dans index.html).
+ */
+body#ubuntu .fedora-overview__brand,
+body#ubuntu .ubuntu-overview__brand {
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+    color: #E95420;
+}
+
+body#ubuntu .fedora-overview-trigger:hover,
+body#ubuntu .fedora-overview-trigger:focus-visible {
+    border-color: rgba(233, 84, 32, 0.45);
+}
