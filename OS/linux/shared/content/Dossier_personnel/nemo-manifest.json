@@ -37,10 +37,28 @@
         },
         {
           "type": "folder",
+          "name": "Modèles",
+          "path": "../../../shared/content/Dossier_personnel/Modèles"
+        },
+        {
+          "type": "folder",
+          "name": "snap",
+          "path": "../../../shared/content/Dossier_personnel/snap"
+        },
+        {
+          "type": "folder",
           "name": "Vidéos",
           "path": "../../../shared/content/Dossier_personnel/Vidéos"
         }
       ]
+    },
+    "../../../shared/content/Dossier_personnel/Modèles": {
+      "label": "Modèles",
+      "items": []
+    },
+    "../../../shared/content/Dossier_personnel/snap": {
+      "label": "snap",
+      "items": []
     },
     "../../../shared/content/Dossier_personnel/Public": {
       "label": "Public",

@@ -274,7 +274,7 @@
 }
 
 html[data-theme="light"]:has(#ubuntu) #ubuntu {
-    --ubuntu-bg: linear-gradient(155deg, #d8e6f8 0%, #b8cef0 40%, #8fb0e0 72%, #6a94d0 100%);
+    --ubuntu-bg: url(../media/img/assets/wallpaper-racoon.png) center/cover no-repeat;
 }
 
 html[data-theme="light"]:has(#ubuntu) #ubuntu #tableau.fedora-dock a:hover {

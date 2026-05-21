@@ -44,6 +44,11 @@ const resolveTemplateId = (slotId) => {
     return slotId;
 };
 
+/** Gabarit HTML dérivé de Nautilus (ex. nemo-gnome) → CSS de base `nemo.base.css`. */
+const resolveCssBaseTemplateId = (templateId) => (
+    templateId === 'nemo-gnome' ? 'nemo' : templateId
+);
+
 const resolveSkinId = (slotId, templateId) => {
     if (slotId === 'nemo' && typeof window !== 'undefined' && window.CAPSULE_EXPLORER_SKIN_KEY) {
         const skin = String(window.CAPSULE_EXPLORER_SKIN_KEY).replace(/\/+$/, '');
@@ -79,7 +84,8 @@ const loadSlotAssets = (templateId, skinId, appsBase, cssSkinFile, cssSkinFallba
     }
 
     const htmlFile = `${appsBase}/${templateId}.html`;
-    const cssBaseFile = `${appsBase}/style/${templateId}.base.css`;
+    const cssBaseTemplateId = resolveCssBaseTemplateId(templateId);
+    const cssBaseFile = `${appsBase}/style/${cssBaseTemplateId}.base.css`;
 
     const fetchHtml = fetch(htmlFile, { cache: 'no-store' }).then((response) => {
         if (!response.ok) {

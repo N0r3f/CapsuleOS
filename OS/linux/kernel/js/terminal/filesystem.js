@@ -63,6 +63,7 @@ const debianUserHomeChildren = {
     '/Public': {},
     '/Téléchargements': {},
     '/Vidéos': {},
+    '/snap': {},
 };
 
 const fileSystem = {

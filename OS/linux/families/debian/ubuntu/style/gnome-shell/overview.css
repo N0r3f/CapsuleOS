@@ -8,14 +8,18 @@ body#ubuntu .fedora-overview {
     top: var(--ubuntu-top-bar-height);
     right: 0;
     bottom: 0;
-    left: 0;
+    left: calc(var(--head) * 1.15);
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr;
     align-items: center;
     justify-items: center;
     padding: calc(var(--head) / 2) 0 calc(var(--head) / 2.4);
     color: #f5f5f5;
-    background: #202025;
+    background-color: rgba(22, 22, 24, 0.94);
+    background-image: linear-gradient(rgba(22, 22, 24, 0.88), rgba(22, 22, 24, 0.92)), var(--ubuntu-bg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -29,8 +33,19 @@ body#ubuntu.is-overview .fedora-overview {
     pointer-events: all;
 }
 
-body#ubuntu.is-overview .fedora-main-row {
+body#ubuntu.is-overview .fedora-desktop-area {
     opacity: 0;
+    pointer-events: none;
+}
+
+body#ubuntu.is-overview #tableau.fedora-dock {
+    opacity: 1;
+    pointer-events: all;
+}
+
+body#ubuntu .fedora-overview__dash {
+    display: none !important;
+    visibility: hidden;
     pointer-events: none;
 }
 
@@ -277,40 +292,15 @@ body#ubuntu.is-overview-apps .fedora-overview__workspace {
 }
 
 body#ubuntu .fedora-overview__workspace-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background:
-        radial-gradient(circle at 72% 18%, rgba(120, 190, 255, 0.42), transparent 28%),
-        linear-gradient(160deg, rgba(4, 13, 32, 0.2), rgba(18, 83, 230, 0.35));
+    content: none;
 }
 
 body#ubuntu .fedora-overview__workspace-next {
-    position: absolute;
-    right: max(calc(var(--head) * -4), -8vw);
-    display: block;
-    width: min(32vw, calc(var(--head) * 7.2));
-    height: min(58vh, calc(var(--head) * 10));
-    border-radius: calc(var(--head) / 2.7) 0 0 calc(var(--head) / 2.7);
-    background: var(--ubuntu-bg);
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.82) saturate(0.9);
-    opacity: 0.72;
+    display: none;
 }
 
 body#ubuntu .fedora-overview__brand {
-    position: absolute;
-    right: calc(var(--head) / 1.2);
-    bottom: calc(var(--head) / 1.5);
-    z-index: 1;
-    font-size: calc(var(--head) / 2.6);
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.92);
-    text-transform: lowercase;
+    display: none;
 }
 
 body#ubuntu .fedora-overview__apps {
@@ -364,35 +354,20 @@ body#ubuntu .fedora-overview__mini-workspace[data-overview-desktop]:focus-visibl
     outline: none;
 }
 
-body#ubuntu .fedora-overview__mini-workspace::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 72% 16%, rgba(120, 190, 255, 0.38), transparent 28%),
-        linear-gradient(160deg, rgba(4, 13, 32, 0.28), rgba(18, 83, 230, 0.36));
-}
-
+body#ubuntu .fedora-overview__mini-workspace::before,
 body#ubuntu .fedora-overview__mini-workspace::after {
-    content: "";
-    position: absolute;
-    right: calc(var(--head) / 8);
-    bottom: calc(var(--head) / 8);
-    width: calc(var(--head) / 9);
-    height: calc(var(--head) / 9);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.82);
+    content: none;
 }
 
 body#ubuntu .fedora-overview__apps-grid {
     display: grid;
-    grid-template-columns: repeat(8, minmax(calc(var(--head) * 1.55), 1fr));
+    grid-template-columns: repeat(6, minmax(calc(var(--head) * 1.55), 1fr));
     align-items: start;
     justify-items: center;
     column-gap: calc(var(--head) * 0.95);
     row-gap: calc(var(--head) * 0.82);
     width: 100%;
-    max-width: calc(var(--head) * 23);
+    max-width: calc(var(--head) * 17.2);
 }
 
 body#ubuntu .fedora-overview__app {
@@ -477,84 +452,6 @@ body#ubuntu .fedora-overview__folder-icon--system::before {
         radial-gradient(circle at 74% 74%, #e1bf45 0 11%, transparent 12%);
 }
 
-body#ubuntu .fedora-overview__dash {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    gap: calc(var(--head) / 2.05);
-    min-height: calc(var(--head) * 2.2);
-    margin-top: calc(var(--head) / 1.85);
-    padding: calc(var(--head) / 3.05) calc(var(--head) / 1.72);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: calc(var(--head) / 1.55);
-    background: rgba(56, 56, 58, 0.92);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-}
-
-body#ubuntu .fedora-overview__dash-item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: calc(var(--head) * 1.46);
-    height: calc(var(--head) * 1.46);
-    margin: 0;
-    padding: 0;
-    border: 1px solid transparent;
-    border-radius: calc(var(--head) / 3.2);
-    background: transparent;
-    cursor: pointer;
-    transition: background-color 0.14s ease, transform 0.14s ease;
-}
-
-body#ubuntu .fedora-overview__dash-item:hover,
-body#ubuntu .fedora-overview__dash-item:focus-visible {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(calc(var(--head) / -18));
-    outline: none;
-}
-
-body#ubuntu .fedora-overview__dash-item img {
-    display: block;
-    width: calc(var(--head) * 1.08);
-    height: calc(var(--head) * 1.08);
-    object-fit: contain;
-}
-
-body#ubuntu .fedora-overview__dash-item--apps img {
-    filter: invert(1) opacity(0.92);
-}
-
-body#ubuntu.is-overview-apps .fedora-overview__dash-item--apps {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-body#ubuntu .fedora-overview__dash-item--apps span,
-body#ubuntu .fedora-overview__dash-item--apps span::before,
-body#ubuntu .fedora-overview__dash-item--apps span::after {
-    display: block;
-    width: calc(var(--head) / 8);
-    height: calc(var(--head) / 8);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow:
-        calc(var(--head) / 4) 0 0 rgba(255, 255, 255, 0.92),
-        calc(var(--head) / 2) 0 0 rgba(255, 255, 255, 0.92),
-        0 calc(var(--head) / 4) 0 rgba(255, 255, 255, 0.92),
-        calc(var(--head) / 4) calc(var(--head) / 4) 0 rgba(255, 255, 255, 0.92),
-        calc(var(--head) / 2) calc(var(--head) / 4) 0 rgba(255, 255, 255, 0.92),
-        0 calc(var(--head) / 2) 0 rgba(255, 255, 255, 0.92),
-        calc(var(--head) / 4) calc(var(--head) / 2) 0 rgba(255, 255, 255, 0.92),
-        calc(var(--head) / 2) calc(var(--head) / 2) 0 rgba(255, 255, 255, 0.92);
-}
-
-body#ubuntu .fedora-overview__dash-item--apps span::before,
-body#ubuntu .fedora-overview__dash-item--apps span::after {
-    content: none;
-}
-
 body#ubuntu .fedora-overview-trigger[aria-pressed="true"] {
     background: rgba(255, 255, 255, 0.12);
     border-color: var(--ubuntu-shell-border-soft);
@@ -570,16 +467,12 @@ body#ubuntu .fedora-overview-trigger[aria-pressed="true"] {
         height: 50vh;
     }
 
-    body#ubuntu .fedora-overview__dash {
-        gap: calc(var(--head) / 2.6);
-    }
-
     body#ubuntu .fedora-overview__apps {
         width: 92vw;
     }
 
     body#ubuntu .fedora-overview__apps-grid {
-        grid-template-columns: repeat(5, minmax(calc(var(--head) * 1.55), 1fr));
+        grid-template-columns: repeat(4, minmax(calc(var(--head) * 1.55), 1fr));
         column-gap: calc(var(--head) / 2.5);
     }
 

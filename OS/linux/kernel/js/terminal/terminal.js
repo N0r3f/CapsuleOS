@@ -74,15 +74,12 @@ function renderExecutedCommand(output, promptText, command) {
     const row = document.createElement('div');
     row.className = 'capsule-terminal__line capsule-terminal__line--command';
 
-    const promptCode = document.createElement('code');
-    promptCode.className = 'capsule-terminal__prompt-copy';
-    promptCode.textContent = promptText;
-    row.appendChild(promptCode);
-
-    const commandCode = document.createElement('code');
-    commandCode.className = 'capsule-terminal__command-copy';
-    commandCode.textContent = command;
-    row.appendChild(commandCode);
+    const lineCode = document.createElement('code');
+    lineCode.className = 'capsule-terminal__command-line';
+    const prompt = String(promptText || '').replace(/\s+$/, '');
+    const cmd = String(command || '').trim();
+    lineCode.textContent = cmd ? `${prompt} ${cmd}` : prompt;
+    row.appendChild(lineCode);
 
     output.appendChild(row);
 }
@@ -98,7 +95,10 @@ function scrollTerminalToBottom(elements) {
 }
 
 function updateTerminalPrompt(elements, session) {
-    elements.prompt.textContent = session.getPrompt();
+    const promptText = session.getPrompt();
+    paintTerminalPrompt(elements.prompt, promptText);
+    const windowElement = elements.app.closest('.windowElement');
+    syncGnomeTerminalTitle(windowElement, promptText);
 }
 
 function createFedoraTerminalButton(className, label, text) {
@@ -138,6 +138,225 @@ function createFedoraTerminalTabs(windowElement) {
     const header = windowElement.querySelector('#windowHeader');
     windowElement.insertBefore(tabs, header ? header.nextSibling : windowElement.firstChild);
     return tabs;
+}
+
+function isGnomeTerminalChrome() {
+    return Boolean(document.body && document.body.id === 'ubuntu');
+}
+
+function isUbuntuTerminalPromptContext(promptEl) {
+    if (!promptEl) {
+        return false;
+    }
+    const host = promptEl.closest('[data-link="terminal"], #terminal');
+    return Boolean(
+        host && (
+            host.classList.contains('terminal-window--gnome')
+            || (document.body && document.body.id === 'ubuntu')
+        )
+    );
+}
+
+function paintTerminalPrompt(promptEl, text) {
+    if (!promptEl) {
+        return;
+    }
+    const gnome = isUbuntuTerminalPromptContext(promptEl);
+    const isActivePrompt = Boolean(promptEl.closest('[data-terminal-form], #input'));
+    const match = gnome && isActivePrompt && text.match(/^(.+@[^:]+)(:)([^$]+)(\$\s*)$/);
+    if (match) {
+        promptEl.textContent = '';
+        const userHost = document.createElement('span');
+        userHost.className = 'capsule-terminal__prompt-user';
+        userHost.textContent = match[1];
+        const colon = document.createElement('span');
+        colon.className = 'capsule-terminal__prompt-colon';
+        colon.textContent = match[2];
+        const pathSeg = document.createElement('span');
+        pathSeg.className = 'capsule-terminal__prompt-path-seg';
+        pathSeg.textContent = match[3];
+        const dollar = document.createElement('span');
+        dollar.className = 'capsule-terminal__prompt-dollar';
+        dollar.textContent = match[4];
+        promptEl.append(userHost, colon, pathSeg, dollar);
+        return;
+    }
+    promptEl.textContent = text;
+}
+
+function paintGnomeTerminalTitle(titleEl, promptText) {
+    if (!titleEl) {
+        return;
+    }
+    const text = String(promptText || '').replace(/\$\s*$/, '');
+    const match = text.match(/^(.+@[^:]+)(:.*)$/);
+    if (!match) {
+        titleEl.textContent = text;
+        return;
+    }
+    titleEl.textContent = '';
+    const userHost = document.createElement('span');
+    userHost.className = 'capsule-terminal__title-user';
+    userHost.textContent = match[1];
+    const rest = document.createElement('span');
+    rest.className = 'capsule-terminal__title-rest';
+    rest.textContent = match[2];
+    titleEl.append(userHost, rest);
+}
+
+function syncGnomeTerminalTitle(windowElement, promptText) {
+    if (!windowElement || !isGnomeTerminalChrome()) {
+        return;
+    }
+    const title = windowElement.querySelector('#windowTitle');
+    paintGnomeTerminalTitle(title, promptText);
+}
+
+function isListingDirectory(session, name) {
+    if (!window.CapsuleTerminal || !session || !session.state) {
+        return false;
+    }
+    const { fs, cwd, home } = session.state;
+    const resolved = window.CapsuleTerminal.resolvePath(cwd, name, home);
+    if (fs[resolved] && typeof fs[resolved] === 'object') {
+        return true;
+    }
+    const parent = fs[cwd];
+    if (parent && typeof parent === 'object') {
+        if (Object.prototype.hasOwnProperty.call(parent, name)) {
+            return typeof parent[name] === 'object';
+        }
+        const slashName = `/${name}`;
+        if (Object.prototype.hasOwnProperty.call(parent, slashName)) {
+            return typeof parent[slashName] === 'object';
+        }
+    }
+    return false;
+}
+
+function getListingColumnWidth(lines) {
+    const names = lines.flatMap((line) => (
+        String(line || '').trim().split(/\s+/).filter(Boolean)
+    )).map((name) => (name.startsWith('/') ? name.slice(1) : name));
+    if (!names.length) {
+        return 10;
+    }
+    const longest = Math.max(...names.map((name) => name.length));
+    return longest + 3;
+}
+
+function renderListingLine(output, line, session, columnWidthCh) {
+    const row = document.createElement('div');
+    row.className = 'capsule-terminal__line capsule-terminal__line--listing';
+
+    const code = document.createElement('code');
+    if (columnWidthCh) {
+        code.style.setProperty('--ubuntu-terminal-ls-col-width', `${columnWidthCh}ch`);
+    }
+    const names = String(line || '').trim().split(/\s+/).filter(Boolean);
+    const gnomeListing = isGnomeTerminalChrome();
+    names.forEach((name, index) => {
+        const cleanName = name.startsWith('/') ? name.slice(1) : name;
+        const span = document.createElement('span');
+        span.textContent = cleanName;
+        if (gnomeListing || isListingDirectory(session, cleanName)) {
+            span.className = 'capsule-terminal__dir';
+        }
+        code.appendChild(span);
+        if (index < names.length - 1) {
+            code.appendChild(document.createTextNode('  '));
+        }
+    });
+    row.appendChild(code);
+    output.appendChild(row);
+}
+
+function decorateGnomeTerminalWindow(container) {
+    if (!isGnomeTerminalChrome()) {
+        return;
+    }
+
+    const windowElement = container.closest('.windowElement');
+    if (!windowElement || windowElement.dataset.link !== 'terminal') {
+        return;
+    }
+
+    windowElement.classList.add('terminal-window--gnome');
+
+    const applyChrome = () => {
+        const header = windowElement.querySelector('#windowHeader');
+        if (!header) {
+            return false;
+        }
+        if (header.dataset.gnomeTerminalChrome === 'true') {
+            return true;
+        }
+
+        header.dataset.gnomeTerminalChrome = 'true';
+        const navs = header.querySelectorAll('nav');
+        const left = navs[0];
+        const right = navs[1];
+
+        if (left) {
+            left.innerHTML = '';
+            const addTab = createFedoraTerminalButton(
+                'gnome-terminal-header__button gnome-terminal-header__button--new-tab',
+                'Nouvel onglet',
+                ''
+            );
+            left.appendChild(addTab);
+        }
+
+        if (right) {
+            const existingChrome = right.querySelectorAll('.gnome-terminal-header__button');
+            existingChrome.forEach((node) => node.remove());
+
+            const search = createFedoraTerminalButton(
+                'gnome-terminal-header__button gnome-terminal-header__button--search',
+                'Rechercher'
+            );
+            const menu = createFedoraTerminalButton(
+                'gnome-terminal-header__button gnome-terminal-header__button--menu',
+                'Menu'
+            );
+            const minimize = right.querySelector('#minimizeBtn');
+            if (minimize) {
+                right.insertBefore(search, minimize);
+                right.insertBefore(menu, minimize);
+            } else {
+                right.appendChild(search);
+                right.appendChild(menu);
+            }
+        }
+
+        return true;
+    };
+
+    const refreshGnomeTerminalPromptChrome = () => {
+        const app = windowElement.querySelector('[data-terminal-app]');
+        if (!app || !app.__capsuleTerminalSession) {
+            return;
+        }
+        const promptText = app.__capsuleTerminalSession.getPrompt();
+        const promptEl = windowElement.querySelector('[data-terminal-prompt], #prompt');
+        if (promptEl) {
+            paintTerminalPrompt(promptEl, promptText);
+        }
+        syncGnomeTerminalTitle(windowElement, promptText);
+    };
+
+    if (applyChrome()) {
+        refreshGnomeTerminalPromptChrome();
+    } else if (windowElement.dataset.gnomeTerminalObserver !== 'true') {
+        windowElement.dataset.gnomeTerminalObserver = 'true';
+        const observer = new MutationObserver(() => {
+            if (applyChrome()) {
+                observer.disconnect();
+                refreshGnomeTerminalPromptChrome();
+            }
+        });
+        observer.observe(windowElement, { childList: true });
+    }
 }
 
 function decorateFedoraTerminalWindow(container) {
@@ -218,6 +437,7 @@ function initTerminalWhenReady() {
     }
 
     const elements = ensureTerminalShell(container);
+    decorateGnomeTerminalWindow(container);
     decorateFedoraTerminalWindow(container);
     if (elements.app.dataset.terminalReady === 'true') {
         elements.commandInput.focus();
@@ -260,7 +480,14 @@ function initTerminalWhenReady() {
             elements.output.innerHTML = '';
         } else {
             renderExecutedCommand(elements.output, promptBeforeExecute, command);
+            const listingColWidth = result.listing
+                ? getListingColumnWidth(result.lines || [])
+                : 0;
             (result.lines || []).forEach((line) => {
+                if (result.listing) {
+                    renderListingLine(elements.output, line, session, listingColWidth);
+                    return;
+                }
                 renderTerminalLine(
                     elements.output,
                     line,

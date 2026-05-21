@@ -227,6 +227,13 @@ const findFolderLabel = (path) => {
 
 const isDolphinTemplate = () => !!document.querySelector('#nemo main#gestionnaire.dolphin-app');
 
+const isGnomeFilesExplorer = () => (
+    typeof window !== 'undefined'
+    && window.CAPSULE_EXPLORER_SKIN_KEY === 'files'
+);
+
+const usesSidebarSelection = () => isDolphinTemplate() || isGnomeFilesExplorer();
+
 const countFoldersInItems = (items) => {
     if (!items || !Array.isArray(items)) {
         return 0;
@@ -295,7 +302,7 @@ const getSidebarKeyForPath = (path) => {
 };
 
 const updateDolphinSidebarActive = () => {
-    if (!isDolphinTemplate()) {
+    if (!usesSidebarSelection()) {
         return;
     }
     const nemoRoot = document.getElementById('nemo');
@@ -303,10 +310,15 @@ const updateDolphinSidebarActive = () => {
         return;
     }
     const key = getSidebarKeyForPath(fileExplorerState.currentPath);
+    const root = getFileExplorerRoot();
+    const atRoot = fileExplorerState.currentPath === root;
     nemoRoot.querySelectorAll('#voletnemo a[target="windowElement"]').forEach((a) => {
         const dl = a.getAttribute('data-link');
-        const active = Boolean(key && dl === key);
+        const active = atRoot
+            ? dl === 'Dossier Personnel'
+            : Boolean(key && dl === key);
         a.classList.toggle('dolphin-sidebar__link--active', active);
+        a.classList.toggle('nemo-sidebar__link--active', active);
     });
 };
 

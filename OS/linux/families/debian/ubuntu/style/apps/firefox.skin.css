@@ -1,11 +1,12 @@
-/* Fedora Firefox header skin. Shared template/texts stay untouched. */
+/* Firefox GNOME — contrôles dans la barre d’onglets (Fedora + Ubuntu). */
 body#ubuntu #firefox {
     position: relative;
     min-width: calc(var(--head) * 24);
     background: var(--ubuntu-app-header-alt-bg);
 }
 
-body#ubuntu #firefox.firefox-window--fedora #windowHeader {
+body#ubuntu #firefox.firefox-window--fedora #windowHeader,
+body#ubuntu #firefox.firefox-window--gnome #windowHeader {
     position: static;
     display: flex;
     flex: 0 0 auto;

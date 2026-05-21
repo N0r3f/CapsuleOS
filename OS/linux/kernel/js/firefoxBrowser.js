@@ -16,8 +16,15 @@ function capsuleStrFmt(key, vars, fallback) {
     return s;
 }
 
+function supportsFirefoxGnomeChrome() {
+    if (!document.body || !document.body.id) {
+        return false;
+    }
+    return document.body.id === 'fedora' || document.body.id === 'ubuntu';
+}
+
 function decorateFedoraFirefoxWindow(browserRoot) {
-    if (!document.body || document.body.id !== 'fedora') {
+    if (!supportsFirefoxGnomeChrome()) {
         return;
     }
 

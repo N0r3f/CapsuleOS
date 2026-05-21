@@ -27,10 +27,14 @@ body#ubuntu .taskbar-tray__cluster {
     transition: background-color var(--eas2), border-color var(--eas2);
 }
 
-body#ubuntu .taskbar-tray__cluster:hover,
-body#ubuntu .taskbar-tray__cluster[aria-expanded="true"] {
+body#ubuntu .taskbar-tray__cluster:hover {
     background: rgba(255, 255, 255, 0.06);
     border-color: var(--ubuntu-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+body#ubuntu .taskbar-tray__cluster[aria-expanded="true"] {
+    background: rgba(72, 72, 74, 0.96);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 body#ubuntu .taskbar-tray__icon {

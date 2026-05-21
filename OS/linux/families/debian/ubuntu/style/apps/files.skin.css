@@ -2,33 +2,32 @@
  * Ubuntu 25.10 — Fichiers GNOME (réf. media/reference/naut.png).
  */
 body#ubuntu {
-    --nemo-bg-primary: #242428;
-    --nemo-header-bg: #303034;
-    --nemo-header-active-bg: #3b3b40;
-    --nemo-border: rgba(0, 0, 0, 0.42);
-    --nemo-text-primary: #f1f1f3;
-    --nemo-text-muted: #b7b7bc;
-    --nemo-item-active-bg: rgba(233, 84, 32, 0.32);
-    --nemo-menu-surface-bg: #303034;
-    --nemo-toolbar-bg: #303034;
-    --nemo-toolbar-border: rgba(0, 0, 0, 0.34);
+    --nemo-bg-primary: #1c1c1e;
+    --nemo-header-bg: #383838;
+    --nemo-header-active-bg: #404046;
+    --nemo-border: rgba(0, 0, 0, 0.48);
+    --nemo-text-primary: #f6f6f7;
+    --nemo-text-muted: #a8a8ad;
+    --nemo-item-active-bg: rgba(255, 255, 255, 0.09);
+    --nemo-sidebar-item-active-bg: rgba(255, 255, 255, 0.12);
+    --nemo-menu-surface-bg: #383838;
+    --nemo-toolbar-bg: #383838;
+    --nemo-toolbar-border: rgba(0, 0, 0, 0.38);
     --nemo-toolbar-button-border: transparent;
     --nemo-toolbar-button-bg: transparent;
-    --nemo-toolbar-button-hover-bg: rgba(255, 255, 255, 0.09);
-    --nemo-toolbar-button-plain-hover: rgba(255, 255, 255, 0.09);
-    --nemo-pathbar-bg: #45454b;
-    --nemo-pathbar-border: rgba(255, 255, 255, 0.08);
-    --nemo-pathbar-text: #f1f1f3;
-    --nemo-sidebar-bg: #2a2a2e;
-    --nemo-sidebar-text: #e9e9eb;
-    --nemo-sidebar-muted: #b9b9bd;
-    --nemo-footer-bg: #2a2a2e;
+    --nemo-toolbar-button-hover-bg: rgba(255, 255, 255, 0.1);
+    --nemo-toolbar-button-plain-hover: rgba(255, 255, 255, 0.1);
+    --nemo-pathbar-bg: #4e4e54;
+    --nemo-pathbar-border: rgba(255, 255, 255, 0.06);
+    --nemo-pathbar-text: #f6f6f7;
+    --nemo-sidebar-bg: #2e2e32;
+    --nemo-sidebar-text: #ececee;
+    --nemo-sidebar-muted: #b4b4b8;
+    --nemo-footer-bg: #2e2e32;
     --nemo-status-text: #c8c8cc;
     --nemo-accent: #E95420;
     --nemo-tooltip-bg: #1d1d20;
     --nemo-tooltip-text: #f5f5f5;
-    --nemo-file-icon-bg: #cfd2d8;
-    --nemo-file-icon-fold: #ffffff;
     --nemo-symbolic-icon-filter: brightness(0) invert(1);
     --nemo-toolbar-icon-filter: var(--nemo-symbolic-icon-filter);
 }
@@ -268,8 +267,28 @@ body#ubuntu div[data-link="nemo"] .nemo-app__path-current {
     font-weight: 700;
 }
 
+body#ubuntu div[data-link="nemo"] .nemo-app__path-current {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+}
+
 body#ubuntu div[data-link="nemo"] .nemo-app__path-current::before {
-    display: none;
+    content: "";
+    display: block;
+    flex: 0 0 auto;
+    width: 0.95rem;
+    height: 0.95rem;
+    background: currentColor;
+    opacity: 0.92;
+    -webkit-mask-image: url("../../media/img/elements/nemo/user-home-symbolic.svg");
+    mask-image: url("../../media/img/elements/nemo/user-home-symbolic.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
 }
 
 body#ubuntu div[data-link="nemo"] #nemoMainContainer {
@@ -294,45 +313,47 @@ body#ubuntu div[data-link="nemo"] .nemo-app__sidebar img {
     filter: var(--nemo-symbolic-icon-filter);
 }
 
-body#ubuntu div[data-link="nemo"] .nemo-app__sidebar > a {
-    height: auto;
-    margin: 0.7rem 0 0.24rem;
-    padding: 0 0.42rem;
-    color: var(--nemo-sidebar-muted);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    background: transparent;
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar--gnome > a {
+    display: none;
 }
 
-body#ubuntu div[data-link="nemo"] .nemo-app__sidebar > a:first-child {
-    margin-top: 0.12rem;
-}
-
-body#ubuntu div[data-link="nemo"] .nemo-app__sidebar div {
-    gap: 0.1rem;
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-places,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-xdg {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.08rem;
     margin: 0;
 }
 
-body#ubuntu div[data-link="nemo"] .nemo-app__sidebar div > a {
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-xdg {
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-places > a,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-xdg > a {
     display: flex;
     align-items: center;
     min-height: 2rem;
-    margin: 0.02rem 0;
+    margin: 0;
     padding: 0 0.55rem;
     border: 0;
-    border-radius: 0.5rem;
+    border-radius: 0.55rem;
     color: var(--nemo-sidebar-text);
     font-size: 0.82rem;
     font-weight: 600;
     background: transparent;
 }
 
-body#ubuntu div[data-link="nemo"] .nemo-app__sidebar div > a:hover,
-body#ubuntu div[data-link="nemo"] .nemo-app__sidebar div > a.dolphin-sidebar__link--active {
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-places > a:hover,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-xdg > a:hover,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-places > a.dolphin-sidebar__link--active,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-places > a.nemo-sidebar__link--active,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-xdg > a.dolphin-sidebar__link--active,
+body#ubuntu div[data-link="nemo"] .nemo-app__sidebar-xdg > a.nemo-sidebar__link--active {
     border-left: 0;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--nemo-sidebar-item-active-bg);
 }
 
 body#ubuntu div[data-link="nemo"] .nemo-app__content-wrap {
@@ -343,8 +364,8 @@ body#ubuntu div[data-link="nemo"] .nemo-app__content-wrap {
 }
 
 body#ubuntu div[data-link="nemo"] .nemo-app__content-grid {
-    --nemo-item-card-size: 7rem;
-    --nemo-item-icon-size: 4.35rem;
+    --nemo-item-card-size: 7.1rem;
+    --nemo-item-icon-size: 4.5rem;
     align-content: flex-start;
     gap: 1.1rem 1.35rem;
     padding: 1.35rem 1.6rem 2rem;

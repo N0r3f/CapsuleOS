@@ -1,7 +1,12 @@
-(function initFedoraOverview() {
-    const shell = document.getElementById('fedora');
+/**
+ * Vue Activités / grille applications Ubuntu (réf. app_bouton_bas.png).
+ * Bouton dock bas : #ubuntu-dock-show-apps → mode apps.
+ */
+(function initUbuntuOverview() {
+    const shell = document.getElementById('ubuntu');
     const trigger = document.querySelector('.fedora-overview-trigger');
     const overview = document.querySelector('.fedora-overview');
+    const showAppsBtn = document.getElementById('ubuntu-dock-show-apps');
     const searchForm = overview ? overview.querySelector('[data-overview-search-form]') : null;
     const searchInput = overview ? overview.querySelector('[data-overview-search-input]') : null;
     const searchClear = overview ? overview.querySelector('[data-overview-search-clear]') : null;
@@ -22,89 +27,93 @@
             label: 'Fichiers',
             aliases: ['files', 'nemo', 'nautilus', 'dossier', 'documents'],
             description: 'Gestionnaire de fichiers',
-            icon: './media/img/apps/dash/org.gnome.Nautilus.svg',
+            icon: './media/img/dock/files.png',
             dataLink: 'nemo'
         },
         {
             label: 'Firefox',
             aliases: ['navigateur', 'browser', 'web', 'internet'],
             description: 'Navigateur web',
-            icon: '../../../shared/media/img/apps/firefox.png',
+            icon: './media/img/dock/firefox.png',
             dataLink: 'firefox'
         },
         {
-            label: 'Lecteur vidéo',
-            aliases: ['video', 'videos', 'showtime', 'media'],
-            description: 'Lire des vidéos',
-            icon: './media/img/apps/overview/org.gnome.Showtime.svg',
-            dataLink: 'lecteur_multimedia'
-        },
-        {
-            label: 'Calculatrice',
-            aliases: ['calculator', 'calcul', 'maths'],
-            description: 'Effectuer des calculs',
-            icon: './media/img/apps/overview/org.gnome.Settings.svg'
-        },
-        {
-            label: 'LibreOffice Writer',
-            aliases: ['writer', 'texte', 'document', 'office'],
-            description: 'Traitement de texte',
-            icon: './media/img/apps/overview/libreoffice-writer.svg',
-            dataLink: 'librewriter'
-        },
-        {
-            label: 'LibreOffice Calc',
-            aliases: ['calc', 'tableur', 'spreadsheet', 'office'],
-            description: 'Tableur',
-            icon: './media/img/apps/overview/libreoffice-calc.svg'
-        },
-        {
-            label: 'Paramètres',
-            aliases: ['settings', 'preferences', 'configuration', 'theme'],
-            description: 'Configurer le système',
-            icon: './media/img/apps/overview/org.gnome.Settings.svg',
+            label: 'Ubuntu Software',
+            aliases: ['software', 'logiciels', 'store', 'boutique'],
+            description: 'Installer des applications',
+            icon: './media/img/dock/software-store.png',
             dataLink: 'themes'
+        },
+        {
+            label: 'Aide',
+            aliases: ['help', 'aide', 'support', 'yelp'],
+            description: 'Documentation Ubuntu',
+            icon: './media/img/dock/help.png',
+            dataLink: 'profile'
         },
         {
             label: 'Terminal',
             aliases: ['ptyxis', 'console', 'shell', 'commande'],
             description: 'Émulateur de terminal',
-            icon: './media/img/apps/overview/org.gnome.Ptyxis.svg',
+            icon: './media/img/dock/terminal.png',
             dataLink: 'terminal'
         },
         {
-            label: 'Calendrier',
-            aliases: ['calendar', 'agenda', 'date'],
-            description: 'Consulter le calendrier',
-            icon: './media/img/apps/dash/org.gnome.Calendar.svg',
+            label: 'Paramètres',
+            aliases: ['settings', 'preferences', 'configuration', 'theme'],
+            description: 'Configurer le système',
+            icon: './media/img/apps/overview/settings.png',
+            dataLink: 'themes'
+        },
+        {
+            label: 'Horloges',
+            aliases: ['clocks', 'horloge', 'alarme', 'minuteur'],
+            description: 'Horloges et alarmes',
+            icon: './media/img/apps/overview/clocks.png'
+        },
+        {
+            label: 'Centre de sécurité',
+            aliases: ['security', 'securite', 'confidentialite', 'privacy', 'snap'],
+            description: 'Permissions et sécurité',
+            icon: './media/img/apps/overview/security-center.png'
+        },
+        {
+            label: 'Calculatrice',
+            aliases: ['calculator', 'calc'],
+            description: 'Calculatrice',
+            icon: './media/img/apps/overview/calculator.png'
+        },
+        {
+            label: 'Ressources',
+            aliases: ['monitor', 'system monitor', 'moniteur', 'cpu', 'ram'],
+            description: 'Moniteur système',
+            icon: './media/img/apps/overview/system-monitor.png'
+        },
+        {
+            label: 'Missions CapsuleOS',
+            aliases: ['checklist', 'missions', 'decouverte'],
+            description: 'Parcours guidé',
+            icon: './media/img/apps/checklist.svg',
             dataLink: 'checklist'
-        },
-        {
-            label: 'Contacts',
-            aliases: ['contact', 'adresse'],
-            description: 'Carnet de contacts',
-            icon: './media/img/apps/overview/org.gnome.Contacts.svg'
-        },
-        {
-            label: 'Météo',
-            aliases: ['weather', 'temps'],
-            description: 'Prévisions météo',
-            icon: './media/img/apps/overview/org.gnome.Weather.svg'
-        },
-        {
-            label: 'Caractères',
-            aliases: ['characters', 'symboles', 'unicode'],
-            description: 'Table des caractères',
-            icon: './media/img/apps/overview/org.gnome.Characters.svg'
         }
     ];
 
     let currentMode = 'workspace';
     let currentResults = [];
 
+    const syncShowAppsButton = () => {
+        if (!showAppsBtn) {
+            return;
+        }
+        const isApps = shell.classList.contains('is-overview')
+            && shell.classList.contains('is-overview-apps');
+        showAppsBtn.setAttribute('aria-pressed', String(isApps));
+    };
+
     const setOverviewMode = (mode) => {
         currentMode = mode === 'apps' ? 'apps' : 'workspace';
         shell.classList.toggle('is-overview-apps', mode === 'apps');
+        syncShowAppsButton();
     };
 
     const setSearchActive = (isActive) => {
@@ -133,33 +142,59 @@
 
     const setOverview = (isOpen, mode = 'workspace') => {
         shell.classList.toggle('is-overview', isOpen);
-        trigger.setAttribute('aria-pressed', String(isOpen));
+        trigger.setAttribute('aria-pressed', String(isOpen && mode !== 'apps'));
         overview.setAttribute('aria-hidden', String(!isOpen));
         if (isOpen) {
             setOverviewMode(mode);
-            window.setTimeout(() => {
-                if (searchInput) {
+            if (mode === 'apps' && searchInput) {
+                window.setTimeout(() => {
                     searchInput.focus();
-                }
-            }, 0);
+                }, 0);
+            }
         } else {
             clearSearch(false);
             setOverviewMode('workspace');
         }
+        syncShowAppsButton();
     };
 
-    const toggleOverview = () => {
+    const toggleOverviewWorkspace = () => {
         const isOpen = shell.classList.contains('is-overview');
-        setOverview(!isOpen, 'workspace');
+        const isApps = shell.classList.contains('is-overview-apps');
+        if (isOpen && !isApps) {
+            setOverview(false, 'workspace');
+            return;
+        }
+        setOverview(true, 'workspace');
+    };
+
+    const toggleOverviewApps = () => {
+        const isOpen = shell.classList.contains('is-overview');
+        const isApps = shell.classList.contains('is-overview-apps');
+        if (isOpen && isApps) {
+            setOverview(false, 'workspace');
+            return;
+        }
+        clearSearch(false);
+        setOverview(true, 'apps');
     };
 
     trigger.setAttribute('aria-pressed', 'false');
     trigger.addEventListener('click', (event) => {
         event.preventDefault();
-        toggleOverview();
+        toggleOverviewWorkspace();
     });
 
-    const getLaunchTarget = (linkId) => document.querySelector(`.fedora-dock a[data-link="${linkId}"], a[target="windowElement"][data-link="${linkId}"]`);
+    if (showAppsBtn) {
+        showAppsBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            toggleOverviewApps();
+        });
+    }
+
+    const getLaunchTarget = (linkId) => document.querySelector(
+        `#tableau.fedora-dock a[data-link="${linkId}"], a[target="windowElement"][data-link="${linkId}"]`
+    );
 
     const openOverviewLink = (linkId) => {
         if (!linkId) {
@@ -239,6 +274,10 @@
         }
 
         setSearchActive(true);
+        setOverviewMode('apps');
+        if (!shell.classList.contains('is-overview')) {
+            setOverview(true, 'apps');
+        }
         renderSearchResults(query);
     };
 
@@ -272,15 +311,6 @@
             return;
         }
 
-        const appsButton = event.target.closest('[data-overview-apps]');
-        if (appsButton && overview.contains(appsButton)) {
-            const isOpen = shell.classList.contains('is-overview');
-            const isApps = shell.classList.contains('is-overview-apps');
-            clearSearch(false);
-            setOverview(true, isOpen && isApps ? 'workspace' : 'apps');
-            return;
-        }
-
         const resultButton = event.target.closest('[data-overview-result-index]');
         if (resultButton && overview.contains(resultButton)) {
             const item = currentResults[Number(resultButton.dataset.overviewResultIndex)];
@@ -294,19 +324,6 @@
         if (launcher && overview.contains(launcher)) {
             const linkId = launcher.getAttribute('data-overview-link');
             openOverviewLink(linkId);
-            return;
-        }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && shell.classList.contains('is-overview')) {
-            if (searchInput && searchInput.value.trim()) {
-                event.preventDefault();
-                clearSearch(true);
-                searchInput.focus();
-                return;
-            }
-            setOverview(false, 'workspace');
         }
     });
 })();

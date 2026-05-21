@@ -1,6 +1,6 @@
 /**
  * Chrome fenêtres Ubuntu — fork de mint/style/windows.css (2026-04).
- * Icônes: ../../media/img/header/*.svg
+ * Contrôles fenêtre : glyphes en mask SVG inline (compatible file://, pas de media/img/header).
  * Positionnement sous top bar + dock: tokens --ubuntu-top-bar-height, --ubuntu-dock-width.
  */
 
@@ -74,6 +74,7 @@ body#ubuntu #windowTitle {
 }
 
 body#ubuntu #windowHeader > nav > button {
+    position: relative;
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
@@ -86,7 +87,22 @@ body#ubuntu #windowHeader > nav > button {
     border: 1px solid transparent;
     color: var(--ubuntu-window-control-color);
     background-color: var(--ubuntu-window-control-bg);
+    background-image: none;
     transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+}
+
+body#ubuntu #windowHeader > nav > button::before {
+    content: "";
+    display: block;
+    width: calc(var(--head) / 2.35);
+    height: calc(var(--head) / 2.35);
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
 }
 
 body#ubuntu #windowHeader > nav > button:hover {
@@ -95,20 +111,24 @@ body#ubuntu #windowHeader > nav > button:hover {
     background-color: var(--ubuntu-window-control-hover-bg);
 }
 
-body#ubuntu #minimizeBtn {
-    background-image: url(../../media/img/header/minimize.svg);
-    background-size: cover;
+body#ubuntu #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
 }
 
-body#ubuntu #resizeBtn {
-    background-image: url(../../media/img/header/maximize.svg);
-    background-size: cover;
+body#ubuntu #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
 }
 
 body#ubuntu #closeBtn {
     background-color: var(--ubuntu-window-control-close-bg);
-    background-image: url(../../media/img/header/close.svg);
-    background-size: cover;
+    background-image: none;
+}
+
+body#ubuntu #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
 }
 
 body#ubuntu #closeBtn:hover {

@@ -9,7 +9,8 @@ Copies des captures du pack local `visuel/screenshot/` (non versionné à la rac
 | bouton_haut_gauche.png | Bouton Activités / overview |
 | bouton_haut_droite.png | Paramètres rapides (tray) |
 | calendar.png | Popover calendrier |
-| app_bouton_bas.png | Dock et icônes épinglées |
+| app_bouton_bas.png | Grille apps + dock visible ; bouton bas #ubuntu-dock-show-apps |
+| (dock idle) | Firefox, Fichiers, Software, Aide, Corbeille → media/img/dock/ |
 | naut.png | Skin `style/apps/files.skin.css` |
 | terminal.png | Skin `style/apps/terminal.skin.css` |
 

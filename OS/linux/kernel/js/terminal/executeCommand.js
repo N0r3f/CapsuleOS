@@ -17,6 +17,7 @@ function formatCommandResult(state, command, lines, options = {}) {
         lines: Array.isArray(lines) ? lines : String(lines || '').split('\n'),
         error: Boolean(options.error),
         clear: Boolean(options.clear),
+        listing: Boolean(options.listing),
         cwd: state.cwd
     };
 }
@@ -24,6 +25,26 @@ function formatCommandResult(state, command, lines, options = {}) {
 function getDirectoryEntries(fs, path) {
     const directory = fs[path];
     return directory && typeof directory === 'object' ? Object.keys(directory) : [];
+}
+
+function isUbuntuGnomeTerminal() {
+    return typeof document !== 'undefined' && document.body && document.body.id === 'ubuntu';
+}
+
+/** Colonnes type GNOME Terminal (réf. terminal.png) — noms sans slash initial. */
+function formatGnomeLsLines(fs, targetPath) {
+    const names = getDirectoryListing(fs, targetPath)
+        .filter(Boolean)
+        .sort((a, b) => a.localeCompare(b, 'fr'));
+    if (!names.length) {
+        return ['.'];
+    }
+    const columnCount = 5;
+    const lines = [];
+    for (let index = 0; index < names.length; index += columnCount) {
+        lines.push(names.slice(index, index + columnCount).join('  '));
+    }
+    return lines;
 }
 
 function basename(path) {
@@ -220,7 +241,14 @@ function executeTerminalCommand(state, command, helpers = {}) {
                 const targetLabel = args[0] || targetPath;
                 return formatCommandResult(state, rawCommand, [`ls: impossible d'accéder à '${targetLabel}': Aucun fichier ou dossier de ce type`], { error: true });
             }
-            return formatCommandResult(state, rawCommand, [getDirectoryEntries(fs, targetPath).join('  ') || '.']);
+            if (isUbuntuGnomeTerminal()) {
+                return formatCommandResult(state, rawCommand, formatGnomeLsLines(fs, targetPath), {
+                    listing: true
+                });
+            }
+            return formatCommandResult(state, rawCommand, [getDirectoryListing(fs, targetPath).join('  ') || '.'], {
+                listing: true
+            });
         }
         case 'pwd':
             return formatCommandResult(state, rawCommand, [state.cwd]);
