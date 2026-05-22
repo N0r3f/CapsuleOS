@@ -6,10 +6,11 @@ body#popos {
     min-height: 100vh;
     overflow: hidden;
     color: var(--popos-shell-text);
-    background: #121214 url("../media/img/assets/wallpaper-cosmic.jpg") center / cover no-repeat fixed;
+    background: var(--popos-desktop-bg);
 }
 
-body#popos.cosmic-overlay-open {
+body#popos.cosmic-launcher-open,
+body#popos.cosmic-apps-open {
     overflow: hidden;
 }
 
@@ -24,6 +25,7 @@ body#popos .cosmic-stage {
 }
 
 body#popos #desktop {
+    position: relative;
     flex: 1;
     display: block;
     width: 100%;
@@ -70,26 +72,25 @@ body#popos .desktop-shortcut img {
     object-fit: contain;
 }
 
-body#popos .cosmic-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 80;
-    background: var(--popos-overlay-bg);
-    backdrop-filter: blur(6px);
-    opacity: 0;
+/* Launcher / Applications : bloquer clics bureau, barre, dock (sans voile visuel) */
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .cosmic-top-bar,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .cosmic-dock,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .windowElement,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .desktop-shortcut,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .cosmic-top-bar,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .cosmic-dock,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .windowElement,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .desktop-shortcut {
     pointer-events: none;
-    transition: opacity var(--eas2);
 }
 
-body#popos.cosmic-overlay-open:not(.cosmic-workspaces-open) .cosmic-backdrop {
-    opacity: 1;
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) #cosmic-dock-launcher,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) #cosmic-dock-applications,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) #cosmic-dock-launcher,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) #cosmic-dock-applications {
     pointer-events: auto;
-}
-
-/* Workspaces : bureau visible, pas de voile ni blur (workspace.png) */
-body#popos.cosmic-workspaces-open.cosmic-overlay-open .cosmic-backdrop {
-    opacity: 0;
-    pointer-events: none;
+    position: relative;
+    z-index: 225;
 }
 
 body#popos .sr-only {

@@ -52,10 +52,10 @@ function toggleWindowMaximized(windowElement) {
     }
 
     if (windowElement.dataset.maximized === 'true') {
-        return restoreWindowElement(windowElement);
+        return window.restoreWindowElement(windowElement);
     }
 
-    return maximizeWindowElement(windowElement);
+    return window.maximizeWindowElement(windowElement);
 }
 
 window.restoreWindowElement = restoreWindowElement;

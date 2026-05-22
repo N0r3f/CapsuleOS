@@ -37,6 +37,33 @@ body#popos {
     --nemo-icon-filter-accent: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(650%) hue-rotate(145deg) brightness(96%);
 }
 
+html[data-theme="light"]:has(#popos) body#popos {
+    --nemo-bg-primary: #ffffff;
+    --nemo-header-bg: #f3f3f3;
+    --nemo-header-active-bg: #ffffff;
+    --nemo-border: rgba(42, 154, 173, 0.65);
+    --nemo-text-primary: #1a1a1e;
+    --nemo-text-muted: #5c5c62;
+    --nemo-item-active-bg: rgba(42, 154, 173, 0.12);
+    --nemo-sidebar-item-active-bg: rgba(0, 0, 0, 0.08);
+    --nemo-menu-surface-bg: #ffffff;
+    --nemo-toolbar-bg: #f3f3f3;
+    --nemo-toolbar-border: rgba(0, 0, 0, 0.1);
+    --nemo-toolbar-button-hover-bg: rgba(0, 0, 0, 0.06);
+    --nemo-pathbar-bg: #e8e8ec;
+    --nemo-pathbar-border: rgba(0, 0, 0, 0.08);
+    --nemo-pathbar-text: #2a9aad;
+    --nemo-sidebar-bg: #ececee;
+    --nemo-sidebar-text: #1a1a1e;
+    --nemo-sidebar-muted: #5c5c62;
+    --nemo-footer-bg: #f4f4f4;
+    --nemo-status-text: #5c5c62;
+    --nemo-list-row-border: rgba(0, 0, 0, 0.06);
+    --nemo-symbolic-icon-filter: brightness(0) opacity(0.72);
+    --nemo-toolbar-icon-filter: brightness(0) saturate(100%) invert(42%) sepia(48%) saturate(800%) hue-rotate(145deg) brightness(92%);
+    --nemo-icon-filter-accent: var(--nemo-toolbar-icon-filter);
+}
+
 /* —— Fenêtre —— */
 body#popos div[data-link="nemo"] {
     width: min(52rem, calc(100vw - var(--head) * 2));

@@ -16,6 +16,18 @@ body#popos {
     --popos-terminal-font: "Fira Mono", "JetBrains Mono", "Ubuntu Mono", Consolas, monospace;
 }
 
+html[data-theme="light"]:has(#popos) body#popos {
+    --popos-app-terminal-surface: #ffffff;
+    --popos-app-terminal-header-bg: #f3f3f3;
+    --popos-terminal-border: rgba(0, 0, 0, 0.12);
+    --popos-terminal-border-active: #48b9c7;
+    --popos-terminal-chrome-accent: #2a9aad;
+    --popos-terminal-prompt-user: #3d8c2a;
+    --popos-terminal-prompt-path: #1a1a1e;
+    --popos-terminal-prompt-path-seg: #2a9aad;
+    --popos-terminal-dir-color: #2a9aad;
+}
+
 body#popos #terminal.terminal-window--cosmic {
     position: fixed;
     display: flex;
@@ -48,18 +60,6 @@ body#popos #terminal.terminal-window--cosmic {
 body#popos #terminal.terminal-window--cosmic.windowElementActive {
     border-color: var(--popos-terminal-border-active);
     box-shadow: 0 0 0 1px rgba(72, 185, 199, 0.45), var(--popos-window-shadow);
-}
-
-body#popos #terminal.terminal-window--cosmic[data-maximized="true"] {
-    top: var(--popos-top-bar-height);
-    left: 0;
-    right: 0;
-    bottom: calc(var(--popos-dock-bottom) + var(--popos-dock-block-height));
-    width: auto;
-    height: auto;
-    min-width: 0;
-    max-width: none;
-    transform: none;
 }
 
 body#popos #terminal.terminal-window--cosmic #windowHeader {

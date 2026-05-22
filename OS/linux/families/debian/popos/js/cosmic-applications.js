@@ -7,7 +7,6 @@
     var dockGridBtn = document.getElementById('cosmic-dock-applications');
     var searchInput = document.getElementById('cosmic-applications-search');
     var grid = document.getElementById('cosmic-applications-grid');
-    var backdrop = document.getElementById('cosmic-backdrop');
     var categoryButtons = panel
         ? panel.querySelectorAll('.cosmic-applications__category[data-apps-category]')
         : [];
@@ -59,19 +58,23 @@
     }
 
     function open() {
-        if (window.CosmicShellState) CosmicShellState.closeAll();
+        if (window.CosmicShellState) {
+            CosmicShellState.closeAll();
+        }
         panel.hidden = false;
+        document.body.classList.add('cosmic-apps-open');
         btnApps.setAttribute('aria-pressed', 'true');
         setDockGridPressed(true);
-        if (window.CosmicShellState) CosmicShellState.setOverlayOpen(true);
-        if (searchInput) searchInput.focus();
+        if (searchInput) {
+            searchInput.focus();
+        }
     }
 
     function close() {
         panel.hidden = true;
+        document.body.classList.remove('cosmic-apps-open');
         btnApps.setAttribute('aria-pressed', 'false');
         setDockGridPressed(false);
-        if (window.CosmicShellState) CosmicShellState.setOverlayOpen(false);
         resetFilters();
     }
 
@@ -81,18 +84,9 @@
     }
 
     function launchApp(link) {
-        if (!link) return;
-        var target = document.querySelector('.windowElement[data-link="' + link + '"]');
-        if (target && typeof window.openWindowByDataLink === 'function') {
-            window.openWindowByDataLink(link);
-            return;
+        if (window.CosmicAppLaunch) {
+            CosmicAppLaunch.open(link);
         }
-        if (target && typeof window.openWindow === 'function') {
-            window.openWindow(link);
-            return;
-        }
-        var dockLink = document.querySelector('.cosmic-dock__item[data-link="' + link + '"]');
-        if (dockLink) dockLink.click();
     }
 
     btnApps.addEventListener('click', function (e) {
@@ -103,15 +97,26 @@
     if (dockGridBtn) {
         dockGridBtn.addEventListener('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
             toggle();
         });
     }
 
-    if (backdrop) {
-        backdrop.addEventListener('click', function () {
-            if (isOpen()) close();
-        });
-    }
+    document.addEventListener('click', function (e) {
+        if (!isOpen()) {
+            return;
+        }
+        if (panel.contains(e.target)) {
+            return;
+        }
+        if (btnApps.contains(e.target)) {
+            return;
+        }
+        if (dockGridBtn && dockGridBtn.contains(e.target)) {
+            return;
+        }
+        close();
+    });
 
     if (searchInput) {
         searchInput.addEventListener('input', applyFilters);

@@ -1,10 +1,21 @@
 /**
- * Pop!_OS — Firefox chrome intégré (phase 2 amorcée).
+ * Pop!_OS — Firefox chrome intégré (onglets + contrôles à droite de la barre).
  */
 body#popos #firefox {
-    position: relative;
     min-width: calc(var(--head) * 24);
     background: var(--popos-window-surface);
+}
+
+body#popos #firefox:not([data-maximized="true"]) {
+    position: relative;
+}
+
+body#popos #firefox[data-maximized="true"] {
+    position: absolute;
+    min-width: 0;
+    max-width: none;
+    min-height: 0;
+    max-height: none;
 }
 
 body#popos #firefox.firefox-window--fedora #windowHeader {
@@ -14,11 +25,17 @@ body#popos #firefox.firefox-window--fedora #windowHeader {
     align-items: center;
     justify-content: flex-end;
     width: auto;
-    height: 1.52rem;
+    min-width: auto;
+    max-width: none;
+    height: calc(var(--head) / 1.65);
+    margin-left: auto;
     padding: 0;
     border: 0;
-    background: transparent;
+    border-radius: 0;
     color: var(--popos-window-control-color);
+    background: transparent;
+    overflow: visible;
+    z-index: auto;
 }
 
 body#popos #firefox.firefox-window--fedora #windowHeader > nav:first-child,
@@ -26,7 +43,189 @@ body#popos #firefox.firefox-window--fedora #windowTitle {
     display: none;
 }
 
-body#popos #firefox.firefox-window--fedora .mint-browser__tabsbar {
+body#popos #firefox #windowTitle {
+    color: transparent;
+    font-size: 0;
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader > nav:last-child {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 0;
+    gap: calc(var(--head) / 8);
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader > nav > button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) / 1.75);
+    height: calc(var(--head) / 1.75);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--mid);
+    color: var(--popos-window-control-color);
+    background: var(--popos-window-control-bg);
+    background-image: none;
+    cursor: pointer;
+    transform: none;
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader > nav > button:hover {
+    border-color: transparent;
+    background-color: var(--popos-window-control-hover-bg);
+    transform: none;
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader > nav > button:focus-visible {
+    outline: 2px solid var(--popos-accent);
+    outline-offset: 1px;
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader > nav > button::before {
+    content: "";
+    display: block;
+    width: calc(var(--head) / 2.35);
+    height: calc(var(--head) / 2.35);
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#popos #firefox.firefox-window--fedora #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+}
+
+body#popos #firefox.firefox-window--fedora #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+}
+
+body#popos #firefox.firefox-window--fedora #closeBtn {
+    background: var(--popos-window-control-close-bg);
+}
+
+body#popos #firefox.firefox-window--fedora #closeBtn:hover {
+    background: var(--popos-window-control-close-hover-bg);
+}
+
+body#popos #firefox.firefox-window--fedora #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+}
+
+body#popos #firefox .mint-browser {
+    color: var(--popos-app-text);
+    background: var(--popos-window-surface);
+}
+
+body#popos #firefox .mint-browser__chrome {
+    border-bottom: 1px solid var(--popos-window-header-border);
     background: var(--popos-window-header-bg);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+body#popos #firefox .mint-browser__tabsbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) / 8);
+    min-height: calc(var(--head) / 1.55);
+    padding: calc(var(--head) / 10) calc(var(--head) / 5) 0;
+    border-bottom: 1px solid var(--popos-window-header-border);
+    background: var(--popos-window-header-bg);
+}
+
+body#popos #firefox .mint-browser__tab {
+    flex: 0 1 calc(var(--head) * 7.5);
+    min-width: 0;
+    max-width: min(calc(var(--head) * 7.5), calc(100% - calc(var(--head) * 5)));
+    height: calc(var(--head) / 1.65);
+    margin: 0;
+    padding: 0 calc(var(--head) / 5);
+    border: 1px solid var(--popos-shell-border-soft);
+    border-bottom: 0;
+    border-radius: calc(var(--head) / 8) calc(var(--head) / 8) 0 0;
+    color: var(--popos-shell-text);
+    background: var(--popos-window-header-active);
+    font-size: calc(var(--head) / 2.75);
+    transform: none;
+}
+
+body#popos #firefox .mint-browser__tab:hover {
+    border-color: var(--popos-accent-border);
+    background: var(--popos-surface-hover);
+    transform: none;
+}
+
+body#popos #firefox .mint-browser__tab--active {
+    border-color: var(--popos-accent-border);
+    color: var(--popos-shell-text);
+    background: var(--popos-window-surface);
+}
+
+body#popos #firefox .mint-browser__tab-add {
+    flex-shrink: 0;
+    width: calc(var(--head) / 1.55);
+    height: calc(var(--head) / 1.55);
+    margin-left: calc(var(--head) / 14);
+    border-radius: calc(var(--head) / 10);
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.2);
+}
+
+body#popos #firefox .mint-browser__tab-add:hover {
+    background: var(--popos-surface-hover);
+}
+
+body#popos #firefox .mint-browser__toolbar {
+    gap: calc(var(--head) / 8);
+    min-height: calc(var(--head) / 1.5);
+    padding: calc(var(--head) / 10) calc(var(--head) / 5);
+    border-top: 0;
+    border-bottom: 1px solid var(--popos-window-header-border);
+    background: var(--popos-window-header-bg);
+}
+
+body#popos #firefox .mint-browser__btn {
+    color: var(--popos-app-muted-text);
+    background: transparent;
+}
+
+body#popos #firefox .mint-browser__btn:hover:not(:disabled) {
+    background: var(--popos-surface-hover);
+    transform: none;
+}
+
+body#popos #firefox .mint-browser__addressbar {
+    border: 1px solid var(--popos-accent-border);
+    background: var(--popos-search-bar-bg);
+}
+
+body#popos #firefox .mint-browser__address-input {
+    color: var(--popos-shell-text);
+}
+
+body#popos #firefox .mint-browser__bookmarks {
+    border-bottom: 1px solid var(--popos-window-header-border);
+    background: var(--popos-window-header-bg);
+}
+
+body#popos #firefox .mint-browser__bookmark {
+    color: var(--popos-shell-text);
+}
+
+body#popos #firefox .mint-browser__bookmark:hover {
+    background: var(--popos-surface-hover);
 }
