@@ -8,6 +8,7 @@ Thumbs.db
 .cursor/
 .vscode/
 .github/
+.gitignore
 
 # Dépendances Node locales (scripts build embed)
 node_modules/
