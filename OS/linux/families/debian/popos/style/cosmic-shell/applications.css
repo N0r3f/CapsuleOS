@@ -7,7 +7,7 @@ body#popos .cosmic-applications {
     right: var(--popos-apps-gap);
     bottom: calc(var(--popos-dock-bottom) + var(--popos-dock-block-height) + var(--popos-apps-gap));
     left: var(--popos-apps-gap);
-    z-index: 125;
+    z-index: 220;
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
@@ -52,16 +52,16 @@ body#popos .cosmic-applications__search {
     min-width: calc(var(--head) * 12);
     margin: 0 0 calc(var(--head) * 0.45);
     padding: calc(var(--head) / 5) calc(var(--head) / 2.8);
-    border: 1px solid rgba(98, 208, 233, 0.45);
+    border: 1px solid var(--popos-accent-border);
     border-radius: 999px;
-    background: rgba(22, 22, 26, 0.85);
+    background: var(--popos-search-bar-bg);
     box-sizing: border-box;
     transition: border-color var(--eas2), box-shadow var(--eas2);
 }
 
 body#popos .cosmic-applications__search:focus-within {
     border-color: var(--popos-accent);
-    box-shadow: 0 0 0 1px rgba(98, 208, 233, 0.25);
+    box-shadow: 0 0 0 1px var(--popos-accent-focus-ring);
 }
 
 body#popos .cosmic-applications__search-icon {
@@ -70,8 +70,8 @@ body#popos .cosmic-applications__search-icon {
     height: calc(var(--head) / 2);
     background: currentColor;
     opacity: 0.7;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: var(--popos-search-icon-mask) center / contain no-repeat;
+    mask: var(--popos-search-icon-mask) center / contain no-repeat;
 }
 
 body#popos .cosmic-applications__search-input {
@@ -82,6 +82,10 @@ body#popos .cosmic-applications__search-input {
     color: var(--popos-shell-text);
     font-size: calc(var(--head) / 2.35);
     outline: none;
+}
+
+body#popos .cosmic-applications__search-input::placeholder {
+    color: var(--popos-input-placeholder);
 }
 
 body#popos .cosmic-applications__scroll {
@@ -125,7 +129,7 @@ body#popos .cosmic-applications__app {
 }
 
 body#popos .cosmic-applications__app:hover:not([aria-disabled="true"]) {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--popos-surface-hover);
     border-color: var(--popos-shell-border-soft);
 }
 
@@ -164,7 +168,7 @@ body#popos .cosmic-applications__footer {
 body#popos .cosmic-applications__sep {
     height: 1px;
     margin: 0 0 calc(var(--head) * 0.35);
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--popos-apps-footer-sep);
 }
 
 body#popos .cosmic-applications__categories {
@@ -193,13 +197,13 @@ body#popos .cosmic-applications__category {
 }
 
 body#popos .cosmic-applications__category:hover:not([aria-disabled="true"]) {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--popos-surface-hover-subtle);
 }
 
 body#popos .cosmic-applications__category--active,
 body#popos .cosmic-applications__category[aria-pressed="true"] {
     background: var(--popos-apps-category-pill-bg);
-    border-color: rgba(255, 255, 255, 0.06);
+    border-color: var(--popos-apps-category-pill-border);
 }
 
 body#popos .cosmic-applications__category[aria-disabled="true"] {
@@ -212,7 +216,7 @@ body#popos .cosmic-applications__category-symbolic {
     height: calc(var(--head) / 1.35);
     object-fit: contain;
     opacity: 0.92;
-    filter: brightness(0) invert(1);
+    filter: var(--popos-symbolic-category-filter);
 }
 
 body#popos .cosmic-applications__category--active .cosmic-applications__category-symbolic,

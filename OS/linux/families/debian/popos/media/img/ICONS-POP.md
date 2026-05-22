@@ -31,7 +31,7 @@ rsvg-convert -w 48 -h 48 "$ICONS/hicolor/scalable/apps/com.system76.CosmicLaunch
 
 Ordre dock (captures `desktop.png`, `launcher.png`) : Launcher → Workspaces → Applications → séparateur → Firefox → Fichiers → Éditeur → Terminal → Shop → Paramètres.
 
-Réutilisation : mêmes fichiers pour `cosmic-launcher__app` et `cosmic-applications__app`.
+Réutilisation : icônes `apps/overview/` pour la liste launcher (catalogue lu depuis `#cosmic-applications-grid`). Icône ouvrir : `symbolic/launcher/open-app.svg`.
 
 ## Bureau
 

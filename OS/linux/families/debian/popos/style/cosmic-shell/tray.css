@@ -38,8 +38,8 @@ body#popos .taskbar-tray__cluster {
 }
 
 body#popos .taskbar-tray__cluster:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--popos-shell-border-soft, rgba(255, 255, 255, 0.1));
+    background: var(--mint-tray-item-hover-bg);
+    border-color: var(--popos-shell-border-soft);
 }
 
 body#popos .taskbar-tray__cluster[aria-expanded="true"] {
@@ -103,18 +103,8 @@ body#popos .taskbar__clock {
     pointer-events: none;
 }
 
-html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__cluster {
-    background: transparent;
-}
-
-html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__cluster:hover,
-html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__cluster[aria-expanded="true"] {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: var(--popos-shell-border-soft, rgba(255, 255, 255, 0.1));
-}
-
-html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__icon {
-    filter: brightness(0);
+body#popos .taskbar-tray__icon {
+    filter: var(--mint-tray-icon-filter);
 }
 
 @media (max-width: 900px) {

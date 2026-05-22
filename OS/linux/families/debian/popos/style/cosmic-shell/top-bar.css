@@ -59,7 +59,7 @@ body#popos .cosmic-top-bar__nav-btn {
 }
 
 body#popos .cosmic-top-bar__nav-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--popos-surface-hover);
     border-color: var(--popos-shell-border-soft);
 }
 

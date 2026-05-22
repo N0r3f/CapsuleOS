@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./media/img/assets/pop-logo.png" type="image/png">
-    <link rel="stylesheet" href="./style/imports.css?v=20260522p" type="text/css">
+    <link rel="stylesheet" href="./style/imports.css?v=20260622" type="text/css">
     <link rel="stylesheet" href="../../debian/mint/style/tour.css?v=20260428" type="text/css">
     <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
     <link rel="stylesheet" href="./popos-overrides.css?v=20260522" type="text/css">
     <title>Pop!_OS — COSMIC — CapsuleOS</title>
 </head>
-<body id="popos" data-skin="popos">
+<body id="popos" data-skin="popos" data-capsule-rev="20260622">
     <header class="cosmic-top-bar" role="banner">
         <div class="cosmic-top-bar__left">
             <button type="button" class="cosmic-top-bar__nav-btn" id="cosmic-btn-workspaces"
@@ -58,8 +58,6 @@
         </div>
     </header>
 
-    <div class="cosmic-backdrop" id="cosmic-backdrop" hidden aria-hidden="true"></div>
-
     <main class="cosmic-stage">
         <aside class="cosmic-workspaces-rail" id="cosmic-workspaces-rail" hidden aria-label="Espaces de travail">
             <ul class="cosmic-workspaces-rail__list">
@@ -104,37 +102,39 @@
         </object>
 
         <nav class="cosmic-dock" aria-label="Dock">
-            <button type="button" class="cosmic-dock__item" id="cosmic-dock-launcher"
-                    aria-label="Launcher" aria-pressed="false">
-                <img src="./media/img/dock/launcher.svg" alt="" width="40" height="40">
-            </button>
-            <button type="button" class="cosmic-dock__item" id="cosmic-dock-workspaces"
-                    aria-label="Workspaces" title="Workspaces">
-                <img src="./media/img/dock/workspaces.svg" alt="" width="40" height="40">
-            </button>
-            <button type="button" class="cosmic-dock__item" id="cosmic-dock-applications"
-                    aria-label="Applications">
-                <img src="./media/img/dock/applications-grid.svg" alt="" width="40" height="40">
-            </button>
-            <span class="cosmic-dock__separator" aria-hidden="true"></span>
-            <a class="cosmic-dock__item" target="windowElement" data-link="firefox" title="Firefox">
-                <img src="./media/img/dock/firefox.png" alt="Firefox" width="40" height="40">
-            </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="nemo" title="Fichiers">
-                <img src="./media/img/dock/files.svg" alt="Fichiers" width="40" height="40">
-            </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="checklist" title="Éditeur de texte">
-                <img src="./media/img/dock/text-editor.svg" alt="Éditeur de texte" width="40" height="40">
-            </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="terminal" title="Terminal">
-                <img src="./media/img/dock/terminal.svg" alt="Terminal" width="40" height="40">
-            </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="themes" title="Pop!_Shop">
-                <img src="./media/img/dock/pop-shop.svg" alt="Pop!_Shop" width="40" height="40">
-            </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="profile" title="Paramètres">
-                <img src="./media/img/dock/settings.svg" alt="Paramètres" width="40" height="40">
-            </a>
+            <div class="cosmic-dock__apps">
+                <button type="button" class="cosmic-dock__item" id="cosmic-dock-launcher"
+                        aria-label="Launcher" aria-pressed="false">
+                    <img src="./media/img/dock/launcher.svg" alt="" width="40" height="40">
+                </button>
+                <button type="button" class="cosmic-dock__item" id="cosmic-dock-workspaces"
+                        aria-label="Workspaces" title="Workspaces">
+                    <img src="./media/img/dock/workspaces.svg" alt="" width="40" height="40">
+                </button>
+                <button type="button" class="cosmic-dock__item" id="cosmic-dock-applications"
+                        aria-label="Applications">
+                    <img src="./media/img/dock/applications-grid.svg" alt="" width="40" height="40">
+                </button>
+                <span class="cosmic-dock__separator" aria-hidden="true"></span>
+                <a class="cosmic-dock__item" target="windowElement" data-link="firefox" title="Firefox">
+                    <img src="./media/img/dock/firefox.png" alt="Firefox" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="nemo" title="Fichiers">
+                    <img src="./media/img/dock/files.svg" alt="Fichiers" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="checklist" title="Éditeur de texte">
+                    <img src="./media/img/dock/text-editor.svg" alt="Éditeur de texte" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="terminal" title="Terminal">
+                    <img src="./media/img/dock/terminal.svg" alt="Terminal" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="themes" title="Pop!_Shop">
+                    <img src="./media/img/dock/pop-shop.svg" alt="Pop!_Shop" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="profile" title="Paramètres">
+                    <img src="./media/img/dock/settings.svg" alt="Paramètres" width="40" height="40">
+                </a>
+            </div>
         </nav>
     </main>
 
@@ -143,34 +143,26 @@
             <span class="cosmic-launcher__search-icon" aria-hidden="true"></span>
             <label class="sr-only" for="cosmic-launcher-search">Rechercher</label>
             <input id="cosmic-launcher-search" class="cosmic-launcher__search-input" type="search"
-                   placeholder="Taper pour rechercher des applications…" autocomplete="off" spellcheck="false">
+                   placeholder="Tapez pour chercher des applis ou tapez « ? » pour plus d'options…"
+                   autocomplete="off" spellcheck="false" aria-controls="cosmic-launcher-results"
+                   aria-expanded="false" aria-autocomplete="list">
         </form>
-        <div class="cosmic-launcher__grid">
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="firefox" aria-label="Firefox">
-                <img src="./media/img/dock/firefox.png" alt="">
-                <span>Firefox</span>
-            </button>
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="nemo" aria-label="Fichiers">
-                <img src="./media/img/dock/files.svg" alt="">
-                <span>Fichiers</span>
-            </button>
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="checklist" aria-label="Éditeur de texte">
-                <img src="./media/img/dock/text-editor.svg" alt="">
-                <span>Éditeur de texte</span>
-            </button>
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="terminal" aria-label="Terminal">
-                <img src="./media/img/dock/terminal.svg" alt="">
-                <span>Terminal</span>
-            </button>
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="themes" aria-label="Pop!_Shop">
-                <img src="./media/img/dock/pop-shop.svg" alt="">
-                <span>Pop!_Shop</span>
-            </button>
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="profile" aria-label="Paramètres">
-                <img src="./media/img/dock/settings.svg" alt="">
-                <span>Paramètres</span>
-            </button>
+        <div class="cosmic-launcher__results" id="cosmic-launcher-results" hidden>
+            <ul class="cosmic-launcher__list" id="cosmic-launcher-list" role="listbox" aria-label="Résultats"></ul>
         </div>
+        <template id="cosmic-launcher-row-tpl">
+            <li class="cosmic-launcher__row" role="option">
+                <button type="button" class="cosmic-launcher__row-btn">
+                    <span class="cosmic-launcher__open" aria-hidden="true"></span>
+                    <img class="cosmic-launcher__app-icon" src="" alt="" width="40" height="40">
+                    <span class="cosmic-launcher__text">
+                        <span class="cosmic-launcher__title"></span>
+                        <span class="cosmic-launcher__subtitle"></span>
+                    </span>
+                    <span class="cosmic-launcher__shortcut" aria-hidden="true"></span>
+                </button>
+            </li>
+        </template>
     </section>
 
     <section class="cosmic-applications" id="cosmic-applications" hidden aria-label="Applications">
@@ -396,13 +388,14 @@
             webp: '../ubuntu/media/img/mimeTypes/image-x-generic.svg'
         };
     </script>
-    <script src="../../../kernel/js/capsule-app-embed.js?v=20260521"></script>
+    <script src="../../../kernel/js/capsule-app-embed.js?v=20260622b"></script>
     <script src="../../../kernel/js/strings-default.js?v=20260424"></script>
     <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
     <script src="../../../kernel/js/capsule-theme.js?v=20260424"></script>
     <script src="../../../kernel/js/windowContainer.js?v=20260424"></script>
     <script src="../../../kernel/js/windowDrag.js?v=20260522"></script>
-    <script src="../../../kernel/js/windowHeaderButton.js?v=20260424"></script>
+    <script src="../../../kernel/js/windowHeaderButton.js?v=20260522d"></script>
+    <script src="./js/cosmic-maximize-shell.js?v=20260522d"></script>
     <script src="../../../kernel/js/resizeWindow.js"></script>
     <script src="../../../kernel/js/mainMenu-data.js?v=20260424"></script>
     <script src="../../../kernel/js/mainMenu.js?v=20260428"></script>
@@ -432,10 +425,12 @@
     <script src="../../../kernel/js/tour.js?v=20260428"></script>
     <script src="../../../kernel/js/librewriter.js"></script>
     <script src="../../../kernel/js/search/appSearch.js"></script>
-    <script src="./js/cosmic-shell-state.js?v=20260521"></script>
-    <script src="./js/cosmic-workspaces.js?v=20260522"></script>
-    <script src="./js/cosmic-launcher.js?v=20260521"></script>
-    <script src="./js/cosmic-applications.js?v=20260522"></script>
+    <script src="./js/cosmic-app-launch.js?v=20260525"></script>
+    <script src="./js/cosmic-apps-catalog.js?v=20260525"></script>
+    <script src="./js/cosmic-shell-state.js?v=20260622"></script>
+    <script src="./js/cosmic-workspaces.js?v=20260524"></script>
+    <script src="./js/cosmic-launcher.js?v=20260622"></script>
+    <script src="./js/cosmic-applications.js?v=20260622"></script>
     <script src="./js/cosmic-dock.js?v=20260522"></script>
     <script src="./js/cosmic-power-menu.js?v=20260522g"></script>
     <script>

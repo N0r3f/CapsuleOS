@@ -51,8 +51,8 @@ body#popos .cosmic-workspaces-rail__workspace {
 }
 
 body#popos .cosmic-workspaces-rail__workspace:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--popos-surface-hover-subtle);
+    border-color: var(--popos-shell-border-soft);
 }
 
 body#popos .cosmic-workspaces-rail__workspace--active {

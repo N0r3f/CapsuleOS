@@ -3,16 +3,45 @@
  */
 (function (global) {
     var body = document.body;
+    var BUILD_REV = '20260622';
 
-    function backdrop() {
-        return document.getElementById('cosmic-backdrop');
+    function purgeStaleBackdrop() {
+        var stale = document.getElementById('cosmic-backdrop');
+        if (stale && stale.parentNode) {
+            stale.parentNode.removeChild(stale);
+        }
+        if (body) {
+            body.classList.remove('cosmic-overlay-open');
+        }
     }
 
-    function setOverlayOpen(open) {
-        if (!body || body.id !== 'popos') return;
-        body.classList.toggle('cosmic-overlay-open', !!open);
-        var el = backdrop();
-        if (el) el.hidden = !open;
+    function closeAppsAndRail() {
+        var apps = document.getElementById('cosmic-applications');
+        var rail = document.getElementById('cosmic-workspaces-rail');
+        var power = document.getElementById('cosmic-power-menu');
+        if (apps) {
+            apps.hidden = true;
+        }
+        if (rail) {
+            rail.hidden = true;
+        }
+        if (power) {
+            power.hidden = true;
+        }
+        var btnPower = document.getElementById('cosmic-tray-power-btn');
+        if (btnPower) {
+            btnPower.setAttribute('aria-expanded', 'false');
+        }
+        if (body) {
+            body.classList.remove('cosmic-workspaces-open', 'cosmic-apps-open');
+        }
+        document.querySelectorAll('[data-cosmic-nav]').forEach(function (btn) {
+            btn.setAttribute('aria-pressed', 'false');
+        });
+        var dockApps = document.getElementById('cosmic-dock-applications');
+        if (dockApps) {
+            dockApps.setAttribute('aria-pressed', 'false');
+        }
     }
 
     function closeAll() {
@@ -26,7 +55,14 @@
         if (power) power.hidden = true;
         var btnPower = document.getElementById('cosmic-tray-power-btn');
         if (btnPower) btnPower.setAttribute('aria-expanded', 'false');
-        if (body) body.classList.remove('cosmic-workspaces-open');
+        if (body) {
+            body.classList.remove(
+                'cosmic-workspaces-open',
+                'cosmic-launcher-open',
+                'cosmic-apps-open',
+                'cosmic-overlay-open'
+            );
+        }
         document.querySelectorAll('[data-cosmic-nav]').forEach(function (btn) {
             btn.setAttribute('aria-pressed', 'false');
         });
@@ -34,11 +70,16 @@
         if (dockLauncher) dockLauncher.setAttribute('aria-pressed', 'false');
         var dockApps = document.getElementById('cosmic-dock-applications');
         if (dockApps) dockApps.setAttribute('aria-pressed', 'false');
-        setOverlayOpen(false);
+    }
+
+    purgeStaleBackdrop();
+    if (body && body.id === 'popos') {
+        body.setAttribute('data-capsule-rev', BUILD_REV);
     }
 
     global.CosmicShellState = {
-        setOverlayOpen: setOverlayOpen,
-        closeAll: closeAll
+        closeAppsAndRail: closeAppsAndRail,
+        closeAll: closeAll,
+        purgeStaleBackdrop: purgeStaleBackdrop
     };
 })(typeof window !== 'undefined' ? window : this);

@@ -100,7 +100,7 @@ body#popos .calendar-popover__arrow {
 }
 
 body#popos .calendar-popover__arrow:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--popos-calendar-day-hover-bg);
     color: var(--popos-calendar-text);
 }
 
@@ -155,7 +155,7 @@ body#popos .calendar-popover__day {
 }
 
 body#popos .calendar-popover__day:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--popos-launcher-row-hover-bg);
 }
 
 body#popos .calendar-popover__day--outside {
@@ -211,32 +211,6 @@ body#popos .cosmic-calendar-popover__settings-btn {
 }
 
 body#popos .cosmic-calendar-popover__settings-btn:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--popos-calendar-day-hover-bg);
     color: var(--popos-calendar-text);
-}
-
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover {
-    background: rgba(242, 242, 244, 0.96);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: #1a1a1e;
-}
-
-html[data-theme="light"]:has(#popos) body#popos .cosmic-calendar-popover__weekday-line,
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover__week-row,
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover__arrow,
-html[data-theme="light"]:has(#popos) body#popos .cosmic-calendar-popover__settings-btn {
-    color: rgba(0, 0, 0, 0.5);
-}
-
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover__day {
-    color: #2a9aad;
-}
-
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover__day--outside {
-    color: rgba(42, 154, 173, 0.45);
-}
-
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover__day--today,
-html[data-theme="light"]:has(#popos) body#popos .calendar-popover__day--selected {
-    color: #121214;
 }

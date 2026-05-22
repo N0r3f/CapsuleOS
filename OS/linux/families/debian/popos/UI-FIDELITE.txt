@@ -18,7 +18,7 @@ Mapping capture → implémentation
 | Capture | Fichiers |
 |---------|----------|
 | desktop.png | style/cosmic-workstation.css, cosmic-shell/top-bar.css, cosmic-shell/dock.css, popos-tokens.css |
-| launcher.png | cosmic-shell/launcher.css, js/cosmic-launcher.js |
+| launcher.png, launcher_search.png | cosmic-shell/launcher.css, js/cosmic-launcher.js, js/cosmic-apps-catalog.js |
 | workspace.png | cosmic-shell/workspaces-rail.css, js/cosmic-workspaces.js (rail gauche, bureau net sans blur) |
 | Apps.png | cosmic-shell/applications.css, js/cosmic-applications.js (fenêtre flottante, recherche, catégories) |
 | calendar.png | cosmic-shell/calendar-popover.css |
