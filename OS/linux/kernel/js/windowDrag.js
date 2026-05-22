@@ -52,6 +52,9 @@ const makeDraggable = (element) => {
         offsetY = Math.max(0, Math.min(pointerOffsetY, restoredHeight));
 
         const nextPosition = clampPosition(e.clientX - offsetX, e.clientY - offsetY);
+        element.style.transform = 'none';
+        element.style.marginLeft = '0';
+        element.style.marginRight = '0';
         element.style.left = `${nextPosition.left}px`;
         element.style.top = `${nextPosition.top}px`;
     };
@@ -63,6 +66,9 @@ const makeDraggable = (element) => {
 
         const nextPosition = clampPosition(e.clientX - offsetX, e.clientY - offsetY);
 
+        element.style.transform = 'none';
+        element.style.marginLeft = '0';
+        element.style.marginRight = '0';
         element.style.left = `${nextPosition.left}px`;
         element.style.top = `${nextPosition.top}px`;
     };

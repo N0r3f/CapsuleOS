@@ -1,58 +1,455 @@
 /**
- * Pop!_OS — Terminal Cosmic (phase 2 amorcée, réf. terminal_cosmic.png).
+ * Pop!_OS — Terminal Cosmic (terminal_cosmic.png, terminal_max.png).
  */
 body#popos {
-    --popos-app-terminal-surface: #1a1a1e;
-    --popos-app-terminal-header-bg: #242428;
-    --popos-terminal-prompt-user: #62d0e9;
-    --popos-terminal-prompt-path: #f0f0f2;
-    --popos-terminal-prompt-path-seg: #7ad8ef;
-    --popos-terminal-dir-color: #62d0e9;
+    --popos-app-terminal-surface: #121214;
+    --popos-app-terminal-header-bg: #121214;
+    --popos-terminal-border: rgba(0, 0, 0, 0.55);
+    --popos-terminal-border-active: #48b9c7;
+    --popos-terminal-chrome-accent: #48b9c7;
+    --popos-terminal-prompt-user: #9ece6a;
+    --popos-terminal-prompt-path: #f4f4f6;
+    --popos-terminal-prompt-path-seg: #48b9c7;
+    --popos-terminal-dir-color: #48b9c7;
     --popos-terminal-ls-col-gap: 3;
     --popos-terminal-history-weight: 600;
+    --popos-terminal-font: "Fira Mono", "JetBrains Mono", "Ubuntu Mono", Consolas, monospace;
 }
 
 body#popos #terminal.terminal-window--cosmic {
     position: fixed;
     display: flex;
     flex-flow: column nowrap;
-    width: min(44rem, calc(100vw - 2rem));
-    height: min(32rem, calc(100vh - var(--popos-top-bar-height) - calc(var(--head) * 3)));
-    min-width: 36rem;
-    margin: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+    top: calc(var(--popos-top-bar-height) + calc(var(--head) * 0.55));
+    right: auto;
+    bottom: auto;
+    left: 0;
+    width: min(56rem, calc(100vw - calc(var(--head) * 2)));
+    height: min(34rem, calc(
+        100vh - var(--popos-top-bar-height) - var(--popos-dock-bottom) -
+        var(--popos-dock-block-height) - calc(var(--head) * 1.6)
+    ));
+    min-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--popos-terminal-border);
     border-radius: var(--popos-window-radius);
     color: var(--popos-terminal-prompt-path);
     background: var(--popos-app-terminal-surface);
     box-shadow: var(--popos-window-shadow);
     overflow: hidden;
+    transform: none;
+    transition: border-color var(--eas2), box-shadow var(--eas2);
+}
+
+body#popos #terminal.terminal-window--cosmic.windowElementActive {
+    border-color: var(--popos-terminal-border-active);
+    box-shadow: 0 0 0 1px rgba(72, 185, 199, 0.45), var(--popos-window-shadow);
+}
+
+body#popos #terminal.terminal-window--cosmic[data-maximized="true"] {
+    top: var(--popos-top-bar-height);
+    left: 0;
+    right: 0;
+    bottom: calc(var(--popos-dock-bottom) + var(--popos-dock-block-height));
+    width: auto;
+    height: auto;
+    min-width: 0;
+    max-width: none;
+    transform: none;
 }
 
 body#popos #terminal.terminal-window--cosmic #windowHeader {
+    position: relative;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    align-items: center;
+    gap: calc(var(--head) / 8);
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: calc(var(--head) / 1.15);
+    margin: 0;
+    padding: 0 calc(var(--head) / 5) 0 calc(var(--head) / 4);
+    border: 0;
+    border-radius: var(--popos-window-radius) var(--popos-window-radius) 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+    color: var(--popos-terminal-prompt-path);
     background: var(--popos-app-terminal-header-bg);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-    color: var(--popos-shell-text);
+    user-select: none;
+    overflow: hidden;
 }
 
-body#popos #terminal.terminal-window--cosmic #windowIframe,
-body#popos #terminal.terminal-window--cosmic .capsule-terminal {
+body#popos #terminal.terminal-window--cosmic.windowElementActive #windowHeader {
+    border-bottom-color: rgba(72, 185, 199, 0.15);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowHeader > nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 0;
+    height: 100%;
+    gap: calc(var(--head) / 18);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowHeader > nav:first-child {
+    grid-column: 1;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    min-width: max-content;
+    max-width: none;
+    gap: calc(var(--head) / 22);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowHeader > nav:last-child {
+    grid-column: 3;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    margin-left: 0;
+    gap: calc(var(--head) / 14);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowHeader > nav:first-child > button,
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: calc(var(--head) / 16) calc(var(--head) / 6);
+    border: 0;
+    border-radius: calc(var(--head) / 10);
+    color: var(--popos-terminal-chrome-accent);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 500;
+    line-height: 1.15;
+    white-space: nowrap;
+    background: transparent;
+    background-image: none;
+    cursor: default;
+    transform: none;
+    transition: background-color var(--eas2);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowHeader > nav:first-child > button::before,
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__menu::before {
+    content: none;
+    display: none;
+}
+
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__menu:hover {
+    background: rgba(72, 185, 199, 0.1);
+}
+
+body#popos #terminal.terminal-window--cosmic #windowTitle {
+    grid-column: 2;
+    flex: 1 1 auto;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: center;
+    justify-self: center;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 0 calc(var(--head) / 12);
+    color: var(--popos-terminal-prompt-path);
+    font-family: var(--popos-terminal-font);
+    font-size: calc(var(--head) / 2.35);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body#popos #terminal.terminal-window--cosmic #windowTitle .capsule-terminal__title-user {
+    color: var(--popos-terminal-prompt-user);
+    font-weight: 600;
+}
+
+body#popos #terminal.terminal-window--cosmic #windowTitle .capsule-terminal__title-rest {
+    color: var(--popos-terminal-prompt-path);
+    font-weight: 500;
+}
+
+body#popos #terminal.terminal-window--cosmic #minimizeBtn,
+body#popos #terminal.terminal-window--cosmic #resizeBtn,
+body#popos #terminal.terminal-window--cosmic #closeBtn,
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) / 1.55);
+    height: calc(var(--head) / 1.55);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: calc(var(--head) / 8);
+    color: var(--popos-terminal-chrome-accent);
+    background: transparent;
+    background-image: none;
+    cursor: pointer;
+    transform: none;
+    transition: background-color var(--eas2);
+}
+
+body#popos #terminal.terminal-window--cosmic #minimizeBtn:hover,
+body#popos #terminal.terminal-window--cosmic #resizeBtn:hover,
+body#popos #terminal.terminal-window--cosmic #closeBtn:hover,
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__button:hover {
+    background: rgba(72, 185, 199, 0.12);
+}
+
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__button--new-tab {
+    border: 1px solid currentColor;
+    border-radius: calc(var(--head) / 10);
+}
+
+body#popos #terminal.terminal-window--cosmic .cosmic-terminal-header__button--new-tab::before {
+    content: "+";
+    display: block;
+    width: auto;
+    height: auto;
+    background: none;
+    font-size: calc(var(--head) / 2.1);
+    font-weight: 700;
+    line-height: 1;
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+body#popos #terminal.terminal-window--cosmic #minimizeBtn::before,
+body#popos #terminal.terminal-window--cosmic #resizeBtn::before,
+body#popos #terminal.terminal-window--cosmic #closeBtn::before {
+    content: "";
+    display: block;
+    width: calc(var(--head) / 2.4);
+    height: calc(var(--head) / 2.4);
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#popos #terminal.terminal-window--cosmic #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+}
+
+body#popos #terminal.terminal-window--cosmic #resizeBtn::before {
+    width: calc(var(--head) / 2.1);
+    height: calc(var(--head) / 2.1);
+    background: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M4 12H8L6.5 10.5L7.78947 9.15789C7.78947 9.15789 8.26316 8.68421 7.78947 8.21053C7.31579 7.73684 6.8421 8.21053 6.8421 8.21053L5.5 9.5L4 8V12Z'/%3E%3Cpath fill='white' d='M12 4H8L9.5 5.5L8.21053 6.84211C8.21053 6.84211 7.73684 7.31579 8.21053 7.78947C8.68421 8.26316 9.1579 7.78947 9.1579 7.78947L10.5 6.5L12 8V4Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M4 12H8L6.5 10.5L7.78947 9.15789C7.78947 9.15789 8.26316 8.68421 7.78947 8.21053C7.31579 7.73684 6.8421 8.21053 6.8421 8.21053L5.5 9.5L4 8V12Z'/%3E%3Cpath fill='white' d='M12 4H8L9.5 5.5L8.21053 6.84211C8.21053 6.84211 7.73684 7.31579 8.21053 7.78947C8.68421 8.26316 9.1579 7.78947 9.1579 7.78947L10.5 6.5L12 8V4Z'/%3E%3C/svg%3E");
+}
+
+body#popos #terminal.terminal-window--cosmic[data-maximized="true"] #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M8 8H4L5.5 9.5L4.21053 10.8421C4.21053 10.8421 3.73684 11.3158 4.21053 11.7895C4.68421 12.2632 5.1579 11.7895 5.1579 11.7895L6.5 10.5L8 12V8Z'/%3E%3Cpath fill='white' d='M8 8H12L10.5 6.5L11.7895 5.15789C11.7895 5.15789 12.2632 4.68421 11.7895 4.21053C11.3158 3.73684 10.8421 4.21053 10.8421 4.21053L9.5 5.5L8 4V8Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M8 8H4L5.5 9.5L4.21053 10.8421C4.21053 10.8421 3.73684 11.3158 4.21053 11.7895C4.68421 12.2632 5.1579 11.7895 5.1579 11.7895L6.5 10.5L8 12V8Z'/%3E%3Cpath fill='white' d='M8 8H12L10.5 6.5L11.7895 5.15789C11.7895 5.15789 12.2632 4.68421 11.7895 4.21053C11.3158 3.73684 10.8421 4.21053 10.8421 4.21053L9.5 5.5L8 4V8Z'/%3E%3C/svg%3E");
+}
+
+body#popos #terminal.terminal-window--cosmic #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+}
+
+body#popos #terminal.terminal-window--cosmic #closeBtn {
+    color: var(--popos-terminal-chrome-accent);
+    background: transparent;
+}
+
+body#popos #terminal.terminal-window--cosmic #closeBtn:hover {
+    background: rgba(72, 185, 199, 0.14);
+}
+
+body#popos #terminal.terminal-window--cosmic > #terminalContainer {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+body#popos #terminal.terminal-window--cosmic #terminalContainer,
+body#popos #terminal.terminal-window--cosmic .capsule-terminal-shell {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: calc(var(--head) / 3.2) calc(var(--head) / 2.6) calc(var(--head) / 2.4);
+    border: 0;
+    border-radius: 0 0 var(--popos-window-radius) var(--popos-window-radius);
+    color: var(--popos-terminal-prompt-path);
     background: var(--popos-app-terminal-surface);
+    overflow: hidden;
+}
+
+body#popos #terminal.terminal-window--cosmic #windowIframe {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    border-radius: 0 0 var(--popos-window-radius) var(--popos-window-radius);
+    background: var(--popos-app-terminal-surface);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal-toolbar {
+    display: none;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal,
+body#popos #terminal.terminal-window--cosmic [data-terminal-app] {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background: var(--popos-app-terminal-surface);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__output,
+body#popos #terminal.terminal-window--cosmic [data-terminal-output] {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0;
+    color: var(--popos-terminal-prompt-path);
+    font-family: var(--popos-terminal-font);
+    font-size: calc(var(--head) / 2.35);
+    font-weight: 500;
+    line-height: 1.38;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line > code {
+    color: var(--popos-terminal-prompt-path);
+    font-weight: 500;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--listing > code {
+    display: block;
+    font-weight: 500;
+    line-height: 1.45;
+    white-space: pre-wrap;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--listing .capsule-terminal__dir {
+    display: inline-block;
+    min-width: var(--popos-terminal-ls-col-width, 14ch);
+    margin: 0 0.15ch 0 0;
+    padding: 0 2ch 0 0;
+    color: var(--popos-terminal-dir-color);
+    font-weight: 500;
+}
+
+body#popos #terminal.terminal-window--cosmic #input,
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__input,
+body#popos #terminal.terminal-window--cosmic [data-terminal-form] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    height: calc(var(--head) / 1.55);
+    margin: calc(var(--head) / 12) 0 0;
+    padding: 0;
+}
+
+body#popos #terminal.terminal-window--cosmic #prompt,
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt,
+body#popos #terminal.terminal-window--cosmic [data-terminal-prompt] {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    margin: 0 calc(var(--head) / 8) 0 0;
+    white-space: pre;
 }
 
 body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-user {
     color: var(--popos-terminal-prompt-user);
+    font-weight: 600;
 }
 
-body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-path {
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-colon,
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-dollar {
     color: var(--popos-terminal-prompt-path);
+    font-weight: 500;
 }
 
-body#popos #terminal.terminal-window--cosmic .capsule-terminal__dir {
-    color: var(--popos-terminal-dir-color);
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__prompt-path-seg {
+    color: var(--popos-terminal-prompt-path-seg);
+    font-weight: 500;
 }
 
-body#popos #terminal.terminal-window--cosmic .capsule-terminal__output {
+body#popos #terminal.terminal-window--cosmic #command,
+body#popos #terminal.terminal-window--cosmic #command:focus,
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__command,
+body#popos #terminal.terminal-window--cosmic [data-terminal-command],
+body#popos #terminal.terminal-window--cosmic [data-terminal-command]:focus {
+    flex: 1 1 auto;
+    width: auto;
+    height: calc(var(--head) / 1.55);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    color: var(--popos-terminal-prompt-path);
+    caret-color: var(--popos-terminal-prompt-path);
+    font-family: var(--popos-terminal-font);
+    font-size: calc(var(--head) / 2.35);
+    font-weight: 500;
+    background: transparent;
+    box-shadow: none;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--command {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     font-weight: var(--popos-terminal-history-weight);
-    color: #f4f4f6;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--command .capsule-terminal__command-line {
+    display: inline;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    color: var(--popos-terminal-prompt-path);
+    font-weight: var(--popos-terminal-history-weight);
+    white-space: pre-wrap;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--command .capsule-terminal__prompt-user {
+    color: var(--popos-terminal-prompt-user);
+    font-weight: 600;
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--command .capsule-terminal__prompt-path-seg {
+    color: var(--popos-terminal-prompt-path-seg);
+}
+
+body#popos #terminal.terminal-window--cosmic .capsule-terminal__line--error code {
+    color: #f07178;
+    font-weight: 500;
 }

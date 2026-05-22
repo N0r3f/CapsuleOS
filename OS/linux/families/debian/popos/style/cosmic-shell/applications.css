@@ -1,75 +1,221 @@
 /**
- * Grille Applications — Apps.png (barre « Applications »).
+ * Grille Applications — Apps.png (fenêtre flottante, au-dessus du dock).
  */
 body#popos .cosmic-applications {
     position: fixed;
-    inset: var(--popos-top-bar-height) 0 0 0;
-    z-index: 110;
+    top: calc(var(--popos-top-bar-height) + var(--popos-apps-gap));
+    right: var(--popos-apps-gap);
+    bottom: calc(var(--popos-dock-bottom) + var(--popos-dock-block-height) + var(--popos-apps-gap));
+    left: var(--popos-apps-gap);
+    z-index: 125;
     display: flex;
-    flex-direction: column;
-    padding: calc(var(--head) * 0.6) calc(var(--head) * 0.8);
-    background: rgba(14, 14, 16, 0.88);
-    backdrop-filter: blur(10px);
-    overflow-y: auto;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+body#popos .cosmic-applications:not([hidden]) {
+    pointer-events: auto;
 }
 
 body#popos .cosmic-applications[hidden] {
     display: none;
 }
 
-body#popos .cosmic-applications__header {
+body#popos .cosmic-applications__panel {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: calc(var(--head) * 0.5);
+    width: var(--popos-apps-panel-width);
+    height: 100%;
+    max-height: 100%;
+    padding: calc(var(--head) * 0.5) calc(var(--head) * 0.65) calc(var(--head) * 0.4);
+    border: var(--popos-panel-border);
+    border-radius: var(--popos-apps-panel-radius);
+    background: var(--popos-panel-bg);
+    box-shadow: var(--popos-panel-shadow);
+    overflow: hidden;
+    box-sizing: border-box;
+    pointer-events: auto;
 }
 
-body#popos .cosmic-applications__title {
-    margin: 0;
-    font-size: calc(var(--head) / 1.8);
-    font-weight: 600;
-    color: var(--popos-shell-text);
+body#popos .cosmic-applications__search {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex-shrink: 0;
+    gap: calc(var(--head) / 5);
+    width: var(--popos-apps-search-width);
+    min-width: calc(var(--head) * 12);
+    margin: 0 0 calc(var(--head) * 0.45);
+    padding: calc(var(--head) / 5) calc(var(--head) / 2.8);
+    border: 1px solid rgba(98, 208, 233, 0.45);
+    border-radius: 999px;
+    background: rgba(22, 22, 26, 0.85);
+    box-sizing: border-box;
+    transition: border-color var(--eas2), box-shadow var(--eas2);
 }
 
-body#popos .cosmic-applications__close {
-    width: calc(var(--head) * 0.9);
-    height: calc(var(--head) * 0.9);
+body#popos .cosmic-applications__search:focus-within {
+    border-color: var(--popos-accent);
+    box-shadow: 0 0 0 1px rgba(98, 208, 233, 0.25);
+}
+
+body#popos .cosmic-applications__search-icon {
+    flex-shrink: 0;
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    background: currentColor;
+    opacity: 0.7;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+body#popos .cosmic-applications__search-input {
+    flex: 1;
+    min-width: 0;
     border: none;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     color: var(--popos-shell-text);
-    font-size: calc(var(--head) / 2);
-    cursor: pointer;
+    font-size: calc(var(--head) / 2.35);
+    outline: none;
+}
+
+body#popos .cosmic-applications__scroll {
+    align-self: stretch;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0 calc(var(--head) * 0.1);
+    box-sizing: border-box;
 }
 
 body#popos .cosmic-applications__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(calc(var(--head) * 3.5), 1fr));
-    gap: calc(var(--head) / 2);
-    max-width: calc(var(--head) * 36);
+    grid-template-columns: repeat(var(--popos-apps-grid-cols), minmax(0, 1fr));
+    gap: calc(var(--head) / 1.85) calc(var(--head) / 2.4);
+    width: 100%;
+    justify-items: center;
 }
 
 body#popos .cosmic-applications__app {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: calc(var(--head) / 7);
-    padding: calc(var(--head) / 3);
-    border: none;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: calc(var(--head) * 4.2);
+    gap: calc(var(--head) / 6);
+    padding: calc(var(--head) / 5) calc(var(--head) / 10);
+    border: 1px solid transparent;
     border-radius: var(--popos-panel-radius);
     background: transparent;
     color: var(--popos-shell-text);
-    font-size: calc(var(--head) / 2.7);
+    font-size: calc(var(--head) / 2.75);
+    line-height: 1.2;
+    text-align: center;
     cursor: pointer;
-    transition: background-color var(--eas2);
+    transition: background-color var(--eas2), border-color var(--eas2);
 }
 
-body#popos .cosmic-applications__app:hover {
+body#popos .cosmic-applications__app:hover:not([aria-disabled="true"]) {
     background: rgba(255, 255, 255, 0.08);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos .cosmic-applications__app--static,
+body#popos .cosmic-applications__app[aria-disabled="true"] {
+    opacity: 0.92;
+    cursor: default;
+}
+
+body#popos .cosmic-applications__app[hidden] {
+    display: none;
 }
 
 body#popos .cosmic-applications__app img {
-    width: calc(var(--head) * 1.25);
-    height: calc(var(--head) * 1.25);
+    width: var(--popos-apps-icon-size);
+    height: var(--popos-apps-icon-size);
+    max-width: 100%;
     object-fit: contain;
+}
+
+body#popos .cosmic-applications__app span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body#popos .cosmic-applications__footer {
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: calc(var(--head) * 0.35);
+    padding-top: calc(var(--head) * 0.2);
+    box-sizing: border-box;
+}
+
+body#popos .cosmic-applications__sep {
+    height: 1px;
+    margin: 0 0 calc(var(--head) * 0.35);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#popos .cosmic-applications__categories {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: calc(var(--head) / 2.5);
+    flex-wrap: wrap;
+}
+
+body#popos .cosmic-applications__category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--head) / 10);
+    min-width: calc(var(--head) * 2.6);
+    padding: calc(var(--head) / 6) calc(var(--head) / 4);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 5);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.9);
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .cosmic-applications__category:hover:not([aria-disabled="true"]) {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body#popos .cosmic-applications__category--active,
+body#popos .cosmic-applications__category[aria-pressed="true"] {
+    background: var(--popos-apps-category-pill-bg);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+body#popos .cosmic-applications__category[aria-disabled="true"] {
+    opacity: 0.85;
+    cursor: default;
+}
+
+body#popos .cosmic-applications__category-symbolic {
+    width: calc(var(--head) / 1.35);
+    height: calc(var(--head) / 1.35);
+    object-fit: contain;
+    opacity: 0.92;
+    filter: brightness(0) invert(1);
+}
+
+body#popos .cosmic-applications__category--active .cosmic-applications__category-symbolic,
+body#popos .cosmic-applications__category[aria-pressed="true"] .cosmic-applications__category-symbolic {
+    opacity: 1;
 }

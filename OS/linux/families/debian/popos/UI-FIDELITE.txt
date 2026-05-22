@@ -20,10 +20,10 @@ Mapping capture → implémentation
 | desktop.png | style/cosmic-workstation.css, cosmic-shell/top-bar.css, cosmic-shell/dock.css, popos-tokens.css |
 | launcher.png | cosmic-shell/launcher.css, js/cosmic-launcher.js |
 | workspace.png | cosmic-shell/workspaces-rail.css, js/cosmic-workspaces.js (rail gauche, bureau net sans blur) |
-| Apps.png | cosmic-shell/applications.css |
+| Apps.png | cosmic-shell/applications.css, js/cosmic-applications.js (fenêtre flottante, recherche, catégories) |
 | calendar.png | cosmic-shell/calendar-popover.css |
 | shutdown.png | cosmic-shell/power-menu.css, js/cosmic-power-menu.js |
-| terminal_cosmic.png | style/apps/terminal.skin.css (phase 2) |
+| terminal_cosmic.png, terminal_max.png | style/apps/terminal.skin.css, kernel/js/terminal/terminal.js |
 | dossier_*.png | style/apps/files.skin.css, shared/apps/nemo-cosmic.html |
 
 État architecture (structure)
@@ -39,5 +39,7 @@ Mapping capture → implémentation
 - [x] Menu power fidélité shutdown.png (layout, séparateurs, icônes Cosmic, cyan #48b9c7)
 - [x] Calendrier Cosmic (calendar.png — colonne unique, en-tête date + jour, grille dim., jour cyan #48b9c7)
 - [x] Fichiers Cosmic (liste compacte / colonnes si maximisé, reset nemo.base, icônes places Cosmic)
-- [ ] Pixel-perfect fin (Apps onglets, terminal/firefox phase 2)
+- [x] Applications Cosmic (Apps.png — panneau centré au-dessus du dock, grille, catégories)
+- [x] Terminal Cosmic (chrome menus cyan, prompt vert/cyan, bordure active, maximisé)
+- [ ] Pixel-perfect fin (firefox phase 2)
 - [ ] Skins apps restants — voir style/apps/APPS-SKINS-PHASE2.md

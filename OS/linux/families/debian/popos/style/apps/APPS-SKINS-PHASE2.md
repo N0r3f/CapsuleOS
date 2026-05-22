@@ -12,10 +12,10 @@ Plan d’implémentation après le shell structurel (`index.html`, `cosmic-shell
 
 ## Terminal Cosmic
 
-- Surface sombre ~`#1a1a1e`, accent prompt cyan `#62d0e9`
-- Titre fenêtre = répertoire courant (réutiliser `paintGnomeTerminalTitle`)
-- Listing `ls` : colonnes, répertoires en cyan
-- Fenêtre sans dock gauche : largeur `calc(100vw - 2rem)`, ancrage sous top bar + dock bas
+- [x] Surface `#121214`, bordure active `#48b9c7`, chrome intégré (Fichier / Modifier / Affichage)
+- [x] Prompt : `goupil@pop-os` vert `#9ece6a`, chemin `~` cyan, `ls` en cyan
+- [x] Fenêtre centrée ; `[data-maximized="true"]` remplit l’espace top bar → dock
+- [x] `terminal.js` — `decorateCosmicTerminalWindow`, historique coloré
 
 ## Fichiers (Nemo Cosmic)
 

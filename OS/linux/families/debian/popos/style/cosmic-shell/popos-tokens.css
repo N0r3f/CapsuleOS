@@ -23,6 +23,13 @@ html:has(#popos) {
     --popos-panel-border: 1px solid rgba(255, 255, 255, 0.08);
     --popos-panel-radius: 0.75rem;
     --popos-panel-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    --popos-apps-gap: calc(var(--head) / 14);
+    --popos-apps-panel-width: min(96vw, calc(var(--head) * 52));
+    --popos-apps-panel-radius: calc(var(--head) / 2);
+    --popos-apps-search-width: 50%;
+    --popos-apps-grid-cols: 7;
+    --popos-apps-icon-size: calc(var(--head) * 1.95);
+    --popos-apps-category-pill-bg: rgba(255, 255, 255, 0.1);
     --popos-power-menu-bg: rgba(30, 30, 34, 0.94);
     --popos-power-menu-radius: calc(var(--head) / 2.85);
     --popos-power-menu-min-width: calc(var(--head) * 8.5);

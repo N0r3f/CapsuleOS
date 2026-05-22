@@ -31,6 +31,14 @@ function isUbuntuGnomeTerminal() {
     return typeof document !== 'undefined' && document.body && document.body.id === 'ubuntu';
 }
 
+function usesGnomeStyleLsListing() {
+    if (typeof document === 'undefined' || !document.body) {
+        return false;
+    }
+    const bodyId = document.body.id;
+    return bodyId === 'ubuntu' || bodyId === 'popos';
+}
+
 /** Colonnes type GNOME Terminal (réf. terminal.png) — noms sans slash initial. */
 function formatGnomeLsLines(fs, targetPath) {
     const names = getDirectoryListing(fs, targetPath)
@@ -241,7 +249,7 @@ function executeTerminalCommand(state, command, helpers = {}) {
                 const targetLabel = args[0] || targetPath;
                 return formatCommandResult(state, rawCommand, [`ls: impossible d'accéder à '${targetLabel}': Aucun fichier ou dossier de ce type`], { error: true });
             }
-            if (isUbuntuGnomeTerminal()) {
+            if (usesGnomeStyleLsListing()) {
                 return formatCommandResult(state, rawCommand, formatGnomeLsLines(fs, targetPath), {
                     listing: true
                 });

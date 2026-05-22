@@ -70,6 +70,39 @@ function renderTerminalLine(output, text, className) {
     output.appendChild(row);
 }
 
+function hostHasColoredTerminalChrome(node) {
+    const host = node && node.closest ? node.closest('[data-link="terminal"], #terminal') : null;
+    return Boolean(
+        host && (
+            host.classList.contains('terminal-window--gnome')
+            || host.classList.contains('terminal-window--cosmic')
+            || (document.body && document.body.id === 'ubuntu')
+        )
+    );
+}
+
+function appendPromptSegments(parent, text) {
+    const trimmed = String(text || '').replace(/\s+$/, '');
+    const match = trimmed.match(/^(.+@[^:]+)(:)([^$]+)(\$\s*)$/);
+    if (!match) {
+        parent.appendChild(document.createTextNode(trimmed));
+        return;
+    }
+    const userHost = document.createElement('span');
+    userHost.className = 'capsule-terminal__prompt-user';
+    userHost.textContent = match[1];
+    const colon = document.createElement('span');
+    colon.className = 'capsule-terminal__prompt-colon';
+    colon.textContent = match[2];
+    const pathSeg = document.createElement('span');
+    pathSeg.className = 'capsule-terminal__prompt-path-seg';
+    pathSeg.textContent = match[3];
+    const dollar = document.createElement('span');
+    dollar.className = 'capsule-terminal__prompt-dollar';
+    dollar.textContent = match[4];
+    parent.append(userHost, colon, pathSeg, dollar);
+}
+
 function renderExecutedCommand(output, promptText, command) {
     const row = document.createElement('div');
     row.className = 'capsule-terminal__line capsule-terminal__line--command';
@@ -78,7 +111,14 @@ function renderExecutedCommand(output, promptText, command) {
     lineCode.className = 'capsule-terminal__command-line';
     const prompt = String(promptText || '').replace(/\s+$/, '');
     const cmd = String(command || '').trim();
-    lineCode.textContent = cmd ? `${prompt} ${cmd}` : prompt;
+    if (hostHasColoredTerminalChrome(output)) {
+        appendPromptSegments(lineCode, prompt);
+        if (cmd) {
+            lineCode.appendChild(document.createTextNode(` ${cmd}`));
+        }
+    } else {
+        lineCode.textContent = cmd ? `${prompt} ${cmd}` : prompt;
+    }
     row.appendChild(lineCode);
 
     output.appendChild(row);
@@ -148,41 +188,15 @@ function isCosmicTerminalChrome() {
     return Boolean(document.body && document.body.id === 'popos');
 }
 
-function isUbuntuTerminalPromptContext(promptEl) {
-    if (!promptEl) {
-        return false;
-    }
-    const host = promptEl.closest('[data-link="terminal"], #terminal');
-    return Boolean(
-        host && (
-            host.classList.contains('terminal-window--gnome')
-            || (document.body && document.body.id === 'ubuntu')
-        )
-    );
-}
-
 function paintTerminalPrompt(promptEl, text) {
     if (!promptEl) {
         return;
     }
-    const gnome = isUbuntuTerminalPromptContext(promptEl);
+    const colored = hostHasColoredTerminalChrome(promptEl);
     const isActivePrompt = Boolean(promptEl.closest('[data-terminal-form], #input'));
-    const match = gnome && isActivePrompt && text.match(/^(.+@[^:]+)(:)([^$]+)(\$\s*)$/);
-    if (match) {
+    if (colored && isActivePrompt && text.match(/^(.+@[^:]+)(:)([^$]+)(\$\s*)$/)) {
         promptEl.textContent = '';
-        const userHost = document.createElement('span');
-        userHost.className = 'capsule-terminal__prompt-user';
-        userHost.textContent = match[1];
-        const colon = document.createElement('span');
-        colon.className = 'capsule-terminal__prompt-colon';
-        colon.textContent = match[2];
-        const pathSeg = document.createElement('span');
-        pathSeg.className = 'capsule-terminal__prompt-path-seg';
-        pathSeg.textContent = match[3];
-        const dollar = document.createElement('span');
-        dollar.className = 'capsule-terminal__prompt-dollar';
-        dollar.textContent = match[4];
-        promptEl.append(userHost, colon, pathSeg, dollar);
+        appendPromptSegments(promptEl, text);
         return;
     }
     promptEl.textContent = text;
@@ -255,7 +269,10 @@ function renderListingLine(output, line, session, columnWidthCh) {
 
     const code = document.createElement('code');
     if (columnWidthCh) {
-        code.style.setProperty('--ubuntu-terminal-ls-col-width', `${columnWidthCh}ch`);
+        const lsVar = document.body && document.body.id === 'popos'
+            ? '--popos-terminal-ls-col-width'
+            : '--ubuntu-terminal-ls-col-width';
+        code.style.setProperty(lsVar, `${columnWidthCh}ch`);
     }
     const names = String(line || '').trim().split(/\s+/).filter(Boolean);
     const gnomeListing = isGnomeTerminalChrome();
@@ -275,6 +292,89 @@ function renderListingLine(output, line, session, columnWidthCh) {
     output.appendChild(row);
 }
 
+function decorateCosmicTerminalWindow(container) {
+    if (!isCosmicTerminalChrome()) {
+        return;
+    }
+
+    const windowElement = container.closest('.windowElement');
+    if (!windowElement || windowElement.dataset.link !== 'terminal') {
+        return;
+    }
+
+    windowElement.classList.add('terminal-window--cosmic');
+
+    const applyChrome = () => {
+        const header = windowElement.querySelector('#windowHeader');
+        if (!header) {
+            return false;
+        }
+        if (header.dataset.cosmicTerminalChrome === 'true') {
+            return true;
+        }
+
+        header.dataset.cosmicTerminalChrome = 'true';
+        const navs = header.querySelectorAll('nav');
+        const left = navs[0];
+        const right = navs[1];
+
+        if (left) {
+            left.innerHTML = '';
+            ['Fichier', 'Modifier', 'Affichage'].forEach((label) => {
+                const item = document.createElement('button');
+                item.type = 'button';
+                item.className = 'cosmic-terminal-header__menu';
+                item.textContent = label;
+                item.tabIndex = -1;
+                left.appendChild(item);
+            });
+        }
+
+        if (right) {
+            right.querySelectorAll('.gnome-terminal-header__button').forEach((node) => node.remove());
+            const addTab = createFedoraTerminalButton(
+                'cosmic-terminal-header__button cosmic-terminal-header__button--new-tab',
+                'Nouvel onglet',
+                ''
+            );
+            const minimize = right.querySelector('#minimizeBtn');
+            if (minimize) {
+                right.insertBefore(addTab, minimize);
+            } else {
+                right.appendChild(addTab);
+            }
+        }
+
+        return true;
+    };
+
+    const refreshCosmicTerminalPromptChrome = () => {
+        const app = windowElement.querySelector('[data-terminal-app]');
+        if (!app || !app.__capsuleTerminalSession) {
+            return;
+        }
+        const promptText = app.__capsuleTerminalSession.getPrompt();
+        const promptEl = windowElement.querySelector('[data-terminal-prompt], #prompt');
+        if (promptEl) {
+            paintTerminalPrompt(promptEl, promptText);
+        }
+        syncGnomeTerminalTitle(windowElement, promptText);
+    };
+
+    if (applyChrome()) {
+        refreshCosmicTerminalPromptChrome();
+    } else if (windowElement.dataset.cosmicTerminalObserver !== 'true') {
+        windowElement.dataset.cosmicTerminalObserver = 'true';
+        const observer = new MutationObserver(() => {
+            if (applyChrome()) {
+                observer.disconnect();
+                refreshCosmicTerminalPromptChrome();
+            }
+        });
+        observer.observe(windowElement, { childList: true });
+    }
+}
+
 function decorateGnomeTerminalWindow(container) {
     if (!isGnomeTerminalChrome()) {
         return;
@@ -285,7 +385,12 @@ function decorateGnomeTerminalWindow(container) {
         return;
     }
 
-    windowElement.classList.add(isCosmicTerminalChrome() ? 'terminal-window--cosmic' : 'terminal-window--gnome');
+    if (isCosmicTerminalChrome()) {
+        decorateCosmicTerminalWindow(container);
+        return;
+    }
+
+    windowElement.classList.add('terminal-window--gnome');
 
     const applyChrome = () => {
         const header = windowElement.querySelector('#windowHeader');

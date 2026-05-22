@@ -70,9 +70,34 @@ Fichiers : `media/img/symbolic/power/*.svg` — `<img>` + filtres CSS — [`powe
 
 Couleur actions : `--popos-power-action-color` (`#48b9c7`) via filtre sur `.cosmic-power-menu__icon--action`.
 
-## Grille Applications (`Apps.png`) — phase ultérieure
+## Grille Applications (`Apps.png`)
 
-Dossier prévu : `media/img/apps/overview/` (mêmes sources Cosmic que le dock + apps visibles sur la capture).
+### Apps couleur — `media/img/apps/overview/`
+
+| Libellé capture | Fichier CapsuleOS | Source `visuel/icons/` |
+|-----------------|-------------------|-------------------------|
+| Fichiers COSMIC | `cosmic-files.svg` | `hicolor/128x128/apps/com.system76.CosmicFiles.svg` |
+| Firefox | `firefox.png` | `ubuntu/media/img/dock/firefox.png` |
+| Lecteur Multimédia COSMIC | `cosmic-player.svg` | `hicolor/128x128/apps/com.system76.CosmicPlayer.svg` |
+| Paramètres COSMIC | `cosmic-settings.svg` | `hicolor/128x128/apps/com.system76.CosmicSettings.svg` |
+| Paramètres de Qt5 | `qt5-settings.svg` | `breeze/preferences/32/preferences-gtk-config.svg` |
+| Paramètres de Qt6 | `qt6-settings.svg` | `Pop/128x128/apps/mate-preferences-desktop-display.svg` |
+| Store COSMIC | `cosmic-store.svg` | `hicolor/128x128/apps/com.system76.CosmicStore.svg` |
+| Terminal COSMIC | `cosmic-terminal.svg` | `hicolor/128x128/apps/com.system76.CosmicTerm.svg` |
+| Éditeur de texte COSMIC | `cosmic-text-editor.svg` | `hicolor/128x128/apps/com.system76.CosmicEdit.svg` |
+
+Le dock conserve `media/img/dock/*` (48×48) ; la grille Applications utilise les SVG 128×128 pour la fidélité `Apps.png`.
+
+### Catégories (monochrome clair) — `media/img/symbolic/apps-categories/`
+
+Sources `Cosmic/scalable/` ; teinte via CSS `filter: brightness(0) invert(1)` sur `.cosmic-applications__category-symbolic`.
+
+| Catégorie | Fichier | Source |
+|-----------|---------|--------|
+| Accueil | `home.svg` | `places/user-home-symbolic.svg` |
+| Bureautique | `office.svg` | `places/folder-documents-symbolic.svg` |
+| Système / Utilitaires | `system.svg`, `utilities.svg` | `places/folder-symbolic.svg` |
+| Ajout dossier | `folder-new.svg` | `actions/folder-new-symbolic.svg` |
 
 ## Fichiers Cosmic (`nemo-cosmic`)
 

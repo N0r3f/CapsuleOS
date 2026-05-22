@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./media/img/assets/pop-logo.png" type="image/png">
-    <link rel="stylesheet" href="./style/imports.css?v=20260522l" type="text/css">
+    <link rel="stylesheet" href="./style/imports.css?v=20260522p" type="text/css">
     <link rel="stylesheet" href="../../debian/mint/style/tour.css?v=20260428" type="text/css">
     <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
     <link rel="stylesheet" href="./popos-overrides.css?v=20260522" type="text/css">
@@ -174,36 +174,94 @@
     </section>
 
     <section class="cosmic-applications" id="cosmic-applications" hidden aria-label="Applications">
-        <header class="cosmic-applications__header">
-            <h2 class="cosmic-applications__title">Applications</h2>
-            <button type="button" class="cosmic-applications__close" id="cosmic-applications-close"
-                    aria-label="Fermer">×</button>
-        </header>
-        <div class="cosmic-applications__grid">
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="firefox" aria-label="Firefox">
-                <img src="./media/img/dock/firefox.png" alt="">
-                <span>Firefox</span>
-            </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="nemo" aria-label="Fichiers">
-                <img src="./media/img/dock/files.svg" alt="">
-                <span>Fichiers</span>
-            </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="checklist" aria-label="Éditeur de texte">
-                <img src="./media/img/dock/text-editor.svg" alt="">
-                <span>Éditeur de texte</span>
-            </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="terminal" aria-label="Terminal">
-                <img src="./media/img/dock/terminal.svg" alt="">
-                <span>Terminal</span>
-            </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="themes" aria-label="Pop!_Shop">
-                <img src="./media/img/dock/pop-shop.svg" alt="">
-                <span>Pop!_Shop</span>
-            </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="profile" aria-label="Paramètres">
-                <img src="./media/img/dock/settings.svg" alt="">
-                <span>Paramètres</span>
-            </button>
+        <div class="cosmic-applications__panel">
+            <form class="cosmic-applications__search" role="search" onsubmit="return false;">
+                <span class="cosmic-applications__search-icon" aria-hidden="true"></span>
+                <label class="sr-only" for="cosmic-applications-search">Rechercher des applications</label>
+                <input id="cosmic-applications-search" class="cosmic-applications__search-input" type="search"
+                       placeholder="Taper pour rechercher des applications…" autocomplete="off" spellcheck="false">
+            </form>
+            <div class="cosmic-applications__scroll">
+                <div class="cosmic-applications__grid" id="cosmic-applications-grid">
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="nemo"
+                            data-cosmic-category="home utilities" aria-label="Fichiers COSMIC">
+                        <img src="./media/img/apps/overview/cosmic-files.svg" alt="">
+                        <span>Fichiers COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="firefox"
+                            data-cosmic-category="home office" aria-label="Firefox">
+                        <img src="./media/img/apps/overview/firefox.png" alt="">
+                        <span>Firefox</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="lecteur_multimedia"
+                            data-cosmic-category="home utilities" aria-label="Lecteur Multimédia COSMIC">
+                        <img src="./media/img/apps/overview/cosmic-player.svg" alt="">
+                        <span>Lecteur Multimédia COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="profile"
+                            data-cosmic-category="home system" aria-label="Paramètres COSMIC">
+                        <img src="./media/img/apps/overview/cosmic-settings.svg" alt="">
+                        <span>Paramètres COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app cosmic-applications__app--static"
+                            data-cosmic-category="home" tabindex="-1" aria-disabled="true"
+                            aria-label="Paramètres de Qt5">
+                        <img src="./media/img/apps/overview/qt5-settings.svg" alt="">
+                        <span>Paramètres de Qt5</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app cosmic-applications__app--static"
+                            data-cosmic-category="home" tabindex="-1" aria-disabled="true"
+                            aria-label="Paramètres de Qt6">
+                        <img src="./media/img/apps/overview/qt6-settings.svg" alt="">
+                        <span>Paramètres de Qt6</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="themes"
+                            data-cosmic-category="home system" aria-label="Store COSMIC">
+                        <img src="./media/img/apps/overview/cosmic-store.svg" alt="">
+                        <span>Store COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="terminal"
+                            data-cosmic-category="home system" aria-label="Terminal COSMIC">
+                        <img src="./media/img/apps/overview/cosmic-terminal.svg" alt="">
+                        <span>Terminal COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="checklist"
+                            data-cosmic-category="home office" aria-label="Éditeur de texte COSMIC">
+                        <img src="./media/img/apps/overview/cosmic-text-editor.svg" alt="">
+                        <span>Éditeur de texte COSMIC</span>
+                    </button>
+                </div>
+            </div>
+            <footer class="cosmic-applications__footer">
+                <div class="cosmic-applications__sep" role="separator" aria-hidden="true"></div>
+                <nav class="cosmic-applications__categories" aria-label="Catégories d'applications">
+                    <button type="button" class="cosmic-applications__category cosmic-applications__category--active"
+                            data-apps-category="home" aria-pressed="true">
+                        <img class="cosmic-applications__category-symbolic" src="./media/img/symbolic/apps-categories/home.svg" alt="" aria-hidden="true">
+                        <span>Accueil</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category" data-apps-category="office"
+                            aria-pressed="false">
+                        <img class="cosmic-applications__category-symbolic" src="./media/img/symbolic/apps-categories/office.svg" alt="" aria-hidden="true">
+                        <span>Bureautique</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category" data-apps-category="system"
+                            aria-pressed="false">
+                        <img class="cosmic-applications__category-symbolic" src="./media/img/symbolic/apps-categories/system.svg" alt="" aria-hidden="true">
+                        <span>Système</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category" data-apps-category="utilities"
+                            aria-pressed="false">
+                        <img class="cosmic-applications__category-symbolic" src="./media/img/symbolic/apps-categories/utilities.svg" alt="" aria-hidden="true">
+                        <span>Utilitaires</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category cosmic-applications__category--add"
+                            data-apps-category="add" aria-pressed="false" tabindex="-1" aria-disabled="true">
+                        <img class="cosmic-applications__category-symbolic" src="./media/img/symbolic/apps-categories/folder-new.svg" alt="" aria-hidden="true">
+                        <span>Ajout dossier</span>
+                    </button>
+                </nav>
+            </footer>
         </div>
     </section>
 
@@ -302,9 +360,9 @@
         window.CAPSULE_CHECKLIST_STORAGE_KEY = 'popos-checklist';
         window.CAPSULE_SITE_HOME = '../../../../../index.html';
         window.CAPSULE_LINUX_HUB = '../../../index.html';
-        window.CAPSULE_TERMINAL_USER = 'pop-os';
+        window.CAPSULE_TERMINAL_USER = 'goupil';
         window.CAPSULE_TERMINAL_HOST = 'pop-os';
-        window.CAPSULE_TERMINAL_HOME = '/home/pop-os';
+        window.CAPSULE_TERMINAL_HOME = '/home/user';
         window.CAPSULE_TERMINAL_OS_FAMILY = 'linux';
         window.CAPSULE_TERMINAL_PROFILE = 'debian';
         window.CAPSULE_FILE_EXPLORER_ICON_MAP = {
@@ -343,9 +401,9 @@
     <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
     <script src="../../../kernel/js/capsule-theme.js?v=20260424"></script>
     <script src="../../../kernel/js/windowContainer.js?v=20260424"></script>
+    <script src="../../../kernel/js/windowDrag.js?v=20260522"></script>
     <script src="../../../kernel/js/windowHeaderButton.js?v=20260424"></script>
     <script src="../../../kernel/js/resizeWindow.js"></script>
-    <script src="../../../kernel/js/windowDrag.js"></script>
     <script src="../../../kernel/js/mainMenu-data.js?v=20260424"></script>
     <script src="../../../kernel/js/mainMenu.js?v=20260428"></script>
     <script src="../../../kernel/js/themes.js?v=20260424"></script>
@@ -366,9 +424,9 @@
     <script src="../../../kernel/js/terminal/config/profiles/linux/debian.js"></script>
     <script src="../../../kernel/js/terminal/terminal-profile.js"></script>
     <script src="../../../kernel/js/terminal/terminal-core.js"></script>
-    <script src="../../../kernel/js/terminal/terminal.js"></script>
-    <script src="../../../kernel/js/terminal/executeCommand.js"></script>
     <script src="../../../kernel/js/terminal/filesystem.js"></script>
+    <script src="../../../kernel/js/terminal/executeCommand.js"></script>
+    <script src="../../../kernel/js/terminal/terminal.js?v=20260523"></script>
     <script src="../../../kernel/js/terminal/manuel.js"></script>
     <script src="../../../kernel/js/tour-data.js"></script>
     <script src="../../../kernel/js/tour.js?v=20260428"></script>
@@ -377,8 +435,8 @@
     <script src="./js/cosmic-shell-state.js?v=20260521"></script>
     <script src="./js/cosmic-workspaces.js?v=20260522"></script>
     <script src="./js/cosmic-launcher.js?v=20260521"></script>
-    <script src="./js/cosmic-applications.js?v=20260521"></script>
-    <script src="./js/cosmic-dock.js?v=20260521"></script>
+    <script src="./js/cosmic-applications.js?v=20260522"></script>
+    <script src="./js/cosmic-dock.js?v=20260522"></script>
     <script src="./js/cosmic-power-menu.js?v=20260522g"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {

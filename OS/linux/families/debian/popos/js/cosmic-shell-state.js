@@ -32,6 +32,8 @@
         });
         var dockLauncher = document.getElementById('cosmic-dock-launcher');
         if (dockLauncher) dockLauncher.setAttribute('aria-pressed', 'false');
+        var dockApps = document.getElementById('cosmic-dock-applications');
+        if (dockApps) dockApps.setAttribute('aria-pressed', 'false');
         setOverlayOpen(false);
     }
 
