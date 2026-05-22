@@ -5,14 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function tick() {
         const now = new Date();
-        const shortTime = now.toLocaleTimeString('fr-FR', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
+        const isPopos = document.body && document.body.id === 'popos';
+        const shortTime = now.toLocaleTimeString('fr-FR', isPopos
+            ? { hour: '2-digit', minute: '2-digit', hour12: false }
+            : { hour: '2-digit', minute: '2-digit' });
 
         if (clock) {
             clock.textContent = shortTime;
             clock.setAttribute('datetime', now.toISOString());
+        }
+
+        const poposDate = document.getElementById('popos-clock-date');
+        if (poposDate) {
+            poposDate.textContent = now.toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long'
+            });
         }
 
         if (dateLabel) {

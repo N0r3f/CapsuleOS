@@ -81,9 +81,15 @@ body#popos .cosmic-backdrop {
     transition: opacity var(--eas2);
 }
 
-body#popos.cosmic-overlay-open .cosmic-backdrop {
+body#popos.cosmic-overlay-open:not(.cosmic-workspaces-open) .cosmic-backdrop {
     opacity: 1;
     pointer-events: auto;
+}
+
+/* Workspaces : bureau visible, pas de voile ni blur (workspace.png) */
+body#popos.cosmic-workspaces-open.cosmic-overlay-open .cosmic-backdrop {
+    opacity: 0;
+    pointer-events: none;
 }
 
 body#popos .sr-only {

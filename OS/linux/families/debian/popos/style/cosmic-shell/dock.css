@@ -1,5 +1,6 @@
 /**
  * Dock flottant centré en bas — COSMIC.
+ * Échelle globale : --popos-dock-scale (popos-tokens.css).
  */
 body#popos .cosmic-dock {
     position: fixed;
@@ -11,8 +12,8 @@ body#popos .cosmic-dock {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    gap: calc(var(--head) / 10);
-    padding: calc(var(--head) / 8) calc(var(--head) / 5);
+    gap: calc(var(--head) / 10 * var(--popos-dock-scale));
+    padding: calc(var(--head) / 8 * var(--popos-dock-scale)) calc(var(--head) / 5 * var(--popos-dock-scale));
     border-radius: var(--popos-dock-radius);
     background: var(--popos-dock-bg);
     border: var(--popos-dock-border);
@@ -24,11 +25,11 @@ body#popos .cosmic-dock__item {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(var(--head) * 1.05);
-    height: calc(var(--head) * 1.05);
-    padding: calc(var(--head) / 14);
+    width: calc(var(--head) * 1.05 * var(--popos-dock-scale));
+    height: calc(var(--head) * 1.05 * var(--popos-dock-scale));
+    padding: calc(var(--head) / 14 * var(--popos-dock-scale));
     border: none;
-    border-radius: calc(var(--head) / 5);
+    border-radius: calc(var(--head) / 5 * var(--popos-dock-scale));
     background: transparent;
     cursor: pointer;
     text-decoration: none;
@@ -36,7 +37,7 @@ body#popos .cosmic-dock__item {
 }
 
 body#popos .cosmic-dock__item:hover {
-    transform: translateY(-2px);
+    transform: translateY(calc(-2px * var(--popos-dock-scale)));
     background: rgba(255, 255, 255, 0.08);
 }
 
@@ -47,15 +48,15 @@ body#popos .cosmic-dock__item[aria-pressed="true"] {
 }
 
 body#popos .cosmic-dock__item img {
-    width: calc(var(--head) * 0.72);
-    height: calc(var(--head) * 0.72);
+    width: calc(var(--head) * 0.72 * var(--popos-dock-scale));
+    height: calc(var(--head) * 0.72 * var(--popos-dock-scale));
     object-fit: contain;
     display: block;
 }
 
 body#popos .cosmic-dock__separator {
     width: 1px;
-    height: calc(var(--head) * 0.55);
-    margin: 0 calc(var(--head) / 16);
+    height: calc(var(--head) * 0.55 * var(--popos-dock-scale));
+    margin: 0 calc(var(--head) / 16 * var(--popos-dock-scale));
     background: rgba(255, 255, 255, 0.12);
 }

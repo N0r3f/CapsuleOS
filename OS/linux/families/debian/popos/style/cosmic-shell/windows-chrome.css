@@ -5,7 +5,7 @@ body#popos div[class^="windowElement"]:not(#mainMenu) {
     position: fixed;
     top: calc(var(--popos-top-bar-height) + var(--head));
     left: calc(var(--head) * 0.75);
-    bottom: calc(var(--popos-dock-bottom) + calc(var(--head) * 2.2));
+    bottom: calc(var(--popos-dock-bottom) + calc(var(--head) * 2.2 * var(--popos-dock-scale)));
     right: auto;
     display: var(--f);
     flex-flow: var(--cnw);

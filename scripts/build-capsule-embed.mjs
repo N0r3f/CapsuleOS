@@ -68,7 +68,7 @@ function listSkinIds(skinDir) {
 }
 
 function buildCssBase(templateId) {
-    const cssBaseId = templateId === 'nemo-gnome' ? 'nemo' : templateId;
+    const cssBaseId = templateId === 'nemo-gnome' || templateId === 'nemo-cosmic' ? 'nemo' : templateId;
     const baseFile = path.join(STYLE_DIR, `${cssBaseId}.base.css`);
     let text = readUtf8(baseFile);
     if (templateId === 'dolphin') {

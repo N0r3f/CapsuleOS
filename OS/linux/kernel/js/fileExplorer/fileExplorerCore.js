@@ -227,12 +227,56 @@ const findFolderLabel = (path) => {
 
 const isDolphinTemplate = () => !!document.querySelector('#nemo main#gestionnaire.dolphin-app');
 
+const isCosmicFilesExplorer = () => !!document.querySelector('#nemo main#gestionnaire.cosmic-files-app');
+
 const isGnomeFilesExplorer = () => (
     typeof window !== 'undefined'
     && window.CAPSULE_EXPLORER_SKIN_KEY === 'files'
 );
 
-const usesSidebarSelection = () => isDolphinTemplate() || isGnomeFilesExplorer();
+const usesSidebarSelection = () => isDolphinTemplate() || isGnomeFilesExplorer() || isCosmicFilesExplorer();
+
+const formatCosmicModifiedLabel = () => {
+    const now = new Date();
+    const time = now.toLocaleTimeString('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+    return `Aujourd'hui, ${time}`;
+};
+
+const getCosmicFolderItemCount = (item) => {
+    if (!item || item.type !== 'folder' || !fileExplorerState.manifest || !fileExplorerState.manifest.folders) {
+        return 0;
+    }
+    const node = fileExplorerState.manifest.folders[item.path];
+    return node && Array.isArray(node.items) ? node.items.length : 0;
+};
+
+const formatCosmicItemMeta = (item) => {
+    const modified = formatCosmicModifiedLabel();
+    if (item.type === 'folder') {
+        const count = getCosmicFolderItemCount(item);
+        const label = count === 1 ? '1 élément' : `${count} éléments`;
+        return `${modified} - ${label}`;
+    }
+    return modified;
+};
+
+const formatCosmicItemSize = (item) => {
+    if (item.type !== 'folder') {
+        return '—';
+    }
+    const count = getCosmicFolderItemCount(item);
+    if (count === 0) {
+        return '0 items';
+    }
+    if (count === 1) {
+        return '1 item';
+    }
+    return `${count} items`;
+};
 
 const countFoldersInItems = (items) => {
     if (!items || !Array.isArray(items)) {
@@ -422,14 +466,46 @@ const renderDirectory = (path) => {
     }
 
     folderNode.items.forEach((item) => {
+        if (isCosmicFilesExplorer() && item.name === 'Public') {
+            return;
+        }
+
         const itemLink = document.createElement('a');
         itemLink.setAttribute('data-details', item.type === 'folder' ? 'Dossier' : 'Fichier');
-        itemLink.textContent = item.name;
 
         const icon = document.createElement('img');
         icon.src = resolveItemIcon(item);
         icon.alt = item.name;
-        itemLink.prepend(icon);
+        itemLink.appendChild(icon);
+
+        if (isCosmicFilesExplorer()) {
+            const body = document.createElement('span');
+            body.className = 'nemo-app__item-body';
+
+            const nameEl = document.createElement('span');
+            nameEl.className = 'nemo-app__item-name';
+            nameEl.textContent = item.name;
+
+            const metaEl = document.createElement('span');
+            metaEl.className = 'nemo-app__item-meta';
+            metaEl.textContent = formatCosmicItemMeta(item);
+
+            body.appendChild(nameEl);
+            body.appendChild(metaEl);
+            itemLink.appendChild(body);
+
+            const modifiedEl = document.createElement('span');
+            modifiedEl.className = 'nemo-app__item-modified';
+            modifiedEl.textContent = formatCosmicModifiedLabel();
+            itemLink.appendChild(modifiedEl);
+
+            const sizeEl = document.createElement('span');
+            sizeEl.className = 'nemo-app__item-size';
+            sizeEl.textContent = formatCosmicItemSize(item);
+            itemLink.appendChild(sizeEl);
+        } else {
+            itemLink.textContent = item.name;
+        }
 
         if (item.type === 'folder') {
             itemLink.classList.add('nemo-app__item--folder');

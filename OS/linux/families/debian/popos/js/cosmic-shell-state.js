@@ -24,6 +24,9 @@
         if (apps) apps.hidden = true;
         if (rail) rail.hidden = true;
         if (power) power.hidden = true;
+        var btnPower = document.getElementById('cosmic-tray-power-btn');
+        if (btnPower) btnPower.setAttribute('aria-expanded', 'false');
+        if (body) body.classList.remove('cosmic-workspaces-open');
         document.querySelectorAll('[data-cosmic-nav]').forEach(function (btn) {
             btn.setAttribute('aria-pressed', 'false');
         });

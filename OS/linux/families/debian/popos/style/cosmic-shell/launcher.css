@@ -3,7 +3,7 @@
  */
 body#popos .cosmic-launcher {
     position: fixed;
-    inset: var(--popos-top-bar-height) 0 calc(var(--popos-dock-bottom) + calc(var(--head) * 2.8)) 0;
+    inset: var(--popos-top-bar-height) 0 calc(var(--popos-dock-bottom) + calc(var(--head) * 2.8 * var(--popos-dock-scale))) 0;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -24,10 +24,16 @@ body#popos .cosmic-launcher__search {
     width: min(100%, calc(var(--head) * 22));
     padding: calc(var(--head) / 5) calc(var(--head) / 3);
     margin-bottom: calc(var(--head) * 0.6);
-    border: var(--popos-panel-border);
+    border: 1px solid rgba(98, 208, 233, 0.35);
     border-radius: 999px;
     background: var(--popos-panel-bg);
     box-shadow: var(--popos-panel-shadow);
+    transition: border-color var(--eas2), box-shadow var(--eas2);
+}
+
+body#popos .cosmic-launcher__search:focus-within {
+    border-color: var(--popos-accent);
+    box-shadow: 0 0 0 1px rgba(98, 208, 233, 0.25), var(--popos-panel-shadow);
 }
 
 body#popos .cosmic-launcher__search-icon {

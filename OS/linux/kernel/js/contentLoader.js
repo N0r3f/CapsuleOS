@@ -46,7 +46,7 @@ const resolveTemplateId = (slotId) => {
 
 /** Gabarit HTML dérivé de Nautilus (ex. nemo-gnome) → CSS de base `nemo.base.css`. */
 const resolveCssBaseTemplateId = (templateId) => (
-    templateId === 'nemo-gnome' ? 'nemo' : templateId
+    templateId === 'nemo-gnome' || templateId === 'nemo-cosmic' ? 'nemo' : templateId
 );
 
 const resolveSkinId = (slotId, templateId) => {

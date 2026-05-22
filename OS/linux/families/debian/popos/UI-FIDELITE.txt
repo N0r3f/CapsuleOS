@@ -5,7 +5,7 @@ Références visuelles
 --------------------
 - Captures : media/reference/ (copies de visuel/screenshot/popos_cosmic/)
 - Fond : media/img/assets/wallpaper-cosmic.jpg (source visuel/wallpapper/cosmic.jpg)
-- Icônes dock : media/img/dock/ — voir media/img/ICONS-POP.md (sources visuel/icons_Pop!_OS/)
+- Icônes dock : media/img/dock/ — voir media/img/ICONS-POP.md (sources visuel/icons/hicolor + Cosmic symbolic)
 
 Base technique
 --------------
@@ -19,12 +19,12 @@ Mapping capture → implémentation
 |---------|----------|
 | desktop.png | style/cosmic-workstation.css, cosmic-shell/top-bar.css, cosmic-shell/dock.css, popos-tokens.css |
 | launcher.png | cosmic-shell/launcher.css, js/cosmic-launcher.js |
-| workspace.png | cosmic-shell/workspaces-rail.css, js/cosmic-workspaces.js |
+| workspace.png | cosmic-shell/workspaces-rail.css, js/cosmic-workspaces.js (rail gauche, bureau net sans blur) |
 | Apps.png | cosmic-shell/applications.css |
 | calendar.png | cosmic-shell/calendar-popover.css |
 | shutdown.png | cosmic-shell/power-menu.css, js/cosmic-power-menu.js |
 | terminal_cosmic.png | style/apps/terminal.skin.css (phase 2) |
-| dossier_*.png | style/apps/files.skin.css, template nemo-cosmic (phase 2) |
+| dossier_*.png | style/apps/files.skin.css, shared/apps/nemo-cosmic.html |
 
 État architecture (structure)
 -----------------------------
@@ -34,5 +34,10 @@ Mapping capture → implémentation
 - [x] index.html shell Cosmic (body#popos)
 - [x] Tokens + imports cosmic-shell/*
 - [x] JS shell : workspaces, launcher, dock, power-menu
-- [ ] Pixel-perfect par capture (phases fidélité suivantes)
-- [ ] Skins apps complets — voir style/apps/APPS-SKINS-PHASE2.md
+- [x] Icônes dock + tray + menu alimentation (ICONS-POP.md, SVG Cosmic)
+- [x] Ordre dock + tray étendu + menu power (shutdown.png structure)
+- [x] Menu power fidélité shutdown.png (layout, séparateurs, icônes Cosmic, cyan #48b9c7)
+- [x] Calendrier Cosmic (calendar.png — colonne unique, en-tête date + jour, grille dim., jour cyan #48b9c7)
+- [x] Fichiers Cosmic (liste compacte / colonnes si maximisé, reset nemo.base, icônes places Cosmic)
+- [ ] Pixel-perfect fin (Apps onglets, terminal/firefox phase 2)
+- [ ] Skins apps restants — voir style/apps/APPS-SKINS-PHASE2.md

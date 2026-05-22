@@ -1,10 +1,10 @@
 /**
- * Rail workspaces + bouton barre « Workspaces ».
+ * Rail workspaces + bouton barre « Workspaces » (workspace.png — sans blur bureau).
  */
 (function () {
     var btnWorkspaces = document.getElementById('cosmic-btn-workspaces');
+    var dockWorkspaces = document.getElementById('cosmic-dock-workspaces');
     var rail = document.getElementById('cosmic-workspaces-rail');
-    var backdrop = document.getElementById('cosmic-backdrop');
 
     if (!btnWorkspaces || !rail) return;
 
@@ -16,44 +16,43 @@
         if (window.CosmicShellState) CosmicShellState.closeAll();
         rail.hidden = false;
         btnWorkspaces.setAttribute('aria-pressed', 'true');
-        if (window.CosmicShellState) CosmicShellState.setOverlayOpen(true);
+        document.body.classList.add('cosmic-workspaces-open');
     }
 
     function close() {
         rail.hidden = true;
         btnWorkspaces.setAttribute('aria-pressed', 'false');
-        if (window.CosmicShellState) CosmicShellState.setOverlayOpen(false);
-    }
-
-    function toggle() {
-        if (isOpen()) close();
-        else open();
+        document.body.classList.remove('cosmic-workspaces-open');
     }
 
     btnWorkspaces.addEventListener('click', function (e) {
         e.stopPropagation();
-        toggle();
-    });
-
-    rail.querySelectorAll('[data-workspace-select]').forEach(function (card) {
-        card.addEventListener('click', function () {
-            rail.querySelectorAll('[data-workspace-select]').forEach(function (c) {
-                c.classList.remove('cosmic-workspaces-rail__card--active');
-            });
-            card.classList.add('cosmic-workspaces-rail__card--active');
+        if (isOpen()) {
             close();
+            return;
+        }
+        open();
+    });
+
+    rail.querySelectorAll('[data-workspace-select]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            rail.querySelectorAll('.cosmic-workspaces-rail__workspace').forEach(function (item) {
+                item.classList.remove('cosmic-workspaces-rail__workspace--active');
+            });
+            btn.classList.add('cosmic-workspaces-rail__workspace--active');
         });
     });
 
-    if (backdrop) {
-        backdrop.addEventListener('click', function () {
-            if (window.CosmicShellState) CosmicShellState.closeAll();
-        });
-    }
+    document.addEventListener('click', function (e) {
+        if (!isOpen()) return;
+        if (rail.contains(e.target)) return;
+        if (btnWorkspaces.contains(e.target)) return;
+        if (dockWorkspaces && dockWorkspaces.contains(e.target)) return;
+        close();
+    });
 
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && isOpen()) {
-            close();
-        }
+        if (e.key === 'Escape' && isOpen()) close();
     });
 })();

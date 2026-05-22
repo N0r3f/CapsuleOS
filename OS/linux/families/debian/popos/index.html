@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./media/img/assets/pop-logo.png" type="image/png">
-    <link rel="stylesheet" href="./style/imports.css?v=20260521" type="text/css">
+    <link rel="stylesheet" href="./style/imports.css?v=20260522l" type="text/css">
     <link rel="stylesheet" href="../../debian/mint/style/tour.css?v=20260428" type="text/css">
     <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
-    <link rel="stylesheet" href="./popos-overrides.css?v=20260521" type="text/css">
+    <link rel="stylesheet" href="./popos-overrides.css?v=20260522" type="text/css">
     <title>Pop!_OS — COSMIC — CapsuleOS</title>
 </head>
 <body id="popos" data-skin="popos">
@@ -28,12 +28,31 @@
         </div>
         <div class="cosmic-top-bar__right">
             <div class="taskbar-tray">
-                <button type="button" class="taskbar-tray__cluster" aria-label="Réseau" tabindex="-1">
-                    <span class="taskbar-tray__icon taskbar-tray__icon--network" aria-hidden="true"></span>
+                <span class="taskbar-tray__lang" aria-label="Disposition clavier">fr</span>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Accessibilité" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/accessibility.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Disposition fenêtres" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/tiling.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Volume" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/volume.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Réseau sans fil" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/network.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Batterie" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/battery.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Notifications" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/notifications.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Capture d'écran" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/screenshot.svg" alt="" width="16" height="16" aria-hidden="true">
                 </button>
                 <button type="button" class="taskbar-tray__cluster" id="cosmic-tray-power-btn"
                         aria-expanded="false" aria-controls="cosmic-power-menu" aria-label="Alimentation">
-                    <span class="taskbar-tray__icon taskbar-tray__icon--power" aria-hidden="true"></span>
+                    <img class="taskbar-tray__icon" src="./media/img/symbolic/tray/power.svg" alt="" width="16" height="16" aria-hidden="true">
                 </button>
             </div>
         </div>
@@ -43,18 +62,27 @@
 
     <main class="cosmic-stage">
         <aside class="cosmic-workspaces-rail" id="cosmic-workspaces-rail" hidden aria-label="Espaces de travail">
-            <p class="cosmic-workspaces-rail__title">Workspaces</p>
             <ul class="cosmic-workspaces-rail__list">
                 <li>
-                    <button type="button" class="cosmic-workspaces-rail__card cosmic-workspaces-rail__card--active"
-                            data-workspace-select aria-label="Espace de travail 1"></button>
+                    <button type="button"
+                            class="cosmic-workspaces-rail__workspace cosmic-workspaces-rail__workspace--active"
+                            data-workspace-select aria-label="Espace de travail 1">
+                        <span class="cosmic-workspaces-rail__preview" aria-hidden="true">
+                            <img src="./media/img/assets/wallpaper-cosmic.jpg" alt="" width="280" height="175">
+                        </span>
+                        <span class="cosmic-workspaces-rail__name">Espace de travail 1</span>
+                    </button>
                 </li>
                 <li>
-                    <button type="button" class="cosmic-workspaces-rail__card"
-                            data-workspace-select aria-label="Espace de travail 2"></button>
+                    <button type="button" class="cosmic-workspaces-rail__workspace"
+                            data-workspace-select aria-label="Espace de travail 2">
+                        <span class="cosmic-workspaces-rail__preview" aria-hidden="true">
+                            <img src="./media/img/assets/wallpaper-cosmic.jpg" alt="" width="280" height="175">
+                        </span>
+                        <span class="cosmic-workspaces-rail__name">Espace de travail 2</span>
+                    </button>
                 </li>
             </ul>
-            <button type="button" class="cosmic-workspaces-rail__add" aria-label="Ajouter un espace">+</button>
         </aside>
 
         <object id="desktop" aria-label="Bureau Pop!_OS">
@@ -78,32 +106,35 @@
         <nav class="cosmic-dock" aria-label="Dock">
             <button type="button" class="cosmic-dock__item" id="cosmic-dock-launcher"
                     aria-label="Launcher" aria-pressed="false">
-                <img src="./media/img/dock/launcher.png" alt="" width="40" height="40">
+                <img src="./media/img/dock/launcher.svg" alt="" width="40" height="40">
             </button>
             <button type="button" class="cosmic-dock__item" id="cosmic-dock-workspaces"
                     aria-label="Workspaces" title="Workspaces">
-                <img src="./media/img/dock/workspaces.png" alt="" width="40" height="40">
+                <img src="./media/img/dock/workspaces.svg" alt="" width="40" height="40">
+            </button>
+            <button type="button" class="cosmic-dock__item" id="cosmic-dock-applications"
+                    aria-label="Applications">
+                <img src="./media/img/dock/applications-grid.svg" alt="" width="40" height="40">
             </button>
             <span class="cosmic-dock__separator" aria-hidden="true"></span>
             <a class="cosmic-dock__item" target="windowElement" data-link="firefox" title="Firefox">
                 <img src="./media/img/dock/firefox.png" alt="Firefox" width="40" height="40">
             </a>
             <a class="cosmic-dock__item" target="windowElement" data-link="nemo" title="Fichiers">
-                <img src="./media/img/dock/files.png" alt="Fichiers" width="40" height="40">
+                <img src="./media/img/dock/files.svg" alt="Fichiers" width="40" height="40">
             </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="themes" title="Pop!_Shop">
-                <img src="./media/img/dock/pop-shop.png" alt="Pop!_Shop" width="40" height="40">
-            </a>
-            <a class="cosmic-dock__item" target="windowElement" data-link="profile" title="Paramètres">
-                <img src="./media/img/dock/settings.png" alt="Paramètres" width="40" height="40">
+            <a class="cosmic-dock__item" target="windowElement" data-link="checklist" title="Éditeur de texte">
+                <img src="./media/img/dock/text-editor.svg" alt="Éditeur de texte" width="40" height="40">
             </a>
             <a class="cosmic-dock__item" target="windowElement" data-link="terminal" title="Terminal">
-                <img src="./media/img/dock/terminal.png" alt="Terminal" width="40" height="40">
+                <img src="./media/img/dock/terminal.svg" alt="Terminal" width="40" height="40">
             </a>
-            <button type="button" class="cosmic-dock__item" id="cosmic-dock-applications"
-                    aria-label="Applications">
-                <img src="./media/img/dock/applications-grid.png" alt="" width="40" height="40">
-            </button>
+            <a class="cosmic-dock__item" target="windowElement" data-link="themes" title="Pop!_Shop">
+                <img src="./media/img/dock/pop-shop.svg" alt="Pop!_Shop" width="40" height="40">
+            </a>
+            <a class="cosmic-dock__item" target="windowElement" data-link="profile" title="Paramètres">
+                <img src="./media/img/dock/settings.svg" alt="Paramètres" width="40" height="40">
+            </a>
         </nav>
     </main>
 
@@ -112,7 +143,7 @@
             <span class="cosmic-launcher__search-icon" aria-hidden="true"></span>
             <label class="sr-only" for="cosmic-launcher-search">Rechercher</label>
             <input id="cosmic-launcher-search" class="cosmic-launcher__search-input" type="search"
-                   placeholder="Rechercher des applications…" autocomplete="off" spellcheck="false">
+                   placeholder="Taper pour rechercher des applications…" autocomplete="off" spellcheck="false">
         </form>
         <div class="cosmic-launcher__grid">
             <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="firefox" aria-label="Firefox">
@@ -120,24 +151,24 @@
                 <span>Firefox</span>
             </button>
             <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="nemo" aria-label="Fichiers">
-                <img src="./media/img/dock/files.png" alt="">
+                <img src="./media/img/dock/files.svg" alt="">
                 <span>Fichiers</span>
             </button>
+            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="checklist" aria-label="Éditeur de texte">
+                <img src="./media/img/dock/text-editor.svg" alt="">
+                <span>Éditeur de texte</span>
+            </button>
             <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="terminal" aria-label="Terminal">
-                <img src="./media/img/dock/terminal.png" alt="">
+                <img src="./media/img/dock/terminal.svg" alt="">
                 <span>Terminal</span>
             </button>
             <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="themes" aria-label="Pop!_Shop">
-                <img src="./media/img/dock/pop-shop.png" alt="">
+                <img src="./media/img/dock/pop-shop.svg" alt="">
                 <span>Pop!_Shop</span>
             </button>
             <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="profile" aria-label="Paramètres">
-                <img src="./media/img/dock/settings.png" alt="">
+                <img src="./media/img/dock/settings.svg" alt="">
                 <span>Paramètres</span>
-            </button>
-            <button type="button" class="cosmic-launcher__app" data-cosmic-app-link="checklist" aria-label="Checklist">
-                <img src="./media/img/dock/text-editor.png" alt="">
-                <span>Checklist</span>
             </button>
         </div>
     </section>
@@ -154,76 +185,91 @@
                 <span>Firefox</span>
             </button>
             <button type="button" class="cosmic-applications__app" data-cosmic-app-link="nemo" aria-label="Fichiers">
-                <img src="./media/img/dock/files.png" alt="">
+                <img src="./media/img/dock/files.svg" alt="">
                 <span>Fichiers</span>
             </button>
+            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="checklist" aria-label="Éditeur de texte">
+                <img src="./media/img/dock/text-editor.svg" alt="">
+                <span>Éditeur de texte</span>
+            </button>
             <button type="button" class="cosmic-applications__app" data-cosmic-app-link="terminal" aria-label="Terminal">
-                <img src="./media/img/dock/terminal.png" alt="">
+                <img src="./media/img/dock/terminal.svg" alt="">
                 <span>Terminal</span>
             </button>
             <button type="button" class="cosmic-applications__app" data-cosmic-app-link="themes" aria-label="Pop!_Shop">
-                <img src="./media/img/dock/pop-shop.png" alt="">
+                <img src="./media/img/dock/pop-shop.svg" alt="">
                 <span>Pop!_Shop</span>
             </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="profile" aria-label="À propos">
-                <img src="./media/img/dock/settings.png" alt="">
-                <span>À propos</span>
-            </button>
-            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="checklist" aria-label="Checklist">
-                <img src="./media/img/dock/text-editor.png" alt="">
-                <span>Checklist</span>
+            <button type="button" class="cosmic-applications__app" data-cosmic-app-link="profile" aria-label="Paramètres">
+                <img src="./media/img/dock/settings.svg" alt="">
+                <span>Paramètres</span>
             </button>
         </div>
     </section>
 
     <div class="cosmic-power-menu" id="cosmic-power-menu" role="dialog" aria-label="Alimentation" hidden>
-        <button type="button" class="cosmic-power-menu__btn" data-power-action="suspend">
-            <span class="cosmic-power-menu__icon cosmic-power-menu__icon--suspend" aria-hidden="true"></span>
-            Suspendre
+        <button type="button" class="cosmic-power-menu__row cosmic-power-menu__row--settings" data-power-action="settings">
+            <img class="cosmic-power-menu__icon cosmic-power-menu__icon--row" src="./media/img/symbolic/power/settings.svg" alt="" width="16" height="16" aria-hidden="true">
+            <span class="cosmic-power-menu__label">Paramètres…</span>
         </button>
-        <button type="button" class="cosmic-power-menu__btn" data-power-action="restart">
-            <span class="cosmic-power-menu__icon cosmic-power-menu__icon--restart" aria-hidden="true"></span>
-            Redémarrer
-        </button>
-        <button type="button" class="cosmic-power-menu__btn" data-power-action="poweroff">
-            <span class="cosmic-power-menu__icon cosmic-power-menu__icon--power" aria-hidden="true"></span>
-            Éteindre
-        </button>
+        <div class="cosmic-power-menu__sep" role="separator" aria-hidden="true"></div>
+        <ul class="cosmic-power-menu__list">
+            <li>
+                <button type="button" class="cosmic-power-menu__row" data-power-action="lock">
+                    <img class="cosmic-power-menu__icon cosmic-power-menu__icon--row" src="./media/img/symbolic/power/lock.svg" alt="" width="16" height="16" aria-hidden="true">
+                    <span class="cosmic-power-menu__label">Verrouiller l'écran</span>
+                    <span class="cosmic-power-menu__shortcut">Super + Échap</span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="cosmic-power-menu__row" data-power-action="logout">
+                    <img class="cosmic-power-menu__icon cosmic-power-menu__icon--row" src="./media/img/symbolic/power/logout.svg" alt="" width="16" height="16" aria-hidden="true">
+                    <span class="cosmic-power-menu__label">Se déconnecter</span>
+                    <span class="cosmic-power-menu__shortcut">Super + Maj + Échap</span>
+                </button>
+            </li>
+        </ul>
+        <div class="cosmic-power-menu__sep" role="separator" aria-hidden="true"></div>
+        <div class="cosmic-power-menu__actions" role="group" aria-label="Alimentation système">
+            <button type="button" class="cosmic-power-menu__action" data-power-action="suspend"
+                    aria-label="Suspendre">
+                <img class="cosmic-power-menu__icon cosmic-power-menu__icon--action" src="./media/img/symbolic/power/suspend.svg" alt="" width="24" height="24" aria-hidden="true">
+            </button>
+            <button type="button" class="cosmic-power-menu__action" data-power-action="restart"
+                    aria-label="Redémarrer">
+                <img class="cosmic-power-menu__icon cosmic-power-menu__icon--action" src="./media/img/symbolic/power/restart.svg" alt="" width="24" height="24" aria-hidden="true">
+            </button>
+            <button type="button" class="cosmic-power-menu__action" data-power-action="poweroff"
+                    aria-label="Éteindre">
+                <img class="cosmic-power-menu__icon cosmic-power-menu__icon--action" src="./media/img/symbolic/power/poweroff.svg" alt="" width="24" height="24" aria-hidden="true">
+            </button>
+        </div>
     </div>
 
-    <div class="calendar-popover" id="taskbar-calendar-popover" role="dialog" aria-label="Calendrier" hidden>
+    <div class="calendar-popover cosmic-calendar-popover" id="taskbar-calendar-popover" role="dialog"
+         aria-label="Calendrier" hidden>
         <div id="cal-long-date" hidden aria-hidden="true"></div>
-        <div class="calendar-popover__columns">
-            <div class="calendar-popover__notifications">
-                <div class="calendar-popover__notif-inner">
-                    <span class="calendar-popover__notif-icon" aria-hidden="true"></span>
-                    <p class="calendar-popover__notif-text">Aucune notification</p>
+        <span class="calendar-popover__month-label" id="cal-month-label" hidden aria-hidden="true"></span>
+        <div class="calendar-popover__calendar">
+            <header class="calendar-popover__cal-head cosmic-calendar-popover__head">
+                <div class="cosmic-calendar-popover__head-text">
+                    <div class="cosmic-calendar-popover__date-line" id="cal-date-sub"></div>
+                    <div class="cosmic-calendar-popover__weekday-line" id="cal-weekday-big"></div>
                 </div>
-                <div class="calendar-popover__notif-footer">
-                    <button type="button" class="calendar-popover__clear-btn">Effacer</button>
+                <div class="cosmic-calendar-popover__head-nav">
+                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month"
+                            aria-label="Mois précédent">‹</button>
+                    <button type="button" class="calendar-popover__arrow" id="cal-next-month"
+                            aria-label="Mois suivant">›</button>
                 </div>
-            </div>
-            <div class="calendar-popover__calendar">
-                <div class="calendar-popover__cal-head">
-                    <div class="calendar-popover__weekday-big" id="cal-weekday-big"></div>
-                    <div class="calendar-popover__date-sub" id="cal-date-sub"></div>
-                </div>
-                <div class="calendar-popover__month-nav">
-                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month" aria-label="Mois précédent">‹</button>
-                    <span class="calendar-popover__month-label" id="cal-month-label"></span>
-                    <button type="button" class="calendar-popover__arrow" id="cal-next-month" aria-label="Mois suivant">›</button>
-                </div>
-                <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
-                <div class="calendar-popover__days" id="cal-days-grid"></div>
-                <div class="calendar-popover__today-section">
-                    <span class="calendar-popover__today-label">Aujourd'hui</span>
-                    <span class="calendar-popover__today-events">Aucun évènement</span>
-                </div>
-                <div class="calendar-popover__actions">
-                    <button type="button" class="calendar-popover__action-btn">Ajouter des horloges mondiales…</button>
-                    <button type="button" class="calendar-popover__action-btn">Choisir un emplacement pour la météo…</button>
-                </div>
-            </div>
+            </header>
+            <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
+            <div class="calendar-popover__days" id="cal-days-grid"></div>
+            <footer class="cosmic-calendar-popover__footer">
+                <button type="button" class="cosmic-calendar-popover__settings-btn">
+                    Paramètres date, heure et agenda…
+                </button>
+            </footer>
         </div>
     </div>
 
@@ -250,7 +296,7 @@
         window.CAPSULE_STRINGS_URL = './content/strings.json';
         window.CAPSULE_EXPLORER_APP_ID = 'nemo';
         window.CAPSULE_EXPLORER_DISPLAY_NAME = 'Fichiers';
-        window.CAPSULE_EXPLORER_TEMPLATE = 'nemo-gnome';
+        window.CAPSULE_EXPLORER_TEMPLATE = 'nemo-cosmic';
         window.CAPSULE_EXPLORER_SKIN_KEY = 'files';
         window.CAPSULE_EMBED_SKIN_KEY = 'popos';
         window.CAPSULE_CHECKLIST_STORAGE_KEY = 'popos-checklist';
@@ -262,17 +308,17 @@
         window.CAPSULE_TERMINAL_OS_FAMILY = 'linux';
         window.CAPSULE_TERMINAL_PROFILE = 'debian';
         window.CAPSULE_FILE_EXPLORER_ICON_MAP = {
-            folder: '../ubuntu/media/img/elements/nemo/places/folder.png',
-            Dossier_personnel: '../ubuntu/media/img/elements/nemo/places/user-home.png',
-            Bureau: '../ubuntu/media/img/elements/nemo/places/user-desktop.png',
-            Documents: '../ubuntu/media/img/elements/nemo/places/folder-documents.png',
-            Images: '../ubuntu/media/img/elements/nemo/places/folder-pictures.png',
-            Musique: '../ubuntu/media/img/elements/nemo/places/folder-music.png',
-            Public: '../ubuntu/media/img/elements/nemo/places/folder-publicshare.png',
-            'Téléchargements': '../ubuntu/media/img/elements/nemo/places/folder-download.png',
-            'Vidéos': '../ubuntu/media/img/elements/nemo/places/folder-videos.png',
-            'Modèles': '../ubuntu/media/img/elements/nemo/places/folder-templates.png',
-            snap: '../ubuntu/media/img/elements/nemo/places/folder.png',
+            folder: './media/img/elements/nemo/places/folder.svg',
+            Dossier_personnel: './media/img/elements/nemo/places/user-home.svg',
+            Bureau: './media/img/elements/nemo/places/user-desktop.svg',
+            Documents: './media/img/elements/nemo/places/folder-documents.svg',
+            Images: './media/img/elements/nemo/places/folder-pictures.svg',
+            Musique: './media/img/elements/nemo/places/folder-music.svg',
+            Public: './media/img/elements/nemo/places/folder-publicshare.svg',
+            'Téléchargements': './media/img/elements/nemo/places/folder-download.svg',
+            'Vidéos': './media/img/elements/nemo/places/folder-videos.svg',
+            'Modèles': './media/img/elements/nemo/places/folder-templates.svg',
+            snap: './media/img/elements/nemo/places/folder.svg',
             file: '../ubuntu/media/img/mimeTypes/application-x-generic.svg',
             pdf: '../ubuntu/media/img/mimeTypes/application-x-generic.svg',
             doc: '../ubuntu/media/img/mimeTypes/x-office-document.svg',
@@ -329,29 +375,19 @@
     <script src="../../../kernel/js/librewriter.js"></script>
     <script src="../../../kernel/js/search/appSearch.js"></script>
     <script src="./js/cosmic-shell-state.js?v=20260521"></script>
-    <script src="./js/cosmic-workspaces.js?v=20260521"></script>
+    <script src="./js/cosmic-workspaces.js?v=20260522"></script>
     <script src="./js/cosmic-launcher.js?v=20260521"></script>
     <script src="./js/cosmic-applications.js?v=20260521"></script>
     <script src="./js/cosmic-dock.js?v=20260521"></script>
-    <script src="./js/cosmic-power-menu.js?v=20260521"></script>
+    <script src="./js/cosmic-power-menu.js?v=20260522g"></script>
     <script>
-    (function () {
-        function updatePoposDate() {
-            var el = document.getElementById('popos-clock-date');
-            if (!el) return;
-            var now = new Date();
-            el.textContent = now.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+    document.addEventListener('DOMContentLoaded', function () {
+        var dockWs = document.getElementById('cosmic-dock-workspaces');
+        var btnWs = document.getElementById('cosmic-btn-workspaces');
+        if (dockWs && btnWs) {
+            dockWs.addEventListener('click', function () { btnWs.click(); });
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            updatePoposDate();
-            setInterval(updatePoposDate, 60000);
-            var dockWs = document.getElementById('cosmic-dock-workspaces');
-            var btnWs = document.getElementById('cosmic-btn-workspaces');
-            if (dockWs && btnWs) {
-                dockWs.addEventListener('click', function () { btnWs.click(); });
-            }
-        });
-    })();
+    });
     </script>
 </body>
 </html>

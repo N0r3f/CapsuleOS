@@ -7,6 +7,13 @@
 
     if (!menu || !btnPower) return;
 
+    function getSiteHomeHref() {
+        if (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME) {
+            return String(window.CAPSULE_SITE_HOME);
+        }
+        return '../../../../../index.html';
+    }
+
     function isOpen() {
         return !menu.hidden;
     }
@@ -21,15 +28,14 @@
         btnPower.setAttribute('aria-expanded', 'false');
     }
 
-    function toggle() {
-        if (isOpen()) close();
-        else open();
-    }
-
     btnPower.addEventListener('click', function (e) {
         e.stopPropagation();
+        if (isOpen()) {
+            close();
+            return;
+        }
         if (window.CosmicShellState) CosmicShellState.closeAll();
-        toggle();
+        open();
     });
 
     document.addEventListener('click', function (e) {
@@ -44,7 +50,11 @@
 
     menu.querySelectorAll('[data-power-action]').forEach(function (btn) {
         btn.addEventListener('click', function () {
+            var action = btn.getAttribute('data-power-action');
             close();
+            if (action === 'poweroff') {
+                window.location.href = getSiteHomeHref();
+            }
         });
     });
 })();

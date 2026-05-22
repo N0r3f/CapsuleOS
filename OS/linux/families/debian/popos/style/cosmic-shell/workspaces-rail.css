@@ -1,19 +1,18 @@
 /**
- * Rail workspaces à gauche — vue workspace.png.
+ * Rail workspaces à gauche — workspace.png (bureau net, pas de blur).
  */
 body#popos .cosmic-workspaces-rail {
     position: fixed;
-    top: var(--popos-top-bar-height);
+    top: calc(var(--popos-top-bar-height) + calc(var(--head) / 4));
     left: calc(var(--head) / 3);
-    bottom: calc(var(--popos-dock-bottom) + calc(var(--head) * 2.5));
+    bottom: var(--popos-workspaces-rail-bottom);
     z-index: 90;
     display: flex;
     flex-direction: column;
-    gap: calc(var(--head) / 5);
-    width: calc(var(--head) * 5.5);
-    padding: calc(var(--head) / 4);
-    border-radius: var(--popos-panel-radius);
-    background: var(--popos-panel-bg);
+    width: var(--popos-workspaces-rail-width);
+    padding: calc(var(--head) / 3);
+    border-radius: var(--popos-workspaces-rail-radius);
+    background: var(--popos-workspaces-rail-bg);
     border: var(--popos-panel-border);
     box-shadow: var(--popos-panel-shadow);
 }
@@ -22,60 +21,70 @@ body#popos .cosmic-workspaces-rail[hidden] {
     display: none;
 }
 
-body#popos .cosmic-workspaces-rail__title {
-    margin: 0 0 calc(var(--head) / 8);
-    font-size: calc(var(--head) / 2.6);
-    font-weight: 600;
-    color: var(--popos-shell-text);
-    opacity: 0.85;
-}
-
 body#popos .cosmic-workspaces-rail__list {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--head) / 6);
+    gap: calc(var(--head) / 4);
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-body#popos .cosmic-workspaces-rail__card {
+body#popos .cosmic-workspaces-rail__workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: calc(var(--head) / 5);
+    width: 100%;
+    margin: 0;
+    padding: calc(var(--head) / 5);
+    border: 2px solid transparent;
+    border-radius: calc(var(--head) / 6);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    font-size: calc(var(--head) / 2.75);
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color var(--eas2), background-color var(--eas2);
+}
+
+body#popos .cosmic-workspaces-rail__workspace:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body#popos .cosmic-workspaces-rail__workspace--active {
+    border-color: var(--popos-workspaces-active-border);
+    box-shadow: 0 0 0 1px var(--popos-workspaces-active-border);
+}
+
+body#popos .cosmic-workspaces-rail__preview {
+    position: relative;
     display: block;
     width: 100%;
     aspect-ratio: 16 / 10;
-    padding: 0;
-    border: 2px solid transparent;
-    border-radius: calc(var(--head) / 8);
-    background: url("../media/img/assets/wallpaper-cosmic.jpg") center / cover no-repeat;
-    cursor: pointer;
-    transition: border-color var(--eas2), box-shadow var(--eas2);
+    min-height: calc(var(--head) * 2.6);
+    overflow: hidden;
+    border-radius: calc(var(--head) / 7);
 }
 
-body#popos .cosmic-workspaces-rail__card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-body#popos .cosmic-workspaces-rail__card--active {
-    border-color: var(--popos-accent);
-    box-shadow: 0 0 0 1px var(--popos-accent);
-}
-
-body#popos .cosmic-workspaces-rail__add {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body#popos .cosmic-workspaces-rail__preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: calc(var(--head) * 1.2);
-    margin-top: auto;
-    border: 1px dashed rgba(255, 255, 255, 0.2);
-    border-radius: calc(var(--head) / 8);
-    background: transparent;
-    color: var(--popos-shell-text);
-    font-size: calc(var(--head) / 2.2);
-    cursor: pointer;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
 }
 
-body#popos .cosmic-workspaces-rail__add:hover {
-    border-color: var(--popos-accent);
-    color: var(--popos-accent);
+body#popos .cosmic-workspaces-rail__name {
+    display: block;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.75);
+    font-weight: 400;
+    line-height: 1.2;
+    pointer-events: none;
 }

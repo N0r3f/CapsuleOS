@@ -18,7 +18,10 @@
     let viewMonth;
     let selectedDate;
 
-    const WEEKDAYS_FR = ['lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.', 'dim.'];
+    const isPopos = document.body && document.body.id === 'popos';
+    const WEEKDAYS_FR = isPopos
+        ? ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.']
+        : ['lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.', 'dim.'];
 
     function fmt(date, options) {
         return date.toLocaleDateString('fr-FR', options);
@@ -33,6 +36,9 @@
     }
 
     function openPopover() {
+        if (isPopos && window.CosmicShellState) {
+            CosmicShellState.closeAll();
+        }
         popover.hidden = false;
         trigger.setAttribute('aria-expanded', 'true');
 
@@ -63,13 +69,22 @@
             year: 'numeric'
         });
 
-        elWeekBig.textContent = fmt(selectedDate, { weekday: 'long' });
-        elDateSub.textContent = fmt(selectedDate, {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        });
+        if (isPopos) {
+            elDateSub.textContent = fmt(selectedDate, {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            elWeekBig.textContent = fmt(selectedDate, { weekday: 'long' });
+        } else {
+            elWeekBig.textContent = fmt(selectedDate, { weekday: 'long' });
+            elDateSub.textContent = fmt(selectedDate, {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+        }
 
         elMonthLabel.textContent = fmt(new Date(viewYear, viewMonth, 1), {
             month: 'long',
@@ -92,13 +107,25 @@
 
         const first = new Date(viewYear, viewMonth, 1);
         const last = new Date(viewYear, viewMonth + 1, 0).getDate();
-        const startPad = (first.getDay() + 6) % 7;
+        const startPad = isPopos ? first.getDay() : (first.getDay() + 6) % 7;
         const today = new Date();
 
-        for (let i = 0; i < startPad; i++) {
-            const cell = document.createElement('span');
-            cell.className = 'calendar-popover__day calendar-popover__day--empty';
-            elGrid.appendChild(cell);
+        if (isPopos && startPad > 0) {
+            const prevLast = new Date(viewYear, viewMonth, 0).getDate();
+            for (let i = 0; i < startPad; i++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.disabled = true;
+                btn.className = 'calendar-popover__day calendar-popover__day--outside';
+                btn.textContent = String(prevLast - startPad + 1 + i);
+                elGrid.appendChild(btn);
+            }
+        } else {
+            for (let i = 0; i < startPad; i++) {
+                const cell = document.createElement('span');
+                cell.className = 'calendar-popover__day calendar-popover__day--empty';
+                elGrid.appendChild(cell);
+            }
         }
 
         for (let day = 1; day <= last; day++) {
@@ -125,10 +152,21 @@
         const total = startPad + last;
         const tail = (7 - (total % 7)) % 7;
 
-        for (let i = 0; i < tail; i++) {
-            const cell = document.createElement('span');
-            cell.className = 'calendar-popover__day calendar-popover__day--empty';
-            elGrid.appendChild(cell);
+        if (isPopos && tail > 0) {
+            for (let n = 1; n <= tail; n++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.disabled = true;
+                btn.className = 'calendar-popover__day calendar-popover__day--outside';
+                btn.textContent = String(n);
+                elGrid.appendChild(btn);
+            }
+        } else {
+            for (let i = 0; i < tail; i++) {
+                const cell = document.createElement('span');
+                cell.className = 'calendar-popover__day calendar-popover__day--empty';
+                elGrid.appendChild(cell);
+            }
         }
     }
 
@@ -140,7 +178,11 @@
 
     trigger.addEventListener('click', function (event) {
         event.stopPropagation();
-        togglePopover();
+        if (!popover.hidden) {
+            closePopover();
+            return;
+        }
+        openPopover();
     });
 
     document.addEventListener('click', function (event) {
@@ -156,7 +198,8 @@
     });
 
     if (btnPrev) {
-        btnPrev.addEventListener('click', function () {
+        btnPrev.addEventListener('click', function (event) {
+            event.stopPropagation();
             viewMonth--;
             if (viewMonth < 0) {
                 viewMonth = 11;
@@ -167,7 +210,8 @@
     }
 
     if (btnNext) {
-        btnNext.addEventListener('click', function () {
+        btnNext.addEventListener('click', function (event) {
+            event.stopPropagation();
             viewMonth++;
             if (viewMonth > 11) {
                 viewMonth = 0;

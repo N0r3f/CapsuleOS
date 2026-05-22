@@ -7,7 +7,7 @@ Plan d’implémentation après le shell structurel (`index.html`, `cosmic-shell
 | Priorité | Capture | Fichier(s) | JS kernel |
 |----------|---------|------------|-----------|
 | 1 | `terminal_cosmic.png`, `terminal_max.png` | `terminal.skin.css` | `terminal.js` — classe `terminal-window--cosmic` |
-| 2 | `dossier_minimiser.png`, `dossiers_fullscreen.png` | `files.skin.css` + template `shared/apps/nemo-cosmic.html` | `contentLoader.js` — `CAPSULE_EXPLORER_TEMPLATE` |
+| 2 | `dossier_minimiser.png`, `dossiers_fullscreen.png` | `files.skin.css` + `shared/apps/nemo-cosmic.html` | `fileExplorerCore.js` — rendu liste Cosmic |
 | 3 | Firefox (barre onglets intégrée) | `firefox.skin.css` | `firefoxBrowser.js` — `body#popos` déjà pris en charge |
 
 ## Terminal Cosmic
@@ -19,11 +19,11 @@ Plan d’implémentation après le shell structurel (`index.html`, `cosmic-shell
 
 ## Fichiers (Nemo Cosmic)
 
-1. Créer `shared/apps/nemo-cosmic.html` (sidebar Cosmic, pathbar, pas de orange Yaru)
-2. Copier icônes places depuis `visuel/icons_Pop!_OS/` → `popos/media/img/elements/nemo/places/`
-3. Remplacer dans `index.html` : `CAPSULE_EXPLORER_TEMPLATE = 'nemo-cosmic'`
-4. Mettre à jour `build-capsule-embed.mjs` : entrée template `nemo-cosmic` → `nemo.base.css`
-5. `files.skin.css` : tokens `--nemo-accent: #62d0e9`, surfaces `#242428`
+1. [x] `shared/apps/nemo-cosmic.html` (menus Fichier/Modifier/Affichage/Trier, sidebar Cosmic)
+2. [x] Icônes `visuel/icons/Cosmic/scalable/places/` → `popos/media/img/elements/nemo/places/`
+3. [x] `index.html` : `CAPSULE_EXPLORER_TEMPLATE = 'nemo-cosmic'`
+4. [x] `build-capsule-embed.mjs` + `contentLoader.js` : `nemo-cosmic` → `nemo.base.css`
+5. [x] `files.skin.css` : accent `#48b9c7`, vue liste + colonnes (container query)
 
 ## Firefox
 
@@ -49,7 +49,7 @@ Puis vérifier `CONTRACT_CHECKLIST.md` (offline, pas de fetch obligatoire).
 
 - [x] `firefoxBrowser.js` — `popos` dans `supportsFirefoxGnomeChrome()`
 - [x] `terminal.js` — `terminal-window--cosmic` sur `body#popos`
-- [ ] `contentLoader.js` — enregistrer `nemo-cosmic` quand le template existe
+- [x] `contentLoader.js` — `nemo-cosmic` enregistré
 - [ ] Tour : étapes dock / Workspaces / Launcher dans `tour-data.js` (optionnel)
 
 ## Fidélité
