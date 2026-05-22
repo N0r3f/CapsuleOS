@@ -1,0 +1,151 @@
+/**
+ * Menu alimentation Cosmic — shutdown.png.
+ * Icônes : media/img/symbolic/power/*.svg (<img>, compatible file://).
+ */
+body#popos .cosmic-power-menu {
+    position: fixed;
+    top: calc(var(--popos-top-bar-height) + calc(var(--head) / 6));
+    right: calc(var(--head) / 3);
+    z-index: 250;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: min(calc(100vw - var(--head)), var(--popos-power-menu-min-width));
+    min-width: var(--popos-power-menu-min-width);
+    padding: calc(var(--head) / 4) calc(var(--head) / 5);
+    border-radius: var(--popos-power-menu-radius);
+    background: var(--popos-power-menu-bg);
+    border: var(--popos-panel-border);
+    box-shadow: var(--popos-panel-shadow);
+    backdrop-filter: blur(18px);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+}
+
+body#popos .cosmic-power-menu[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-power-menu__sep {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: calc(var(--head) / 10) 0;
+    padding: 0;
+    border: none;
+    background: var(--popos-power-menu-sep);
+    flex-shrink: 0;
+}
+
+body#popos .cosmic-power-menu__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body#popos .cosmic-power-menu__row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) / 3.5);
+    width: 100%;
+    margin: 0;
+    padding: calc(var(--head) / 3.8) calc(var(--head) / 6);
+    border: none;
+    border-radius: calc(var(--head) / 7);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.45);
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color var(--eas2);
+}
+
+body#popos .cosmic-power-menu__row--settings {
+    color: var(--popos-power-menu-muted);
+    font-weight: 500;
+}
+
+body#popos .cosmic-power-menu__row--settings .cosmic-power-menu__icon--row {
+    opacity: 0.7;
+}
+
+body#popos .cosmic-power-menu__row:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#popos .cosmic-power-menu__row--settings:hover {
+    color: var(--popos-shell-text);
+}
+
+body#popos .cosmic-power-menu__row--settings:hover .cosmic-power-menu__icon--row {
+    opacity: 0.95;
+}
+
+body#popos .cosmic-power-menu__label {
+    flex: 1;
+    min-width: 0;
+}
+
+body#popos .cosmic-power-menu__row--settings .cosmic-power-menu__label {
+    flex: 0 1 auto;
+}
+
+body#popos .cosmic-power-menu__shortcut {
+    margin-left: auto;
+    color: var(--popos-power-menu-muted);
+    font-size: calc(var(--head) / 2.75);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+body#popos .cosmic-power-menu__icon--row {
+    display: block;
+    width: calc(var(--head) / 2.5);
+    height: calc(var(--head) / 2.5);
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+}
+
+body#popos .cosmic-power-menu__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) / 1.6);
+    margin: 0;
+    padding: calc(var(--head) / 4) calc(var(--head) / 8) calc(var(--head) / 5);
+}
+
+body#popos .cosmic-power-menu__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color var(--eas2), transform var(--eas2);
+}
+
+body#popos .cosmic-power-menu__action:hover {
+    background: rgba(72, 185, 199, 0.12);
+    transform: scale(1.06);
+}
+
+body#popos .cosmic-power-menu__icon--action {
+    display: block;
+    width: calc(var(--head) / 1.45);
+    height: calc(var(--head) / 1.45);
+    object-fit: contain;
+    pointer-events: none;
+    filter: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(1200%) hue-rotate(152deg) brightness(95%) contrast(95%);
+}

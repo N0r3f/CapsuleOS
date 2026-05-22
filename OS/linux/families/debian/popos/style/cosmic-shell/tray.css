@@ -1,0 +1,132 @@
+/**
+ * Tray + horloge top bar Pop!_OS / COSMIC.
+ * Icônes : <img> + filter (compatible file://) — sources media/img/symbolic/tray/.
+ * Ordre : desktop.png — fr, accessibilité, tiling, volume, wifi, batterie, notifications, capture, power.
+ */
+
+body#popos .taskbar-tray {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 14);
+    color: var(--mint-tray-color);
+}
+
+body#popos .taskbar-tray__lang {
+    display: var(--bl);
+    padding: 0 calc(var(--head) / 10);
+    font-size: calc(var(--head) / 2.6);
+    font-weight: 500;
+    opacity: 0.92;
+    pointer-events: none;
+}
+
+body#popos .taskbar-tray__cluster {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    margin: 0;
+    padding: calc(var(--head) / 9) calc(var(--head) / 5);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--mint-tray-color);
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .taskbar-tray__cluster:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--popos-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+body#popos .taskbar-tray__cluster[aria-expanded="true"] {
+    background: rgba(72, 72, 74, 0.96);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body#popos .taskbar-tray__icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.42);
+    height: calc(var(--head) * 0.42);
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.92;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+}
+
+body#popos .taskbar-clock-trigger {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 8);
+    padding: calc(var(--head) / 12) calc(var(--head) / 3);
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 6);
+    background: transparent;
+    color: var(--popos-shell-text, #f2f4f8);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    font-size: calc(var(--head) / 2.55);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .taskbar-clock-trigger:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--popos-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+body#popos .popos-clock-date {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    pointer-events: none;
+    opacity: 1;
+}
+
+body#popos .popos-clock-date::after {
+    content: ", ";
+}
+
+body#popos .taskbar__clock {
+    color: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__cluster {
+    background: transparent;
+}
+
+html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__cluster:hover,
+html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__cluster[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--popos-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+html[data-theme="light"]:has(#popos) body#popos .taskbar-tray__icon {
+    filter: brightness(0);
+}
+
+@media (max-width: 900px) {
+    body#popos .taskbar-tray__icon {
+        width: calc(var(--head) * 0.4);
+        height: calc(var(--head) * 0.4);
+    }
+    body#popos .taskbar-tray__lang,
+    body#popos .taskbar-tray__cluster[aria-label="Accessibilité"],
+    body#popos .taskbar-tray__cluster[aria-label="Notifications"],
+    body#popos .taskbar-tray__cluster[aria-label="Capture d'écran"],
+    body#popos .taskbar-tray__cluster[aria-label="Batterie"] {
+        display: none;
+    }
+}

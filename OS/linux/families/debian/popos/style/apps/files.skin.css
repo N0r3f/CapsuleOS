@@ -1,0 +1,663 @@
+/**
+ * Pop!_OS / COSMIC — Fichiers (dossier_minimiser.png, dossiers_fullscreen.png).
+ */
+body#popos {
+    --nemo-bg-primary: #1a1a1e;
+    --nemo-header-bg: #1a1a1e;
+    --nemo-header-active-bg: #1e1e22;
+    --nemo-border: rgba(0, 0, 0, 0.5);
+    --nemo-text-primary: #f4f4f6;
+    --nemo-text-muted: #8a8a92;
+    --nemo-item-active-bg: rgba(255, 255, 255, 0.06);
+    --nemo-sidebar-item-active-bg: rgba(255, 255, 255, 0.1);
+    --nemo-menu-surface-bg: #2a2a2e;
+    --nemo-toolbar-bg: #1a1a1e;
+    --nemo-toolbar-border: rgba(255, 255, 255, 0.06);
+    --nemo-toolbar-button-border: transparent;
+    --nemo-toolbar-button-bg: transparent;
+    --nemo-toolbar-button-hover-bg: rgba(255, 255, 255, 0.08);
+    --nemo-pathbar-bg: rgba(255, 255, 255, 0.06);
+    --nemo-pathbar-border: rgba(255, 255, 255, 0.1);
+    --nemo-pathbar-height: 2rem;
+    --nemo-pathbar-text: #48b9c7;
+    --nemo-sidebar-bg: #222226;
+    --nemo-sidebar-text: rgba(255, 255, 255, 0.82);
+    --nemo-sidebar-muted: #8a8a92;
+    --nemo-footer-bg: #1a1a1e;
+    --nemo-status-text: #8a8a92;
+    --nemo-accent: #48b9c7;
+    --nemo-list-row-border: rgba(255, 255, 255, 0.05);
+    --nemo-list-col-icon: 2.75rem;
+    --nemo-list-col-modified: 10rem;
+    --nemo-list-col-size: 5rem;
+    --nemo-list-pad-x: 1rem;
+    --nemo-list-pad-icon: 1.1rem;
+    --nemo-symbolic-icon-filter: brightness(0) invert(1) opacity(0.78);
+    --nemo-toolbar-icon-filter: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(650%) hue-rotate(145deg) brightness(96%);
+    --nemo-icon-filter-accent: brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(650%) hue-rotate(145deg) brightness(96%);
+}
+
+/* —— Fenêtre —— */
+body#popos div[data-link="nemo"] {
+    width: min(52rem, calc(100vw - var(--head) * 2));
+    height: min(34rem, calc(100vh - var(--popos-top-bar-height) - var(--popos-dock-block-height) - var(--head) * 2));
+    min-width: calc(var(--head) * 14);
+    min-height: calc(var(--head) * 10);
+    margin: 0;
+    padding: 0;
+    border-radius: var(--popos-window-radius);
+    background: var(--nemo-bg-primary);
+    overflow: hidden;
+}
+
+/* Bordure cyan visible en fenêtre réduite (dossier_minimiser.png) */
+body#popos div[data-link="nemo"]:not([data-maximized="true"]) {
+    border: 1px solid var(--nemo-accent);
+    box-shadow: 0 0 0 1px rgba(72, 185, 199, 0.4), var(--popos-window-shadow);
+}
+
+body#popos div[data-link="nemo"]:not([data-maximized="true"]).windowElementActive {
+    border-color: var(--nemo-accent);
+    box-shadow: 0 0 0 1px rgba(72, 185, 199, 0.55), var(--popos-window-shadow);
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] {
+    border: 1px solid var(--nemo-accent);
+    border-radius: var(--popos-window-radius);
+    padding: 0;
+    box-shadow: var(--popos-window-shadow);
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"].windowElementActive {
+    box-shadow: 0 0 0 1px rgba(72, 185, 199, 0.55), var(--popos-window-shadow);
+}
+
+body#popos div[data-link="nemo"] #windowIframe {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+body#popos div[data-link="nemo"] #windowHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 12;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.28rem;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 2.65rem;
+    padding: 0 0.5rem 0 0;
+    border: 0;
+    border-radius: 0 var(--popos-window-radius) 0 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+body#popos div[data-link="nemo"] #windowTitle {
+    display: none;
+}
+
+body#popos div[data-link="nemo"] #windowHeader > nav:first-child {
+    display: none;
+}
+
+body#popos div[data-link="nemo"] #windowHeader > nav:last-child {
+    display: flex;
+    align-items: center;
+    gap: 0.22rem;
+    pointer-events: auto;
+}
+
+body#popos div[data-link="nemo"] #windowHeader > nav:last-child > button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    border: 0;
+    border-radius: 999px;
+    color: var(--nemo-accent);
+    background: transparent;
+}
+
+body#popos div[data-link="nemo"] #windowHeader > nav:last-child > button::before {
+    width: 0.82rem;
+    height: 0.82rem;
+}
+
+body#popos div[data-link="nemo"] #windowHeader > nav:last-child > button:hover {
+    background: rgba(72, 185, 199, 0.14);
+    transform: none;
+}
+
+body#popos div[data-link="nemo"] #closeBtn {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#popos div[data-link="nemo"] #closeBtn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+body#popos div[data-link="nemo"] main#gestionnaire.cosmic-files-app {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    border-radius: inherit;
+    color: var(--nemo-text-primary);
+    background: var(--nemo-bg-primary);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.8rem;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Menubar pleine largeur, puis sidebar + contenu en dessous */
+body#popos div[data-link="nemo"] #nemoHeaderContainer.nemo-app__header--menubar-only {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-bottom: 1px solid var(--nemo-toolbar-border);
+    background: var(--nemo-header-bg);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__body {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    align-items: stretch;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__content-column {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__menubar {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.45rem;
+    width: 100%;
+    min-height: 2.35rem;
+    padding: 0.35rem 7.5rem 0.2rem 0.55rem;
+    border: 0;
+    background: var(--nemo-header-bg);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__app-icon {
+    flex-shrink: 0;
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+body#popos div[data-link="nemo"] .menuHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.15rem;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: visible;
+}
+
+body#popos div[data-link="nemo"] .menuHeader > li > a {
+    padding: 0.2rem 0.45rem;
+    border-radius: 0.35rem;
+    color: var(--nemo-accent);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+body#popos div[data-link="nemo"] .menuHeader > li > a:hover {
+    background: rgba(72, 185, 199, 0.12);
+}
+
+body#popos div[data-link="nemo"] .menuHeader .listeSousMenu {
+    display: none !important;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__search {
+    position: absolute;
+    top: 0.45rem;
+    right: 6.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.45rem;
+    background: transparent;
+    cursor: default;
+    pointer-events: none;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__search img {
+    width: 1rem;
+    height: 1rem;
+    filter: var(--nemo-toolbar-icon-filter);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__content-column .nemo-app__toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    min-height: 2.45rem;
+    gap: 0;
+    margin: 0;
+    padding: 0.28rem 0.55rem 0.38rem 0.35rem;
+    border: 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--nemo-toolbar-border);
+    background: var(--nemo-toolbar-bg);
+}
+
+body#popos div[data-link="nemo"] .nemo-app__toolbar-group--path.cosmic-files-app__path-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__path-nav #precedent,
+body#popos div[data-link="nemo"] .cosmic-files-app__path-nav #suivant {
+    flex-shrink: 0;
+}
+
+body#popos div[data-link="nemo"] .nemo-app__toolbar-group > a {
+    min-width: 1.85rem;
+    height: 1.85rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0.45rem;
+    background: transparent;
+    transform: none;
+}
+
+body#popos div[data-link="nemo"] .nemo-app__toolbar-group > a:hover {
+    background: var(--nemo-toolbar-button-hover-bg);
+}
+
+body#popos div[data-link="nemo"] .nemo-app__toolbar-group img {
+    width: 1rem;
+    height: 1rem;
+    filter: var(--nemo-toolbar-icon-filter);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__path-nav .nemo-app__path-current {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 6rem;
+    height: var(--nemo-pathbar-height);
+    margin: 0;
+    padding: 0 0.65rem;
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 0.5rem;
+    color: var(--nemo-pathbar-text);
+    background: var(--nemo-pathbar-bg);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__path-nav .nemo-app__path-current::before {
+    content: "";
+    flex-shrink: 0;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: currentColor;
+    opacity: 0.95;
+    -webkit-mask-image: url("../../media/img/elements/nemo/edit-symbolic.svg");
+    mask-image: url("../../media/img/elements/nemo/edit-symbolic.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* Sidebar : juste sous la menubar, hauteur du bloc corps */
+body#popos div[data-link="nemo"] .cosmic-files-app__body > #voletnemo.cosmic-files-app__sidebar {
+    flex: 0 0 11.75rem;
+    width: 11.75rem;
+    min-width: 11.75rem;
+    height: auto;
+    align-self: stretch;
+    margin: 0;
+    padding: 0.55rem 0.45rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
+    background: var(--nemo-sidebar-bg);
+    overflow: auto;
+}
+
+/* —— Corps : liste (panneau droit uniquement) —— */
+body#popos div[data-link="nemo"] #nemoMainContainer {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    background: var(--nemo-bg-primary);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.06rem;
+    width: 100%;
+    margin: 0;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-sep {
+    height: 1px;
+    margin: 0.45rem 0.35rem;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-link {
+    display: flex;
+    align-items: center;
+    min-height: 1.9rem;
+    margin: 0;
+    padding: 0 0.5rem;
+    border: 0;
+    border-left: 0;
+    border-radius: 0.5rem;
+    color: var(--nemo-sidebar-text);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-decoration: none;
+    background: transparent;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-link img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.42rem;
+    padding-right: 0;
+    flex-shrink: 0;
+    filter: var(--nemo-symbolic-icon-filter);
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 0;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-link.nemo-sidebar__link--active {
+    color: var(--nemo-accent);
+    background: var(--nemo-sidebar-item-active-bg);
+    border-left: 0;
+}
+
+body#popos div[data-link="nemo"] .cosmic-files-app__sidebar-link.nemo-sidebar__link--active img {
+    filter: var(--nemo-icon-filter-accent);
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer.nemo-app__content-wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: auto;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    border-left: 0;
+    background: var(--nemo-bg-primary);
+}
+
+/* Reset nemo.base — vue liste (priorité sur grille ID) */
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 0;
+    background: var(--nemo-bg-primary);
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a {
+    position: relative;
+    display: grid;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    min-height: 3.05rem;
+    max-height: none;
+    margin: 0;
+    padding: 0.4rem var(--nemo-list-pad-x) 0.4rem var(--nemo-list-pad-icon);
+    border: 0;
+    border-bottom: 1px solid var(--nemo-list-row-border);
+    border-radius: 0;
+    color: var(--nemo-text-primary);
+    font-size: 0.82rem;
+    line-height: 1.2;
+    text-align: left;
+    text-decoration: none;
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a:hover {
+    background: var(--nemo-item-active-bg);
+    border-radius: 0;
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a::after {
+    content: none;
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a:hover::after {
+    display: none;
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a > img {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    min-width: 2.35rem;
+    max-width: 2.35rem;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    filter: none;
+}
+
+body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a > .nemo-app__item-body {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.1rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body#popos div[data-link="nemo"] .nemo-app__item-name {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--nemo-text-primary);
+}
+
+body#popos div[data-link="nemo"] .nemo-app__item-meta {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--nemo-text-muted);
+}
+
+body#popos div[data-link="nemo"] .nemo-app__item-modified,
+body#popos div[data-link="nemo"] .nemo-app__item-size {
+    display: none;
+    font-size: 0.74rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--nemo-text-muted);
+}
+
+/* Mode compact (fenêtre minimisée) */
+body#popos div[data-link="nemo"]:not([data-maximized="true"]) .nemo-app__list-header {
+    display: none;
+}
+
+body#popos div[data-link="nemo"]:not([data-maximized="true"]) #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a {
+    grid-template-columns: var(--nemo-list-col-icon) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+}
+
+body#popos div[data-link="nemo"]:not([data-maximized="true"]) .nemo-app__item-meta {
+    display: block;
+}
+
+/* Mode colonnes (maximisé — dossiers_fullscreen.png) */
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__list-header {
+    display: grid;
+    grid-template-columns: var(--nemo-list-col-icon) minmax(0, 1fr) var(--nemo-list-col-modified) var(--nemo-list-col-size);
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0.45rem var(--nemo-list-pad-x) 0.35rem var(--nemo-list-pad-icon);
+    border-bottom: 1px solid rgba(72, 185, 199, 0.45);
+    color: var(--nemo-accent);
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__list-header-modified,
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__list-header-size {
+    text-align: left;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__list-header-size {
+    text-align: right;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__list-header-name::after {
+    content: " ▾";
+    font-size: 0.65rem;
+    opacity: 0.85;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a {
+    grid-template-columns: var(--nemo-list-col-icon) minmax(0, 1fr) var(--nemo-list-col-modified) var(--nemo-list-col-size);
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a > img {
+    grid-row: 1;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a > .nemo-app__item-body {
+    grid-row: 1;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__item-meta {
+    display: none;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__item-modified {
+    display: block;
+    grid-column: 3;
+    grid-row: 1;
+}
+
+body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__item-size {
+    display: block;
+    grid-column: 4;
+    grid-row: 1;
+    text-align: right;
+}
+
+body#popos div[data-link="nemo"] .nemo-app__empty {
+    width: 100%;
+    padding: 1.5rem var(--nemo-list-pad-icon);
+    color: var(--nemo-text-muted);
+    text-align: left;
+}
+
+body#popos div[data-link="nemo"] #nemoFooterContainer {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    body#popos div[data-link="nemo"] {
+        width: calc(100vw - var(--head));
+        min-width: 0;
+    }
+
+    body#popos div[data-link="nemo"] .cosmic-files-app__body > #voletnemo.cosmic-files-app__sidebar {
+        flex-basis: 9.5rem;
+        width: 9.5rem;
+        min-width: 9.5rem;
+    }
+}

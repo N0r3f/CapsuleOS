@@ -1,0 +1,92 @@
+/**
+ * Tokens Pop!_OS / COSMIC — accent cyan, surfaces sombres, rayons 12–16px.
+ */
+html:has(#popos) {
+    --menu-accent: #62d0e9;
+    --popos-shell-text: #f4f4f6;
+    --popos-shell-border-soft: rgba(255, 255, 255, 0.1);
+    --popos-top-bar-height: calc(var(--head) * 0.82);
+    --popos-top-bar-bg: rgba(22, 22, 24, 0.94);
+    --popos-top-bar-border: 1px solid rgba(0, 0, 0, 0.5);
+    --popos-dock-scale: 1.125;
+    --popos-dock-bg: rgba(30, 30, 34, 0.88);
+    --popos-dock-border: 1px solid rgba(255, 255, 255, 0.08);
+    --popos-dock-radius: calc(1.1rem * var(--popos-dock-scale));
+    --popos-dock-bottom: calc(var(--head) / 10);
+    --popos-dock-block-height: calc((var(--head) / 8 * 2 + var(--head) * 1.05) * var(--popos-dock-scale));
+    --popos-workspaces-rail-gap: calc(var(--head) / 10);
+    --popos-workspaces-rail-bottom: calc(var(--popos-dock-bottom) + var(--popos-dock-block-height) + var(--popos-workspaces-rail-gap));
+    --popos-accent: #62d0e9;
+    --popos-accent-hover: #7ad8ef;
+    --popos-overlay-bg: rgba(18, 18, 20, 0.72);
+    --popos-panel-bg: rgba(36, 36, 40, 0.96);
+    --popos-panel-border: 1px solid rgba(255, 255, 255, 0.08);
+    --popos-panel-radius: 0.75rem;
+    --popos-panel-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    --popos-apps-gap: calc(var(--head) / 14);
+    --popos-apps-panel-width: min(96vw, calc(var(--head) * 52));
+    --popos-apps-panel-radius: calc(var(--head) / 2);
+    --popos-apps-search-width: 50%;
+    --popos-apps-grid-cols: 7;
+    --popos-apps-icon-size: calc(var(--head) * 1.95);
+    --popos-apps-category-pill-bg: rgba(255, 255, 255, 0.1);
+    --popos-power-menu-bg: rgba(30, 30, 34, 0.94);
+    --popos-power-menu-radius: calc(var(--head) / 2.85);
+    --popos-power-menu-min-width: calc(var(--head) * 8.5);
+    --popos-power-action-color: #48b9c7;
+    --popos-power-menu-muted: rgba(255, 255, 255, 0.55);
+    --popos-power-menu-sep: rgba(255, 255, 255, 0.08);
+    --popos-workspaces-rail-bg: rgba(30, 30, 34, 0.9);
+    --popos-workspaces-rail-width: calc(var(--head) * 7.2);
+    --popos-workspaces-rail-radius: calc(var(--head) / 2.85);
+    --popos-workspaces-active-border: #48b9c7;
+    --popos-window-radius: 12px;
+    --popos-window-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+    --popos-window-surface: #2a2a2e;
+    --popos-window-header-bg: #34343a;
+    --popos-window-header-active: #3c3c42;
+    --popos-window-header-border: rgba(0, 0, 0, 0.45);
+    --popos-window-title-color: #f4f4f6;
+    --popos-window-control-color: #f4f4f6;
+    --popos-window-control-bg: transparent;
+    --popos-window-control-hover-bg: rgba(255, 255, 255, 0.12);
+    --popos-window-control-close-bg: rgba(255, 255, 255, 0.1);
+    --popos-window-control-close-hover-bg: rgba(255, 255, 255, 0.18);
+    --popos-app-surface: #1e1e22;
+    --popos-app-text: #f0f0f2;
+    --popos-calendar-bg: rgba(30, 30, 34, 0.94);
+    --popos-calendar-radius: calc(var(--head) / 2.85);
+    --popos-calendar-width: calc(var(--head) * 8.2);
+    --popos-calendar-text: #f4f4f6;
+    --popos-calendar-muted: rgba(255, 255, 255, 0.48);
+    --popos-calendar-day-color: #48b9c7;
+    --popos-calendar-outside: rgba(72, 185, 199, 0.38);
+    --popos-calendar-sep: rgba(255, 255, 255, 0.08);
+    --popos-calendar-today-bg: #48b9c7;
+    --popos-calendar-today-text: #121214;
+    --popos-calendar-day-size: calc(var(--head) / 1.42);
+    --popos-calendar-col-gap: calc(var(--head) / 14);
+    --popos-calendar-row-gap: calc(var(--head) / 6.5);
+    --mint-taskbar-bg: var(--popos-top-bar-bg);
+    --mint-tray-color: rgba(255, 255, 255, 0.92);
+    --mint-tray-separator: rgba(255, 255, 255, 0.1);
+    --mint-tray-item-hover-bg: rgba(255, 255, 255, 0.1);
+    --mint-clock-hover-bg: rgba(255, 255, 255, 0.1);
+    --desktop-shortcut-text: #f4f4f6;
+    --desktop-shortcut-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    --desktop-shortcut-hover-bg: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"]:has(#popos) {
+    --popos-top-bar-bg: rgba(240, 240, 242, 0.96);
+    --popos-top-bar-border: 1px solid rgba(0, 0, 0, 0.1);
+    --popos-shell-text: #1a1a1e;
+    --popos-dock-bg: rgba(235, 235, 238, 0.92);
+    --popos-dock-border: 1px solid rgba(0, 0, 0, 0.1);
+    --popos-window-surface: #fafafa;
+    --popos-window-header-bg: #ebebeb;
+    --popos-window-title-color: #1a1a1e;
+    --popos-window-control-color: #1f1f22;
+    --desktop-shortcut-text: #1a1a1e;
+    --desktop-shortcut-shadow: none;
+}

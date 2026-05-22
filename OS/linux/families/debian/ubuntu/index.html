@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./media/img/assets/ubuntu-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./style/imports.css?v=20260521d" type="text/css">
+    <link rel="stylesheet" href="../../debian/mint/style/tour.css?v=20260428" type="text/css">
+    <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
+    <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css?v=20260521" type="text/css">
+    <link rel="stylesheet" href="./ubuntu-overrides.css?v=20260424" type="text/css">
+    <title>Ubuntu 25.10 — CapsuleOS</title>
+</head>
+<body id="ubuntu" data-skin="ubuntu">
+    <header class="fedora-top-bar" role="banner">
+        <div class="fedora-top-bar__left">
+            <button type="button" class="fedora-overview-trigger" aria-label="Aperçu du bureau">
+                <span class="fedora-overview-trigger__bar" aria-hidden="true"></span>
+                <span class="fedora-overview-trigger__dot" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="fedora-top-bar__center">
+            <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger" aria-expanded="false" aria-controls="taskbar-calendar-popover" aria-label="Date et heure">
+                <span class="ubuntu-clock-date" id="ubuntu-clock-date" aria-hidden="true"></span>
+                <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
+            </button>
+        </div>
+        <div class="fedora-top-bar__right">
+            <div class="taskbar-tray">
+                <button type="button" class="taskbar-tray__cluster" id="tray-quick-settings-btn"
+                        aria-expanded="false" aria-controls="volume-popover"
+                        aria-label="Paramètres rapides">
+                    <span class="taskbar-tray__icon taskbar-tray__icon--network" aria-hidden="true" title="Réseau"></span>
+                    <span class="taskbar-tray__icon" id="tray-sound-icon" aria-hidden="true" title="Volume"></span>
+                    <span class="taskbar-tray__icon taskbar-tray__icon--power" aria-hidden="true" title="Alimentation"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="fedora-main-row">
+        <aside id="tableau" class="fedora-dock" aria-label="Applications épinglées">
+            <nav class="fedora-dock__nav">
+                <a target="windowElement" data-link="firefox" title="Firefox">
+                    <img src="./media/img/dock/firefox.png" alt="Firefox" width="48" height="48">
+                </a>
+                <a target="windowElement" data-link="nemo" title="Fichiers">
+                    <img src="./media/img/dock/files.png" alt="Fichiers" width="48" height="48">
+                </a>
+                <a target="windowElement" data-link="themes" title="Ubuntu Software">
+                    <img src="./media/img/dock/software-store.png" alt="Ubuntu Software" width="48" height="48">
+                </a>
+                <a target="windowElement" data-link="profile" title="Aide Ubuntu">
+                    <img src="./media/img/dock/help.png" alt="Aide" width="48" height="48">
+                </a>
+                <a target="windowElement" data-link="terminal" title="Terminal">
+                    <img src="./media/img/dock/terminal.png" alt="Terminal" width="48" height="48">
+                </a>
+                <button type="button" class="ubuntu-dock__trash" title="Corbeille" aria-label="Corbeille">
+                    <img src="./media/img/dock/trash.png" alt="" width="48" height="48">
+                </button>
+            </nav>
+            <button type="button" class="ubuntu-dock__show-apps" id="ubuntu-dock-show-apps"
+                    aria-label="Afficher les applications" aria-pressed="false">
+                <img src="./media/img/dock/show-applications.png" alt="" width="32" height="32">
+            </button>
+        </aside>
+        <main class="fedora-desktop-area">
+            <object id="desktop" aria-label="Bureau Ubuntu">
+                <a class="desktop-shortcut" target="windowElement" data-link="profile" title="Ubuntu 25.10 — À propos">
+                    <img src="./media/img/assets/ubuntu-logo.svg" alt="Ubuntu 25.10 — À propos" width="48" height="48">
+                    <span>Ubuntu 25.10<br>À propos</span>
+                </a>
+                <div class="windowElement" data-link="mainMenu" id="mainMenu" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="nemo" id="nemo" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="firefox" id="firefox" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="terminal" id="terminal" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="themes" id="themes" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="profile" id="profile" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="checklist" id="checklist" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+            </object>
+        </main>
+    </div>
+
+    <section class="fedora-overview" aria-label="Aperçu des activités" aria-hidden="true">
+        <form class="fedora-overview__search" role="search" data-overview-search-form>
+            <span class="fedora-overview__search-icon" aria-hidden="true"></span>
+            <label class="sr-only" for="fedora-overview-search">Rechercher une application</label>
+            <input
+                id="fedora-overview-search"
+                class="fedora-overview__search-input"
+                type="search"
+                data-overview-search-input
+                placeholder="Saisissez votre recherche"
+                autocomplete="off"
+                spellcheck="false"
+            >
+            <button type="button" class="fedora-overview__search-clear" data-overview-search-clear aria-label="Effacer la recherche" hidden></button>
+        </form>
+        <section class="fedora-overview__search-results" data-overview-search-results aria-label="Résultats de recherche" hidden></section>
+        <div class="fedora-overview__workspace" aria-hidden="true">
+            <button type="button" class="fedora-overview__workspace-card" data-overview-desktop aria-label="Revenir au bureau">
+                <span class="fedora-overview__brand">ubuntu</span>
+            </button>
+            <div class="fedora-overview__workspace-next"></div>
+        </div>
+        <section class="fedora-overview__apps" aria-label="Applications">
+            <div class="fedora-overview__mini-workspaces">
+                <button type="button" class="fedora-overview__mini-workspace" data-overview-desktop aria-label="Revenir au bureau"></button>
+                <div class="fedora-overview__mini-workspace" aria-hidden="true"></div>
+            </div>
+            <div class="fedora-overview__apps-grid">
+                <button type="button" class="fedora-overview__app" aria-label="Horloges">
+                    <img src="./media/img/apps/overview/clocks.png" alt="">
+                    <span>Horloges</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Mise à jour des logiciels">
+                    <img src="./media/img/apps/overview/software-updater.png" alt="">
+                    <span>Actualiseu...</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Calculatrice">
+                    <img src="./media/img/apps/overview/calculator.png" alt="">
+                    <span>Calculatrice</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Centre de sécurité">
+                    <img src="./media/img/apps/overview/security-center.png" alt="">
+                    <span>Centre de ...</span>
+                </button>
+                <button type="button" class="fedora-overview__app" data-overview-link="themes" aria-label="Paramètres">
+                    <img src="./media/img/apps/overview/settings.png" alt="">
+                    <span>Paramètres</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Éditeur de texte">
+                    <img src="./media/img/apps/overview/text-editor.png" alt="">
+                    <span>Éditeur de ...</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Logiciels et mises à jour">
+                    <img src="./media/img/apps/overview/software-properties.png" alt="">
+                    <span>Gestionnai...</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Prise en charge des langues">
+                    <img src="./media/img/apps/overview/language-support.png" alt="">
+                    <span>Prise en ch...</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Ressources">
+                    <img src="./media/img/apps/overview/system-monitor.png" alt="">
+                    <span>Ressources</span>
+                </button>
+                <button type="button" class="fedora-overview__app" aria-label="Caractères">
+                    <img src="./media/img/apps/overview/characters.png" alt="">
+                    <span>Caractères</span>
+                </button>
+                <button type="button" class="fedora-overview__app" data-overview-link="terminal" aria-label="Terminal">
+                    <img src="./media/img/apps/overview/terminal.png" alt="">
+                    <span>Terminal</span>
+                </button>
+                <button type="button" class="fedora-overview__app fedora-overview__app--folder" aria-label="Utilitaires">
+                    <img src="./media/img/apps/overview/folder-utilities.png" alt="">
+                    <span>Utilitaires</span>
+                </button>
+                <button type="button" class="fedora-overview__app fedora-overview__app--folder" aria-label="Système">
+                    <img src="./media/img/apps/overview/folder-system.png" alt="">
+                    <span>Système</span>
+                </button>
+            </div>
+        </section>
+    </section>
+
+    <div class="calendar-popover" id="taskbar-calendar-popover" role="dialog" aria-label="Calendrier" hidden>
+        <div id="cal-long-date" hidden aria-hidden="true"></div>
+        <div class="calendar-popover__columns">
+            <div class="calendar-popover__notifications">
+                <div class="calendar-popover__notif-inner">
+                    <span class="calendar-popover__notif-icon" aria-hidden="true"></span>
+                    <p class="calendar-popover__notif-text">Aucune notification</p>
+                </div>
+                <div class="calendar-popover__notif-footer">
+                    <button type="button" class="calendar-popover__clear-btn">Effacer</button>
+                </div>
+            </div>
+            <div class="calendar-popover__calendar">
+                <div class="calendar-popover__cal-head">
+                    <div class="calendar-popover__weekday-big" id="cal-weekday-big"></div>
+                    <div class="calendar-popover__date-sub" id="cal-date-sub"></div>
+                </div>
+                <div class="calendar-popover__month-nav">
+                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month" aria-label="Mois précédent">‹</button>
+                    <span class="calendar-popover__month-label" id="cal-month-label"></span>
+                    <button type="button" class="calendar-popover__arrow" id="cal-next-month" aria-label="Mois suivant">›</button>
+                </div>
+                <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
+                <div class="calendar-popover__days" id="cal-days-grid"></div>
+                <div class="calendar-popover__today-section">
+                    <span class="calendar-popover__today-label">Aujourd'hui</span>
+                    <span class="calendar-popover__today-events">Aucun évènement</span>
+                </div>
+                <div class="calendar-popover__actions">
+                    <button type="button" class="calendar-popover__action-btn">Ajouter des horloges mondiales…</button>
+                    <button type="button" class="calendar-popover__action-btn">Choisir un emplacement pour la météo…</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="volume-popover" id="volume-popover" role="dialog" aria-label="Paramètres rapides" hidden>
+        <div class="quick-settings">
+            <div class="quick-settings__top">
+                <button type="button" class="quick-settings__round-btn quick-settings__round-btn--screen" aria-label="Capture"></button>
+                <button type="button" class="quick-settings__round-btn quick-settings__round-btn--settings" aria-label="Paramètres"></button>
+                <button type="button" class="quick-settings__round-btn quick-settings__round-btn--lock" aria-label="Verrouiller"></button>
+                <button type="button"
+                        class="quick-settings__round-btn quick-settings__round-btn--power"
+                        id="quick-settings-power-btn"
+                        aria-label="Alimentation"></button>
+            </div>
+            <div class="quick-settings__slider-row">
+                <button type="button" class="volume-popover__mute-btn quick-settings__slider-btn" id="volume-mute-btn"
+                        aria-label="Couper le son" aria-pressed="false">
+                    <span class="volume-popover__mute-icon" id="volume-mute-icon" aria-hidden="true"></span>
+                </button>
+                <input type="range" class="volume-slider" id="volume-slider"
+                       min="0" max="100" value="100" step="1"
+                       aria-label="Niveau du volume" aria-valuetext="100%">
+                <span class="volume-popover__value" id="volume-value" hidden>100%</span>
+            </div>
+            <div class="quick-settings__grid">
+                <button type="button" class="quick-settings__tile quick-settings__tile--active quick-settings__tile--has-submenu">
+                    <span class="quick-settings__tile-icon quick-settings__tile-icon--network" aria-hidden="true"></span>
+                    <span class="quick-settings__tile-text">Filaire</span>
+                    <span class="quick-settings__chevron" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="quick-settings__tile quick-settings__tile--has-submenu">
+                    <span class="quick-settings__tile-icon quick-settings__tile-icon--performance" aria-hidden="true"></span>
+                    <span class="quick-settings__tile-stack">
+                        <span class="quick-settings__tile-text">Mode puissance</span>
+                        <span class="quick-settings__tile-subtext">Équilibré</span>
+                    </span>
+                    <span class="quick-settings__chevron" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="quick-settings__tile quick-settings__tile--active" id="quick-settings-theme-btn">
+                    <span class="quick-settings__tile-icon quick-settings__tile-icon--theme" aria-hidden="true"></span>
+                    <span class="quick-settings__tile-text" id="quick-settings-theme-label">Style sombre</span>
+                </button>
+                <button type="button" class="quick-settings__tile">
+                    <span class="quick-settings__tile-icon quick-settings__tile-icon--dnd" aria-hidden="true"></span>
+                    <span class="quick-settings__tile-text">Ne pas déranger</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="tourOverlay" hidden aria-modal="true" role="dialog" aria-label="Visite guidée">
+        <div id="tourSpotlight" hidden aria-hidden="true"></div>
+        <div id="tourTooltip">
+            <h2 id="tourTitle"></h2>
+            <p id="tourBody"></p>
+            <div class="tour-tooltip__footer">
+                <button type="button" class="tour-btn" id="tourSkip">Passer</button>
+                <span id="tourCounter" aria-live="polite"></span>
+                <div class="tour-tooltip__nav">
+                    <button type="button" class="tour-btn" id="tourPrev" disabled>&lsaquo; Préc</button>
+                    <button type="button" class="tour-btn tour-btn--primary" id="tourNext">Suivant &rsaquo;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.CAPSULE_APPS_BASE = '../../../shared/apps';
+        window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
+        window.CAPSULE_SKIN_BASE = '.';
+        window.CAPSULE_STRINGS_URL = './content/strings.json';
+        window.CAPSULE_EXPLORER_APP_ID = 'nemo';
+        window.CAPSULE_EXPLORER_DISPLAY_NAME = 'Fichiers';
+        window.CAPSULE_EXPLORER_TEMPLATE = 'nemo-gnome';
+        window.CAPSULE_EXPLORER_SKIN_KEY = 'files';
+        window.CAPSULE_EMBED_SKIN_KEY = 'ubuntu';
+        window.CAPSULE_CHECKLIST_STORAGE_KEY = 'ubuntu-checklist';
+        window.CAPSULE_SITE_HOME = '../../../../../index.html';
+        window.CAPSULE_LINUX_HUB = '../../../index.html';
+        window.CAPSULE_TERMINAL_USER = 'ubuntu';
+        window.CAPSULE_TERMINAL_HOST = 'ubuntu-desktop';
+        window.CAPSULE_TERMINAL_HOME = '/home/user';
+        window.CAPSULE_TERMINAL_OS_FAMILY = 'linux';
+        window.CAPSULE_TERMINAL_PROFILE = 'debian';
+        window.CAPSULE_FILE_EXPLORER_ICON_MAP = {
+            folder: './media/img/elements/nemo/places/folder.png',
+            Dossier_personnel: './media/img/elements/nemo/places/user-home.png',
+            Bureau: './media/img/elements/nemo/places/user-desktop.png',
+            Documents: './media/img/elements/nemo/places/folder-documents.png',
+            Images: './media/img/elements/nemo/places/folder-pictures.png',
+            Musique: './media/img/elements/nemo/places/folder-music.png',
+            Public: './media/img/elements/nemo/places/folder-publicshare.png',
+            'Téléchargements': './media/img/elements/nemo/places/folder-download.png',
+            'Vidéos': './media/img/elements/nemo/places/folder-videos.png',
+            'Modèles': './media/img/elements/nemo/places/folder-templates.png',
+            snap: './media/img/elements/nemo/places/folder.png',
+            file: './media/img/mimeTypes/application-x-generic.svg',
+            pdf: './media/img/mimeTypes/application-x-generic.svg',
+            doc: './media/img/mimeTypes/x-office-document.svg',
+            txt: './media/img/mimeTypes/text-x-generic.svg',
+            sh: './media/img/mimeTypes/text-x-script.svg',
+            html: './media/img/mimeTypes/text-html.svg',
+            css: './media/img/mimeTypes/text-x-generic.svg',
+            js: './media/img/mimeTypes/application-x-generic.svg',
+            ogg: './media/img/mimeTypes/audio-x-generic.svg',
+            mp3: './media/img/mimeTypes/audio-x-generic.svg',
+            wav: './media/img/mimeTypes/audio-x-generic.svg',
+            mp4: './media/img/mimeTypes/video-x-generic.svg',
+            avi: './media/img/mimeTypes/video-x-generic.svg',
+            jpeg: './media/img/mimeTypes/image-x-generic.svg',
+            jpg: './media/img/mimeTypes/image-x-generic.svg',
+            png: './media/img/mimeTypes/image-x-generic.svg',
+            webp: './media/img/mimeTypes/image-x-generic.svg'
+        };
+    </script>
+    <script src="../../../kernel/js/capsule-app-embed.js?v=20260521"></script>
+    <script src="../../../kernel/js/strings-default.js?v=20260424"></script>
+    <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
+    <script src="../../../kernel/js/capsule-theme.js?v=20260424"></script>
+    <script src="../../../kernel/js/windowContainer.js?v=20260424"></script>
+    <script src="../../../kernel/js/windowHeaderButton.js?v=20260424"></script>
+    <script src="../../../kernel/js/resizeWindow.js"></script>
+    <script src="../../../kernel/js/windowDrag.js"></script>
+    <script src="../../../kernel/js/mainMenu-data.js?v=20260424"></script>
+    <script src="../../../kernel/js/mainMenu.js?v=20260428"></script>
+    <script src="../../../kernel/js/themes.js?v=20260424"></script>
+    <script src="./content/profile-data.js"></script>
+    <script src="../../../kernel/js/profile.js"></script>
+    <script src="../../../kernel/js/checklist.js"></script>
+    <script src="../../../kernel/js/firefoxBrowser.js"></script>
+    <script src="../../../kernel/js/contentLoader.js?v=20260427b"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerHeader.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerContainer.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerCore.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerInfo.js"></script>
+    <script src="../../../kernel/js/fileViewerRouter.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerLoader.js"></script>
+    <script src="../../../kernel/js/date.js"></script>
+    <script src="../../../kernel/js/calendar-popover.js"></script>
+    <script src="../../../kernel/js/terminal/config/command-registry.js"></script>
+    <script src="../../../kernel/js/terminal/config/profiles/linux/debian.js"></script>
+    <script src="../../../kernel/js/terminal/terminal-profile.js"></script>
+    <script src="../../../kernel/js/terminal/terminal-core.js"></script>
+    <script src="../../../kernel/js/terminal/terminal.js"></script>
+    <script src="../../../kernel/js/terminal/executeCommand.js"></script>
+    <script src="../../../kernel/js/terminal/filesystem.js"></script>
+    <script src="../../../kernel/js/terminal/manuel.js"></script>
+    <script src="../../../kernel/js/tour-data.js"></script>
+    <script src="../../../kernel/js/tour.js?v=20260428"></script>
+    <script src="../../../kernel/js/volume.js"></script>
+    <script src="../../../kernel/js/librewriter.js"></script>
+    <script src="../../../kernel/js/search/appSearch.js"></script>
+    <script src="./js/overview.js?v=20260521b"></script>
+    <script>
+    (function () {
+        function updateUbuntuDate() {
+            var el = document.getElementById('ubuntu-clock-date');
+            if (!el) return;
+            var now = new Date();
+            el.textContent = now.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            updateUbuntuDate();
+            setInterval(updateUbuntuDate, 60000);
+        });
+    })();
+    </script>
+</body>
+</html>

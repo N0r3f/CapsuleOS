@@ -1,0 +1,197 @@
+@import url(imports.css?v=20260514b);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--texte);
+}
+
+#mx-kde {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    background-image: linear-gradient(135deg, #0f172a 0%, #1f3b5d 45%, #2b5a8e 100%);
+    background-size: var(--scov);
+    background-repeat: var(--nr);
+    background-position: var(--c);
+    overflow: var(--n);
+}
+
+#desktop {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    position: var(--rel);
+    width: var(--max-w);
+    height: calc(var(--max-h) - var(--taskbar-height));
+    max-height: calc(var(--max-h) - var(--taskbar-height));
+}
+
+.desktop-shortcut {
+    position: var(--abs);
+    top: calc(var(--head) / 2);
+    left: calc(var(--head) / 2);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 3.4);
+    padding: calc(var(--head) / 6);
+    gap: calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 8);
+    color: var(--desktop-shortcut-text);
+    text-decoration: var(--n);
+    text-shadow: var(--desktop-shortcut-shadow);
+    border: 1px solid var(--t);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+    z-index: 10;
+}
+
+.desktop-shortcut:hover,
+.desktop-shortcut.active-link {
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: var(--menu-accent);
+    transform: translateY(-1px);
+}
+
+.desktop-shortcut > img {
+    width: calc(var(--head) * 1.3);
+    height: calc(var(--head) * 1.3);
+    object-fit: contain;
+}
+
+.desktop-shortcut > span {
+    max-width: var(--full);
+    text-align: var(--c);
+    line-height: 1.2;
+    font-size: calc(var(--head) / 3.2);
+}
+
+#tableau {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: var(--taskbar-height);
+    padding: var(--z) calc(var(--head) / 4) var(--z) calc(var(--head) / 4);
+    border: var(--n);
+    background: var(--mint-taskbar-bg);
+    border-top: 1px solid var(--mint-taskbar-top-border);
+}
+
+#mx-kde {
+    --taskbar-height: calc(var(--head) * 1.05);
+    --mint-taskbar-bg: rgba(21, 28, 40, 0.9);
+    --mint-taskbar-top-border: rgba(255, 255, 255, 0.08);
+    --mint-clock-hover-bg: rgba(255, 255, 255, 0.12);
+    --mint-taskbar-item-border-hover: rgba(130, 180, 255, 0.65);
+    --mint-taskbar-item-bg-hover: rgba(110, 146, 203, 0.2);
+    --mint-taskbar-item-bg-active: rgba(106, 150, 223, 0.2);
+    --mint-taskbar-item-shadow-active: inset 0 0 0 1px rgba(132, 181, 255, 0.16);
+    --mint-taskbar-right-bg: rgba(255, 255, 255, 0.02);
+    --mint-taskbar-right-separator: rgba(255, 255, 255, 0.04);
+    --mint-tray-inner-separator: rgba(255, 255, 255, 0.09);
+    --mint-tray-color: rgba(229, 236, 248, 0.95);
+    --mint-clock-date-color: rgba(221, 231, 244, 0.9);
+    --mint-tray-separator: rgba(255, 255, 255, 0.2);
+    --desktop-shortcut-text: #eef4ff;
+    --desktop-shortcut-shadow: 0 1px 2px rgba(4, 7, 12, 0.95);
+    --desktop-shortcut-hover-bg: rgba(116, 174, 255, 0.2);
+    --mint-window-header-border: rgba(255, 255, 255, 0.18);
+    --mint-window-header-border-active: rgba(130, 180, 255, 0.65);
+    --mint-window-control-border-hover: rgba(130, 180, 255, 0.75);
+    --mint-window-control-bg-hover: rgba(126, 177, 255, 0.2);
+    --calendar-popover-width: min(30rem, calc(100vw - 1.5rem));
+    --calendar-popover-max-height: min(34rem, calc(100vh - var(--taskbar-height) - 2rem));
+    --calendar-popover-font-size: 0.9rem;
+    --calendar-popover-radius: 14px;
+    --calendar-popover-bg: rgba(28, 34, 46, 0.88);
+    --calendar-popover-border: 1px solid rgba(255, 255, 255, 0.1);
+    --calendar-popover-shadow: 0 0.85rem 2.25rem rgba(0, 0, 0, 0.48);
+    --calendar-popover-day-radius: 0.35rem;
+    --calendar-popover-day-size: 0.95rem;
+    --calendar-popover-day-max-height: 2.85rem;
+    --calendar-popover-week-label-size: 0.74rem;
+    --calendar-popover-week-cell-padding: 0.35rem 0;
+    --calendar-popover-days-gap: 0.35rem;
+    --calendar-popover-arrow-size: 2rem;
+    --calendar-popover-arrow-font-size: 1.25rem;
+    --calendar-popover-today-bg: #3daee9;
+    --calendar-popover-today-hover-bg: #4ebaf0;
+    --mx-kde-konsole-header-height: 2.05rem;
+    --mx-kde-header-icon-size: 0.96rem;
+    --mx-kde-header-pin-size: 0.78rem;
+    --mx-kde-header-title-size: 0.84rem;
+    --mx-kde-mono-logo-filter: brightness(0) invert(1);
+    --mx-kde-header-control-filter: brightness(0) invert(1);
+    --mx-kde-header-control-filter-light: brightness(0) saturate(100%);
+    --mx-kde-menu-width: min(27.5rem, calc(100vw - 1.25rem));
+    --mx-kde-menu-height: min(34rem, calc(100vh - var(--taskbar-height) - 1.25rem));
+    --mx-kde-menu-radius: 0.55rem;
+    --mx-kde-menu-rail-width: 4.2rem;
+    --mx-kde-menu-rail-shortcut-min-h: 2.48rem;
+    --mx-kde-menu-rail-icon-size: 1.54rem;
+    --mx-kde-menu-rail-action-size: 2.22rem;
+    --mx-kde-menu-rail-action-icon: 1.54rem;
+    --mx-kde-menu-body-row-min-h: 2.42rem;
+    --mx-kde-menu-cat-icon-size: 1.22rem;
+    --mx-kde-menu-app-icon-size: 1.38rem;
+    --mx-kde-menu-search-min-height: 2.16rem;
+    --mx-kde-menu-search-icon-size: 1.02rem;
+    --mx-kde-menu-search-icon-left: 0.62rem;
+    --mx-kde-menu-btn-radius: 0.34rem;
+    --mx-kde-menu-bg: rgba(28, 32, 38, 0.9);
+    --mx-kde-menu-border: rgba(255, 255, 255, 0.1);
+    --mx-kde-menu-text: #eff0f1;
+    --mx-kde-menu-text-muted: rgba(189, 195, 199, 0.72);
+    --mx-kde-menu-search-focus: #3daee9;
+    --mx-kde-menu-hover: rgba(239, 240, 241, 0.08);
+    --mx-kde-menu-active: rgba(61, 174, 233, 0.18);
+    --mx-kde-menu-apps-flyout-width: min(14.5rem, calc(100vw - 1.5rem));
+    --mx-kde-menu-apps-flyout-gap: 0.22rem;
+    --mx-kde-menu-apps-flyout-min-height: 5.25rem;
+    --mx-kde-menu-apps-flyout-z: 520;
+    /* Barre de titre fenêtres (thème sombre = valeurs héritées windows.css / skins) */
+    --mx-kde-window-titlebar-bg: #293446;
+    --mx-kde-window-titlebar-bg-active: #32425b;
+    --mx-kde-window-titlebar-border-color: rgba(255, 255, 255, 0.12);
+    --mx-kde-window-titlebar-border-color-active: rgba(130, 180, 255, 0.65);
+    --mx-kde-window-titlebar-fg: #eff0f1;
+    --mx-kde-window-titlebar-fg-muted: rgba(232, 239, 245, 0.78);
+}
+
+html[data-theme="light"] #mx-kde {
+    --mint-taskbar-bg: rgba(236, 241, 248, 0.9);
+    --mint-taskbar-top-border: rgba(52, 78, 112, 0.2);
+    --mint-taskbar-item-bg-hover: rgba(63, 120, 196, 0.14);
+    --mint-taskbar-item-bg-active: rgba(63, 120, 196, 0.2);
+    --mint-taskbar-item-border-hover: rgba(56, 107, 182, 0.5);
+    --mint-taskbar-item-shadow-active: inset 0 0 0 1px rgba(57, 107, 180, 0.2);
+    --mint-taskbar-right-bg: rgba(23, 41, 68, 0.05);
+    --mint-taskbar-right-separator: rgba(23, 41, 68, 0.14);
+    --mint-tray-inner-separator: rgba(23, 41, 68, 0.2);
+    --mint-tray-color: rgba(29, 44, 70, 0.92);
+    --mint-clock-date-color: rgba(29, 44, 70, 0.9);
+    --calendar-popover-bg: rgba(245, 248, 252, 0.98);
+    --calendar-popover-border: 1px solid rgba(0, 0, 0, 0.12);
+    --calendar-popover-shadow: 0 0.65rem 1.5rem rgba(23, 41, 68, 0.18);
+    --mx-kde-mono-logo-filter: none;
+    --mx-kde-header-control-filter-light: brightness(0) saturate(100%);
+    --mx-kde-menu-bg: rgba(245, 248, 252, 0.96);
+    --mx-kde-menu-border: rgba(0, 0, 0, 0.12);
+    --mx-kde-menu-text: #1f2328;
+    --mx-kde-menu-text-muted: rgba(60, 68, 78, 0.72);
+    --mx-kde-menu-hover: rgba(61, 120, 196, 0.1);
+    --mx-kde-menu-active: rgba(61, 174, 233, 0.16);
+    --mx-kde-window-titlebar-bg: #f0f4f8;
+    --mx-kde-window-titlebar-bg-active: #e3eaf2;
+    --mx-kde-window-titlebar-border-color: rgba(0, 0, 0, 0.1);
+    --mx-kde-window-titlebar-border-color-active: rgba(61, 120, 196, 0.45);
+    --mx-kde-window-titlebar-fg: #1c2430;
+    --mx-kde-window-titlebar-fg-muted: rgba(28, 36, 48, 0.72);
+}

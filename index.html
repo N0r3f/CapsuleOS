@@ -10,7 +10,7 @@
 <body>
     <header></header>
     <main>
-        <a href="./OS/linux/mint/index.html" title="Tester un système Linux"><section>
+        <a href="./OS/linux/index.html" title="Tester un système Linux"><section>
             <img src="./media/img/linux.webp" alt="Logo de Linux">
             <span>Linux</span>
         </section></a>
@@ -37,5 +37,12 @@
     </main>
     <footer></footer>
     <script src="./js/background.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').catch(() => {});
+            });
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+Checklist fidélité Ubuntu 25.10 / GNOME — base CapsuleOS
+========================================================
+
+Références visuelles
+--------------------
+- Captures versionnées : media/reference/ (copies de visuel/screenshot/)
+- Fond : media/img/assets/wallpaper-racoon.png (Resolute Raccoon, source visuel/wallpapper/racoon.png)
+- Socle shell : dérivé Fedora GNOME, tokens Ubuntu (orange #E95420)
+
+Mapping capture → implémentation
+--------------------------------
+| Capture | Fichiers |
+|---------|----------|
+| screen_idle.png | style/gnome-workstation.css, gnome-shell/ubuntu-tokens.css |
+| bouton_haut_gauche.png | gnome-shell/overview.css, js/overview.js |
+| bouton_haut_droite.png | gnome-shell/tray.css, gnome-shell/volume-popover.css |
+| calendar.png | gnome-shell/calendar-popover.css |
+| app_bouton_bas.png | gnome-shell/ubuntu-dock.css, js/overview.js (#ubuntu-dock-show-apps → is-overview-apps), media/img/apps/overview/* (Yaru) |
+| screen_idle.png (dock) | media/img/dock/* (Yaru), ordre Firefox → Fichiers → Software → Aide → Corbeille → logo Ubuntu (start-here) |
+| Icônes Yaru (mapping) | media/img/ICONS-YARU.md — sources visuel/icons_ubuntu_gnome/ ; Security Center : github.com/canonical/desktop-security-center |
+| naut.png | style/apps/files.skin.css |
+| terminal.png | style/apps/terminal.skin.css |
+
+Réglages appliqués (base)
+-------------------------
+- [x] Structure HTML GNOME (top bar, dock, overview) — index.html
+- [x] Découplage Linux Mint (plus de ../mint/ pour le shell)
+- [x] CAPSULE_EXPLORER_SKIN_KEY = files, profil terminal debian
+- [x] Fond Resolute Raccoon sur #ubuntu
+- [x] Accent menu #E95420 (Yaru/Ubuntu)
+
+À affiner après comparaison navigateur / captures
+-------------------------------------------------
+- [ ] Pixel-perfect overview vs bouton_haut_gauche.png
+- [x] Quick settings vs bouton_haut_droite.png (orange #E95420, pas bleu Fedora)
+- [x] Nautilus vs naut.png (template nemo-gnome, icônes Yaru places/, tokens gris + orange)
+- [x] Terminal vs terminal.png (chrome Ptyxis, sorties : historique blanc gras, ls colonnes dossiers bleus, prompt actif vert + ~ bleu)
+- [x] Dock + grille overview app_bouton_bas.png → Yaru (voir media/img/ICONS-YARU.md)
+- [x] Pas de dash horizontal Fedora en overview (Ubuntu = dock gauche uniquement)
+- [x] Mini-workspaces overview : wallpaper racoon (sans overlay bleu Fedora)
+- [x] Dock : Terminal au-dessus de la corbeille (réf. app_bouton_bas / usage GNOME)
+- [x] Bureau : raccourci « Ubuntu 25.10 — À propos » (pédagogique CapsuleOS)

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="close.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.54092135"
+     inkscape:cx="223.69241"
+     inkscape:cy="754.26862"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-6.6427612,-47.157562)">
+    <circle
+       style="fill:#1f9ede;fill-opacity:1;fill-rule:evenodd;stroke-width:40"
+       id="path959"
+       cx="106.64276"
+       cy="147.15756"
+       r="100"
+       inkscape:export-filename="/home/goupil/Documents/capsule/CapsuleOS-1/OS/linux/mint/media/img/header/close.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       d="m 65.815292,103.63364 h 10.9114 c 2.6988,0.116 5.39752,1.3652 7.28136,3.3128 l 24.140548,24.1194 24.4687,-24.13 c 2.8152,-2.4448 4.7308,-3.2384 7.2813,-3.3128 h 10.5834 v 10.5834 c 0,3.0268 -0.36,5.8208 -2.646,7.9375 l -24.1406,24.1511 23.8125,23.8125 c 1.9896,1.9896 2.974,4.8049 2.974,7.6095 v 10.5833 h -10.5834 c -2.8048,0 -5.6091,-0.984 -7.6094,-2.974 l -24.1406,-24.1406 -24.140528,24.13 a 10.742083,10.742083 0 0 1 -7.60944,2.9844 h -10.58332 v -10.5833 c 0,-2.8048 0.9844,-5.6092 2.974,-7.6094 l 24.14059,-23.8124 -24.13003,-24.1406 a 9.62025,9.62025 0 0 1 -2.9844,-7.9374 z"
+       color="#bebebe"
+       fill="#2e3436"
+       font-family="'Andale Mono'"
+       font-weight="400"
+       overflow="visible"
+       style="text-indent:0;text-decoration-line:none;text-transform:none;fill:#ffffff;stroke-width:10.5833"
+       id="path928"
+       inkscape:export-filename="/home/goupil/Documents/capsule/CapsuleOS-1/OS/linux/mint/media/img/header/close.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

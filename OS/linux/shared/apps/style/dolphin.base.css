@@ -1,0 +1,472 @@
+/**
+ * Dolphin (KDE Plasma / Breeze sombre) — tokens centralisés pour le slot explorateur.
+ * nemo.base.css est fusionné par contentLoader.js (pas d’@import relatif en <style>).
+ *
+ * Variables : définies sur div[data-link="nemo"] pour couvrir #windowHeader (hors main) et .dolphin-app.
+ * Surcharges par skin : families/.../<distro>/style/apps/dolphin.skin.css (dernier dans la chaîne injectée).
+ */
+
+div[data-link="nemo"] {
+    --dolphin-chrome: #2b2b2b;
+    --dolphin-chrome-border: #3d3d3d;
+    --dolphin-view: #141414;
+    --dolphin-sidebar: #1e1e1e;
+    --dolphin-sidebar-border: #2e2e2e;
+    --dolphin-text: #eff0f1;
+    --dolphin-text-muted: #9aa0a6;
+    --dolphin-toolbar-text: #eceff1;
+    --dolphin-accent: #3daee9;
+    --dolphin-accent-soft: rgba(61, 174, 233, 0.28);
+    --dolphin-accent-ring: rgba(61, 174, 233, 0.35);
+    --dolphin-hover: rgba(61, 174, 233, 0.32);
+    --dolphin-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    --dolphin-radius: 5px;
+    --dolphin-sidebar-w: clamp(200px, calc(var(--head) * 7), 280px);
+
+    --dolphin-header-gradient-start: #323232;
+    --dolphin-header-gradient-end: #2b2b2b;
+    --dolphin-menu-surface-bg: #2c2c2c;
+    --dolphin-submenu-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+    --dolphin-content-split-border: #252525;
+
+    --dolphin-icon-filter-toolbar: invert(1) brightness(1.12);
+    --dolphin-icon-filter-sidebar: brightness(0) invert(1);
+    --dolphin-icon-opacity-sidebar: 0.88;
+    --dolphin-icon-filter-footer: brightness(0) invert(1);
+    --dolphin-icon-opacity-footer: 0.85;
+    --dolphin-folder-filter-grid: brightness(1.1) saturate(1.45) hue-rotate(-14deg);
+
+    --dolphin-sidebar-hover-bg: rgba(61, 174, 233, 0.14);
+    --dolphin-sidebar-hover-border: rgba(61, 174, 233, 0.55);
+    --dolphin-sidebar-active-bg: rgba(61, 174, 233, 0.32);
+    --dolphin-sidebar-static-hover-bg: rgba(255, 255, 255, 0.04);
+
+    --dolphin-grid-hover-bg: rgba(61, 174, 233, 0.1);
+    --dolphin-grid-item-hover-bg: rgba(61, 174, 233, 0.12);
+    --dolphin-grid-item-hover-outline: rgba(61, 174, 233, 0.45);
+
+    --dolphin-pill-text: #eceff1;
+    --dolphin-pill-bg: rgba(20, 20, 20, 0.72);
+    --dolphin-pill-border: rgba(255, 255, 255, 0.1);
+    --dolphin-pill-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+
+    --dolphin-pathbar-border-strong: #556070;
+
+    --dolphin-usage-track-bg: #353535;
+    --dolphin-usage-fill-start: #1fa37a;
+    --dolphin-usage-fill-end: #2dcc70;
+
+    --dolphin-window-header-start: #3a3a3a;
+    --dolphin-window-header-end: #2d2d2d;
+    --dolphin-window-header-active-start: #424242;
+    --dolphin-window-header-active-end: #333333;
+    --dolphin-window-title-shadow: none;
+}
+
+.dolphin-app {
+    --nemo-bg-primary: var(--dolphin-view);
+    --nemo-header-bg: var(--dolphin-chrome);
+    --nemo-border: var(--dolphin-chrome-border);
+    --nemo-text-primary: var(--dolphin-text);
+    --nemo-text-muted: var(--dolphin-text-muted);
+    --nemo-item-active-bg: var(--dolphin-accent-soft);
+    --nemo-menu-surface-bg: var(--dolphin-menu-surface-bg);
+    --nemo-toolbar-bg: #2e2e2e;
+    --nemo-toolbar-border: #404040;
+    --nemo-toolbar-button-border: #4a5560;
+    --nemo-toolbar-button-bg: linear-gradient(180deg, #383838 0%, #2c2c2c 100%);
+    --nemo-toolbar-button-hover-bg: linear-gradient(180deg, #404040 0%, #333333 100%);
+    --nemo-pathbar-bg: #2a2a2a;
+    --nemo-pathbar-border: #4d5866;
+    --nemo-pathbar-text: var(--dolphin-text);
+    --nemo-sidebar-bg: var(--dolphin-sidebar);
+    --nemo-footer-bg: var(--dolphin-chrome);
+    --nemo-status-text: var(--dolphin-text-muted);
+    --nemo-tooltip-bg: #0d0d0d;
+    --nemo-tooltip-text: #eff0f1;
+    --nemo-toolbar-icon-filter: var(--dolphin-icon-filter-toolbar);
+    --nemo-accent: var(--dolphin-accent);
+}
+
+div[data-link="nemo"] main#gestionnaire.dolphin-app {
+    border-radius: 0 0 var(--dolphin-radius) var(--dolphin-radius);
+    box-shadow: var(--dolphin-shadow);
+    border: 1px solid var(--dolphin-chrome-border);
+    border-top: none;
+    font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans", "Inter", sans-serif;
+}
+
+div[data-link="nemo"] main#gestionnaire.nemo-app.dolphin-app .nemo-app__menubar {
+    display: none;
+}
+
+div[data-link="nemo"] .dolphin-app #nemoHeaderContainer {
+    background: linear-gradient(180deg, var(--dolphin-header-gradient-start) 0%, var(--dolphin-header-gradient-end) 100%);
+    border-bottom: 1px solid var(--dolphin-chrome-border);
+    box-shadow: none;
+    height: auto;
+    min-height: calc(var(--head) * 1.35);
+}
+
+div[data-link="nemo"] .dolphin-app #nemoHeaderContainer .menuHeader a,
+div[data-link="nemo"] .dolphin-app #nemoHeaderContainer .menuOutils a {
+    font-size: calc(var(--head) / 2.2);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+div[data-link="nemo"] .dolphin-app .listeSousMenu {
+    background: var(--nemo-menu-surface-bg);
+    border-radius: var(--dolphin-radius);
+    box-shadow: var(--dolphin-submenu-shadow);
+    border: 1px solid var(--dolphin-chrome-border);
+    padding: 4px 0;
+    z-index: 1000;
+}
+
+div[data-link="nemo"] .dolphin-app .menuHeader > li {
+    position: relative;
+}
+
+div[data-link="nemo"] .dolphin-app .listeSousMenu > a:hover {
+    background: var(--dolphin-accent-soft);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__toolbar.dolphin-toolbar {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: calc(var(--head) / 5);
+    padding: calc(var(--head) / 5) calc(var(--head) / 4);
+    background: var(--dolphin-chrome);
+    border-top: none;
+    border-bottom: 1px solid var(--dolphin-chrome-border);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__nav {
+    flex-shrink: 0;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__nav-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__toolbar-group--view.dolphin-toolbar__view {
+    flex-shrink: 0;
+    margin-left: 0;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view-btn--extra {
+    display: none;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--head) / 5);
+    margin-left: calc(var(--head) / 12);
+    margin-right: calc(var(--head) / 12);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__crumb-prefix {
+    flex-shrink: 0;
+    color: var(--dolphin-text-muted);
+    font-weight: 600;
+    font-size: calc(var(--head) / 2.1);
+    opacity: 0.95;
+    line-height: 1;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path .nemo-app__path-current {
+    flex: 1;
+    min-width: 0;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions {
+    margin-left: auto;
+    flex-shrink: 0;
+    gap: calc(var(--head) / 10);
+}
+
+/* Shared toolbar structure: first action button is icon+label flow. */
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn {
+    border: 1px solid var(--nemo-toolbar-button-border);
+    background: var(--nemo-toolbar-button-bg);
+    color: var(--dolphin-toolbar-text);
+    min-width: calc(var(--head) / 1.35);
+    height: calc(var(--head) / 1.35);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn:hover {
+    background: var(--nemo-toolbar-button-hover-bg);
+    border-color: var(--dolphin-accent);
+    transform: none;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view-btn--active {
+    border-color: var(--dolphin-accent);
+    box-shadow: inset 0 0 0 1px var(--dolphin-accent-ring);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn .dolphin-toolbar__svg {
+    display: block;
+    color: var(--dolphin-toolbar-text);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__toolbar-group > a {
+    transform: none;
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__toolbar-group--path > a:not(.nemo-app__path-current):hover {
+    background: var(--dolphin-hover);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__path-current {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+    border-color: var(--dolphin-pathbar-border-strong);
+    color: var(--dolphin-text);
+}
+
+div[data-link="nemo"] .dolphin-app #nemoMainContainer > #voletnemo.dolphin-sidebar {
+    width: var(--dolphin-sidebar-w);
+    min-width: var(--dolphin-sidebar-w);
+    max-width: var(--dolphin-sidebar-w);
+    background: var(--dolphin-sidebar);
+    border-right: 1px solid var(--dolphin-sidebar-border);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.35);
+    padding: calc(var(--head) / 8) calc(var(--head) / 10);
+    gap: calc(var(--head) / 10);
+}
+
+div[data-link="nemo"] .dolphin-app #nemoMainContainer > #voletnemo.dolphin-sidebar > div {
+    width: 100%;
+    margin-left: 0;
+    min-width: 0;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__heading {
+    margin: calc(var(--head) / 5) 0 calc(var(--head) / 10) calc(var(--head) / 14);
+    padding: 0;
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 600;
+    color: var(--dolphin-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    line-height: 1.2;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__section:first-child .dolphin-sidebar__heading {
+    margin-top: calc(var(--head) / 12);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(var(--head) / 5);
+    padding: calc(var(--head) / 5.5) calc(var(--head) / 6);
+    margin: 0 0 0 2px;
+    border-radius: 4px;
+    border-left: 3px solid transparent;
+    font-size: calc(var(--head) / 2.25);
+    font-weight: 500;
+    color: var(--dolphin-text);
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img {
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    flex-shrink: 0;
+    filter: var(--dolphin-icon-filter-sidebar);
+    opacity: var(--dolphin-icon-opacity-sidebar);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link:hover {
+    background: var(--dolphin-sidebar-hover-bg);
+    border-left-color: var(--dolphin-sidebar-hover-border);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link--active {
+    background: var(--dolphin-sidebar-active-bg);
+    border-left-color: var(--dolphin-accent);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link--static:hover {
+    background: var(--dolphin-sidebar-static-hover-bg);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 6);
+    padding: calc(var(--head) / 5.5) calc(var(--head) / 6);
+    margin-left: 2px;
+    border-radius: 4px;
+    color: var(--dolphin-text);
+    text-decoration: none;
+    font-size: calc(var(--head) / 2.25);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img {
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    filter: var(--dolphin-icon-filter-sidebar);
+    opacity: var(--dolphin-icon-opacity-sidebar);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-path {
+    margin-left: auto;
+    font-weight: 600;
+    opacity: 0.75;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__usage {
+    height: 5px;
+    background: var(--dolphin-usage-track-bg);
+    border-radius: 3px;
+    margin: 4px calc(var(--head) / 8) calc(var(--head) / 6);
+    overflow: hidden;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__usage-fill {
+    display: block;
+    height: 100%;
+    width: 42%;
+    background: linear-gradient(90deg, var(--dolphin-usage-fill-start), var(--dolphin-usage-fill-end));
+    border-radius: 3px;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__removable {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 6);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__removable-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-sidebar__eject {
+    opacity: 0.65;
+    font-size: calc(var(--head) / 2.2);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__content-wrap.dolphin-content-wrap {
+    position: relative;
+    background: var(--dolphin-view);
+    border-left: 1px solid var(--dolphin-content-split-border);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__content-grid {
+    background: var(--dolphin-view);
+    padding-bottom: calc(var(--head) * 2.25);
+    gap: calc(var(--head) / 4);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__content-grid a.nemo-app__item--folder > img {
+    filter: var(--dolphin-folder-filter-grid);
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__content-grid a.nemo-app__item--folder:focus-visible,
+div[data-link="nemo"] .dolphin-app .nemo-app__content-grid a.nemo-app__item--folder:focus {
+    outline: 2px solid var(--dolphin-accent);
+    outline-offset: 2px;
+}
+
+div[data-link="nemo"] .dolphin-app #voletContainer > .nemoElement > a:hover {
+    background: var(--dolphin-grid-item-hover-bg);
+    border-radius: var(--dolphin-radius);
+    outline: 1px solid var(--dolphin-grid-item-hover-outline);
+    outline-offset: 1px;
+}
+
+div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:hover {
+    background: var(--dolphin-grid-hover-bg);
+}
+
+div[data-link="nemo"] .dolphin-app .dolphin-folder-pill {
+    position: absolute;
+    left: 12px;
+    bottom: 11px;
+    z-index: 6;
+    padding: 5px 12px;
+    font-size: calc(var(--head) / 2.55);
+    font-weight: 500;
+    color: var(--dolphin-pill-text);
+    background: var(--dolphin-pill-bg);
+    backdrop-filter: blur(6px);
+    border-radius: 999px;
+    border: 1px solid var(--dolphin-pill-border);
+    pointer-events: none;
+    box-shadow: var(--dolphin-pill-shadow);
+}
+
+div[data-link="nemo"] .dolphin-app #nemoFooterContainer {
+    background: var(--dolphin-chrome);
+    border-top: 1px solid var(--dolphin-chrome-border);
+    font-size: calc(var(--head) / 2.4);
+}
+
+div[data-link="nemo"] .dolphin-app #nemoFooterContainer .nemo-app__status-center p {
+    color: var(--dolphin-text-muted);
+    font-variant-numeric: tabular-nums;
+    opacity: 0.92;
+}
+
+div[data-link="nemo"] .dolphin-app #zoom {
+    accent-color: var(--dolphin-accent);
+}
+
+div[data-link="nemo"] .dolphin-app #nemoFooterContainer .nemo-app__status-left img {
+    filter: var(--dolphin-icon-filter-footer);
+    opacity: var(--dolphin-icon-opacity-footer);
+}
+
+div[data-link="nemo"] #windowHeader {
+    background: linear-gradient(180deg, var(--dolphin-window-header-start) 0%, var(--dolphin-window-header-end) 100%);
+    border-bottom: 1px solid var(--dolphin-chrome-border);
+}
+
+div[data-link="nemo"].windowElementActive #windowHeader {
+    background: linear-gradient(180deg, var(--dolphin-window-header-active-start) 0%, var(--dolphin-window-header-active-end) 100%);
+}
+
+div[data-link="nemo"] #windowTitle {
+    color: var(--dolphin-text);
+    font-weight: 600;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    text-shadow: var(--dolphin-window-title-shadow);
+    filter: none;
+}

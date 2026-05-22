@@ -1,0 +1,90 @@
+/**
+ * Rail workspaces à gauche — workspace.png (bureau net, pas de blur).
+ */
+body#popos .cosmic-workspaces-rail {
+    position: fixed;
+    top: calc(var(--popos-top-bar-height) + calc(var(--head) / 4));
+    left: calc(var(--head) / 3);
+    bottom: var(--popos-workspaces-rail-bottom);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    width: var(--popos-workspaces-rail-width);
+    padding: calc(var(--head) / 3);
+    border-radius: var(--popos-workspaces-rail-radius);
+    background: var(--popos-workspaces-rail-bg);
+    border: var(--popos-panel-border);
+    box-shadow: var(--popos-panel-shadow);
+}
+
+body#popos .cosmic-workspaces-rail[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-workspaces-rail__list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--head) / 4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body#popos .cosmic-workspaces-rail__workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: calc(var(--head) / 5);
+    width: 100%;
+    margin: 0;
+    padding: calc(var(--head) / 5);
+    border: 2px solid transparent;
+    border-radius: calc(var(--head) / 6);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-family: "Inter", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    font-size: calc(var(--head) / 2.75);
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color var(--eas2), background-color var(--eas2);
+}
+
+body#popos .cosmic-workspaces-rail__workspace:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body#popos .cosmic-workspaces-rail__workspace--active {
+    border-color: var(--popos-workspaces-active-border);
+    box-shadow: 0 0 0 1px var(--popos-workspaces-active-border);
+}
+
+body#popos .cosmic-workspaces-rail__preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: calc(var(--head) * 2.6);
+    overflow: hidden;
+    border-radius: calc(var(--head) / 7);
+}
+
+body#popos .cosmic-workspaces-rail__preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+body#popos .cosmic-workspaces-rail__name {
+    display: block;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.75);
+    font-weight: 400;
+    line-height: 1.2;
+    pointer-events: none;
+}

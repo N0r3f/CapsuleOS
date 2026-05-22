@@ -1,0 +1,137 @@
+/**
+ * Chrome fenêtres Fedora — fork de mint/style/windows.css (2026-04).
+ * Icônes: ../../media/img/header/*.svg
+ * Positionnement sous top bar + dock: tokens --fedora-top-bar-height, --fedora-dock-width.
+ */
+
+body#fedora div[class^="windowElement"]:not(#mainMenu) {
+    position: fixed;
+    top: calc(var(--fedora-top-bar-height) + var(--head));
+    left: calc(var(--head) * 0.75);
+    bottom: calc(var(--head) * 0.65);
+    right: auto;
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: calc(var(--head) * 10);
+    min-height: calc(var(--head) * 12);
+    padding: calc(var(--head) / 20);
+    border: 1px solid rgba(0, 0, 0, 0.45);
+    border-radius: var(--fedora-window-radius);
+    box-shadow: var(--fedora-window-shadow);
+    background: var(--fedora-window-surface);
+    overflow: var(--h);
+    scrollbar-width: var(--z);
+    transition: border-color var(--eas2), box-shadow var(--ease), transform var(--eas2);
+}
+
+body#fedora .windowElementActive {
+    z-index: 500;
+    border-color: var(--menu-accent);
+    box-shadow: 0 0 0 2px rgba(53, 132, 228, 0.55), var(--fedora-window-shadow);
+}
+
+body#fedora #windowHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    min-width: calc(var(--a) - calc(var(--head) / 20));
+    max-width: calc(var(--max-w) - calc(var(--head) / 20));
+    height: calc(var(--head) / 1.3);
+    padding: calc(var(--head) / 4);
+    border-radius: var(--fedora-window-radius) var(--fedora-window-radius) var(--z) var(--z);
+    background: var(--fedora-window-header-bg);
+    user-select: none;
+    border-bottom: 1px solid var(--fedora-window-header-border);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#fedora .windowElementActive #windowHeader {
+    background: var(--fedora-window-header-active);
+    border-bottom: 1px solid var(--fedora-window-header-border);
+}
+
+body#fedora #windowHeader > nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    min-width: calc(var(--head) * 2.2);
+    height: var(--head);
+}
+
+body#fedora #windowTitle {
+    width: calc(var(--head) * 20);
+    text-align: var(--c);
+    text-shadow: none;
+    filter: none;
+    color: var(--fedora-window-title-color);
+}
+
+body#fedora #windowHeader > nav > button {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) / 1.85);
+    height: calc(var(--head) / 1.85);
+    padding: var(--z);
+    outline: var(--n);
+    border-radius: var(--mid);
+    border: 1px solid transparent;
+    color: var(--fedora-window-control-color);
+    background-color: var(--fedora-window-control-bg);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+}
+
+body#fedora #windowHeader > nav > button:hover {
+    transform: translateY(-1px);
+    border-color: transparent;
+    background-color: var(--fedora-window-control-hover-bg);
+}
+
+body#fedora #minimizeBtn {
+    background-image: url(../../media/img/header/minimize.svg);
+    background-size: cover;
+}
+
+body#fedora #resizeBtn {
+    background-image: url(../../media/img/header/maximize.svg);
+    background-size: cover;
+}
+
+body#fedora #closeBtn {
+    background-color: var(--fedora-window-control-close-bg);
+    background-image: url(../../media/img/header/close.svg);
+    background-size: cover;
+}
+
+body#fedora #closeBtn:hover {
+    background-color: var(--fedora-window-control-close-hover-bg);
+}
+
+body#fedora #windowIframe {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    height: var(--a);
+    min-height: calc(var(--full) - calc(var(--head) / 1.2));
+    border-radius: var(--z) var(--z) var(--fedora-window-radius) var(--fedora-window-radius);
+    overflow: var(--h);
+}
+
+body#fedora section.windowElement {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+}

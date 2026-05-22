@@ -1,0 +1,97 @@
+<main id="checklistApp" class="checklist-app" aria-label="Missions de découverte">
+
+    <header class="checklist-app__header">
+        <h1 class="checklist-app__title">Missions</h1>
+        <div class="checklist-app__progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="checklist-progressbar">
+            <div class="checklist-app__progress-bar" id="checklist-bar"></div>
+        </div>
+        <span class="checklist-app__progress-label" id="checklist-progress-label">0 / 8</span>
+    </header>
+
+    <p class="checklist-app__description" data-capsule-text="checklist.description">Explore Linux Mint en accomplissant ces missions. Ta progression est sauvegardée.</p>
+
+    <ul class="checklist-app__list" id="checklist-list" role="list">
+
+        <li class="checklist-item" data-task-id="open-nemo" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Ouvrir l&rsquo;explorateur de fichiers</span>
+                <span class="checklist-item__hint">Lance Nemo depuis la barre des tâches</span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="open-firefox" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Ouvrir Firefox</span>
+                <span class="checklist-item__hint">Navigue un peu sur le web simulé</span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="open-terminal" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Ouvrir le Terminal</span>
+                <span class="checklist-item__hint">Tape une commande comme <code>ls</code> ou <code>pwd</code></span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="change-theme" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Changer le thème</span>
+                <span class="checklist-item__hint">Passe en thème clair ou sombre</span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="open-menu" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Ouvrir le menu principal</span>
+                <span class="checklist-item__hint">Clique sur le logo Mint en bas à gauche</span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="open-viewer" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Visualiser une image ou un fichier</span>
+                <span class="checklist-item__hint">Ouvre le visionneur d&rsquo;images ou de PDF</span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="open-profile" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Consulter le profil de la distro</span>
+                <span class="checklist-item__hint">Ouvre le profil Linux Mint</span>
+            </div>
+        </li>
+
+        <li class="checklist-item" data-task-id="open-calendar" role="listitem">
+            <button type="button" class="checklist-item__check" aria-checked="false" role="checkbox" aria-label="Marquer comme fait">
+                <span class="checklist-item__tick" aria-hidden="true"></span>
+            </button>
+            <div class="checklist-item__body">
+                <span class="checklist-item__name">Ouvrir le calendrier</span>
+                <span class="checklist-item__hint">Clique sur l&rsquo;horloge en bas à droite</span>
+            </div>
+        </li>
+
+    </ul>
+
+</main>

@@ -1,0 +1,68 @@
+/**
+ * Fedora - LibreOffice Writer
+ * Uniformise les controles de fenetre avec la reference Fichiers.
+ */
+body#ubuntu div[data-link="librewriter"] #windowHeader > nav:last-child > button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.42rem;
+    height: 1.42rem;
+    margin: 0;
+    border: 0;
+    border-radius: 999px;
+    color: var(--ubuntu-window-control-color);
+    background: transparent;
+    background-image: none;
+}
+
+body#ubuntu div[data-link="librewriter"] #windowHeader > nav:last-child > button::before {
+    content: "";
+    display: block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#ubuntu div[data-link="librewriter"] #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+}
+
+body#ubuntu div[data-link="librewriter"] #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+}
+
+body#ubuntu div[data-link="librewriter"] #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+}
+
+body#ubuntu div[data-link="librewriter"] #windowHeader > nav:last-child > button:hover {
+    background: rgba(255, 255, 255, 0.09);
+    transform: none;
+}
+
+body#ubuntu div[data-link="librewriter"] #closeBtn {
+    background: rgba(255, 255, 255, 0.11);
+}
+
+html[data-theme="light"]:has(#ubuntu) body#ubuntu div[data-link="librewriter"] #closeBtn {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+body#ubuntu div[data-link="librewriter"] #closeBtn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="light"]:has(#ubuntu) body#ubuntu div[data-link="librewriter"] #closeBtn:hover {
+    background: rgba(0, 0, 0, 0.13);
+}

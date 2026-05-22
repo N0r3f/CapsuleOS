@@ -1,0 +1,227 @@
+/* Fedora / GNOME Ptyxis — UI locale, moteur terminal commun inchangé. */
+body#fedora #terminal.terminal-window--fedora {
+    width: min(43rem, calc(100vw - var(--fedora-dock-width) - 2rem));
+    height: min(31.5rem, calc(100vh - var(--fedora-top-bar-height) - 2rem));
+    padding: var(--z);
+    border-color: var(--fedora-app-header-border);
+    border-radius: 0.8rem;
+    background: var(--fedora-app-terminal-surface);
+}
+
+body#fedora #terminal.terminal-window--fedora #windowHeader {
+    width: var(--full);
+    min-width: var(--full);
+    max-width: var(--full);
+    height: 2.35rem;
+    padding: 0 0.45rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+    border-bottom: 1px solid var(--fedora-app-header-border);
+    color: var(--fedora-app-text);
+    background: var(--fedora-window-header-bg);
+}
+
+body#fedora #terminal.terminal-window--fedora #windowHeader > nav {
+    min-width: 5.25rem;
+    height: var(--full);
+    gap: 0.45rem;
+    justify-content: flex-start;
+}
+
+body#fedora #terminal.terminal-window--fedora #windowHeader > nav:last-child {
+    justify-content: flex-end;
+}
+
+body#fedora #terminal.terminal-window--fedora #windowTitle {
+    width: auto;
+    flex: 1 1 auto;
+    color: var(--fedora-app-text);
+    font-family: "Cantarell", var(--font-ui);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+body#fedora #terminal.terminal-window--fedora #minimizeBtn,
+body#fedora #terminal.terminal-window--fedora #resizeBtn,
+body#fedora #terminal.terminal-window--fedora #closeBtn,
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-header__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.28rem;
+    color: var(--fedora-window-control-color);
+    background: var(--fedora-window-control-bg);
+    background-image: none;
+    cursor: pointer;
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-header__button:hover,
+body#fedora #terminal.terminal-window--fedora #minimizeBtn:hover,
+body#fedora #terminal.terminal-window--fedora #resizeBtn:hover,
+body#fedora #terminal.terminal-window--fedora #closeBtn:hover {
+    background-color: var(--fedora-window-control-hover-bg);
+    transform: none;
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-header__button--add {
+    border: 1px solid currentColor;
+    border-radius: 0.22rem;
+    font-size: 1.12rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-header__button--grid::before,
+body#fedora #terminal.terminal-window--fedora #minimizeBtn::before,
+body#fedora #terminal.terminal-window--fedora #resizeBtn::before,
+body#fedora #terminal.terminal-window--fedora #closeBtn::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-header__button--grid::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2 2h4v4H2V2zm8 0h4v4h-4V2zM2 10h4v4H2v-4zm8 0h4v4h-4v-4z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2 2h4v4H2V2zm8 0h4v4h-4V2zM2 10h4v4H2v-4zm8 0h4v4h-4v-4z'/%3E%3C/svg%3E");
+}
+
+body#fedora #terminal.terminal-window--fedora #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+}
+
+body#fedora #terminal.terminal-window--fedora #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+}
+
+body#fedora #terminal.terminal-window--fedora #closeBtn {
+    border-radius: var(--mid);
+    background: var(--fedora-window-control-close-bg);
+}
+
+body#fedora #terminal.terminal-window--fedora #closeBtn:hover {
+    background: var(--fedora-window-control-close-hover-bg);
+}
+
+body#fedora #terminal.terminal-window--fedora #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    width: var(--full);
+    height: 2.8rem;
+    padding: 0.25rem 0.75rem 0.35rem;
+    border-bottom: 1px solid var(--fedora-app-header-border);
+    background: var(--fedora-app-header-alt-bg);
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-tabs__tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 10.8rem;
+    height: 2.1rem;
+    margin: 0;
+    padding: 0 0.75rem;
+    border: 0;
+    border-radius: 0.55rem;
+    color: var(--fedora-app-text);
+    background: transparent;
+    font-family: "Cantarell", var(--font-ui);
+    font-size: 0.9rem;
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-tabs__tab--active {
+    min-width: 20.2rem;
+    justify-content: flex-end;
+    gap: 5.8rem;
+    background: var(--fedora-app-header-active-bg);
+}
+
+body#fedora #terminal.terminal-window--fedora .fedora-terminal-tabs__close {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+body#fedora #terminalContainer,
+body#fedora #terminal .capsule-terminal-shell {
+    padding: var(--z);
+    border-radius: 0 0 0.8rem 0.8rem;
+    color: var(--fedora-app-text);
+    background: var(--fedora-app-terminal-surface);
+}
+
+body#fedora #terminal .capsule-terminal,
+body#fedora #terminal [data-terminal-app] {
+    padding: 0.45rem 0.55rem;
+    background: var(--fedora-app-terminal-surface);
+}
+
+body#fedora #terminal .capsule-terminal__output,
+body#fedora #terminal [data-terminal-output] {
+    flex: 0 0 auto;
+    margin-top: 0;
+    color: var(--fedora-app-text);
+}
+
+body#fedora #terminal #input,
+body#fedora #terminal .capsule-terminal__input,
+body#fedora #terminal [data-terminal-form] {
+    height: 1.35rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+body#fedora #terminal #prompt,
+body#fedora #terminal .capsule-terminal__prompt,
+body#fedora #terminal [data-terminal-prompt],
+body#fedora #terminal .capsule-terminal__prompt-copy {
+    margin: 0 0.3rem 0 0;
+    color: var(--fedora-terminal-prompt);
+    font-family: "Fira Code", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+body#fedora #terminal #command,
+body#fedora #terminal #command:focus,
+body#fedora #terminal #command:active,
+body#fedora #terminal .capsule-terminal__command,
+body#fedora #terminal [data-terminal-command],
+body#fedora #terminal .capsule-terminal__command:focus,
+body#fedora #terminal [data-terminal-command]:focus {
+    height: 1.35rem;
+    padding-left: 0;
+    color: var(--fedora-app-text);
+    caret-color: var(--fedora-app-text);
+    font-family: "Fira Code", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 0.92rem;
+    font-weight: 500;
+    background: transparent;
+}
+
+body#fedora #terminal .capsule-terminal__line--error code {
+    color: var(--fedora-terminal-error);
+}

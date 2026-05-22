@@ -1,0 +1,32 @@
+/**
+ * Pop!_OS — Firefox chrome intégré (phase 2 amorcée).
+ */
+body#popos #firefox {
+    position: relative;
+    min-width: calc(var(--head) * 24);
+    background: var(--popos-window-surface);
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader {
+    position: static;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    height: 1.52rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--popos-window-control-color);
+}
+
+body#popos #firefox.firefox-window--fedora #windowHeader > nav:first-child,
+body#popos #firefox.firefox-window--fedora #windowTitle {
+    display: none;
+}
+
+body#popos #firefox.firefox-window--fedora .mint-browser__tabsbar {
+    background: var(--popos-window-header-bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
