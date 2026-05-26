@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="63.123287mm"
+   height="57.266655mm"
+   viewBox="0 0 63.123285 57.26666"
+   version="1.1"
+   id="svg5520"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="undo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5522"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="13.731128"
+     inkscape:cy="211.11609"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5517">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter832"
+       x="-1.2000476e-06"
+       width="1.0000024"
+       y="-1.1999524e-06"
+       height="1.0000024">
+      <feGaussianBlur
+         stdDeviation="7.5036824e-06"
+         id="feGaussianBlur834" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-101.35281,-92.669355)">
+    <g
+       fill="#2e3436"
+       id="g8831"
+       transform="matrix(4.0972651,0,0,4.0972651,98.919852,88.477033)"
+       style="fill:#1f1f1f;fill-opacity:1">
+      <path
+         d="m 7,1.0234 v 1 C 7,2.27731 6.87109,2.55074 6.6875,2.74215 l -3.2812,3.2812 3.2812,3.2812 C 6.87109,9.49205 7,9.76549 7,10.0233 v 1 H 6 c -0.30859,0 -0.55078,-0.08984 -0.75,-0.28125 L 0.5938,6.02325 5.25,1.30445 C 5.44922,1.11304 5.69141,1.0232 6,1.0232 Z"
+         id="path8825"
+         style="fill:#1f1f1f;fill-opacity:1" />
+      <path
+         d="m 3,5 h 8 V 7 H 3 Z"
+         id="path8827"
+         style="fill:#1f1f1f;fill-opacity:1" />
+      <path
+         d="m 11,5 v 2 c 1.668,0 3,1.332 3,3 0,1.668 -1.332,3 -3,3 v 2 c 2.75,0 5,-2.25 5,-5 0,-2.75 -2.25,-5 -5,-5 z"
+         id="path8829"
+         style="fill:#1f1f1f;fill-opacity:1" />
+    </g>
+  </g>
+</svg>

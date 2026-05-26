@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="66.928535mm"
+   height="66.908295mm"
+   viewBox="0 0 66.928534 66.908302"
+   version="1.1"
+   id="svg5520"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="cross.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5522"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="78.953984"
+     inkscape:cy="202.53413"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5517" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-83.490216,-94.890384)">
+    <path
+       d="m 83.510865,94.890384 h 5.74971 c 1.41614,0.0632 2.83144,0.71861 3.83328,1.74278 l 23.870635,23.870846 24.04534,-23.870846 c 1.48147,-1.28548 2.48288,-1.69853 3.83328,-1.74278 h 5.57564 v 5.575636 c 0,1.59105 -0.18967,3.07105 -1.39507,4.18183 l -23.87064,23.87085 23.69678,23.69678 c 1.04525,1.04525 1.56787,2.5263 1.56787,4.00735 v 5.57585 h -5.57564 c -1.48147,0 -2.96209,-0.52263 -4.00755,-1.56788 L 116.96365,136.35996 93.093005,160.2308 c -1.04524,1.04525 -2.5265,1.56788 -4.00755,1.56788 h -5.57564 v -5.57585 c 0,-1.48147 0.52262,-2.9621 1.56787,-4.00735 L 108.94833,128.5187 85.077685,104.64785 c -1.1759,-1.0895 -1.69853,-2.61354 -1.56787,-4.18183 z"
+       fill="#2e3436"
+       id="path7543"
+       style="fill:#1f1f1f;fill-opacity:1;stroke-width:5.5757" />
+  </g>
+</svg>

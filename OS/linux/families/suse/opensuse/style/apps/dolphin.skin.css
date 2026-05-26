@@ -1,0 +1,626 @@
+/* openSUSE Tumbleweed — Dolphin Breeze clair (réf. visuel/screen/Dolphin.png). */
+
+body#opensuse div[data-link="nemo"] {
+    --dolphin-chrome: #eff0f1;
+    --dolphin-chrome-border: #bdc3c7;
+    --dolphin-view: #ffffff;
+    --dolphin-sidebar: #f0f0f2;
+    --dolphin-sidebar-border: #e0e0e2;
+    --dolphin-text: #232629;
+    --dolphin-text-muted: #7f8c8d;
+    --dolphin-toolbar-text: #232629;
+    --dolphin-accent: #3daee9;
+    --dolphin-accent-soft: rgba(61, 174, 233, 0.22);
+    --dolphin-accent-ring: rgba(61, 174, 233, 0.45);
+    --dolphin-hover: rgba(61, 174, 233, 0.12);
+    --dolphin-shadow: 0 8px 24px rgba(35, 38, 41, 0.14);
+    --dolphin-header-gradient-start: #eff0f1;
+    --dolphin-header-gradient-end: #eff0f1;
+    --dolphin-menu-surface-bg: #ffffff;
+    --dolphin-content-split-border: #e0e0e2;
+    --dolphin-icon-filter-sidebar: brightness(0) saturate(100%);
+    --dolphin-icon-filter-toolbar: brightness(0) saturate(100%);
+    --dolphin-icon-opacity-sidebar: 0.92;
+    --dolphin-folder-filter-grid: none;
+    --dolphin-pathbar-border-strong: #bdc3c7;
+    --dolphin-sidebar-active-bg: rgba(61, 174, 233, 0.22);
+    --dolphin-sidebar-hover-bg: rgba(61, 174, 233, 0.12);
+    --dolphin-grid-item-hover-bg: rgba(61, 174, 233, 0.14);
+    --dolphin-grid-item-hover-outline: rgba(61, 174, 233, 0.5);
+    --dolphin-grid-selected-bg: rgba(61, 174, 233, 0.12);
+    --dolphin-grid-selected-outline: #3daee9;
+    --dolphin-pill-text: #232629;
+    --dolphin-pill-bg: #eff0f1;
+    --dolphin-pill-border: #bdc3c7;
+    --dolphin-pill-shadow: none;
+    --dolphin-usage-track-bg: #d0d5db;
+    --dolphin-usage-fill-start: #3daee9;
+    --dolphin-usage-fill-end: #2980b9;
+    --dolphin-window-header-start: var(--opensuse-breeze-chrome-dark, #31363b);
+    --dolphin-window-header-end: var(--opensuse-breeze-chrome-dark, #31363b);
+    --dolphin-window-header-active-start: #3d444b;
+    --dolphin-window-header-active-end: #3d444b;
+    --dolphin-window-title-fg: var(--opensuse-breeze-chrome-dark-fg, #eff0f1);
+    --dolphin-window-titlebar-border: rgba(0, 0, 0, 0.32);
+    --dolphin-titlebar-height: calc(var(--head) * 0.9);
+    --dolphin-titlebar-font-size: calc(var(--head) / 2.72);
+    --dolphin-titlebar-app-icon: calc(var(--head) / 2.5);
+    --dolphin-titlebar-pin-icon: calc(var(--head) / 2.85);
+    --dolphin-titlebar-control-size: calc(var(--head) / 1.78);
+    --dolphin-titlebar-glyph-size: calc(var(--head) / 2.95);
+    --dolphin-window-shell-border: #babec4;
+    --dolphin-sidebar-w: clamp(178px, calc(var(--head) * 4.8), 208px);
+    --nemo-toolbar-icon-filter: brightness(0) saturate(100%);
+    --dolphin-toolbar-margin-top: 0;
+    --dolphin-toolbar-pad-top-bottom: calc(var(--head) / 8);
+    --dolphin-toolbar-pad-right: calc(var(--head) / 11);
+    --dolphin-toolbar-pad-left: calc(var(--head) / 22);
+    --dolphin-toolbar-gap: calc(var(--head) / 12);
+    --dolphin-actions-gap: calc(var(--head) / 13);
+    --dolphin-actions-right-offset: calc(var(--head) / 5.5);
+    --dolphin-actions-icon-shift-x: calc(var(--head) / -4.2);
+    --dolphin-split-min-width: calc(var(--head) * 1.45);
+    --dolphin-split-pad-right: calc(var(--head) / 9.5);
+    --dolphin-split-pad-left: calc(var(--head) / 15);
+    --dolphin-split-gap: calc(var(--head) / 20);
+    --dolphin-split-margin-right: calc(var(--head) / 10);
+    --dolphin-content-grid-pad-x: calc(var(--head) / 1.25);
+    --dolphin-nav-block-width: calc((var(--head) / 1.32) * 5 + var(--head) / 7);
+    --dolphin-path-gap: calc(var(--head) / 9.5);
+    --dolphin-path-left-offset: max(
+        0px,
+        calc(
+            (
+                var(--dolphin-sidebar-w) + var(--dolphin-content-grid-pad-x) -
+                var(--dolphin-toolbar-pad-left) - var(--dolphin-nav-block-width) -
+                var(--dolphin-toolbar-gap)
+            ) * 3 / 8
+        )
+    );
+    --dolphin-path-right-offset: 0;
+    --dolphin-crumb-left: calc(var(--head) / 6.8);
+    --dolphin-pathbar-min-height: calc(var(--head) / 1.42);
+    --dolphin-pathbar-padding-left: calc(var(--head) / 4.6);
+    --dolphin-pathbar-padding-right: calc(var(--head) / 5.4);
+    --dolphin-pathbar-font-size: calc(var(--head) / 2.55);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app {
+    --nemo-bg-primary: var(--dolphin-view);
+    --nemo-header-bg: var(--dolphin-chrome);
+    --nemo-border: var(--dolphin-chrome-border);
+    --nemo-text-primary: var(--dolphin-text);
+    --nemo-text-muted: var(--dolphin-text-muted);
+    --nemo-item-active-bg: var(--dolphin-accent-soft);
+    --nemo-menu-surface-bg: var(--dolphin-menu-surface-bg);
+    --nemo-toolbar-bg: var(--dolphin-chrome);
+    --nemo-toolbar-border: var(--dolphin-chrome-border);
+    --nemo-toolbar-button-border: #bdc3c7;
+    --nemo-toolbar-button-bg: #fcfcfc;
+    --nemo-toolbar-button-hover-bg: #ffffff;
+    --nemo-pathbar-bg: #fcfcfc;
+    --nemo-pathbar-border: #bdc3c7;
+    --nemo-pathbar-text: var(--dolphin-text);
+    --nemo-sidebar-bg: var(--dolphin-sidebar);
+    --nemo-footer-bg: var(--dolphin-chrome);
+    --nemo-status-text: var(--dolphin-text-muted);
+    --nemo-toolbar-icon-filter: var(--dolphin-icon-filter-toolbar);
+    --nemo-accent: var(--dolphin-accent);
+}
+
+body#opensuse div[data-link="nemo"].windowElement {
+    padding: 0;
+    border: 1px solid var(--dolphin-window-shell-border);
+    border-radius: 2px;
+    background: var(--dolphin-view);
+    box-shadow: var(--dolphin-shadow);
+    overflow: hidden;
+}
+
+body#opensuse div[data-link="nemo"].windowElementActive {
+    z-index: 500;
+    border-color: #a8adb3;
+    box-shadow: 0 10px 28px rgba(35, 38, 41, 0.18);
+    outline: none;
+}
+
+body#opensuse div[data-link="nemo"] main#gestionnaire.dolphin-app {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: var(--dolphin-titlebar-height);
+    min-height: var(--dolphin-titlebar-height);
+    padding: 0 calc(var(--head) / 5);
+    border: 0;
+    border-radius: 0;
+    color: var(--dolphin-window-title-fg);
+    background: var(--dolphin-window-header-start);
+    border-bottom: 1px solid var(--dolphin-window-titlebar-border);
+    box-shadow: none;
+    pointer-events: auto;
+}
+
+body#opensuse div[data-link="nemo"].windowElementActive #windowHeader {
+    background: var(--dolphin-window-header-active-start);
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:first-child {
+    position: absolute;
+    top: 0;
+    left: calc(var(--head) / 6);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 14);
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    transform: none;
+    pointer-events: auto;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:first-child::before,
+body#opensuse div[data-link="nemo"] #windowHeader > nav:first-child::after {
+    content: "";
+    display: block;
+    width: var(--dolphin-titlebar-app-icon);
+    height: var(--dolphin-titlebar-app-icon);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.92;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:first-child::before {
+    background-image: url("./media/img/apps/org.kde.dolphin.svg");
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:first-child::after {
+    width: var(--dolphin-titlebar-pin-icon);
+    height: var(--dolphin-titlebar-pin-icon);
+    background-image: url("./media/img/elements/nemo/add-pin.svg");
+    opacity: 0.78;
+}
+
+body#opensuse div[data-link="nemo"] #windowTitle {
+    display: block;
+    width: auto;
+    max-width: calc(100% - 15rem);
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: var(--dolphin-titlebar-font-size);
+    font-weight: 500;
+    line-height: var(--dolphin-titlebar-height);
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    color: var(--dolphin-window-title-fg);
+    transform: none;
+    filter: none;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: calc(var(--head) / 6);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(var(--head) / 14);
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    transform: none;
+    pointer-events: auto;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:last-child > button {
+    position: relative;
+    width: var(--dolphin-titlebar-control-size);
+    height: var(--dolphin-titlebar-control-size);
+    margin: 0;
+    border: 0;
+    border-radius: 3px;
+    color: var(--dolphin-window-title-fg);
+    background-color: transparent;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:last-child > button#minimizeBtn {
+    background-image: url("./media/img/header/minimize.svg");
+    background-size: var(--dolphin-titlebar-glyph-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: none;
+    opacity: 0.92;
+}
+
+body#opensuse div[data-link="nemo"] #resizeBtn {
+    background-image: url("./media/img/header/window-restore.svg");
+    background-size: var(--dolphin-titlebar-glyph-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+    opacity: 0.88;
+}
+
+body#opensuse div[data-link="nemo"] #closeBtn {
+    background-image: url("./media/img/header/window-close.svg");
+    background-size: var(--dolphin-titlebar-glyph-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0) invert(1);
+    opacity: 0.88;
+}
+
+body#opensuse div[data-link="nemo"] #windowHeader > nav:last-child > button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: none;
+}
+
+body#opensuse div[data-link="nemo"] #closeBtn:hover {
+    background-color: rgba(205, 74, 93, 0.38);
+    opacity: 1;
+}
+
+body#opensuse div[data-link="nemo"] #gestionnaire {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 0;
+    font-family: "Cantarell", var(--font-ui);
+}
+
+body#opensuse div[data-link="nemo"] #nemoHeaderContainer {
+    min-height: 0;
+    height: auto;
+    margin-top: 0;
+    padding-top: var(--dolphin-titlebar-height);
+    border-top: 0;
+    border-bottom: 1px solid var(--dolphin-chrome-border);
+    background: var(--dolphin-chrome);
+}
+
+body#opensuse div[data-link="nemo"].windowElementActive #nemoHeaderContainer {
+    background: var(--dolphin-chrome);
+}
+
+body#opensuse div[data-link="nemo"] #nemoMainContainer {
+    flex: 1 1 auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+}
+
+body#opensuse div[data-link="nemo"] #voletnemo,
+body#opensuse div[data-link="nemo"] #voletContainer {
+    height: 100%;
+    min-height: 0;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__toolbar.dolphin-toolbar {
+    min-height: calc(var(--head) * 0.98);
+    margin-top: 0;
+    padding: var(--dolphin-toolbar-pad-top-bottom) var(--dolphin-toolbar-pad-right) var(--dolphin-toolbar-pad-top-bottom) var(--dolphin-toolbar-pad-left);
+    gap: var(--dolphin-toolbar-gap);
+    border-top: 0;
+    background: var(--dolphin-chrome);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__toolbar.dolphin-toolbar > .sousMenuOutils {
+    background-color: transparent;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__nav {
+    order: 1;
+    margin-right: calc(var(--head) / 28);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view {
+    display: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn {
+    min-width: calc(var(--head) / 1.32);
+    height: calc(var(--head) / 1.32);
+    border-radius: 3px;
+    border-color: var(--nemo-toolbar-button-border);
+    background: var(--nemo-toolbar-button-bg);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    transition: border-color var(--eas2), background-color var(--eas2), box-shadow var(--eas2), transform var(--eas2);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn:hover {
+    border-color: var(--dolphin-accent);
+    background: var(--nemo-toolbar-button-hover-bg);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transform: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn:focus-visible {
+    outline: 2px solid var(--dolphin-accent-ring);
+    outline-offset: 1px;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn img {
+    width: calc(var(--head) / 2.05);
+    height: calc(var(--head) / 2.05);
+    object-fit: contain;
+    filter: var(--dolphin-icon-filter-toolbar);
+    opacity: 0.9;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn .dolphin-toolbar__svg {
+    color: var(--dolphin-toolbar-text);
+    opacity: 0.9;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view-btn--active {
+    border-color: var(--dolphin-accent);
+    background: #ffffff;
+    box-shadow: inset 0 0 0 1px var(--dolphin-accent-ring);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child {
+    width: auto;
+    min-width: var(--dolphin-split-min-width);
+    padding: 0 var(--dolphin-split-pad-right) 0 var(--dolphin-split-pad-left);
+    gap: var(--dolphin-split-gap);
+    font-size: calc(var(--head) / 4.05);
+    font-weight: 500;
+    margin-right: var(--dolphin-split-margin-right);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child .dolphin-toolbar__svg {
+    display: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child::after {
+    content: "Scinder";
+    color: var(--dolphin-toolbar-text);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path {
+    order: 3;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: var(--dolphin-path-gap);
+    margin-left: var(--dolphin-path-left-offset);
+    margin-right: var(--dolphin-path-right-offset);
+    max-width: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path .nemo-app__path-current {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__crumb-prefix {
+    position: absolute;
+    top: 50%;
+    left: var(--dolphin-crumb-left);
+    margin: 0;
+    transform: translateY(-50%);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions {
+    order: 4;
+    margin-left: 0;
+    gap: var(--dolphin-actions-gap);
+    margin-right: var(--dolphin-actions-right-offset);
+    transform: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:nth-child(2),
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:last-child {
+    margin-left: var(--dolphin-actions-icon-shift-x);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:last-child {
+    margin-right: calc(var(--head) / 18);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__path-current {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--nemo-pathbar-bg);
+    border-color: var(--nemo-pathbar-border);
+    border-radius: 2px;
+    min-height: var(--dolphin-pathbar-min-height);
+    padding-left: var(--dolphin-pathbar-padding-left);
+    padding-right: var(--dolphin-pathbar-padding-right);
+    font-size: var(--dolphin-pathbar-font-size);
+    color: var(--nemo-pathbar-text);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #nemoMainContainer > #voletnemo.dolphin-sidebar {
+    width: var(--dolphin-sidebar-w);
+    min-width: var(--dolphin-sidebar-w);
+    max-width: var(--dolphin-sidebar-w);
+    padding: calc(var(--head) / 9.5) calc(var(--head) / 9.5);
+    background: var(--dolphin-sidebar);
+    border-right: 1px solid var(--dolphin-sidebar-border);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.04);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-wrap.dolphin-content-wrap {
+    background: var(--dolphin-view);
+    border-left: 0;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__heading {
+    margin: calc(var(--head) / 6) 0 calc(var(--head) / 11) calc(var(--head) / 16);
+    font-size: calc(var(--head) / 3.15);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--dolphin-text-muted);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link {
+    gap: calc(var(--head) / 7);
+    padding: calc(var(--head) / 7.2) calc(var(--head) / 8.2);
+    border-radius: 2px;
+    border-left-width: 0;
+    font-size: calc(var(--head) / 2.6);
+    font-weight: 500;
+    color: var(--dolphin-text);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img,
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img {
+    width: calc(var(--head) / 2.25);
+    height: calc(var(--head) / 2.25);
+    object-fit: contain;
+    filter: var(--dolphin-icon-filter-sidebar);
+    opacity: var(--dolphin-icon-opacity-sidebar, 0.9);
+}
+
+/* Normalize KDE sidebar icon contrast per theme. */
+body#opensuse div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img[src*="/media/img/elements/kde/"],
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img[src*="/media/img/elements/kde/"] {
+    filter: var(--dolphin-icon-filter-sidebar);
+    opacity: 0.95;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link:hover:not(.dolphin-sidebar__link--active) {
+    background: var(--dolphin-sidebar-hover-bg);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link--active {
+    background: var(--dolphin-sidebar-active-bg);
+    border-left: 3px solid var(--dolphin-accent);
+    padding-left: calc(var(--head) / 8.2 - 3px);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__link--active img {
+    opacity: 1;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row {
+    gap: calc(var(--head) / 7);
+    padding: calc(var(--head) / 7.2) calc(var(--head) / 8.2);
+    margin-left: 0;
+    border-radius: 2px;
+    font-size: calc(var(--head) / 2.6);
+    color: var(--dolphin-text);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-path {
+    display: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__usage {
+    height: 3px;
+    margin: 1px calc(var(--head) / 9) calc(var(--head) / 6) calc(var(--head) / 1.45);
+    background: var(--dolphin-usage-track-bg);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-sidebar__usage-fill {
+    width: 70%;
+    background: linear-gradient(90deg, var(--dolphin-usage-fill-start), var(--dolphin-usage-fill-end));
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid {
+    gap: calc(var(--head) / 3);
+    padding: calc(var(--head) / 1.55) var(--dolphin-content-grid-pad-x) calc(var(--head) * 1.9);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a {
+    width: calc(var(--head) * 2.55);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #voletContainer > .nemoElement > a:hover,
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:hover {
+    background: transparent;
+    outline: none;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a > img {
+    width: calc(var(--head) * 1.35);
+    height: calc(var(--head) * 1.15);
+    padding: calc(var(--head) / 9);
+    border-radius: 3px;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:hover > img,
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:focus-visible > img,
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a:focus > img,
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a.nemo-app__item--selected > img {
+    background: var(--dolphin-grid-item-hover-bg);
+    box-shadow: inset 0 0 0 1px var(--dolphin-grid-item-hover-outline);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a.nemo-app__item--selected > img {
+    background: var(--dolphin-grid-selected-bg);
+    box-shadow: inset 0 0 0 1px var(--dolphin-grid-selected-outline);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a.nemo-app__item--selected > span {
+    color: var(--dolphin-text);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .nemo-app__content-grid > a > span {
+    font-size: calc(var(--head) / 2.5);
+    color: var(--dolphin-text);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app .dolphin-folder-pill {
+    display: block;
+    left: 14px;
+    bottom: 12px;
+    padding: 4px 11px;
+    font-size: calc(var(--head) / 2.58);
+    font-weight: 500;
+    color: var(--dolphin-pill-text);
+    background: var(--dolphin-pill-bg);
+    border: 1px solid var(--dolphin-pill-border);
+    border-radius: 999px;
+    box-shadow: var(--dolphin-pill-shadow);
+    backdrop-filter: none;
+}
+
+body#opensuse .dolphin-sidebar__section--removable {
+    display: none;
+}
+
+body#opensuse .dolphin-sidebar__root-label {
+    font-size: calc(var(--head) / 2.25);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #nemoFooterContainer {
+    display: none;
+    min-height: calc(var(--head) / 1.35);
+    border-top: 1px solid var(--dolphin-chrome-border);
+    background: var(--dolphin-chrome);
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #nemoFooterContainer .nemo-app__status-center {
+    justify-content: flex-start;
+}
+
+body#opensuse div[data-link="nemo"] .dolphin-app #nemoFooterContainer .nemo-app__status-center p {
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.5);
+}

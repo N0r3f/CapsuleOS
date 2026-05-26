@@ -504,12 +504,27 @@ const renderDirectory = (path) => {
             sizeEl.textContent = formatCosmicItemSize(item);
             itemLink.appendChild(sizeEl);
         } else {
-            itemLink.textContent = item.name;
+            const label = document.createElement('span');
+            label.textContent = item.name;
+            itemLink.appendChild(label);
         }
+
+        const selectGridItem = () => {
+            const grid = nemoElement.closest('.nemo-app__content-grid') || nemoElement;
+            grid.querySelectorAll('.nemo-app__item--selected').forEach((el) => {
+                el.classList.remove('nemo-app__item--selected');
+            });
+            itemLink.classList.add('nemo-app__item--selected');
+        };
 
         if (item.type === 'folder') {
             itemLink.classList.add('nemo-app__item--folder');
             itemLink.href = '#';
+            itemLink.addEventListener('mousedown', (event) => {
+                if (event.button === 0) {
+                    selectGridItem();
+                }
+            });
             itemLink.addEventListener('click', (event) => {
                 event.preventDefault();
                 navigateToFileExplorerDirectory(item.path);

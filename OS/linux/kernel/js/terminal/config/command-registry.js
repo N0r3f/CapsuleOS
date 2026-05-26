@@ -152,6 +152,10 @@
             help: 'Gestionnaire de paquets Red Hat/Fedora',
             examples: ['dnf check-update', 'dnf install vim']
         },
+        zypper: {
+            help: 'Gestionnaire de paquets openSUSE',
+            examples: ['zypper refresh', 'zypper install vim']
+        },
         rpm: {
             help: 'Gestionnaire paquets bas niveau Red Hat',
             examples: ['rpm -qa']

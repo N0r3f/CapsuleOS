@@ -100,6 +100,31 @@ function initMainMenu() {
 
     // ── Fonctions internes ────────────────────────────────────
 
+    function menuAppSearchRank(app) {
+        let rank = 0;
+        if (app.dataLink) {
+            rank += 2;
+        }
+        if (app.catId === 'favorites') {
+            rank += 1;
+        }
+        return rank;
+    }
+
+    function dedupeMenuSearchResults(apps) {
+        const byName = new Map();
+
+        apps.forEach((app) => {
+            const key = app.name.toLowerCase();
+            const existing = byName.get(key);
+            if (!existing || menuAppSearchRank(app) > menuAppSearchRank(existing)) {
+                byName.set(key, app);
+            }
+        });
+
+        return Array.from(byName.values());
+    }
+
     function isMainMenuOpen() {
         return !!menuEl && menuEl.style.display !== 'none';
     }
@@ -116,11 +141,16 @@ function initMainMenu() {
         appList.innerHTML = '';
         const q = query.toLowerCase();
 
-        const filtered = MENU_APPS.filter(app => {
-            const matchCat = catId === 'all' || catId === 'recent' || app.catId === catId;
+        const effectiveCatId = q ? 'all' : catId;
+        let filtered = MENU_APPS.filter(app => {
+            const matchCat = effectiveCatId === 'all' || effectiveCatId === 'recent' || app.catId === effectiveCatId;
             const matchQ   = !q || app.name.toLowerCase().includes(q) || app.desc.toLowerCase().includes(q);
             return matchCat && matchQ;
         });
+
+        if (q) {
+            filtered = dedupeMenuSearchResults(filtered);
+        }
 
         // Tri alphabétique
         filtered.sort((a, b) => a.name.localeCompare(b.name, 'fr'));

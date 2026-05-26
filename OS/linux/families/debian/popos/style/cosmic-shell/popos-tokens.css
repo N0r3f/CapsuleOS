@@ -95,7 +95,7 @@ html:has(#popos) {
     --mint-tray-separator: rgba(255, 255, 255, 0.1);
     --mint-tray-item-hover-bg: rgba(255, 255, 255, 0.1);
     --mint-clock-hover-bg: rgba(255, 255, 255, 0.1);
-    --mint-tray-icon-filter: none;
+    --mint-tray-icon-filter: brightness(0) invert(1);
     --desktop-shortcut-text: #f4f4f6;
     --desktop-shortcut-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     --desktop-shortcut-hover-bg: rgba(255, 255, 255, 0.08);

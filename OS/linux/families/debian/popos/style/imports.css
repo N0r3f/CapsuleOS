@@ -1,9 +1,9 @@
 @import url(../../../../../../style/reset.css);
 @import url(../../../../../../style/variables.css);
 @import url(../../../../kernel/style/variables-linux.css);
-@import url(cosmic-shell/popos-tokens.css?v=20260622c);
+@import url(cosmic-shell/popos-tokens.css?v=20260526a);
 @import url(cosmic-shell/windows-chrome.css?v=20260622c);
-@import url(cosmic-shell/tray.css?v=20260622c);
+@import url(cosmic-shell/tray.css?v=20260526a);
 @import url(cosmic-shell/calendar-popover.css?v=20260622c);
 @import url(cosmic-shell/top-bar.css?v=20260622c);
 @import url(cosmic-shell/dock.css?v=20260622c);
