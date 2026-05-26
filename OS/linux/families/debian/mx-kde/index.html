@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./media/img/assets/mx-logo.png" type="image/png">
     <link rel="stylesheet" href="./style/style.css?v=20260514b" type="text/css">
-    <link rel="stylesheet" href="./style/tour.css?v=20260428" type="text/css">
     <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
     <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css" type="text/css">
     <title>MX Linux KDE — CapsuleOS</title>
@@ -128,21 +127,6 @@
                    aria-label="Niveau du volume" aria-valuetext="100%">
         </div>
     </div>
-    <div id="tourOverlay" hidden aria-modal="true" role="dialog" aria-label="Visite guidée">
-        <div id="tourSpotlight" hidden aria-hidden="true"></div>
-        <div id="tourTooltip">
-            <h2 id="tourTitle"></h2>
-            <p id="tourBody"></p>
-            <div class="tour-tooltip__footer">
-                <button type="button" class="tour-btn" id="tourSkip">Passer</button>
-                <span id="tourCounter" aria-live="polite"></span>
-                <div class="tour-tooltip__nav">
-                    <button type="button" class="tour-btn" id="tourPrev" disabled>&lsaquo; Préc</button>
-                    <button type="button" class="tour-btn tour-btn--primary" id="tourNext">Suivant &rsaquo;</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <script>
         window.CAPSULE_APPS_BASE = '../../../shared/apps';
         window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
@@ -224,8 +208,6 @@
     <script src="../../../kernel/js/terminal/executeCommand.js"></script>
     <script src="../../../kernel/js/terminal/filesystem.js"></script>
     <script src="../../../kernel/js/terminal/manuel.js"></script>
-    <script src="../../../kernel/js/tour-data.js"></script>
-    <script src="../../../kernel/js/tour.js?v=20260428"></script>
     <script src="../../../kernel/js/volume.js"></script>
     <script src="../../../kernel/js/librewriter.js"></script>
 </body>
