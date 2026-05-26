@@ -1,0 +1,116 @@
+/**
+ * openSUSE — bureau + panel Plasma clair (réf. desk.png).
+ * Tailles taskbar : alignées sur footer.css (base MX-KDE).
+ */
+
+html:has(#opensuse) {
+    color-scheme: light;
+}
+
+html:has(#opensuse) {
+    --opensuse-plasma-accent: #3daee9;
+    --opensuse-plasma-panel-bg: #eff0f1;
+    --opensuse-plasma-panel-border: #d9d9d9;
+    --opensuse-plasma-text: #232629;
+    --opensuse-plasma-text-muted: #7f8c8d;
+    --desktop-shortcut-text: #ffffff;
+    --desktop-shortcut-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    --desktop-shortcut-hover-bg: rgba(61, 174, 233, 0.12);
+    --mint-taskbar-bg: var(--opensuse-plasma-panel-bg);
+    --mint-taskbar-top-border: 1px solid var(--opensuse-plasma-panel-border);
+    --mint-taskbar-item-bg-hover: rgba(61, 174, 233, 0.14);
+    --mint-taskbar-item-bg-active: rgba(61, 174, 233, 0.18);
+    --mint-taskbar-item-border-hover: rgba(61, 174, 233, 0.45);
+    --mint-taskbar-item-shadow-active: inset 0 0 0 1px rgba(61, 174, 233, 0.28);
+    --mint-taskbar-right-bg: transparent;
+    --mint-taskbar-right-separator: transparent;
+    --mint-tray-color: var(--opensuse-plasma-text);
+    --mint-clock-date-color: var(--opensuse-plasma-text-muted);
+    --mint-clock-hover-bg: rgba(61, 174, 233, 0.1);
+    --opensuse-mono-logo-filter: none;
+    --menu-accent: var(--opensuse-plasma-accent);
+    /* Proximité Gestalt : horloge ↔ carré ↔ bord droit du panel */
+    --opensuse-taskbar-edge-gap: calc(var(--head) / 5);
+}
+
+#opensuse {
+    --taskbar-height: calc(var(--head) * 1.05);
+    background-image: url("../media/img/assets/wallpaper-opensuse.jpg");
+    background-color: #4a9e99;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#opensuse #desktop {
+    position: relative;
+}
+
+#opensuse #tableau {
+    padding: var(--z) var(--opensuse-taskbar-edge-gap) var(--z) calc(var(--head) / 4);
+    border-top: var(--mint-taskbar-top-border);
+}
+
+/* Épingles décoratives : même cadre que les apps (proximité Gestalt) */
+#opensuse footer .taskbar-pins__item {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) * 1.12);
+    height: calc(var(--head) * 0.9);
+    margin: var(--z);
+    border-radius: calc(var(--head) / 10);
+    border: 1px solid transparent;
+}
+
+#opensuse footer .taskbar-pins__item > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.78);
+    height: calc(var(--head) * 0.78);
+    object-fit: contain;
+}
+
+/* Launcher Geeko monochrome (SVG distributor Tumbleweed) */
+#opensuse footer .taskbar-pins__launcher > img {
+    filter: none;
+    opacity: 0.92;
+}
+
+/* Horloge ↔ carré : margin-right horloge ; tray ↔ horloge : margin-left négatif */
+#opensuse footer .taskbar-right {
+    gap: 0;
+}
+
+/* Tray : icônes Breeze #232629 — renfort lisibilité sur panel clair */
+#opensuse footer .taskbar-tray {
+    color: var(--opensuse-plasma-text);
+    padding-right: 0;
+}
+
+#opensuse footer .taskbar-tray__link > img,
+#opensuse footer .taskbar-tray__item > img {
+    opacity: 0.9;
+    filter: brightness(0) saturate(100%);
+}
+
+#opensuse footer .taskbar-tray__expand > img {
+    width: calc(var(--head) * 0.36);
+    height: calc(var(--head) * 0.36);
+    opacity: 0.75;
+}
+
+#opensuse footer .taskbar-clock-trigger {
+    color: var(--opensuse-plasma-text);
+    background: transparent;
+    margin-left: calc(var(--head) / -10);
+    margin-right: var(--opensuse-taskbar-edge-gap);
+    padding-left: calc(var(--head) / 18);
+    padding-right: calc(var(--head) / 18);
+}
+
+#opensuse footer .taskbar-clock-trigger[aria-expanded="true"] {
+    border-top-color: var(--opensuse-plasma-accent);
+    background: rgba(61, 174, 233, 0.1);
+}

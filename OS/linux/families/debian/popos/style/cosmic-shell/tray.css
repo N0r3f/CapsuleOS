@@ -54,7 +54,6 @@ body#popos .taskbar-tray__icon {
     object-fit: contain;
     flex-shrink: 0;
     opacity: 0.92;
-    filter: brightness(0) invert(1);
     pointer-events: none;
 }
 

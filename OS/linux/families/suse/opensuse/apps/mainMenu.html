@@ -1,0 +1,61 @@
+<section class="menu-root menu-root--plasma" aria-label="Menu des applications">
+
+    <header class="menu-plasma-header">
+        <div class="menu-user">
+            <span class="menu-user__avatar" aria-hidden="true"></span>
+            <span class="menu-user__name" data-capsule-text="mainMenu.userName">goupil</span>
+        </div>
+        <div class="menu-search-wrap">
+            <input
+                type="search"
+                class="menu-search"
+                id="menu-search"
+                data-capsule-attr="placeholder:mainMenu.searchPlaceholder"
+                placeholder="Search..."
+                autocomplete="off"
+                spellcheck="false"
+            >
+            <button type="button" class="menu-search-clear" id="menu-search-clear" hidden aria-label="Effacer la recherche"></button>
+        </div>
+        <div class="menu-plasma-chrome" aria-label="Actions du menu">
+            <button type="button" class="menu-plasma-chrome__btn" id="menu-btn-filter" title="Filtres" aria-label="Filtres"></button>
+            <button type="button" class="menu-plasma-chrome__btn" id="menu-btn-pin" title="Épingler" aria-label="Épingler"></button>
+        </div>
+    </header>
+
+    <div class="menu-plasma-body">
+        <aside class="menu-plasma-sidebar" aria-label="Catégories">
+            <ul class="menu-cats" id="menu-cats"></ul>
+        </aside>
+        <div class="menu-apps" aria-label="Applications">
+            <h2 class="menu-plasma-results-heading" id="menu-results-heading" hidden>Applications</h2>
+            <ul class="menu-app-list" id="menu-app-list"></ul>
+        </div>
+    </div>
+
+    <footer class="menu-plasma-footer">
+        <nav class="menu-plasma-tabs" aria-label="Vue du menu">
+            <button type="button" class="menu-plasma-tab menu-plasma-tab--active" data-menu-tab="apps">Applications</button>
+            <button type="button" class="menu-plasma-tab menu-plasma-tab--places" data-menu-tab="places" disabled>Emplacements</button>
+        </nav>
+        <nav class="menu-plasma-power" aria-label="Actions système">
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-sleep" title="Veille">
+                <img src="./media/img/menu/plasma/system-suspend.svg" alt="">
+                <span>Veille</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-restart" title="Redémarrer">
+                <img src="./media/img/menu/plasma/system-reboot.svg" alt="">
+                <span>Redémarrer</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-power" title="Éteindre">
+                <img src="./media/img/menu/plasma/system-shutdown.svg" alt="">
+                <span>Éteindre</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn menu-plasma-power__btn--session" id="menu-btn-session" title="Session">
+                <img src="./media/img/menu/plasma/system-log-out.svg" alt="">
+                <span>Session</span>
+            </button>
+        </nav>
+    </footer>
+
+</section>

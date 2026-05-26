@@ -464,6 +464,7 @@ function executeTerminalCommand(state, command, helpers = {}) {
         case 'apturl':
         case 'dpkg':
         case 'dnf':
+        case 'zypper':
         case 'rpm':
         case 'pacman':
             if (!isCommandAvailable(cmd)) {

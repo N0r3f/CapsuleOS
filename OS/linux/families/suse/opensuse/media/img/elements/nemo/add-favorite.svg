@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="51.997746mm"
+   height="51.999687mm"
+   viewBox="0 0 51.997744 51.999693"
+   version="1.1"
+   id="svg5520"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="add-favorite.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5522"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="32.611428"
+     inkscape:cy="166.48992"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5517">
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter832"
+       x="-1.2000476e-06"
+       width="1.0000024"
+       y="-1.1999524e-06"
+       height="1.0000024">
+      <feGaussianBlur
+         stdDeviation="7.5036824e-06"
+         id="feGaussianBlur834" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-95.9117,-104.33023)">
+    <g
+       id="g838"
+       transform="matrix(3.3539693,0,0,3.3539693,94.245935,102.66641)"
+       style="fill:#1f1f1f;fill-opacity:1">
+      <path
+         id="path1307-0"
+         style="display:inline;overflow:visible;visibility:visible;fill:#1f1f1f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.992271;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.498039;marker:none;filter:url(#filter832)"
+         d="m 8,0.49609375 c -0.5064395,0 -2.1391101,4.28305915 -2.5488281,4.59570315 C 5.0414532,5.4044401 0.65845162,5.7128826 0.50195312,6.21875 0.34545462,6.7246181 3.7185015,9.6777269 3.875,10.183594 4.0314984,10.689462 2.5902818,15.163919 3,15.476562 c 0.4097187,0.312645 4.4935605,-2.144531 5,-2.144531 0.1315436,0 0.5128259,0.170167 1,0.410157 V 12 a 1.0001,1.0001 0 0 1 1,-1 h 1 v -1 a 1.0001,1.0001 0 0 1 1,-1 h 1.150391 C 14.184148,7.9387498 15.601914,6.5544916 15.498047,6.21875 15.341549,5.7128818 10.958545,5.4044401 10.548828,5.0917969 10.139108,4.7791529 8.5064396,0.49609375 8,0.49609375 Z M 12.626953,12.777344 A 1.0001,1.0001 0 0 1 12,13 a 1.0001,1.0001 0 0 1 0.748047,0.337891 c -0.0454,-0.198165 -0.07286,-0.358476 -0.121094,-0.560547 z" />
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#1f1f1f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000"
+         d="m 12,10 v 2 h -2 v 2 h 2 v 2 h 2 v -2 h 2 v -2 h -2 v -2 z"
+         id="path892" />
+    </g>
+  </g>
+</svg>

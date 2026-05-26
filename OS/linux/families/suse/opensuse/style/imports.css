@@ -1,0 +1,10 @@
+@import url(../../../../../../style/reset.css);
+@import url(../../../../../../style/variables.css);
+@import url(../../../../kernel/style/variables-linux.css);
+@import url(./footer.css?v=20260512f);
+@import url(./windows.css?v=20260514a);
+@import url(./calendar-popover.css?v=20260528d);
+@import url(./a11y-overrides.css?v=20260513e);
+@import url(./volume-popover.css?v=20260430f);
+@import url(./opensuse-breeze.css?v=20260528d);
+@import url(./opensuse-desktop.css?v=20260529e);

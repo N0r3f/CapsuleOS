@@ -19,6 +19,11 @@ const MANIFEST_PATH = path.join(
     'OS/linux/shared/content/Dossier_personnel/nemo-manifest.json'
 );
 
+/** Gabarits HTML propres à une famille (ex. menu Plasma openSUSE). */
+const FAMILY_APP_HTML_DIRS = {
+    opensuse: path.join(ROOT, 'OS/linux/families/suse/opensuse/apps')
+};
+
 const SKIN_DIRS = [
     {
         key: 'mint',
@@ -39,6 +44,11 @@ const SKIN_DIRS = [
         key: 'mxkde',
         dir: path.join(ROOT, 'OS/linux/families/debian/mx-kde/style/apps'),
         strings: path.join(ROOT, 'OS/linux/families/debian/mx-kde/content/strings.json')
+    },
+    {
+        key: 'opensuse',
+        dir: path.join(ROOT, 'OS/linux/families/suse/opensuse/style/apps'),
+        strings: path.join(ROOT, 'OS/linux/families/suse/opensuse/content/strings.json')
     },
     {
         key: 'fedora',
@@ -98,15 +108,33 @@ function readSkinStrings(stringsPath) {
     }
 }
 
+function readTemplateHtml(templateId) {
+    const htmlPath = path.join(APPS_DIR, `${templateId}.html`);
+    return readUtf8(htmlPath);
+}
+
 function main() {
     const templateIds = listTemplateIds().sort();
     const templates = {};
     for (const id of templateIds) {
-        const htmlPath = path.join(APPS_DIR, `${id}.html`);
         templates[id] = {
-            html: readUtf8(htmlPath),
+            html: readTemplateHtml(id),
             cssBase: buildCssBase(id)
         };
+    }
+
+    const skinTemplates = {};
+    for (const [skinKey, familyAppsDir] of Object.entries(FAMILY_APP_HTML_DIRS)) {
+        if (!fs.existsSync(familyAppsDir)) {
+            continue;
+        }
+        skinTemplates[skinKey] = {};
+        for (const id of templateIds) {
+            const overridePath = path.join(familyAppsDir, `${id}.html`);
+            if (fs.existsSync(overridePath)) {
+                skinTemplates[skinKey][id] = { html: readUtf8(overridePath) };
+            }
+        }
     }
 
     const skins = {};
@@ -127,7 +155,7 @@ function main() {
 'use strict';
 `;
 
-    const body = `window.CAPSULE_APP_EMBED = ${JSON.stringify({ templates, skins })};
+    const body = `window.CAPSULE_APP_EMBED = ${JSON.stringify({ templates, skinTemplates, skins })};
 window.CAPSULE_EMBED_STRINGS = ${JSON.stringify(embedStrings)};
 window.CAPSULE_FILE_EXPLORER_MANIFEST_EMBED = ${JSON.stringify(manifest)};
 window.CAPSULE_NEMO_MANIFEST_EMBED = window.CAPSULE_FILE_EXPLORER_MANIFEST_EMBED;

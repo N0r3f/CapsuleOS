@@ -1,0 +1,11 @@
+{
+    "explorer.windowTitle": "Dossier personnel — Dolphin",
+    "mainMenu.windowTitle": "Menu des applications",
+    "mainMenu.userName": "goupil",
+    "mainMenu.searchPlaceholder": "Search...",
+    "terminal.windowTitle": "~ : bash — Konsole",
+    "themes.windowTitle": "Paramètres système",
+    "checklist.windowTitle": "Missions openSUSE",
+    "checklist.description": "Explore openSUSE Tumbleweed en accomplissant ces missions. Ta progression est sauvegardée.",
+    "profile.windowTitle": "À propos — openSUSE Tumbleweed"
+}
