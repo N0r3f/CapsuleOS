@@ -1,0 +1,4 @@
+body#anduinos #checklist {
+    width: min(36rem, calc(100vw - 1.5rem));
+    height: min(34rem, calc(100vh - var(--anduin-taskbar-height) - 1.25rem));
+}

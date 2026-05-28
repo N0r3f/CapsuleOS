@@ -1,0 +1,4 @@
+body#anduinos #profile {
+    width: min(34rem, calc(100vw - 1.5rem));
+    height: min(38rem, calc(100vh - var(--anduin-taskbar-height) - 1.25rem));
+}
