@@ -1,5 +1,5 @@
 /**
- * Catalogue apps Pop!_OS — lu depuis #cosmic-applications-grid (icônes overview/).
+ * Catalogue apps Pop!_OS - lu depuis #cosmic-applications-grid (icônes overview/).
  */
 (function (global) {
     var entries = [];
@@ -36,7 +36,7 @@
         var prefix = categoryPrefix(cats);
         var tag = TAGLINES[link];
         if (tag) {
-            return prefix + ' — ' + tag;
+            return prefix + ' - ' + tag;
         }
         return prefix;
     }

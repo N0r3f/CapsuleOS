@@ -46,6 +46,6 @@ const MENU_APPS = [
     { catId: 'system', icon: './media/img/apps/org.kde.dolphin.svg', name: 'Dolphin', desc: 'Gestionnaire de fichiers', dataLink: 'nemo' },
     { catId: 'system', icon: './media/img/apps/konsole.svg', name: 'Konsole', desc: 'Émulateur de terminal', dataLink: 'terminal' },
     { catId: 'system', icon: './media/img/apps/yast-sysconfig.svg', name: 'YaST Sysconfig Editor', desc: 'Sysconfig Editor', dataLink: null },
-    { catId: 'system', icon: './media/img/apps/user-info.png', name: 'À propos — openSUSE Tumbleweed', desc: 'Infos distro', dataLink: 'profile' },
+    { catId: 'system', icon: './media/img/apps/user-info.png', name: 'À propos - openSUSE Tumbleweed', desc: 'Infos distro', dataLink: 'profile' },
     { catId: 'system', icon: './media/img/apps/mx-tools.svg', name: 'Missions openSUSE', desc: 'Missions de découverte', dataLink: 'checklist' },
 ];

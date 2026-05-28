@@ -4,7 +4,7 @@ const windowElements = document.querySelectorAll('.windowElement');
 let zCounter = 50;
 const WINDOW_TITLE_MAP = {
     profile: 'À Propos',
-    librewriter: 'Sans nom 1 — LibreOffice Writer',
+    librewriter: 'Sans nom 1 - LibreOffice Writer',
 };
 
 function activateWindow(container) {

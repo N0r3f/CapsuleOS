@@ -62,7 +62,7 @@ function loadChecklistState() {
 function saveChecklistState(state) {
     try {
         localStorage.setItem(getChecklistStorageKey(), JSON.stringify(state));
-    } catch (_) { /* quota exceeded — silent fail */ }
+    } catch (_) { /* quota exceeded - silent fail */ }
 }
 
 function syncChecklistUI(root, state) {

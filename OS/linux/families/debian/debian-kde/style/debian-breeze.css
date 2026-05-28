@@ -1,0 +1,47 @@
+/**
+ * Debian KDE - tokens fenêtres / menu / calendrier (basés sur openSUSE Breeze).
+ */
+
+html:has(#debian-kde) {
+    --opensuse-breeze-accent: #3daee9;
+    --opensuse-breeze-accent-hover: #4ebaf0;
+    --opensuse-breeze-chrome-dark: #31363b;
+    --opensuse-breeze-chrome-dark-fg: #eff0f1;
+    --calendar-popover-chrome-bg: #eff0f1;
+    --calendar-popover-grid-bg: #eff0f1;
+    --calendar-popover-grid-overlay: rgba(239, 240, 241, 0.82);
+    --calendar-popover-bg: #eff0f1;
+    --calendar-popover-border: 1px solid rgba(35, 38, 41, 0.11);
+    --calendar-popover-shadow: 0 0.25rem 1rem rgba(35, 38, 41, 0.14);
+    --calendar-popover-text: #232629;
+    --calendar-popover-week-label: #7a8b9a;
+    --calendar-popover-divider: 1px solid rgba(35, 38, 41, 0.1);
+    --calendar-popover-events-muted: #8e99a3;
+    --calendar-popover-day-text: #232629;
+    --calendar-popover-tab-active: #3daee9;
+    --calendar-popover-today-bg: rgba(61, 174, 233, 0.28);
+    --calendar-popover-today-text: #232629;
+    --calendar-popover-today-ring: #3daee9;
+    --calendar-popover-today-hover-bg: rgba(61, 174, 233, 0.38);
+    --calendar-popover-day-hover-bg: rgba(61, 174, 233, 0.14);
+    --calendar-popover-arrow-text: #232629;
+    --calendar-popover-arrow-bg: rgba(35, 38, 41, 0.06);
+    --calendar-popover-arrow-hover-bg: rgba(35, 38, 41, 0.11);
+    --opensuse-mono-logo-filter: none;
+    --opensuse-header-control-filter-light: brightness(0) saturate(100%);
+    --opensuse-menu-bg: rgba(252, 252, 252, 0.94);
+    --opensuse-menu-border: rgba(0, 0, 0, 0.1);
+    --opensuse-menu-text: #232629;
+    --opensuse-menu-text-muted: #7f8c8d;
+    --opensuse-menu-hover: rgba(61, 174, 233, 0.1);
+    --opensuse-menu-active: rgba(61, 174, 233, 0.22);
+    --opensuse-menu-search-focus: var(--opensuse-breeze-accent);
+    /* KDE (capture) : barre de titre claire */
+    --opensuse-window-titlebar-bg: #eff0f1;
+    --opensuse-window-titlebar-bg-active: #e5e7ea;
+    --opensuse-window-titlebar-border-color: rgba(35, 38, 41, 0.14);
+    --opensuse-window-titlebar-border-color-active: rgba(35, 38, 41, 0.18);
+    --opensuse-window-titlebar-fg: #232629;
+    --opensuse-window-titlebar-fg-muted: rgba(35, 38, 41, 0.72);
+}
+

@@ -1,5 +1,5 @@
 /**
- * Service Worker CapsuleOS — cache hybride:
+ * Service Worker CapsuleOS - cache hybride:
  * - network-first pour HTML/CSS/JS/JSON (mises à jour visibles rapidement)
  * - cache-first pour assets statiques lourds (offline performant)
  */

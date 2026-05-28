@@ -1,5 +1,5 @@
 /**
- * Lancement d’apps Pop!_OS — partagé launcher / Applications.
+ * Lancement d’apps Pop!_OS - partagé launcher / Applications.
  */
 (function (global) {
     function open(link) {

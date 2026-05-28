@@ -47,7 +47,7 @@ const MENU_APPS = [
     { catId: 'system', icon: './media/img/apps/preferences-desktop-theme.png', name: 'Thèmes', desc: 'Personnaliser l\'apparence', dataLink: 'themes' },
     { catId: 'system', icon: './media/img/apps/preferences-system-sound.png', name: 'Son', desc: 'Configurer le volume et les périphériques', dataLink: null },
     { catId: 'system', icon: './media/img/apps/utilities-terminal.png', name: 'Terminal', desc: 'Émulateur de terminal', dataLink: 'terminal' },
-    { catId: 'system', icon: './media/img/apps/user-info.png', name: 'À propos — MX Linux KDE', desc: 'Infos et évaluation de la distro', dataLink: 'profile' },
+    { catId: 'system', icon: './media/img/apps/user-info.png', name: 'À propos - MX Linux KDE', desc: 'Infos et évaluation de la distro', dataLink: 'profile' },
     { catId: 'mxtools', icon: './media/img/apps/mintinstall.png', name: 'Logithèque', desc: 'Installer des logiciels', dataLink: null },
     { catId: 'mxtools', icon: './media/img/apps/mx-tools.svg', name: 'Missions MX', desc: 'Missions de découverte', dataLink: 'checklist' },
 ];

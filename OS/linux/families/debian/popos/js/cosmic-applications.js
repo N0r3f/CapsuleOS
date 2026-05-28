@@ -1,5 +1,5 @@
 /**
- * Grille Applications — Apps.png (barre « Applications », fenêtre flottante).
+ * Grille Applications - Apps.png (barre « Applications », fenêtre flottante).
  */
 (function () {
     var panel = document.getElementById('cosmic-applications');

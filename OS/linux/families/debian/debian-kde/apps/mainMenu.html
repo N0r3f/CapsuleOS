@@ -1,0 +1,79 @@
+<section class="menu-root menu-root--plasma" aria-label="Menu des applications">
+
+    <header class="menu-plasma-header">
+        <div class="menu-brand" aria-label="Distribution">
+            <img class="menu-brand__logo" src="./assets/debian-logo.svg" alt="" aria-hidden="true">
+            <span class="menu-brand__name">Debian KDE</span>
+        </div>
+        <div class="menu-header-right" aria-label="Recherche et actions">
+            <div class="menu-search-wrap">
+                <input
+                    type="search"
+                    class="menu-search"
+                    id="menu-search"
+                    data-capsule-attr="placeholder:mainMenu.searchPlaceholder"
+                    placeholder="Rechercher..."
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+                <button type="button" class="menu-search-clear" id="menu-search-clear" hidden aria-label="Effacer la recherche"></button>
+            </div>
+            <div class="menu-plasma-chrome" aria-label="Actions du menu">
+                <button type="button" class="menu-plasma-chrome__btn" id="menu-btn-filter" title="Filtres" aria-label="Filtres"></button>
+                <button type="button" class="menu-plasma-chrome__btn" id="menu-btn-pin" title="Épingler" aria-label="Épingler"></button>
+                <button type="button" class="menu-plasma-chrome__btn menu-plasma-chrome__btn--close" id="menu-btn-close" title="Close" aria-label="Close"></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu-plasma-body">
+        <aside class="menu-plasma-sidebar" aria-label="Navigation">
+            <ul class="menu-cats" id="menu-cats" aria-label="Catégories"></ul>
+            <ul class="menu-places" id="menu-places" aria-label="Emplacements" hidden>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="home">Dossier personnel</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="desktop">Bureau</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="documents">Documents</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="downloads">Téléchargements</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="pictures">Images</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="music">Musique</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="videos">Vidéos</a></li>
+                <li><a href="#" class="menu-shortcut" data-shortcut-id="trash">Corbeille</a></li>
+            </ul>
+        </aside>
+        <div class="menu-apps" aria-label="Applications">
+            <h2 class="menu-plasma-results-heading" id="menu-results-heading" hidden>Applications</h2>
+            <ul class="menu-app-list" id="menu-app-list"></ul>
+        </div>
+    </div>
+
+    <footer class="menu-plasma-footer">
+        <nav class="menu-plasma-tabs" aria-label="Vue du menu">
+            <button type="button" class="menu-plasma-tab menu-plasma-tab--active" data-menu-tab="apps">Applications</button>
+            <button type="button" class="menu-plasma-tab menu-plasma-tab--places" data-menu-tab="places">Emplacements</button>
+        </nav>
+        <nav class="menu-plasma-power" aria-label="Actions système">
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-sleep" title="Sleep">
+                <img src="./media/img/menu/plasma/system-suspend.svg" alt="">
+                <span>Sleep</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-hibernate" title="Hibernate">
+                <img src="./media/img/menu/plasma/system-suspend.svg" alt="">
+                <span>Hibernate</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-restart" title="Restart">
+                <img src="./media/img/menu/plasma/system-reboot.svg" alt="">
+                <span>Restart</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn" id="menu-btn-power" title="Shut Down">
+                <img src="./media/img/menu/plasma/system-shutdown.svg" alt="">
+                <span>Shut Down</span>
+            </button>
+            <button type="button" class="menu-plasma-power__btn menu-plasma-power__btn--session" id="menu-btn-session" title="Session">
+                <img src="./media/img/menu/plasma/system-log-out.svg" alt="">
+                <span>Session</span>
+            </button>
+        </nav>
+    </footer>
+
+</section>
+

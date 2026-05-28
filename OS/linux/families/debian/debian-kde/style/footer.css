@@ -1,0 +1,301 @@
+/* Debian KDE - footer Plasma (adapté depuis openSUSE, scoppé sur #debian-kde). */
+
+#debian-kde footer .taskbar-pins {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    gap: calc(var(--head) / 18);
+    min-width: 0;
+    flex: 1;
+}
+
+#debian-kde footer .taskbar-pins__apps {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 28);
+}
+
+/* Items statiques (ex. Discover) : même cadre que les apps */
+#debian-kde footer .taskbar-pins__item {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) * 1.02);
+    height: calc(var(--head) * 0.78);
+    margin: var(--z);
+    border-radius: calc(var(--head) / 10);
+    border: 1px solid transparent;
+}
+
+#debian-kde footer .taskbar-pins__item > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.58);
+    height: calc(var(--head) * 0.58);
+    object-fit: contain;
+    opacity: 0.92;
+}
+
+/* L’SVG Discover a un “plein” plus grand : on l’ajuste pour matcher visuellement les autres. */
+
+#debian-kde footer .taskbar-pins__launcher,
+#debian-kde footer .taskbar-pins__apps > a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) * 1.02);
+    height: calc(var(--head) * 0.78);
+    margin: var(--z);
+    background: transparent;
+    border-radius: calc(var(--head) / 10);
+    border: 1px solid transparent;
+    transition: background-color var(--eas2), border-color var(--eas2);
+    position: relative;
+    text-decoration: var(--n);
+}
+
+#debian-kde footer .taskbar-pins__launcher {
+    width: calc(var(--head) * 1.08);
+}
+
+#debian-kde footer .taskbar-pins__launcher:hover,
+#debian-kde footer .taskbar-pins__apps > a:hover {
+    background: var(--mint-taskbar-item-bg-hover);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+#debian-kde footer .taskbar-pins__apps > a.active-link,
+#debian-kde footer .taskbar-pins__launcher.active-link {
+    background: var(--mint-taskbar-item-bg-active);
+    border-color: var(--mint-taskbar-item-border-hover);
+    box-shadow: var(--mint-taskbar-item-shadow-active);
+}
+
+/* Encoche (indicateur) sur le trait clair, pour l’app active */
+#debian-kde footer .taskbar-pins__apps > a.active-link::after,
+#debian-kde footer .taskbar-pins__launcher.active-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--head) * -0.14);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: calc(var(--head) * 0.12) solid transparent;
+    border-right: calc(var(--head) * 0.12) solid transparent;
+    border-top: calc(var(--head) * 0.14) solid rgba(245, 246, 247, 0.88);
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.2));
+    pointer-events: none;
+}
+
+#debian-kde footer .taskbar-pins__launcher > img,
+#debian-kde footer .taskbar-pins__apps > a > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.62);
+    height: calc(var(--head) * 0.62);
+    object-fit: contain;
+    image-rendering: var(--a);
+}
+
+#debian-kde footer .taskbar-pins__launcher > img {
+    width: calc(var(--head) * 0.68);
+    height: calc(var(--head) * 0.68);
+    filter: var(--opensuse-mono-logo-filter);
+}
+
+/* Discover paraît visuellement plus “plein” → on le réduit un peu pour matcher le dock */
+#debian-kde footer .taskbar-pins__apps > a > img[src$="discover.svg"],
+#debian-kde footer .taskbar-pins__item > img[src$="discover.svg"] {
+    transform: scale(1.22);
+    transform-origin: center;
+}
+
+#debian-kde footer .taskbar-pins__launcher:focus-visible,
+#debian-kde footer .taskbar-pins__apps > a:focus-visible {
+    outline: 2px solid rgba(130, 180, 255, 0.72);
+    outline-offset: 1px;
+}
+
+#debian-kde footer .taskbar-right {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: stretch;
+    justify-content: var(--c);
+    gap: calc(var(--head) / 18);
+    margin-right: 0;
+}
+
+#debian-kde footer .taskbar-tray {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    align-self: center;
+    gap: calc(var(--head) / 12);
+    color: var(--mint-tray-color);
+    padding: 0 calc(var(--head) / 12);
+    border-radius: calc(var(--head) / 10);
+    background: var(--mint-taskbar-right-bg);
+    border: 1px solid var(--mint-taskbar-right-separator);
+}
+
+#debian-kde footer .taskbar-tray__link,
+#debian-kde footer .taskbar-tray__item,
+#debian-kde footer .taskbar-tray__btn {
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 0.82);
+    height: calc(var(--head) * 0.82);
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: transparent;
+    color: inherit;
+    text-decoration: var(--n);
+    cursor: default;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+#debian-kde footer .taskbar-tray__link:hover,
+#debian-kde footer .taskbar-tray__btn:hover {
+    background: var(--mint-taskbar-item-bg-hover);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+#debian-kde footer .taskbar-tray__link > img,
+#debian-kde footer .taskbar-tray__item > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.5);
+    height: calc(var(--head) * 0.5);
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+/* Icône volume: le JS applique maskImage sur cet élément (sinon carré plein) */
+#debian-kde footer .taskbar-tray__icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.5);
+    height: calc(var(--head) * 0.5);
+    opacity: 0.95;
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+#debian-kde footer .taskbar-clock-trigger {
+    display: var(--f);
+    flex-direction: column;
+    align-items: center;
+    justify-content: var(--c);
+    align-self: center;
+    min-width: calc(var(--head) * 1.95);
+    height: calc(var(--head) * 0.9);
+    margin: var(--z);
+    padding: calc(var(--head) / 26) calc(var(--head) / 10);
+    border: 1px solid transparent;
+    border-top: 2px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--texte);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.5);
+    cursor: default;
+    white-space: nowrap;
+    transition: background-color var(--eas2), border-color var(--eas2);
+    gap: 1px;
+}
+
+#debian-kde footer .taskbar-clock-trigger:hover {
+    background: var(--mint-taskbar-item-bg-hover);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+#debian-kde footer .taskbar-clock-trigger[aria-expanded="true"] {
+    background: rgba(110, 146, 203, 0.18);
+    border-color: rgba(130, 180, 255, 0.35);
+    border-top-color: #3daee9;
+}
+
+#debian-kde footer .taskbar-clock-trigger:focus-visible {
+    outline: 2px solid rgba(130, 180, 255, 0.72);
+    outline-offset: 1px;
+}
+
+#debian-kde footer .taskbar-clock-trigger > .taskbar__clock {
+    width: 100%;
+    color: inherit;
+    font-size: calc(var(--head) / 2.55);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    line-height: 1.05;
+    text-align: center;
+    pointer-events: none;
+}
+
+#debian-kde footer .taskbar-clock-trigger > .taskbar__date {
+    width: 100%;
+    color: var(--mint-clock-date-color);
+    font-size: calc(var(--head) / 3.7);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.05;
+    text-align: center;
+    pointer-events: none;
+}
+
+#debian-kde footer .taskbar-show-desktop {
+    flex-shrink: 0;
+    align-self: center;
+    box-sizing: border-box;
+    width: calc(var(--head) * 0.82);
+    height: calc(var(--head) * 0.82);
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: transparent;
+    cursor: default;
+    opacity: 0.75;
+    transition: background-color var(--eas2), border-color var(--eas2), opacity var(--eas2);
+}
+
+#debian-kde footer .taskbar-show-desktop > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.5);
+    height: calc(var(--head) * 0.5);
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+#debian-kde footer .taskbar-show-desktop:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 900px) {
+    #debian-kde footer .taskbar-tray__link,
+    #debian-kde footer .taskbar-tray__item,
+    #debian-kde footer .taskbar-tray__btn {
+        width: calc(var(--head) * 0.74);
+        height: calc(var(--head) * 0.74);
+    }
+
+    #debian-kde footer .taskbar-clock-trigger {
+        min-width: calc(var(--head) * 1.7);
+        align-items: center;
+    }
+
+    #debian-kde footer .taskbar-clock-trigger > .taskbar__date {
+        display: none;
+    }
+}
+

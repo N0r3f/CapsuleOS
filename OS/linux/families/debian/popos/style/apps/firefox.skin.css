@@ -1,5 +1,5 @@
 /**
- * Pop!_OS — Firefox chrome intégré (onglets + contrôles à droite de la barre).
+ * Pop!_OS - Firefox chrome intégré (onglets + contrôles à droite de la barre).
  */
 body#popos #firefox {
     min-width: calc(var(--head) * 24);

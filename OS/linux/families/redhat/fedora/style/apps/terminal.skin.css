@@ -1,4 +1,4 @@
-/* Fedora / GNOME Ptyxis — UI locale, moteur terminal commun inchangé. */
+/* Fedora / GNOME Ptyxis - UI locale, moteur terminal commun inchangé. */
 body#fedora #terminal.terminal-window--fedora {
     width: min(43rem, calc(100vw - var(--fedora-dock-width) - 2rem));
     height: min(31.5rem, calc(100vh - var(--fedora-top-bar-height) - 2rem));

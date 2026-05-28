@@ -1,6 +1,6 @@
 /**
- * Tokens Pop!_OS / COSMIC — accent cyan, surfaces (sombre par défaut).
- * Clair : html[data-theme="light"]:has(#popos) — ref. visuel/screenshot/thème_clair/
+ * Tokens Pop!_OS / COSMIC - accent cyan, surfaces (sombre par défaut).
+ * Clair : html[data-theme="light"]:has(#popos) - ref. visuel/screenshot/thème_clair/
  */
 html:has(#popos) {
     --menu-accent: #62d0e9;

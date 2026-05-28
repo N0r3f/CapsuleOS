@@ -70,10 +70,10 @@ function buildWindowTitles(merged) {
         ? String(window.CAPSULE_EXPLORER_DISPLAY_NAME)
         : 'Fichiers';
     return {
-        nemo: m['explorer.windowTitle'] || `Dossier personnel — ${explorerDisplayName}`,
+        nemo: m['explorer.windowTitle'] || `Dossier personnel - ${explorerDisplayName}`,
         firefox: m['firefox.windowTitle'] || 'Navigateur Web',
         profile: m['profile.windowTitle'] || 'À Propos',
-        librewriter: m['librewriter.windowTitle'] || 'Sans nom 1 — LibreOffice Writer',
+        librewriter: m['librewriter.windowTitle'] || 'Sans nom 1 - LibreOffice Writer',
         terminal: m['terminal.windowTitle'] || 'Terminal',
         themes: m['themes.windowTitle'] || 'Thèmes',
         checklist: m['checklist.windowTitle'] || 'Missions',

@@ -1,5 +1,5 @@
 /**
- * Dock Cosmic — état actif des épinglages (fenêtre visible uniquement).
+ * Dock Cosmic - état actif des épinglages (fenêtre visible uniquement).
  */
 (function () {
     var dock = document.querySelector('.cosmic-dock');

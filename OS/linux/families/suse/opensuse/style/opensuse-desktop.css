@@ -1,5 +1,5 @@
 /**
- * openSUSE — bureau + panel Plasma clair (réf. desk.png).
+ * openSUSE - bureau + panel Plasma clair (réf. desk.png).
  * Tailles taskbar : alignées sur footer.css (base MX-KDE).
  */
 
@@ -83,7 +83,7 @@ html:has(#opensuse) {
     gap: 0;
 }
 
-/* Tray : icônes Breeze #232629 — renfort lisibilité sur panel clair */
+/* Tray : icônes Breeze #232629 - renfort lisibilité sur panel clair */
 #opensuse footer .taskbar-tray {
     color: var(--opensuse-plasma-text);
     padding-right: 0;

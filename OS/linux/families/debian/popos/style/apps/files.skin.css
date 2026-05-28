@@ -1,5 +1,5 @@
 /**
- * Pop!_OS / COSMIC — Fichiers (dossier_minimiser.png, dossiers_fullscreen.png).
+ * Pop!_OS / COSMIC - Fichiers (dossier_minimiser.png, dossiers_fullscreen.png).
  */
 body#popos {
     --nemo-bg-primary: #1a1a1e;
@@ -482,7 +482,7 @@ body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer.nemo-app__
     background: var(--nemo-bg-primary);
 }
 
-/* Reset nemo.base — vue liste (priorité sur grille ID) */
+/* Reset nemo.base - vue liste (priorité sur grille ID) */
 body#popos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list {
     display: flex;
     flex-flow: column nowrap;
@@ -604,7 +604,7 @@ body#popos div[data-link="nemo"]:not([data-maximized="true"]) .nemo-app__item-me
     display: block;
 }
 
-/* Mode colonnes (maximisé — dossiers_fullscreen.png) */
+/* Mode colonnes (maximisé - dossiers_fullscreen.png) */
 body#popos div[data-link="nemo"][data-maximized="true"] .nemo-app__list-header {
     display: grid;
     grid-template-columns: var(--nemo-list-col-icon) minmax(0, 1fr) var(--nemo-list-col-modified) var(--nemo-list-col-size);

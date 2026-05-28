@@ -1,5 +1,5 @@
 /**
- * Dolphin (KDE Plasma / Breeze sombre) — tokens centralisés pour le slot explorateur.
+ * Dolphin (KDE Plasma / Breeze sombre) - tokens centralisés pour le slot explorateur.
  * nemo.base.css est fusionné par contentLoader.js (pas d’@import relatif en <style>).
  *
  * Variables : définies sur div[data-link="nemo"] pour couvrir #windowHeader (hors main) et .dolphin-app.

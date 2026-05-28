@@ -1,7 +1,7 @@
 /**
  * Tray + horloge top bar Pop!_OS / COSMIC.
- * Icônes : <img> + filter (compatible file://) — sources media/img/symbolic/tray/.
- * Ordre : desktop.png — fr, accessibilité, tiling, volume, wifi, batterie, notifications, capture, power.
+ * Icônes : <img> + filter (compatible file://) - sources media/img/symbolic/tray/.
+ * Ordre : desktop.png - fr, accessibilité, tiling, volume, wifi, batterie, notifications, capture, power.
  */
 
 body#popos .taskbar-tray {
