@@ -1,0 +1,276 @@
+<main id="updateManagerApp" class="update-manager" aria-label="Gestionnaire de mise à jour">
+    <section class="update-manager__layout update-manager__layout--mint" aria-label="Gestionnaire de mise à jour (Mint)">
+        <header class="update-manager__top">
+            <nav class="update-manager__menubar" aria-label="Menu">
+                <button type="button" class="update-manager__menuitem">Fichier</button>
+                <button type="button" class="update-manager__menuitem">Édition</button>
+                <button type="button" class="update-manager__menuitem">Affichage</button>
+                <button type="button" class="update-manager__menuitem">Aide</button>
+            </nav>
+
+            <section class="update-manager__toolbar" aria-label="Actions">
+                <button type="button" class="update-manager__tool" data-um-action="clear">
+                    <span class="update-manager__tool-icon" aria-hidden="true"></span>
+                    <span>Effacer</span>
+                </button>
+                <button type="button" class="update-manager__tool" data-um-action="selectAll">
+                    <span class="update-manager__tool-icon" aria-hidden="true"></span>
+                    <span>Tout sélectionner</span>
+                </button>
+                <button type="button" class="update-manager__tool" data-um-action="refresh">
+                    <span class="update-manager__tool-icon" aria-hidden="true"></span>
+                    <span>Actualiser</span>
+                </button>
+                <button type="button" class="update-manager__tool update-manager__tool--primary" data-um-action="install" id="um-install-btn">
+                    <span class="update-manager__tool-icon" aria-hidden="true"></span>
+                    <span>Installer les mises à jour</span>
+                </button>
+            </section>
+        </header>
+
+        <section class="update-manager__banner" role="region" aria-label="Suggestion miroir">
+            <div class="update-manager__banner-left" aria-hidden="true">
+                <span class="update-manager__banner-icon"></span>
+            </div>
+            <div class="update-manager__banner-text">
+                <p class="update-manager__banner-title">Voulez-vous utiliser un miroir de dépôts local&nbsp;?</p>
+                <p class="update-manager__banner-subtitle">
+                    Les miroirs de dépôts locaux sont habituellement plus rapides que packages.linuxmint.com.
+                </p>
+            </div>
+            <div class="update-manager__banner-actions">
+                <button type="button" class="update-manager__banner-btn">Oui</button>
+                <button type="button" class="update-manager__banner-btn">Non</button>
+            </div>
+        </section>
+
+        <section class="update-manager__tablewrap" aria-label="Liste des mises à jour">
+            <table class="update-manager__table">
+                <thead>
+                    <tr>
+                        <th scope="col">Type</th>
+                        <th scope="col">Mise à niveau</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Nouvelle version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="update-manager__type" aria-hidden="true">
+                            <span class="update-manager__type-icon"></span>
+                        </td>
+                        <td class="update-manager__check">
+                            <input type="checkbox" checked aria-label="Sélectionner alsa-lib">
+                        </td>
+                        <td>
+                            <span class="update-manager__pkg">alsa-lib</span>
+                            <span class="update-manager__desc">Shared library for handling ALSA topology definitions</span>
+                        </td>
+                        <td class="update-manager__version">1.2.11-1ubuntu0.2</td>
+                    </tr>
+                    <tr>
+                        <td class="update-manager__type" aria-hidden="true">
+                            <span class="update-manager__type-icon"></span>
+                        </td>
+                        <td class="update-manager__check">
+                            <input type="checkbox" checked aria-label="Sélectionner avahi">
+                        </td>
+                        <td>
+                            <span class="update-manager__pkg">avahi</span>
+                            <span class="update-manager__desc">Avahi IPv4/LL network address configuration daemon</span>
+                        </td>
+                        <td class="update-manager__version">0.8-13ubuntu6.2</td>
+                    </tr>
+                    <tr>
+                        <td class="update-manager__type" aria-hidden="true">
+                            <span class="update-manager__type-icon"></span>
+                        </td>
+                        <td class="update-manager__check">
+                            <input type="checkbox" checked aria-label="Sélectionner bind9">
+                        </td>
+                        <td>
+                            <span class="update-manager__pkg">bind9</span>
+                            <span class="update-manager__desc">Serveur de noms de domaine internet</span>
+                        </td>
+                        <td class="update-manager__version">1:9.18.39-0ubuntu0.5</td>
+                    </tr>
+                    <tr>
+                        <td class="update-manager__type" aria-hidden="true">
+                            <span class="update-manager__type-icon"></span>
+                        </td>
+                        <td class="update-manager__check">
+                            <input type="checkbox" checked aria-label="Sélectionner curl">
+                        </td>
+                        <td>
+                            <span class="update-manager__pkg">curl</span>
+                            <span class="update-manager__desc">Outil en ligne de commande pour transférer des données avec une syntaxe URL</span>
+                        </td>
+                        <td class="update-manager__version">8.5.0-2ubuntu0.9</td>
+                    </tr>
+                    <tr>
+                        <td class="update-manager__type" aria-hidden="true">
+                            <span class="update-manager__type-icon"></span>
+                        </td>
+                        <td class="update-manager__check">
+                            <input type="checkbox" checked aria-label="Sélectionner dpkg">
+                        </td>
+                        <td>
+                            <span class="update-manager__pkg">dpkg</span>
+                            <span class="update-manager__desc">Système de gestion des paquets Debian</span>
+                        </td>
+                        <td class="update-manager__version">1.22.6ubuntu6.6</td>
+                    </tr>
+                    <tr>
+                        <td class="update-manager__type" aria-hidden="true">
+                            <span class="update-manager__type-icon"></span>
+                        </td>
+                        <td class="update-manager__check">
+                            <input type="checkbox" checked aria-label="Sélectionner evolution-data-server">
+                        </td>
+                        <td>
+                            <span class="update-manager__pkg">evolution-data-server</span>
+                            <span class="update-manager__desc">Serveur de données pour Evolution</span>
+                        </td>
+                        <td class="update-manager__version">3.52.3-0ubuntu1.2</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="update-manager__bottom" aria-label="Détails">
+            <nav class="update-manager__tabs" aria-label="Onglets">
+                <button type="button" class="update-manager__tab is-active" data-um-tab="info">Renseignements</button>
+                <button type="button" class="update-manager__tab" data-um-tab="packages">Paquets</button>
+                <button type="button" class="update-manager__tab" data-um-tab="changelog">Journal des changements</button>
+            </nav>
+            <section class="update-manager__panel" id="um-panel" aria-label="Contenu onglet">
+                <p class="update-manager__placeholder">Sélectionne une mise à jour pour afficher des informations (simulation).</p>
+            </section>
+        </section>
+
+        <footer class="update-manager__status" aria-label="Statut">
+            <span id="um-status-text">129 mises à jour sont sélectionnées (1,1 Go)</span>
+        </footer>
+    </section>
+
+    <section class="update-manager__layout update-manager__layout--cosmic" aria-label="Mises à jour (Pop!_OS)">
+        <div class="cosmic-updates">
+            <aside class="cosmic-updates__sidebar" aria-label="Navigation">
+                <nav class="cosmic-updates__nav" aria-label="Sections">
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Explorer</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Création</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Travail</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Développement</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Apprentissage</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Jeux</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Détente</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Socialisation</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Utilitaires</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Applets</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-disabled" href="#" aria-disabled="true">
+                        <span class="cosmic-updates__glyph" aria-hidden="true"></span>
+                        <span>Applis installées</span>
+                    </a>
+                    <a class="cosmic-updates__navitem is-active" href="#" aria-current="page">
+                        <span class="cosmic-updates__glyph cosmic-updates__glyph--updates" aria-hidden="true"></span>
+                        <span>Mises à jour</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="cosmic-updates__main" aria-label="Mises à jour">
+                <header class="cosmic-updates__header">
+                    <h1 class="cosmic-updates__title">Mises à jour</h1>
+                    <div class="cosmic-updates__actions">
+                        <button type="button" class="cosmic-updates__action" data-um-cosmic-action="scan">Rechercher des mises à jour</button>
+                        <button type="button" class="cosmic-updates__action cosmic-updates__action--primary" data-um-cosmic-action="updateAll">Tout mettre à jour</button>
+                    </div>
+                </header>
+
+                <section class="cosmic-updates__grid" aria-label="Mises à jour disponibles">
+                    <article class="cosmic-update-card" aria-label="Paquets système">
+                        <img class="cosmic-update-card__icon" src="../ubuntu/media/img/apps/overview/security-center.png" alt="" aria-hidden="true">
+                        <div class="cosmic-update-card__body">
+                            <h2 class="cosmic-update-card__title">Paquets système</h2>
+                            <p class="cosmic-update-card__subtitle">19 paquets</p>
+                            <button type="button" class="cosmic-update-card__button">Mettre à jour</button>
+                        </div>
+                        <span class="cosmic-update-card__info" aria-hidden="true">i</span>
+                    </article>
+
+                    <article class="cosmic-update-card" aria-label="COSMIC Store">
+                        <img class="cosmic-update-card__icon" src="../ubuntu/media/img/apps/overview/software-properties.png" alt="" aria-hidden="true">
+                        <div class="cosmic-update-card__body">
+                            <h2 class="cosmic-update-card__title">COSMIC Store</h2>
+                            <p class="cosmic-update-card__subtitle">Application store for the COSMIC desktop</p>
+                            <button type="button" class="cosmic-update-card__button">Mettre à jour</button>
+                        </div>
+                        <span class="cosmic-update-card__info" aria-hidden="true">i</span>
+                    </article>
+
+                    <article class="cosmic-update-card" aria-label="Document Viewer">
+                        <img class="cosmic-update-card__icon" src="../ubuntu/media/img/apps/overview/system-monitor.png" alt="" aria-hidden="true">
+                        <div class="cosmic-update-card__body">
+                            <h2 class="cosmic-update-card__title">Document Viewer</h2>
+                            <p class="cosmic-update-card__subtitle">Document viewer for popular document formats</p>
+                            <button type="button" class="cosmic-update-card__button">Mettre à jour</button>
+                        </div>
+                        <span class="cosmic-update-card__info" aria-hidden="true">i</span>
+                    </article>
+
+                    <article class="cosmic-update-card" aria-label="Thunderbird">
+                        <img class="cosmic-update-card__icon" src="../ubuntu/media/img/apps/overview/language-support.png" alt="" aria-hidden="true">
+                        <div class="cosmic-update-card__body">
+                            <h2 class="cosmic-update-card__title">Thunderbird</h2>
+                            <p class="cosmic-update-card__subtitle">Software made to make email easier</p>
+                            <button type="button" class="cosmic-update-card__button">Mettre à jour</button>
+                        </div>
+                        <span class="cosmic-update-card__info" aria-hidden="true">i</span>
+                    </article>
+
+                    <article class="cosmic-update-card" aria-label="Thunderbird Mail">
+                        <img class="cosmic-update-card__icon" src="../ubuntu/media/img/apps/overview/text-editor.png" alt="" aria-hidden="true">
+                        <div class="cosmic-update-card__body">
+                            <h2 class="cosmic-update-card__title">Thunderbird Mail</h2>
+                            <p class="cosmic-update-card__subtitle">Send and receive mail with Thunderbird</p>
+                            <button type="button" class="cosmic-update-card__button">Mettre à jour</button>
+                        </div>
+                        <span class="cosmic-update-card__info" aria-hidden="true">i</span>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </section>
+
+</main>
+

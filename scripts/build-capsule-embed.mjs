@@ -13,6 +13,9 @@ const ROOT = path.resolve(__dirname, '..');
 
 const APPS_DIR = path.join(ROOT, 'OS/linux/shared/apps');
 const STYLE_DIR = path.join(APPS_DIR, 'style');
+const KDE_COMMON_SKIN = path.join(STYLE_DIR, 'skins/kde/update_manager.skin.css');
+const KDE_UPDATE_MANAGER_HTML = path.join(APPS_DIR, 'update_manager_kde.html');
+const UBUNTU_UPDATE_MANAGER_HTML = path.join(APPS_DIR, 'update_manager_ubuntu.html');
 const OUT_FILE = path.join(ROOT, 'OS/linux/kernel/js/capsule-app-embed.js');
 const MANIFEST_PATH = path.join(
     ROOT,
@@ -137,6 +140,21 @@ function main() {
         }
     }
 
+    // Overrides embed pour familles KDE : update_manager doit embarquer le template Discover (KDE),
+    // car en mode embed/offline on n'utilise pas CAPSULE_TEMPLATE_OVERRIDES.
+    if (fs.existsSync(KDE_UPDATE_MANAGER_HTML)) {
+        for (const skinKey of ['opensuse', 'mxkde']) {
+            skinTemplates[skinKey] = skinTemplates[skinKey] || {};
+            skinTemplates[skinKey].update_manager = { html: readUtf8(KDE_UPDATE_MANAGER_HTML) };
+        }
+    }
+
+    // Override embed Ubuntu Software : template dédié pour éviter le multi-layout Mint.
+    if (fs.existsSync(UBUNTU_UPDATE_MANAGER_HTML)) {
+        skinTemplates.ubuntu = skinTemplates.ubuntu || {};
+        skinTemplates.ubuntu.update_manager = { html: readUtf8(UBUNTU_UPDATE_MANAGER_HTML) };
+    }
+
     const skins = {};
     const embedStrings = {};
     for (const { key, dir, strings } of SKIN_DIRS) {
@@ -144,7 +162,12 @@ function main() {
         embedStrings[key] = readSkinStrings(strings);
         const skinIds = Array.from(new Set([...templateIds, ...listSkinIds(dir)])).sort();
         for (const id of skinIds) {
-            skins[key][id] = readSkinCss(dir, id);
+            let css = readSkinCss(dir, id);
+            const isKdeFamily = key === 'opensuse' || key === 'mxkde';
+            if (isKdeFamily && id === 'update_manager' && fs.existsSync(KDE_COMMON_SKIN)) {
+                css = `${readUtf8(KDE_COMMON_SKIN)}\n${css}`;
+            }
+            skins[key][id] = css;
         }
     }
 

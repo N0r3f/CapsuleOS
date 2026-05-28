@@ -223,6 +223,11 @@ const SLOT_INIT_HANDLERS = {
             { fn: typeof renderFileViewer === 'function' ? renderFileViewer : null, args: ['lecteur_multimedia'] },
             { fn: typeof renderMintViewer === 'function' ? renderMintViewer : null, args: ['lecteur_multimedia'] }
         ]);
+    },
+    update_manager: () => {
+        if (typeof initUpdateManagerApp === 'function') {
+            initUpdateManagerApp();
+        }
     }
 };
 

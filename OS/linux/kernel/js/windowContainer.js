@@ -48,6 +48,47 @@ right.appendChild(minimizeBtn);
 right.appendChild(maximizeBtn);
 right.appendChild(closeBtn);
 
+function isKdeFamily() {
+    const skinKey = typeof window !== 'undefined' ? window.CAPSULE_EMBED_SKIN_KEY : null;
+    const explorerTemplate = typeof window !== 'undefined' ? window.CAPSULE_EXPLORER_TEMPLATE : null;
+    const bodyId = typeof document !== 'undefined' && document.body ? document.body.id : null;
+
+    if (explorerTemplate === 'dolphin') {
+        return true;
+    }
+    if (skinKey === 'opensuse' || skinKey === 'mxkde') {
+        return true;
+    }
+    return bodyId === 'opensuse' || bodyId === 'mx-kde';
+}
+
+function applyKdeWindowHeaderIcons(container) {
+    if (!container || !isKdeFamily()) {
+        return;
+    }
+    const base = (typeof window !== 'undefined' && window.CAPSULE_SKIN_BASE)
+        ? String(window.CAPSULE_SKIN_BASE).replace(/\/+$/, '')
+        : '.';
+    const header = container.querySelector('#windowHeader');
+    if (!header) {
+        return;
+    }
+    const minBtn = header.querySelector('#minimizeBtn');
+    const resBtn = header.querySelector('#resizeBtn');
+    const clsBtn = header.querySelector('#closeBtn');
+
+    if (minBtn) {
+        minBtn.style.backgroundImage = `url(${base}/media/img/header/minimize.svg)`;
+    }
+    if (resBtn) {
+        resBtn.style.backgroundImage = `url(${base}/media/img/header/window-restore.svg)`;
+        resBtn.style.backgroundSize = 'calc(var(--head) / 2.55)';
+    }
+    if (clsBtn) {
+        clsBtn.style.backgroundImage = `url(${base}/media/img/header/window-close.svg)`;
+    }
+}
+
 function handleOpenwindow(link) {
 	const container = document.querySelector(`div[data-link="${link.dataset.link}"]`);
 
@@ -58,6 +99,7 @@ function handleOpenwindow(link) {
             if (!container.querySelector('#windowHeader')) {
                 container.insertBefore(windowHeader.cloneNode(true), container.firstChild);
             }
+            applyKdeWindowHeaderIcons(container);
             link.classList.add('active-link');
             activateWindow(container);
             // Utiliser le data-link pour mettre à jour le windowTitle
@@ -145,6 +187,11 @@ function openWindowByDataLink(dataLink) {
     }
 
     handleOpenwindow(launcher);
+    applyKdeWindowHeaderIcons(container);
+
+    if (dataLink === 'update_manager' && typeof window.initUpdateManagerApp === 'function') {
+        window.initUpdateManagerApp();
+    }
 
     const windowTitle = container.querySelector('#windowTitle');
     if (windowTitle) {
