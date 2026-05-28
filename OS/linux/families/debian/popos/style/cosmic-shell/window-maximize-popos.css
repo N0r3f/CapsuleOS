@@ -1,5 +1,5 @@
 /**
- * Fenêtres maximisées Pop!_OS — remplissent #desktop (sous top bar).
+ * Fenêtres maximisées Pop!_OS - remplissent #desktop (sous top bar).
  * bottom: --popos-taskbar-height laisse la zone au-dessus de la barre taskbar (dock fixe).
  */
 body#popos #desktop > .windowElement[data-maximized="true"],

@@ -13,6 +13,9 @@ const ROOT = path.resolve(__dirname, '..');
 
 const APPS_DIR = path.join(ROOT, 'OS/linux/shared/apps');
 const STYLE_DIR = path.join(APPS_DIR, 'style');
+const DOLPHIN_MODULE_DIR = path.join(ROOT, 'modules/app/dolphin');
+const DOLPHIN_MODULE_HTML = path.join(DOLPHIN_MODULE_DIR, 'dolphin.html');
+const DOLPHIN_MODULE_CSS = path.join(DOLPHIN_MODULE_DIR, 'dolphin.base.css');
 const OUT_FILE = path.join(ROOT, 'OS/linux/kernel/js/capsule-app-embed.js');
 const MANIFEST_PATH = path.join(
     ROOT,
@@ -21,7 +24,8 @@ const MANIFEST_PATH = path.join(
 
 /** Gabarits HTML propres à une famille (ex. menu Plasma openSUSE). */
 const FAMILY_APP_HTML_DIRS = {
-    opensuse: path.join(ROOT, 'OS/linux/families/suse/opensuse/apps')
+    opensuse: path.join(ROOT, 'OS/linux/families/suse/opensuse/apps'),
+    'debian-kde': path.join(ROOT, 'OS/linux/families/debian/debian-kde/apps')
 };
 
 const SKIN_DIRS = [
@@ -44,6 +48,11 @@ const SKIN_DIRS = [
         key: 'mxkde',
         dir: path.join(ROOT, 'OS/linux/families/debian/mx-kde/style/apps'),
         strings: path.join(ROOT, 'OS/linux/families/debian/mx-kde/content/strings.json')
+    },
+    {
+        key: 'debian-kde',
+        dir: path.join(ROOT, 'OS/linux/families/debian/debian-kde/style/apps'),
+        strings: path.join(ROOT, 'OS/linux/families/debian/debian-kde/content/strings.json')
     },
     {
         key: 'opensuse',
@@ -79,7 +88,9 @@ function listSkinIds(skinDir) {
 
 function buildCssBase(templateId) {
     const cssBaseId = templateId === 'nemo-gnome' || templateId === 'nemo-cosmic' ? 'nemo' : templateId;
-    const baseFile = path.join(STYLE_DIR, `${cssBaseId}.base.css`);
+    const baseFile = templateId === 'dolphin'
+        ? DOLPHIN_MODULE_CSS
+        : path.join(STYLE_DIR, `${cssBaseId}.base.css`);
     let text = readUtf8(baseFile);
     if (templateId === 'dolphin') {
         const nemoBase = path.join(STYLE_DIR, 'nemo.base.css');
@@ -109,7 +120,9 @@ function readSkinStrings(stringsPath) {
 }
 
 function readTemplateHtml(templateId) {
-    const htmlPath = path.join(APPS_DIR, `${templateId}.html`);
+    const htmlPath = templateId === 'dolphin'
+        ? DOLPHIN_MODULE_HTML
+        : path.join(APPS_DIR, `${templateId}.html`);
     return readUtf8(htmlPath);
 }
 
@@ -150,7 +163,7 @@ function main() {
 
     const manifest = JSON.parse(readUtf8(MANIFEST_PATH));
 
-    const header = `/* Généré par scripts/build-capsule-embed.mjs — ne pas éditer à la main */
+    const header = `/* Généré par scripts/build-capsule-embed.mjs - ne pas éditer à la main */
 (function () {
 'use strict';
 `;

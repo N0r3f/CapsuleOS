@@ -1,4 +1,4 @@
-/* Firefox GNOME — contrôles dans la barre d’onglets (Fedora + Ubuntu). */
+/* Firefox GNOME - contrôles dans la barre d’onglets (Fedora + Ubuntu). */
 body#ubuntu #firefox {
     position: relative;
     min-width: calc(var(--head) * 24);

@@ -39,7 +39,7 @@ function usesGnomeStyleLsListing() {
     return bodyId === 'ubuntu' || bodyId === 'popos';
 }
 
-/** Colonnes type GNOME Terminal (réf. terminal.png) — noms sans slash initial. */
+/** Colonnes type GNOME Terminal (réf. terminal.png) - noms sans slash initial. */
 function formatGnomeLsLines(fs, targetPath) {
     const names = getDirectoryListing(fs, targetPath)
         .filter(Boolean)

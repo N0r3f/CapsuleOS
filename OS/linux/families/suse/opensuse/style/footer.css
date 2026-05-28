@@ -203,7 +203,7 @@
     pointer-events: none;
 }
 
-/* Afficher le bureau — cadre vide (réf. desk.png), bouton non branché */
+/* Afficher le bureau - cadre vide (réf. desk.png), bouton non branché */
 #opensuse footer .taskbar-show-desktop {
     flex-shrink: 0;
     align-self: center;

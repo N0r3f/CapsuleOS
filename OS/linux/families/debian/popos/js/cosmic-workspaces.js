@@ -1,5 +1,5 @@
 /**
- * Rail workspaces + bouton barre « Workspaces » (workspace.png — sans blur bureau).
+ * Rail workspaces + bouton barre « Workspaces » (workspace.png - sans blur bureau).
  */
 (function () {
     var btnWorkspaces = document.getElementById('cosmic-btn-workspaces');

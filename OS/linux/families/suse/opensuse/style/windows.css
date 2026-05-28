@@ -64,7 +64,6 @@ body#opensuse div.windowElement:not([data-link="nemo"]):not(#mainMenu) #windowIf
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
-    justify-content: var(--sa);
     min-width: calc(var(--head) * 2.2);
     height: var(--head);
 }

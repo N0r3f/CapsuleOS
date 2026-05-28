@@ -1,5 +1,5 @@
 /**
- * Launcher Cosmic — barre recherche + liste (launcher.png / launcher_search.png).
+ * Launcher Cosmic - barre recherche + liste (launcher.png / launcher_search.png).
  */
 (function () {
     var launcher = document.getElementById('cosmic-launcher');
