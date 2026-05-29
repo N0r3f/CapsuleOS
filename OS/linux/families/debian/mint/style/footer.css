@@ -94,6 +94,21 @@ html>body>footer>nav>a:nth-child(1)>img {
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
 }
 
+.taskbar-tray__btn--updates {
+    position: relative;
+}
+
+.taskbar-tray__btn--updates[data-has-updates="true"]::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff8a00;
+}
+
 .taskbar-clock-trigger {
     display: var(--f);
     flex-flow: var(--rnw);

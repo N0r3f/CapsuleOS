@@ -142,6 +142,28 @@
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
 }
 
+/* Updates (Discover) */
+#mx-kde footer .taskbar-tray__icon--updates {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4a8 8 0 108 8h2A10 10 0 1112 2v2zm1 3v7h5v-2h-3V7h-2zm4.3-2.3L22 6l-4.3 1.3V4.7z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4a8 8 0 108 8h2A10 10 0 1112 2v2zm1 3v7h5v-2h-3V7h-2zm4.3-2.3L22 6l-4.3 1.3V4.7z'/%3E%3C/svg%3E");
+}
+
+#mx-kde footer .taskbar-tray__btn--updates {
+    position: relative;
+}
+
+#mx-kde footer .taskbar-tray__btn--updates[data-has-updates="true"]::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #3daee9;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+
 #mx-kde footer .taskbar-clock-trigger {
     display: var(--f);
     flex-direction: column;

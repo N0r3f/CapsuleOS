@@ -1,0 +1,133 @@
+/**
+ * Chrome fenêtres AnduinOS — positionnement au-dessus de la taskbar basse.
+ */
+
+body#anduinos div[class^="windowElement"]:not(#mainMenu) {
+    position: fixed;
+    top: var(--anduin-window-inset-top);
+    right: auto;
+    bottom: var(--anduin-window-inset-bottom);
+    left: calc(var(--head) * 0.65);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: stretch;
+    justify-content: flex-start;
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: auto;
+    max-height: none;
+    min-height: calc(var(--head) * 12);
+    box-sizing: border-box;
+    padding: calc(var(--head) / 20);
+    border: 1px solid rgba(0, 0, 0, 0.48);
+    border-radius: var(--anduin-window-radius);
+    box-shadow: var(--anduin-window-shadow);
+    background: var(--anduin-window-surface);
+    overflow: var(--h);
+    scrollbar-width: var(--z);
+    transition: border-color var(--eas2), box-shadow var(--ease), transform var(--eas2);
+}
+
+body#anduinos .windowElementActive {
+    z-index: 500;
+    border-color: var(--menu-accent);
+    box-shadow: 0 0 0 2px rgba(53, 132, 228, 0.5), var(--anduin-window-shadow);
+}
+
+body#anduinos #windowHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    min-width: calc(var(--a) - calc(var(--head) / 20));
+    max-width: calc(var(--max-w) - calc(var(--head) / 20));
+    height: calc(var(--head) / 1.3);
+    padding: calc(var(--head) / 4);
+    border-radius: var(--anduin-window-radius) var(--anduin-window-radius) var(--z) var(--z);
+    background: var(--anduin-window-header-bg);
+    user-select: none;
+    border-bottom: 1px solid var(--anduin-window-header-border);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#anduinos .windowElementActive #windowHeader {
+    background: var(--anduin-window-header-active);
+}
+
+body#anduinos #windowHeader > nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    min-width: calc(var(--head) * 2.2);
+    height: var(--head);
+}
+
+body#anduinos #windowTitle {
+    width: calc(var(--head) * 20);
+    text-align: var(--c);
+    color: var(--anduin-window-title-color);
+    text-shadow: none;
+    filter: none;
+}
+
+body#anduinos #windowHeader > nav > button {
+    position: relative;
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) / 1.85);
+    height: calc(var(--head) / 1.85);
+    padding: var(--z);
+    outline: var(--n);
+    border-radius: 999px;
+    border: 1px solid transparent;
+    color: var(--anduin-window-control-color);
+    background-color: var(--anduin-window-control-bg);
+    background-image: none;
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+}
+
+body#anduinos #windowHeader > nav > button::before {
+    content: "";
+    display: block;
+    width: calc(var(--head) / 2.35);
+    height: calc(var(--head) / 2.35);
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#anduinos #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8h10v1.5H3V8z'/%3E%3C/svg%3E");
+}
+
+body#anduinos #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 4h8v8H4V4zm1.5 1.5v5h5v-5h-5z'/%3E%3C/svg%3E");
+}
+
+body#anduinos #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+}
+
+body#anduinos #windowHeader > nav > button:hover {
+    background: var(--anduin-window-control-hover-bg);
+    transform: none;
+}
+
+body#anduinos #closeBtn {
+    background: var(--anduin-window-control-close-bg);
+}
+
+body#anduinos #closeBtn:hover {
+    background: var(--anduin-window-control-close-hover-bg);
+}

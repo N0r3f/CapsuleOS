@@ -1,0 +1,368 @@
+/**
+ * AnduinOS — Menu Démarrer GNOME. Réf. visuel/screen_AnduinOS/menu_dem.png
+ */
+
+body#anduinos {
+  /* Réf. menu_dem.png — ~40 % largeur ; vide = 1 rangée sous les 3 rangées d’icônes */
+    --anduin-menu-width: min(40rem, calc(100vw - 2rem));
+    --anduin-menu-favorite-cell-h: 4.35rem;
+    --anduin-menu-favorite-row-gap: 0.55rem;
+    --anduin-menu-favorite-rows: 4;
+    --anduin-menu-grid-min: calc(
+        var(--anduin-menu-favorite-rows) * var(--anduin-menu-favorite-cell-h)
+        + (var(--anduin-menu-favorite-rows) - 1) * var(--anduin-menu-favorite-row-gap)
+    );
+    --anduin-menu-pad-x: 1rem;
+    --anduin-menu-pad-top: 0.85rem;
+    --anduin-menu-footer-h: 2.65rem;
+    --anduin-menu-grid-cols: 6;
+    --anduin-menu-cell-max: 4.85rem;
+    --anduin-menu-icon-size: 2.375rem;
+    --anduin-menu-bg: rgba(30, 30, 32, 0.86);
+    --anduin-menu-bg-fallback: rgba(28, 28, 30, 0.96);
+    --anduin-menu-border: 1px solid rgba(255, 255, 255, 0.08);
+    --anduin-menu-blur: blur(22px) saturate(1.12);
+    --anduin-menu-radius: 14px;
+    --anduin-menu-text: #f6f6f7;
+    --anduin-menu-muted: #a8a8ad;
+    --anduin-menu-search-bg: rgba(0, 0, 0, 0.32);
+    --anduin-menu-item-hover: rgba(255, 255, 255, 0.09);
+}
+
+body#anduinos div[data-link="mainMenu"],
+body#anduinos #mainMenu {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: calc(var(--anduin-taskbar-height) + 0.55rem);
+    width: var(--anduin-menu-width);
+    max-width: calc(100vw - 1.5rem);
+    height: auto;
+    min-height: 0;
+    max-height: min(52rem, calc(100vh - var(--anduin-taskbar-height) - 2rem));
+    margin: 0;
+    padding: 0;
+    border: var(--anduin-menu-border);
+    border-radius: var(--anduin-menu-radius);
+    background: var(--anduin-menu-bg-fallback);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.42);
+    overflow: hidden;
+    transform: translateX(-50%);
+    z-index: 600;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    body#anduinos div[data-link="mainMenu"],
+    body#anduinos #mainMenu {
+        background: var(--anduin-menu-bg);
+        -webkit-backdrop-filter: var(--anduin-menu-blur);
+        backdrop-filter: var(--anduin-menu-blur);
+    }
+}
+
+body#anduinos div[data-link="mainMenu"] > #windowHeader,
+body#anduinos #mainMenu > #windowHeader {
+    display: none;
+    height: 0;
+}
+
+body#anduinos #mainMenu .menu-root.menu-root--gnome {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: 100%;
+    padding: var(--anduin-menu-pad-top) var(--anduin-menu-pad-x) 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body#anduinos #mainMenu .menu-gnome-search-wrap {
+    position: relative;
+    flex: 0 0 auto;
+    margin: 0 0 0.75rem;
+}
+
+body#anduinos #mainMenu .menu-gnome-search__icon {
+    position: absolute;
+    left: 0.72rem;
+    top: 50%;
+    width: 0.9rem;
+    height: 0.9rem;
+    transform: translateY(-50%);
+    opacity: 0.55;
+    background-color: var(--anduin-menu-muted);
+    -webkit-mask-image: url("../../media/img/elements/nemo/search-symbolic.svg");
+    mask-image: url("../../media/img/elements/nemo/search-symbolic.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    pointer-events: none;
+}
+
+body#anduinos #mainMenu .menu-gnome-search {
+    display: block;
+    width: 100%;
+    height: 2.15rem;
+    margin: 0;
+    padding: 0 0.85rem 0 2.05rem;
+    border: 0;
+    border-radius: 999px;
+    box-sizing: border-box;
+    color: var(--anduin-menu-text);
+    font-size: 0.82rem;
+    font-family: inherit;
+    background: var(--anduin-menu-search-bg);
+    outline: none;
+}
+
+body#anduinos #mainMenu .menu-gnome-search::placeholder {
+    color: var(--anduin-menu-muted);
+}
+
+body#anduinos #mainMenu .menu-gnome-search:focus {
+    box-shadow: 0 0 0 2px rgba(53, 132, 228, 0.35);
+}
+
+body#anduinos #mainMenu .menu-gnome-favorites-head {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+    margin: 0 0 0.55rem;
+    padding: 0;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorites-head__title {
+    margin: 0;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--anduin-menu-text);
+}
+
+body#anduinos #mainMenu .menu-gnome-all-apps {
+    margin: 0;
+    padding: 0.15rem 0.25rem;
+    border: 0;
+    border-radius: 0.35rem;
+    color: var(--anduin-menu-muted);
+    font-size: 0.72rem;
+    font-weight: 500;
+    font-family: inherit;
+    background: transparent;
+    cursor: default;
+}
+
+body#anduinos #mainMenu .menu-gnome-all-apps:hover {
+    color: var(--anduin-menu-text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body#anduinos #mainMenu .menu-gnome-favorites {
+    display: grid;
+    grid-template-columns: repeat(var(--anduin-menu-grid-cols), minmax(0, 1fr));
+    justify-items: center;
+    align-content: start;
+    align-items: start;
+    gap: 0.2rem 0.35rem;
+    row-gap: 0.55rem;
+    flex: 0 0 auto;
+    min-height: var(--anduin-menu-grid-min);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorites > li {
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorite {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.28rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: var(--anduin-menu-cell-max);
+    min-width: 0;
+    min-height: 4.35rem;
+    margin: 0;
+    padding: 0.32rem 0.2rem 0.38rem;
+    border: 0;
+    border-radius: 8px;
+    color: var(--anduin-menu-text);
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.12;
+    text-align: center;
+    text-decoration: none;
+    background: transparent;
+    cursor: default;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorite:not(.is-unavailable) {
+    cursor: pointer;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorite:hover,
+body#anduinos #mainMenu .menu-gnome-favorite:focus-visible {
+    background: var(--anduin-menu-item-hover);
+    outline: none;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorite.is-unavailable {
+    opacity: 0.72;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorite__icon {
+    display: block;
+    width: var(--anduin-menu-icon-size);
+    height: var(--anduin-menu-icon-size);
+    margin: 0.12rem 0 0;
+    object-fit: contain;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+body#anduinos #mainMenu .menu-gnome-favorite__label {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.05rem;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+body#anduinos #mainMenu .menu-gnome-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex: 0 0 var(--anduin-menu-footer-h);
+    min-height: var(--anduin-menu-footer-h);
+    margin: 0 calc(-1 * var(--anduin-menu-pad-x));
+    padding: 0 var(--anduin-menu-pad-x);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body#anduinos #mainMenu .menu-gnome-user {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+}
+
+body#anduinos #mainMenu .menu-gnome-user__avatar {
+    display: block;
+    width: 1.65rem;
+    height: 1.65rem;
+    padding: 0.28rem;
+    border: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.12);
+    filter: brightness(0) invert(0.88);
+}
+
+body#anduinos #mainMenu .menu-gnome-user__name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--anduin-menu-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body#anduinos #mainMenu .menu-gnome-quick {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.42rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+body#anduinos #mainMenu .menu-gnome-quick__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+body#anduinos #mainMenu .menu-gnome-quick__btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#anduinos #mainMenu .menu-gnome-quick__icon {
+    display: block;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    object-fit: contain;
+    opacity: 0.9;
+    filter: brightness(0) invert(1);
+    pointer-events: none;
+}
+
+body#anduinos .anduin-taskbar__start[aria-expanded="true"] {
+    opacity: 1;
+}
+
+body#anduinos .anduin-taskbar__start[aria-expanded="true"]::after {
+    content: "";
+    position: absolute;
+    bottom: 0.15rem;
+    left: 50%;
+    width: 1.15rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: var(--anduin-taskbar-indicator);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 720px) {
+    body#anduinos {
+        --anduin-menu-width: calc(100vw - 1.25rem);
+    }
+
+    body#anduinos #mainMenu .menu-gnome-favorites {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}

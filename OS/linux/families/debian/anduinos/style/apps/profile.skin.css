@@ -1,0 +1,83 @@
+/**
+ * AnduinOS — À propos : fenêtre bornée au-dessus de la taskbar, contenu défilable.
+ */
+
+body#anduinos div[data-link="profile"] {
+    align-items: stretch;
+    justify-content: flex-start;
+    width: min(34rem, calc(100vw - calc(var(--head) * 1.3)));
+    min-width: calc(var(--head) * 16);
+    max-height: none;
+    padding: calc(var(--head) / 20);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body#anduinos div[data-link="profile"] #windowHeader {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+body#anduinos div[data-link="profile"] main#profileApp,
+body#anduinos div[data-link="profile"] .profile-app {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    margin-bottom: 0;
+    padding: calc(var(--head) / 2);
+    border-radius: 0 0 var(--anduin-window-radius) var(--anduin-window-radius);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--anduin-shell-text);
+    background: var(--anduin-window-surface);
+}
+
+body#anduinos div[data-link="profile"] .profile-app__header,
+body#anduinos div[data-link="profile"] .profile-app__stats,
+body#anduinos div[data-link="profile"] .profile-highlight {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body#anduinos div[data-link="profile"] .profile-app__name,
+body#anduinos div[data-link="profile"] .profile-app__tagline,
+body#anduinos div[data-link="profile"] .profile-stat__label,
+body#anduinos div[data-link="profile"] .profile-highlight {
+    color: var(--anduin-shell-text);
+}
+
+body#anduinos div[data-link="profile"] .profile-app__version,
+body#anduinos div[data-link="profile"] .profile-app__description,
+body#anduinos div[data-link="profile"] .profile-app__section-title {
+    color: var(--anduin-shell-muted);
+}
+
+body#anduinos div[data-link="profile"] .profile-stat__stars,
+body#anduinos div[data-link="profile"] .profile-app__link {
+    color: var(--anduin-accent);
+}
+
+body#anduinos div[data-link="profile"] .profile-app__link {
+    border-color: rgba(98, 160, 234, 0.55);
+}
+
+body#anduinos div[data-link="profile"] .profile-app__link:hover,
+body#anduinos div[data-link="profile"] .profile-app__button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#anduinos div[data-link="profile"] .profile-app__footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-bottom: calc(var(--head) / 6);
+}

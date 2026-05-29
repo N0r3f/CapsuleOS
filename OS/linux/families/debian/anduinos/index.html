@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./media/img/assets/anduin-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./style/imports.css?v=20260602" type="text/css">
+    <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
+    <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css" type="text/css">
+    <title>AnduinOS — CapsuleOS</title>
+</head>
+<body id="anduinos" data-skin="anduinos">
+    <main class="anduin-workspace">
+        <div id="desktop" aria-label="Bureau AnduinOS">
+            <a class="desktop-shortcut" target="windowElement" data-link="profile" title="AnduinOS — À propos" hidden>
+                <img src="./media/img/assets/anduin-logo.svg" alt="AnduinOS" width="48" height="48">
+                <span>AnduinOS<br>À propos</span>
+            </a>
+            <div class="windowElement" data-link="mainMenu" id="mainMenu" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="nemo" id="nemo" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="firefox" id="firefox" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="terminal" id="terminal" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="themes" id="themes" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="profile" id="profile" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="checklist" id="checklist" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+            <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none; position: fixed;"></div>
+        </div>
+    </main>
+
+    <footer class="anduin-taskbar" id="tableau" role="contentinfo">
+        <nav class="anduin-taskbar__center" aria-label="Applications épinglées">
+            <button type="button" class="anduin-taskbar__start" id="anduin-start-btn"
+                    aria-label="Menu Démarrer" aria-expanded="false" aria-controls="mainMenu"
+                    title="Menu Démarrer">
+                <img src="./media/img/taskbar/show-applications.png" alt="" width="40" height="40">
+            </button>
+            <a target="windowElement" data-link="firefox" title="Firefox">
+                <img src="./media/img/taskbar/firefox.png" alt="Firefox" width="40" height="40">
+            </a>
+            <a target="windowElement" data-link="nemo" title="Fichiers">
+                <img src="./media/img/taskbar/files.png" alt="Fichiers" width="40" height="40">
+            </a>
+            <a target="windowElement" data-link="update_manager" title="Logiciels"
+                    aria-label="Centre logiciels (phase 2)">
+                <img src="./media/img/taskbar/software-store.png" alt="Logiciels" width="40" height="40">
+            </a>
+        </nav>
+        <div class="anduin-taskbar__tray">
+            <span class="anduin-taskbar__lang" lang="fr">fr</span>
+            <div class="taskbar-tray">
+                <span class="taskbar-tray__icon taskbar-tray__icon--network" aria-hidden="true" title="Réseau"></span>
+                <button type="button" class="taskbar-tray__btn" id="tray-sound-btn"
+                        aria-expanded="false" aria-controls="volume-popover"
+                        aria-label="Contrôle du volume">
+                    <span class="taskbar-tray__icon" id="tray-sound-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+            <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger"
+                    aria-label="Date et heure">
+                <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
+            </button>
+        </div>
+    </footer>
+
+    <div class="volume-popover" id="volume-popover" role="dialog" aria-label="Volume" hidden>
+        <div class="volume-popover__header">
+            <span class="volume-popover__label">Volume</span>
+            <span class="volume-popover__value" id="volume-value">100%</span>
+        </div>
+        <div class="volume-popover__body">
+            <button type="button" class="volume-popover__mute-btn" id="volume-mute-btn"
+                    aria-label="Couper le son" aria-pressed="false">
+                <span class="volume-popover__mute-icon" id="volume-mute-icon" aria-hidden="true"></span>
+            </button>
+            <input type="range" class="volume-slider" id="volume-slider"
+                   min="0" max="100" value="100" step="1"
+                   aria-label="Niveau du volume" aria-valuetext="100%">
+        </div>
+    </div>
+
+    <script>
+        window.CAPSULE_APPS_BASE = '../../../shared/apps';
+        window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
+        window.CAPSULE_SKIN_BASE = '.';
+        window.CAPSULE_STRINGS_URL = './content/strings.json';
+        window.CAPSULE_EXPLORER_APP_ID = 'nemo';
+        window.CAPSULE_EXPLORER_DISPLAY_NAME = 'Fichiers';
+        window.CAPSULE_EXPLORER_TEMPLATE = 'nemo-gnome';
+        window.CAPSULE_EXPLORER_SKIN_KEY = 'files';
+        window.CAPSULE_EXPLORER_LIST_VIEW = true;
+        window.CAPSULE_MAIN_MENU_TEMPLATE = 'mainMenu-gnome';
+        window.CAPSULE_MAIN_MENU_SKIN_KEY = 'mainMenu';
+        window.CAPSULE_TEMPLATE_OVERRIDES = {
+            'mainMenu-gnome': './apps/mainMenu-gnome.html'
+        };
+        window.CAPSULE_EMBED_SKIN_KEY = 'anduinos';
+        window.CAPSULE_CHECKLIST_STORAGE_KEY = 'anduinos-checklist';
+        window.CAPSULE_SITE_HOME = '../../../../../index.html';
+        window.CAPSULE_LINUX_HUB = '../../../index.html';
+        window.CAPSULE_TERMINAL_USER = 'goupil';
+        window.CAPSULE_TERMINAL_HOST = 'anduinos';
+        window.CAPSULE_TERMINAL_HOME = '/home/goupil';
+        window.CAPSULE_TERMINAL_OS_FAMILY = 'linux';
+        window.CAPSULE_TERMINAL_PROFILE = 'debian';
+        window.CAPSULE_FILE_EXPLORER_ICON_MAP = {
+            folder: './media/img/elements/nemo/folder.svg',
+            Dossier_personnel: './media/img/elements/nemo/user-home-symbolic.svg',
+            Bureau: './media/img/elements/nemo/user-desktop.svg',
+            Documents: './media/img/elements/nemo/folder-documents.svg',
+            Images: './media/img/elements/nemo/folder-pictures.svg',
+            Musique: './media/img/elements/nemo/folder-music.svg',
+            Public: './media/img/elements/nemo/folder-publicshare.svg',
+            'Téléchargements': './media/img/elements/nemo/folder-download.svg',
+            'Vidéos': './media/img/elements/nemo/folder-videos.svg',
+            'Modèles': './media/img/elements/nemo/folder-templates.svg',
+            Corbeille: './media/img/taskbar/trash.png',
+            snap: './media/img/elements/nemo/folder.svg',
+            file: './media/img/mimeTypes/application-x-generic.svg',
+            pdf: './media/img/mimeTypes/application-x-generic.svg',
+            doc: './media/img/mimeTypes/x-office-document.svg',
+            txt: './media/img/mimeTypes/text-x-generic.svg',
+            sh: './media/img/mimeTypes/text-x-script.svg',
+            html: './media/img/mimeTypes/text-html.svg',
+            css: './media/img/mimeTypes/text-x-generic.svg',
+            js: './media/img/mimeTypes/application-x-generic.svg',
+            ogg: './media/img/mimeTypes/audio-x-generic.svg',
+            mp3: './media/img/mimeTypes/audio-x-generic.svg',
+            wav: './media/img/mimeTypes/audio-x-generic.svg',
+            mp4: './media/img/mimeTypes/video-x-generic.svg',
+            avi: './media/img/mimeTypes/video-x-generic.svg',
+            jpeg: './media/img/mimeTypes/image-x-generic.svg',
+            jpg: './media/img/mimeTypes/image-x-generic.svg',
+            png: './media/img/mimeTypes/image-x-generic.svg',
+            webp: './media/img/mimeTypes/image-x-generic.svg'
+        };
+    </script>
+    <script src="../../../kernel/js/capsule-app-embed.js?v=20260602"></script>
+    <script src="../../../kernel/js/strings-default.js?v=20260424"></script>
+    <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
+    <script src="../../../kernel/js/capsule-theme.js?v=20260424"></script>
+    <script src="../../../kernel/js/windowContainer.js?v=20260528"></script>
+    <script src="../../../kernel/js/windowHeaderButton.js?v=20260424"></script>
+    <script src="../../../kernel/js/resizeWindow.js"></script>
+    <script src="../../../kernel/js/windowDrag.js"></script>
+    <script src="../../../kernel/js/mainMenu-data.js?v=20260424"></script>
+    <script src="./content/mainMenu-data.js?v=20260530"></script>
+    <script src="../../../kernel/js/mainMenu.js?v=20260428"></script>
+    <script src="./js/mainMenu-gnome.js?v=20260530"></script>
+    <script src="./js/anduin-start.js?v=20260530"></script>
+    <script src="../../../kernel/js/themes.js?v=20260424"></script>
+    <script src="./content/profile-data.js"></script>
+    <script src="../../../kernel/js/profile.js"></script>
+    <script src="../../../kernel/js/checklist.js"></script>
+    <script src="../../../kernel/js/firefoxBrowser.js"></script>
+    <script src="../../../kernel/js/contentLoader.js?v=20260528"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerHeader.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerContainer.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerCore.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerInfo.js"></script>
+    <script src="../../../kernel/js/fileViewerRouter.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerLoader.js"></script>
+    <script src="../../../kernel/js/date.js"></script>
+    <script src="../../../kernel/js/terminal/config/command-registry.js"></script>
+    <script src="../../../kernel/js/terminal/config/profiles/linux/debian.js"></script>
+    <script src="../../../kernel/js/terminal/terminal-profile.js"></script>
+    <script src="../../../kernel/js/terminal/terminal-core.js"></script>
+    <script src="../../../kernel/js/terminal/terminal.js"></script>
+    <script src="../../../kernel/js/terminal/executeCommand.js"></script>
+    <script src="../../../kernel/js/terminal/filesystem.js"></script>
+    <script src="../../../kernel/js/terminal/manuel.js"></script>
+    <script src="../../../kernel/js/volume.js"></script>
+    <script src="../../../kernel/js/librewriter.js"></script>
+    <script src="../../../kernel/js/update-manager.js"></script>
+</body>
+</html>

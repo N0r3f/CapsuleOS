@@ -50,6 +50,7 @@ const MENU_APPS = [
     // Administration
     { catId: 'admin',    icon: './media/img/apps/yast.png',                        name: 'Administration du système',   desc: 'Configurer le système',                    dataLink: null        },
     { catId: 'admin',    icon: './media/img/apps/utilities-terminal.png',          name: 'Terminal',                    desc: 'Émulateur de terminal',                    dataLink: 'terminal'  },
+    { catId: 'admin',    icon: './media/img/apps/preferences-system.png',          name: 'Gestionnaire de mise à jour', desc: 'Installer les mises à jour',               dataLink: 'update_manager' },
     { catId: 'admin',    icon: './media/img/apps/mintinstall.png',                 name: 'Logithèque',                  desc: 'Installer des logiciels',                  dataLink: null        },
     { catId: 'admin',    icon: './media/img/apps/user-info.png',                   name: 'Profil Linux Mint',           desc: 'Infos et évaluation de la distro',        dataLink: 'profile'   },
 ];

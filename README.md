@@ -94,13 +94,13 @@ Les navigateurs bloquent ou restreignent `fetch()` sur des fichiers locaux. Pour
 Après modification des gabarits sous `OS/linux/shared/apps/` ou des skins `style/apps/*.skin.css` (Mint, Ubuntu, Fedora), régénérer le fichier Linux :
 
 ```bash
-node scripts/build-capsule-embed.mjs
+node js/build-capsule-embed.mjs
 ```
 
 Après modification des apps sous `OS/android/apps/` ou de `OS/android/ressources/messages.json` :
 
 ```bash
-node scripts/build-android-embed.mjs
+node js/build-android-embed.mjs
 ```
 
 Chaque `index.html` de skin Linux définit `window.CAPSULE_EMBED_SKIN_KEY` (`mint`, `ubuntu` ou `fedora`) avant le script embed, afin d’appliquer les bonnes feuilles `.skin.css` embarquées.
@@ -173,7 +173,7 @@ Sous `http://` ou `https://`, le noyau continue de charger les gabarits avec `fe
 
 ​					📄 index.html (shell GNOME Workstation, Fichiers / Nemo, assets sous media/)
 
-📄 sw.js (Service Worker, mode offline après premier chargement)
+📄 sw.js (entrée SW, scope racine) → `js/sw.js` (implémentation)
 
 📁 pages ▼
 

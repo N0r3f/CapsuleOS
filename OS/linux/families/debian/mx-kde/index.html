@@ -27,6 +27,7 @@
         <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none; position: fixed;"></div>
     </object>
     <footer id="tableau">
         <nav class="taskbar-pins" aria-label="Applications épinglées">
@@ -68,6 +69,13 @@
                 <span class="taskbar-tray__item" title="Affichage">
                     <img src="./media/img/panel/display.svg" alt="" aria-hidden="true">
                 </span>
+                <button type="button" class="taskbar-tray__btn taskbar-tray__btn--updates"
+                        data-update-manager-tray
+                        data-has-updates="true"
+                        aria-label="Mises à jour disponibles"
+                        title="Mises à jour">
+                    <span class="taskbar-tray__icon taskbar-tray__icon--updates" aria-hidden="true"></span>
+                </button>
                 <button type="button" class="taskbar-tray__btn" id="tray-sound-btn"
                         aria-expanded="false" aria-controls="volume-popover"
                         aria-label="Contrôle du volume">
@@ -129,6 +137,9 @@
     </div>
     <script>
         window.CAPSULE_APPS_BASE = '../../../shared/apps';
+        window.CAPSULE_TEMPLATE_OVERRIDES = {
+            update_manager: '../../../shared/apps/update_manager_kde.html'
+        };
         window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
         window.CAPSULE_SKIN_BASE = '.';
         window.CAPSULE_STRINGS_URL = './content/strings.json';
@@ -213,5 +224,6 @@
     <script src="../../../kernel/js/terminal/manuel.js"></script>
     <script src="../../../kernel/js/volume.js"></script>
     <script src="../../../kernel/js/librewriter.js"></script>
+    <script src="../../../kernel/js/update-manager.js"></script>
 </body>
 </html>

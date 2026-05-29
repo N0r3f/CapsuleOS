@@ -1,0 +1,44 @@
+<section class="menu-root menu-root--gnome" id="menu-gnome-root" aria-label="Menu Démarrer">
+
+    <div class="menu-gnome-search-wrap">
+        <span class="menu-gnome-search__icon" aria-hidden="true"></span>
+        <input
+            type="search"
+            class="menu-gnome-search"
+            id="menu-search"
+            data-capsule-attr="placeholder:mainMenu.searchPlaceholder"
+            placeholder="Rechercher…"
+            autocomplete="off"
+            spellcheck="false"
+        >
+    </div>
+
+    <header class="menu-gnome-favorites-head">
+        <h2 class="menu-gnome-favorites-head__title">Applications favorites</h2>
+        <button type="button" class="menu-gnome-all-apps" id="menu-all-apps">Toutes les applications ›</button>
+    </header>
+
+    <ul class="menu-gnome-favorites" id="menu-favorites-grid" role="list"></ul>
+
+    <footer class="menu-gnome-footer">
+        <div class="menu-gnome-user">
+            <img class="menu-gnome-user__avatar" src="./media/img/menu/footer/user.svg" width="16" height="16" alt="">
+            <span class="menu-gnome-user__name" data-capsule-text="mainMenu.userName">goupil</span>
+        </div>
+        <nav class="menu-gnome-quick" aria-label="Raccourcis système">
+            <button type="button" class="menu-gnome-quick__btn" data-quick-link="nemo" title="Dossiers" aria-label="Dossiers">
+                <img class="menu-gnome-quick__icon" src="./media/img/menu/footer/files.svg" width="16" height="16" alt="">
+            </button>
+            <button type="button" class="menu-gnome-quick__btn" data-quick-link="terminal" title="Terminal" aria-label="Terminal">
+                <img class="menu-gnome-quick__icon" src="./media/img/menu/footer/terminal.svg" width="16" height="16" alt="">
+            </button>
+            <button type="button" class="menu-gnome-quick__btn" data-quick-link="themes" title="Paramètres" aria-label="Paramètres">
+                <img class="menu-gnome-quick__icon" src="./media/img/menu/footer/settings.svg" width="16" height="16" alt="">
+            </button>
+            <button type="button" class="menu-gnome-quick__btn" id="menu-btn-power" title="Arrêter" aria-label="Arrêter le système">
+                <img class="menu-gnome-quick__icon" src="./media/img/menu/footer/power.svg" width="16" height="16" alt="">
+            </button>
+        </nav>
+    </footer>
+
+</section>
