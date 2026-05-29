@@ -94,20 +94,23 @@ const resolveTemplateHtmlFile = (templateId, appsBase) => {
 const loadSlotAssets = (templateId, skinId, appsBase, cssSkinFile, cssSkinFallbackFile) => {
     const embed = typeof window !== 'undefined' && window.CAPSULE_APP_EMBED;
     if (shouldUseAppEmbed(templateId) && embed && embed.templates && embed.templates[templateId]) {
-        const t = embed.templates[templateId];
         const skinKey = getEmbedSkinKey();
-        const skinOverride = embed.skinTemplates
-            && embed.skinTemplates[skinKey]
-            && embed.skinTemplates[skinKey][templateId];
-        const skinMap = (embed.skins && embed.skins[skinKey]) || {};
-        const cssSkin = skinMap[skinId] != null
-            ? skinMap[skinId]
-            : (skinMap[templateId] != null ? skinMap[templateId] : '');
-        return Promise.resolve({
-            html: skinOverride && skinOverride.html ? skinOverride.html : t.html,
-            cssBase: t.cssBase,
-            cssSkin
-        });
+        const skinMap = embed.skins && embed.skins[skinKey];
+        if (skinMap) {
+            const t = embed.templates[templateId];
+            const skinOverride = embed.skinTemplates
+                && embed.skinTemplates[skinKey]
+                && embed.skinTemplates[skinKey][templateId];
+            const cssSkin = skinMap[skinId] != null
+                ? skinMap[skinId]
+                : (skinMap[templateId] != null ? skinMap[templateId] : '');
+            return Promise.resolve({
+                html: skinOverride && skinOverride.html ? skinOverride.html : t.html,
+                cssBase: t.cssBase,
+                cssSkin
+            });
+        }
+        console.warn(`CapsuleOS: embed sans skin "${skinKey}" pour ${templateId} — chargement fetch`);
     }
 
     const htmlFile = resolveTemplateHtmlFile(templateId, appsBase);

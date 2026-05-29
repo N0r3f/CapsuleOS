@@ -2,7 +2,7 @@
 /**
  * Génère OS/linux/kernel/js/capsule-app-embed.js pour usage en file://
  * (fetch interdit / peu fiable). Relancer après modification des gabarits
- * shared/apps ou des skins apps sous mint/ubuntu/fedora.
+ * shared/apps ou des skins apps sous mint/ubuntu/fedora/debian-kde/etc.
  */
 import fs from 'fs';
 import path from 'path';
@@ -25,7 +25,8 @@ const MANIFEST_PATH = path.join(
 /** Gabarits HTML propres à une famille (ex. menu Plasma openSUSE). */
 const FAMILY_APP_HTML_DIRS = {
     opensuse: path.join(ROOT, 'OS/linux/families/suse/opensuse/apps'),
-    anduinos: path.join(ROOT, 'OS/linux/families/debian/anduinos/apps')
+    anduinos: path.join(ROOT, 'OS/linux/families/debian/anduinos/apps'),
+    'debian-kde': path.join(ROOT, 'OS/linux/families/debian/debian-kde/apps')
 };
 
 const SKIN_DIRS = [
@@ -63,6 +64,11 @@ const SKIN_DIRS = [
         key: 'fedora',
         dir: path.join(ROOT, 'OS/linux/families/redhat/fedora/style/apps'),
         strings: path.join(ROOT, 'OS/linux/families/redhat/fedora/content/strings.json')
+    },
+    {
+        key: 'debian-kde',
+        dir: path.join(ROOT, 'OS/linux/families/debian/debian-kde/style/apps'),
+        strings: path.join(ROOT, 'OS/linux/families/debian/debian-kde/content/strings.json')
     }
 ];
 
@@ -171,7 +177,7 @@ function main() {
         const skinIds = Array.from(new Set([...templateIds, ...listSkinIds(dir)])).sort();
         for (const id of skinIds) {
             let css = readSkinCss(dir, id);
-            const isKdeFamily = key === 'opensuse' || key === 'mxkde';
+            const isKdeFamily = key === 'opensuse' || key === 'mxkde' || key === 'debian-kde';
             if (isKdeFamily && id === 'update_manager' && fs.existsSync(KDE_COMMON_SKIN)) {
                 css = `${readUtf8(KDE_COMMON_SKIN)}\n${css}`;
             }
