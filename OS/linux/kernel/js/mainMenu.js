@@ -79,23 +79,23 @@ function initMainMenu() {
         });
     });
 
-    const getLinuxDistroHubHref = () => {
-        if (typeof window !== 'undefined' && window.CAPSULE_LINUX_HUB) {
-            return String(window.CAPSULE_LINUX_HUB);
+    const returnToPickHome = () => {
+        if (window.CapsulePickReturn) {
+            window.CapsulePickReturn.redirectToPickHome('linux');
+            return;
         }
-        return '../../../index.html';
+        const home = (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME)
+            ? String(window.CAPSULE_SITE_HOME)
+            : '../../../../../index.html';
+        window.location.href = `${home.split('#')[0].split('?')[0]}?pick=linux#choisir-os`;
     };
 
-    // ── Boutons système (retour hub choix de distribution Linux) ──
+    // ── Boutons système (retour accueil avec modale Linux) ──
     if (btnLogout) {
-        btnLogout.addEventListener('click', () => {
-            window.location.href = getLinuxDistroHubHref();
-        });
+        btnLogout.addEventListener('click', returnToPickHome);
     }
     if (btnPower) {
-        btnPower.addEventListener('click', () => {
-            window.location.href = getLinuxDistroHubHref();
-        });
+        btnPower.addEventListener('click', returnToPickHome);
     }
 
     // ── Fonctions internes ────────────────────────────────────

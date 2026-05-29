@@ -1,12 +1,3 @@
-footer>a {
-    width: calc(var(--head) * 3);
-}
-
-footer>a:nth-child(1)>img {
-    width: calc(var(--head) + var(--head) / 8);
-    height: calc(var(--head) + var(--head) / 8);
-}
-
 footer>menu {
     display: var(--f);
     flex-flow: var(--rnw);
@@ -41,7 +32,19 @@ footer>menu>i>img {
     z-index: 7;
 }
 
-footer>a>#heure-date {
+footer>a:last-child {
+    position: var(--abs);
+    right: var(--z);
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    width: calc(var(--head) * 3);
+    height: calc(var(--head) + var(--head) / 3);
+    text-decoration: var(--n);
+    color: var(--texte);
+}
+
+footer>a:last-child>#heure-date {
     display: var(--f);
     flex-flow: var(--rw);
     align-items: var(--c);

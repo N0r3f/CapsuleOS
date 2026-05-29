@@ -7,11 +7,22 @@
 
     if (!menu || !btnPower) return;
 
-    function getSiteHomeHref() {
-        if (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME) {
-            return String(window.CAPSULE_SITE_HOME);
+    var EXIT_ACTIONS = {
+        logout: true,
+        suspend: true,
+        restart: true,
+        poweroff: true
+    };
+
+    function returnToPickHome() {
+        if (window.CapsulePickReturn) {
+            window.CapsulePickReturn.redirectToPickHome('linux');
+            return;
         }
-        return '../../../../../index.html';
+        var home = (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME)
+            ? String(window.CAPSULE_SITE_HOME)
+            : '../../../../../index.html';
+        window.location.href = home.split('#')[0].split('?')[0] + '?pick=linux#choisir-os';
     }
 
     function isOpen() {
@@ -52,8 +63,8 @@
         btn.addEventListener('click', function () {
             var action = btn.getAttribute('data-power-action');
             close();
-            if (action === 'poweroff') {
-                window.location.href = getSiteHomeHref();
+            if (EXIT_ACTIONS[action]) {
+                returnToPickHome();
             }
         });
     });
