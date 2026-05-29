@@ -41,31 +41,17 @@ const resolveTemplateId = (slotId) => {
         const t = String(window.CAPSULE_EXPLORER_TEMPLATE).replace(/\/+$/, '');
         return t || 'nemo';
     }
-    if (slotId === 'mainMenu' && typeof window !== 'undefined' && window.CAPSULE_MAIN_MENU_TEMPLATE) {
-        const t = String(window.CAPSULE_MAIN_MENU_TEMPLATE).replace(/\/+$/, '');
-        return t || 'mainMenu';
-    }
     return slotId;
 };
 
 /** Gabarit HTML dérivé de Nautilus (ex. nemo-gnome) → CSS de base `nemo.base.css`. */
-const resolveCssBaseTemplateId = (templateId) => {
-    if (templateId === 'nemo-gnome' || templateId === 'nemo-cosmic') {
-        return 'nemo';
-    }
-    if (templateId === 'mainMenu-gnome') {
-        return 'mainMenu-gnome';
-    }
-    return templateId;
-};
+const resolveCssBaseTemplateId = (templateId) => (
+    templateId === 'nemo-gnome' || templateId === 'nemo-cosmic' ? 'nemo' : templateId
+);
 
 const resolveSkinId = (slotId, templateId) => {
     if (slotId === 'nemo' && typeof window !== 'undefined' && window.CAPSULE_EXPLORER_SKIN_KEY) {
         const skin = String(window.CAPSULE_EXPLORER_SKIN_KEY).replace(/\/+$/, '');
-        return skin || templateId;
-    }
-    if (slotId === 'mainMenu' && typeof window !== 'undefined' && window.CAPSULE_MAIN_MENU_SKIN_KEY) {
-        const skin = String(window.CAPSULE_MAIN_MENU_SKIN_KEY).replace(/\/+$/, '');
         return skin || templateId;
     }
     return templateId;
@@ -276,11 +262,6 @@ const SLOT_INIT_HANDLERS = {
             { fn: typeof renderFileViewer === 'function' ? renderFileViewer : null, args: ['lecteur_multimedia'] },
             { fn: typeof renderMintViewer === 'function' ? renderMintViewer : null, args: ['lecteur_multimedia'] }
         ]);
-    },
-    update_manager: () => {
-        if (typeof initUpdateManagerApp === 'function') {
-            initUpdateManagerApp();
-        }
     }
 };
 

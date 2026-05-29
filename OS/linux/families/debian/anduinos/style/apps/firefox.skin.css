@@ -1,4 +1,0 @@
-body#anduinos #firefox {
-    min-width: calc(var(--head) * 22);
-    background: var(--anduin-window-surface);
-}

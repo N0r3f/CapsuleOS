@@ -1,5 +1,0 @@
-body#anduinos #checklist {
-    width: min(36rem, calc(100vw - 1.5rem));
-    height: auto;
-    max-height: none;
-}
