@@ -5,22 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./media/img/assets/anduin-logo.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./style/imports.css?v=20260528" type="text/css">
+    <link rel="stylesheet" href="./style/imports.css?v=20260602" type="text/css">
     <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
     <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css" type="text/css">
     <title>AnduinOS — CapsuleOS</title>
 </head>
 <body id="anduinos" data-skin="anduinos">
     <main class="anduin-workspace">
-        <object id="desktop" aria-label="Bureau AnduinOS">
-            <a class="desktop-shortcut" target="windowElement" data-link="nemo" title="Dossier personnel">
-                <img src="./media/img/elements/nemo/places/user-home.png" alt="Dossier personnel" width="48" height="48">
-                <span>Dossier personnel</span>
-            </a>
-            <a class="desktop-shortcut" target="windowElement" data-link="nemo" title="Corbeille" data-nemo-path="Corbeille">
-                <img src="./media/img/taskbar/trash.png" alt="Corbeille" width="48" height="48">
-                <span>Corbeille</span>
-            </a>
+        <div id="desktop" aria-label="Bureau AnduinOS">
             <a class="desktop-shortcut" target="windowElement" data-link="profile" title="AnduinOS — À propos" hidden>
                 <img src="./media/img/assets/anduin-logo.svg" alt="AnduinOS" width="48" height="48">
                 <span>AnduinOS<br>À propos</span>
@@ -37,15 +29,15 @@
             <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
             <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
             <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none; position: fixed;"></div>
-        </object>
+        </div>
     </main>
 
     <footer class="anduin-taskbar" id="tableau" role="contentinfo">
         <nav class="anduin-taskbar__center" aria-label="Applications épinglées">
             <button type="button" class="anduin-taskbar__start" id="anduin-start-btn"
-                    aria-label="Menu Démarrer (bientôt disponible)" aria-disabled="true" disabled
-                    title="Menu Démarrer — phase 2">
-                <img src="./media/img/assets/anduin-logo.svg" alt="" width="40" height="40">
+                    aria-label="Menu Démarrer" aria-expanded="false" aria-controls="mainMenu"
+                    title="Menu Démarrer">
+                <img src="./media/img/taskbar/show-applications.png" alt="" width="40" height="40">
             </button>
             <a target="windowElement" data-link="firefox" title="Firefox">
                 <img src="./media/img/taskbar/firefox.png" alt="Firefox" width="40" height="40">
@@ -100,6 +92,12 @@
         window.CAPSULE_EXPLORER_DISPLAY_NAME = 'Fichiers';
         window.CAPSULE_EXPLORER_TEMPLATE = 'nemo-gnome';
         window.CAPSULE_EXPLORER_SKIN_KEY = 'files';
+        window.CAPSULE_EXPLORER_LIST_VIEW = true;
+        window.CAPSULE_MAIN_MENU_TEMPLATE = 'mainMenu-gnome';
+        window.CAPSULE_MAIN_MENU_SKIN_KEY = 'mainMenu';
+        window.CAPSULE_TEMPLATE_OVERRIDES = {
+            'mainMenu-gnome': './apps/mainMenu-gnome.html'
+        };
         window.CAPSULE_EMBED_SKIN_KEY = 'anduinos';
         window.CAPSULE_CHECKLIST_STORAGE_KEY = 'anduinos-checklist';
         window.CAPSULE_SITE_HOME = '../../../../../index.html';
@@ -110,18 +108,18 @@
         window.CAPSULE_TERMINAL_OS_FAMILY = 'linux';
         window.CAPSULE_TERMINAL_PROFILE = 'debian';
         window.CAPSULE_FILE_EXPLORER_ICON_MAP = {
-            folder: './media/img/elements/nemo/places/folder.png',
-            Dossier_personnel: './media/img/elements/nemo/places/user-home.png',
-            Bureau: './media/img/elements/nemo/places/user-desktop.png',
-            Documents: './media/img/elements/nemo/places/folder-documents.png',
-            Images: './media/img/elements/nemo/places/folder-pictures.png',
-            Musique: './media/img/elements/nemo/places/folder-music.png',
-            Public: './media/img/elements/nemo/places/folder-publicshare.png',
-            'Téléchargements': './media/img/elements/nemo/places/folder-download.png',
-            'Vidéos': './media/img/elements/nemo/places/folder-videos.png',
-            'Modèles': './media/img/elements/nemo/places/folder-templates.png',
+            folder: './media/img/elements/nemo/folder.svg',
+            Dossier_personnel: './media/img/elements/nemo/user-home-symbolic.svg',
+            Bureau: './media/img/elements/nemo/user-desktop.svg',
+            Documents: './media/img/elements/nemo/folder-documents.svg',
+            Images: './media/img/elements/nemo/folder-pictures.svg',
+            Musique: './media/img/elements/nemo/folder-music.svg',
+            Public: './media/img/elements/nemo/folder-publicshare.svg',
+            'Téléchargements': './media/img/elements/nemo/folder-download.svg',
+            'Vidéos': './media/img/elements/nemo/folder-videos.svg',
+            'Modèles': './media/img/elements/nemo/folder-templates.svg',
             Corbeille: './media/img/taskbar/trash.png',
-            snap: './media/img/elements/nemo/places/folder.png',
+            snap: './media/img/elements/nemo/folder.svg',
             file: './media/img/mimeTypes/application-x-generic.svg',
             pdf: './media/img/mimeTypes/application-x-generic.svg',
             doc: './media/img/mimeTypes/x-office-document.svg',
@@ -141,7 +139,7 @@
             webp: './media/img/mimeTypes/image-x-generic.svg'
         };
     </script>
-    <script src="../../../kernel/js/capsule-app-embed.js?v=20260528"></script>
+    <script src="../../../kernel/js/capsule-app-embed.js?v=20260602"></script>
     <script src="../../../kernel/js/strings-default.js?v=20260424"></script>
     <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
     <script src="../../../kernel/js/capsule-theme.js?v=20260424"></script>
@@ -150,7 +148,10 @@
     <script src="../../../kernel/js/resizeWindow.js"></script>
     <script src="../../../kernel/js/windowDrag.js"></script>
     <script src="../../../kernel/js/mainMenu-data.js?v=20260424"></script>
+    <script src="./content/mainMenu-data.js?v=20260530"></script>
     <script src="../../../kernel/js/mainMenu.js?v=20260428"></script>
+    <script src="./js/mainMenu-gnome.js?v=20260530"></script>
+    <script src="./js/anduin-start.js?v=20260530"></script>
     <script src="../../../kernel/js/themes.js?v=20260424"></script>
     <script src="./content/profile-data.js"></script>
     <script src="../../../kernel/js/profile.js"></script>

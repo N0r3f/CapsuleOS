@@ -30,6 +30,13 @@ body#anduinos {
     --nemo-tooltip-text: #f5f5f5;
     --nemo-symbolic-icon-filter: brightness(0) invert(1);
     --nemo-toolbar-icon-filter: var(--nemo-symbolic-icon-filter);
+    --nemo-list-row-border: rgba(255, 255, 255, 0.06);
+    --nemo-list-col-icon: 2.75rem;
+    --nemo-list-col-size: 7.5rem;
+    --nemo-list-col-modified: 11rem;
+    --nemo-list-col-star: 2rem;
+    --nemo-list-pad-x: 1.6rem;
+    --nemo-list-pad-icon: 1.35rem;
 }
 
 html[data-theme="light"]:has(#anduinos) body#anduinos {
@@ -62,12 +69,23 @@ html[data-theme="light"]:has(#anduinos) body#anduinos {
 
 body#anduinos div[data-link="nemo"] {
     width: min(61rem, calc(100vw - 1.5rem));
-    height: min(38.5rem, calc(100vh - var(--anduin-taskbar-height) - 1.25rem));
+    height: auto;
+    max-height: none;
     min-width: 39rem;
     border-color: var(--nemo-border);
     border-radius: 0.9rem;
     background: var(--nemo-bg-primary);
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+body#anduinos div[data-link="nemo"] #gestionnaire {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    height: 100%;
 }
 
 body#anduinos div[data-link="nemo"] #windowHeader {
@@ -171,9 +189,6 @@ html[data-theme="light"]:has(#anduinos) body#anduinos div[data-link="nemo"] #clo
 }
 
 body#anduinos div[data-link="nemo"] #gestionnaire {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
     margin: 0;
     border-radius: inherit;
     color: var(--nemo-text-primary);
@@ -292,7 +307,9 @@ body#anduinos div[data-link="nemo"] .nemo-app__path-current::before {
 }
 
 body#anduinos div[data-link="nemo"] #nemoMainContainer {
-    height: calc(100% - 2.8rem);
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
     background: var(--nemo-bg-primary);
 }
 
@@ -359,52 +376,197 @@ body#anduinos div[data-link="nemo"] .nemo-app__sidebar-xdg > a.nemo-sidebar__lin
 body#anduinos div[data-link="nemo"] .nemo-app__content-wrap {
     flex: 1 1 auto;
     width: auto;
+    min-height: 0;
     border-left: 0;
     background: var(--nemo-bg-primary);
 }
 
-body#anduinos div[data-link="nemo"] .nemo-app__content-grid {
-    --nemo-item-card-size: 7.1rem;
-    --nemo-item-icon-size: 4.5rem;
-    align-content: flex-start;
-    gap: 1.1rem 1.35rem;
-    padding: 1.35rem 1.6rem 2rem;
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer.nemo-app__content-wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+body#anduinos div[data-link="nemo"] .nemo-app__toolbar-group--view > a:has(img[src*="view-list"]) {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: var(--nemo-toolbar-button-hover-bg);
+}
+
+body#anduinos div[data-link="nemo"] .nemo-app__list-header {
+    display: grid;
+    grid-template-columns:
+        var(--nemo-list-col-icon)
+        minmax(0, 1fr)
+        var(--nemo-list-col-size)
+        var(--nemo-list-col-modified)
+        var(--nemo-list-col-star);
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0.5rem var(--nemo-list-pad-x) 0.4rem var(--nemo-list-pad-icon);
+    border-bottom: 1px solid var(--nemo-list-row-border);
+    color: var(--nemo-text-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
     background: var(--nemo-bg-primary);
 }
 
-body#anduinos div[data-link="nemo"] .nemo-app__content-grid > a {
-    position: relative;
+body#anduinos div[data-link="nemo"] .nemo-app__list-header-size {
+    text-align: left;
+}
+
+body#anduinos div[data-link="nemo"] .nemo-app__list-header-modified {
+    text-align: left;
+}
+
+body#anduinos div[data-link="nemo"] .nemo-app__list-header-name::after {
+    content: " ▾";
+    font-size: 0.65rem;
+    opacity: 0.85;
+}
+
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list {
     display: flex;
     flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 0;
+    background: var(--nemo-bg-primary);
+}
+
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a {
+    position: relative;
+    display: grid;
+    grid-template-columns:
+        var(--nemo-list-col-icon)
+        minmax(0, 1fr)
+        var(--nemo-list-col-size)
+        var(--nemo-list-col-modified)
+        var(--nemo-list-col-star);
+    grid-template-rows: 1fr;
     align-items: center;
     justify-content: flex-start;
-    width: var(--nemo-item-card-size);
-    height: 6.55rem;
+    width: 100%;
+    height: auto;
+    min-height: 2.9rem;
+    max-height: none;
     margin: 0;
-    padding: 0.35rem 0.25rem;
-    border-radius: 0.65rem;
+    padding: 0.4rem var(--nemo-list-pad-x) 0.4rem var(--nemo-list-pad-icon);
+    border: 0;
+    border-bottom: 1px solid var(--nemo-list-row-border);
+    border-radius: 0;
     color: var(--nemo-text-primary);
     font-size: 0.82rem;
-    line-height: 1.15;
+    line-height: 1.2;
+    text-align: left;
+    text-decoration: none;
+}
+
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a:hover {
+    background: var(--nemo-item-active-bg);
+    border-radius: 0;
+}
+
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a::after {
+    content: "";
+    grid-column: 5;
+    grid-row: 1;
+    justify-self: center;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.42;
+    background-color: var(--nemo-text-muted);
+    -webkit-mask-image: url("../../media/img/elements/nemo/starred-symbolic.svg");
+    mask-image: url("../../media/img/elements/nemo/starred-symbolic.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a:hover::after {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    z-index: auto;
+    padding: 0;
+    border-radius: 0;
+    background: var(--nemo-text-muted);
+    color: transparent;
     text-align: center;
 }
 
-body#anduinos div[data-link="nemo"] .nemo-app__content-grid > a::before {
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a > img {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    min-width: 2.35rem;
+    max-width: 2.35rem;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    filter: none;
+}
+
+body#anduinos div[data-link="nemo"] #nemoMainContainer > #voletContainer > section.nemoElement.nemo-app__content-grid--list > a > .nemo-app__item-body {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.1rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body#anduinos div[data-link="nemo"] .nemo-app__item-name {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--nemo-text-primary);
+}
+
+body#anduinos div[data-link="nemo"] .nemo-app__item-meta {
     display: none;
 }
 
-body#anduinos div[data-link="nemo"] .nemo-app__content-grid > a:hover {
-    background: var(--nemo-item-active-bg);
+body#anduinos div[data-link="nemo"] .nemo-app__item-size {
+    display: block;
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--nemo-text-muted);
+    text-align: left;
 }
 
-body#anduinos div[data-link="nemo"] .nemo-app__content-grid > a > img {
+body#anduinos div[data-link="nemo"] .nemo-app__item-modified {
     display: block;
-    flex: 0 0 auto;
-    width: var(--nemo-item-icon-size);
-    height: var(--nemo-item-icon-size);
-    margin: 0 auto 0.45rem;
-    object-fit: contain;
-    filter: none;
+    grid-column: 4;
+    grid-row: 1;
+    font-size: 0.78rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--nemo-text-muted);
+    text-align: left;
 }
 
 body#anduinos div[data-link="nemo"] .nemo-app__empty {

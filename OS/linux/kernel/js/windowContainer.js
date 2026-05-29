@@ -93,10 +93,13 @@ function handleOpenwindow(link) {
 	const container = document.querySelector(`div[data-link="${link.dataset.link}"]`);
 
     if (container) {
+        const isGnomeStartMenu = link.dataset.link === 'mainMenu'
+            && !!container.querySelector('#menu-gnome-root');
+
         if (container.style.display === "none") {
             container.style.display = "flex";
             container.style.position = 'fixed';
-            if (!container.querySelector('#windowHeader')) {
+            if (!isGnomeStartMenu && !container.querySelector('#windowHeader')) {
                 container.insertBefore(windowHeader.cloneNode(true), container.firstChild);
             }
             applyKdeWindowHeaderIcons(container);
@@ -110,14 +113,16 @@ function handleOpenwindow(link) {
                     : null;
                 windowTitle.textContent = resolved || WINDOW_TITLE_MAP[link.dataset.link] || link.dataset.link;
             }
-            // Rendre la fenêtre déplacable
-            if (container.dataset.dragInit !== 'true') {
-                makeDraggable(container);
-            }
-            // Rendre la fenêtre redimensionnable
-            if (container.dataset.resizeInit !== 'true') {
-                makeResizable(container);
-                container.dataset.resizeInit = 'true';
+            if (!isGnomeStartMenu) {
+                // Rendre la fenêtre déplacable
+                if (container.dataset.dragInit !== 'true') {
+                    makeDraggable(container);
+                }
+                // Rendre la fenêtre redimensionnable
+                if (container.dataset.resizeInit !== 'true') {
+                    makeResizable(container);
+                    container.dataset.resizeInit = 'true';
+                }
             }
         } else {
             container.style.display = "none";

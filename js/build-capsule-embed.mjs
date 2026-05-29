@@ -24,7 +24,8 @@ const MANIFEST_PATH = path.join(
 
 /** Gabarits HTML propres à une famille (ex. menu Plasma openSUSE). */
 const FAMILY_APP_HTML_DIRS = {
-    opensuse: path.join(ROOT, 'OS/linux/families/suse/opensuse/apps')
+    opensuse: path.join(ROOT, 'OS/linux/families/suse/opensuse/apps'),
+    anduinos: path.join(ROOT, 'OS/linux/families/debian/anduinos/apps')
 };
 
 const SKIN_DIRS = [
@@ -86,7 +87,9 @@ function listSkinIds(skinDir) {
 }
 
 function buildCssBase(templateId) {
-    const cssBaseId = templateId === 'nemo-gnome' || templateId === 'nemo-cosmic' ? 'nemo' : templateId;
+    const cssBaseId = templateId === 'nemo-gnome' || templateId === 'nemo-cosmic'
+        ? 'nemo'
+        : templateId;
     const baseFile = path.join(STYLE_DIR, `${cssBaseId}.base.css`);
     let text = readUtf8(baseFile);
     if (templateId === 'dolphin') {
@@ -178,7 +181,7 @@ function main() {
 
     const manifest = JSON.parse(readUtf8(MANIFEST_PATH));
 
-    const header = `/* Généré par scripts/build-capsule-embed.mjs — ne pas éditer à la main */
+    const header = `/* Généré par js/build-capsule-embed.mjs — ne pas éditer à la main */
 (function () {
 'use strict';
 `;

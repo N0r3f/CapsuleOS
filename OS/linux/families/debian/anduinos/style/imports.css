@@ -6,3 +6,5 @@
 @import url(./anduin-shell/taskbar.css);
 @import url(./anduin-shell/windows-chrome.css);
 @import url(./anduin-shell/volume-popover.css);
+@import url(../../../shared/apps/style/mainMenu-gnome.base.css);
+@import url(./apps/mainMenu.skin.css);

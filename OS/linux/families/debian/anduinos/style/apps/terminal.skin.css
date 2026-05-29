@@ -1,5 +1,6 @@
 body#anduinos #terminal {
     width: min(43rem, calc(100vw - 1.5rem));
-    height: min(31.5rem, calc(100vh - var(--anduin-taskbar-height) - 1.25rem));
+    height: auto;
+    max-height: none;
     background: #1d1d20;
 }

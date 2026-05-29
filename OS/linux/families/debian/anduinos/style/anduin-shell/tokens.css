@@ -8,11 +8,14 @@ html:has(#anduinos) {
     --anduin-accent: #3584e4;
     --anduin-taskbar-height: calc(var(--head) * 1.38);
     --taskbar-height: var(--anduin-taskbar-height);
+    --anduin-window-inset-top: calc(var(--head) * 0.65);
+    --anduin-window-inset-bottom: var(--anduin-taskbar-height);
     --anduin-shell-text: #f5f6f8;
     --anduin-shell-muted: rgba(245, 246, 248, 0.72);
-    --anduin-taskbar-bg: rgba(22, 28, 42, 0.72);
+    --anduin-taskbar-bg: rgba(10, 18, 32, 0.5);
+    --anduin-taskbar-bg-fallback: rgba(14, 22, 38, 0.88);
     --anduin-taskbar-border: 1px solid rgba(255, 255, 255, 0.08);
-    --anduin-taskbar-blur: blur(18px);
+    --anduin-taskbar-blur: blur(24px) saturate(1.15);
     --anduin-taskbar-indicator: #62a0ea;
     --anduin-window-radius: 0.72rem;
     --anduin-window-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
@@ -45,5 +48,9 @@ body#anduinos {
     overflow: hidden;
     color: var(--anduin-shell-text);
     font-family: "Cantarell", var(--font-ui);
-    background: #0d1528;
+    background-color: #0d1528;
+    background-image: url("../../media/img/wallpaper/anduin-desktop.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

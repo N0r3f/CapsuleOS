@@ -4,18 +4,20 @@
 
 body#anduinos div[class^="windowElement"]:not(#mainMenu) {
     position: fixed;
-    top: calc(var(--head) * 0.65);
-    left: calc(var(--head) * 0.65);
-    bottom: calc(var(--anduin-taskbar-height) + calc(var(--head) * 0.35));
+    top: var(--anduin-window-inset-top);
     right: auto;
+    bottom: var(--anduin-window-inset-bottom);
+    left: calc(var(--head) * 0.65);
     display: var(--f);
     flex-flow: var(--cnw);
-    align-items: var(--c);
-    justify-content: var(--c);
+    align-items: stretch;
+    justify-content: flex-start;
     width: calc(var(--mid) + var(--mid) / 4);
     min-width: calc(var(--head) * 16);
-    height: calc(var(--head) * 10);
+    height: auto;
+    max-height: none;
     min-height: calc(var(--head) * 12);
+    box-sizing: border-box;
     padding: calc(var(--head) / 20);
     border: 1px solid rgba(0, 0, 0, 0.48);
     border-radius: var(--anduin-window-radius);
