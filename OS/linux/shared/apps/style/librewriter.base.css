@@ -1,7 +1,7 @@
 /* ════════════════════════════════════════════
-   LibreOffice Writer — App CSS
+   LibreOffice Writer - App CSS
    Scope: div[data-link="librewriter"]
-   Convention: 0 hardcoded colors — toutes les valeurs via var(--lw-*)
+   Convention: 0 hardcoded colors - toutes les valeurs via var(--lw-*)
 ════════════════════════════════════════════ */
 
 /* Window header customization */

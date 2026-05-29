@@ -1,10 +1,10 @@
 {
-    "explorer.windowTitle": "Dossier personnel — Dolphin",
+    "explorer.windowTitle": "Dossier personnel - Dolphin",
     "mainMenu.windowTitle": "Menu des applications",
     "mainMenu.searchPlaceholder": "Rechercher...",
-    "terminal.windowTitle": "~ : bash — Konsole",
+    "terminal.windowTitle": "~ : bash - Konsole",
     "themes.windowTitle": "Paramètres système",
     "checklist.windowTitle": "Missions MX",
     "checklist.description": "Explore MX Linux KDE en accomplissant ces missions. Ta progression est sauvegardée.",
-    "profile.windowTitle": "À propos — MX Linux KDE"
+    "profile.windowTitle": "À propos - MX Linux KDE"
 }

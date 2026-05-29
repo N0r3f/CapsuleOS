@@ -68,7 +68,7 @@ footer {
     display: var(--f);
     flex-flow: var(--rnw);
     align-items: var(--c);
-    justify-content: var(--sb);
+    justify-content: var(--c);
     width: var(--full);
     height: calc(var(--head) + var(--head) / 3);
     background: var(--noir);

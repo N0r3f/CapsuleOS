@@ -28,7 +28,7 @@
 
 - [ ] Arborescence lisible ; séparation noyau commun / variantes OS respectée.
 - [ ] Aucun lien symbolique versionné dans le dépôt ; skins dérivées sans `media/` local déclarent `CAPSULE_MEDIA_BASE` (et `CAPSULE_ASSETS_BASE` si besoin) avant `capsule-resource-url.js`.
-- [ ] Pas de doc développeur nouvelle sous `OS/` (`README.md`, `UI-FIDELITE.txt`, `ICONS-*.md`, etc.) — uniquement sous `.doc/` (miroir) ; voir `.cursor/rules/capsuleos-doc-location.mdc`.
+- [ ] Pas de doc développeur nouvelle sous `OS/` (`README.md`, `UI-FIDELITE.txt`, `ICONS-*.md`, etc.) - uniquement sous `.doc/` (miroir) ; voir `.cursor/rules/capsuleos-doc-location.mdc`.
 
 ## Linux (CapsuleOS / `OS/linux`)
 

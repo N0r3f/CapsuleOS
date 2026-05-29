@@ -1,0 +1,548 @@
+/* Debian KDE (Plasma) - menu applicatif (modal). */
+
+body#debian-kde div[data-link="mainMenu"],
+body#debian-kde #mainMenu {
+    position: fixed;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: var(--taskbar-height);
+    width: var(--opensuse-menu-width);
+    height: var(--opensuse-menu-height);
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--opensuse-menu-border);
+    border-radius: var(--opensuse-menu-radius);
+    background: rgba(32, 40, 54, 0.96);
+    box-shadow: 0 0.7rem 1.9rem rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 9999;
+}
+
+body#debian-kde div[data-link="mainMenu"] > #windowHeader,
+body#debian-kde #mainMenu > #windowHeader {
+    display: none;
+    height: 0;
+}
+
+body#debian-kde #mainMenu .menu-root.menu-root--plasma {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: "Cantarell", var(--font-ui);
+}
+
+/* ── En-tête ─────────────────────────────────────────────── */
+body#debian-kde #mainMenu .menu-plasma-header {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(9.5rem, 34%) minmax(0, 1fr);
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.5rem 0.55rem 0.48rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.16);
+}
+
+body#debian-kde #mainMenu .menu-brand {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body#debian-kde #mainMenu .menu-brand__logo {
+    width: 1.55rem;
+    height: 1.55rem;
+    display: block;
+    flex: 0 0 auto;
+}
+
+body#debian-kde #mainMenu .menu-brand__name {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+body#debian-kde #mainMenu .menu-header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.45rem;
+    min-width: 0;
+}
+
+body#debian-kde #mainMenu .menu-search-wrap {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+body#debian-kde #mainMenu .menu-search {
+    width: 100%;
+    min-height: var(--opensuse-menu-search-min-height);
+    height: var(--opensuse-menu-search-min-height);
+    margin: 0;
+    padding: 0 0.55rem 0 calc(var(--opensuse-menu-search-icon-left) + var(--opensuse-menu-search-icon-size) + 0.38rem);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: var(--opensuse-menu-btn-radius);
+    color: rgba(255, 255, 255, 0.92);
+    font-family: inherit;
+    font-size: 0.8rem;
+    background:
+        url("./media/img/elements/nemo/search-symbolic.svg") no-repeat var(--opensuse-menu-search-icon-left) center / var(--opensuse-menu-search-icon-size),
+        rgba(255, 255, 255, 0.07);
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+body#debian-kde #mainMenu .menu-search::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+body#debian-kde #mainMenu .menu-search:focus {
+    border-color: var(--opensuse-menu-search-focus);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.4);
+}
+
+body#debian-kde #mainMenu .menu-search-clear {
+    position: absolute;
+    top: 50%;
+    right: 0.38rem;
+    width: 1.12rem;
+    height: 1.12rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.18);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.62rem;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+body#debian-kde #mainMenu .menu-search-clear:hover {
+    background-color: rgba(255, 255, 255, 0.28);
+}
+
+body#debian-kde #mainMenu .menu-root--search .menu-search {
+    padding-right: 2.05rem;
+}
+
+body#debian-kde #mainMenu .menu-plasma-chrome {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.2rem;
+    flex-shrink: 0;
+}
+
+body#debian-kde #mainMenu .menu-plasma-chrome__btn {
+    width: 1.65rem;
+    height: 1.65rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--opensuse-menu-btn-radius);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.05rem;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+body#debian-kde #mainMenu .menu-plasma-chrome__btn--close {
+    opacity: 0.95;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92));
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.29-6.3z'/%3E%3C/svg%3E") no-repeat center / 1.05rem;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.29-6.3z'/%3E%3C/svg%3E") no-repeat center / 1.05rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.05rem;
+    filter: none;
+}
+
+body#debian-kde #mainMenu .menu-plasma-chrome__btn--close:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+body#debian-kde #mainMenu .menu-plasma-chrome__btn:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    opacity: 1;
+}
+
+/* ── Corps ───────────────────────────────────────────────── */
+body#debian-kde #mainMenu .menu-plasma-body {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: minmax(9.5rem, 34%) minmax(0, 1fr);
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#debian-kde #mainMenu .menu-plasma-sidebar {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    padding: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.10);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(35, 38, 41, 0.28) transparent;
+}
+
+body#debian-kde #mainMenu .menu-plasma-sidebar::-webkit-scrollbar,
+body#debian-kde #mainMenu .menu-app-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+body#debian-kde #mainMenu .menu-plasma-sidebar::-webkit-scrollbar-thumb,
+body#debian-kde #mainMenu .menu-app-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+body#debian-kde #mainMenu .menu-plasma-sidebar::-webkit-scrollbar-track,
+body#debian-kde #mainMenu .menu-app-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body#debian-kde #mainMenu .menu-cats,
+body#debian-kde #mainMenu .menu-places {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0.12rem 0;
+    list-style: none;
+}
+
+body#debian-kde #mainMenu .menu-cat,
+body#debian-kde #mainMenu .menu-places > li > .menu-shortcut {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.48rem;
+    width: 100%;
+    min-height: var(--opensuse-menu-body-row-min-h);
+    margin: 0;
+    padding: 0.28rem 0.7rem 0.28rem 0.55rem;
+    border: 0;
+    border-left: 3px solid transparent;
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: left;
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body#debian-kde #mainMenu .menu-cat::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: var(--opensuse-menu-cat-icon-size);
+    height: var(--opensuse-menu-cat-icon-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: var(--menu-cat-icon, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+body#debian-kde #mainMenu .menu-places > li > .menu-shortcut::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: var(--opensuse-menu-cat-icon-size);
+    height: var(--opensuse-menu-cat-icon-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: var(--menu-shortcut-icon, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Sécurité: si la variable contient déjà url(...), on garde tel quel */
+body#debian-kde #mainMenu .menu-cat::before {
+    background-image: var(--menu-cat-icon, none);
+}
+
+body#debian-kde #mainMenu .menu-places > li > .menu-shortcut::before {
+    background-image: var(--menu-shortcut-icon, none);
+}
+
+body#debian-kde #mainMenu .menu-cat:hover:not(.menu-cat--disabled):not(.menu-cat--decorative),
+body#debian-kde #mainMenu .menu-places > li > .menu-shortcut:hover:not(.is-unavailable) {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+body#debian-kde #mainMenu .menu-cat.is-active {
+    background: rgba(61, 174, 233, 0.22);
+    border-left-color: #3daee9;
+}
+
+body#debian-kde #mainMenu .menu-cat.menu-cat--decorative,
+body#debian-kde #mainMenu .menu-cat.menu-cat--disabled,
+body#debian-kde #mainMenu .menu-shortcut.is-unavailable {
+    opacity: 0.45;
+    cursor: default;
+}
+
+body#debian-kde #mainMenu .menu-apps {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    background: transparent;
+}
+
+body#debian-kde #mainMenu .menu-plasma-results-heading {
+    margin: 0;
+    padding: 0.55rem 0.7rem 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.75;
+}
+
+body#debian-kde #mainMenu .menu-app-list {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0.85rem 1rem;
+    list-style: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
+    align-content: start;
+}
+
+body#debian-kde #mainMenu .menu-app-item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.38rem;
+    width: 100%;
+    min-height: calc(var(--opensuse-menu-app-tile) * 1.35);
+    padding: 0.45rem 0.2rem 0.35rem;
+    border-radius: 0.55rem;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+body#debian-kde #mainMenu .menu-app-item:hover:not(.is-unavailable),
+body#debian-kde #mainMenu .menu-app-item.is-active:not(.is-unavailable) {
+    background: rgba(61, 174, 233, 0.28);
+    border-color: rgba(61, 174, 233, 0.55);
+}
+
+body#debian-kde #mainMenu .menu-app-item.is-unavailable {
+    opacity: 0.55;
+    cursor: default;
+}
+
+body#debian-kde #mainMenu .menu-app-item__icon {
+    width: 3.1rem;
+    height: 3.1rem;
+    object-fit: contain;
+}
+
+body#debian-kde #mainMenu .menu-app-item__info {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 0;
+    align-items: center;
+    width: 100%;
+}
+
+body#debian-kde #mainMenu .menu-app-item__name {
+    font-size: 0.79rem;
+    font-weight: 600;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+    color: rgba(255, 255, 255, 0.92);
+    word-break: break-word;
+    hyphens: auto;
+    width: 100%;
+    padding: 0 0.1rem;
+}
+
+body#debian-kde #mainMenu .menu-app-item__desc {
+    display: none;
+}
+
+body#debian-kde #mainMenu .menu-app-list.is-empty::before {
+    content: "Aucun résultat";
+    display: block;
+    padding: 0.75rem;
+    opacity: 0.65;
+}
+
+/* ── Footer (tabs + actions système) ─────────────────────── */
+body#debian-kde #mainMenu .menu-plasma-footer {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+    padding: 0.45rem 0.55rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.18);
+    flex-wrap: nowrap;
+}
+
+body#debian-kde #mainMenu .menu-plasma-tabs {
+    display: flex;
+    gap: 0.18rem;
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+body#debian-kde #mainMenu .menu-plasma-tab {
+    position: relative;
+    padding: 0.22rem 0.5rem 0.22rem 0.45rem;
+    border: 0;
+    border-radius: 0.55rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.74rem;
+    font-weight: 600;
+    opacity: 0.8;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+}
+
+body#debian-kde #mainMenu .menu-plasma-tab::before {
+    content: "";
+    width: 0.95rem;
+    height: 0.95rem;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-mask: var(--menu-tab-icon) no-repeat center / contain;
+    mask: var(--menu-tab-icon) no-repeat center / contain;
+    opacity: 0.9;
+}
+
+body#debian-kde #mainMenu .menu-plasma-tab[data-menu-tab="apps"] {
+    --menu-tab-icon: url("./media/img/category/mono-apps.svg");
+}
+
+body#debian-kde #mainMenu .menu-plasma-tab[data-menu-tab="places"] {
+    --menu-tab-icon: url("./media/img/apps/dolphin.svg");
+}
+
+body#debian-kde #mainMenu .menu-plasma-tab--active {
+    background: rgba(255, 255, 255, 0.10);
+    opacity: 1;
+}
+
+body#debian-kde #mainMenu .menu-plasma-power {
+    display: flex;
+    gap: 0.18rem;
+    flex-wrap: nowrap;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+body#debian-kde #mainMenu .menu-plasma-power__btn {
+    display: grid;
+    grid-template-columns: 1.05rem auto;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+    justify-items: start;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.18rem 0.35rem;
+    border: 0;
+    border-radius: 0.55rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.64rem;
+    font-weight: 600;
+    opacity: 0.88;
+    cursor: pointer;
+}
+
+body#debian-kde #mainMenu .menu-plasma-power__btn span {
+    white-space: nowrap;
+    font-size: 0.64rem;
+    line-height: 1.05;
+}
+
+body#debian-kde #mainMenu .menu-plasma-power__btn img {
+    width: 1.05rem;
+    height: 1.05rem;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+body#debian-kde #mainMenu .menu-plasma-power__btn:hover {
+    background: rgba(255, 255, 255, 0.10);
+    opacity: 1;
+}
+
+/* Tab "Emplacements" */
+body#debian-kde #mainMenu .menu-root--places .menu-apps {
+    opacity: 0.92;
+}
+
+body#debian-kde #mainMenu .menu-root--places .menu-app-list {
+    display: none;
+}
+

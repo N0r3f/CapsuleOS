@@ -1,0 +1,85 @@
+/**
+ * Debian KDE - bureau + panel Plasma clair (basé sur openSUSE desktop).
+ */
+
+html:has(#debian-kde) {
+    color-scheme: light;
+}
+
+html:has(#debian-kde) {
+    --opensuse-plasma-accent: #3daee9;
+    /* Panel sombre comme Plasma (image 2) */
+    --opensuse-plasma-panel-bg: rgba(30, 33, 38, 0.92);
+    --opensuse-plasma-panel-border: rgba(255, 255, 255, 0.08);
+    --opensuse-plasma-text: rgba(245, 246, 247, 0.95);
+    --opensuse-plasma-text-muted: rgba(245, 246, 247, 0.75);
+    --desktop-shortcut-text: #ffffff;
+    --desktop-shortcut-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    --desktop-shortcut-hover-bg: rgba(61, 174, 233, 0.12);
+    --mint-taskbar-bg: var(--opensuse-plasma-panel-bg);
+    --mint-taskbar-top-border: 1px solid var(--opensuse-plasma-panel-border);
+    --mint-taskbar-item-bg-hover: rgba(61, 174, 233, 0.14);
+    --mint-taskbar-item-bg-active: rgba(61, 174, 233, 0.18);
+    --mint-taskbar-item-border-hover: rgba(61, 174, 233, 0.45);
+    --mint-taskbar-item-shadow-active: inset 0 0 0 1px rgba(61, 174, 233, 0.28);
+    --mint-taskbar-right-bg: transparent;
+    --mint-taskbar-right-separator: transparent;
+    --mint-tray-color: var(--opensuse-plasma-text);
+    --mint-clock-date-color: var(--opensuse-plasma-text-muted);
+    --mint-clock-hover-bg: rgba(61, 174, 233, 0.1);
+    --opensuse-mono-logo-filter: none;
+    --menu-accent: var(--opensuse-plasma-accent);
+    --opensuse-taskbar-edge-gap: calc(var(--head) / 5);
+}
+
+#debian-kde {
+    --taskbar-height: calc(var(--head) * 0.85);
+    background-image: url("../media/img/assets/wallpaper-debian-kde.jpg");
+    background-color: #243042;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#debian-kde #desktop {
+    position: relative;
+}
+
+#debian-kde #tableau {
+    padding: var(--z) var(--opensuse-taskbar-edge-gap) var(--z) calc(var(--head) / 4);
+    border-top: var(--mint-taskbar-top-border);
+}
+
+/* Tray */
+#debian-kde footer .taskbar-tray {
+    color: var(--opensuse-plasma-text);
+    padding-right: 0;
+}
+
+#debian-kde footer .taskbar-tray__link > img,
+#debian-kde footer .taskbar-tray__item > img {
+    opacity: 0.9;
+    /* Pack Chameleon déjà adapté pour fond sombre */
+    filter: none;
+}
+
+#debian-kde footer .taskbar-tray__expand > img {
+    width: calc(var(--head) * 0.36);
+    height: calc(var(--head) * 0.36);
+    opacity: 0.75;
+}
+
+#debian-kde footer .taskbar-clock-trigger {
+    color: var(--opensuse-plasma-text);
+    background: transparent;
+    margin-left: calc(var(--head) / -10);
+    margin-right: var(--opensuse-taskbar-edge-gap);
+    padding-left: calc(var(--head) / 18);
+    padding-right: calc(var(--head) / 18);
+}
+
+#debian-kde footer .taskbar-clock-trigger[aria-expanded="true"] {
+    border-top-color: var(--opensuse-plasma-accent);
+    background: rgba(61, 174, 233, 0.1);
+}
+

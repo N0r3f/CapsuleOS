@@ -126,7 +126,7 @@
             appendDayButton(day, viewMonth, viewYear, false);
         }
 
-        /* Plasma : grille fixe 6×7 — jours précédent / suivant grisés */
+        /* Plasma : grille fixe 6×7 - jours précédent / suivant grisés */
         let total = startPad + lastDay;
         let nextDay = 1;
 

@@ -1,0 +1,11 @@
+@import url(../../../../../../style/reset.css);
+@import url(../../../../../../style/variables.css);
+@import url(../../../../kernel/style/variables-linux.css);
+@import url(./footer.css?v=20260528);
+@import url(./windows.css?v=20260528);
+@import url(./calendar-popover.css?v=20260528);
+@import url(./a11y-overrides.css?v=20260528);
+@import url(./volume-popover.css?v=20260528);
+@import url(./debian-breeze.css?v=20260528);
+@import url(./debian-desktop.css?v=20260528);
+

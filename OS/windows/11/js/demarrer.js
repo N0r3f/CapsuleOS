@@ -275,8 +275,22 @@ function createNavWithFigures(figuresData) {
     figuresData.forEach(figureData => {
         const a = document.createElement('a');
         a.href = figureData.href;
-        a.target = 'lien';
+        if (!figureData.pickReturn) {
+            a.target = 'lien';
+        }
         a.title = figureData.title;
+
+        if (figureData.pickReturn) {
+            a.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                if (window.CapsulePickReturn) {
+                    window.CapsulePickReturn.redirectToPickHome(figureData.pickReturn, '../../../index.html');
+                    return;
+                }
+                window.location.href = '../../../index.html?pick=windows#choisir-os';
+            });
+        }
 
         const figure = document.createElement('figure');
         const img = document.createElement('img');
@@ -344,7 +358,7 @@ function createMenuSection() {
     // Ajouter le sixième <nav> avec un <a> contenant une <figure> et un <a> avec une <img>
     const userFiguresData = [
         { href: './user.html', title: 'Paramètres des comptes utilisateurs', imgSrc: './media/img/user.png', alt: 'Utilisateur', caption: 'Utilisateur' },
-        { href: './eteindre.html', title: 'éteindre, redémarrer ou mettre en veille', imgSrc: './media/img/shut.png', alt: 'éteindre', caption: '' }
+        { href: '#capsule-pick-return', title: 'éteindre, redémarrer ou mettre en veille', imgSrc: './media/img/shut.png', alt: 'éteindre', caption: '', pickReturn: 'windows' }
     ];
     section.appendChild(createNavWithFigures(userFiguresData));
 

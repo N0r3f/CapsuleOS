@@ -85,6 +85,9 @@ const resolveTemplateHtmlFile = (templateId, appsBase) => {
     if (typeof window !== 'undefined' && window.CAPSULE_TEMPLATE_OVERRIDES && window.CAPSULE_TEMPLATE_OVERRIDES[templateId]) {
         return String(window.CAPSULE_TEMPLATE_OVERRIDES[templateId]);
     }
+    if (templateId === 'dolphin') {
+        return '../../../../../modules/app/dolphin/dolphin.html';
+    }
     return `${appsBase}/${templateId}.html`;
 };
 
@@ -109,39 +112,72 @@ const loadSlotAssets = (templateId, skinId, appsBase, cssSkinFile, cssSkinFallba
 
     const htmlFile = resolveTemplateHtmlFile(templateId, appsBase);
     const cssBaseTemplateId = resolveCssBaseTemplateId(templateId);
-    const cssBaseFile = `${appsBase}/style/${cssBaseTemplateId}.base.css`;
+    const cssBaseFile = templateId === 'dolphin'
+        ? '../../../../../modules/app/dolphin/dolphin.base.css'
+        : `${appsBase}/style/${cssBaseTemplateId}.base.css`;
+
+    const resolveEmbedHtml = () => {
+        if (!embed || !embed.templates || !embed.templates[templateId]) {
+            return null;
+        }
+        const skinKey = getEmbedSkinKey();
+        const skinOverride = embed.skinTemplates
+            && embed.skinTemplates[skinKey]
+            && embed.skinTemplates[skinKey][templateId];
+        return (skinOverride && skinOverride.html) ? skinOverride.html : embed.templates[templateId].html;
+    };
 
     const fetchHtml = fetch(htmlFile, { cache: 'no-store' }).then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP ${response.status} ${htmlFile}`);
         }
         return response.text();
+    }).catch((error) => {
+        const fallbackHtml = resolveEmbedHtml();
+        if (fallbackHtml) {
+            console.warn(`CapsuleOS: gabarit ${templateId} via embed (${error.message})`);
+            return fallbackHtml;
+        }
+        throw error;
     });
 
     const fetchCssBase = (async () => {
+        let text = '';
         const response = await fetch(cssBaseFile, { cache: 'no-store' });
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status} ${cssBaseFile}`);
+            if (embed && embed.templates && embed.templates[templateId] && embed.templates[templateId].cssBase) {
+                console.warn(`CapsuleOS: CSS base ${templateId} via embed (HTTP ${response.status})`);
+                text = embed.templates[templateId].cssBase;
+            } else {
+                throw new Error(`HTTP ${response.status} ${cssBaseFile}`);
+            }
+        } else {
+            text = await response.text();
         }
-        let text = await response.text();
-        if (templateId === 'dolphin') {
+        if (templateId === 'dolphin' && text) {
             const nemoFile = `${appsBase}/style/nemo.base.css`;
             const nemoResp = await fetch(nemoFile, { cache: 'no-store' });
-            if (!nemoResp.ok) {
-                throw new Error(`HTTP ${nemoResp.status} ${nemoFile}`);
+            if (nemoResp.ok) {
+                text = `${await nemoResp.text()}\n${text}`;
             }
-            text = `${await nemoResp.text()}\n${text}`;
         }
         return text;
     })();
 
+    const skinCssVersion = typeof window !== 'undefined' && window.CAPSULE_SKIN_CSS_VERSION
+        ? String(window.CAPSULE_SKIN_CSS_VERSION)
+        : '';
+    const withSkinCssBust = (url) => (
+        skinCssVersion && url ? `${url}${url.includes('?') ? '&' : '?'}v=${encodeURIComponent(skinCssVersion)}` : url
+    );
+
     const fetchCssSkin = cssSkinFile
-        ? fetch(cssSkinFile, { cache: 'no-store' }).then((response) => {
+        ? fetch(withSkinCssBust(cssSkinFile), { cache: 'no-store' }).then((response) => {
             if (response.ok) {
                 return response.text();
             }
             if (cssSkinFallbackFile && cssSkinFallbackFile !== cssSkinFile) {
-                return fetch(cssSkinFallbackFile, { cache: 'no-store' }).then((fallbackResponse) => (
+                return fetch(withSkinCssBust(cssSkinFallbackFile), { cache: 'no-store' }).then((fallbackResponse) => (
                     fallbackResponse.ok ? fallbackResponse.text() : ''
                 ));
             }
@@ -175,6 +211,9 @@ const SLOT_INIT_HANDLERS = {
         const contentRoot = typeof window !== 'undefined' && window.CAPSULE_CONTENT_ROOT
             ? window.CAPSULE_CONTENT_ROOT
             : './apps/system/Dossier_personnel';
+        runFirstAvailable([
+            { fn: typeof window.refreshDolphinShellLayout === 'function' ? window.refreshDolphinShellLayout : null }
+        ]);
         runFirstAvailable([
             { fn: typeof initFileExplorerContainer === 'function' ? initFileExplorerContainer : null },
             { fn: typeof initNemoContainer === 'function' ? initNemoContainer : null }

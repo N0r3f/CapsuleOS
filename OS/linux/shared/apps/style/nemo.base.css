@@ -248,7 +248,6 @@ div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu img {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--fs);
-    width: calc(var(--head) * 3);
     height: var(--head);
     padding: var(--z) calc(var(--head) / 4);
     gap: calc(var(--head) - 25px);

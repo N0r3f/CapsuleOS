@@ -36,6 +36,10 @@ function initFileExplorerContainer() {
         });
     });
 
+    if (typeof bindFileExplorerMenubar === 'function') {
+        bindFileExplorerMenubar(fileExplorerRoot);
+    }
+
     if (typeof bindFileExplorerNavigationControls === 'function' || typeof bindNemoNavigationControls === 'function') {
         (window.bindFileExplorerNavigationControls || window.bindNemoNavigationControls)();
     }

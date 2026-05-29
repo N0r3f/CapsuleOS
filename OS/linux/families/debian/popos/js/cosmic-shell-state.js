@@ -1,5 +1,5 @@
 /**
- * État overlays shell Cosmic — mutual exclusion launcher / apps / workspaces rail.
+ * État overlays shell Cosmic - mutual exclusion launcher / apps / workspaces rail.
  */
 (function (global) {
     var body = document.body;

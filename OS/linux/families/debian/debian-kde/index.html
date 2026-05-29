@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.documentElement.dataset.theme = 'light';
+        try { localStorage.setItem('mint-theme', 'light'); } catch (e) { /* offline */ }
+    </script>
+    <link rel="icon" href="./assets/debian-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./style/style.css?v=20260528" type="text/css">
+    <link rel="stylesheet" href="../../../shared/apps/style/Dossier personnel.base.css" type="text/css">
+    <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css?v=20260528" type="text/css">
+    <link rel="stylesheet" href="./style/apps/mainMenu.skin.css?v=20260528" type="text/css">
+    <title>Debian KDE (Plasma) - CapsuleOS</title>
+</head>
+
+<body id="debian-kde">
+    <object id="desktop">
+        <a class="desktop-shortcut" target="windowElement" data-link="profile" title="Debian KDE - À propos">
+            <img src="./assets/debian-logo.svg" alt="Debian KDE - À propos" width="48" height="48">
+            <span>Debian KDE<br>À propos</span>
+        </a>
+        <div class="windowElement" data-link="mainMenu" id="mainMenu" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="nemo" id="nemo" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="firefox" id="firefox" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="terminal" id="terminal" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="themes" id="themes" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="profile" id="profile" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="checklist" id="checklist" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+    </object>
+    <footer id="tableau">
+        <nav class="taskbar-pins" aria-label="Applications épinglées">
+            <a class="taskbar-pins__launcher" target="windowElement" data-link="mainMenu" title="Menu des applications">
+                <img src="./media/img/panel/start-here-kde.svg" alt="Menu" title="Menu des applications">
+            </a>
+            <div class="taskbar-pins__apps">
+                <a target="windowElement" data-link="themes" title="Configuration du système">
+                    <img src="./media/img/apps/systemsettings.svg" alt="">
+                </a>
+                <span class="taskbar-pins__item" title="Découvrir" aria-hidden="true">
+                    <img src="./media/img/apps/discover.svg" alt="">
+                </span>
+                <a target="windowElement" data-link="nemo" title="Dolphin">
+                    <img src="./media/img/apps/dolphin.svg" alt="">
+                </a>
+                <a target="windowElement" data-link="firefox" title="Firefox">
+                    <img src="../../../shared/media/img/apps/firefox.png" alt="">
+                </a>
+                <a target="windowElement" data-link="terminal" title="Konsole">
+                    <img src="./media/img/apps/terminal.svg" alt="">
+                </a>
+            </div>
+        </nav>
+        <div class="taskbar-right">
+            <div class="taskbar-tray" aria-label="Zone de notification">
+                <span class="taskbar-tray__item" title="Réseau">
+                    <img src="./media/img/panel/network.svg" alt="" aria-hidden="true">
+                </span>
+                <span class="taskbar-tray__item" title="Batterie">
+                    <img src="./media/img/panel/battery.svg" alt="" aria-hidden="true">
+                </span>
+                <button type="button" class="taskbar-tray__btn" id="tray-sound-btn"
+                        aria-expanded="false" aria-controls="volume-popover"
+                        aria-label="Contrôle du volume">
+                    <span class="taskbar-tray__icon" id="tray-sound-icon" aria-hidden="true"></span>
+                </button>
+                <span class="taskbar-tray__item taskbar-tray__expand" title="Icônes masquées" aria-hidden="true">
+                    <img src="./media/img/panel/tray-expand.svg" alt="">
+                </span>
+            </div>
+            <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger" aria-expanded="false" aria-controls="taskbar-calendar-popover" aria-label="Date et heure">
+                <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
+                <span class="taskbar__date" id="taskbar-date" aria-hidden="true">--/--/----</span>
+            </button>
+            <button type="button" class="taskbar-show-desktop" aria-label="Menu">
+                <img src="./media/img/panel/menu-burger.svg" alt="" aria-hidden="true">
+            </button>
+        </div>
+    </footer>
+
+    <div class="calendar-popover calendar-popover--kde" id="taskbar-calendar-popover" role="dialog" aria-label="Calendrier" hidden>
+        <div class="calendar-popover__chrome">
+            <header class="calendar-popover__header">
+                <h2 class="calendar-popover__month-title" id="cal-month-title">Avril</h2>
+                <div class="calendar-popover__header-actions">
+                    <button type="button" class="calendar-popover__icon-btn" aria-label="Paramètres de date et d'heure" disabled>
+                        <img src="./media/img/panel/calendar-settings.svg" alt="" aria-hidden="true">
+                    </button>
+                    <button type="button" class="calendar-popover__icon-btn" aria-label="Épingler le calendrier" disabled>
+                        <img src="./media/img/panel/calendar-pin.svg" alt="" aria-hidden="true">
+                    </button>
+                </div>
+            </header>
+            <div class="calendar-popover__controls">
+                <nav class="calendar-popover__tabs" aria-label="Vue calendrier">
+                    <button type="button" class="calendar-popover__tab is-active" data-tab="days" aria-selected="true">Jours</button>
+                    <button type="button" class="calendar-popover__tab" disabled aria-selected="false">Mois</button>
+                    <button type="button" class="calendar-popover__tab" disabled aria-selected="false">Années</button>
+                </nav>
+                <div class="calendar-popover__month-nav">
+                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month" aria-label="Mois précédent">‹</button>
+                    <button type="button" class="calendar-popover__today-btn" id="cal-today-btn">Aujourd'hui</button>
+                    <button type="button" class="calendar-popover__arrow" id="cal-next-month" aria-label="Mois suivant">›</button>
+                </div>
+            </div>
+            <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
+        </div>
+        <div class="calendar-popover__days" id="cal-days-grid"></div>
+    </div>
+    <div class="volume-popover" id="volume-popover" role="dialog" aria-label="Volume" hidden>
+        <div class="volume-popover__header">
+            <span class="volume-popover__label">Volume</span>
+            <span class="volume-popover__value" id="volume-value">100%</span>
+        </div>
+        <div class="volume-popover__body">
+            <button type="button" class="volume-popover__mute-btn" id="volume-mute-btn"
+                    aria-label="Couper le son" aria-pressed="false">
+                <span class="volume-popover__mute-icon" id="volume-mute-icon" aria-hidden="true"></span>
+            </button>
+            <input type="range" class="volume-slider" id="volume-slider"
+                   min="0" max="100" value="100" step="1"
+                   aria-label="Niveau du volume" aria-valuetext="100%">
+        </div>
+    </div>
+
+    <script>
+        window.CAPSULE_APPS_BASE = '../../../shared/apps';
+        window.CAPSULE_TEMPLATE_OVERRIDES = { mainMenu: './apps/mainMenu.html' };
+        window.CAPSULE_EMBED_SKIN_KEY = 'debian-kde';
+        /* Gabarit Dolphin complet (aperçu, panneaux) : évite un fetch 404 vers modules/ en local. */
+        window.CAPSULE_FORCE_APP_EMBED = true;
+        /* Incrémente après modif de style/apps/*.skin.css pour forcer le rechargement (F5). */
+        window.CAPSULE_SKIN_CSS_VERSION = '20260528x';
+        window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
+        window.CAPSULE_SKIN_BASE = '.';
+        window.CAPSULE_MEDIA_BASE = './media';
+        window.CAPSULE_ASSETS_BASE = './assets';
+        window.CAPSULE_STRINGS_URL = './content/strings.json';
+        window.CAPSULE_EXPLORER_APP_ID = 'nemo';
+        window.CAPSULE_EXPLORER_DISPLAY_NAME = 'Dolphin';
+        window.CAPSULE_EXPLORER_TEMPLATE = 'dolphin';
+        window.CAPSULE_EXPLORER_SKIN_KEY = 'dolphin';
+        window.CAPSULE_CHECKLIST_STORAGE_KEY = 'debian-kde-checklist';
+        window.CAPSULE_SITE_HOME = '../../../../../index.html';
+        window.CAPSULE_LINUX_HUB = '../../../index.html';
+        window.CAPSULE_TERMINAL_OS_FAMILY = 'linux';
+        window.CAPSULE_TERMINAL_PROFILE = 'debian';
+        window.CAPSULE_TERMINAL_USER = 'debian';
+        window.CAPSULE_TERMINAL_HOST = 'debian-kde';
+        window.CAPSULE_TERMINAL_HOME = '/home/user';
+        window.CAPSULE_FILE_EXPLORER_ICON_MAP = {
+            folder: '../../suse/opensuse/media/img/elements/places32/folder.svg',
+            Dossier_personnel: '../../suse/opensuse/media/img/elements/places32/folder.svg',
+            Bureau: '../../suse/opensuse/media/img/elements/places32/user-desktop.svg',
+            Documents: '../../suse/opensuse/media/img/elements/places32/folder-documents.svg',
+            Images: '../../suse/opensuse/media/img/elements/places32/folder-pictures.svg',
+            Musique: '../../suse/opensuse/media/img/elements/places32/folder-sound.svg',
+            Public: '../../suse/opensuse/media/img/elements/places32/folder-publicshare.svg',
+            'Téléchargements': '../../suse/opensuse/media/img/elements/places32/folder-download.svg',
+            'Vidéos': '../../suse/opensuse/media/img/elements/places32/folder-videos.svg',
+            'Modèles': '../../suse/opensuse/media/img/elements/places32/folder-templates.svg',
+            file: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            pdf: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            doc: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            txt: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            sh: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            html: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            css: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            js: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            ogg: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            mp3: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            wav: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            mp4: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            avi: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            jpeg: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            jpg: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            png: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg',
+            webp: '../../suse/opensuse/media/img/mimeTypes/application-x-generic.svg'
+        };
+    </script>
+    <script src="../../../../../js/capsule-pick-return.js"></script>
+    <script src="../../../kernel/js/capsule-app-embed.js?v=20260528w"></script>
+    <script src="../../../kernel/js/capsule-resource-url.js?v=20260528"></script>
+    <script src="../../../kernel/js/strings-default.js?v=20260421a"></script>
+    <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
+    <script src="../../../kernel/js/windowContainer.js?v=20260421a"></script>
+    <script src="../../../kernel/js/windowHeaderButton.js?v=20260421a"></script>
+    <script src="../../../kernel/js/resizeWindow.js"></script>
+    <script src="../../../kernel/js/windowDrag.js"></script>
+    <script src="./content/mainMenu-data.js?v=20260528"></script>
+    <script src="../../../kernel/js/mainMenu.js?v=20260428"></script>
+    <script src="./js/mainMenu-plasma.js?v=20260528"></script>
+    <script src="../../../kernel/js/themes.js?v=20260421a"></script>
+    <script src="./content/profile-data.js"></script>
+    <script src="../../../kernel/js/profile.js"></script>
+    <script src="../../../kernel/js/checklist.js"></script>
+    <script src="../../../kernel/js/firefoxBrowser.js"></script>
+    <script src="../../../kernel/js/contentLoader.js?v=20260528w"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerHeader.js?v=20260528x"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerContainer.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerCore.js?v=20260528y"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerDolphin.js?v=20260528y"></script>
+    <script src="../../../kernel/js/search/appSearch.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerInfo.js"></script>
+    <script src="../../../kernel/js/fileViewerRouter.js"></script>
+    <script src="../../../kernel/js/fileExplorer/fileExplorerLoader.js"></script>
+    <script src="../../../kernel/js/date.js"></script>
+    <script src="../../suse/opensuse/js/calendar-popover-kde.js?v=20260528"></script>
+    <script src="../../../kernel/js/terminal/config/command-registry.js"></script>
+    <script src="../../../kernel/js/terminal/config/profiles/linux/debian.js"></script>
+    <script src="../../../kernel/js/terminal/terminal-profile.js"></script>
+    <script src="../../../kernel/js/terminal/terminal-core.js"></script>
+    <script src="../../../kernel/js/terminal/terminal.js"></script>
+    <script src="../../suse/opensuse/js/terminal-konsole-chrome.js?v=20260528"></script>
+    <script src="../../../kernel/js/terminal/executeCommand.js"></script>
+    <script src="../../../kernel/js/terminal/filesystem.js"></script>
+    <script src="../../../kernel/js/terminal/manuel.js"></script>
+    <script src="../../../kernel/js/volume.js"></script>
+    <script src="../../../kernel/js/librewriter.js"></script>
+</body>
+
+</html>
+

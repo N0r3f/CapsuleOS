@@ -1,0 +1,12 @@
+{
+    "explorer.windowTitle": "Dossier personnel - Dolphin",
+    "mainMenu.windowTitle": "Menu des applications",
+    "mainMenu.userName": "debian",
+    "mainMenu.searchPlaceholder": "Rechercher…",
+    "terminal.windowTitle": "~ : bash - Konsole",
+    "themes.windowTitle": "Paramètres système",
+    "checklist.windowTitle": "Missions Debian KDE",
+    "checklist.description": "Explore Debian KDE en accomplissant ces missions. Ta progression est sauvegardée.",
+    "profile.windowTitle": "À propos - Debian KDE"
+}
+

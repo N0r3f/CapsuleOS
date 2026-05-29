@@ -1,5 +1,5 @@
 /**
- * Chrome fenêtres Pop!_OS — glyphes mask SVG inline (file://).
+ * Chrome fenêtres Pop!_OS - glyphes mask SVG inline (file://).
  */
 body#popos div[class^="windowElement"]:not(#mainMenu) {
     position: fixed;

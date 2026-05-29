@@ -1,6 +1,6 @@
 /**
  * Chaînes par défaut (français) pour les apps Linux simulées.
- * Clés plates — surchargées par `content/strings.json` de la skin ou `CAPSULE_STRINGS_INLINE`.
+ * Clés plates - surchargées par `content/strings.json` de la skin ou `CAPSULE_STRINGS_INLINE`.
  */
 window.CAPSULE_STRINGS_DEFAULT = {
     'explorer.windowTitle': 'Fichiers',
@@ -59,7 +59,7 @@ window.CAPSULE_STRINGS_DEFAULT = {
     'mainMenu.userName': 'utilisateur',
     'mainMenu.searchPlaceholder': 'Rechercher...',
     'profile.windowTitle': 'À Propos',
-    'librewriter.windowTitle': 'Sans nom 1 — LibreOffice Writer',
+    'librewriter.windowTitle': 'Sans nom 1 - LibreOffice Writer',
     'terminal.windowTitle': 'Terminal',
     'update_manager.windowTitle': 'Gestionnaire de mise à jour',
     'themes.windowTitle': 'Thèmes',
