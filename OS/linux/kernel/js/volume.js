@@ -59,11 +59,15 @@
         btn.setAttribute('aria-expanded', 'false');
     };
 
-    const getSiteHomeHref = () => {
-        if (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME) {
-            return String(window.CAPSULE_SITE_HOME);
+    const returnToPickHome = () => {
+        if (window.CapsulePickReturn) {
+            window.CapsulePickReturn.redirectToPickHome('linux');
+            return;
         }
-        return '../../../../../index.html';
+        const home = (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME)
+            ? String(window.CAPSULE_SITE_HOME)
+            : '../../../../../index.html';
+        window.location.href = `${home.split('#')[0].split('?')[0]}?pick=linux#choisir-os`;
     };
 
     const openPopover = (btn, popover, slider) => {
@@ -154,9 +158,7 @@
         }
 
         if (powerBtn) {
-            powerBtn.addEventListener('click', () => {
-                window.location.href = getSiteHomeHref();
-            });
+            powerBtn.addEventListener('click', returnToPickHome);
         }
 
         observer.observe(document.body, { childList: true, subtree: true });

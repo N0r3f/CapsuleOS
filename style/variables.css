@@ -12,6 +12,16 @@
     --violet: hsl(240, 66%, 11%);
     --texte: hsl(216, 100%, 95%);
     --orange: #ee7633;
+    /** LA CAPSULE **/
+    --lcap-bleu: #332F80;
+    --lcap-jaune: #F2BA42;
+    --lcap-blanc: #FFFFFF;
+    --home-bg-top: #3a3690;
+    --home-bg-bottom: #2a2668;
+    --home-accent-glow: rgba(242, 186, 66, 0.07);
+    --home-border-subtle: rgba(255, 255, 255, 0.08);
+    --header-font-size: calc(var(--head) * 0.4);
+    --header-offset: calc(var(--head) * 1.5);
     /** MINT **/
     --menuDefaultCcol: #2e2e2e;
     --menuDefaultCol: var(--menuDefaultCcol);
@@ -344,6 +354,7 @@
     --eas2: 0.2s ease-in-out;
 
     /************** TRANSFORM *************/
+    --tsp: scale(1.02);
     --tsc: scale(1.1);
     --trt: rotate(-2deg);
     --hr: rotate(90deg);

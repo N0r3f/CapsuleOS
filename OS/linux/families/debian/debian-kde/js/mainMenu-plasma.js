@@ -12,11 +12,15 @@
         (typeof MENU_CATS === 'undefined' ? [] : MENU_CATS).map((cat) => [cat.id, cat])
     );
 
-    function getLinuxDistroHubHref() {
-        if (typeof window !== 'undefined' && window.CAPSULE_LINUX_HUB) {
-            return String(window.CAPSULE_LINUX_HUB);
+    function returnToPickHome() {
+        if (window.CapsulePickReturn) {
+            window.CapsulePickReturn.redirectToPickHome('linux');
+            return;
         }
-        return '../../../index.html';
+        const home = (typeof window !== 'undefined' && window.CAPSULE_SITE_HOME)
+            ? String(window.CAPSULE_SITE_HOME)
+            : '../../../../../index.html';
+        window.location.href = `${home.split('#')[0].split('?')[0]}?pick=linux#choisir-os`;
     }
 
     function applyCategoryMetadata(btn) {
@@ -69,16 +73,13 @@
     }
 
     function bindPowerActions() {
-        const hub = getLinuxDistroHubHref();
         ['menu-btn-sleep', 'menu-btn-hibernate', 'menu-btn-restart', 'menu-btn-power', 'menu-btn-session'].forEach((id) => {
             const btn = document.getElementById(id);
             if (!btn || btn.dataset.plasmaBound === 'true') {
                 return;
             }
             btn.dataset.plasmaBound = 'true';
-            btn.addEventListener('click', () => {
-                window.location.href = hub;
-            });
+            btn.addEventListener('click', returnToPickHome);
         });
     }
 
