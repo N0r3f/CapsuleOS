@@ -75,6 +75,7 @@ function buildWindowTitles(merged) {
         profile: m['profile.windowTitle'] || 'À Propos',
         librewriter: m['librewriter.windowTitle'] || 'Sans nom 1 - LibreOffice Writer',
         terminal: m['terminal.windowTitle'] || 'Terminal',
+        update_manager: m['update_manager.windowTitle'] || 'Gestionnaire de mise à jour',
         themes: m['themes.windowTitle'] || 'Thèmes',
         checklist: m['checklist.windowTitle'] || 'Missions',
         mainMenu: m['mainMenu.windowTitle'] || 'Menu',

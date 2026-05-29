@@ -41,17 +41,31 @@ const resolveTemplateId = (slotId) => {
         const t = String(window.CAPSULE_EXPLORER_TEMPLATE).replace(/\/+$/, '');
         return t || 'nemo';
     }
+    if (slotId === 'mainMenu' && typeof window !== 'undefined' && window.CAPSULE_MAIN_MENU_TEMPLATE) {
+        const t = String(window.CAPSULE_MAIN_MENU_TEMPLATE).replace(/\/+$/, '');
+        return t || 'mainMenu';
+    }
     return slotId;
 };
 
 /** Gabarit HTML dérivé de Nautilus (ex. nemo-gnome) → CSS de base `nemo.base.css`. */
-const resolveCssBaseTemplateId = (templateId) => (
-    templateId === 'nemo-gnome' || templateId === 'nemo-cosmic' ? 'nemo' : templateId
-);
+const resolveCssBaseTemplateId = (templateId) => {
+    if (templateId === 'nemo-gnome' || templateId === 'nemo-cosmic') {
+        return 'nemo';
+    }
+    if (templateId === 'mainMenu-gnome') {
+        return 'mainMenu-gnome';
+    }
+    return templateId;
+};
 
 const resolveSkinId = (slotId, templateId) => {
     if (slotId === 'nemo' && typeof window !== 'undefined' && window.CAPSULE_EXPLORER_SKIN_KEY) {
         const skin = String(window.CAPSULE_EXPLORER_SKIN_KEY).replace(/\/+$/, '');
+        return skin || templateId;
+    }
+    if (slotId === 'mainMenu' && typeof window !== 'undefined' && window.CAPSULE_MAIN_MENU_SKIN_KEY) {
+        const skin = String(window.CAPSULE_MAIN_MENU_SKIN_KEY).replace(/\/+$/, '');
         return skin || templateId;
     }
     return templateId;
@@ -80,20 +94,23 @@ const resolveTemplateHtmlFile = (templateId, appsBase) => {
 const loadSlotAssets = (templateId, skinId, appsBase, cssSkinFile, cssSkinFallbackFile) => {
     const embed = typeof window !== 'undefined' && window.CAPSULE_APP_EMBED;
     if (shouldUseAppEmbed(templateId) && embed && embed.templates && embed.templates[templateId]) {
-        const t = embed.templates[templateId];
         const skinKey = getEmbedSkinKey();
-        const skinOverride = embed.skinTemplates
-            && embed.skinTemplates[skinKey]
-            && embed.skinTemplates[skinKey][templateId];
-        const skinMap = (embed.skins && embed.skins[skinKey]) || {};
-        const cssSkin = skinMap[skinId] != null
-            ? skinMap[skinId]
-            : (skinMap[templateId] != null ? skinMap[templateId] : '');
-        return Promise.resolve({
-            html: skinOverride && skinOverride.html ? skinOverride.html : t.html,
-            cssBase: t.cssBase,
-            cssSkin
-        });
+        const skinMap = embed.skins && embed.skins[skinKey];
+        if (skinMap) {
+            const t = embed.templates[templateId];
+            const skinOverride = embed.skinTemplates
+                && embed.skinTemplates[skinKey]
+                && embed.skinTemplates[skinKey][templateId];
+            const cssSkin = skinMap[skinId] != null
+                ? skinMap[skinId]
+                : (skinMap[templateId] != null ? skinMap[templateId] : '');
+            return Promise.resolve({
+                html: skinOverride && skinOverride.html ? skinOverride.html : t.html,
+                cssBase: t.cssBase,
+                cssSkin
+            });
+        }
+        console.warn(`CapsuleOS: embed sans skin "${skinKey}" pour ${templateId} — chargement fetch`);
     }
 
     const htmlFile = resolveTemplateHtmlFile(templateId, appsBase);
@@ -262,6 +279,11 @@ const SLOT_INIT_HANDLERS = {
             { fn: typeof renderFileViewer === 'function' ? renderFileViewer : null, args: ['lecteur_multimedia'] },
             { fn: typeof renderMintViewer === 'function' ? renderMintViewer : null, args: ['lecteur_multimedia'] }
         ]);
+    },
+    update_manager: () => {
+        if (typeof initUpdateManagerApp === 'function') {
+            initUpdateManagerApp();
+        }
     }
 };
 

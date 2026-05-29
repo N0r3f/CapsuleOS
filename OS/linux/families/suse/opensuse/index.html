@@ -31,6 +31,7 @@
         <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none; position: fixed;"></div>
     </object>
     <footer id="tableau">
         <nav class="taskbar-pins" aria-label="Applications épinglées">
@@ -63,6 +64,14 @@
                 <span class="taskbar-tray__item" title="Luminosité">
                     <img src="./media/img/panel/display.svg" alt="" aria-hidden="true">
                 </span>
+                <button type="button"
+                        class="taskbar-tray__btn taskbar-tray__btn--updates"
+                        data-update-manager-tray
+                        data-has-updates="true"
+                        aria-label="Mises à jour disponibles"
+                        title="Mises à jour">
+                    <span class="taskbar-tray__icon taskbar-tray__icon--updates" aria-hidden="true"></span>
+                </button>
                 <span class="taskbar-tray__item" title="Réseau">
                     <img src="./media/img/panel/network.svg" alt="" aria-hidden="true">
                 </span>
@@ -129,7 +138,10 @@
     </div>
     <script>
         window.CAPSULE_APPS_BASE = '../../../shared/apps';
-        window.CAPSULE_TEMPLATE_OVERRIDES = { mainMenu: './apps/mainMenu.html' };
+        window.CAPSULE_TEMPLATE_OVERRIDES = {
+            mainMenu: './apps/mainMenu.html',
+            update_manager: '../../../shared/apps/update_manager_kde.html'
+        };
         window.CAPSULE_EMBED_SKIN_KEY = 'opensuse';
         window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
         window.CAPSULE_SKIN_BASE = '.';
@@ -177,7 +189,7 @@
         window.CAPSULE_TERMINAL_HOME = '/home/user';
     </script>
     <script src="../../../../../js/capsule-pick-return.js"></script>
-    <script src="../../../kernel/js/capsule-app-embed.js?v=20260529e"></script>
+    <script src="../../../kernel/js/capsule-app-embed.js?v=20260529f"></script>
     <script src="../../../kernel/js/strings-default.js?v=20260421a"></script>
     <script src="../../../kernel/js/capsule-strings.js?v=20260427b"></script>
     <script src="../../../kernel/js/windowContainer.js?v=20260421a"></script>
@@ -193,7 +205,7 @@
     <script src="../../../kernel/js/profile.js"></script>
     <script src="../../../kernel/js/checklist.js"></script>
     <script src="../../../kernel/js/firefoxBrowser.js"></script>
-    <script src="../../../kernel/js/contentLoader.js?v=20260529a"></script>
+    <script src="../../../kernel/js/contentLoader.js?v=20260529b"></script>
     <script src="../../../kernel/js/fileExplorer/fileExplorerHeader.js"></script>
     <script src="../../../kernel/js/fileExplorer/fileExplorerContainer.js"></script>
     <script src="../../../kernel/js/fileExplorer/fileExplorerCore.js?v=20260528e"></script>
@@ -215,5 +227,6 @@
     <script src="../../../kernel/js/terminal/manuel.js"></script>
     <script src="../../../kernel/js/volume.js"></script>
     <script src="../../../kernel/js/librewriter.js"></script>
+    <script src="../../../kernel/js/update-manager.js?v=20260529a"></script>
 </body>
 </html>

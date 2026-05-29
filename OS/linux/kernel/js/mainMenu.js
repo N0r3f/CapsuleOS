@@ -1,4 +1,11 @@
 function initMainMenu() {
+    if (document.getElementById('menu-gnome-root')) {
+        if (typeof initMainMenuGnome === 'function') {
+            initMainMenuGnome();
+        }
+        return;
+    }
+
     const catsList    = document.getElementById('menu-cats');
     const appList     = document.getElementById('menu-app-list');
     const searchInput = document.getElementById('menu-search');

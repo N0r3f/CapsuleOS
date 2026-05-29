@@ -257,6 +257,31 @@ window.isDolphinTemplate = isDolphinTemplate;
 
 const isCosmicFilesExplorer = () => !!document.querySelector('#nemo main#gestionnaire.cosmic-files-app');
 
+const usesNemoListView = () => (
+    isCosmicFilesExplorer()
+    || (typeof window !== 'undefined' && window.CAPSULE_EXPLORER_LIST_VIEW === true)
+);
+
+const usesNemoListViewFrenchColumns = () => (
+    typeof window !== 'undefined'
+    && window.CAPSULE_EXPLORER_LIST_VIEW === true
+    && !isCosmicFilesExplorer()
+);
+
+const shouldHideListViewItem = (item, directoryPath) => {
+    if (isCosmicFilesExplorer() && item.name === 'Public') {
+        return true;
+    }
+    if (
+        usesNemoListViewFrenchColumns()
+        && directoryPath === getFileExplorerRoot()
+        && item.name === 'snap'
+    ) {
+        return true;
+    }
+    return false;
+};
+
 const isGnomeFilesExplorer = () => (
     typeof window !== 'undefined'
     && window.CAPSULE_EXPLORER_SKIN_KEY === 'files'
@@ -304,6 +329,55 @@ const formatCosmicItemSize = (item) => {
         return '1 item';
     }
     return `${count} items`;
+};
+
+const formatListItemSizeFrench = (item) => {
+    if (item.type !== 'folder') {
+        return '—';
+    }
+    const count = getCosmicFolderItemCount(item);
+    if (count === 0) {
+        return '0 élément';
+    }
+    if (count === 1) {
+        return '1 élément';
+    }
+    return `${count} éléments`;
+};
+
+const ensureNemoListViewChrome = () => {
+    if (!usesNemoListView()) {
+        return;
+    }
+
+    const voletContainer = document.querySelector('#nemo #voletContainer');
+    const nemoElement = document.querySelector('#nemo .nemoElement');
+    if (!voletContainer || !nemoElement) {
+        return;
+    }
+
+    if (!voletContainer.querySelector('.nemo-app__list-header')) {
+        const header = document.createElement('div');
+        header.className = 'nemo-app__list-header';
+        header.setAttribute('aria-hidden', 'true');
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'nemo-app__list-header-name';
+        nameSpan.textContent = 'Nom';
+
+        const sizeSpan = document.createElement('span');
+        sizeSpan.className = 'nemo-app__list-header-size';
+        sizeSpan.textContent = 'Taille';
+
+        const modifiedSpan = document.createElement('span');
+        modifiedSpan.className = 'nemo-app__list-header-modified';
+        modifiedSpan.textContent = usesNemoListViewFrenchColumns() ? 'Dernière modification' : 'Modifié';
+
+        header.append(nameSpan, sizeSpan, modifiedSpan);
+        voletContainer.insertBefore(header, nemoElement);
+    }
+
+    nemoElement.classList.add('nemo-app__content-grid', 'nemo-app__content-grid--list');
 };
 
 const countFoldersInItems = (items) => {
@@ -510,6 +584,8 @@ const renderDirectory = (path, options = {}) => {
         return;
     }
 
+    ensureNemoListViewChrome();
+
     const folderNode = fileExplorerState.manifest.folders[path];
     nemoElement.innerHTML = '';
 
@@ -536,7 +612,7 @@ const renderDirectory = (path, options = {}) => {
     }
 
     items.forEach((item) => {
-        if (isCosmicFilesExplorer() && item.name === 'Public') {
+        if (shouldHideListViewItem(item, path)) {
             return;
         }
 
@@ -562,20 +638,22 @@ const renderDirectory = (path, options = {}) => {
         icon.alt = item.name;
         itemLink.appendChild(icon);
 
-        if (isCosmicFilesExplorer()) {
+        if (usesNemoListView()) {
             const body = document.createElement('span');
             body.className = 'nemo-app__item-body';
 
             const nameEl = document.createElement('span');
             nameEl.className = 'nemo-app__item-name';
             nameEl.textContent = item.name;
-
-            const metaEl = document.createElement('span');
-            metaEl.className = 'nemo-app__item-meta';
-            metaEl.textContent = formatCosmicItemMeta(item);
-
             body.appendChild(nameEl);
-            body.appendChild(metaEl);
+
+            if (isCosmicFilesExplorer()) {
+                const metaEl = document.createElement('span');
+                metaEl.className = 'nemo-app__item-meta';
+                metaEl.textContent = formatCosmicItemMeta(item);
+                body.appendChild(metaEl);
+            }
+
             itemLink.appendChild(body);
 
             const modifiedEl = document.createElement('span');
@@ -585,7 +663,9 @@ const renderDirectory = (path, options = {}) => {
 
             const sizeEl = document.createElement('span');
             sizeEl.className = 'nemo-app__item-size';
-            sizeEl.textContent = formatCosmicItemSize(item);
+            sizeEl.textContent = usesNemoListViewFrenchColumns()
+                ? formatListItemSizeFrench(item)
+                : formatCosmicItemSize(item);
             itemLink.appendChild(sizeEl);
         } else {
             const label = document.createElement('span');

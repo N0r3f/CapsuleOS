@@ -75,6 +75,13 @@ html[data-theme="light"] #mx-kde #windowTitle {
     text-shadow: none;
 }
 
+/* En thème sombre KDE, le titre doit rester lisible (blanc) */
+body#mx-kde #windowTitle {
+    color: var(--mx-kde-window-titlebar-fg);
+    filter: none;
+    text-shadow: none;
+}
+
 #windowTitle {
     width: calc(var(--head) * 20);
     text-align: var(--c);
@@ -112,22 +119,23 @@ html[data-theme="light"] #mx-kde #windowTitle {
     outline-offset: 1px;
 }
 
-#minimizeBtn {
-    background-image: url(../media/img/header/minimize.svg);
+/* Contrôles fenêtre KDE — icônes robustes (éviter override apps) */
+body#mx-kde div.windowElement #windowHeader > nav:last-child > button#minimizeBtn {
+    background-image: url(../media/img/header/minimize.svg) !important;
 }
 
-#resizeBtn {
-    background-image: url(../media/img/header/maximize.svg);
-    background-size: calc(var(--head) / 2.55);
+body#mx-kde div.windowElement #windowHeader > nav:last-child > button#resizeBtn {
+    background-image: url(../media/img/header/window-restore.svg) !important;
+    background-size: calc(var(--head) / 2.55) !important;
 }
 
-.windowElement[data-maximized="true"] #resizeBtn {
-    background-image: url(../media/img/header/restore.svg);
-    background-size: calc(var(--head) / 2.55);
+body#mx-kde div.windowElement[data-maximized="true"] #windowHeader > nav:last-child > button#resizeBtn {
+    background-image: url(../media/img/header/window-restore.svg) !important;
+    background-size: calc(var(--head) / 2.55) !important;
 }
 
-#closeBtn {
-    background-image: url(../media/img/header/close.svg);
+body#mx-kde div.windowElement #windowHeader > nav:last-child > button#closeBtn {
+    background-image: url(../media/img/header/window-close.svg) !important;
     background-color: rgba(194, 72, 86, 0.14);
     border-color: rgba(255, 126, 138, 0.15);
 }

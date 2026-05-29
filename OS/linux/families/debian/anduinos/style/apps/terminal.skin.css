@@ -1,0 +1,6 @@
+body#anduinos #terminal {
+    width: min(43rem, calc(100vw - 1.5rem));
+    height: auto;
+    max-height: none;
+    background: #1d1d20;
+}

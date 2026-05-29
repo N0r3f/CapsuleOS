@@ -27,6 +27,7 @@
         <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
         <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none; position: fixed;"></div>
     </object>
     <footer id="tableau">
         <nav>
@@ -57,7 +58,14 @@
         </nav>
         <div class="taskbar-right">
             <div class="taskbar-tray">
-                <span class="taskbar-tray__icon taskbar-tray__icon--shield" aria-hidden="true" title="Sécurité système"></span>
+                <button type="button"
+                        class="taskbar-tray__btn taskbar-tray__btn--updates"
+                        data-update-manager-tray
+                        data-has-updates="true"
+                        aria-label="Mises à jour disponibles"
+                        title="Gestionnaire de mise à jour">
+                    <span class="taskbar-tray__icon taskbar-tray__icon--shield" aria-hidden="true"></span>
+                </button>
                 <span class="taskbar-tray__icon taskbar-tray__icon--network" aria-hidden="true" title="Réseau"></span>
                 <button type="button" class="taskbar-tray__btn" id="tray-sound-btn"
                         aria-expanded="false" aria-controls="volume-popover"
@@ -164,5 +172,6 @@
     <script src="../../../kernel/js/terminal/manuel.js"></script>
     <script src="../../../kernel/js/volume.js"></script>
     <script src="../../../kernel/js/librewriter.js"></script>
+    <script src="../../../kernel/js/update-manager.js"></script>
 </body>
 </html>

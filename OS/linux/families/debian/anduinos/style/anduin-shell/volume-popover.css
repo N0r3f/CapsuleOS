@@ -1,0 +1,52 @@
+body#anduinos .volume-popover {
+    position: fixed;
+    right: var(--calendar-popover-offset);
+    bottom: calc(var(--anduin-taskbar-height) + var(--calendar-popover-offset));
+    z-index: var(--z-calendar-popover);
+    width: 13rem;
+    padding: calc(var(--head) / 3) calc(var(--head) / 2.5);
+    border-radius: var(--volume-popover-radius);
+    background: var(--volume-popover-bg);
+    border: var(--volume-popover-border);
+    box-shadow: var(--volume-popover-shadow);
+    color: var(--volume-popover-text);
+    font-family: "Cantarell", var(--font-ui);
+}
+
+body#anduinos .volume-popover[hidden] {
+    display: none;
+}
+
+body#anduinos .volume-popover__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: calc(var(--head) / 4);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+body#anduinos .volume-popover__body {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 5);
+}
+
+body#anduinos .volume-popover__mute-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 0.75);
+    height: calc(var(--head) * 0.75);
+    padding: 0;
+    border: 0;
+    border-radius: 0.35rem;
+    color: inherit;
+    background: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+}
+
+body#anduinos .volume-slider {
+    flex: 1 1 auto;
+    accent-color: var(--anduin-accent);
+}

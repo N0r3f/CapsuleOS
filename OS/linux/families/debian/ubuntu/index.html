@@ -46,12 +46,13 @@
                 <a target="windowElement" data-link="nemo" title="Fichiers">
                     <img src="./media/img/dock/files.png" alt="Fichiers" width="48" height="48">
                 </a>
-                <a target="windowElement" data-link="themes" title="Ubuntu Software">
+                <a target="windowElement" data-link="update_manager" title="Ubuntu Software">
                     <img src="./media/img/dock/software-store.png" alt="Ubuntu Software" width="48" height="48">
                 </a>
-                <a target="windowElement" data-link="profile" title="Aide Ubuntu">
+                <button type="button" class="ubuntu-dock__help" id="ubuntu-help-theme-btn" title="Aide Ubuntu"
+                        aria-label="Aide Ubuntu (changer le thème clair/sombre)">
                     <img src="./media/img/dock/help.png" alt="Aide" width="48" height="48">
-                </a>
+                </button>
                 <a target="windowElement" data-link="terminal" title="Terminal">
                     <img src="./media/img/dock/terminal.png" alt="Terminal" width="48" height="48">
                 </a>
@@ -81,6 +82,7 @@
                 <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none; position: fixed;"></div>
                 <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none; position: fixed;"></div>
                 <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none; position: fixed;"></div>
+                <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none; position: fixed;"></div>
             </object>
         </main>
     </div>
@@ -252,6 +254,9 @@
     </div>
     <script>
         window.CAPSULE_APPS_BASE = '../../../shared/apps';
+        window.CAPSULE_TEMPLATE_OVERRIDES = {
+            update_manager: '../../../shared/apps/update_manager_ubuntu.html'
+        };
         window.CAPSULE_CONTENT_ROOT = '../../../shared/content/Dossier_personnel';
         window.CAPSULE_SKIN_BASE = '.';
         window.CAPSULE_STRINGS_URL = './content/strings.json';
@@ -335,6 +340,7 @@
     <script src="../../../kernel/js/volume.js"></script>
     <script src="../../../kernel/js/librewriter.js"></script>
     <script src="../../../kernel/js/search/appSearch.js"></script>
+    <script src="../../../kernel/js/update-manager.js"></script>
     <script src="./js/overview.js?v=20260521b"></script>
     <script>
     (function () {
@@ -348,6 +354,32 @@
             updateUbuntuDate();
             setInterval(updateUbuntuDate, 60000);
         });
+    })();
+    </script>
+    <script>
+    (function () {
+        function bindUbuntuHelpThemeToggle() {
+            var helpBtn = document.getElementById('ubuntu-help-theme-btn');
+            if (!helpBtn || helpBtn.dataset.bound === 'true') return;
+            helpBtn.dataset.bound = 'true';
+
+            helpBtn.addEventListener('click', function () {
+                var qsThemeBtn = document.getElementById('quick-settings-theme-btn');
+                if (qsThemeBtn) {
+                    qsThemeBtn.click();
+                    return;
+                }
+                var nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+                document.documentElement.dataset.theme = nextTheme;
+                localStorage.setItem('mint-theme', nextTheme);
+                var label = document.getElementById('quick-settings-theme-label');
+                if (label) {
+                    label.textContent = nextTheme === 'light' ? 'Style clair' : 'Style sombre';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', bindUbuntuHelpThemeToggle);
     })();
     </script>
 </body>

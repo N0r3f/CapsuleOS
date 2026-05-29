@@ -1,0 +1,56 @@
+/**
+ * AnduinOS — tokens shell (barre basse, fenêtres, surfaces).
+ * Réf. visuel : visuel/screen_AnduinOS/
+ */
+
+html:has(#anduinos) {
+    --menu-accent: #3584e4;
+    --anduin-accent: #3584e4;
+    --anduin-taskbar-height: calc(var(--head) * 1.38);
+    --taskbar-height: var(--anduin-taskbar-height);
+    --anduin-window-inset-top: calc(var(--head) * 0.65);
+    --anduin-window-inset-bottom: var(--anduin-taskbar-height);
+    --anduin-shell-text: #f5f6f8;
+    --anduin-shell-muted: rgba(245, 246, 248, 0.72);
+    --anduin-taskbar-bg: rgba(10, 18, 32, 0.5);
+    --anduin-taskbar-bg-fallback: rgba(14, 22, 38, 0.88);
+    --anduin-taskbar-border: 1px solid rgba(255, 255, 255, 0.08);
+    --anduin-taskbar-blur: blur(24px) saturate(1.15);
+    --anduin-taskbar-indicator: #62a0ea;
+    --anduin-window-radius: 0.72rem;
+    --anduin-window-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    --anduin-window-surface: #2a2a2e;
+    --anduin-window-header-bg: #38383d;
+    --anduin-window-header-active: #404046;
+    --anduin-window-header-border: rgba(0, 0, 0, 0.45);
+    --anduin-window-title-color: #f5f6f8;
+    --anduin-window-control-color: #f5f6f8;
+    --anduin-window-control-bg: transparent;
+    --anduin-window-control-hover-bg: rgba(255, 255, 255, 0.12);
+    --anduin-window-control-close-bg: rgba(255, 255, 255, 0.1);
+    --anduin-window-control-close-hover-bg: rgba(255, 255, 255, 0.18);
+    --anduin-desktop-shortcut-color: #ffffff;
+    --anduin-desktop-shortcut-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    --volume-popover-bg: rgba(40, 42, 48, 0.96);
+    --volume-popover-border: 1px solid rgba(255, 255, 255, 0.08);
+    --volume-popover-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --volume-popover-text: #f5f6f8;
+    --volume-popover-radius: 0.65rem;
+    --calendar-popover-offset: 0.55rem;
+    --z-calendar-popover: 120;
+}
+
+body#anduinos {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: var(--anduin-shell-text);
+    font-family: "Cantarell", var(--font-ui);
+    background-color: #0d1528;
+    background-image: url("../../media/img/wallpaper/anduin-desktop.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
