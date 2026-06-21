@@ -3,7 +3,7 @@
   "private": true,
   "description": "Dépendances Node pour les smokes lab (Playwright).",
   "devDependencies": {
-    "@cyclonedx/cyclonedx-npm": "^2.1.0",
+    "@cyclonedx/cyclonedx-npm": "^5.0.0",
     "pixelmatch": "^7.2.0",
     "playwright": "1.60.0",
     "pngjs": "^7.0.0",
