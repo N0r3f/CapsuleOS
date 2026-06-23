@@ -1,9 +1,0 @@
-{
-  "registryId": "linux-kde-neon",
-  "toolkit": "kde",
-  "h6Ready": true,
-  "pbSigma": true,
-  "h5Completed": [],
-  "gate": "smoke-h6-kde-settings-ready.mjs",
-  "generatedAt": "2026-06-14T15:16:15.080Z"
-}

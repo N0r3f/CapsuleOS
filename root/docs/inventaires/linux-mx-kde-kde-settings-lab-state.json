@@ -1,9 +1,0 @@
-{
-  "registryId": "linux-mx-kde",
-  "gates": {
-    "L": {
-      "ok": true,
-      "at": "2026-06-14T17:32:58.600Z"
-    }
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "registryId": "linux-anduinos",
-  "h6Ready": true,
-  "pbSigma": true,
-  "h5Completed": [],
-  "skipH5P1": true,
-  "gate": "smoke-h6-gnome-settings-ready.mjs",
-  "generatedAt": "2026-06-17T16:46:59.862Z"
-}
