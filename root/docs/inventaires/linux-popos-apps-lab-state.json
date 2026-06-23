@@ -1,9 +1,0 @@
-{
-  "registryId": "linux-popos",
-  "status": "done",
-  "updatedAt": "2026-06-19T13:07:34.346Z",
-  "gate": "run-apps-lab.mjs",
-  "playwright": false,
-  "vm": false,
-  "shell": false
-}

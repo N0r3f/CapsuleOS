@@ -1,9 +1,0 @@
-{
-  "registryId": "linux-mint",
-  "status": "done",
-  "updatedAt": "2026-06-17T22:39:56.613Z",
-  "gate": "run-apps-lab.mjs",
-  "playwright": false,
-  "vm": false,
-  "shell": false
-}

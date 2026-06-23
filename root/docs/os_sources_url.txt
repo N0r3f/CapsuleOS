@@ -1,4 +1,0 @@
-BSD : https://cgit.freebsd.org/src/tree/share/misc/bsd-family-tree
-LINUX : https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg
-ARCHIVES : https://distroware.org/
-LINUX KERNEL : https://makelinux.github.io/kernel/map/
