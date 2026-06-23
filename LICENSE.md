@@ -7,7 +7,7 @@ Contact : [info@noref.fr](mailto:info@noref.fr)
 
 Le code source, la documentation technique et les outils de ce dépôt sont distribués sous **GNU General Public License version 3** (GPL-3.0).
 
-- Texte intégral : fichier [`LICENSE`](LICENSE) à la racine du dépôt
+- Texte intégral : fichier [`LICENSE`](LICENSES/GPL-3.0-or-later.txt) depuis la racine du dépôt
 - Résumé officiel : [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)
 
 En contribuant, vous acceptez que vos apports soient licenciés sous les mêmes termes, conformément au [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) et à la [convention clean code](root/docs/convention-clean-code.md).
