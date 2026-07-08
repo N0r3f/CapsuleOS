@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/dithered-sun-l.jxl",
+  "sourceSha256": "22123c63d593707c2a1963bf7e115e2021d5e0272cebc7a3d9e1d0e2b92a835f",
+  "output": "images/vendors/fedora/wallpaper/dithered-sun-l.webp",
+  "outputSha256": "3f6da68a2edf04be65f8ff6ee3271df63fdf9614bc339870f5fd51b174c31692",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:25:02.889Z"
+}

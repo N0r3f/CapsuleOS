@@ -1,0 +1,205 @@
+main#visionneurImages.loupe-app {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-ui, Cantarell, sans-serif);
+    box-sizing: border-box;
+}
+
+.loupe-app__toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: 0.5rem;
+    min-height: var(--gnome-adw-headerbar-h, 2.875rem);
+    padding: 0 0.65rem;
+    border-bottom: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.loupe-app__toolbar-group {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.loupe-app__toolbar-group--zoom {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.loupe-app__toolbar-group--actions {
+    flex: 0 0 auto;
+}
+
+.loupe-app__tool {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+}
+
+.loupe-app__tool:hover {
+    background: rgba(127, 127, 127, 0.2);
+}
+
+.loupe-app__tool-glyph {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.loupe-app__tool-glyph--zoom-out {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3.5 7.25h9v1.5h-9v-1.5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3.5 7.25h9v1.5h-9v-1.5z'/%3E%3C/svg%3E");
+}
+
+.loupe-app__tool-glyph--zoom-in {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M7.25 3.5h1.5v3.5h3.5v1.5h-3.5v3.5h-1.5V8.5H3.5V7h3.75V3.5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M7.25 3.5h1.5v3.5h3.5v1.5h-3.5v3.5h-1.5V8.5H3.5V7h3.75V3.5z'/%3E%3C/svg%3E");
+}
+
+.loupe-app__tool-glyph--zoom-fit {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2.5 5.5V3.5h2V2H2a1.5 1.5 0 0 0-1.5 1.5v3H2.5zm11 0H14V2a1.5 1.5 0 0 0-1.5-1.5h-2.5v1.5h2v2h-1.5zM3.5 10.5H2V14A1.5 1.5 0 0 0 3.5 15.5H6v-1.5H3.5v-3.5zm9 0V14h-2.5v1.5H14A1.5 1.5 0 0 0 15.5 14v-3.5h-1.5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2.5 5.5V3.5h2V2H2a1.5 1.5 0 0 0-1.5 1.5v3H2.5zm11 0H14V2a1.5 1.5 0 0 0-1.5-1.5h-2.5v1.5h2v2h-1.5zM3.5 10.5H2V14A1.5 1.5 0 0 0 3.5 15.5H6v-1.5H3.5v-3.5zm9 0V14h-2.5v1.5H14A1.5 1.5 0 0 0 15.5 14v-3.5h-1.5z'/%3E%3C/svg%3E");
+}
+
+.loupe-app__tool-glyph--rotate {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M11.2 2.2 10 3.4A5 5 0 1 0 13 8h1.5a6.5 6.5 0 1 1-2-4.6l1.2-1.2H8.5V2h4v4h-1.3V2.2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M11.2 2.2 10 3.4A5 5 0 1 0 13 8h1.5a6.5 6.5 0 1 1-2-4.6l1.2-1.2H8.5V2h4v4h-1.3V2.2z'/%3E%3C/svg%3E");
+}
+
+.loupe-app__tool-glyph--info {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 3a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM7 7.25h1.5V12H7V7.25z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm0 3a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM7 7.25h1.5V12H7V7.25z'/%3E%3C/svg%3E");
+}
+
+.loupe-app__zoom-label {
+    min-width: 3.25rem;
+    padding: 0 0.35rem;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.loupe-app__body {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.loupe-app__canvas {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0.75rem;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.loupe-app__empty {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    max-width: 16rem;
+    text-align: center;
+}
+
+.loupe-app__empty-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.loupe-app__empty-hint {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    opacity: 0.72;
+}
+
+.loupe-app__canvas .viewer-app__image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    border: 0;
+    border-radius: 0.25rem;
+    object-fit: contain;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
+}
+
+.loupe-app__canvas .viewer-app__message {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.loupe-app__meta {
+    flex: 0 0 13.5rem;
+    min-width: 13.5rem;
+    padding: 0.85rem 0.9rem;
+    border-left: 1px solid transparent;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.loupe-app__meta-heading {
+    margin: 0 0 0.75rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.loupe-app__meta-list {
+    margin: 0;
+}
+
+.loupe-app__meta-row {
+    margin-bottom: 0.65rem;
+}
+
+.loupe-app__meta-row dt {
+    margin: 0 0 0.15rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.65;
+}
+
+.loupe-app__meta-row dd {
+    margin: 0;
+    font-size: 0.84rem;
+    word-break: break-word;
+}

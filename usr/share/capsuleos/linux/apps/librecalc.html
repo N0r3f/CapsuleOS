@@ -1,0 +1,101 @@
+<div class="lc-app" id="lc-app" aria-label="LibreOffice Calc">
+
+  <nav class="lc-menubar lw-menubar" role="menubar" aria-label="Barre de menus">
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Fichier</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Nouveau<span class="lw-menu__sc">Ctrl+N</span></button></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Ouvrir…<span class="lw-menu__sc">Ctrl+O</span></button></li>
+        <li class="lw-menu__sep" role="separator"></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Enregistrer<span class="lw-menu__sc">Ctrl+S</span></button></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Exporter en PDF…</button></li>
+      </ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Édition</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Annuler<span class="lw-menu__sc">Ctrl+Z</span></button></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Rétablir<span class="lw-menu__sc">Ctrl+Y</span></button></li>
+        <li class="lw-menu__sep" role="separator"></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Couper<span class="lw-menu__sc">Ctrl+X</span></button></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Copier<span class="lw-menu__sc">Ctrl+C</span></button></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Coller<span class="lw-menu__sc">Ctrl+V</span></button></li>
+      </ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Affichage</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden></ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Insertion</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden></ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Format</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden></ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Données</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden></ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Outils</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden></ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Fenêtre</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden></ul>
+    </div>
+    <div class="lw-menu" role="none">
+      <button class="lw-menu__trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">Aide</button>
+      <ul class="lw-menu__dropdown" role="menu" hidden>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">Aide de LibreOffice<span class="lw-menu__sc">F1</span></button></li>
+        <li role="none"><button class="lw-menu__item" type="button" role="menuitem">À propos de LibreOffice…</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="lc-toolbar" role="toolbar" aria-label="Barre Standard">
+    <button type="button" class="lc-tb-btn" title="Nouveau" aria-label="Nouveau"></button>
+    <button type="button" class="lc-tb-btn lc-tb-btn--open" title="Ouvrir" aria-label="Ouvrir"></button>
+    <button type="button" class="lc-tb-btn lc-tb-btn--save" title="Enregistrer" aria-label="Enregistrer"></button>
+    <span class="lc-tb-sep" aria-hidden="true"></span>
+    <button type="button" class="lc-tb-btn lc-tb-btn--undo" title="Annuler" aria-label="Annuler"></button>
+    <button type="button" class="lc-tb-btn lc-tb-btn--redo" title="Rétablir" aria-label="Rétablir"></button>
+    <span class="lc-tb-sep" aria-hidden="true"></span>
+    <button type="button" class="lc-tb-btn lc-tb-btn--sum" title="Somme" aria-label="Somme"></button>
+    <button type="button" class="lc-tb-btn lc-tb-btn--fx" title="Assistant fonction" aria-label="Assistant fonction">fx</button>
+  </div>
+
+  <div class="lc-formula" aria-label="Barre de formule">
+    <output class="lc-formula__ref" id="lc-cell-ref" for="lc-grid">A1</output>
+    <button type="button" class="lc-formula__fx" title="Assistant fonction" aria-label="Assistant fonction">fx</button>
+    <input class="lc-formula__input" id="lc-formula-input" type="text" value="=" readonly aria-label="Formule">
+  </div>
+
+  <div class="lc-grid-wrap">
+    <table class="lc-grid" id="lc-grid" aria-label="Feuille de calcul">
+      <thead>
+        <tr>
+          <th class="lc-grid__corner" scope="col"></th>
+          <th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th>
+          <th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th>
+        </tr>
+      </thead>
+      <tbody id="lc-grid-body"></tbody>
+    </table>
+  </div>
+
+  <footer class="lc-status" aria-label="Barre d'état">
+    <div class="lc-sheets" role="tablist" aria-label="Feuilles">
+      <button type="button" class="lc-sheets__tab is-active" role="tab" aria-selected="true">Feuille1</button>
+    </div>
+    <div class="lc-status__info">
+      <span>Prêt</span>
+      <span class="lc-status__sep">|</span>
+      <span>Moyenne :</span>
+      <span class="lc-status__sep">|</span>
+      <span>Somme : 0</span>
+    </div>
+  </footer>
+</div>

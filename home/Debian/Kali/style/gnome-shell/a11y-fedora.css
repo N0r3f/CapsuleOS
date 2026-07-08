@@ -1,0 +1,93 @@
+/**
+ * Accessibilité shell Fedora - fork ciblé de mint/style/a11y-overrides.css (#mint → #kali).
+ * Les règles html[data-font-scale] racines restent dans variables / mint sur autres pages ;
+ * ici uniquement ce qui concerne le corps #kali.
+ */
+
+html[data-font-scale="100"] #kali,
+html[data-font-scale="110"] #kali,
+html[data-font-scale="125"] #kali {
+    font-size: calc(1rem * var(--a11y-font-scale-factor));
+}
+
+#kali :where(a, button, input, [role="button"], [role="radio"], [tabindex="0"]):focus-visible:not(
+    :is(.gnome-settings__search-input, .nautilus-app__search-input, .adw-slider)
+) {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 1px;
+    box-shadow: var(--a11y-focus-shadow);
+}
+
+#kali .menu-shortcut,
+#kali .menu-cat,
+#kali .menu-app-item,
+#kali .themes-card,
+#kali .themes-app__select,
+#kali .themes-scale-button,
+#kali .themes-contrast-card {
+    font-size: calc(var(--head) / 3 * var(--a11y-font-scale-factor));
+}
+
+#kali #windowTitle,
+#kali .taskbar__clock,
+#kali .desktop-shortcut > span,
+#kali .themes-app__help,
+#kali .menu-app-item__desc,
+#kali .menu-app-item__name {
+    font-size: calc((var(--head) / 3) * var(--a11y-font-scale-factor));
+}
+
+html[data-contrast-mode="high"] #kali {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] .menu-root,
+html[data-contrast-mode="high"] .menu-sidebar,
+html[data-contrast-mode="high"] .menu-categories,
+html[data-contrast-mode="high"] .menu-apps,
+html[data-contrast-mode="high"] #kali #tableau,
+html[data-contrast-mode="high"] #kali .windowElement,
+html[data-contrast-mode="high"] #kali #windowHeader,
+html[data-contrast-mode="high"] .themes-app,
+html[data-contrast-mode="high"] .themes-app__cards,
+html[data-contrast-mode="high"] .themes-app__help,
+html[data-contrast-mode="high"] .themes-card,
+html[data-contrast-mode="high"] .themes-contrast-card,
+html[data-contrast-mode="high"] .menu-search,
+html[data-contrast-mode="high"] .calendar-popover {
+    background: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+    border-color: var(--a11y-contrast-border);
+}
+
+html[data-contrast-mode="high"] .menu-shortcut:hover,
+html[data-contrast-mode="high"] .menu-cat:hover,
+html[data-contrast-mode="high"] .menu-app-item:hover:not(.is-unavailable),
+html[data-contrast-mode="high"] .themes-card:hover,
+html[data-contrast-mode="high"] .themes-contrast-card:hover,
+html[data-contrast-mode="high"] .themes-scale-button:hover,
+html[data-contrast-mode="high"] .menu-action:hover {
+    background: var(--a11y-contrast-hover);
+}
+
+html[data-contrast-mode="high"] .menu-app-item__desc,
+html[data-contrast-mode="high"] .themes-app__help,
+html[data-contrast-mode="high"] .menu-user__name,
+html[data-contrast-mode="high"] #kali .taskbar__clock {
+    color: var(--a11y-contrast-muted);
+}
+
+html[data-contrast-mode="high"] .menu-app-item.is-unavailable,
+html[data-contrast-mode="high"] .menu-shortcut.is-unavailable {
+    opacity: 0.6;
+}
+
+#kali #terminal.terminal-window--fedora #command:focus,
+#kali #terminal.terminal-window--fedora #command:focus-visible,
+#kali #terminal.terminal-window--fedora .capsule-terminal__command:focus,
+#kali #terminal.terminal-window--fedora .capsule-terminal__command:focus-visible,
+#kali #terminal.terminal-window--fedora [data-terminal-command]:focus,
+#kali #terminal.terminal-window--fedora [data-terminal-command]:focus-visible {
+    outline: none;
+    box-shadow: none;
+}

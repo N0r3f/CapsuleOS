@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Loupe (org.gnome.Loupe) — slot CapsuleOS `visionneur_images`, toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-rocky-loupe-vm-inventory.json",
+  "slot": "visionneur_images",
+  "template": "visionneur_images.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/mint-viewers.js",
+  "functionalDepth": "partial",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "LiΣ": "Contrat valide + kernel syncLoupeGnomeDataset + gabarit data-loupe-gnome-*",
+    "Li1": "Li1 ouvrir Loupe → état vide pédagogique",
+    "Li2": "Li2 ouvrir image démo → image affichée",
+    "Li3": "Li3 zoom avant / arrière",
+    "Li4": "Li4 panneau propriétés image"
+  },
+  "scenarios": [
+    {
+      "id": "Li1",
+      "priority": "P0",
+      "title": "Ouvrir Loupe — état vide",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Loupe",
+        "rpm": "loupe",
+        "labelFr": "Loupe",
+        "emptyTitleFr": "Ouvrir une image",
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-loupe", "action": "openWindowByDataLink", "target": "visionneur_images", "label": "Ouvrir Loupe" },
+        { "id": "root", "selector": "[data-loupe-gnome-root]", "label": "Racine Loupe GNOME" },
+        { "id": "init", "predicate": "dataset.loupeGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "empty", "selector": "[data-loupe-gnome-empty]:not([hidden])", "label": "État vide visible" },
+        { "id": "no-image", "predicate": "dataset.loupeGnomeHasImage", "expectValue": "false", "label": "Aucune image ouverte" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-loupe-scenarios.mjs --scenario Li1",
+        "capture": "rocky-capsule-dark-loupe-empty.png"
+      }
+    },
+    {
+      "id": "Li2",
+      "priority": "P0",
+      "title": "Ouvrir une image — affichage",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "demoAsset": "demo.png",
+        "zoomDefault": "100 %"
+      },
+      "steps": [
+        { "id": "open-loupe", "action": "openWindowByDataLink", "target": "visionneur_images", "label": "Ouvrir Loupe" },
+        { "id": "demo-image", "action": "openPixDemoImage", "label": "Charger image démo pédagogique" },
+        { "id": "has-image", "predicate": "dataset.loupeGnomeHasImage", "expectValue": "true", "label": "Image chargée" },
+        { "id": "canvas-image", "selector": "[data-loupe-gnome-canvas] .viewer-app__image", "label": "Élément image visible" },
+        { "id": "filename", "selector": "[data-loupe-gnome-filename]", "expectTextContains": "demo", "label": "Nom fichier affiché" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-loupe-scenarios.mjs --scenario Li2",
+        "capture": "rocky-capsule-dark-loupe-image.png"
+      }
+    },
+    {
+      "id": "Li3",
+      "priority": "P0",
+      "title": "Zoom et navigation",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "zoomStep": 25,
+        "zoomMin": 25,
+        "zoomMax": 400
+      },
+      "steps": [
+        { "id": "open-demo", "action": "openPixDemoImage", "label": "Image démo" },
+        { "id": "zoom-in", "selector": "[data-loupe-gnome-action=\"zoom-in\"]", "label": "Zoom avant" },
+        { "id": "zoom-level", "predicate": "dataset.loupeGnomeZoom", "expectValue": "125", "label": "Zoom 125 %" },
+        { "id": "zoom-out", "selector": "[data-loupe-gnome-action=\"zoom-out\"]", "label": "Zoom arrière" },
+        { "id": "zoom-reset", "predicate": "dataset.loupeGnomeZoom", "expectValue": "100", "label": "Zoom 100 %" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-loupe-scenarios.mjs --scenario Li3",
+        "capture": "rocky-capsule-dark-loupe-zoom.png"
+      }
+    },
+    {
+      "id": "Li4",
+      "priority": "P0",
+      "title": "Panneau propriétés",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "metaPanelFr": "Propriétés",
+        "fieldsFr": ["Nom", "Dimensions", "Type"]
+      },
+      "steps": [
+        { "id": "open-demo", "action": "openPixDemoImage", "label": "Image démo" },
+        { "id": "toggle-meta", "selector": "[data-loupe-gnome-action=\"toggle-meta\"]", "label": "Afficher propriétés" },
+        { "id": "meta-open", "predicate": "dataset.loupeGnomeMetaOpen", "expectValue": "true", "label": "Méta ouvert" },
+        { "id": "meta-pane", "selector": "[data-loupe-gnome-meta]:not([hidden])", "label": "Panneau propriétés visible" },
+        { "id": "dims", "selector": "[data-loupe-gnome-dims]", "label": "Dimensions renseignées" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-loupe-scenarios.mjs --scenario Li4",
+        "capture": "rocky-capsule-dark-loupe-meta.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "LiΣ": { "script": "usr/lib/capsuleos/tools/validate-loupe-user-scenarios.mjs" }
+  }
+}

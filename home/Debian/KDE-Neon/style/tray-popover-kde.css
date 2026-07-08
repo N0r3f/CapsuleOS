@@ -1,0 +1,213 @@
+/* KDE Neon — popovers zone de notification (réf. VM Plasma Breeze) */
+
+#kde-neon .kde-tray-popover {
+    position: fixed;
+    bottom: calc(var(--kde-neon-panel-anchor-bottom, var(--taskbar-height)) + var(--calendar-popover-offset));
+    z-index: var(--z-calendar-popover);
+    min-width: calc(var(--head) * 6.2);
+    max-width: min(calc(var(--head) * 10), calc(100vw - 1rem));
+    padding: 0;
+    border-radius: var(--calendar-popover-radius);
+    background: var(--volume-popover-bg);
+    border: var(--volume-popover-border);
+    box-shadow: var(--volume-popover-shadow);
+    color: var(--volume-popover-text);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.55);
+    overflow: hidden;
+}
+
+#kde-neon .kde-tray-popover[hidden] {
+    display: none;
+}
+
+#kde-neon .kde-tray-popover__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--head) / 4);
+    padding: calc(var(--head) / 3.5) calc(var(--head) / 2.2);
+    border-bottom: 1px solid var(--kde-neon-menu-divider, rgba(0, 0, 0, 0.08));
+}
+
+#kde-neon .kde-tray-popover__title {
+    margin: 0;
+    font-size: calc(var(--head) / 2.45);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+#kde-neon .kde-tray-popover__value {
+    font-size: calc(var(--head) / 2.9);
+    opacity: 0.68;
+    font-variant-numeric: tabular-nums;
+}
+
+#kde-neon .kde-tray-popover__empty {
+    margin: 0;
+    padding: calc(var(--head) / 2.2) calc(var(--head) / 2);
+    text-align: center;
+    opacity: 0.72;
+    line-height: 1.35;
+}
+
+#kde-neon .kde-tray-popover__row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) / 4);
+    width: 100%;
+    padding: calc(var(--head) / 3.8) calc(var(--head) / 2);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: default;
+    transition: background-color var(--eas2);
+}
+
+#kde-neon .kde-tray-popover__row:hover,
+#kde-neon .kde-tray-popover__row.is-active {
+    background: var(--kde-neon-menu-hover, rgba(61, 174, 233, 0.14));
+}
+
+#kde-neon .kde-tray-popover__row-icon {
+    width: calc(var(--head) * 0.52);
+    height: calc(var(--head) * 0.52);
+    flex-shrink: 0;
+    object-fit: contain;
+    filter: var(--kde-neon-tray-icon-filter);
+    opacity: 0.92;
+}
+
+#kde-neon .kde-tray-popover__row-label {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.25;
+}
+
+#kde-neon .kde-tray-popover__footer {
+    padding: calc(var(--head) / 4) calc(var(--head) / 2.2);
+    border-top: 1px solid var(--kde-neon-menu-divider, rgba(0, 0, 0, 0.08));
+}
+
+#kde-neon .kde-tray-popover__footer-btn {
+    display: block;
+    width: 100%;
+    padding: calc(var(--head) / 4) calc(var(--head) / 3);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: transparent;
+    color: var(--kde-neon-plasma-accent, #3daee9);
+    font: inherit;
+    font-size: calc(var(--head) / 2.65);
+    text-align: center;
+    cursor: default;
+    transition: background-color var(--eas2);
+}
+
+#kde-neon .kde-tray-popover__footer-btn:hover {
+    background: var(--kde-neon-menu-hover, rgba(61, 174, 233, 0.14));
+}
+
+#kde-neon .kde-tray-popover--slider .kde-tray-popover__header {
+    border-bottom: 0;
+    padding-bottom: calc(var(--head) / 5);
+}
+
+#kde-neon .kde-tray-popover__slider-row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) / 4);
+    padding: 0 calc(var(--head) / 2.2) calc(var(--head) / 2.5);
+}
+
+#kde-neon .kde-tray-popover__slider-icon {
+    width: calc(var(--head) * 0.48);
+    height: calc(var(--head) * 0.48);
+    flex-shrink: 0;
+    object-fit: contain;
+    filter: var(--kde-neon-tray-icon-filter);
+    opacity: 0.9;
+}
+
+#kde-neon .kde-tray-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    min-width: 0;
+    height: calc(var(--head) * 0.14);
+    border-radius: 100px;
+    background: var(--volume-popover-track-bg);
+    outline: none;
+    cursor: default;
+}
+
+#kde-neon .kde-tray-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(var(--head) * 0.42);
+    height: calc(var(--head) * 0.42);
+    border-radius: 50%;
+    background: var(--volume-popover-thumb-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+#kde-neon .kde-tray-popover--expand {
+    min-width: auto;
+    padding: calc(var(--head) / 3);
+}
+
+#kde-neon .kde-tray-popover__hidden-grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) / 5);
+}
+
+#kde-neon .kde-tray-popover__hidden-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 0.82);
+    height: calc(var(--head) * 0.82);
+    border-radius: calc(var(--head) / 10);
+    opacity: 0.88;
+}
+
+#kde-neon .kde-tray-popover__hidden-item > img {
+    width: calc(var(--head) * 0.5);
+    height: calc(var(--head) * 0.5);
+    object-fit: contain;
+    filter: var(--kde-neon-tray-icon-filter);
+}
+
+#kde-neon .kde-tray-popover__history {
+    margin: 0;
+    padding: calc(var(--head) / 5) 0;
+    list-style: none;
+}
+
+#kde-neon .kde-tray-popover__history-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    padding: calc(var(--head) / 4.5) calc(var(--head) / 2.2);
+    border-bottom: 1px solid var(--kde-neon-menu-divider, rgba(0, 0, 0, 0.06));
+}
+
+#kde-neon .kde-tray-popover__history-label {
+    font-size: calc(var(--head) / 2.55);
+    font-weight: 600;
+    color: var(--volume-popover-text);
+}
+
+#kde-neon .kde-tray-popover__history-preview {
+    font-size: calc(var(--head) / 2.85);
+    color: var(--volume-popover-muted, #7f8c8d);
+}

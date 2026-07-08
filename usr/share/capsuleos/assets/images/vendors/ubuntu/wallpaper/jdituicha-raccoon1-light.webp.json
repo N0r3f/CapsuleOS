@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/jdituicha-raccoon1-light.jpg",
+  "sourceSha256": "4db7c6813b79490cc05f78d718c8df23251221f9425b5de2fab6883a274d2060",
+  "output": "images/vendors/ubuntu/wallpaper/jdituicha-raccoon1-light.webp",
+  "outputSha256": "5846293161ac8bd834fa5bbd48089ec401676a00f5cf00554ddaa55712535cc7",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:51.655Z"
+}

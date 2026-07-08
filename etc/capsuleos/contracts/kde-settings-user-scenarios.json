@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques Paramètres KDE Plasma — pilote linux-kde-neon v15.",
+  "doc": "root/docs/procedure-kde-settings.md",
+  "slot": "themes",
+  "template": "systemsettings_kde_neon.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/kde-settings-parity.js",
+  "registryIds": ["linux-kde-neon"],
+  "predicates": {
+    "KdThΣ": "Contrat valide + kde-settings-parity.js EFFECT_HANDLERS P0",
+    "KdTh1": "Basculer thème global clair/sombre",
+    "KdTh2": "Ajuster hauteur panel Plasma",
+    "KdTh3": "Activer contraste élevé accessibilité",
+    "KdTh4": "Configurer icônes bureau"
+  },
+  "scenarios": [
+    {
+      "id": "KdTh1",
+      "priority": "P0",
+      "title": "Basculer le thème global Plasma",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-settings", "action": "openWindowByDataLink", "target": "themes" },
+        { "id": "nav-lookandfeel", "selector": "[data-kde-settings-surface=\"kcm-themes\"] [data-kde-panel=\"lookandfeel\"]", "label": "Ouvrir thème global" },
+        { "id": "pick-dark", "selector": "[data-kde-setting=\"kde-global-theme\"][data-kde-theme-option=\"dark\"]", "label": "Style sombre" }
+      ],
+      "proofs": { "smoke": "smoke-h6-kde-settings-ready.mjs --id linux-kde-neon" }
+    },
+    {
+      "id": "KdTh2",
+      "priority": "P0",
+      "title": "Modifier la hauteur du panneau",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "panel-height", "selector": "[data-kde-setting=\"kde-panel-height\"]", "label": "Select hauteur panel" },
+        { "id": "event", "predicate": "document.body.dataset.plasmaPanelHeight", "expectValue": "48" }
+      ],
+      "proofs": { "smoke": "smoke-h6-kde-settings-ready.mjs --id linux-kde-neon" }
+    },
+    {
+      "id": "KdTh3",
+      "priority": "P0",
+      "title": "Activer le contraste élevé",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "a11y-switch", "selector": "[data-kde-setting=\"kde-a11y-high-contrast\"]", "label": "Switch contraste" },
+        { "id": "dataset", "predicate": "document.documentElement.dataset.contrastMode", "expectValue": "high" }
+      ],
+      "proofs": { "smoke": "smoke-h6-kde-settings-ready.mjs --id linux-kde-neon" }
+    },
+    {
+      "id": "KdTh4",
+      "priority": "P0",
+      "title": "Afficher les icônes du bureau",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "desktop-icons", "selector": "[data-kde-setting=\"kde-desktop-icons\"]", "label": "Switch icônes bureau" }
+      ],
+      "proofs": { "smoke": "smoke-h6-kde-settings-ready.mjs --id linux-kde-neon" }
+    }
+  ]
+}

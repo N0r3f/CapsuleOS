@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/platforms/brands/android.webp",
+  "outputSha256": "f45ee78beaab9ef6244da9db14d3040f12195f0dc038a94be8fdba8417a94633",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.560Z",
+  "note": "repair-manifest"
+}

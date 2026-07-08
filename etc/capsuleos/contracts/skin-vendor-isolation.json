@@ -1,0 +1,15 @@
+{
+  "description": "Cloisonnement vendor — éviter porosité CSS/structure entre distributions.",
+  "vendorImportDenylist": {
+    "fedora": ["ubuntu-dock.css", "ubuntu-tokens.css", "popos-", "cinnamon-window-chrome"],
+    "rocky": ["ubuntu-dock.css", "ubuntu-tokens.css", "popos-", "cinnamon-window-chrome"],
+    "alma": ["ubuntu-dock.css", "ubuntu-tokens.css", "popos-", "cinnamon-window-chrome"],
+    "ubuntu": ["fedora-dock", "cinnamon-window-chrome", "toolkit-cinnamon/chrome.css"],
+    "mint": ["ubuntu-dock.css", "ubuntu-tokens.css", "toolkit-gnome/chrome.css"]
+  },
+  "noPersistentDockProfiles": ["linux-rocky", "linux-fedora", "linux-alma"],
+  "noPersistentDockWidth": "0px",
+  "persistentDockProfiles": ["linux-ubuntu"],
+  "dockHideSelector": "#tableau.fedora-dock",
+  "ubuntuOnlyMarkers": ["ubuntu-dock__show-apps", "ubuntu-dock__help", "ubuntu-dock__trash"]
+}

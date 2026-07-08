@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "description": "Contrat états UI, effets visuels, menus et popovers — fidélité 100 % VM ↔ Capsule.",
+  "predicates": {
+    "Va": "Apps VM détectées intégrées à la matrice (AppV → catalogue → transitions app.*.open)",
+    "Ve": "Matrice états/transitions P0 complète pour le registryId (shell + apps)",
+    "Vx": "Transitions mesurées (durée, easing, propriétés CSS animées)",
+    "Vm": "Menus/sous-menus/popovers énumérés (items + hiérarchie)",
+    "Vμ": "Capsule reproduit (computed styles + capture miroir)",
+    "VΣ": "Va ∧ Ve ∧ Vx ∧ Vm ∧ Vμ — clôture effets UI"
+  },
+  "appDiscovery": {
+    "chain": ["collect-vm-apps-inventory.mjs --ssh", "generate-apps-catalog.mjs", "extend-ui-state-effects-matrix.mjs"],
+    "registryMatrix": "root/docs/inventaires/<registryId>-ui-state-effects-matrix.json",
+    "appsContract": "etc/capsuleos/contracts/apps-catalog.json",
+    "transitionPattern": "app.<capsuleSlot>.open"
+  },
+  "requiredEffectProperties": [
+    "opacity",
+    "transform",
+    "box-shadow",
+    "backdrop-filter",
+    "background",
+    "background-image",
+    "border-radius",
+    "color",
+    "filter",
+    "transition-duration",
+    "transition-timing-function"
+  ],
+  "capturePhases": ["before", "during-50ms", "during-150ms", "during-300ms", "after"],
+  "menuRoles": ["context-menu", "popover", "submenu", "modal", "tooltip", "dropdown"],
+  "parityLevels": ["P0", "P1", "P2"],
+  "outputs": {
+    "inventory": "root/docs/inventaires/<registryId>-ui-state-effects.json",
+    "capturesVm": "usr/share/capsuleos/assets/images/vendors/<vendor>/inventory/<vendor>-ui-effects-vm/",
+    "capturesCapsule": "usr/share/capsuleos/assets/images/vendors/<vendor>/inventory/<vendor>-ui-effects-capsule/"
+  },
+  "gates": {
+    "extendMatrix": "node usr/lib/capsuleos/tools/lab/extend-ui-state-effects-matrix.mjs --id <registryId> --write --ensure-apps",
+    "collect": "node usr/lib/capsuleos/tools/lab/collect-ui-state-effects.mjs --id <registryId> --write",
+    "smoke": "node usr/lib/capsuleos/tools/lab/smoke-ui-state-effects.mjs --id <registryId>",
+    "orchestrator": "node usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs --id <registryId>"
+  }
+}

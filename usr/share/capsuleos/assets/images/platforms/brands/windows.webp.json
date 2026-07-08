@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/platforms/brands/windows.webp",
+  "outputSha256": "bf134e877af6dc3f76481a1519c26cfc206a68b2a73bbe6a131e1f2f5b9f670d",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.566Z",
+  "note": "repair-manifest"
+}

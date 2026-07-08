@@ -1,0 +1,27 @@
+/**
+ * Tokens terminal Ptyxis — contrat terminal-skin-lock.json (linux-ubuntu).
+ * Shell / fenêtres : ubuntu-tokens.css
+ */
+html:has(#ubuntu) {
+    --fedora-app-terminal-surface: var(--ubuntu-app-terminal-surface);
+    --fedora-app-header-alt-bg: var(--ubuntu-window-header-bg);
+    --fedora-app-header-active-bg: var(--ubuntu-window-header-active);
+    --fedora-terminal-prompt-user: var(--ubuntu-terminal-prompt);
+    --fedora-terminal-prompt-path-seg: var(--ubuntu-terminal-prompt-path-seg, #6cb6ff);
+    --terminal-window-radius: 0.8rem;
+    --terminal-body-padding: 0.5rem 0.65rem;
+    --terminal-tab-gap: 0.35rem;
+    --terminal-tab-min-width: 0;
+}
+
+html[data-theme="light"]:has(#ubuntu) {
+    --fedora-app-terminal-surface: var(--ubuntu-app-terminal-surface);
+    --fedora-app-header-alt-bg: var(--ubuntu-window-header-bg);
+    --fedora-app-header-active-bg: var(--ubuntu-window-header-active);
+    --fedora-terminal-prompt-user: var(--ubuntu-terminal-prompt);
+    --fedora-terminal-prompt-path-seg: var(--ubuntu-terminal-prompt-path-seg, #1a5fb4);
+    --terminal-window-radius: 0.8rem;
+    --terminal-body-padding: 0.5rem 0.65rem;
+    --terminal-tab-gap: 0.35rem;
+    --terminal-tab-min-width: 0;
+}

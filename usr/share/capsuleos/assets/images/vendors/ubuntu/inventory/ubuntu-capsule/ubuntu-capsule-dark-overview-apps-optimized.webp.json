@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-apps.png",
+  "sourceSha256": "dff3fd0b831e28771072cd95258b1dd4b7b380dabc8d58070f0fd3d048de1ad8",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-apps-optimized.webp",
+  "outputSha256": "43ca9a433b6f0f7dda7ca209c75d095ebb8a86175fe1754c6a50154d993f1dfd",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:07.711Z"
+}

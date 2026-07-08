@@ -1,0 +1,36 @@
+<main id="hypnotixApp" class="hyp-app" aria-label="Hypnotix">
+
+    <header class="hyp-app__header">
+        <img class="hyp-app__logo" src="./assets/images/toolkits/gnome/apps/hypnotix" alt="">
+        <h1 class="hyp-app__title">Hypnotix</h1>
+        <label class="hyp-app__search-wrap">
+            <span class="sr-only">Rechercher</span>
+            <input type="search" class="hyp-app__search" id="hyp-search" placeholder="Rechercher des chaînes…">
+        </label>
+    </header>
+
+    <div class="hyp-app__body">
+        <nav class="hyp-app__sidebar" aria-label="Catégories">
+            <button type="button" class="hyp-app__cat is-active" data-hyp-cat="tv">Télévision</button>
+            <button type="button" class="hyp-app__cat" data-hyp-cat="radio">Radio</button>
+            <button type="button" class="hyp-app__cat" data-hyp-cat="fav">Favoris</button>
+        </nav>
+        <section class="hyp-app__content" aria-label="Chaînes">
+            <ul class="hyp-app__grid" id="hyp-grid">
+                <li class="hyp-app__channel is-selected" data-hyp-id="france24">
+                    <span class="hyp-app__channel-name">France 24</span>
+                </li>
+                <li class="hyp-app__channel" data-hyp-id="arte">
+                    <span class="hyp-app__channel-name">ARTE</span>
+                </li>
+                <li class="hyp-app__channel" data-hyp-id="tv5">
+                    <span class="hyp-app__channel-name">TV5Monde</span>
+                </li>
+            </ul>
+            <div class="hyp-app__player" id="hyp-player" aria-label="Lecteur">
+                <p class="hyp-app__now">France 24 — en direct (simulation)</p>
+            </div>
+        </section>
+    </div>
+
+</main>

@@ -1,0 +1,34 @@
+/**
+ * elementary — baobab (structure Rocky).
+ */
+body#elementary {
+    --gnome-baobab-bg: #303030;
+    --gnome-baobab-header-bg: #383838;
+    --gnome-baobab-text: #f6f6f6;
+    --gnome-baobab-muted: rgba(255, 255, 255, 0.62);
+    --gnome-baobab-border: rgba(255, 255, 255, 0.08);
+    --gnome-baobab-accent: #3584e4;
+}
+
+html[data-theme="light"]:has(#elementary) {
+    --gnome-baobab-bg: #fafafa;
+    --gnome-baobab-header-bg: #f6f6f6;
+    --gnome-baobab-text: #1e1e1e;
+    --gnome-baobab-muted: rgba(0, 0, 0, 0.55);
+    --gnome-baobab-border: rgba(0, 0, 0, 0.1);
+}
+
+body#elementary div[data-link="baobab"].windowElement {
+    width: min(40rem, calc(100vw - var(--elementary-dock-width, 0px) - 2rem));
+    height: min(26rem, calc(100vh - var(--elementary-top-bar-height, 2.5rem) - 2rem));
+}
+
+body#elementary div[data-link="baobab"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="baobab"] main#gnomeBaobabApp {
+    height: 100%;
+}

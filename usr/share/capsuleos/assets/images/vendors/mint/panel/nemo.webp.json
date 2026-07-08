@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/nemo.png",
+  "sourceSha256": "63871dc95730902e347c987cd63de1fbc1cd9096a5c8c52dfe55fcbfa104718c",
+  "output": "images/vendors/mint/panel/nemo.webp",
+  "outputSha256": "cfd425f65be37ac41e1ebb2396690191f5a1fdbf2ee66460d3185cad0a90283b",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-15T19:24:04.230Z"
+}

@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques Capture d'écran GNOME — Capsule-only (org.gnome.Screenshot absent VM Alma el10 ; simulation CapsuleOS).",
+  "doc": "root/docs/inventaires/linux-alma-screenshot-vm-inventory.json",
+  "slot": "screenshot",
+  "template": "screenshot.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/screenshot.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-mint"],
+  "capsuleOnly": true,
+  "predicates": {
+    "ScΣ": "Contrat valide + kernel screenshot.js (data-shot-gnome-action, dataset.shotPhase)",
+    "Sc1": "Sc1 ouvrir le panneau de configuration",
+    "Sc2": "Sc2 choisir la zone Fenêtre",
+    "Sc3": "Sc3 prendre une capture simulée",
+    "Sc4": "Sc4 revenir à une nouvelle capture"
+  },
+  "scenarios": [
+    {
+      "id": "Sc1",
+      "priority": "P0",
+      "title": "Ouvrir le panneau de configuration",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "labelFr": "Capture d'écran",
+        "capsuleOnly": true,
+        "vmPackage": "gnome-screenshot absent el10 — quick settings / Print Screen documenté Capsule"
+      },
+      "steps": [
+        { "id": "open-screenshot", "action": "openWindowByDataLink", "target": "screenshot", "label": "Ouvrir Capture d'écran" },
+        { "id": "init", "predicate": "dataset.shotInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "config-phase", "predicate": "dataset.shotPhase", "expectValue": "config", "label": "Panneau config visible" },
+        { "id": "title", "selector": ".gnome-shot__title", "expectTextContains": "Capture", "label": "Titre FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-screenshot-scenarios.mjs --scenario Sc1",
+        "capture": "rocky-capsule-dark-screenshot-config.png"
+      }
+    },
+    {
+      "id": "Sc2",
+      "priority": "P0",
+      "title": "Choisir la zone Fenêtre",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-screenshot", "action": "openWindowByDataLink", "target": "screenshot", "label": "Ouvrir Capture d'écran" },
+        { "id": "window-area", "selector": "input[name=\"gnome-shot-area\"][value=\"window\"]", "action": "click", "label": "Sélectionner Fenêtre" },
+        { "id": "area-dataset", "predicate": "dataset.shotArea", "expectValue": "window", "label": "Zone fenêtre active" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-screenshot-scenarios.mjs --scenario Sc2",
+        "capture": "rocky-capsule-dark-screenshot-window.png"
+      }
+    },
+    {
+      "id": "Sc3",
+      "priority": "P0",
+      "title": "Prendre une capture simulée",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-screenshot", "action": "openWindowByDataLink", "target": "screenshot", "label": "Ouvrir Capture d'écran" },
+        { "id": "capture", "selector": "[data-shot-gnome-action=\"capture\"]", "action": "click", "label": "Prendre une capture" },
+        { "id": "result-phase", "predicate": "dataset.shotPhase", "expectValue": "result", "label": "Aperçu résultat" },
+        { "id": "preview", "selector": "#gnome-shot-preview[src^=\"data:image\"]", "label": "Image PNG générée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-screenshot-scenarios.mjs --scenario Sc3",
+        "capture": "rocky-capsule-dark-screenshot-result.png"
+      }
+    },
+    {
+      "id": "Sc4",
+      "priority": "P0",
+      "title": "Revenir à une nouvelle capture",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-screenshot", "action": "openWindowByDataLink", "target": "screenshot", "label": "Ouvrir Capture d'écran" },
+        { "id": "capture", "selector": "[data-shot-gnome-action=\"capture\"]", "action": "click", "label": "Prendre une capture" },
+        { "id": "new", "selector": "[data-shot-gnome-action=\"new\"]", "action": "click", "label": "Nouvelle capture" },
+        { "id": "config-phase", "predicate": "dataset.shotPhase", "expectValue": "config", "label": "Retour config" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-screenshot-scenarios.mjs --scenario Sc4",
+        "capture": "rocky-capsule-dark-screenshot.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "ScΣ": { "script": "usr/lib/capsuleos/tools/validate-screenshot-user-scenarios.mjs" }
+  }
+}

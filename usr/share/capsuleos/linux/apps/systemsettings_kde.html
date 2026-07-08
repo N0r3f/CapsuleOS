@@ -1,0 +1,133 @@
+<div class="kde-systemsettings" id="kdeSystemSettingsApp" data-kde-settings-root aria-label="Paramètres système">
+    <aside class="kde-systemsettings__sidebar" aria-label="Modules">
+        <div class="kde-systemsettings__search" role="search">
+            <span class="kde-systemsettings__search-icon" aria-hidden="true"></span>
+            <input type="search" class="kde-systemsettings__search-input" placeholder="Rechercher…" aria-label="Rechercher dans les paramètres">
+        </div>
+        <nav class="kde-systemsettings__nav" aria-label="Catégories">
+            <button type="button" class="kde-systemsettings__navitem is-active" data-kde-panel="appearance">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--appearance" aria-hidden="true"></span>
+                <span>Apparence</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem" data-kde-panel="desktop">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--desktop" aria-hidden="true"></span>
+                <span>Bureau</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem" data-kde-panel="workspace">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--workspace" aria-hidden="true"></span>
+                <span>Espace de travail</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem" data-kde-panel="accessibility">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--accessibility" aria-hidden="true"></span>
+                <span>Accessibilité</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem kde-systemsettings__navitem--stub" data-kde-panel="network" disabled aria-disabled="true">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--network" aria-hidden="true"></span>
+                <span>Connexion</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem kde-systemsettings__navitem--stub" data-kde-panel="notifications" disabled aria-disabled="true">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--notifications" aria-hidden="true"></span>
+                <span>Notifications</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem kde-systemsettings__navitem--stub" data-kde-panel="applications" disabled aria-disabled="true">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--applications" aria-hidden="true"></span>
+                <span>Applications</span>
+            </button>
+            <button type="button" class="kde-systemsettings__navitem kde-systemsettings__navitem--stub" data-kde-panel="about" disabled aria-disabled="true">
+                <span class="kde-systemsettings__navicon kde-systemsettings__navicon--about" aria-hidden="true"></span>
+                <span>À propos de ce système</span>
+            </button>
+        </nav>
+    </aside>
+    <div class="kde-systemsettings__content">
+        <section class="kde-systemsettings__panel is-active" data-kde-panel-content="appearance">
+            <header class="kde-systemsettings__panel-header">
+                <h1>Apparence</h1>
+                <p class="kde-systemsettings__help">Thème global, barre des tâches et effets visuels Plasma.</p>
+            </header>
+            <div class="kde-systemsettings__group">
+                <h2 class="kde-systemsettings__group-title">Style global</h2>
+                <div class="kde-systemsettings__row kde-systemsettings__row--choices" role="group" aria-label="Style global">
+                    <button type="button" class="kde-systemsettings__choice" data-kde-theme-option="light" data-kde-setting="kde-global-theme" aria-checked="true">Clair</button>
+                    <button type="button" class="kde-systemsettings__choice" data-kde-theme-option="dark" data-kde-setting="kde-global-theme" aria-checked="false">Sombre</button>
+                </div>
+            </div>
+            <div class="kde-systemsettings__group">
+                <h2 class="kde-systemsettings__group-title">Barre des tâches</h2>
+                <label class="kde-systemsettings__row kde-systemsettings__row--select">
+                    <span class="kde-systemsettings__row-label">Hauteur du panneau</span>
+                    <select class="kde-systemsettings__select" data-kde-setting="kde-panel-height" aria-label="Hauteur du panneau">
+                        <option value="32">32 px</option>
+                        <option value="40" selected>40 px</option>
+                        <option value="48">48 px</option>
+                    </select>
+                </label>
+            </div>
+            <div class="kde-systemsettings__group">
+                <h2 class="kde-systemsettings__group-title">Effets</h2>
+                <div class="adw-row adw-row--switch">
+                    <span class="adw-row__title">Animations des fenêtres</span>
+                    <button type="button" class="adw-switch is-on" data-settings-switch="kde-window-animations" data-kde-setting="kde-window-animations" role="switch" aria-checked="true"></button>
+                </div>
+            </div>
+        </section>
+        <section class="kde-systemsettings__panel" data-kde-panel-content="workspace" hidden>
+            <header class="kde-systemsettings__panel-header">
+                <h1>Espace de travail</h1>
+                <p class="kde-systemsettings__help">Comportement du bureau et des fenêtres.</p>
+            </header>
+            <div class="kde-systemsettings__group">
+                <h2 class="kde-systemsettings__group-title">Focus des fenêtres</h2>
+                <div class="adw-row adw-row--switch">
+                    <span class="adw-row__title">Clic pour activer</span>
+                    <button type="button" class="adw-switch is-on" data-settings-switch="kde-click-to-focus" data-kde-setting="kde-click-to-focus" role="switch" aria-checked="true"></button>
+                </div>
+                <div class="adw-row adw-row--switch">
+                    <span class="adw-row__title">Empêcher le vol de focus</span>
+                    <button type="button" class="adw-switch" data-settings-switch="kde-focus-stealing" data-kde-setting="kde-focus-stealing" role="switch" aria-checked="false"></button>
+                </div>
+            </div>
+        </section>
+        <section class="kde-systemsettings__panel" data-kde-panel-content="accessibility" hidden>
+            <header class="kde-systemsettings__panel-header">
+                <h1>Accessibilité</h1>
+                <p class="kde-systemsettings__help">Contraste, taille du texte et aides visuelles.</p>
+            </header>
+            <div class="adw-row adw-row--switch">
+                <span class="adw-row__title">Contraste élevé</span>
+                <button type="button" class="adw-switch" data-settings-switch="kde-a11y-contrast" data-kde-setting="kde-a11y-high-contrast" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="adw-row adw-row--switch">
+                <span class="adw-row__title">Texte agrandi</span>
+                <button type="button" class="adw-switch" data-settings-switch="kde-a11y-text" data-kde-setting="kde-a11y-large-text" role="switch" aria-checked="false"></button>
+            </div>
+            <div class="adw-row adw-row--switch">
+                <span class="adw-row__title">Réduire les animations</span>
+                <button type="button" class="adw-switch" data-settings-switch="kde-reduced-motion" data-kde-setting="kde-reduced-motion" role="switch" aria-checked="false"></button>
+            </div>
+        </section>
+        <section class="kde-systemsettings__panel" data-kde-panel-content="desktop" hidden>
+            <header class="kde-systemsettings__panel-header">
+                <h1>Bureau</h1>
+                <p class="kde-systemsettings__help">Icônes et disposition du bureau Plasma.</p>
+            </header>
+            <div class="kde-systemsettings__group">
+                <h2 class="kde-systemsettings__group-title">Icônes</h2>
+                <div class="adw-row adw-row--switch">
+                    <span class="adw-row__title">Afficher les icônes du bureau</span>
+                    <button type="button" class="adw-switch is-on" data-settings-switch="kde-desktop-icons" data-kde-setting="kde-desktop-icons" role="switch" aria-checked="true"></button>
+                </div>
+            </div>
+            <div class="kde-systemsettings__group">
+                <h2 class="kde-systemsettings__group-title">Disposition</h2>
+                <label class="kde-systemsettings__row kde-systemsettings__row--select">
+                    <span class="kde-systemsettings__row-label">Alignement des icônes</span>
+                    <select class="kde-systemsettings__select" data-kde-setting="kde-desktop-align" aria-label="Alignement des icônes">
+                        <option value="left" selected>À gauche</option>
+                        <option value="right">À droite</option>
+                    </select>
+                </label>
+            </div>
+        </section>
+    </div>
+</div>

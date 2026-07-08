@@ -1,0 +1,489 @@
+{
+  "version": 1,
+  "description": "Manifeste canonique des slots CapsuleOS — fonction (kernel), variants toolkit, profondeur.",
+  "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+  "compositionPolicy": "C8 — référentiel slots pour SlotMap ; ne pas dupliquer gabarit par distro sans variant/toolkit documenté",
+  "slotsManifestRef": "etc/capsuleos/contracts/slots-manifest.json",
+  "prioritySlots": {
+    "P0": ["nemo", "firefox", "terminal", "update_manager", "themes", "text_editor", "calculator", "mainMenu"],
+    "P1": ["calendar", "file_roller", "libreoffice_startcenter", "librewriter", "librecalc", "libreoffice_impress", "libreoffice_draw", "visionneur_images", "visionneur_pdf", "snapshot", "mintinstall", "thunderbird", "transmission", "rhythmbox", "lecteur_multimedia", "drawing", "simple_scan"],
+    "P2": ["baobab", "system_monitor", "tour", "characters", "warpinator", "timeshift", "mintdrivers", "mintwelcome", "warpinator", "hypnotix", "webapp_manager"]
+  },
+  "mintSlotsAboutisRef": "root/docs/inventaires/linux-mint-apps-catalog.json",
+  "mintSlotsAboutis": [
+    "nemo", "firefox", "terminal", "themes", "update_manager", "mintinstall", "mainMenu",
+    "text_editor", "calculator", "calendar", "file_roller", "libreoffice_startcenter", "librewriter", "librecalc", "libreoffice_impress", "libreoffice_draw",
+    "visionneur_images", "visionneur_pdf", "lecteur_multimedia", "system_monitor", "thunderbird",
+    "transmission", "rhythmbox", "drawing", "simple_scan", "warpinator", "timeshift", "mintdrivers",
+    "mintwelcome", "screenshot", "profile", "checklist"
+  ],
+  "almaStoreWaveRef": "etc/capsuleos/contracts/store-installable-apps.json",
+  "slots": {
+    "nemo": {
+      "slotId": "nemo",
+      "labelFr": "Fichiers",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/contentLoader.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "nemo-gnome", "chromeProvider": "nemo-gnome", "skinCss": "nautilus.skin.css" },
+        "cinnamon": { "template": "nemo.html", "chromeProvider": "cinnamon", "skinCss": "nemo.skin.css" },
+        "kde": { "template": "dolphin", "chromeProvider": "default", "skinCss": "dolphin.skin.css" },
+        "pantheon": { "template": "nemo-gnome", "chromeProvider": "nemo-gnome", "skinCss": "nautilus.skin.css", "note": "scaffold AccΣ" },
+        "xfce": { "template": "nemo.html", "chromeProvider": "cinnamon", "skinCss": "nemo.skin.css", "note": "scaffold AccΣ" },
+        "lxqt": { "template": "nemo.html", "chromeProvider": "cinnamon", "skinCss": "nemo.skin.css", "note": "scaffold AccΣ" }
+      }
+    },
+    "firefox": {
+      "slotId": "firefox",
+      "labelFr": "Firefox",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/firefoxBrowser.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "firefox.html", "chromeProvider": "firefox-gnome", "skinCss": "firefox.skin.css" },
+        "cinnamon": { "template": "firefox.html", "chromeProvider": "cinnamon", "skinCss": "firefox.skin.css" },
+        "pantheon": { "template": "firefox.html", "chromeProvider": "firefox-gnome", "skinCss": "firefox.skin.css", "note": "scaffold AccΣ" },
+        "xfce": { "template": "firefox.html", "chromeProvider": "cinnamon", "skinCss": "firefox.skin.css", "note": "scaffold AccΣ" },
+        "lxqt": { "template": "firefox.html", "chromeProvider": "cinnamon", "skinCss": "firefox.skin.css", "note": "scaffold AccΣ" }
+      }
+    },
+    "terminal": {
+      "slotId": "terminal",
+      "labelFr": "Terminal",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/linux-desktop-shell.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "terminal.html", "chromeProvider": "terminal-gnome", "skinCss": "terminal.skin.css" },
+        "cinnamon": { "template": "terminal.html", "chromeProvider": "cinnamon", "skinCss": "terminal.skin.css" },
+        "pantheon": { "template": "terminal.html", "chromeProvider": "terminal-gnome", "skinCss": "terminal.skin.css", "note": "scaffold AccΣ" },
+        "xfce": { "template": "terminal.html", "chromeProvider": "cinnamon", "skinCss": "terminal.skin.css", "note": "scaffold AccΣ" },
+        "lxqt": { "template": "terminal.html", "chromeProvider": "cinnamon", "skinCss": "terminal.skin.css", "note": "scaffold AccΣ" }
+      }
+    },
+    "update_manager": {
+      "slotId": "update_manager",
+      "labelFr": "Logiciels",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/update-manager.js",
+      "groundKernelModule": "usr/lib/capsuleos/shells/linux/gnome-software-ground.js",
+      "groundContentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+      "groundReferenceRegistryId": "linux-fedora",
+      "scenariosContract": "etc/capsuleos/contracts/software-user-scenarios.json",
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "update_manager_gnome.html", "chromeProvider": "libadwaita-gnome", "skinCss": "update_manager.skin.css" },
+        "cinnamon": { "template": "update_manager.html", "chromeProvider": "cinnamon", "skinCss": "update_manager.skin.css" },
+        "kde": { "template": "update_manager_kde.html", "chromeProvider": "default", "skinCss": "update_manager.skin.css" }
+      }
+    },
+    "themes": {
+      "slotId": "themes",
+      "labelFr": "Paramètres",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/cinnamon-settings.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "effectSurfaces": ["Se-A11y", "Se-Shell", "Se-WM", "Se-Desktop"],
+      "crossRegressionPeers": ["linux-mint", "linux-rocky", "linux-kde-neon"],
+      "toolkitVariants": {
+        "gnome": { "template": "themes_gnome.html", "chromeProvider": "libadwaita-gnome", "skinCss": "themes.skin.css" },
+        "cinnamon": { "template": "cinnamon_settings.html", "chromeProvider": "cinnamon", "skinCss": "cinnamon_settings.skin.css" },
+        "kde": { "template": "systemsettings_kde_neon.html", "chromeProvider": "default", "skinCss": "themes.skin.css" },
+        "pantheon": { "template": "themes_gnome.html", "chromeProvider": "libadwaita-gnome", "skinCss": "themes.skin.css", "note": "scaffold AccΣ" },
+        "xfce": { "template": "cinnamon_settings.html", "chromeProvider": "cinnamon", "skinCss": "cinnamon_settings.skin.css", "note": "scaffold AccΣ" },
+        "lxqt": { "template": "cinnamon_settings.html", "chromeProvider": "cinnamon", "skinCss": "cinnamon_settings.skin.css", "note": "scaffold AccΣ" }
+      }
+    },
+    "text_editor": {
+      "slotId": "text_editor",
+      "labelFr": "Éditeur de texte",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/text-editor.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "text_editor.html", "chromeProvider": "libadwaita-gnome", "skinCss": "text_editor.skin.css" }
+      }
+    },
+    "calculator": {
+      "slotId": "calculator",
+      "labelFr": "Calculatrice",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/calculator.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "calculator.html", "chromeProvider": "libadwaita-gnome", "skinCss": "calculator.skin.css" }
+      }
+    },
+    "calendar": {
+      "slotId": "calendar",
+      "labelFr": "Agenda",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/calendar-app.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "calendar.html", "chromeProvider": "libadwaita-gnome", "skinCss": "calendar.skin.css" }
+      }
+    },
+    "file_roller": {
+      "slotId": "file_roller",
+      "labelFr": "Gestionnaire d'archives",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/file-roller.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "file_roller.html", "chromeProvider": "libadwaita-gnome", "skinCss": "file_roller.skin.css" }
+      }
+    },
+    "libreoffice_startcenter": {
+      "slotId": "libreoffice_startcenter",
+      "labelFr": "LibreOffice",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/libreoffice-suite.js",
+      "scenariosContract": null,
+      "postInstallSlot": "librewriter",
+      "toolkitVariants": {
+        "gnome": { "template": "libreoffice_startcenter.html", "chromeProvider": "libadwaita-gnome", "skinCss": "libreoffice_startcenter.skin.css" },
+        "cinnamon": { "template": "libreoffice_startcenter.html", "chromeProvider": "cinnamon", "skinCss": "libreoffice_startcenter.skin.css" },
+        "kde": { "template": "libreoffice_startcenter.html", "chromeProvider": "default", "skinCss": "libreoffice_startcenter.skin.css" }
+      }
+    },
+    "librecalc": {
+      "slotId": "librecalc",
+      "labelFr": "LibreOffice Calc",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/librecalc.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "librecalc.html", "chromeProvider": "libadwaita-gnome", "skinCss": "librecalc.skin.css" },
+        "cinnamon": { "template": "librecalc.html", "chromeProvider": "cinnamon", "skinCss": "librecalc.skin.css" },
+        "kde": { "template": "librecalc.html", "chromeProvider": "default", "skinCss": "librecalc.skin.css" }
+      }
+    },
+    "libreoffice_impress": {
+      "slotId": "libreoffice_impress",
+      "labelFr": "LibreOffice Impress",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/libreoffice-suite.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "libreoffice_impress.html", "chromeProvider": "libadwaita-gnome", "skinCss": "libreoffice_impress.skin.css" },
+        "cinnamon": { "template": "libreoffice_impress.html", "chromeProvider": "cinnamon", "skinCss": "libreoffice_impress.skin.css" },
+        "kde": { "template": "libreoffice_impress.html", "chromeProvider": "default", "skinCss": "libreoffice_impress.skin.css" }
+      }
+    },
+    "libreoffice_draw": {
+      "slotId": "libreoffice_draw",
+      "labelFr": "LibreOffice Draw",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/libreoffice-suite.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "libreoffice_draw.html", "chromeProvider": "libadwaita-gnome", "skinCss": "libreoffice_draw.skin.css" },
+        "cinnamon": { "template": "libreoffice_draw.html", "chromeProvider": "cinnamon", "skinCss": "libreoffice_draw.skin.css" },
+        "kde": { "template": "libreoffice_draw.html", "chromeProvider": "default", "skinCss": "libreoffice_draw.skin.css" }
+      }
+    },
+    "librewriter": {
+      "slotId": "librewriter",
+      "labelFr": "LibreOffice Writer",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/librewriter.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "librewriter.html", "chromeProvider": "libadwaita-gnome", "skinCss": "librewriter.skin.css" },
+        "cinnamon": { "template": "librewriter.html", "chromeProvider": "cinnamon", "skinCss": "librewriter.skin.css" },
+        "kde": { "template": "librewriter.html", "chromeProvider": "default", "skinCss": "librewriter.skin.css" }
+      }
+    },
+    "thunderbird": {
+      "slotId": "thunderbird",
+      "labelFr": "Thunderbird",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/thunderbird.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "thunderbird.html", "chromeProvider": "libadwaita-gnome", "skinCss": "thunderbird.skin.css" }
+      }
+    },
+    "transmission": {
+      "slotId": "transmission",
+      "labelFr": "Transmission",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/transmission.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "transmission.html", "chromeProvider": "libadwaita-gnome", "skinCss": "transmission.skin.css" }
+      }
+    },
+    "rhythmbox": {
+      "slotId": "rhythmbox",
+      "labelFr": "Rhythmbox",
+      "functionalDepth": "decorative",
+      "kernelModule": null,
+      "kernelNote": "decorative — lecteur minimal rhythmbox.js optionnel",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "rhythmbox.html", "chromeProvider": "libadwaita-gnome", "skinCss": "rhythmbox.skin.css" }
+      }
+    },
+    "lecteur_multimedia": {
+      "slotId": "lecteur_multimedia",
+      "labelFr": "Lecteur vidéos",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/celluloid.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "lecteur_multimedia.html", "chromeProvider": "libadwaita-gnome", "skinCss": "lecteur_multimedia.skin.css" }
+      }
+    },
+    "drawing": {
+      "slotId": "drawing",
+      "labelFr": "Drawing",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/drawing.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "drawing.html", "chromeProvider": "libadwaita-gnome", "skinCss": "drawing.skin.css" }
+      }
+    },
+    "simple_scan": {
+      "slotId": "simple_scan",
+      "labelFr": "Numériseur simple",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/simple-scan.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "simple_scan.html", "chromeProvider": "libadwaita-gnome", "skinCss": "simple_scan.skin.css" }
+      }
+    },
+    "warpinator": {
+      "slotId": "warpinator",
+      "labelFr": "Warpinator",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/warpinator.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "warpinator.html", "chromeProvider": "libadwaita-gnome", "skinCss": "warpinator.skin.css" }
+      }
+    },
+    "timeshift": {
+      "slotId": "timeshift",
+      "labelFr": "Timeshift",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/timeshift.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "timeshift.html", "chromeProvider": "libadwaita-gnome", "skinCss": "timeshift.skin.css" }
+      }
+    },
+    "mintdrivers": {
+      "slotId": "mintdrivers",
+      "labelFr": "Gestionnaire de pilotes",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/mintdrivers.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "cinnamon": { "template": "mintdrivers.html", "chromeProvider": "cinnamon", "skinCss": "mintdrivers.skin.css" }
+      }
+    },
+    "mintinstall": {
+      "slotId": "mintinstall",
+      "labelFr": "Logithèque",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/mintinstall.js",
+      "scenariosContract": "etc/capsuleos/contracts/mintinstall-user-scenarios.json",
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "cinnamon": { "template": "mintinstall.html", "chromeProvider": "cinnamon", "skinCss": "mintinstall.skin.css" }
+      }
+    },
+    "mainMenu": {
+      "slotId": "mainMenu",
+      "labelFr": "Menu",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/mainMenu.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "cinnamon": { "template": "mainMenu.html", "chromeProvider": "cinnamon", "skinCss": "mainMenu.skin.css" },
+        "gnome": { "template": "mainMenu.html", "chromeProvider": "libadwaita-gnome", "skinCss": "mainMenu.skin.css", "note": "overview launcher" },
+        "pantheon": { "template": "mainMenu.html", "chromeProvider": "libadwaita-gnome", "skinCss": "mainMenu.skin.css", "note": "scaffold AccΣ" },
+        "xfce": { "template": "mainMenu.html", "chromeProvider": "cinnamon", "skinCss": "mainMenu.skin.css", "note": "scaffold AccΣ" },
+        "lxqt": { "template": "mainMenu.html", "chromeProvider": "cinnamon", "skinCss": "mainMenu.skin.css", "note": "scaffold AccΣ" }
+      }
+    },
+    "profile": {
+      "slotId": "profile",
+      "labelFr": "À propos",
+      "functionalDepth": "full",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/profile.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "profile.html", "chromeProvider": "libadwaita-gnome", "skinCss": "profile.skin.css" }
+      }
+    },
+    "checklist": {
+      "slotId": "checklist",
+      "labelFr": "Missions CapsuleOS",
+      "functionalDepth": "capsuleOnly",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/checklist.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "checklist.html", "chromeProvider": "libadwaita-gnome", "skinCss": "checklist.skin.css" }
+      }
+    },
+    "clocks": {
+      "slotId": "clocks",
+      "labelFr": "Horloges",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/clocks.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "clocks.html", "chromeProvider": "libadwaita-gnome", "skinCss": "clocks.skin.css" }
+      }
+    },
+    "visionneur_images": {
+      "slotId": "visionneur_images",
+      "labelFr": "Visionneur d'images",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/mint-viewers.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "visionneur_images.html", "chromeProvider": "libadwaita-gnome", "skinCss": "visionneur_images.skin.css" },
+        "cinnamon": { "template": "visionneur_images_pix.html", "chromeProvider": "cinnamon", "skinCss": "visionneur_images.skin.css" }
+      }
+    },
+    "visionneur_pdf": {
+      "slotId": "visionneur_pdf",
+      "labelFr": "Visionneur PDF",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/mint-viewers.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "visionneur_pdf.html", "chromeProvider": "libadwaita-gnome", "skinCss": "visionneur_pdf.skin.css" },
+        "cinnamon": { "template": "visionneur_pdf_xreader.html", "chromeProvider": "cinnamon", "skinCss": "visionneur_pdf.skin.css" }
+      }
+    },
+    "snapshot": {
+      "slotId": "snapshot",
+      "labelFr": "Snapshot",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/screenshot.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "snapshot.html", "chromeProvider": "libadwaita-gnome", "skinCss": "snapshot.skin.css" },
+        "cinnamon": { "template": "snapshot.html", "chromeProvider": "cinnamon", "skinCss": "snapshot.skin.css" }
+      }
+    },
+    "screenshot": {
+      "slotId": "screenshot",
+      "labelFr": "Capture d'écran",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/screenshot.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "screenshot.html", "chromeProvider": "libadwaita-gnome", "skinCss": "screenshot.skin.css" }
+      }
+    },
+    "baobab": {
+      "slotId": "baobab",
+      "labelFr": "Utilisation des disques",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/baobab.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "baobab.html", "chromeProvider": "libadwaita-gnome", "skinCss": "baobab.skin.css" }
+      }
+    },
+    "system_monitor": {
+      "slotId": "system_monitor",
+      "labelFr": "Moniteur système",
+      "functionalDepth": "partial",
+      "kernelModule": "usr/lib/capsuleos/shells/linux/system-monitor.js",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "system_monitor.html", "chromeProvider": "libadwaita-gnome", "skinCss": "system_monitor.skin.css" },
+        "kde": { "template": "system_monitor.html", "chromeProvider": "default", "skinCss": "system_monitor.skin.css" }
+      }
+    },
+    "tour": {
+      "slotId": "tour",
+      "labelFr": "Visite guidée",
+      "functionalDepth": "partial",
+      "kernelModule": null,
+      "kernelNote": "decorative — gabarit HTML statique",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "tour.html", "chromeProvider": "libadwaita-gnome", "skinCss": "tour.skin.css" }
+      }
+    },
+    "characters": {
+      "slotId": "characters",
+      "labelFr": "Caractères",
+      "functionalDepth": "partial",
+      "kernelModule": null,
+      "kernelNote": "decorative — gabarit HTML statique",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "gnome": { "template": "characters.html", "chromeProvider": "libadwaita-gnome", "skinCss": "characters.skin.css" }
+      }
+    },
+    "spectacle": {
+      "slotId": "spectacle",
+      "labelFr": "Spectacle",
+      "functionalDepth": "partial",
+      "kernelModule": null,
+      "kernelNote": "decorative — KDE",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "kde": { "template": "spectacle_kde_neon.html", "chromeProvider": "default", "skinCss": "spectacle.skin.css" }
+      }
+    },
+    "kinfocenter": {
+      "slotId": "kinfocenter",
+      "labelFr": "Informations système",
+      "functionalDepth": "partial",
+      "kernelModule": null,
+      "kernelNote": "decorative — KDE",
+      "scenariosContract": null,
+      "postInstallSlot": null,
+      "toolkitVariants": {
+        "kde": { "template": "kinfocenter_kde_neon.html", "chromeProvider": "default", "skinCss": "kinfocenter.skin.css" }
+      }
+    }
+  }
+}

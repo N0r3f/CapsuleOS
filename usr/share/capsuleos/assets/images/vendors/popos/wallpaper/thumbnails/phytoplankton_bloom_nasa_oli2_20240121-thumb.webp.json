@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/phytoplankton_bloom_nasa_oli2_20240121.jpg",
+  "role": "wallpaper-thumb",
+  "profile": "wallpaper-thumb",
+  "encoder": "sharp",
+  "options": {
+    "maxWidth": 512,
+    "quality": 78
+  },
+  "width": 512,
+  "height": 288,
+  "preparedAt": "2026-06-19T14:07:57.262Z"
+}

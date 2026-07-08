@@ -1,0 +1,172 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Catalogue Linux — CapsuleOS",
+      "url": "https://os.lacapsule.org/OS/linux/index.html",
+      "description": "Simulations de bureaux Linux (GNOME, Cinnamon, KDE, Cosmic…).",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Distributions Linux actives",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Linux Mint (Cinnamon)",
+            "identifier": "linux-mint",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/mint/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Ubuntu 26.04 LTS",
+            "identifier": "linux-ubuntu",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/ubuntu/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Fedora Workstation",
+            "identifier": "linux-fedora",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/redhat/fedora/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "KDE neon User Edition",
+            "identifier": "linux-kde-neon",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/kde-neon/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "openSUSE Tumbleweed",
+            "identifier": "linux-opensuse",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/suse/opensuse/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Pop!_OS",
+            "identifier": "linux-popos",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/popos/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "AnduinOS",
+            "identifier": "linux-anduinos",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/anduinos/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Rocky Linux (GNOME)",
+            "identifier": "linux-rocky",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/redhat/rocky/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "AlmaLinux (GNOME)",
+            "identifier": "linux-alma",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/redhat/alma/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

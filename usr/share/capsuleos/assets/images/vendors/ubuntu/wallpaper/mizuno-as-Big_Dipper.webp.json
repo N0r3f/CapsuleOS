@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/mizuno-as-Big_Dipper.jpg",
+  "sourceSha256": "655b6e2ba0e1b1861c74899a7bb6084ab69fd233d303f59c73ad963d3e0bf103",
+  "output": "images/vendors/ubuntu/wallpaper/mizuno-as-Big_Dipper.webp",
+  "outputSha256": "378d2df47b8227a6e275f4ecdb2dba400f26bc5d9d589e57b65bb20ef21cc8c4",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:56.234Z"
+}

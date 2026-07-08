@@ -1,0 +1,153 @@
+main#gnomeScreenshotApp {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    width: var(--full);
+    height: var(--full);
+    overflow: auto;
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.55);
+}
+
+.gnome-shot__panel {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 3);
+    padding: calc(var(--head) / 2.5);
+    width: var(--full);
+    box-sizing: border-box;
+}
+
+.gnome-shot__panel[hidden] {
+    display: none;
+}
+
+.gnome-shot__fieldset {
+    margin: 0;
+    padding: 0;
+    border: var(--n);
+}
+
+.gnome-shot__legend {
+    padding: 0 0 calc(var(--head) / 5);
+    font-weight: 600;
+    font-size: calc(var(--head) / 2.45);
+}
+
+.gnome-shot__option {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 4);
+    padding: calc(var(--head) / 5) 0;
+    cursor: var(--p);
+}
+
+.gnome-shot__option input {
+    flex-shrink: 0;
+    accent-color: var(--menu-accent, #1f9ede);
+}
+
+.gnome-shot__row {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: space-between;
+    gap: calc(var(--head) / 3);
+    padding: calc(var(--head) / 6) 0;
+}
+
+.gnome-shot__row-label {
+    font-weight: 500;
+}
+
+.gnome-shot__select {
+    min-width: calc(var(--head) * 3.2);
+    padding: calc(var(--head) / 8) calc(var(--head) / 4);
+    border-radius: 6px;
+    border: 1px solid var(--menu-search-border, #303036);
+    background: var(--menuInput, #303036);
+    color: inherit;
+    font: inherit;
+}
+
+.gnome-shot__hint {
+    margin: 0;
+    min-height: calc(var(--head) / 2);
+    font-size: calc(var(--head) / 2.85);
+    opacity: 0.75;
+}
+
+.gnome-shot__primary {
+    margin-top: calc(var(--head) / 6);
+    width: var(--full);
+    padding: calc(var(--head) / 3.5);
+    border: var(--n);
+    border-radius: 8px;
+    background: var(--menu-accent, #1f9ede);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    font-size: calc(var(--head) / 2.5);
+    cursor: var(--p);
+    transition: filter var(--eas2);
+}
+
+.gnome-shot__primary:hover {
+    filter: brightness(1.08);
+}
+
+.gnome-shot__primary:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.gnome-shot__preview-wrap {
+    width: var(--full);
+    max-height: calc(var(--head) * 5.5);
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--menu-shell-border, #1a1a1b);
+    background: #000;
+}
+
+.gnome-shot__preview {
+    display: var(--bl);
+    width: var(--full);
+    height: auto;
+    object-fit: contain;
+}
+
+.gnome-shot__actions {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 5);
+    width: var(--full);
+}
+
+.gnome-shot__action {
+    width: var(--full);
+    padding: calc(var(--head) / 4);
+    border: 1px solid var(--menu-search-border, #303036);
+    border-radius: 8px;
+    background: var(--menuInput, #303036);
+    color: inherit;
+    font: inherit;
+    cursor: var(--p);
+}
+
+.gnome-shot__action:hover {
+    border-color: var(--menu-accent, #1f9ede);
+    background: var(--menu-item-active-bg, #303036);
+}
+
+.gnome-shot__status {
+    margin: 0;
+    font-size: calc(var(--head) / 2.85);
+    opacity: 0.8;
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/round_moons_nasa.jpg",
+  "role": "wallpaper-thumb",
+  "profile": "wallpaper-thumb",
+  "encoder": "sharp",
+  "options": {
+    "maxWidth": 512,
+    "quality": 78
+  },
+  "width": 512,
+  "height": 288,
+  "preparedAt": "2026-06-19T14:07:57.486Z"
+}

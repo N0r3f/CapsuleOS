@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME System Monitor (org.gnome.SystemMonitor) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-system-monitor-vm-inventory.json",
+  "slot": "system_monitor",
+  "template": "system_monitor.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/system-monitor.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "SmΣ": "Contrat valide + kernel system-monitor.js (data-gsm-gnome-tab, dataset.gsmActiveTab)",
+    "Sm1": "Sm1 ouvrir et consulter la liste des processus",
+    "Sm2": "Sm2 basculer sur l'onglet Ressources",
+    "Sm3": "Sm3 rechercher un processus (firefox)",
+    "Sm4": "Sm4 consulter l'onglet Système de fichiers"
+  },
+  "scenarios": [
+    {
+      "id": "Sm1",
+      "priority": "P0",
+      "title": "Ouvrir et consulter la liste des processus",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.SystemMonitor",
+        "rpm": "gnome-system-monitor",
+        "version": "46.0-1.el10",
+        "labelFr": "Moniteur système",
+        "processTabFr": "Processus"
+      },
+      "steps": [
+        { "id": "open-sysmon", "action": "openWindowByDataLink", "target": "system_monitor", "label": "Ouvrir Moniteur système" },
+        { "id": "init", "predicate": "dataset.gsmInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "processes-tab", "predicate": "dataset.gsmActiveTab", "expectValue": "processes", "label": "Onglet Processus actif" },
+        { "id": "process-rows", "selector": "#gsm-process-body tr", "label": "Lignes processus présentes" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-system-monitor-scenarios.mjs --scenario Sm1",
+        "capture": "rocky-capsule-dark-system-monitor-processes.png"
+      }
+    },
+    {
+      "id": "Sm2",
+      "priority": "P0",
+      "title": "Basculer sur l'onglet Ressources",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "resourcesTabFr": "Ressources"
+      },
+      "steps": [
+        { "id": "open-sysmon", "action": "openWindowByDataLink", "target": "system_monitor", "label": "Ouvrir Moniteur système" },
+        { "id": "resources-tab", "selector": "[data-gsm-gnome-tab=\"resources\"]", "label": "Cliquer Ressources" },
+        { "id": "active-tab", "predicate": "dataset.gsmActiveTab", "expectValue": "resources", "label": "Onglet Ressources actif" },
+        { "id": "cpu-chart", "selector": "#gsm-cpu-chart .gsm-app__cpu-bars", "label": "Graphique CPU visible" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-system-monitor-scenarios.mjs --scenario Sm2",
+        "capture": "rocky-capsule-dark-system-monitor-resources.png"
+      }
+    },
+    {
+      "id": "Sm3",
+      "priority": "P0",
+      "title": "Rechercher un processus (firefox)",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "searchPlaceholderFr": "Rechercher des processus…"
+      },
+      "steps": [
+        { "id": "open-sysmon", "action": "openWindowByDataLink", "target": "system_monitor", "label": "Ouvrir Moniteur système" },
+        { "id": "search-btn", "selector": "[data-gsm-gnome-action=\"search\"]", "label": "Afficher recherche" },
+        { "id": "search-input", "selector": "#gsm-search", "action": "fill", "value": "firefox", "label": "Filtrer firefox" },
+        { "id": "filtered-row", "selector": "#gsm-process-body tr[data-gsm-pid]", "expectTextContains": "firefox", "label": "Ligne firefox visible" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-system-monitor-scenarios.mjs --scenario Sm3",
+        "capture": "rocky-capsule-dark-system-monitor-search.png"
+      }
+    },
+    {
+      "id": "Sm4",
+      "priority": "P0",
+      "title": "Consulter l'onglet Système de fichiers",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "filesystemsTabFr": "Système de fichiers"
+      },
+      "steps": [
+        { "id": "open-sysmon", "action": "openWindowByDataLink", "target": "system_monitor", "label": "Ouvrir Moniteur système" },
+        { "id": "fs-tab", "selector": "[data-gsm-gnome-tab=\"filesystems\"]", "label": "Cliquer Système de fichiers" },
+        { "id": "active-tab", "predicate": "dataset.gsmActiveTab", "expectValue": "filesystems", "label": "Onglet FS actif" },
+        { "id": "fs-rows", "selector": "#gsm-fs-body tr", "label": "Montages listés" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-system-monitor-scenarios.mjs --scenario Sm4",
+        "capture": "rocky-capsule-dark-system-monitor-filesystems.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "SmΣ": { "script": "usr/lib/capsuleos/tools/validate-system-monitor-user-scenarios.mjs" }
+  }
+}

@@ -1,0 +1,80 @@
+<main id="fileRollerApp" class="fr-app file-roller" aria-label="Gestionnaire d'archives">
+
+    <header class="fr-app__headerbar file-roller-menubar" aria-label="En-tête">
+        <div class="fr-app__header-start file-roller-toolbar">
+            <button type="button" class="fr-app__btn fr-app__btn--extract file-roller-extract" data-fr-action="extract" disabled>
+                Extraire
+            </button>
+            <button type="button" class="fr-app__btn fr-app__btn--icon" data-fr-action="add" title="Ajouter des fichiers" aria-label="Ajouter des fichiers">
+                <span class="fr-app__icon fr-app__icon--plus" aria-hidden="true"></span>
+            </button>
+        </div>
+        <h1 class="fr-app__title" id="fr-app-title" data-capsule-text="file_roller.windowTitle">Gestionnaire d'archives</h1>
+        <div class="fr-app__header-end">
+            <button type="button" class="fr-app__btn fr-app__btn--icon" data-fr-action="search" title="Rechercher" aria-label="Rechercher" aria-pressed="false">
+                <span class="fr-app__icon fr-app__icon--search" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="fr-app__btn fr-app__btn--icon" data-fr-action="menu" title="Menu principal" aria-label="Menu principal" aria-haspopup="menu" aria-expanded="false">
+                <span class="fr-app__icon fr-app__icon--menu" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="fr-app__search" id="fr-search-row" hidden>
+        <label class="sr-only" for="fr-search-input">Rechercher dans l'archive</label>
+        <input type="search" class="fr-app__search-input" id="fr-search-input" placeholder="Rechercher…" autocomplete="off">
+    </div>
+
+    <nav class="fr-app__nav" id="fr-nav-row" aria-label="Navigation dans l'archive" hidden>
+        <div class="fr-app__nav-start">
+            <button type="button" class="fr-app__btn fr-app__btn--icon fr-app__btn--nav" data-fr-action="back" title="Précédent" aria-label="Précédent" disabled>
+                <span class="fr-app__icon fr-app__icon--back" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="fr-app__btn fr-app__btn--icon fr-app__btn--nav" data-fr-action="forward" title="Suivant" aria-label="Suivant" disabled>
+                <span class="fr-app__icon fr-app__icon--forward" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="fr-app__btn fr-app__btn--icon fr-app__btn--nav" data-fr-action="home" title="Accueil" aria-label="Accueil">
+                <span class="fr-app__icon fr-app__icon--home" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="fr-app__location">
+            <span class="fr-app__location-label">Emplacement&nbsp;:</span>
+            <div class="fr-app__path" id="fr-path-field" role="textbox" aria-readonly="true">
+                <span class="fr-app__path-icon" aria-hidden="true"></span>
+                <span class="fr-app__path-text" id="fr-path-text">/</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="fr-app__body" id="fr-body">
+        <div class="fr-app__empty" id="fr-empty" aria-hidden="false"></div>
+        <div class="fr-app__list-wrap file-roller-list" id="fr-list-wrap" hidden>
+            <table class="fr-app__table" aria-label="Contenu de l'archive">
+                <thead>
+                    <tr>
+                        <th scope="col" class="fr-app__col fr-app__col--name is-sorted" data-fr-sort="name">
+                            Nom <span class="fr-app__sort-arrow" aria-hidden="true"></span>
+                        </th>
+                        <th scope="col" class="fr-app__col fr-app__col--size" data-fr-sort="size">Taille</th>
+                        <th scope="col" class="fr-app__col fr-app__col--type" data-fr-sort="type">Type</th>
+                        <th scope="col" class="fr-app__col fr-app__col--modified" data-fr-sort="modified">Modifié</th>
+                    </tr>
+                </thead>
+                <tbody id="fr-list-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="fr-app__menu" id="fr-menu" role="menu" hidden>
+        <button type="button" class="fr-app__menu-item" role="menuitem" data-fr-menu="new">Nouvelle archive</button>
+        <button type="button" class="fr-app__menu-item" role="menuitem" data-fr-menu="open">Ouvrir…</button>
+        <button type="button" class="fr-app__menu-item" role="menuitem" data-fr-menu="open-demo">Ouvrir demo.zip</button>
+        <span class="fr-app__menu-sep" role="separator"></span>
+        <button type="button" class="fr-app__menu-item" role="menuitem" data-fr-menu="close" disabled>Fermer</button>
+        <span class="fr-app__menu-sep" role="separator"></span>
+        <button type="button" class="fr-app__menu-item" role="menuitem" data-fr-menu="about">À propos</button>
+    </div>
+
+    <p class="fr-app__status sr-only" id="fr-status" role="status" aria-live="polite"></p>
+
+</main>

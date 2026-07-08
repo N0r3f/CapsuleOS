@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Calculatrice (org.gnome.Calculator) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-calculator-vm-inventory.json",
+  "slot": "calculator",
+  "template": "calculator.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/calculator.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "CaΣ": "Contrat valide + kernel implémente handlers data-calc-gnome-*",
+    "Ca1": "C1 calcul basique 2+2=4",
+    "Ca2": "C2 chaîne d'opérations puis effacer",
+    "Ca3": "C3 changement de mode Basique → Avancé",
+    "Ca4": "C4 copier le résultat dans le presse-papiers"
+  },
+  "scenarios": [
+    {
+      "id": "C1",
+      "priority": "P0",
+      "title": "Calcul basique",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Calculator",
+        "rpm": "gnome-calculator",
+        "version": "46.3-1.el10",
+        "defaultMode": "basic",
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-calc", "action": "openWindowByDataLink", "target": "calculator", "label": "Ouvrir Calculatrice" },
+        { "id": "digit-2a", "selector": "[data-calc=\"digit\"][data-digit=\"2\"]", "label": "Saisir 2" },
+        { "id": "op-plus", "selector": "[data-calc=\"op\"][data-op=\"+\"]", "label": "Addition" },
+        { "id": "digit-2b", "selector": "[data-calc=\"digit\"][data-digit=\"2\"]", "label": "Saisir 2" },
+        { "id": "equals", "selector": "[data-calc=\"equals\"]", "label": "Égal" },
+        { "id": "result", "selector": "[data-calc-gnome-display]", "expectText": "4", "label": "Résultat 4" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calculator-scenarios.mjs --scenario C1",
+        "capture": "rocky-capsule-dark-calculator-basic.png"
+      }
+    },
+    {
+      "id": "C2",
+      "priority": "P0",
+      "title": "Chaîne d'opérations et effacer",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "chain", "note": "5 × 3 = 15", "label": "Multiplier 5 par 3" },
+        { "id": "clear", "selector": "[data-calc=\"clear\"]", "label": "Tout effacer (C)" },
+        { "id": "zero", "selector": "[data-calc-gnome-display]", "expectText": "0", "label": "Affichage remis à zéro" },
+        { "id": "backspace", "selector": "[data-calc=\"backspace\"]", "label": "Effacer le dernier chiffre" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calculator-scenarios.mjs --scenario C2",
+        "capture": "rocky-capsule-dark-calculator-chain-clear.png"
+      }
+    },
+    {
+      "id": "C3",
+      "priority": "P0",
+      "title": "Changement de mode",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "modesFr": ["Basique", "Avancé", "Programmation"],
+        "gsettingsKey": "button-mode",
+        "default": "basic"
+      },
+      "steps": [
+        { "id": "open-mode", "selector": "#gnome-calc-mode", "label": "Ouvrir le sélecteur de mode" },
+        { "id": "pick-advanced", "selector": "[data-calc-mode=\"advanced\"]", "label": "Mode Avancé" },
+        { "id": "mode-label", "selector": "#gnome-calc-mode-label", "expectText": "Avancé", "label": "Libellé VM fr_FR" },
+        { "id": "advanced-keypad", "selector": "#gnome-calc-keypad-advanced:not([hidden])", "label": "Pavé scientifique visible" },
+        { "id": "mode-dataset", "predicate": "dataset.calcGnomeMode", "expectValue": "advanced", "label": "État mode avancé" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calculator-scenarios.mjs --scenario C3",
+        "capture": "rocky-capsule-dark-calculator-advanced.png"
+      }
+    },
+    {
+      "id": "C4",
+      "priority": "P0",
+      "title": "Copier le résultat",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "copyLabelFr": "Copier le résultat dans le presse-papiers",
+        "memoryOnVm": false,
+        "note": "Mémoire présente en traductions mais pas exposée en mode basique Alma 10.2"
+      },
+      "steps": [
+        { "id": "compute", "note": "7 × 8 = 56", "label": "Calcul préalable" },
+        { "id": "copy", "selector": "[data-calc-gnome-action=\"copy-result\"]", "label": "Copier le résultat" },
+        { "id": "toast", "selector": "[data-calc-gnome-toast]:not([hidden])", "label": "Confirmation toast" },
+        { "id": "copied-flag", "predicate": "dataset.calcGnomeCopied", "expectValue": "true", "label": "Marqueur copie actif" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calculator-scenarios.mjs --scenario C4",
+        "capture": "rocky-capsule-dark-calculator-copy.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "CaΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-calculator-user-scenarios.mjs"
+    }
+  }
+}

@@ -1,0 +1,240 @@
+<main id="gestionnaire" class="nemo-app dolphin-app" aria-label="Gestionnaire de fichiers">
+    <header id="nemoHeaderContainer" class="nemo-app__header">
+        <!-- Ligne 2: menu texte -->
+        <section class="menuOutils nemo-app__menubar" aria-label="Menu">
+            <nav class="nemo-app__menubar-nav">
+                <ul class="menuHeader nemo-app__menu">
+                    <li><a href="#">Fichier</a>
+                        <ul class="listeSousMenu" style="display: none;">
+                            <a href="#"><img src="./assets/icons/kde/nemo/tab-new.svg" alt="" aria-hidden="true"><li>Nouvel onglet</li></a>
+                            <a href="#"><li>Nouvelle fenêtre</li></a>
+                            <a href="#"><img src="./assets/icons/kde/nemo/new-folder.svg" alt="" aria-hidden="true"><li>Créer un nouveau dossier</li></a>
+                            <a href="#" class="lineUnder"><img src="./assets/icons/kde/nemo/cross.svg" alt="" aria-hidden="true"><li>Fermer</li></a>
+                        </ul>
+                    </li>
+                    <li><a href="#">Édition</a>
+                        <ul class="listeSousMenu" style="display: none;">
+                            <a href="#"><img src="./assets/icons/kde/nemo/undo.svg" alt="" aria-hidden="true"><li>Annuler</li></a>
+                            <a href="#" class="lineUnder"><img src="./assets/icons/kde/nemo/redo.svg" alt="" aria-hidden="true"><li>Rétablir</li></a>
+                            <a href="#"><img src="./assets/icons/kde/nemo/copy.svg" alt="" aria-hidden="true"><li>Copier</li></a>
+                            <a href="#"><img src="./assets/icons/kde/nemo/paste.svg" alt="" aria-hidden="true"><li>Coller</li></a>
+                        </ul>
+                    </li>
+                    <li><a href="#">Affichage</a>
+                        <ul class="listeSousMenu" style="display: none;">
+                            <a href="#"><img src="./assets/icons/kde/nemo/refresh.svg" alt="" aria-hidden="true"><li>Actualiser</li></a>
+                            <a href="#"><li>Aperçu</li></a>
+                        </ul>
+                    </li>
+                    <li><a href="#">Aller à</a></li>
+                    <li><a href="#">Outils</a></li>
+                    <li><a href="#">Configuration</a></li>
+                    <li><a href="#">Aide</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Ligne 3: toolbar -->
+        <section class="nemo-app__toolbar dolphin-toolbar" aria-label="Barre d’outils">
+            <div class="nemo-app__toolbar-group dolphin-toolbar__nav">
+                <a href="#" id="precedent" class="dolphin-toolbar__btn dolphin-toolbar__btn--nav" aria-label="Précédent"><span class="dolphin-ico dolphin-ico--back" aria-hidden="true"></span></a>
+                <a href="#" id="suivant" class="dolphin-toolbar__btn dolphin-toolbar__btn--nav" aria-label="Suivant"><span class="dolphin-ico dolphin-ico--forward" aria-hidden="true"></span></a>
+            </div>
+
+            <div class="nemo-app__toolbar-group dolphin-toolbar__view" aria-label="Mode d'affichage">
+                <button type="button" id="dolphin-view-mode-btn" class="dolphin-toolbar__btn dolphin-toolbar__view-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="dolphin-view-menu" aria-label="Modifier le mode d'affichage">
+                    <span class="dolphin-ico dolphin-ico--view-grid dolphin-view-mode-ico" aria-hidden="true"></span>
+                </button>
+                <a href="#" class="dolphin-toolbar__btn dolphin-toolbar__view-btn dolphin-toolbar__view-btn--active" data-view-mode="icons" hidden aria-hidden="true" tabindex="-1"></a>
+                <a href="#" class="dolphin-toolbar__btn dolphin-toolbar__view-btn" data-view-mode="compact" hidden aria-hidden="true" tabindex="-1"></a>
+                <a href="#" class="dolphin-toolbar__btn dolphin-toolbar__view-btn" data-view-mode="list" hidden aria-hidden="true" tabindex="-1"></a>
+                <div id="dolphin-view-menu" class="dolphin-view-menu" role="menu" hidden>
+                    <button type="button" class="dolphin-view-menu__item" role="menuitemradio" data-view-mode="icons" aria-checked="true">
+                        <span class="dolphin-view-menu__check" aria-hidden="true"></span>
+                        <span class="dolphin-view-menu__label">Icônes</span>
+                        <span class="dolphin-view-menu__shortcut">Ctrl+1</span>
+                    </button>
+                    <button type="button" class="dolphin-view-menu__item" role="menuitemradio" data-view-mode="compact" aria-checked="false">
+                        <span class="dolphin-view-menu__check" aria-hidden="true"></span>
+                        <span class="dolphin-view-menu__label">Synthétique</span>
+                        <span class="dolphin-view-menu__shortcut">Ctrl+2</span>
+                    </button>
+                    <button type="button" class="dolphin-view-menu__item" role="menuitemradio" data-view-mode="list" aria-checked="false">
+                        <span class="dolphin-view-menu__check" aria-hidden="true"></span>
+                        <span class="dolphin-view-menu__label">Détails</span>
+                        <span class="dolphin-view-menu__shortcut">Ctrl+3</span>
+                    </button>
+                    <div class="dolphin-view-menu__sep" role="separator"></div>
+                    <button type="button" class="dolphin-view-menu__item dolphin-view-menu__item--config" role="menuitem" id="dolphin-view-config-open">
+                        <span class="dolphin-view-menu__check dolphin-view-menu__check--empty" aria-hidden="true"></span>
+                        <span class="dolphin-view-menu__label">Configuration des affichages</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nemo-app__toolbar-group nemo-app__toolbar-group--path dolphin-toolbar__path" aria-label="Emplacement actuel">
+                <a href="#" class="nemo-app__path-current"><span class="dolphin-toolbar__crumb-prefix" aria-hidden="true">&gt;</span></a>
+            </div>
+
+            <div class="nemo-app__toolbar-group dolphin-toolbar__actions">
+                <a href="#" id="dolphin-split-toggle" class="dolphin-toolbar__btn dolphin-toolbar__btn--split" aria-label="Scinder" aria-pressed="false">
+                    <span class="dolphin-ico dolphin-ico--split" aria-hidden="true"></span>
+                    <span class="dolphin-toolbar__btn-label">Scinder</span>
+                </a>
+                <label class="dolphin-toolbar__search" aria-label="Rechercher">
+                    <span class="dolphin-ico dolphin-ico--search" aria-hidden="true"></span>
+                    <input type="search" id="dolphin-search" class="dolphin-toolbar__search-input" placeholder="Rechercher..." aria-label="Rechercher" autocomplete="off">
+                </label>
+                <a href="#" id="dolphin-preview-toggle" class="dolphin-toolbar__btn dolphin-toolbar__btn--preview" aria-label="Aperçu" aria-pressed="false">
+                    <span class="dolphin-ico dolphin-ico--preview" aria-hidden="true"></span>
+                    <span>Aperçu</span>
+                </a>
+                <button type="button" id="dolphin-main-menu" class="dolphin-toolbar__btn dolphin-toolbar__btn--menu" aria-label="Menu" aria-haspopup="menu">
+                    <span class="dolphin-ico dolphin-ico--menu" aria-hidden="true"></span>
+                </button>
+            </div>
+        </section>
+    </header>
+
+    <main id="nemoMainContainer" class="nemo-app__main">
+        <aside id="voletnemo" class="nemo-app__sidebar dolphin-sidebar" aria-label="Emplacements">
+            <div class="dolphin-sidebar__section">
+                <h4 class="dolphin-sidebar__heading">Emplacements</h4>
+                <nav class="dolphin-sidebar__nav" aria-label="Emplacements">
+                    <a class="dolphin-sidebar__link" data-link="Dossier Personnel" href="#">
+                        <img src="./assets/icons/kde/nemo/go-home-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Dossier Personnel</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Bureau" href="#">
+                        <img src="./assets/icons/kde/nemo/user-desktop-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Bureau</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Documents" href="#">
+                        <img src="./assets/icons/kde/places16/folder-documents-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Documents</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Téléchargements" href="#">
+                        <img src="./assets/icons/kde/places16/folder-downloads-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Téléchargements</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Musique" href="#">
+                        <img src="./assets/icons/kde/nemo/folder-music-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Musique</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Images" href="#">
+                        <img src="./assets/icons/kde/places16/folder-pictures-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Images</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Vidéos" href="#">
+                        <img src="./assets/icons/kde/nemo/folder-videos-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Vidéos</span>
+                    </a>
+                    <a class="dolphin-sidebar__link" data-link="Corbeille" href="#">
+                        <img src="./assets/icons/kde/places32/user-trash.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Corbeille</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="dolphin-sidebar__section">
+                <h4 class="dolphin-sidebar__heading">Distant</h4>
+                <nav class="dolphin-sidebar__nav" aria-label="Réseau">
+                    <a href="#" class="dolphin-sidebar__link dolphin-sidebar__link--static">
+                        <img src="./assets/icons/kde/places16/folder-network-symbolic.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Réseau</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="dolphin-sidebar__section">
+                <h4 class="dolphin-sidebar__heading">Récents</h4>
+                <nav class="dolphin-sidebar__nav" aria-label="Récents">
+                    <a class="dolphin-sidebar__link" data-link="Récent" href="#">
+                        <img src="./assets/icons/kde/nemo/document-open-recent.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Fichiers récents</span>
+                    </a>
+                    <a href="#" class="dolphin-sidebar__link dolphin-sidebar__link--static">
+                        <img src="./assets/icons/kde/nemo/folder-open-recent.svg" alt="" aria-hidden="true">
+                        <span class="dolphin-sidebar__label">Emplacements récents</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+        <aside id="voletContainer" class="nemo-app__content-wrap dolphin-content-wrap">
+            <div class="dolphin-content-panes" id="dolphin-content-panes">
+                <div class="dolphin-content-pane dolphin-content-pane--primary dolphin-content-pane--active" data-pane="primary">
+                    <div class="dolphin-folder-pill" id="dolphin-folder-pill" role="status" aria-live="polite">0 dossiers</div>
+                    <section class="nemoElement nemo-app__content-grid" data-pane="primary" aria-label="Fichiers"></section>
+                </div>
+                <div class="dolphin-content-pane dolphin-content-pane--secondary" data-pane="secondary" hidden>
+                    <div class="dolphin-folder-pill dolphin-folder-pill--secondary" id="dolphin-folder-pill-secondary" role="status" aria-live="polite">0 dossiers</div>
+                    <section class="nemoElement nemo-app__content-grid nemoElement--secondary" data-pane="secondary" aria-label="Fichiers (volet droit)"></section>
+                </div>
+                <aside class="dolphin-preview-pane" id="dolphin-preview-pane" hidden aria-label="Aperçu">
+                    <header class="dolphin-preview-pane__header">
+                        <span class="dolphin-preview-pane__title" id="dolphin-preview-title">Aperçu</span>
+                    </header>
+                    <div class="dolphin-preview-pane__body" id="dolphin-preview-body">
+                        <p class="dolphin-preview-pane__empty">Sélectionnez un fichier pour afficher l’aperçu.</p>
+                    </div>
+                </aside>
+            </div>
+        </aside>
+    </main>
+
+    <dialog id="nemo-properties-dialog" class="nautilus-properties-dialog" aria-labelledby="nemo-properties-title">
+        <form method="dialog" class="nautilus-properties-dialog__panel">
+            <header class="nautilus-properties-dialog__header">
+                <h2 id="nemo-properties-title">Propriétés</h2>
+                <button type="submit" class="nautilus-properties-dialog__close" value="close">Fermer</button>
+            </header>
+            <div class="nautilus-properties-dialog__body">
+                <dl>
+                    <dt>Nom</dt>
+                    <dd id="nemo-properties-name">—</dd>
+                    <dt>Type</dt>
+                    <dd id="nemo-properties-type">—</dd>
+                    <dt>Emplacement</dt>
+                    <dd id="nemo-properties-location">—</dd>
+                    <dt>Contenu</dt>
+                    <dd id="nemo-properties-size">—</dd>
+                    <dt>Modifié</dt>
+                    <dd id="nemo-properties-modified">—</dd>
+                </dl>
+            </div>
+        </form>
+    </dialog>
+    <nav id="nemo-context-menu" class="nautilus-context-menu" role="menu" aria-label="Menu contextuel Fichiers" hidden>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open" data-nemo-ctx-scope="item" data-nemo-ctx-icon="document-open"><span class="nautilus-context-menu__label">Ouvrir</span><span class="nautilus-context-menu__sub" aria-hidden="true">›</span></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open-with" data-nemo-ctx-scope="item" data-nemo-ctx-icon="open-menu"><span class="nautilus-context-menu__label">Ouvrir avec…</span></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="cut" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-cut"><span class="nautilus-context-menu__label">Couper</span><kbd>Ctrl+X</kbd></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="copy" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-copy"><span class="nautilus-context-menu__label">Copier</span><kbd>Ctrl+C</kbd></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="move-to" data-nemo-ctx-scope="item" data-nemo-ctx-icon="go-jump"><span class="nautilus-context-menu__label">Déplacer vers…</span></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="copy-to" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-copy"><span class="nautilus-context-menu__label">Copier vers…</span></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="rename" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-rename"><span class="nautilus-context-menu__label">Renommer…</span><kbd>F2</kbd></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="compress" data-nemo-ctx-scope="item" data-nemo-ctx-icon="package-x-generic"><span class="nautilus-context-menu__label">Compresser…</span></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="trash" data-nemo-ctx-scope="item" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Mettre à la corbeille</span><kbd>Suppr</kbd></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="restore-trash" data-nemo-ctx-scope="trash-item" data-nemo-ctx-icon="edit-undo"><span class="nautilus-context-menu__label">Restaurer</span></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="delete-forever" data-nemo-ctx-scope="trash-item" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Supprimer définitivement</span><kbd>Maj+Suppr</kbd></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="trash-item" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="empty-trash" data-nemo-ctx-scope="trash" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Vider la corbeille</span></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="trash" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="new-folder" data-nemo-ctx-scope="background" data-nemo-ctx-icon="folder-new"><span class="nautilus-context-menu__label">Nouveau dossier…</span><kbd>Maj+Ctrl+N</kbd></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open-terminal" data-nemo-ctx-scope="background" data-nemo-ctx-icon="utilities-terminal"><span class="nautilus-context-menu__label">Ouvrir dans la console</span></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="background" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="paste" data-nemo-ctx-scope="background" data-nemo-ctx-icon="edit-paste"><span class="nautilus-context-menu__label">Coller</span><kbd>Ctrl+V</kbd></button>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="select-all" data-nemo-ctx-scope="background" data-nemo-ctx-icon="edit-select-all"><span class="nautilus-context-menu__label">Tout sélectionner</span><kbd>Ctrl+A</kbd></button>
+        <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="background" role="separator"></div>
+        <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="properties" data-nemo-ctx-scope="both" data-nemo-ctx-icon="document-properties"><span class="nautilus-context-menu__label">Propriétés</span><kbd>Alt+Entrée</kbd></button>
+    </nav>
+
+    <footer id="nemoFooterContainer" class="nemo-app__statusbar" aria-label="Barre d’état">
+        <section class="nemo-app__status-left"></section>
+        <section class="nemo-app__status-center"><p>—</p></section>
+        <section class="nemo-app__status-right">
+            <input type="range" name="zoom" id="zoom" min="80" max="140" step="10" value="100" aria-label="Zoom des icônes">
+        </section>
+    </footer>
+</main>
+

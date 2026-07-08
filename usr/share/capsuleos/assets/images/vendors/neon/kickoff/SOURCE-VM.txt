@@ -1,0 +1,17 @@
+Icônes catégories Kickoff — Breeze actions/22 (pull VM 2026-06-06)
+Réf. utilisateur : actions/ (pas places/ ni categories/applications-*).
+
+| Catégorie | Fichier breeze/actions/22 |
+|-----------|---------------------------|
+| Favoris | favorite.svg |
+| Toutes les applications | application-menu.svg |
+| Aide | help-about.svg |
+| Bureautique | office-chart-area.svg |
+| Développement | project-development.svg |
+| Graphisme | graphics.svg |
+| Internet | internet-services.svg |
+| Multimédia | view-media-playlist.svg |
+| Système | preferences-system-symbolic.svg |
+| Utilitaires | preferences-other.svg |
+
+Regénérer apps : node root/tools/lab/generate-kde-neon-kickoff-data.mjs

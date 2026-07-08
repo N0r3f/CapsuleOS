@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Light.png",
+  "role": "wallpaper-thumb",
+  "profile": "wallpaper-thumb",
+  "encoder": "sharp",
+  "options": {
+    "maxWidth": 512,
+    "quality": 78
+  },
+  "width": 512,
+  "height": 381,
+  "preparedAt": "2026-06-16T09:50:45.370Z"
+}

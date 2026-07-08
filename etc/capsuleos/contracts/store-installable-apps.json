@@ -1,0 +1,1179 @@
+{
+  "version": 1,
+  "status": "active",
+  "description": "Catalogue apps installables via le magasin natif de chaque OS — extension pédagogique au-delà du ground truth VM (defaultInstalled: false).",
+  "slotsManifestRef": "etc/capsuleos/contracts/slots-manifest.json",
+  "presentationBindingsRef": "etc/capsuleos/contracts/presentation-bindings.json",
+  "principles": [
+    "VM prime : seules les apps onVm=true restent dans le shell par défaut",
+    "storeInstallable=true : l'utilisateur peut simuler une installation depuis le magasin OS",
+    "postInstall : slot Capsule déjà abouti (Mint v3 ou GNOME ScΣ) — pas de nouveau gabarit",
+    "Sources documentées par registryId — jamais inventer un paquet absent des dépôts officiels"
+  ],
+  "sessionStoragePattern": {
+    "namespace": "capsule-store-installed",
+    "keyTemplate": "capsule-store-installed:{registryId}",
+    "valueShape": {
+      "appIds": [
+        "string — desktopId ou flatpak app id"
+      ],
+      "installedAt": "ISO8601",
+      "source": "rpm | apt | flatpak | snap"
+    },
+    "referenceScenario": "software-user-scenarios.json — cycle C15 (GNOME Software) · extension S1+ prévue"
+  },
+  "registryOverridesExtension": {
+    "note": "Champs optionnels à ajouter dans apps-catalog.json registryOverrides.<id>.apps.<desktopId>",
+    "fields": {
+      "storeInstallable": "boolean — proposé au magasin simulé si slot Capsule ok/partiel",
+      "defaultInstalled": "boolean — false = extension magasin ; true ou absent = ground truth VM"
+    }
+  },
+  "storeFrontByRegistry": {
+    "linux-mint": {
+      "slot": "mintinstall",
+      "labelFr": "Logithèque",
+      "sources": [
+        "apt",
+        "flatpak"
+      ],
+      "doc": "https://mintguide.miraheze.org/wiki/Software_Manager"
+    },
+    "linux-rocky": {
+      "slot": "update_manager",
+      "appId": "org.gnome.Software",
+      "labelFr": "Logiciels",
+      "sources": [
+        "rpm",
+        "flatpak"
+      ],
+      "doc": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/administering_rhel_by_using_the_gnome_desktop_environment/installing-applications-by-using-flatpak"
+    },
+    "linux-alma": {
+      "slot": "update_manager",
+      "appId": "org.gnome.Software",
+      "labelFr": "Logiciels",
+      "sources": [
+        "rpm",
+        "flatpak"
+      ],
+      "doc": "https://flathub.org/en/setup/AlmaLinux"
+    },
+    "linux-fedora": {
+      "slot": "update_manager",
+      "appId": "org.gnome.Software",
+      "labelFr": "Logiciels",
+      "sources": [
+        "rpm",
+        "flatpak"
+      ],
+      "doc": "https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide/package-management/DNF/"
+    },
+    "linux-ubuntu": {
+      "slot": "update_manager",
+      "appId": "snap-store",
+      "labelFr": "Centre d'applications",
+      "sources": [
+        "snap",
+        "deb",
+        "flatpak"
+      ],
+      "flatpakNote": "Flatpak via gnome-software + plugin — absent App Center par défaut",
+      "doc": "https://ubuntu.fan/en/docs/desktop-use/basics/software-install"
+    },
+    "linux-popos": {
+      "slot": "update_manager",
+      "appId": "pop-shop",
+      "labelFr": "Pop Shop",
+      "sources": [
+        "deb",
+        "flatpak"
+      ],
+      "doc": "https://support.system76.com/articles/install-pop-shop/"
+    },
+    "linux-anduinos": {
+      "slot": "update_manager",
+      "appId": "org.gnome.Software",
+      "labelFr": "Logiciels",
+      "sources": [
+        "deb",
+        "flatpak"
+      ],
+      "doc": "https://wiki.gnome.org/Apps/Software"
+    },
+    "linux-kde-neon": {
+      "slot": "update_manager",
+      "appId": "org.kde.discover",
+      "labelFr": "Discover",
+      "sources": [
+        "apt",
+        "flatpak"
+      ],
+      "doc": "https://apps.kde.org/discover/"
+    },
+    "linux-opensuse": {
+      "slot": "update_manager",
+      "appId": "org.kde.discover",
+      "labelFr": "Discover",
+      "sources": [
+        "rpm",
+        "flatpak"
+      ],
+      "storeCatalogStatus": "deferred",
+      "doc": "https://en.opensuse.org/Portal:Software_management"
+    }
+  },
+  "apps": [
+    {
+      "slot": "firefox",
+      "labelFr": "Firefox",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P0-store",
+      "sources": {
+        "linux-mint": {
+          "apt": "firefox",
+          "flatpak": "org.mozilla.firefox",
+          "defaultInstalled": true
+        },
+        "linux-rocky": {
+          "rpm": "firefox",
+          "flatpak": "org.mozilla.firefox",
+          "defaultInstalled": true
+        },
+        "linux-alma": {
+          "rpm": "firefox",
+          "flatpak": "org.mozilla.firefox",
+          "defaultInstalled": true
+        },
+        "linux-fedora": {
+          "rpm": "firefox",
+          "flatpak": "org.mozilla.firefox",
+          "defaultInstalled": true
+        },
+        "linux-ubuntu": {
+          "snap": "firefox",
+          "deb": "firefox",
+          "defaultInstalled": true,
+          "note": "Snap recommandé archive Ubuntu 26.04"
+        }
+      }
+    },
+    {
+      "slot": "text_editor",
+      "labelFr": "Éditeur de texte",
+      "capsuleStatus": "ok",
+      "functionalDepth": "full",
+      "crossOs": true,
+      "recommendation": "P0-store",
+      "sources": {
+        "linux-mint": {
+          "apt": "xed",
+          "desktopId": "org.x.editor.desktop",
+          "defaultInstalled": true
+        },
+        "linux-rocky": {
+          "rpm": "gnome-text-editor",
+          "desktopId": "org.gnome.TextEditor.desktop",
+          "defaultInstalled": true
+        },
+        "linux-alma": {
+          "rpm": "gnome-text-editor",
+          "defaultInstalled": true
+        },
+        "linux-fedora": {
+          "rpm": "gnome-text-editor",
+          "defaultInstalled": true
+        },
+        "linux-ubuntu": {
+          "deb": "gnome-text-editor",
+          "defaultInstalled": true
+        }
+      }
+    },
+    {
+      "slot": "calculator",
+      "labelFr": "Calculatrice",
+      "capsuleStatus": "ok",
+      "functionalDepth": "full",
+      "crossOs": true,
+      "recommendation": "P0-store",
+      "sources": {
+        "linux-mint": {
+          "apt": "gnome-calculator",
+          "desktopId": "org.gnome.Calculator.desktop",
+          "defaultInstalled": true
+        },
+        "linux-rocky": {
+          "rpm": "gnome-calculator",
+          "defaultInstalled": true
+        },
+        "linux-alma": {
+          "rpm": "gnome-calculator",
+          "defaultInstalled": true
+        },
+        "linux-fedora": {
+          "rpm": "gnome-calculator",
+          "defaultInstalled": true
+        },
+        "linux-ubuntu": {
+          "deb": "gnome-calculator",
+          "defaultInstalled": true
+        }
+      }
+    },
+    {
+      "slot": "calendar",
+      "labelFr": "Agenda",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "gapNote": "Absent paquet RPM Alma/Rocky lab — flatpak org.gnome.Calendar sur Flathub / remote RH",
+      "storeCatalog": {
+        "id": "calendar",
+        "sub": "Calendrier et rendez-vous",
+        "desc": "Consultez vos événements et rendez-vous (Flatpak org.gnome.Calendar).",
+        "version": "47.0",
+        "size": "~5 Mo",
+        "iconClass": "gnome-software__cardicon--calendar",
+        "categories": [
+          "productivity"
+        ],
+        "placement": {
+          "overview": true,
+          "dash": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "gnome-calendar",
+          "desktopId": "org.gnome.Calendar.desktop",
+          "defaultInstalled": true,
+          "storeInstallable": false
+        },
+        "linux-rocky": {
+          "flatpak": "org.gnome.Calendar",
+          "desktopId": "org.gnome.Calendar.desktop",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "org.gnome.Calendar",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "gnome-calendar",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "gnome-calendar",
+          "flatpak": "org.gnome.Calendar",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "gnome-calendar",
+          "flatpak": "org.gnome.Calendar",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "org.gnome.Calendar",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "file_roller",
+      "labelFr": "Gestionnaire d'archives",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "file-roller",
+        "sub": "Archives compressées",
+        "desc": "Créez, ouvrez et extrayez des archives (tar, zip, …).",
+        "version": "43.0",
+        "size": "~2 Mo",
+        "iconClass": "gnome-software__cardicon--file-roller",
+        "categories": [
+          "utilities"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "file-roller",
+          "desktopId": "org.gnome.FileRoller.desktop",
+          "defaultInstalled": true,
+          "storeInstallable": false
+        },
+        "linux-rocky": {
+          "rpm": "file-roller",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "rpm": "file-roller",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "file-roller",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "file-roller",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "file-roller",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "defaultInstalled": false,
+          "storeInstallable": true,
+          "deb": "file-roller"
+        }
+      }
+    },
+    {
+      "slot": "libreoffice_startcenter",
+      "labelFr": "LibreOffice",
+      "capsuleStatus": "ok",
+      "functionalDepth": "full",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "postInstallSlot": "librewriter",
+      "relatedSlots": [
+        "librecalc",
+        "libreoffice_draw",
+        "libreoffice_impress",
+        "librewriter"
+      ],
+      "storeCatalog": {
+        "id": "libreoffice",
+        "sub": "Suite bureautique",
+        "desc": "Suite bureautique libre — Writer, Calc, Impress (Flatpak Flathub).",
+        "version": "24.8",
+        "size": "~280 Mo",
+        "iconClass": "gnome-software__cardicon--libreoffice",
+        "categories": [
+          "productivity",
+          "creation"
+        ],
+        "placement": {
+          "overview": true,
+          "dash": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "libreoffice",
+          "defaultInstalled": true
+        },
+        "linux-rocky": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "libreoffice",
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "libreoffice",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "libreoffice",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "librecalc",
+      "labelFr": "LibreOffice Calc",
+      "capsuleStatus": "ok",
+      "functionalDepth": "full",
+      "crossOs": true,
+      "recommendation": "P1-store-module",
+      "storeCatalog": {
+        "id": "libreoffice-calc",
+        "sub": "Tableur",
+        "desc": "Tableur LibreOffice — module Calc (inclus dans la suite ou carte séparée selon distro).",
+        "version": "24.8",
+        "size": "~95 Mo",
+        "iconClass": "gnome-software__cardicon--libreoffice-calc",
+        "categories": [
+          "productivity",
+          "creation"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "libreoffice-calc",
+          "defaultInstalled": true,
+          "storeInstallable": false
+        },
+        "linux-rocky": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-alma": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-fedora": {
+          "rpm": "libreoffice-calc",
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-ubuntu": {
+          "deb": "libreoffice-calc",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-popos": {
+          "deb": "libreoffice-calc",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-anduinos": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        }
+      }
+    },
+    {
+      "slot": "libreoffice_impress",
+      "labelFr": "LibreOffice Impress",
+      "capsuleStatus": "ok",
+      "functionalDepth": "full",
+      "crossOs": true,
+      "recommendation": "P1-store-module",
+      "storeCatalog": {
+        "id": "libreoffice-impress",
+        "sub": "Présentations",
+        "desc": "Présentations LibreOffice — module Impress (inclus dans la suite ou carte séparée selon distro).",
+        "version": "24.8",
+        "size": "~90 Mo",
+        "iconClass": "gnome-software__cardicon--libreoffice-impress",
+        "categories": [
+          "productivity",
+          "creation"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "libreoffice-impress",
+          "defaultInstalled": true,
+          "storeInstallable": false
+        },
+        "linux-rocky": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-alma": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-fedora": {
+          "rpm": "libreoffice-impress",
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-ubuntu": {
+          "deb": "libreoffice-impress",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-popos": {
+          "deb": "libreoffice-impress",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-anduinos": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        }
+      }
+    },
+    {
+      "slot": "libreoffice_draw",
+      "labelFr": "LibreOffice Draw",
+      "capsuleStatus": "ok",
+      "functionalDepth": "full",
+      "crossOs": true,
+      "recommendation": "P1-store-module",
+      "storeCatalog": {
+        "id": "libreoffice-draw",
+        "sub": "Dessin vectoriel",
+        "desc": "Dessin vectoriel LibreOffice — module Draw (inclus dans la suite ou carte séparée selon distro).",
+        "version": "24.8",
+        "size": "~85 Mo",
+        "iconClass": "gnome-software__cardicon--libreoffice-draw",
+        "categories": [
+          "productivity",
+          "creation"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "libreoffice-draw",
+          "defaultInstalled": true,
+          "storeInstallable": false
+        },
+        "linux-rocky": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-alma": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-fedora": {
+          "rpm": "libreoffice-draw",
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-ubuntu": {
+          "deb": "libreoffice-draw",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-popos": {
+          "deb": "libreoffice-draw",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        },
+        "linux-anduinos": {
+          "flatpak": "org.libreoffice.LibreOffice",
+          "defaultInstalled": false,
+          "storeInstallable": false
+        }
+      }
+    },
+    {
+      "slot": "thunderbird",
+      "labelFr": "Thunderbird",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "thunderbird",
+        "sub": "Messagerie électronique",
+        "desc": "Client de messagerie libre (Flatpak org.mozilla.Thunderbird).",
+        "version": "128.0",
+        "size": "~85 Mo",
+        "iconClass": "gnome-software__cardicon--thunderbird",
+        "categories": [
+          "productivity"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "thunderbird",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "flatpak": "org.mozilla.Thunderbird",
+          "rpm": "thunderbird",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "org.mozilla.Thunderbird",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "thunderbird",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "snap": "thunderbird",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "org.mozilla.Thunderbird",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "transmission",
+      "labelFr": "Transmission",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "transmission",
+        "sub": "Client BitTorrent",
+        "desc": "Téléchargez des fichiers via BitTorrent (Flatpak com.transmissionbt.Transmission).",
+        "version": "4.0",
+        "size": "~8 Mo",
+        "iconClass": "gnome-software__cardicon--transmission",
+        "categories": [
+          "utilities"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "transmission-gtk",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "rpm": "transmission",
+          "flatpak": "com.transmissionbt.Transmission",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "com.transmissionbt.Transmission",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "transmission",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "transmission-gtk",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "transmission-gtk",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "com.transmissionbt.Transmission",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "rhythmbox",
+      "labelFr": "Rhythmbox",
+      "capsuleStatus": "ok",
+      "functionalDepth": "decorative",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "rhythmbox",
+        "sub": "Lecteur de musique",
+        "desc": "Organisez et écoutez votre bibliothèque musicale (RPM rhythmbox).",
+        "version": "3.4",
+        "size": "~12 Mo",
+        "iconClass": "gnome-software__cardicon--rhythmbox",
+        "categories": [
+          "multimedia"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "rhythmbox",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "rpm": "rhythmbox",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "rpm": "rhythmbox",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "rhythmbox",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "rhythmbox",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "rhythmbox",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "defaultInstalled": false,
+          "storeInstallable": true,
+          "deb": "rhythmbox"
+        }
+      }
+    },
+    {
+      "slot": "lecteur_multimedia",
+      "labelFr": "Lecteur vidéo",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "equivalentNote": "Celluloid (Mint) · Totem absent RL10 · flatpak org.gnome.Totem ou io.github.celluloid_player.Celluloid",
+      "storeCatalog": {
+        "id": "lecteur-multimedia",
+        "sub": "Celluloid",
+        "desc": "Lisez vos fichiers vidéo (Flatpak io.github.celluloid_player.Celluloid).",
+        "version": "0.27",
+        "size": "~5 Mo",
+        "iconClass": "gnome-software__cardicon--lecteur-multimedia",
+        "categories": [
+          "multimedia"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "celluloid",
+          "flatpak": "io.github.celluloid_player.Celluloid",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "flatpak": "io.github.celluloid_player.Celluloid",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "io.github.celluloid_player.Celluloid",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "totem",
+          "flatpak": "io.github.celluloid_player.Celluloid",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "totem",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "totem",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "io.github.celluloid_player.Celluloid",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-kde-neon": {
+          "deb": "vlc",
+          "defaultInstalled": true,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "drawing",
+      "labelFr": "Dessin",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "drawing",
+        "sub": "Dessin et annotation",
+        "desc": "Dessinez et annotez des images (Flatpak com.github.maoschanz.drawing).",
+        "version": "1.2",
+        "size": "~3 Mo",
+        "iconClass": "gnome-software__cardicon--drawing",
+        "categories": [
+          "creation"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "drawing",
+          "flatpak": "com.github.maoschanz.drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "flatpak": "com.github.maoschanz.drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "com.github.maoschanz.drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "flatpak": "com.github.maoschanz.drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "flatpak": "com.github.maoschanz.drawing",
+          "deb": "drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "flatpak": "com.github.maoschanz.drawing",
+          "deb": "drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "com.github.maoschanz.drawing",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "simple_scan",
+      "labelFr": "Numérisation",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "simple-scan",
+        "sub": "Numérisation",
+        "desc": "Numérisez des documents avec votre scanner (RPM simple-scan).",
+        "version": "46.0",
+        "size": "~4 Mo",
+        "iconClass": "gnome-software__cardicon--simple-scan",
+        "categories": [
+          "utilities"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "simple-scan",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "rpm": "simple-scan",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "rpm": "simple-scan",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "simple-scan",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "deb": "simple-scan",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "deb": "simple-scan",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "defaultInstalled": false,
+          "storeInstallable": true,
+          "deb": "simple-scan"
+        }
+      }
+    },
+    {
+      "slot": "mintdrivers",
+      "labelFr": "Gestionnaire de pilotes",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": false,
+      "recommendation": "decorative-only",
+      "sources": {
+        "linux-mint": {
+          "apt": "mintdrivers",
+          "defaultInstalled": true
+        }
+      }
+    },
+    {
+      "slot": "mintinstall",
+      "labelFr": "Logithèque",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": false,
+      "recommendation": "decorative-only",
+      "note": "Magasin lui-même — équivalent GNOME : org.gnome.Software / Ubuntu : snap-store",
+      "sources": {
+        "linux-mint": {
+          "apt": "mintinstall",
+          "defaultInstalled": true
+        }
+      }
+    },
+    {
+      "slot": "warpinator",
+      "labelFr": "Warpinator",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P2-store",
+      "storeCatalog": {
+        "id": "warpinator",
+        "sub": "Partage de fichiers",
+        "desc": "Envoyez des fichiers sur le réseau local (Flatpak org.x.Warpinator).",
+        "version": "1.0",
+        "size": "~2 Mo",
+        "iconClass": "gnome-software__cardicon--warpinator",
+        "categories": [
+          "utilities"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "flatpak": "org.x.Warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "org.x.Warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "flatpak": "org.x.Warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "flatpak": "org.x.Warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "flatpak": "org.x.Warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-anduinos": {
+          "flatpak": "org.x.Warpinator",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "timeshift",
+      "labelFr": "Timeshift",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": true,
+      "recommendation": "P2-store",
+      "gapNote": "Absent AppStream EL10 par défaut — flatpak com.timeshift.TimeShift ou dépôt tiers",
+      "storeCatalog": {
+        "id": "timeshift",
+        "sub": "Sauvegardes système",
+        "desc": "Créez des instantanés du système (Flatpak com.timeshift.TimeShift).",
+        "version": "24.0",
+        "size": "~15 Mo",
+        "iconClass": "gnome-software__cardicon--timeshift",
+        "categories": [
+          "utilities"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "timeshift",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-rocky": {
+          "flatpak": "com.timeshift.TimeShift",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-alma": {
+          "flatpak": "com.timeshift.TimeShift",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-fedora": {
+          "rpm": "timeshift",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-ubuntu": {
+          "apt": "timeshift",
+          "ppa": true,
+          "defaultInstalled": false,
+          "storeInstallable": true
+        },
+        "linux-popos": {
+          "apt": "timeshift",
+          "ppa": true,
+          "defaultInstalled": false,
+          "storeInstallable": true,
+          "deb": "timeshift"
+        },
+        "linux-anduinos": {
+          "flatpak": "com.timeshift.TimeShift",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    },
+    {
+      "slot": "baobab",
+      "labelFr": "Analyseur d'espace disque",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": false,
+      "recommendation": "P2-store",
+      "storeCatalog": {
+        "id": "baobab",
+        "sub": "Utilisation des disques",
+        "desc": "Visualisez l'utilisation de l'espace disque (org.gnome.baobab).",
+        "version": "46.0",
+        "size": "~2 Mo",
+        "iconClass": "gnome-software__cardicon--baobab",
+        "categories": [
+          "utilities"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "baobab",
+          "desktopId": "org.gnome.baobab",
+          "defaultInstalled": true
+        }
+      }
+    },
+    {
+      "slot": "snapshot",
+      "labelFr": "Snapshot",
+      "capsuleStatus": "ok",
+      "functionalDepth": "partial",
+      "crossOs": false,
+      "recommendation": "P1-store",
+      "storeCatalog": {
+        "id": "snapshot",
+        "sub": "Caméra",
+        "desc": "Prenez des photos et enregistrez de courtes vidéos (Flatpak org.gnome.Snapshot).",
+        "version": "47.0",
+        "size": "~8 Mo",
+        "iconClass": "gnome-software__cardicon--snapshot",
+        "categories": [
+          "multimedia"
+        ],
+        "placement": {
+          "overview": true
+        }
+      },
+      "sources": {
+        "linux-mint": {
+          "apt": "snapshot",
+          "flatpak": "org.gnome.Snapshot",
+          "defaultInstalled": false,
+          "storeInstallable": true
+        }
+      }
+    }
+  ]
+}

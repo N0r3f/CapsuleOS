@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Firefox (firefox.desktop) — slot CapsuleOS `firefox`, gabarit `firefox.html`. Toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-firefox-vm-inventory.json",
+  "slot": "firefox",
+  "template": "firefox.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/firefoxBrowser.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "FΣ": "Contrat valide + kernel syncFirefoxGnomeDataset + gabarit data-firefox-gnome-* + simulatedWebResolver",
+    "F1": "F1 ouvrir Firefox → page d'accueil / nouvel onglet",
+    "F2": "F2 saisir alias ou URL → page web locale (La Capsule)",
+    "F3": "F3 nouvel onglet + bascule entre onglets",
+    "F4": "F4 favori barre signets (chrome Proton GNOME)",
+    "F5": "F5 recherche → SERP locale ou host connu (linuxmint.com)",
+    "F6": "F6 raccourcis nouvel onglet VM (Amazon, Temu, Wikipédia, YouTube, Reddit)",
+    "F7": "F7 historique retour/avant après navigations enchaînées",
+    "F8": "F8 SERP → clic résultat → retour kernel (pont iframe)",
+    "F9": "F9 pack contrib — favoris dynamiques, raccourcis newtab et placeholder moteur"
+  },
+  "scenarios": [
+    {
+      "id": "F1",
+      "priority": "P0",
+      "title": "Ouvrir Firefox — page d'accueil / nouvel onglet",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "rpm": "firefox",
+        "version": "140.11.0",
+        "release": "1.el10_2",
+        "esr": true,
+        "labelFr": "Firefox",
+        "genericNameFr": "Navigateur Web",
+        "locale": "fr_FR.UTF-8",
+        "newTabLabelFr": "Nouvel onglet",
+        "addressPlaceholderFr": "Rechercher avec Google ou saisir une adresse",
+        "protonChrome": true,
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "root", "selector": "[data-firefox-gnome-root]", "label": "Racine navigateur GNOME" },
+        { "id": "init", "predicate": "dataset.firefoxGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "newtab", "selector": "[data-firefox-gnome-newtab]:not([hidden])", "label": "Page nouvel onglet visible" },
+        { "id": "search", "selector": "[data-browser-newtab-input]", "label": "Champ recherche nouvel onglet" },
+        { "id": "tab-label", "selector": ".capsule-browser__tab--active .capsule-browser__tab-label", "expectTextContains": "Nouvel onglet", "label": "Libellé onglet VM fr_FR" },
+        { "id": "view-home", "predicate": "dataset.firefoxGnomeView", "expectValue": "home", "label": "Vue home active" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F1",
+        "capture": "alma-capsule-dark-firefox-home.png"
+      }
+    },
+    {
+      "id": "F2",
+      "priority": "P0",
+      "title": "Saisir URL ou recherche dans la barre d'adresse",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "urlbarPlaceholderFr": "Rechercher avec Google ou saisir une adresse",
+        "searchEngineDefault": "Google",
+        "simulatedWebIndex": "lacapsule"
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "address", "selector": "[data-firefox-gnome-address]", "label": "Barre d'adresse" },
+        { "id": "submit", "action": "fillAndSubmitAddress", "value": "os-lacapsule", "label": "Saisir os-lacapsule et valider" },
+        { "id": "view-redirect", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "Navigation vers La Capsule (web simulé)" },
+        { "id": "redirect-frame", "selector": "[data-browser-redirect]:not([hidden])", "label": "Iframe page web visible" },
+        { "id": "tab-capsule", "selector": ".capsule-browser__tab--active .capsule-browser__tab-label", "expectTextContains": "Capsule", "label": "Onglet renommé La Capsule" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F2",
+        "capture": "alma-capsule-dark-firefox-address.png"
+      }
+    },
+    {
+      "id": "F3",
+      "priority": "P0",
+      "title": "Nouvel onglet et bascule entre onglets",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "newTabShortcut": "Ctrl+T",
+        "protonTabsInTitlebar": true,
+        "tabCloseLabelFr": "Fermer l'onglet"
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "new-tab", "selector": "[data-browser-action=\"new-tab\"]", "label": "Bouton nouvel onglet" },
+        { "id": "click-new-tab", "action": "click", "selector": "[data-browser-action=\"new-tab\"]", "label": "Créer second onglet" },
+        { "id": "tab-count", "predicate": "dataset.firefoxGnomeTabCount", "expectValue": "2", "label": "Deux onglets ouverts" },
+        { "id": "active-second", "predicate": "dataset.firefoxGnomeActiveTabId", "expectValue": "tab-2", "label": "Second onglet actif" },
+        { "id": "switch-first", "action": "click", "selector": "[data-browser-tab-id=\"tab-1\"]", "label": "Revenir au premier onglet" },
+        { "id": "active-first", "predicate": "dataset.firefoxGnomeActiveTabId", "expectValue": "tab-1", "label": "Premier onglet actif" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F3",
+        "capture": "alma-capsule-dark-firefox-tabs.png"
+      }
+    },
+    {
+      "id": "F4",
+      "priority": "P0",
+      "title": "Barre de favoris — ouvrir La Capsule",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "bookmarksBarDefaultGnome": true,
+        "bookmarksFr": ["Importés", "La Capsule", "os-lacapsule"],
+        "bookmarkLaCapsuleRoute": "os-lacapsule",
+        "backForwardDisabledWithoutHistory": true
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "bookmarks-bar", "selector": "[data-firefox-gnome-bookmarks]:not([hidden])", "label": "Barre favoris visible (chrome GNOME)" },
+        { "id": "bookmarks-visible", "predicate": "dataset.firefoxGnomeBookmarksVisible", "expectValue": "true", "label": "État favoris affichés" },
+        { "id": "bookmark-capsule", "selector": "[data-browser-bookmark=\"La Capsule\"]", "label": "Favori La Capsule" },
+        { "id": "click-bookmark", "action": "click", "selector": "[data-browser-bookmark=\"La Capsule\"]", "label": "Ouvrir favori La Capsule" },
+        { "id": "view-capsule", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "Navigation favori (web simulé)" },
+        { "id": "redirect-visible", "selector": "[data-browser-redirect]:not([hidden])", "label": "Page La Capsule affichée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F4",
+        "capture": "alma-capsule-dark-firefox-bookmark.png"
+      }
+    },
+    {
+      "id": "F5",
+      "priority": "P0",
+      "title": "Recherche ou host connu — internet simulé local",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "searchEngineDefault": "Google",
+        "knownHost": "linuxmint.com",
+        "simulatedWebResolver": true
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "address", "selector": "[data-firefox-gnome-address]", "label": "Barre d'adresse" },
+        { "id": "submit-host", "action": "fillAndSubmitAddress", "value": "linuxmint.com", "label": "Saisir linuxmint.com" },
+        { "id": "view-web", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "Page web locale affichée" },
+        { "id": "redirect-frame", "selector": "[data-browser-redirect]:not([hidden])", "label": "Iframe site simulé visible" },
+        { "id": "submit-search", "action": "fillAndSubmitAddress", "value": "mint", "label": "Recherche sans point → SERP" },
+        { "id": "view-serp", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "SERP locale (search-google)" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F5"
+      }
+    },
+    {
+      "id": "F6",
+      "priority": "P0",
+      "title": "Raccourcis page nouvel onglet — ground truth VM Mint lab",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "inventory": "root/docs/inventaires/linux-mint-firefox-vm-shortcuts.json",
+        "shortcutsFr": ["Amazon", "Temu", "Wikipédia", "YouTube", "Reddit"]
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "shortcut-amazon", "selector": "[data-browser-newtab-link=\"amazon\"]", "label": "Tuile Amazon" },
+        { "id": "click-amazon", "action": "click", "selector": "[data-browser-newtab-link=\"amazon\"]", "label": "Ouvrir Amazon" },
+        { "id": "view-amazon", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "Page Amazon simulée" },
+        { "id": "shortcut-youtube", "selector": "[data-browser-newtab-link=\"youtube\"]", "label": "Tuile YouTube" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F6"
+      }
+    },
+    {
+      "id": "F7",
+      "priority": "P0",
+      "title": "Historique — retour et avant après navigations",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "historyBackForward": true
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "nav-mint", "action": "fillAndSubmitAddress", "value": "linuxmint.com", "label": "linuxmint.com" },
+        { "id": "nav-capsule", "action": "fillAndSubmitAddress", "value": "lacapsule.org", "label": "lacapsule.org" },
+        { "id": "can-back", "predicate": "dataset.firefoxGnomeCanGoBack", "expectValue": "true", "label": "Retour disponible" },
+        { "id": "click-back", "action": "click", "selector": "[data-browser-action=\"back\"]", "label": "Retour" },
+        { "id": "can-forward", "predicate": "dataset.firefoxGnomeCanGoForward", "expectValue": "true", "label": "Avant disponible" },
+        { "id": "click-forward", "action": "click", "selector": "[data-browser-action=\"forward\"]", "label": "Avant" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F7"
+      }
+    },
+    {
+      "id": "F8",
+      "priority": "P0",
+      "title": "SERP → clic résultat simulé (pont iframe)",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "serpBridge": true,
+        "searchQuery": "mint"
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "search", "action": "fillAndSubmitAddress", "value": "mint", "label": "Recherche mint" },
+        { "id": "serp-frame", "selector": "[data-browser-redirect]:not([hidden])", "label": "SERP visible" },
+        { "id": "click-result", "action": "clickSerpResult", "value": "linuxmint.com", "label": "Clic Linux Mint dans SERP" },
+        { "id": "view-mint", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "linuxmint.com affiché" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F8"
+      }
+    },
+    {
+      "id": "F9",
+      "priority": "P0",
+      "title": "Pack contrib — favoris dynamiques et moteur de recherche",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "contribPack": "usr/share/capsuleos/contrib/internet/browser/mozilla/firefox/",
+        "bookmarksBarDefaultGnome": true,
+        "bookmarksFr": ["Importés", "La Capsule", "os-lacapsule"],
+        "searchPlaceholderFr": "Rechercher avec Google ou saisir une adresse"
+      },
+      "steps": [
+        { "id": "open-firefox", "action": "openWindowByDataLink", "target": "firefox", "label": "Ouvrir Firefox" },
+        { "id": "contrib-loaded", "predicate": "dataset.firefoxContribLoaded", "expectValue": "true", "label": "Pack contrib appliqué" },
+        { "id": "bookmarks-bar", "selector": "[data-firefox-gnome-bookmarks]:not([hidden])", "label": "Barre favoris visible (GNOME)" },
+        { "id": "bookmark-importes", "selector": "[data-browser-bookmark=\"Importés\"]", "label": "Favori Importés (contrib)" },
+        { "id": "bookmark-capsule", "selector": "[data-browser-bookmark=\"La Capsule\"]", "label": "Favori La Capsule (contrib)" },
+        { "id": "click-bookmark", "action": "click", "selector": "[data-browser-bookmark=\"La Capsule\"]", "label": "Ouvrir favori La Capsule" },
+        { "id": "view-capsule", "predicate": "dataset.firefoxGnomeView", "expectValue": "web", "label": "Navigation favori (web simulé)" },
+        { "id": "shortcuts-count", "predicate": "dataset.firefoxContribShortcuts", "expectValue": "7", "label": "Sept raccourcis newtab contrib" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-firefox-scenarios.mjs --scenario F9"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "FΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-firefox-user-scenarios.mjs"
+    }
+  }
+}

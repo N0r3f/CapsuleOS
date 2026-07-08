@@ -1,0 +1,400 @@
+{
+  "version": 2,
+  "description": "Catalogue médias manifeste VM — toolkits réutilisables + overrides vendor. Résolu par vm-manifest-media-catalog-lib.mjs",
+  "toolkits": {
+    "gnome": {
+      "iconPack": "icons/gnome/adwaita",
+      "iconThemeFallbacks": [
+        "Adwaita",
+        "hicolor",
+        "Yaru"
+      ],
+      "mimetypes": [
+        "inode-directory",
+        "text-x-generic",
+        "text-x-script",
+        "image-x-generic",
+        "application-x-generic",
+        "application-x-executable",
+        "package-x-generic",
+        "x-office-document",
+        "audio-x-generic",
+        "video-x-generic"
+      ],
+      "places": [
+        "folder",
+        "folder-documents",
+        "folder-download",
+        "folder-music",
+        "folder-pictures",
+        "folder-videos",
+        "folder-templates",
+        "folder-publicshare",
+        "user-desktop",
+        "user-home",
+        "user-trash",
+        "network-server"
+      ],
+      "emblems": [],
+      "symbolic": {
+        "actions": [
+          "go-up-symbolic",
+          "go-previous-symbolic",
+          "go-next-symbolic",
+          "view-grid-symbolic",
+          "view-list-symbolic",
+          "open-menu-symbolic",
+          "view-more-symbolic",
+          "system-search-symbolic",
+          "find-location-symbolic",
+          "sidebar-show-symbolic"
+        ],
+        "places": [
+          "user-home-symbolic",
+          "user-trash-symbolic",
+          "network-workgroup-symbolic",
+          "folder-documents-symbolic",
+          "folder-music-symbolic",
+          "folder-pictures-symbolic",
+          "folder-videos-symbolic",
+          "folder-download-symbolic",
+          "folder-templates-symbolic",
+          "folder-publicshare-symbolic"
+        ],
+        "status": [
+          "starred-symbolic"
+        ]
+      },
+      "panel": [
+        {
+          "icon": "org.gnome.Nautilus",
+          "capsule": "images/vendors/{vendor}/panel/org.gnome.Nautilus.svg"
+        },
+        {
+          "icon": "org.gnome.Ptyxis",
+          "capsule": "images/vendors/{vendor}/panel/org.gnome.Ptyxis.svg"
+        },
+        {
+          "icon": "firefox",
+          "size": "48x48",
+          "capsule": "images/vendors/{vendor}/panel/firefox-48.png"
+        }
+      ],
+      "fonts": []
+    },
+    "cinnamon": {
+      "iconPack": "icons/cinnamon/mint-y",
+      "iconThemeFallbacks": [
+        "Mint-Y",
+        "Mint-X",
+        "hicolor"
+      ],
+      "mimetypes": [
+        "inode-directory",
+        "text-x-generic",
+        "image-x-generic",
+        "application-x-generic",
+        "application-x-executable",
+        "x-office-document",
+        "audio-x-generic",
+        "video-x-generic"
+      ],
+      "places": [
+        "folder",
+        "folder-documents",
+        "folder-download",
+        "folder-music",
+        "folder-pictures",
+        "folder-videos",
+        "user-home",
+        "user-trash"
+      ],
+      "emblems": [],
+      "symbolic": {
+        "actions": [
+          "go-up-symbolic",
+          "go-previous-symbolic",
+          "go-next-symbolic",
+          "view-list-symbolic"
+        ],
+        "places": [
+          "user-home-symbolic",
+          "user-trash-symbolic",
+          "folder-documents-symbolic"
+        ],
+        "status": []
+      },
+      "panel": [
+        {
+          "icon": "nemo",
+          "capsule": "images/vendors/{vendor}/panel/nemo.png"
+        },
+        {
+          "icon": "firefox",
+          "size": "48x48",
+          "capsule": "images/vendors/{vendor}/panel/firefox-48.png"
+        }
+      ],
+      "fonts": []
+    },
+    "kde": {
+      "iconPack": "icons/kde/breeze",
+      "iconThemeFallbacks": [
+        "breeze",
+        "breeze-dark",
+        "hicolor"
+      ],
+      "mimetypes": [
+        "inode-directory",
+        "text-plain",
+        "application-x-executable",
+        "image-x-generic"
+      ],
+      "places": [
+        "folder",
+        "user-home",
+        "user-trash"
+      ],
+      "emblems": [],
+      "symbolic": {
+        "actions": [
+          "go-up-symbolic",
+          "go-previous-symbolic",
+          "go-next-symbolic"
+        ],
+        "places": [
+          "user-home-symbolic",
+          "user-trash-symbolic"
+        ],
+        "status": []
+      },
+      "panel": [
+        {
+          "icon": "org.kde.dolphin",
+          "capsule": "images/vendors/{vendor}/panel/dolphin.png"
+        },
+        {
+          "icon": "firefox",
+          "size": "48x48",
+          "capsule": "images/vendors/{vendor}/panel/firefox-48.png"
+        }
+      ],
+      "fonts": []
+    }
+  },
+  "vendors": {
+    "ubuntu": {
+      "extends": "toolkit:gnome",
+      "iconPack": "icons/gnome/yaru",
+      "iconThemeFallbacks": [
+        "Yaru",
+        "Yaru-dark",
+        "Adwaita",
+        "hicolor"
+      ],
+      "fonts": [
+        {
+          "vmCandidates": [
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf",
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf",
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf",
+            "/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf"
+          ],
+          "capsuleDir": "fonts/vendors/ubuntu"
+        }
+      ],
+      "mimetypes": [
+        "text-x-preview",
+        "application-pdf",
+        "application-rtf",
+        "application-vnd.ms-excel"
+      ],
+      "emblems": [
+        "emblem-default",
+        "emblem-shared",
+        "emblem-favorite",
+        "emblem-important",
+        "emblem-new",
+        "emblem-readonly",
+        "emblem-symbolic-link",
+        "emblem-unreadable"
+      ],
+      "symbolic": {
+        "actions": [
+          "folder-new-symbolic"
+        ],
+        "places": [
+          "document-open-recent-symbolic"
+        ]
+      },
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/icons/hicolor/scalable/apps/ubuntu-logo-icon.svg",
+          "/usr/share/pixmaps/ubuntu-logo-icon.svg"
+        ],
+        "capsule": "images/vendors/ubuntu/ubuntu-logo.svg"
+      },
+      "wallpaperCandidates": [
+        "/usr/share/backgrounds/gnome/adwaita-d.jxl",
+        "/usr/share/backgrounds/gnome/adwaita-l.jxl",
+        "/usr/share/backgrounds/ubuntu-wallpaper-d.png",
+        "/usr/share/backgrounds/ubuntu-wallpaper-l.png"
+      ]
+    },
+    "rocky": {
+      "extends": "toolkit:gnome",
+      "fonts": [
+        {
+          "vmCandidates": [
+            "/usr/share/fonts/redhat-vf/RedHatText[wght].ttf",
+            "/usr/share/fonts/redhat-vf/RedHatMono[wght].ttf"
+          ],
+          "capsuleDir": "fonts/vendors/rocky"
+        }
+      ],
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/rocky-logos/fedora_logo_darkbackground.svg",
+          "/usr/share/fedora-logos/fedora_logo_darkbackground.svg"
+        ],
+        "capsule": "images/vendors/rocky/watermark/fedora_logo_darkbackground.svg"
+      },
+      "wallpaperCandidates": [
+        "/usr/share/backgrounds/rocky-default-10-gemstone-skies-night.png"
+      ]
+    },
+    "fedora": {
+      "extends": "toolkit:gnome",
+      "fonts": [
+        {
+          "vmCandidates": [
+            "/usr/share/fonts/adwaita-sans/AdwaitaSans-Regular.ttf",
+            "/usr/share/fonts/redhat-vf/RedHatText[wght].ttf"
+          ],
+          "capsuleDir": "fonts/vendors/fedora"
+        }
+      ],
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/fedora-logos/fedora_logo_darkbackground.svg"
+        ],
+        "capsule": "images/vendors/fedora/watermark/fedora_logo_darkbackground.svg"
+      },
+      "wallpaperCandidates": [
+        "/usr/share/backgrounds/f44/default/f44-01-night.jxl"
+      ]
+    },
+    "alma": {
+      "extends": "vendor:rocky",
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/almalinux-logos/almalinux-logo.svg",
+          "/usr/share/fedora-logos/fedora_logo_darkbackground.svg"
+        ],
+        "capsule": "images/vendors/alma/watermark/almalinux-logo.svg"
+      }
+    },
+    "mint": {
+      "extends": "toolkit:cinnamon",
+      "panel": [
+        {
+          "icon": "nemo",
+          "capsule": "images/vendors/mint/panel/nemo.png"
+        },
+        {
+          "icon": "firefox",
+          "size": "48x48",
+          "capsule": "images/vendors/mint/panel/firefox-48.png"
+        },
+        {
+          "icon": "org.gnome.Terminal",
+          "capsule": "images/vendors/mint/panel/org.gnome.Terminal.svg"
+        },
+        {
+          "icon": "accessories-text-editor",
+          "capsule": "images/vendors/mint/panel/accessories-text-editor.png"
+        }
+      ],
+      "fonts": [
+        {
+          "vmCandidates": [
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf",
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf",
+            "/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf",
+            "/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf",
+            "/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
+            "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf"
+          ],
+          "capsuleDir": "fonts/vendors/mint"
+        }
+      ],
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/icons/hicolor/scalable/apps/mint-logo.svg",
+          "/usr/share/linuxmint/logo.png",
+          "/usr/share/pixmaps/linuxmint-logo.png"
+        ],
+        "capsule": "images/vendors/mint/mint-logo.svg"
+      },
+      "wallpaperCandidates": [
+        "/usr/share/backgrounds/linuxmint/default_background.jpg",
+        "/usr/share/backgrounds/linuxmint/linuxmint.jpg"
+      ]
+    },
+    "popos": {
+      "extends": "toolkit:gnome",
+      "iconPack": "icons/gnome/pop",
+      "iconThemeFallbacks": [
+        "Pop",
+        "Adwaita",
+        "hicolor"
+      ],
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/pop-desktop-icons/pop-os-logo.svg"
+        ],
+        "capsule": "images/vendors/popos/pop-os-logo.svg"
+      }
+    },
+    "opensuse": {
+      "extends": "toolkit:kde",
+      "iconPack": "icons/kde/breeze",
+      "branding": {
+        "vmCandidates": [
+          "/usr/share/icons/hicolor/scalable/apps/YaST-icon.svg"
+        ],
+        "capsule": "images/vendors/opensuse/yast-icon.svg"
+      }
+    },
+    "neon": {
+      "extends": "toolkit:kde"
+    },
+    "mx": {
+      "extends": "toolkit:kde"
+    },
+    "anduin": {
+      "extends": "toolkit:gnome",
+      "iconPack": "icons/gnome/yaru"
+    },
+    "microsoft": {
+      "extends": "toolkit:windows-shell",
+      "iconPack": "icons/gnome/adwaita",
+      "note": "Auto-généré pour windows-11 — affiner après première collecte VM"
+    },
+    "debian": {
+      "extends": "toolkit:kde",
+      "iconPack": "icons/kde/breeze",
+      "note": "Auto-généré pour linux-debian-kde — affiner après première collecte VM"
+    }
+  },
+  "defaultToolkit": "gnome",
+  "fallback": {
+    "_gnome": {
+      "extends": "toolkit:gnome"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/firefox.png",
+  "sourceSha256": "3b8d00e9072f16d0c2e1793bbd208816f81d58cfb9da4f1a140b3bae4dc1c32f",
+  "output": "images/vendors/mint/panel/firefox.webp",
+  "outputSha256": "67fd1712a629c09c2c8b14feafa2a4f2947d40eaa43bedefb96889c565c73487",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.552Z"
+}

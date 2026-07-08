@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/platforms/brands/macos.webp",
+  "outputSha256": "dce6894b8798f5b991a863e432471c437d5c1a66d672765675f90992311b7ed6",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.566Z",
+  "note": "repair-manifest"
+}

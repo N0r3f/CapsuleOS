@@ -1,0 +1,98 @@
+main#kinfocenterApp.kde-kinfocenter {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-ui, 'Noto Sans', sans-serif);
+    font-size: calc(var(--head, 2rem) / 2.8);
+    color: var(--kinfo-text, #232629);
+    background: var(--kinfo-bg, #fcfcfc);
+}
+
+.kde-kinfocenter__nav {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+    width: 10.5rem;
+    padding: 0.65rem 0.45rem;
+    border-right: 1px solid var(--kinfo-border, rgba(35, 38, 41, 0.1));
+    background: var(--kinfo-sidebar, #eff0f1);
+}
+
+.kde-kinfocenter__navitem {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+    background: transparent;
+}
+
+.kde-kinfocenter__navitem.is-active,
+.kde-kinfocenter__navitem:hover {
+    background: rgba(61, 174, 233, 0.16);
+}
+
+.kde-kinfocenter__navicon {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    background: #7f8c8d;
+    border-radius: 0.15rem;
+}
+
+.kde-kinfocenter__content {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    overflow: auto;
+}
+
+.kde-kinfocenter__title {
+    margin: 0 0 0.75rem;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+.kde-kinfocenter__facts {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0;
+}
+
+.kde-kinfocenter__facts > div {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 0.75rem;
+}
+
+.kde-kinfocenter__facts dt {
+    margin: 0;
+    font-weight: 600;
+    color: var(--kinfo-muted, rgba(35, 38, 41, 0.65));
+}
+
+.kde-kinfocenter__facts dd {
+    margin: 0;
+}
+
+.kde-kinfocenter__list {
+    margin: 0;
+    padding-left: 1.1rem;
+    line-height: 1.55;
+}
+
+.kde-kinfocenter__muted {
+    margin: 0 0 0.75rem;
+    color: var(--kinfo-muted, rgba(35, 38, 41, 0.65));
+}
+
+.kde-kinfocenter__chart {
+    height: 8rem;
+    border-radius: 0.35rem;
+    background: linear-gradient(180deg, rgba(61, 174, 233, 0.35), rgba(61, 174, 233, 0.05));
+}

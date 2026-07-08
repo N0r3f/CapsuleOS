@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "registryId": "linux-mint",
+  "doc": "root/docs/inventaires/linux-mint-mintinstall-vm.json",
+  "layout": "mintinstall-8.4",
+  "hero": [
+    {
+      "id": "vlc",
+      "name": "VLC",
+      "desc": "Lecteur multimédia et de flux",
+      "icon": "./assets/images/toolkits/cinnamon/apps/vlc.svg",
+      "accent": "#e8842c",
+      "accentEnd": "#d96b08"
+    }
+  ],
+  "spotlight": [
+    { "id": "sublime", "name": "Sublime", "desc": "Éditeur de texte sophistiqué", "rating": "4.1", "icon": "./assets/images/toolkits/cinnamon/apps/org.x.editor" },
+    { "id": "dropbox", "name": "Dropbox", "desc": "Synchronisation de fichiers dans le cloud", "rating": "4.2", "icon": "./assets/images/toolkits/cinnamon/apps/dropbox.png" },
+    { "id": "virtualbox", "name": "Virtualbox", "desc": "Solution de virtualisation", "rating": "4.1", "icon": "./assets/images/toolkits/cinnamon/apps/virtualbox.png" },
+    { "id": "bitwarden", "name": "Bitwarden", "desc": "Gestionnaire de mots de passe", "rating": "4.8", "flathub": true, "icon": "./assets/images/toolkits/cinnamon/apps/bitwarden.png" },
+    { "id": "vlc", "name": "VLC", "desc": "Lecteur multimédia", "rating": "4.6", "icon": "./assets/images/toolkits/cinnamon/apps/vlc.svg" },
+    { "id": "spotify", "name": "Spotify", "desc": "Service de streaming musical", "rating": "4.1", "icon": "./assets/images/toolkits/cinnamon/apps/web-spotify.png" },
+    { "id": "obs", "name": "OBS Studio", "desc": "Diffusion et enregistrement en direct", "rating": "4.1", "flathub": true, "icon": "./assets/images/toolkits/cinnamon/apps/obs-studio.png" },
+    { "id": "discord", "name": "Discord", "desc": "Application de chat", "rating": "3.6", "flathub": true, "icon": "./assets/images/toolkits/cinnamon/apps/webapp-OnlineChat4519" },
+    { "id": "filezilla", "name": "Filezilla", "desc": "Client FTP", "rating": "4.6", "icon": "./assets/images/toolkits/cinnamon/apps/filezilla.svg" }
+  ],
+  "homeCategories": [
+    { "id": "accessories", "label": "Accessoires", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-accessories-symbolic.svg" },
+    { "id": "office", "label": "Bureautique", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-office-symbolic.svg" },
+    { "id": "graphics", "label": "Graphisme", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-drawing-symbolic.svg" },
+    { "id": "internet", "label": "Internet", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-web-symbolic.svg" },
+    { "id": "games", "label": "Jeux", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-games-symbolic.svg" },
+    { "id": "multimedia", "label": "Multimédia", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-music-symbolic.svg" },
+    { "id": "accessories", "label": "Outils système", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-system-symbolic.svg" },
+    { "id": "accessories", "label": "Polices", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-fonts-symbolic.svg" },
+    { "id": "development", "label": "Programmation", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-programming-symbolic.svg" },
+    { "id": "education", "label": "Sciences et éducation", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-science-symbolic.svg" },
+    { "id": "flatpak", "label": "Flatpak", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-package-flatpak-symbolic.svg" },
+    { "id": "all", "label": "Toutes les applications", "icon": "./assets/images/toolkits/cinnamon/category/symbolic/mintinstall-all-symbolic.svg" }
+  ],
+  "topRated": [
+    { "id": "bitwarden", "name": "Bitwarden", "desc": "Gestionnaire de mots de passe", "rating": "4.8", "flathub": true, "icon": "./assets/images/toolkits/cinnamon/apps/bitwarden.png" },
+    { "id": "filezilla", "name": "Filezilla", "desc": "Client FTP", "rating": "4.6", "icon": "./assets/images/toolkits/cinnamon/apps/filezilla.svg" },
+    { "id": "vlc", "name": "VLC", "desc": "Lecteur multimédia", "rating": "4.6", "icon": "./assets/images/toolkits/cinnamon/apps/vlc.svg" },
+    { "id": "dropbox", "name": "Dropbox", "desc": "Synchronisation cloud", "rating": "4.2", "icon": "./assets/images/toolkits/cinnamon/apps/dropbox.png" },
+    { "id": "sublime", "name": "Sublime", "desc": "Éditeur de texte sophistiqué", "rating": "4.1", "icon": "./assets/images/toolkits/cinnamon/apps/org.x.editor" },
+    { "id": "virtualbox", "name": "Virtualbox", "desc": "Solution de virtualisation", "rating": "4.1", "icon": "./assets/images/toolkits/cinnamon/apps/virtualbox.png" },
+    { "id": "spotify", "name": "Spotify", "desc": "Streaming musical", "rating": "4.1", "icon": "./assets/images/toolkits/cinnamon/apps/web-spotify.png" },
+    { "id": "obs", "name": "OBS Studio", "desc": "Diffusion en direct", "rating": "4.1", "flathub": true, "icon": "./assets/images/toolkits/cinnamon/apps/obs-studio.png" }
+  ],
+  "discover": {
+    "title": "À découvrir",
+    "note": "Magasin CapsuleOS — visible dans Tous les logiciels (pas sur l'accueil VM)"
+  }
+}

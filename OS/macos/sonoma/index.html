@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../usr/share/capsuleos/assets/images/vendors/common/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>MacOS Sonoma</title>
+</head>
+
+<body>
+    <header id="macosHeader">
+        <menu>
+            <a href="#">
+                <img src="../../../usr/share/capsuleos/assets/images/vendors/common/logo.png" alt="Logo de lacapsule" title="Menu principal">
+            </a>
+            <a href="./pages/finder.html" title="Ouvrir le Finder">Finder</a>
+            <a href="./pages/file.html" title="Ouvrir les fichiers">File</a>
+            <a href="./pages/editer.html" title="Ouvrir les options d'édition'">Edit</a>
+            <a href="./pages/affichage.html" title="Ouvrir les options d'affichage">View</a>
+            <a href="./pages/aller.html" title="Aller à ...">Go</a>
+            <a href="./pages/fenetre.html" title="Ouvrir les options de fenêtre">Window</a>
+            <a href="./pages/aide.html" title="Ouvrir l'aide'">Help</a>
+        </menu>
+        <menu>
+            <a href="./pages/son.html">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/macos-aqua/header/son.png" alt="Son" title="Options de sons">
+            </a>
+            <a href="./pages/bluetooth.html">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/macos-aqua/header/bluetooth.png" alt="Bluetooth" title="Options du bluetooth">
+            </a>
+            <a href="./pages/batterie.html">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/macos-aqua/header/batterie.png" alt="Batterie" title="Afficher le détail de la batterie">
+            </a>
+            <a href="./pages/wifi.html">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/macos-aqua/header/wifi.png" alt="Wifi" title="Afficher les options réseau">
+            </a>
+            <a href="./pages/search.html">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/macos-aqua/header/search.png" alt="Search" title="Rechercher">
+            </a>
+            <a href="./pages/controlCenter.html">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/macos-aqua/header/controlCenter.png" alt="Control center"
+                    title="Accéder au centre de contrôle">
+            </a>
+            <span id="heure-date"></span>
+        </menu>
+    </header>
+    <main>
+        <div class="windowElement" data-link="finder" id="finder" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="launchpad" id="launchpad" style="display: none; position: fixed;">
+            <section class="search">
+                <nav>
+                    <input type="search" placeholder="🔍 &#8239; Search" autocapitalize="none" autocorrect="off">
+                </nav>
+            </section>
+            <section class="padContainer">
+                <nav id="pad_1">
+                    <a target="windowElement" data-link="appstore" title="Accéder à l'App store">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/appStore.png" alt="App store" title="Accéder à l'App store">
+                            <figcaption>App Store</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="safari" target="lien" data-link="safari"
+                        title="Moteur de recherche">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/safari.png" alt="Safari" title="Moteur de recherche">
+                            <figcaption>Safari</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="mail" title="Accéder à la boîte mail">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/mail.png" alt="Mail" title="Accéder à la boîte mail">
+                            <figcaption>Mail</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="contacts" title="Accéder aux contacts">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/contacts.png" alt="Contacts" title="Accéder aux contacts">
+                            <figcaption>Contact</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="calendar" title="Calendrier">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calendar.png" alt="Calendrier" title="Calendrier">
+                            <figcaption>Calendrier</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="reminders" title="Rappel de tâches">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/reminders.png" alt="Tâches" title="Rappel de tâches">
+                            <figcaption>Rappel</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="notes" title="Ouvrir Notes">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/notes.png" alt="Notes" title="Ouvrir Notes">
+                            <figcaption>Notes</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="facetime" title="Ouvrir Facetime">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/faceTime.png" alt="Facetime" title="Ouvrir Facetime">
+                            <figcaption>Facetime</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="messages" title="Ouvrir Messages">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/messages.png" alt="Messages" title="Ouvrir Messages">
+                            <figcaption>Messages</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="plan" title="Map">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/maps.png" alt="Ouvrir Plan" title="Map">
+                            <figcaption>Plan</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="localiser" title="Localiser mon appareil">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/findMy.png" alt="Localisation" title="Localiser mon appareil">
+                            <figcaption>Localiser</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="booth" title="Photo Booth">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/photoBooth.png" alt="Localisation" title="Photo Booth">
+                            <figcaption>Photo booth</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="photos" title="Photos">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/photos.png" alt="Galerie photos" title="Photos">
+                            <figcaption>Photos</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="preview" title="Preview">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/preview.png" alt="Preview" title="Preview">
+                            <figcaption>Preview</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="musique" title="Musique">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/music.png" alt="Musique" title="Musique">
+                            <figcaption>Musique</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="podcast" title="Podcast">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/podcasts.png" alt="Podcast" title="Podcast">
+                            <figcaption>Podcast</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="TV" title="TV">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/TV.png" alt="TV" title="TV">
+                            <figcaption>TV</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="dictaphone" title="Dictaphone">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/voiceMemos.png" alt="Dictaphone" title="Dictaphone">
+                            <figcaption>Dictaphone</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="meteo" title="Météo">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/weather.png" alt="Météo" title="Météo">
+                            <figcaption>Météo</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="nouvelles" title="Nouvelles">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/news.png" alt="Nouvelles" title="Nouvelles">
+                            <figcaption>Nouvelles</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="bourses" title="Bourses">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/stocks.png" alt="Bourses" title="Bourses">
+                            <figcaption>Bourses</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="livres" title="Livres">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/books.png" alt="Livres" title="Livres">
+                            <figcaption>Livres</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="dictionnaire" title="Dictionnaire">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/dictionary.png" alt="Dictionnaire" title="Dictionnaire">
+                            <figcaption>Dictionnaire</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="calculatrice" title="Calculatrice">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calculator.png" alt="Calculatrice" title="Calculatrice">
+                            <figcaption>Calculatrice</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="freeform" title="Freeform">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/freeform.png" alt="Freeform" title="Freeform">
+                            <figcaption>Freeform</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="home" title="Home">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/home.png" alt="Home" title="Home">
+                            <figcaption>Home</figcaption>
+                        </figure>
+                    </a>
+                    <a target="windowElement" data-link="horloge" title="Horloge">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/clock.png" alt="Horloge" title="Horloge">
+                            <figcaption>Horloge</figcaption>
+                        </figure>
+                    </a>
+                </nav>
+                <nav id="pad_2">
+                    <a target="windowElement" data-link="siri" title="Siri">
+                        <figure>
+                            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/siri.png" alt="Siri" title="Siri">
+                            <figcaption>Siri</figcaption>
+                        </figure>
+                    </a>
+                </nav>
+            </section>
+            <section class="launchPadFoot">
+                <a class="pad_1">.</a>
+                <a class="pad_2">.</a>
+            </section>
+        </div>
+        <div class="windowElement" data-link="safari" id="safari" style="display: none; position: fixed;">
+            <iframe id="windowIframe" src="https://lacapsule.org/ressources/index.php" frameborder="0" name="lien" rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="windowElement" data-link="messages" id="messages" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="mail" id="mail" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="plan" id="plan" style="display: none; position: fixed;">
+            <iframe id="windowIframe" src="https://maps.google.com/maps?q=2880%20Broadway,%20Amol&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" name="lien" rel="noopener noreferrer" sandbox="allow-same-origin allow-popups allow-scripts" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="windowElement" data-link="photos" id="photos" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="facetime" id="facetime" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="calendar" id="calendar" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="contacts" id="contacts" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="reminders" id="reminders" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="notes" id="notes" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="freeform" id="freeform" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="TV" id="TV" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="musique" id="musique" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="appstore" id="appstore" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="settings" id="settings" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="telechargements" id="telechargements" style="display: none; position: fixed;"></div>
+        <div class="windowElement" data-link="corbeille" id="corbeille" style="display: none; position: fixed;"></div>
+    </main>
+    <footer>
+        <a target="windowElement" data-link="finder" title="Ouvrir le finder">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/finder.png" alt="Finder" title="Ouvrir le finder">
+        </a>
+        <a target="windowElement" data-link="launchpad" title="Ouvrir le launchpad">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/launchpad.png" alt="Launchpad" title="Ouvrir le launchpad">
+        </a>
+        <a target="windowElement" data-link="safari" title="Ouvrir le navigateur WEB">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/safari.png" alt="Safari" title="Ouvrir le navigateur WEB">
+        </a>
+        <a target="windowElement" data-link="messages" title="Ouvrir Messages">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/messages.png" alt="Messages" title="Ouvrir Messages">
+        </a>
+        <a target="windowElement" data-link="mail" title="Ouvrir le client mail">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/mail.png" alt="Mail" title="Ouvrir le client mail">
+        </a>
+        <a target="windowElement" data-link="plan" title="plan">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/maps.png" alt="Ouvrir plan" title="plan">
+        </a>
+        <a target="windowElement" data-link="photos" title="Ouvrir la galerie photo">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/photos.png" alt="Photos" title="Ouvrir la galerie photo">
+        </a>
+        <a target="windowElement" data-link="facetime" title="Ouvrir Facetime">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/faceTime.png" alt="Facetime" title="Ouvrir Facetime">
+        </a>
+        <a target="windowElement" data-link="calendar" title="Ouvrir le calendrier">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calendar.png" alt="Calendrier" title="Ouvrir le calendrier">
+        </a>
+        <a target="windowElement" data-link="contacts" title="Ouvrir le répertoire des contacts">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/contacts.png" alt="Contacts" title="Ouvrir le répertoire des contacts">
+        </a>
+        <a target="windowElement" data-link="reminders" title="Gérer les rappels">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/reminders.png" alt="Reminders" title="Gérer les rappels">
+        </a>
+        <a target="windowElement" data-link="notes" title="Gérer les notes">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/notes.png" alt="Notes" title="Gérer les notes">
+        </a>
+        <a target="windowElement" data-link="freeform" title="Ouvrir Freeform">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/freeform.png" alt="Freeform" title="Ouvrir Freeform">
+        </a>
+        <a target="windowElement" data-link="TV" title="Ouvrir la TV">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/TV.png" alt="TV" title="Ouvrir la TV">
+        </a>
+        <a target="windowElement" data-link="musique" title="Ouvrir Musique">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/music.png" alt="Musique" title="Ouvrir Musique">
+        </a>
+        <a target="windowElement" data-link="appstore" title="Ouvrir l'app store">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/appStore.png" alt="App Store" title="Ouvrir l'app store">
+        </a>
+        <a target="windowElement" data-link="settings" title="Gérer les paramètres">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/settings.png" alt="Paramètres" title="Gérer les paramètres">
+        </a>
+        <hr>
+        <a target="windowElement" data-link="telechargements" title="Ouvir les téléchargements">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/downloadsFolder.png" alt="Téléchargements" title="Ouvir les téléchargements">
+        </a>
+        <a target="windowElement" data-link="corbeille" title="Ouvrir la corbeille">
+            <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/bin.png" alt="Corbeille" title="Ouvrir la corbeille">
+        </a>
+    </footer>
+    <script src="../../../usr/lib/capsuleos/common/capsule-window.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/resizeWindow.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/window-drag.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-context.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-desktop-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-header-buttons.js"></script>
+        <script src="../../../usr/lib/capsuleos/shells/common/capsule-memory-conventions.js"></script>
+<script src="../../../usr/lib/capsuleos/shells/common/capsule-window-memory.js"></script>
+    <script>
+        window.CAPSULE_WINDOW_FAMILY = 'macos';
+    </script>
+    <script src="./js/date.js"></script>
+    <script src="./js/dock.js"></script>
+    <script src="./js/windowContainer.js"></script>
+    <script src="./js/launchpadDisplay.js"></script>
+    <script src="./js/launchpadSwitch.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/common/capsule.webp",
+  "outputSha256": "d2a64a683cc5b25ffa1494f2fd4df4b9aafa9c2ffcba93d48a6cc971b28cf842",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.557Z",
+  "note": "repair-manifest"
+}

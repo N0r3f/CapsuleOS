@@ -1,0 +1,11 @@
+Assets copiés depuis la VM lab (registryId: linux-rocky) le 2026-06-07T10:07:09Z.
+Vendor : rocky · toolkit : gnome
+Thème icônes VM : Adwaita (gsettings org.gnome.desktop.interface icon-theme).
+Polices VM : /usr/share/fonts/redhat-vf/ → assets/fonts/vendors/rocky/
+MIME Adwaita : scalable/mimetypes/ → icons/gnome/adwaita/mimetypes/
+Explorateur VM : Nautilus (org.gnome.Nautilus) — gabarit Capsule slot nemo.
+Ne pas réinventer les chemins : relancer ce script après changement de VM ou de thème.
+
+# import-manifest-staging 2026-06-08T22:47:31.344Z
+files: 63
+Connexion SSH : etc/capsuleos/lab-inventory.json (local, gitignoré).

@@ -1,0 +1,51 @@
+:root {
+    --win-taskbar-bg: #c0c0c0;
+    --win-taskbar-hover: #000080;
+    --win-window-radius: 0;
+    --win-window-header-bg: #000080;
+    --win-start-menu-bg: #c0c0c0;
+    --win-font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Geneva, sans-serif;
+    --win-desktop-bg: #008080;
+    --win95-surface: #c0c0c0;
+    --win95-highlight: #ffffff;
+    --win95-shadow: #808080;
+    --win95-dkshadow: #404040;
+    --win95-title-active: #000080;
+    --win95-title-active-end: #1084d0;
+}
+
+html {
+    font-size: 11px;
+}
+
+body {
+    font-family: var(--win-font-family);
+    font-size: 11px;
+    color: #000000;
+}
+
+main {
+    background-color: var(--win-desktop-bg);
+    background-image: none;
+}
+
+footer {
+    background: var(--win-taskbar-bg);
+    color: #000000;
+    border-top: 2px solid var(--win95-highlight);
+    box-shadow: inset 0 1px 0 var(--win95-highlight);
+}
+
+footer > menu > a:hover,
+footer > menu > i:hover {
+    background: transparent;
+}
+
+div#menu {
+    background: var(--win-start-menu-bg);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--win95-highlight) var(--win95-dkshadow) var(--win95-dkshadow) var(--win95-highlight);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+    padding: 0;
+}

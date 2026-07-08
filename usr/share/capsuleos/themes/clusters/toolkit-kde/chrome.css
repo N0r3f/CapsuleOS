@@ -1,0 +1,6 @@
+/**
+ * Point d'entrée chrome KDE Plasma / Breeze — interactions noyau uniquement.
+ * Visuel fenêtre : style/windows.css (ou équivalent) dans chaque skin KDE.
+ * Provider runtime : dolphin (explorateur), default (autres slots).
+ */
+@import url(../../linux/window-chrome.interactions.css);

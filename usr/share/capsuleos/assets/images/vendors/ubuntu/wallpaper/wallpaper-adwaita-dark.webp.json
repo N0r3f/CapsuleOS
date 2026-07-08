@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/wallpaper-adwaita-dark.png",
+  "sourceSha256": "04126f4105debb74f42f8b06b8e26dd0c91428520465e7dcf76c3b5ecf9d7835",
+  "output": "images/vendors/ubuntu/wallpaper/wallpaper-adwaita-dark.webp",
+  "outputSha256": "fe1e8affb97bcaec6cd008c6b4d89f2a8ca917fef8d1f2e8e5a70237a7aaf3fb",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-07T21:12:35.928Z"
+}

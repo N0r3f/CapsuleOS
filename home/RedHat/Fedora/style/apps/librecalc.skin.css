@@ -1,0 +1,38 @@
+/**
+ * fedora — librecalc (structure Rocky).
+ */
+body#fedora div[data-link="librecalc"].gnome-app--csd {
+    width: min(52rem, calc(100vw - var(--fedora-dock-width) - 1.5rem));
+    height: min(36rem, calc(100vh - var(--fedora-top-bar-height) - 1.5rem));
+    min-width: 40rem;
+    min-height: 26rem;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#fedora div[data-link="librecalc"] .lc-app {
+    --lc-bg: var(--fedora-window-surface, #303030);
+    --lc-text: rgba(255, 255, 255, 0.92);
+    --lc-menu-bg: rgba(255, 255, 255, 0.08);
+    --lc-menu-text: rgba(255, 255, 255, 0.92);
+    --lc-menu-hover: rgba(53, 132, 228, 0.22);
+    --lc-toolbar-bg: rgba(255, 255, 255, 0.06);
+    --lc-toolbar-border: rgba(255, 255, 255, 0.12);
+    --lc-toolbar-separator: rgba(255, 255, 255, 0.18);
+    --lc-grid-header-bg: rgba(255, 255, 255, 0.08);
+    --lc-grid-header-text: rgba(255, 255, 255, 0.85);
+    --lc-grid-border: rgba(255, 255, 255, 0.14);
+    --lc-grid-cell-bg: rgba(255, 255, 255, 0.03);
+    --lc-formula-bg: rgba(255, 255, 255, 0.05);
+    --lc-statusbar-bg: rgba(0, 0, 0, 0.22);
+    --lc-statusbar-text: rgba(255, 255, 255, 0.78);
+    --lc-sheet-tab-bg: rgba(255, 255, 255, 0.06);
+    --lc-sheet-tab-active: rgba(255, 255, 255, 0.12);
+    border-radius: 0 0 10px 10px;
+}
+
+body#fedora div[data-link="librecalc"] .lc-menubar {
+    background: var(--lc-toolbar-bg);
+    border-bottom: 1px solid var(--lc-toolbar-border);
+}

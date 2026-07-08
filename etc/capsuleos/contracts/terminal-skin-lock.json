@@ -1,0 +1,44 @@
+{
+  "description": "Verrouillage skin terminal Ptyxis — cloisonnement vendor, tokens obligatoires, états chrome.",
+  "parentChain": "etc/capsuleos/contracts/terminal-output-fidelity.json",
+  "vendorIsolation": "etc/capsuleos/contracts/skin-vendor-isolation.json",
+  "layers": {
+    "layoutBase": "usr/share/capsuleos/linux/apps/style/terminal-ptyxis.base.css",
+    "skinOverride": "home/<Vendor>/<Distro>/style/apps/terminal.skin.css",
+    "tokens": "home/<Vendor>/<Distro>/style/gnome-shell/tokens.css"
+  },
+  "ptyxisProfiles": ["linux-rocky", "linux-fedora", "linux-alma", "linux-ubuntu"],
+  "skinRules": [
+    "Toute règle chrome terminal dans terminal.skin.css doit être préfixée body#<bodyId>",
+    "Interdit : sélecteur nu .terminal-window--fedora hors tokens dans le skin vendor",
+    "Interdit : couleur hex en dur dans terminal.skin.css (sauf data:image/svg dans mask-image)",
+    "Obligatoire : var(--fedora-app-terminal-surface) pour fond fenêtre / shell",
+    "Obligatoire : var(--terminal-window-radius) pour border-radius fenêtre",
+    "padding shell (#terminalContainer) = 0 — padding corps via --terminal-body-padding dans la base"
+  ],
+  "requiredTokens": [
+    "--fedora-app-terminal-surface",
+    "--fedora-app-header-alt-bg",
+    "--fedora-app-header-active-bg",
+    "--fedora-terminal-prompt-user",
+    "--fedora-terminal-prompt-path-seg",
+    "--terminal-window-radius",
+    "--terminal-body-padding",
+    "--terminal-tab-gap",
+    "--terminal-tab-min-width"
+  ],
+  "baseMustNot": [
+    "body#",
+    "#rocky",
+    "#fedora",
+    "#ubuntu"
+  ],
+  "chromeStates": [
+    { "id": "single-tab", "tabs": 1, "active": true },
+    { "id": "multi-tab", "tabsMin": 3, "active": true, "class": "terminal-window--multitab" },
+    { "id": "min-width", "tabsMin": 2, "shrinkToMinWidth": true },
+    { "id": "dual-window", "windows": 2, "oneInactive": true }
+  ],
+  "playwrightSmoke": "usr/lib/capsuleos/tools/lab/smoke-terminal-ptyxis-chrome.mjs",
+  "staticGate": "usr/lib/capsuleos/tools/validate-terminal-skin-lock.mjs"
+}

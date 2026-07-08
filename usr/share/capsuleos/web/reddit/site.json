@@ -1,0 +1,8 @@
+{
+  "siteId": "reddit",
+  "titleFr": "Reddit — simulation CapsuleOS",
+  "hosts": ["reddit.com", "www.reddit.com"],
+  "lang": "fr",
+  "contentLicense": "LicenseRef-CapsuleOS-OriginalContent",
+  "note": "Contenu pédagogique original — non affilié à Reddit."
+}

@@ -1,0 +1,17 @@
+Icônes zone de notification Kickoff — Breeze pull VM 2026-06-06
+Ordre panel VM (visible) : notifications, mises à jour, presse-papiers, luminosité, réseau, volume, expand.
+
+| Rôle | Fichier breeze |
+|------|----------------|
+| Notifications | preferences/24/preferences-desktop-notification-bell.svg |
+| Mises à jour | status/22/update-low.svg |
+| Presse-papiers | actions/22/edit-paste.svg |
+| Luminosité | actions/24/brightness-high.svg |
+| Réseau | status/22/network-wired.svg |
+| Volume (ref.) | status/22/audio-volume-high.svg |
+| Expand (cachés) | panel/tray-expand.svg |
+| Batterie (caché) | status/24/battery-100.svg |
+| Bluetooth (caché) | status/22/network-bluetooth-activated.svg |
+| KDE Connect (caché) | preferences/32/kdeconnect.svg |
+| Clavier (caché) | status/24/keyboard-layout.svg |
+| Saisie (caché) | devices/24/input-keyboard.svg |

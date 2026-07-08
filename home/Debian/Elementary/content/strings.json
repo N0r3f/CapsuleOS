@@ -1,0 +1,8 @@
+{
+    "explorer.windowTitle": "Dossier personnel - Fichiers",
+    "themes.windowTitle": "Paramètres",
+    "checklist.description": "Explore elementary OS en accomplissant ces missions. Ta progression est sauvegardée localement.",
+    "checklist.hint.open-nemo": "Ouvre Fichiers depuis le dock à gauche",
+    "checklist.hint.open-menu": "Ouvre l’aperçu des applications (grille en bas du dock)",
+    "checklist.hint.open-profile": "Ouvre le profil Ubuntu"
+}

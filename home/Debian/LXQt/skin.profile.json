@@ -1,0 +1,47 @@
+{
+  "id": "linux-lxqt",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "debian",
+  "vendor": "generic",
+  "displayName": "LXQt (générique)",
+  "bodyId": "lxqt",
+  "embedKey": "lxqt",
+  "tier": "P4",
+  "status": "planned",
+  "fidelityLevel": 0,
+  "upstreamId": "linux-debian-kde",
+  "clusterIds": [
+    "toolkit.lxqt"
+  ],
+  "extends": "kernel:linux/branch:debian/toolkit:lxqt",
+  "paths": {
+    "facade": "OS/linux/families/debian/lxqt/index.html",
+    "skin": "home/Debian/LXQt/index.html"
+  },
+  "toolkit": {
+    "id": "lxqt",
+    "shell": "lxqt"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/lxqt",
+    "vendorPack": "vendors/generic",
+    "iconPacks": [
+      "icons/cinnamon"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "PCManFM-Qt",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo",
+    "CAPSULE_EMBED_SKIN_KEY": "lxqt",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/debian/lxqt/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian"
+  }
+}

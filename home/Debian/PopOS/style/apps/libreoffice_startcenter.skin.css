@@ -1,0 +1,5 @@
+/** popos — libreoffice_startcenter (stub catalogue). */
+body#popos div[data-link="libreoffice_startcenter"] {
+    color: var(--popos-app-text);
+    background: var(--popos-app-surface);
+}

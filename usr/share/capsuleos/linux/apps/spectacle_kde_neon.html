@@ -1,0 +1,25 @@
+<main id="spectacleApp" class="kde-spectacle" aria-label="Spectacle">
+    <aside class="kde-spectacle__modes" aria-label="Modes de capture">
+        <button type="button" class="kde-spectacle__mode is-active" data-spectacle-mode="region">
+            <span class="kde-spectacle__mode-icon kde-spectacle__mode-icon--region" aria-hidden="true"></span>
+            <span class="kde-spectacle__mode-label">Capture rectangulaire</span>
+        </button>
+        <button type="button" class="kde-spectacle__mode" data-spectacle-mode="window">
+            <span class="kde-spectacle__mode-icon kde-spectacle__mode-icon--window" aria-hidden="true"></span>
+            <span class="kde-spectacle__mode-label">Fenêtre active</span>
+        </button>
+        <button type="button" class="kde-spectacle__mode" data-spectacle-mode="screen">
+            <span class="kde-spectacle__mode-icon kde-spectacle__mode-icon--screen" aria-hidden="true"></span>
+            <span class="kde-spectacle__mode-label">Écran complet</span>
+        </button>
+        <button type="button" class="kde-spectacle__mode" data-spectacle-mode="record">
+            <span class="kde-spectacle__mode-icon kde-spectacle__mode-icon--record" aria-hidden="true"></span>
+            <span class="kde-spectacle__mode-label">Enregistrer la zone</span>
+        </button>
+    </aside>
+    <section class="kde-spectacle__main">
+        <p class="kde-spectacle__hint" id="spectacle-hint">Sélectionnez une zone à l'écran avec le curseur.</p>
+        <button type="button" class="kde-spectacle__capture" id="spectacle-capture-btn">Prendre une capture</button>
+        <p class="kde-spectacle__status" id="spectacle-status" role="status" aria-live="polite"></p>
+    </section>
+</main>

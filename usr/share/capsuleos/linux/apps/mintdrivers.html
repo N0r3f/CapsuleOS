@@ -1,0 +1,17 @@
+<main id="mintDriversApp" class="md-app" aria-label="Gestionnaire de pilotes">
+    <div class="md-stack">
+        <section class="md-page md-page--refresh" data-md-page="refresh" aria-live="polite">
+            <div class="md-page__center">
+                <div class="md-spinner" role="progressbar" aria-label="Recherche de pilotes"></div>
+                <p class="md-page__title" data-capsule-text="mintdrivers.lookingTitle">Recherche de pilotes</p>
+            </div>
+            <p class="md-page__hint" data-capsule-text="mintdrivers.waitHint">Veuillez patienter…</p>
+        </section>
+        <section class="md-page md-page--no-drivers" data-md-page="no-drivers" hidden>
+            <div class="md-page__center">
+                <p class="md-page__title" data-capsule-text="mintdrivers.noDriversTitle">Aucun pilote nécessaire</p>
+                <p class="md-page__body" data-capsule-text="mintdrivers.noDriversBody">Votre ordinateur n'a besoin d'aucun pilote supplémentaire.</p>
+            </div>
+        </section>
+    </div>
+</main>

@@ -1,0 +1,47 @@
+{
+  "id": "linux-elementary",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "ubuntu",
+  "vendor": "elementary",
+  "displayName": "elementary OS",
+  "bodyId": "elementary",
+  "embedKey": "elementary",
+  "tier": "P4",
+  "status": "planned",
+  "fidelityLevel": 0,
+  "upstreamId": "linux-ubuntu",
+  "clusterIds": [
+    "toolkit.pantheon"
+  ],
+  "extends": "kernel:linux/branch:ubuntu/toolkit:pantheon",
+  "paths": {
+    "facade": "OS/linux/families/debian/elementary/index.html",
+    "skin": "home/Debian/Elementary/index.html"
+  },
+  "toolkit": {
+    "id": "pantheon",
+    "shell": "pantheon"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/pantheon",
+    "vendorPack": "vendors/elementary",
+    "iconPacks": [
+      "icons/gnome"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Fichiers",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo-gnome",
+    "CAPSULE_EMBED_SKIN_KEY": "elementary",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/debian/elementary/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian"
+  }
+}

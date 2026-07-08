@@ -1,0 +1,49 @@
+/**
+ * Rocky — Snapshot GNOME (org.gnome.Snapshot).
+ */
+body#rocky {
+    --gnome-snapshot-bg: #303030;
+    --gnome-snapshot-header-bg: #383838;
+    --gnome-snapshot-stage-bg: #1a1a1a;
+    --gnome-snapshot-text: #f6f6f6;
+    --gnome-snapshot-muted: rgba(255, 255, 255, 0.62);
+    --gnome-snapshot-border: rgba(255, 255, 255, 0.08);
+    --gnome-snapshot-accent: #3584e4;
+}
+
+html[data-theme="light"]:has(#rocky) {
+    --gnome-snapshot-bg: #fafafa;
+    --gnome-snapshot-header-bg: #f6f6f6;
+    --gnome-snapshot-stage-bg: #e8e8e8;
+    --gnome-snapshot-text: #1e1e1e;
+    --gnome-snapshot-muted: rgba(0, 0, 0, 0.55);
+    --gnome-snapshot-border: rgba(0, 0, 0, 0.1);
+}
+
+body#rocky div[data-link="snapshot"].windowElement {
+    width: min(38rem, calc(100vw - var(--fedora-dock-width, 0px) - 2rem));
+    height: min(32rem, calc(100vh - var(--fedora-top-bar-height, 2.75rem) - 2rem));
+    min-width: 20rem;
+    min-height: 24rem;
+}
+
+body#rocky div[data-link="snapshot"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#rocky div[data-link="snapshot"] main#gnomeSnapshotApp {
+    height: 100%;
+}
+
+body#rocky div[data-link="snapshot"] .gnome-snapshot__mode.is-active,
+body#rocky div[data-link="snapshot"] .gnome-snapshot__mode[aria-selected="true"] {
+    background: rgba(53, 132, 228, 0.22);
+    color: #62a0ea;
+}
+
+body#rocky div[data-link="snapshot"] .gnome-snapshot__effect.is-active {
+    border-color: var(--gnome-snapshot-accent);
+    color: #62a0ea;
+}

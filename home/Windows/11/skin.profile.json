@@ -1,0 +1,32 @@
+{
+  "id": "windows-11",
+  "version": 2,
+  "family": "windows",
+  "kernelId": "windows",
+  "vendor": "microsoft",
+  "displayName": "Windows 11",
+  "bodyId": "windows-11",
+  "embedKey": "windows-11",
+  "tier": "P4",
+  "status": "planned",
+  "fidelityLevel": 0,
+  "upstreamId": null,
+  "paths": {
+    "facade": "OS/windows/versions/11/index.html",
+    "skin": "home/Windows/11/index.html"
+  },
+  "toolkit": {
+    "id": "windows-shell",
+    "shell": "win11"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/windows-shell",
+    "vendorPack": "vendors/microsoft"
+  },
+  "capsuleGlobals": {
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json"
+  },
+  "scaffoldAt": "2026-06-15"
+}

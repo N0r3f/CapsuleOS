@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/blendpills-d.jxl",
+  "sourceSha256": "b99aca00ef387acde9f43c7f50629af83144213d0a646e9e1c89d2a4955985a7",
+  "output": "images/vendors/fedora/wallpaper/blendpills-d.webp",
+  "outputSha256": "a98b7d5237ba8f58ebad1f9ddcfdf33e4fc418845752bdc3db9d45dedcb58a11",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:23:53.098Z"
+}

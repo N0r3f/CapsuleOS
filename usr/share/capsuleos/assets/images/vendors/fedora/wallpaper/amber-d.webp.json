@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/amber-d.webp",
+  "outputSha256": "668fd344a1c8ebf79832a3a8b2b3ec5c06fe31548b138e065e54ca95c3d1dd63",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.670Z",
+  "note": "repair-manifest"
+}

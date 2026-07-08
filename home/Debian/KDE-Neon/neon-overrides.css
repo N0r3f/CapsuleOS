@@ -1,0 +1,7 @@
+/**
+ * Surcharges KDE Neon — typographie VM (Noto Sans 10).
+ */
+html:has(#kde-neon) {
+    --font-ui: "Noto Sans", "Ubuntu", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Hack", "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+}

@@ -1,0 +1,15 @@
+/* Surcouche Debian-KDE — Discover Kirigami (V6 propagation pivot Neon) */
+
+body#debian-kde div[data-link="update_manager"] {
+    padding: 0;
+}
+
+body#debian-kde div[data-link="update_manager"] #windowHeader > nav:first-child::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/plasmadiscover.svg") no-repeat center / contain;
+}
+
+@import url("../../../../../usr/share/capsuleos/linux/apps/style/discover-kirigami-kde.shared.css");

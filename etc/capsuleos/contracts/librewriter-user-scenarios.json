@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME LibreOffice Writer — slot CapsuleOS `librewriter`, gabarit `librewriter.html`. Toolkit gnome (Rocky, Fedora, Alma, Ubuntu). Distinct du slot `text_editor` (GNOME Text Editor).",
+  "doc": "root/docs/inventaires/linux-alma-librewriter-vm-inventory.json",
+  "slotCapsule": "librewriter",
+  "slot": "librewriter",
+  "appId": "libreoffice-writer",
+  "softwareCatalogId": "libreoffice-writer",
+  "template": "librewriter.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/librewriter.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "LwΣ": "Contrat valide + kernel syncLibrewriterGnomeDataset + gabarit data-librewriter-gnome-*",
+    "Lw1": "Lw1 ouvrir Writer → document vide / titre Sans nom 1 - LibreOffice Writer",
+    "Lw2": "Lw2 saisie texte dans zone édition (#lw-page)",
+    "Lw3": "Lw3 formatage simple (gras via barre Formatage)",
+    "Lw4": "Lw4 enregistrer simulé ou nouveau document"
+  },
+  "scenarios": [
+    {
+      "id": "Lw1",
+      "priority": "P0",
+      "title": "Ouvrir Writer — document vide / titre barre",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "rpm": "libreoffice-writer",
+        "version": "24.8",
+        "labelFr": "LibreOffice Writer",
+        "genericNameFr": "Éditeur de texte",
+        "locale": "fr_FR.UTF-8",
+        "untitledFr": "Sans nom 1",
+        "windowTitleFr": "Sans nom 1 - LibreOffice Writer",
+        "menubarFr": ["Fichier", "Édition", "Affichage", "Insertion", "Format", "Styles"],
+        "toolbarStd": true,
+        "toolbarFmt": true,
+        "onVm": false,
+        "note": "Absent VM lab Alma el10 (dnf sans paquet) — aligné spec LibreOffice 24.x FR Capsule"
+      },
+      "steps": [
+        { "id": "open-writer", "action": "openWindowByDataLink", "target": "librewriter", "label": "Ouvrir LibreOffice Writer" },
+        { "id": "root", "selector": "[data-librewriter-gnome-root]", "label": "Racine Writer GNOME" },
+        { "id": "init", "predicate": "dataset.librewriterGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "page", "selector": "[data-librewriter-gnome-page]", "label": "Zone document éditable" },
+        { "id": "menubar", "selector": "[data-librewriter-gnome-menubar]", "label": "Barre de menus FR" },
+        { "id": "toolbar-std", "selector": "[data-librewriter-gnome-toolbar-std]", "label": "Barre Standard" },
+        { "id": "title", "predicate": "dataset.librewriterGnomeTitle", "expectTextContains": "Sans nom 1", "label": "Titre fenêtre Sans nom 1" },
+        { "id": "chrome", "predicate": "dataset.librewriterGnomeChrome", "expectValue": "libreoffice24", "label": "Chrome LibreOffice 24 simulé" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-librewriter-scenarios.mjs --scenario Lw1",
+        "capture": "alma-capsule-dark-librewriter.png"
+      }
+    },
+    {
+      "id": "Lw2",
+      "priority": "P0",
+      "title": "Saisie texte dans la zone édition",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "sampleText": "CapsuleOS AlmaLinux",
+        "wordCountFr": "mots",
+        "statusBarLocale": "Français (France)"
+      },
+      "steps": [
+        { "id": "open-writer", "action": "openWindowByDataLink", "target": "librewriter", "label": "Ouvrir Writer" },
+        { "id": "type", "action": "typeInPage", "selector": "[data-librewriter-gnome-page]", "value": "CapsuleOS AlmaLinux", "label": "Saisir du texte" },
+        { "id": "dirty", "predicate": "dataset.librewriterGnomeDirty", "expectValue": "true", "label": "Document modifié" },
+        { "id": "word-count", "predicate": "dataset.librewriterGnomeWordCount", "expectValue": "2", "label": "Compteur mots ≥ 2" },
+        { "id": "char-count", "predicate": "dataset.librewriterGnomeCharCount", "expectTextContains": "20", "label": "Caractères saisis" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-librewriter-scenarios.mjs --scenario Lw2",
+        "capture": "alma-capsule-dark-librewriter-text.png"
+      }
+    },
+    {
+      "id": "Lw3",
+      "priority": "P0",
+      "title": "Formatage simple — gras",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "boldShortcutFr": "Ctrl+G",
+        "boldToolbar": "#btn-bold",
+        "formatBlockSupported": true
+      },
+      "steps": [
+        { "id": "open-writer", "action": "openWindowByDataLink", "target": "librewriter", "label": "Ouvrir Writer" },
+        { "id": "type", "action": "typeInPage", "value": "Titre Capsule", "label": "Saisir texte à formater" },
+        { "id": "select-all", "action": "selectPageContent", "label": "Sélectionner le texte" },
+        { "id": "bold", "selector": "#btn-bold", "action": "clickBold", "label": "Appliquer gras" },
+        { "id": "bold-active", "selector": "#btn-bold.lw-tb-btn--active", "label": "Bouton gras actif" },
+        { "id": "dirty", "predicate": "dataset.librewriterGnomeDirty", "expectValue": "true", "label": "État modifié après formatage" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-librewriter-scenarios.mjs --scenario Lw3",
+        "capture": "alma-capsule-dark-librewriter-bold.png"
+      }
+    },
+    {
+      "id": "Lw4",
+      "priority": "P0",
+      "title": "Enregistrer simulé ou nouveau document",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "saveShortcutFr": "Ctrl+S",
+        "newShortcutFr": "Ctrl+N",
+        "saveSimulated": true,
+        "exportPdfMenuFr": "Exporter en PDF…"
+      },
+      "steps": [
+        { "id": "open-writer", "action": "openWindowByDataLink", "target": "librewriter", "label": "Ouvrir Writer" },
+        { "id": "type", "action": "typeInPage", "value": "Document pédagogique", "label": "Saisir contenu" },
+        { "id": "save", "selector": "[data-librewriter-gnome-action=\"save\"]", "action": "clickSave", "label": "Enregistrer (simulé)" },
+        { "id": "saved", "predicate": "dataset.librewriterGnomeSaved", "expectValue": "true", "label": "État enregistré" },
+        { "id": "file-name", "predicate": "dataset.librewriterGnomeFileName", "expectTextContains": ".odt", "label": "Nom fichier simulé .odt" },
+        { "id": "new-doc", "selector": "[data-librewriter-gnome-action=\"new\"]", "action": "clickNew", "label": "Nouveau document" },
+        { "id": "doc-number", "predicate": "dataset.librewriterGnomeDocNumber", "expectValue": "2", "label": "Sans nom 2 après nouveau" },
+        { "id": "page-empty", "predicate": "dataset.librewriterGnomeWordCount", "expectValue": "0", "label": "Page vide" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-librewriter-scenarios.mjs --scenario Lw4",
+        "capture": "alma-capsule-dark-librewriter-save.png"
+      }
+    }
+  ],
+  "softwareCoherence": {
+    "contract": "etc/capsuleos/contracts/software-user-scenarios.json",
+    "scenario": "S1",
+    "catalogAppId": "libreoffice-writer",
+    "launchSlot": "librewriter",
+    "note": "Software S1 installe puis ouvre librewriter — même slot que overview Lw1"
+  },
+  "predicateChecks": {
+    "LwΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-librewriter-user-scenarios.mjs"
+    }
+  }
+}

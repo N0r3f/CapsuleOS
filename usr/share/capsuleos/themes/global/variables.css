@@ -1,0 +1,9 @@
+/* Agrégateur variables CapsuleOS — pyramide noyau → kernel → cluster */
+@import url(../core/variables-core.css);
+@import url(../core/variables-computed.css);
+@import url(./variables-portal.css);
+@import url(../kernels/linux/variables-linux-kernel.css);
+@import url(../kernels/linux/branches/kde/variables-breeze-computed.css);
+@import url(../linux/variables-linux.css);
+@import url(../linux/variables-linux-computed.css);
+@import url(../linux/variables-apps.css);

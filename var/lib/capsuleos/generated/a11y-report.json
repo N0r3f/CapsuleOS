@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-03T08:41:29.210Z",
+  "contract": "etc/capsuleos/contracts/a11y-scan-targets.json",
+  "p10OptIn": true,
+  "targets": [
+    {
+      "id": "portal",
+      "label": "Portail CapsuleOS",
+      "url": "http://127.0.0.1:9876/index.html",
+      "violations": [],
+      "warnings": [],
+      "passes": 24
+    },
+    {
+      "id": "linux-mint-p0",
+      "label": "Linux Mint (façade P0)",
+      "url": "http://127.0.0.1:9876/OS/linux/families/debian/mint/index.html",
+      "violations": [],
+      "warnings": [],
+      "passes": 21
+    }
+  ],
+  "summary": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+  }
+}

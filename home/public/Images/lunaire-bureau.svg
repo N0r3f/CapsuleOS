@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200" role="img" aria-label="Paysage lunaire stylisé">
+  <rect width="320" height="200" fill="#0a0e1a"/>
+  <circle cx="240" cy="48" r="28" fill="#e8e4d9"/>
+  <ellipse cx="160" cy="170" rx="200" ry="40" fill="#1a2030"/>
+  <ellipse cx="80" cy="150" rx="50" ry="18" fill="#252b3d"/>
+  <ellipse cx="200" cy="155" rx="70" ry="22" fill="#2a3145"/>
+</svg>

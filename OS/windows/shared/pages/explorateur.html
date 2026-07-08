@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../apps/style/pages.base.css">
+    <script src="../apps/js/pages-shell.js"></script>
+    <script src="../../../../usr/lib/capsuleos/common/user-home.js"></script>
+    <title>Explorateur de fichiers</title>
+</head>
+<body>
+    <div class="win-page--modern">
+        <header class="win-page__header">
+            <h1>Ce PC</h1>
+        </header>
+        <main class="win-page__body">
+            <ul class="win-page__list">
+                <li>📁 Bureau</li>
+                <li>📁 Documents</li>
+                <li>📁 Téléchargements</li>
+                <li>📁 Images</li>
+                <li>💿 Disque local (C:)</li>
+            </ul>
+            <p class="win-page__hint">Contenu pédagogique partagé CapsuleOS — arborescence simulée.</p>
+        </main>
+    </div>
+
+    <div class="win-page--classic">
+        <div class="win95-explorer" role="application" aria-label="Explorateur Windows">
+            <div class="win95-menubar" role="menubar">
+                <span><u>F</u>ichier</span>
+                <span><u>É</u>dition</span>
+                <span><u>A</u>ffichage</span>
+                <span><u>i</u>ntégration</span>
+                <span><u>A</u>ide</span>
+            </div>
+            <div class="win95-toolbar" role="toolbar" aria-label="Barre d'outils">
+                <button type="button" title="Précédent" aria-label="Précédent">◀</button>
+                <button type="button" title="Suivant" aria-label="Suivant">▶</button>
+                <span class="win95-toolbar__sep" aria-hidden="true"></span>
+                <button type="button" title="Monter d'un niveau" aria-label="Monter">▲</button>
+                <span class="win95-toolbar__sep" aria-hidden="true"></span>
+                <button type="button" title="Actualiser" aria-label="Actualiser">↻</button>
+            </div>
+            <div class="win95-workspace">
+                <div class="win95-pane win95-pane--tree" role="tree" aria-label="Tout le système">
+                    <span class="win95-tree-item is-selected">▾ Poste de travail</span>
+                    <span class="win95-tree-item">　▸ Disque local (C:)</span>
+                    <span class="win95-tree-item">　▸ Disque (D:)</span>
+                    <span class="win95-tree-item">　▸ Imprimantes</span>
+                    <span class="win95-tree-item">　▸ Périphériques de contrôle</span>
+                </div>
+                <div class="win95-pane win95-pane--list" role="grid" aria-label="Contenu">
+                    <div class="win95-list-header">
+                        <span>Nom</span>
+                        <span>Taille</span>
+                        <span>Type</span>
+                    </div>
+                    <ul class="win95-list-rows">
+                        <li class="is-selected">
+                            <span>Disque local (C:)</span>
+                            <span>1,20 Go</span>
+                            <span>Disque local</span>
+                        </li>
+                        <li>
+                            <span>Disque (D:)</span>
+                            <span>—</span>
+                            <span>Disque CD-ROM</span>
+                        </li>
+                        <li>
+                            <span>Poste de travail sur le réseau</span>
+                            <span>—</span>
+                            <span>Dossier</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="win95-statusbar" role="status">
+                <span class="win95-statusbar__section">3 objet(s)</span>
+                <span>Simulation CapsuleOS</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.CAPSULE_WIN_CONTENT_ROOT = typeof CapsuleUserHome !== 'undefined'
+            ? CapsuleUserHome.resolveRelative()
+            : '../../../../home/public';
+    </script>
+    <script src="../../../../usr/lib/capsuleos/shells/windows/win-explorer-content.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/**
+ * Polices Linux Mint — ground truth VM (gsettings org.cinnamon.desktop.interface font-name = 'Ubuntu 10').
+ * Source : /usr/share/fonts/truetype/ubuntu/ (VM linux-mint) → assets/fonts/vendors/mint/
+ */
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/mint/Ubuntu[wdth,wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/mint/Ubuntu-Italic[wdth,wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/mint/UbuntuMono-R.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/mint/UbuntuMono-B.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "DejaVu Sans Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/mint/DejaVuSansMono.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/pixel-pusher-l.jxl",
+  "sourceSha256": "073565614b6354c938fbb2d6cb4abca26be733c46bc8e1768c4bfc3457bf31da",
+  "output": "images/vendors/fedora/wallpaper/pixel-pusher-l.webp",
+  "outputSha256": "99937a087b9713176c90c70c25d1ca9ba067acf0f881ace54c01ea72bd2c44fb",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:27:23.343Z"
+}

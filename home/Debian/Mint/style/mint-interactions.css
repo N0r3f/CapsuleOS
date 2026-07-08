@@ -1,0 +1,71 @@
+/**
+ * Linux Mint (Cinnamon) — états d’interaction shell (panel, bureau, chrome WM).
+ * Complète interactions-window.base.css et a11y-overrides.css.
+ */
+
+/* Panel — lanceurs */
+html > body#mint > footer > nav > a:active {
+    transform: translateY(0);
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--menu-accent);
+}
+
+html:not([data-contrast-mode="high"]) > body#mint > footer > nav > a[data-link="mainMenu"]:active,
+html:not([data-contrast-mode="high"]) > body#mint > footer > nav > a[data-link="mainMenu"].active-link:active {
+    background: var(--t);
+    border-color: transparent;
+    box-shadow: none;
+}
+
+html > body#mint > footer > nav > a:focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 2px;
+    box-shadow: var(--a11y-focus-shadow);
+}
+
+html > body#mint > footer > nav > a[data-link="mainMenu"]:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+html > body#mint > footer > nav > a.mint-panel__launcher:hover {
+    transform: none;
+}
+
+/* Liste fenêtres ouvertes */
+body#mint .taskbar-window-list__btn:active {
+    transform: translateY(0);
+}
+
+body#mint .taskbar-window-list__btn:focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 1px;
+}
+
+/* Horloge / calendrier */
+body#mint .taskbar-clock-trigger:active {
+    transform: translateY(0);
+}
+
+/* Raccourcis bureau */
+body#mint .desktop-shortcut:active {
+    transform: translateY(0);
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: var(--menu-accent);
+}
+
+/* Menu contextuel bureau */
+body#mint .desktop-context-menu__item:active:not(:disabled) {
+    background: var(--mint-desktop-context-hover);
+}
+
+body#mint .desktop-context-menu__item:focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: -2px;
+}
+
+/* Chrome fenêtre Muffin — hover close géré dans cinnamon-window-chrome.css (pastille aqua) */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowHeader > nav > button#closeBtn:focus-visible {
+    outline: 2px solid #0c75de;
+    outline-offset: 1px;
+}

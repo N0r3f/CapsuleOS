@@ -1,0 +1,169 @@
+main#checklistApp {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    height: calc(var(--full) - calc(var(--head) / 1.4));
+    margin-bottom: calc(var(--head) / 12);
+    padding: calc(var(--head) / 2);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    gap: calc(var(--head) / 3);
+    color: var(--nemo-text-primary);
+    background: var(--menu-apps-bg);
+    overflow-y: var(--a);
+    overflow-x: hidden;
+}
+
+div[data-link="checklist"] #windowHeader {
+    background: var(--nemo-header-bg);
+}
+
+div[data-link="checklist"] #windowTitle {
+    color: var(--nemo-text-primary);
+    text-shadow: var(--n);
+    filter: var(--n);
+}
+
+/* Header */
+.checklist-app__header {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    gap: calc(var(--head) / 2);
+}
+
+.checklist-app__title {
+    font-size: calc(var(--head) / 2);
+    font-weight: 600;
+    color: var(--nemo-text-primary);
+    white-space: nowrap;
+}
+
+.checklist-app__progress-wrap {
+    flex: 1;
+    height: calc(var(--head) / 5);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menu-cats-bg);
+    overflow: hidden;
+}
+
+.checklist-app__progress-bar {
+    height: var(--full);
+    width: 0%;
+    border-radius: calc(var(--head) / 10);
+    background: var(--menu-accent);
+    transition: width 0.3s ease;
+}
+
+.checklist-app__progress-label {
+    font-size: calc(var(--head) / 2.5);
+    color: var(--nemo-text-secondary);
+    white-space: nowrap;
+}
+
+/* Description */
+.checklist-app__description {
+    font-size: calc(var(--head) / 2.5);
+    color: var(--nemo-text-secondary);
+    line-height: 1.4;
+    margin: var(--z);
+}
+
+/* List */
+.checklist-app__list {
+    list-style: var(--n);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 5);
+    width: var(--full);
+    padding: var(--z);
+}
+
+/* Item */
+.checklist-item {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 2.5);
+    padding: calc(var(--head) / 4) calc(var(--head) / 3);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menu-cats-bg);
+    transition: background 0.15s;
+}
+
+.checklist-item.is-done {
+    opacity: 0.6;
+}
+
+.checklist-item__check {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) / 1.4);
+    height: calc(var(--head) / 1.4);
+    border: solid 2px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--menuInput);
+    cursor: var(--p);
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.checklist-item__check[aria-checked="true"] {
+    border-color: var(--menu-accent);
+    background: var(--menu-accent);
+}
+
+.checklist-item__tick {
+    display: block;
+    width: calc(var(--head) / 3.5);
+    height: calc(var(--head) / 5);
+    border-left: 2.5px solid transparent;
+    border-bottom: 2.5px solid transparent;
+    transform: rotate(-45deg) translateY(-15%);
+    transition: border-color 0.1s;
+}
+
+.checklist-item__check[aria-checked="true"] .checklist-item__tick {
+    border-color: #fff;
+}
+
+.checklist-item__body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    gap: calc(var(--head) / 8);
+    flex: 1;
+}
+
+.checklist-item__name {
+    font-size: calc(var(--head) / 2.4);
+    color: var(--nemo-text-primary);
+}
+
+.checklist-item.is-done .checklist-item__name {
+    text-decoration: line-through;
+}
+
+.checklist-item__hint {
+    font-size: calc(var(--head) / 2.8);
+    color: var(--nemo-text-secondary);
+}
+
+.checklist-item__hint code {
+    font-family: monospace;
+    padding: 0 calc(var(--head) / 10);
+    border-radius: calc(var(--head) / 14);
+    background: var(--menu-apps-bg);
+    color: var(--menu-accent);
+    font-size: calc(var(--head) / 3);
+}

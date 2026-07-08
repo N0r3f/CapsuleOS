@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/mermaid_light.webp",
+  "outputSha256": "9e168d7531ae4011dd48936fa79661ed40e928698e7ac4cf5c6f4a5839c7e47d",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.701Z",
+  "note": "repair-manifest"
+}

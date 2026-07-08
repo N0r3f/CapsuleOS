@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/cnusr25-Simple_Raccoon_Light.png",
+  "sourceSha256": "70f17dfff9b366a797132fbe481634c6cbb1c88509917165542413198c01f1ab",
+  "output": "images/vendors/ubuntu/wallpaper/cnusr25-Simple_Raccoon_Light.webp",
+  "outputSha256": "4c6682cd13603c66c4dad7525b45860e82d4a5c48ca933be69d438291d969d85",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:43.845Z"
+}

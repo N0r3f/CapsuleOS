@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/platforms/brands/ios.webp",
+  "outputSha256": "2a1cccc4ff97073f95b289c3c5d0cf6a252d378adfda15dca3aa84b690352a51",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.563Z",
+  "note": "repair-manifest"
+}

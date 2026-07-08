@@ -1,0 +1,27 @@
+/**
+ * Tokens terminal Ptyxis — contrat terminal-skin-lock.json (linux-elementary).
+ * Shell / fenêtres : elementary-tokens.css
+ */
+html:has(#elementary) {
+    --fedora-app-terminal-surface: var(--elementary-app-terminal-surface);
+    --fedora-app-header-alt-bg: var(--elementary-window-header-bg);
+    --fedora-app-header-active-bg: var(--elementary-window-header-active);
+    --fedora-terminal-prompt-user: var(--elementary-terminal-prompt);
+    --fedora-terminal-prompt-path-seg: var(--elementary-terminal-prompt-path-seg, #6cb6ff);
+    --terminal-window-radius: 0.8rem;
+    --terminal-body-padding: 0.5rem 0.65rem;
+    --terminal-tab-gap: 0.35rem;
+    --terminal-tab-min-width: 0;
+}
+
+html[data-theme="light"]:has(#elementary) {
+    --fedora-app-terminal-surface: var(--elementary-app-terminal-surface);
+    --fedora-app-header-alt-bg: var(--elementary-window-header-bg);
+    --fedora-app-header-active-bg: var(--elementary-window-header-active);
+    --fedora-terminal-prompt-user: var(--elementary-terminal-prompt);
+    --fedora-terminal-prompt-path-seg: var(--elementary-terminal-prompt-path-seg, #1a5fb4);
+    --terminal-window-radius: 0.8rem;
+    --terminal-body-padding: 0.5rem 0.65rem;
+    --terminal-tab-gap: 0.35rem;
+    --terminal-tab-min-width: 0;
+}

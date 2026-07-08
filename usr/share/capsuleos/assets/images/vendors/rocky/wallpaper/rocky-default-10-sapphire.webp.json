@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/rocky/wallpaper/rocky-default-10-sapphire.png",
+  "sourceSha256": "3db6edd33cd225a689f04c6210679978937eb6a78a3c04f7c664bf30193d1453",
+  "output": "images/vendors/rocky/wallpaper/rocky-default-10-sapphire.webp",
+  "outputSha256": "6becdd7c68fd0fcf968f899d27068ce2305f5b9e6c1fa166576c2db07b5f4364",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 3072,
+  "preparedAt": "2026-06-07T09:29:10.850Z"
+}

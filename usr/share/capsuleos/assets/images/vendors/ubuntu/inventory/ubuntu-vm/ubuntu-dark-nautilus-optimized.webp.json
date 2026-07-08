@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-nautilus.png",
+  "sourceSha256": "69bec7a421015a5637f7ac1abbcf31cb30b8ac59e281db6cffe88669fa8562b3",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-nautilus-optimized.webp",
+  "outputSha256": "888bab6a6c10a5997bb642a2afed6507a7cce64b387793227168fd508526f829",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:36.886Z"
+}

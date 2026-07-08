@@ -1,0 +1,49 @@
+<main id="visionneurImages" class="viewer-app loupe-app" data-loupe-gnome-root aria-label="Loupe">
+    <header class="viewer-app__toolbar loupe-app__toolbar" data-loupe-gnome-toolbar aria-label="Barre d'outils">
+        <div class="loupe-app__toolbar-group loupe-app__toolbar-group--zoom">
+            <button type="button" class="loupe-app__tool" data-loupe-gnome-action="zoom-out" data-xv-action="zoom-out" aria-label="Zoom arrière" title="Zoom arrière">
+                <span class="loupe-app__tool-glyph loupe-app__tool-glyph--zoom-out" aria-hidden="true"></span>
+            </button>
+            <span class="loupe-app__zoom-label" id="xviewer-zoom" data-loupe-gnome-zoom>100 %</span>
+            <button type="button" class="loupe-app__tool" data-loupe-gnome-action="zoom-in" data-xv-action="zoom-in" aria-label="Zoom avant" title="Zoom avant">
+                <span class="loupe-app__tool-glyph loupe-app__tool-glyph--zoom-in" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="loupe-app__tool" data-loupe-gnome-action="zoom-fit" data-xv-action="zoom-fit" aria-label="Ajuster à la fenêtre" title="Ajuster à la fenêtre">
+                <span class="loupe-app__tool-glyph loupe-app__tool-glyph--zoom-fit" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="loupe-app__toolbar-group loupe-app__toolbar-group--actions">
+            <button type="button" class="loupe-app__tool" data-loupe-gnome-action="rotate" data-xv-action="rotate" aria-label="Pivoter" title="Pivoter">
+                <span class="loupe-app__tool-glyph loupe-app__tool-glyph--rotate" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="loupe-app__tool" data-loupe-gnome-action="toggle-meta" data-xv-action="toggle-meta" aria-label="Propriétés" title="Propriétés" aria-pressed="false">
+                <span class="loupe-app__tool-glyph loupe-app__tool-glyph--info" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+    <div class="loupe-app__body">
+        <section class="loupe-app__canvas" id="mint-image-viewer-content" data-loupe-gnome-canvas aria-label="Image">
+            <div class="loupe-app__empty" id="loupe-empty-state" data-loupe-gnome-empty>
+                <p class="loupe-app__empty-title">Ouvrir une image</p>
+                <p class="loupe-app__empty-hint">Ouvrez une image depuis Fichiers pour l'afficher ici.</p>
+            </div>
+        </section>
+        <aside class="loupe-app__meta" id="loupe-meta-pane" data-loupe-gnome-meta aria-label="Propriétés de l'image" hidden>
+            <h3 class="loupe-app__meta-heading">Propriétés</h3>
+            <dl class="loupe-app__meta-list">
+                <div class="loupe-app__meta-row">
+                    <dt>Nom</dt>
+                    <dd id="mint-image-viewer-filename" data-loupe-gnome-filename>Aucune image ouverte</dd>
+                </div>
+                <div class="loupe-app__meta-row">
+                    <dt>Dimensions</dt>
+                    <dd id="xviewer-dims" data-loupe-gnome-dims>—</dd>
+                </div>
+                <div class="loupe-app__meta-row">
+                    <dt>Type</dt>
+                    <dd id="loupe-meta-type" data-loupe-gnome-type>—</dd>
+                </div>
+            </dl>
+        </aside>
+    </div>
+</main>

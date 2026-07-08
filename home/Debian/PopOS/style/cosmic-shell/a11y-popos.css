@@ -1,0 +1,47 @@
+/**
+ * Accessibilité shell Pop!_OS — focus clavier et contrastes (#popos).
+ */
+
+html[data-font-scale="100"] #popos,
+html[data-font-scale="110"] #popos,
+html[data-font-scale="125"] #popos {
+    font-size: calc(1rem * var(--a11y-font-scale-factor));
+}
+
+#popos :where(a, button, input, [role="button"], [role="radio"], [tabindex="0"]):focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 1px;
+    box-shadow: var(--a11y-focus-shadow);
+}
+
+#popos .menu-shortcut,
+#popos .menu-cat,
+#popos .menu-app-item,
+#popos .themes-card,
+#popos .themes-app__select,
+#popos .themes-scale-button,
+#popos .themes-contrast-card {
+    font-size: calc(var(--head) / 3 * var(--a11y-font-scale-factor));
+}
+
+#popos #windowTitle,
+#popos .taskbar__clock,
+#popos .desktop-shortcut > span,
+#popos .themes-app__help,
+#popos .menu-app-item__desc,
+#popos .menu-app-item__name {
+    font-size: calc((var(--head) / 3) * var(--a11y-font-scale-factor));
+}
+
+html[data-contrast-mode="high"] #popos {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] #popos .windowElement,
+html[data-contrast-mode="high"] #popos #windowHeader,
+html[data-contrast-mode="high"] #popos #tableau,
+html[data-contrast-mode="high"] #popos .calendar-popover {
+    background: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+    border-color: var(--a11y-contrast-border);
+}

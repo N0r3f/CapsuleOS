@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Nautilus (org.gnome.Nautilus) — slot CapsuleOS `nemo`, gabarit `nemo-gnome`. Toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-nautilus-vm-inventory.json",
+  "slotCapsule": "nemo",
+  "slot": "nemo",
+  "appId": "org.gnome.Nautilus",
+  "template": "nemo-gnome",
+  "kernel": "usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerNautilus.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "NΣ": "Contrat valide + kernel syncNautilusGnomeDataset + gabarit data-nautilus-gnome-*",
+    "N1": "N1 ouvrir Fichiers → Dossier personnel visible",
+    "N2": "N2 naviguer vers Documents ou Téléchargements",
+    "N3": "N3 créer dossier ou barre chemin visible",
+    "N4": "N4 sidebar Favoris / Autres emplacements (Réseau)"
+  },
+  "scenarios": [
+    {
+      "id": "N1",
+      "priority": "P0",
+      "title": "Ouvrir Fichiers — Dossier personnel visible",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Nautilus",
+        "rpm": "nautilus",
+        "version": "47.6-2.el10",
+        "labelFr": "Fichiers",
+        "locale": "fr_FR.UTF-8",
+        "sidebarPlacesFr": ["Dossier personnel", "Favoris", "Réseau"],
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-nemo", "action": "openWindowByDataLink", "target": "nemo", "label": "Ouvrir Fichiers" },
+        { "id": "title", "selector": "[data-nautilus-gnome-title]", "expectText": "Fichiers", "label": "Titre fenêtre VM" },
+        { "id": "home-sidebar", "selector": "[data-nautilus-gnome-sidebar=\"home\"]", "label": "Entrée Dossier personnel sidebar" },
+        { "id": "breadcrumb", "selector": "[data-nautilus-gnome-path-crumbbar]:not([hidden])", "label": "Fil d'Ariane visible" },
+        { "id": "crumb-text", "selector": "#nautilus-path-crumbs", "expectTextContains": "Dossier personnel", "label": "Emplacement Dossier personnel" },
+        { "id": "grid", "selector": "[data-nautilus-gnome-grid]", "label": "Grille fichiers visible" },
+        { "id": "place-dataset", "predicate": "dataset.nautilusGnomePlace", "expectValue": "home", "label": "Marqueur place home" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-nautilus-scenarios.mjs --scenario N1",
+        "capture": "alma-capsule-dark-nautilus-home.png"
+      }
+    },
+    {
+      "id": "N2",
+      "priority": "P0",
+      "title": "Naviguer vers Documents ou Téléchargements",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "xdgFoldersFr": ["Documents", "Téléchargements", "Bureau", "Images", "Musique", "Vidéos"],
+        "nautilusVersion": "47.x",
+        "tabsSupported": true
+      },
+      "steps": [
+        { "id": "open-nemo", "action": "openWindowByDataLink", "target": "nemo", "label": "Ouvrir Fichiers" },
+        { "id": "nav-documents", "selector": "[data-nautilus-gnome-sidebar=\"documents\"]", "label": "Cliquer Documents (Autres emplacements)" },
+        { "id": "path-documents", "predicate": "getExplorerCurrentPath", "expectPathEndsWith": "Documents", "label": "Chemin Documents" },
+        { "id": "place-documents", "predicate": "dataset.nautilusGnomePlace", "expectValue": "documents", "label": "Marqueur place documents" },
+        { "id": "nav-downloads", "selector": "[data-nautilus-gnome-sidebar=\"downloads\"]", "label": "Cliquer Téléchargements" },
+        { "id": "path-downloads", "predicate": "getExplorerCurrentPath", "expectPathEndsWith": "Téléchargements", "label": "Chemin Téléchargements" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-nautilus-scenarios.mjs --scenario N2",
+        "capture": "alma-capsule-dark-nautilus-documents.png"
+      }
+    },
+    {
+      "id": "N3",
+      "priority": "P0",
+      "title": "Créer dossier ou afficher barre chemin",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "newFolderShortcut": "Maj+Ctrl+N",
+        "newFolderLabelFr": "Nouveau dossier",
+        "pathBarMode": "breadcrumb",
+        "nautilus47Tabs": "Ctrl+T nouvel onglet"
+      },
+      "steps": [
+        { "id": "open-nemo", "action": "openWindowByDataLink", "target": "nemo", "label": "Ouvrir Fichiers" },
+        { "id": "pathbar", "selector": "[data-nautilus-gnome-path-crumbbar]:not([hidden])", "label": "Barre chemin (fil d'Ariane) visible" },
+        { "id": "new-folder", "selector": "[data-nautilus-gnome-action=\"new-folder\"]", "label": "Bouton Nouveau dossier headerbar" },
+        { "id": "create-folder", "action": "click", "selector": "[data-nautilus-gnome-action=\"new-folder\"]", "label": "Créer un dossier" },
+        { "id": "inline-rename", "selector": ".nemo-app__item-rename-input", "label": "Renommage inline immédiat" },
+        { "id": "chrome-mode", "predicate": "dataset.nautilusGnomeChromeMode", "expectValue": "breadcrumb", "label": "Mode chrome breadcrumb" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-nautilus-scenarios.mjs --scenario N3",
+        "capture": "alma-capsule-dark-nautilus-new-folder.png"
+      }
+    },
+    {
+      "id": "N4",
+      "priority": "P0",
+      "title": "Sidebar — Favoris et Autres emplacements",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "sidebarSectionsFr": {
+          "places": ["Dossier personnel", "Favoris", "Réseau", "Corbeille"],
+          "otherPlaces": ["Bureau", "Documents", "Musique", "Images", "Vidéos", "Téléchargements"]
+        },
+        "starredEmptyFr": "Les éléments ajoutés aux favoris apparaîtront ici",
+        "networkEmptyFr": "Aucun serveur trouvé"
+      },
+      "steps": [
+        { "id": "open-nemo", "action": "openWindowByDataLink", "target": "nemo", "label": "Ouvrir Fichiers" },
+        { "id": "section-places", "selector": "[data-nautilus-gnome-sidebar-section=\"places\"]", "label": "Section Favoris / Emplacements" },
+        { "id": "nav-starred", "selector": "[data-nautilus-gnome-sidebar=\"starred\"]", "label": "Cliquer Favoris" },
+        { "id": "starred-empty", "selector": ".nautilus-folder-empty--star", "label": "État vide Favoris" },
+        { "id": "place-starred", "predicate": "dataset.nautilusGnomePlace", "expectValue": "starred", "label": "Marqueur place starred" },
+        { "id": "section-other", "selector": "[data-nautilus-gnome-sidebar-section=\"other-places\"]", "label": "Section Autres emplacements" },
+        { "id": "nav-network", "selector": "[data-nautilus-gnome-sidebar=\"network\"]", "label": "Cliquer Réseau" },
+        { "id": "network-empty", "selector": ".nautilus-folder-empty--network", "label": "État vide Réseau" },
+        { "id": "network-bar", "selector": "#nautilus-network-bar:not([hidden])", "label": "Barre connexion réseau" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-nautilus-scenarios.mjs --scenario N4",
+        "capture": "alma-capsule-dark-nautilus-starred-network.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "NΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-nautilus-user-scenarios.mjs"
+    }
+  }
+}

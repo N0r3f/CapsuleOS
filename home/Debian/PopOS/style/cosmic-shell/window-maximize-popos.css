@@ -1,0 +1,27 @@
+/**
+ * Fenêtres maximisées Pop!_OS - remplissent #desktop (sous top bar).
+ * bottom: --popos-taskbar-height laisse la zone au-dessus de la barre taskbar (dock fixe).
+ */
+body#popos #desktop > .windowElement[data-maximized="true"],
+body#popos.cosmic-shell--taskbar-mode #desktop > .windowElement[data-maximized="true"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: var(--popos-taskbar-height);
+    left: 0;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    max-width: none;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
+    transform: none;
+}
+
+body#popos #desktop > #terminal.terminal-window--cosmic[data-maximized="true"],
+body#popos #desktop > div[data-link="nemo"][data-maximized="true"],
+body#popos #desktop > #firefox[data-maximized="true"] {
+    display: flex;
+    flex-flow: column nowrap;
+}

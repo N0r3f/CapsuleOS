@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/rubenslp-Twin_brothers.png",
+  "sourceSha256": "b668d421cdee6f2283aa864d9b5e3cdb28c6d14cfc7763ba4fe72b54fc5df183",
+  "output": "images/vendors/ubuntu/wallpaper/rubenslp-Twin_brothers.webp",
+  "outputSha256": "0c0ab69a93fce7525e3fb118a31b9d74ffefb556a72e4c8049f761c3de94d68d",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:47:00.366Z"
+}

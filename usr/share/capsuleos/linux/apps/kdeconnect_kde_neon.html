@@ -1,0 +1,26 @@
+<main id="kdeconnectApp" class="kde-kdeconnect" aria-label="KDE Connect">
+    <header class="kde-kdeconnect__header">
+        <img class="kde-kdeconnect__logo" src="../../../usr/share/capsuleos/assets/images/vendors/neon/kickoff/kdeconnect.svg" alt="" width="48" height="48">
+        <div>
+            <h2 class="kde-kdeconnect__title">KDE Connect</h2>
+            <p class="kde-kdeconnect__tagline">Unifiez vos périphériques</p>
+        </div>
+    </header>
+    <section class="kde-kdeconnect__devices" aria-label="Appareils">
+        <p class="kde-kdeconnect__hint" id="kdeconnect-hint">Aucun appareil jumelé pour le moment.</p>
+        <ul class="kde-kdeconnect__list" id="kdeconnect-device-list" hidden>
+            <li class="kde-kdeconnect__device is-active">
+                <span class="kde-kdeconnect__device-icon" aria-hidden="true"></span>
+                <span class="kde-kdeconnect__device-name">Téléphone Android (simulation)</span>
+                <span class="kde-kdeconnect__device-status">Connecté</span>
+            </li>
+        </ul>
+        <button type="button" class="kde-kdeconnect__pair" id="kdeconnect-pair-btn">Rechercher des appareils…</button>
+    </section>
+    <nav class="kde-kdeconnect__actions" aria-label="Actions rapides">
+        <button type="button" class="kde-kdeconnect__action" data-kdeconnect-action="files" disabled>Envoyer des fichiers</button>
+        <button type="button" class="kde-kdeconnect__action" data-kdeconnect-action="sms" disabled>SMS</button>
+        <button type="button" class="kde-kdeconnect__action" data-kdeconnect-action="clipboard" disabled>Presse-papiers</button>
+    </nav>
+    <p class="kde-kdeconnect__status" id="kdeconnect-status" role="status" aria-live="polite"></p>
+</main>

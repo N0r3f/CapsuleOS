@@ -1,0 +1,11 @@
+Introduction à Bash — CapsuleOS (pédagogique)
+
+Bash est l’interpréteur de commandes par défaut sur la plupart des distributions Linux.
+
+Commandes utiles pour débuter :
+  pwd    — affiche le répertoire courant
+  ls     — liste les fichiers
+  cd     — change de répertoire
+  cat    — affiche un fichier texte
+
+Dans le terminal simulé de Mint, tapez « man ls » pour l’aide intégrée.

@@ -1,0 +1,7 @@
+/**
+ * Interactions fenêtre partagées (drag, context menu) — sans chrome visuel Cinnamon.
+ * Utilisé par COSMIC et autres toolkits qui n'importent pas window-chrome.base.css.
+ */
+@import url(../global/interactions-window.base.css);
+@import url(../global/window-drag-regions.css);
+@import url(../global/window-context-menu.css);

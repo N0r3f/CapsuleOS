@@ -1,0 +1,91 @@
+/**
+ * openSUSE — panel Plasma flottant ou barre bord à bord (fenêtre maximisée).
+ */
+
+html:has(#opensuse) {
+    --opensuse-panel-dock-inset: calc(var(--head) * 0.18);
+    --opensuse-panel-radius: calc(var(--head) * 0.1);
+    --opensuse-panel-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+    --opensuse-plasma-panel-bg-solid: #eff0f1;
+}
+
+#opensuse {
+    --opensuse-panel-anchor-bottom: calc(var(--opensuse-panel-dock-inset) + var(--taskbar-height));
+    --kde-plasma-panel-anchor-bottom: var(--opensuse-panel-anchor-bottom);
+    --kde-plasma-menu-divider: rgba(35, 38, 41, 0.1);
+    --kde-plasma-menu-hover: rgba(61, 174, 233, 0.14);
+    --kde-plasma-accent: var(--opensuse-breeze-accent, #3daee9);
+    --kde-plasma-tray-icon-filter: brightness(0);
+}
+
+#opensuse[data-plasma-panel="expanded"] {
+    --opensuse-panel-anchor-bottom: var(--taskbar-height);
+}
+
+#opensuse #desktop {
+    height: var(--max-h);
+    max-height: var(--max-h);
+}
+
+#opensuse #tableau {
+    position: fixed;
+    z-index: 9000;
+    left: var(--opensuse-panel-dock-inset);
+    right: var(--opensuse-panel-dock-inset);
+    bottom: var(--opensuse-panel-dock-inset);
+    width: auto;
+    max-width: none;
+    height: var(--taskbar-height);
+    margin: 0;
+    padding: var(--z) var(--opensuse-taskbar-edge-gap) var(--z) calc(var(--head) / 4);
+    border: 1px solid var(--opensuse-plasma-panel-border);
+    border-radius: var(--opensuse-panel-radius);
+    background: var(--opensuse-plasma-panel-bg);
+    box-shadow: var(--opensuse-panel-shadow);
+    backdrop-filter: blur(18px) saturate(1.1);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    justify-content: var(--sb);
+    gap: 0;
+    transition:
+        left 0.22s ease,
+        right 0.22s ease,
+        bottom 0.22s ease,
+        border-radius 0.22s ease,
+        box-shadow 0.22s ease,
+        background-color 0.22s ease,
+        padding 0.22s ease;
+}
+
+#opensuse footer .taskbar-pins {
+    flex: 1;
+    justify-content: var(--fs);
+}
+
+#opensuse footer .taskbar-right {
+    flex: 0 0 auto;
+}
+
+#opensuse[data-plasma-panel="expanded"] #tableau {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: var(--mint-taskbar-top-border);
+    background: var(--opensuse-plasma-panel-bg-solid);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+#opensuse .calendar-popover,
+#opensuse .volume-popover {
+    bottom: calc(var(--opensuse-panel-anchor-bottom) + var(--calendar-popover-offset, calc(var(--head) / 5)));
+}
+
+#opensuse div[data-link="mainMenu"],
+#opensuse #mainMenu {
+    bottom: var(--opensuse-panel-anchor-bottom);
+}

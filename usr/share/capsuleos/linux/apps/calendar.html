@@ -1,0 +1,37 @@
+<main id="gnomeCalendarApp" class="gnome-calendar-app" aria-label="Agenda">
+    <header class="gnome-calendar-app__header">
+        <nav class="gnome-calendar-app__views" aria-label="Vues">
+            <button type="button" class="gnome-calendar-app__view-btn is-active" data-cal-gnome-view="month" aria-pressed="true">Mois</button>
+            <button type="button" class="gnome-calendar-app__view-btn" data-cal-gnome-view="week" aria-pressed="false">Semaine</button>
+        </nav>
+        <nav class="gnome-calendar-app__nav" aria-label="Navigation calendrier">
+            <button type="button" class="gnome-calendar-app__arrow" data-cal-gnome-action="prev" aria-label="Période précédente">‹</button>
+            <h2 class="gnome-calendar-app__month" id="gnome-cal-period-label"></h2>
+            <button type="button" class="gnome-calendar-app__arrow" data-cal-gnome-action="next" aria-label="Période suivante">›</button>
+        </nav>
+        <button type="button" class="gnome-calendar-app__new" data-cal-gnome-action="new-event">Nouvel évènement</button>
+    </header>
+    <div class="gnome-calendar-app__body">
+        <section class="gnome-calendar-app__panel" data-cal-gnome-panel="month" aria-label="Vue mensuelle">
+            <div class="gnome-calendar-app__weekdays" id="gnome-cal-weekdays" aria-hidden="true"></div>
+            <div class="gnome-calendar-app__grid" id="gnome-cal-grid" role="grid" aria-label="Jours du mois"></div>
+        </section>
+        <section class="gnome-calendar-app__panel" data-cal-gnome-panel="week" hidden aria-label="Vue hebdomadaire">
+            <div class="gnome-calendar-app__weekdays" id="gnome-cal-weekdays-week" aria-hidden="true"></div>
+            <div class="gnome-calendar-app__week-grid" id="gnome-cal-week-grid" role="grid" aria-label="Semaine courante"></div>
+        </section>
+        <aside class="gnome-calendar-app__sidebar" aria-label="Aujourd'hui">
+            <h3 class="gnome-calendar-app__today-title">Aujourd'hui</h3>
+            <p class="gnome-calendar-app__today-empty" data-cal-gnome-empty="today">Aucun évènement</p>
+            <ul class="gnome-calendar-app__events" data-cal-gnome-event-list aria-label="Évènements du jour"></ul>
+        </aside>
+    </div>
+    <form class="gnome-calendar-app__editor" data-cal-gnome-editor hidden aria-label="Nouvel évènement">
+        <label class="gnome-calendar-app__editor-label" for="gnome-cal-event-title">Titre</label>
+        <input type="text" id="gnome-cal-event-title" class="gnome-calendar-app__editor-input" data-cal-gnome-event-title placeholder="Nouvel évènement" autocomplete="off">
+        <div class="gnome-calendar-app__editor-actions">
+            <button type="button" class="gnome-calendar-app__editor-cancel" data-cal-gnome-action="cancel-event">Annuler</button>
+            <button type="submit" class="gnome-calendar-app__editor-save" data-cal-gnome-action="save-event">Enregistrer</button>
+        </div>
+    </form>
+</main>

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/platforms/brands/linux.webp",
+  "outputSha256": "892e8d8a51b352fd8d9871b9a9a9c737bfc4587d8f4f2a2bfe68c0f530fc006c",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.565Z",
+  "note": "repair-manifest"
+}

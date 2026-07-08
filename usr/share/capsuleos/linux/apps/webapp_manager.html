@@ -1,0 +1,32 @@
+<main id="webappManagerApp" class="wam-app" aria-label="Applications Web">
+
+    <header class="wam-app__header">
+        <h1 class="wam-app__title">Applications Web</h1>
+        <button type="button" class="wam-app__btn wam-app__btn--primary" data-wam-action="create">Nouvelle application web</button>
+    </header>
+
+    <div class="wam-app__body">
+        <ul class="wam-app__list" id="wam-list" aria-label="Applications installées">
+            <li class="wam-app__item is-selected" data-wam-id="matrix">
+                <img class="wam-app__icon" src="./assets/images/toolkits/gnome/apps/webapp-OnlineChat4519" alt="">
+                <div class="wam-app__info">
+                    <p class="wam-app__name">Matrix</p>
+                    <p class="wam-app__url">app.element.io</p>
+                </div>
+            </li>
+        </ul>
+        <aside class="wam-app__detail" id="wam-detail" aria-label="Détails">
+            <img class="wam-app__detail-icon" src="./assets/images/toolkits/gnome/apps/webapp-OnlineChat4519" alt="">
+            <h2 class="wam-app__detail-title">Matrix</h2>
+            <p class="wam-app__detail-url">https://app.element.io</p>
+            <div class="wam-app__detail-actions">
+                <button type="button" class="wam-app__btn wam-app__btn--primary" data-wam-action="launch">Lancer</button>
+                <button type="button" class="wam-app__btn" data-wam-action="edit">Modifier</button>
+                <button type="button" class="wam-app__btn wam-app__btn--danger" data-wam-action="remove">Supprimer</button>
+            </div>
+        </aside>
+    </div>
+
+    <p class="wam-app__status sr-only" id="wam-status" role="status" aria-live="polite"></p>
+
+</main>

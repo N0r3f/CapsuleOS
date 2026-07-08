@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://capsuleos.local/schemas/kernels.schema.json",
+  "title": "CapsuleOS Kernels Taxonomy",
+  "type": "object",
+  "required": ["version", "kernels", "linuxBranches"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "kernelSpecVersion": { "type": "integer", "minimum": 1 },
+    "kernels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "family": { "type": "string" },
+          "branching": { "type": "boolean" },
+          "metadataOnly": { "type": "boolean" },
+          "shellPath": { "type": "string" },
+          "sharePath": { "type": "string" },
+          "skill": { "type": "string" }
+        }
+      }
+    },
+    "linuxBranches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "kernelId"],
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "kernelId": { "const": "linux" }
+        }
+      }
+    }
+  }
+}

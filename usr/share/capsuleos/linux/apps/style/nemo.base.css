@@ -1,0 +1,751 @@
+/* Slot Nemo : chrome .windowElement + colonne cliente (évite débordement / scroll fantôme). */
+div.windowElement[data-link="nemo"]:not(#mainMenu) {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: stretch;
+    justify-content: var(--fs);
+    overflow: var(--h);
+    min-height: var(--z);
+    box-sizing: border-box;
+}
+
+div[data-link="nemo"] > #windowHeader {
+    width: var(--full);
+    align-self: stretch;
+    flex-shrink: 0;
+}
+
+div.windowElement[data-link="nemo"] > main#gestionnaire.nemo-app {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--fs);
+    align-items: stretch;
+    flex: 1 1 auto;
+    width: var(--full);
+    min-width: var(--z);
+    min-height: var(--z);
+    height: auto;
+    max-height: var(--full);
+    margin-bottom: var(--z);
+    border-radius: var(--z) var(--z) var(--nemo-shell-radius) var(--nemo-shell-radius);
+    font-size: calc(var(--head) - 25px);
+    background-color: var(--nemo-bg-primary);
+    user-select: var(--n);
+    overflow: var(--h);
+    box-sizing: border-box;
+}
+
+div.windowElement[data-link="nemo"] #nemoMainContainer {
+    flex: 1 1 auto;
+    min-height: var(--z);
+    overflow: var(--h);
+}
+
+div.windowElement[data-link="nemo"] #nemoFooterContainer {
+    flex-shrink: 0;
+}
+
+main#gestionnaire {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--fs);
+    align-items: stretch;
+    flex: 1 1 auto;
+    width: var(--full);
+    min-width: var(--z);
+    min-height: var(--z);
+    height: auto;
+    margin-bottom: var(--z);
+    border-radius: var(--z) var(--z) var(--nemo-shell-radius) var(--nemo-shell-radius);
+    font-size: calc(var(--head) - 25px);
+    background-color: var(--nemo-bg-primary);
+    user-select: var(--n);
+    overflow: var(--h);
+    box-sizing: border-box;
+}
+
+/* Override the shared window chrome only for Nemo containers. */
+div[data-link="nemo"] #windowHeader {
+    background: var(--nemo-header-bg);
+}
+
+div[data-link="nemo"] #windowTitle {
+    color: var(--nemo-text-primary);
+    text-shadow: var(--n);
+    filter: var(--n);
+}
+
+#gestionnaire a {
+    cursor: default;
+}
+
+#nemoHeaderContainer {
+    top: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--sa);
+    justify-content: var(--sa);
+    width: var(--full);
+    height: calc(var(--head) * 2);
+    margin-top: var(--z);
+    border-bottom: solid 1px var(--nemo-border);
+    background-color: var(--nemo-header-bg);
+}
+
+/* Keep Nemo header dark even when other app styles reuse same generic ids/classes. */
+div[data-link="nemo"] #nemoHeaderContainer {
+    border-bottom: solid 1px var(--nemo-border);
+    background-color: var(--nemo-header-bg);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .menuHeader,
+div[data-link="nemo"] #nemoHeaderContainer .menuOutils,
+div[data-link="nemo"] #nemoHeaderContainer .sousMenuOutils,
+div[data-link="nemo"] #nemoHeaderContainer nav {
+    background-color: var(--nemo-header-bg);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 2.2);
+    padding: calc(var(--head) / 7) calc(var(--head) / 5);
+    background: var(--nemo-toolbar-bg);
+    border-top: solid 1px var(--nemo-border);
+    border-bottom: solid 1px var(--nemo-toolbar-border);
+    box-sizing: border-box;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 8);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--path {
+    flex: 1;
+    min-width: 0;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--path .nemo-app__search-wrap {
+    flex: 1 1 auto;
+    min-width: 7rem;
+    max-width: 16rem;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--view {
+    margin-left: var(--a);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group > a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    min-width: calc(var(--head) / 1.4);
+    height: calc(var(--head) / 1.4);
+    padding: calc(var(--head) / 8);
+    border: solid 1px var(--nemo-toolbar-button-border);
+    border-radius: calc(var(--head) / 12);
+    background: var(--nemo-toolbar-button-bg);
+    transition: background-color var(--eas2), border-color var(--eas2), transform var(--eas2);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group > a:hover {
+    background: var(--nemo-toolbar-button-hover-bg);
+    border-color: var(--menu-accent);
+    transform: translateY(-1px);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--view > a {
+    min-width: calc(var(--head) / 1.5);
+}
+
+div[data-link="nemo"] .nemo-app__search-wrap {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 1 11rem;
+    min-width: 7rem;
+    max-width: 14rem;
+    height: calc(var(--head) / 1.35);
+    padding: 0 calc(var(--head) / 5);
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: calc(var(--head) / 12);
+    background: var(--nemo-pathbar-bg);
+    box-sizing: border-box;
+}
+
+div[data-link="nemo"] .nemo-app__search-wrap[hidden] {
+    display: none;
+}
+
+div[data-link="nemo"] .nemo-app__search-input {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--nemo-pathbar-text);
+    font-size: calc(var(--head) / 2.55);
+}
+
+div[data-link="nemo"] .nemo-app__search-input::placeholder {
+    color: var(--nemo-text-muted);
+    opacity: 0.85;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--view > a.nemo-app__view-btn--active,
+div[data-link="nemo"] .nemo-app__toolbar-group--view > a[aria-current="true"] {
+    background: var(--nemo-toolbar-button-hover-bg);
+    border-color: var(--menu-accent);
+}
+
+div[data-link="nemo"] .nemo-app__path-current {
+    flex: 1;
+    justify-content: var(--fs);
+    min-width: 0;
+    padding: calc(var(--head) / 7) calc(var(--head) / 3);
+    border: solid 1px var(--nemo-pathbar-border);
+    background: var(--nemo-pathbar-bg);
+    color: var(--nemo-pathbar-text);
+    white-space: nowrap;
+    overflow: var(--h);
+    text-overflow: ellipsis;
+    border-radius: calc(var(--head) / 12);
+}
+
+div[data-link="nemo"] .nemo-app__path-current.nemo-app__path-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: calc(var(--head) / 18);
+    overflow-x: auto;
+    text-overflow: unset;
+}
+
+div[data-link="nemo"] .nemo-app__path-crumb {
+    color: var(--nemo-pathbar-text);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+div[data-link="nemo"] .nemo-app__path-crumb:hover {
+    text-decoration: underline;
+}
+
+div[data-link="nemo"] .nemo-app__path-sep {
+    opacity: 0.65;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group--view > a.nemo-app__path-mode-btn--active,
+div[data-link="nemo"] .nemo-app__toolbar-group--view > a#nemo-toggle-path-mode[aria-pressed="true"] {
+    background: var(--nemo-toolbar-button-hover-bg);
+    border-color: var(--menu-accent);
+}
+
+div[data-link="nemo"] .nemo-app__toolbar-group img {
+    filter: var(--nemo-toolbar-icon-filter);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer a {
+    color: var(--nemo-text-primary);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .menuHeader>li:active {
+    background-color: var(--nemo-item-active-bg);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu {
+    background-color: var(--nemo-menu-surface-bg);
+    border: solid 1px var(--nemo-border);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu>a {
+    color: var(--nemo-text-primary);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu>a:hover {
+    background-color: var(--nemo-item-active-bg);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu .lineUnder {
+    border-bottom: solid 1px var(--nemo-border);
+}
+
+div[data-link="nemo"] #nemoHeaderContainer .menuOutils img,
+div[data-link="nemo"] #nemoHeaderContainer .listeSousMenu img {
+    filter: var(--nemo-toolbar-icon-filter);
+}
+
+.menuHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--head);
+    list-style-type: none;
+    overflow: hidden;
+    margin: var(--z);
+    padding: var(--z);
+}
+
+.menuOutis {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: calc(var(--head) * 3);
+    height: var(--head);
+    padding: var(--z) calc(var(--head) / 4);
+    gap: calc(var(--head) - 25px);
+}
+
+.menuHeader>li>a {
+    display: var(--bl);
+    text-align: var(--fs);
+    color: var(--nemo-text-primary);
+    padding: calc(var(--head) / 8) calc(var(--head) / 4);
+}
+
+.menuHeader>li:active {
+    background-color: var(--nemo-item-active-bg);
+}
+
+.listeSousMenu>a:hover {
+    background-color: var(--nemo-item-active-bg);
+}
+
+.listeSousMenu {
+    display: none;
+    position: var(--abs);
+    background-color: var(--nemo-bg-primary);
+    min-width: calc(var(--head) * 8);
+    z-index: 1;
+    list-style-type: none;
+    border: solid 1px var(--nemo-border);
+}
+
+.listeSousMenu>a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--fs);
+    align-items: var(--c);
+    text-align: left;
+    margin-left: calc(var(--head) * (-1));
+    padding-left: calc(var(--head) / 5);
+    color: var(--nemo-text-primary)
+}
+
+.listeSousMenu>a>li {
+    padding: calc(var(--head) / 6) var(--z);
+    padding-left: calc(var(--head) / 2 + var(--head) / 8);
+}
+
+.lineUnder {
+    border-bottom: solid 1px var(--nemo-border);
+}
+
+.listeSousMenu>a>img {
+    width: calc(var(--head) / 2);
+    margin-right: calc(var(--head) / -2);
+}
+
+.listeSousMenu>a>li>img {
+    position: absolute;
+    right: 5px;
+}
+
+.menuHeader>li:hover .listeSousMenu {
+    display: var(--bl);
+}
+
+.menuOutils>.sousMenuOutils {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    height: var(--head);
+    padding: var(--z) calc(var(--head) / 4);
+    gap: calc(var(--head) - 25px);
+}
+
+.menuOutils>.sousMenuOutils:nth-child(1)>a:nth-child(5) {
+    min-width: calc(var(--head) * 4);
+    text-align: center;
+}
+
+#nemoHeaderContainer>.menuOutils:nth-child(2) {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    gap: calc(var(--head) - 25px);
+    padding: var(--z) calc(var(--head) / 4);
+}
+
+.menuOutils>.sousMenuOutils:nth-child(2) {
+    justify-content: var(--fe);
+}
+
+.menuOutils>a,
+.sousMenuOutils>a {
+    text-decoration: var(--n);
+    color: var(--nemo-text-primary);
+}
+
+#nemoMainContainer {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--fs);
+    align-items: var(--fs);
+    flex: 1 1 auto;
+    width: var(--full);
+    min-width: var(--z);
+    min-height: var(--z);
+    height: auto;
+    margin: var(--z);
+}
+
+#nemoMainContainer>#voletnemo {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--fs);
+    align-items: var(--fs);
+    width: calc(var(--head) * 6);
+    min-width: calc(calc(var(--head) * 6) + calc(var(--head) / 12));
+    height: var(--full);
+    min-height: var(--a);
+    padding: calc(var(--head) / 12);
+    border-right: solid 1px var(--nemo-border);
+    background-color: var(--nemo-sidebar-bg);
+    overflow: var(--a);
+}
+
+#nemoMainContainer>#voletnemo>a,
+#nemoMainContainer>#voletnemo>div>a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--fs);
+    align-items: var(--c);
+    padding: calc(var(--head) / 4) var(--z) var(--z) calc(var(--head) / 8);
+    font-weight: var(--wb);
+    color: var(--nemo-text-primary);
+}
+
+#nemoMainContainer>#voletnemo>div {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--fs);
+    align-items: var(--fs);
+    width: 190px;
+    margin-left: calc(var(--head) / 2);
+    gap: calc(var(--head) / 8);
+}
+
+div[data-link="nemo"] .nemo-app__sidebar {
+    padding-top: calc(var(--head) / 6);
+}
+
+div[data-link="nemo"] .nemo-app__sidebar a:hover {
+    background: var(--nemo-item-active-bg);
+    border-radius: calc(var(--head) / 12);
+    border-left: 2px solid var(--menu-accent);
+}
+
+div[data-link="nemo"] .nemo-app__content-wrap {
+    background: var(--nemo-bg-primary);
+    border-left: 1px solid var(--nemo-border);
+}
+
+div[data-link="nemo"] .nemo-app__content-grid {
+    --nemo-item-card-size: calc(var(--nemo-item-base-size) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    --nemo-item-icon-size: calc(var(--nemo-item-icon-base-size) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    --nemo-item-icon-margin-x: calc(var(--nemo-item-icon-margin-base) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    --nemo-item-label-size: calc(var(--nemo-item-label-base-size) * var(--nemo-item-scale, var(--nemo-zoom-scale-default)));
+    align-content: var(--fs);
+    padding: calc(var(--head) / 5);
+    gap: calc(var(--head) / 6);
+}
+
+#nemoMainContainer>#voletnemo>div>a>img {
+    padding-right: calc(var(--head) / 8);
+}
+
+#nemoMainContainer>#voletContainer {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+}
+
+#nemoMainContainer>#voletContainer>.nemoElement {
+    display: var(--f);
+    flex-flow: var(--rw);
+    justify-content: var(--fs);
+    align-items: var(--fs);
+    width: var(--full);
+    height: var(--full);
+    padding-bottom: calc(var(--head) * 1.5);
+    overflow: var(--a);
+}
+
+#nemoMainContainer>#voletContainer>section.nemoElement>a {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--sa);
+    align-items: var(--c);
+    width: var(--nemo-item-card-size);
+    height: var(--nemo-item-card-size);
+    margin: calc(var(--head) / 10);
+    color: var(--nemo-text-primary);
+    font-size: var(--nemo-item-label-size);
+}
+
+#voletContainer>.nemoElement>a {
+    position: var(--rel);
+}
+
+#voletContainer>.nemoElement>a::after {
+    content: attr(data-details);
+    position: var(--abs);
+    top: var(--nemo-item-card-size);
+    display: var(--n);
+    width: var(--a);
+    height: var(--a);
+    text-align: var(--c);
+    align-items: var(--c);
+    background: var(--nemo-tooltip-bg);
+    color: var(--nemo-tooltip-text);
+    padding: calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 8);
+}
+
+#voletContainer>.nemoElement>a:hover::after {
+    display: var(--bl);
+    width: var(--a);
+    height: var(--a);
+    z-index: 500;
+}
+
+#nemoMainContainer>#voletContainer>section.nemoElement>a>img {
+    width: var(--nemo-item-icon-size);
+    height: var(--a);
+    margin: calc(var(--head) / 4) var(--nemo-item-icon-margin-x);
+}
+
+div[data-link="nemo"] .nemo-app__content-grid > a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: calc(var(--head) / 8);
+}
+
+div[data-link="nemo"] .nemo-app__empty {
+    width: var(--full);
+    padding: calc(var(--head) / 2);
+    color: var(--nemo-text-muted);
+    text-align: var(--c);
+}
+
+#nemoFooterContainer {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--sb);
+    align-items: var(--c);
+    flex-shrink: 0;
+    align-self: stretch;
+    width: var(--full);
+    min-width: var(--z);
+    height: var(--nemo-statusbar-height);
+    margin-top: auto;
+    margin-bottom: var(--z);
+    padding: var(--z) calc(var(--head) / 2);
+    border-top: solid 1px var(--nemo-border);
+    border-radius: var(--z) var(--z) var(--nemo-shell-radius) var(--nemo-shell-radius);
+    background-color: var(--nemo-footer-bg);
+    box-sizing: border-box;
+}
+
+div[data-link="nemo"] .nemo-app__statusbar {
+    color: var(--nemo-status-text);
+}
+
+div[data-link="nemo"] .nemo-app__status-center > p {
+    color: var(--nemo-status-text);
+}
+
+#nemoFooterContainer>section:nth-child(1) {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--fs);
+    align-items: var(--c);
+    width: calc(var(--head) * 4);
+}
+
+#nemoFooterContainer>section:nth-child(1)>.nemo-footer-btn {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--c);
+    align-items: var(--c);
+    width: calc(var(--head) / 1.45);
+    height: calc(var(--head) / 1.45);
+    padding: calc(var(--head) / 10);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 14);
+    background: transparent;
+    cursor: default;
+    box-sizing: border-box;
+}
+
+#nemoFooterContainer>section:nth-child(1)>.nemo-footer-btn:hover {
+    background: var(--nemo-toolbar-button-hover-bg, rgba(0, 0, 0, 0.06));
+}
+
+#nemoFooterContainer>section:nth-child(1)>.nemo-footer-btn.nemo-footer-btn--active,
+#nemoFooterContainer>section:nth-child(1)>.nemo-footer-btn[aria-pressed="true"]:not(#nemo-toggle-sidebar) {
+    background: var(--nemo-toolbar-button-hover-bg, rgba(0, 0, 0, 0.08));
+    border-color: var(--menu-accent, var(--nemo-accent));
+}
+
+#nemoFooterContainer>section:nth-child(1)>.nemo-footer-btn img {
+    width: calc(var(--head) / 2.5);
+    height: calc(var(--head) / 2.5);
+    pointer-events: none;
+}
+
+#nemoFooterContainer>section:nth-child(1)>#nemo-toggle-sidebar {
+    width: calc(var(--head) / 1.35);
+}
+
+div[data-link="nemo"] #nemoMainContainer > #voletnemo[data-sidebar-view="tree"] > a.nemo-sidebar__section,
+div[data-link="nemo"] #nemoMainContainer > #voletnemo[data-sidebar-view="tree"] > div[data-nemo-section-body] {
+    display: none;
+}
+
+div[data-link="nemo"] #nemoMainContainer > #voletnemo[data-sidebar-view="places"] > #nemo-sidebar-tree {
+    display: none;
+}
+
+div[data-link="nemo"] #nemoMainContainer > #voletnemo[data-sidebar-view="tree"] > #nemo-sidebar-tree {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    flex: 1 1 auto;
+    order: -1;
+    width: var(--full);
+    min-height: 0;
+    padding: calc(var(--head) / 12) 0;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.nemo-sidebar__tree {
+    width: var(--full);
+    box-sizing: border-box;
+}
+
+.nemo-sidebar__tree-root {
+    padding: calc(var(--head) / 14) calc(var(--head) / 6);
+}
+
+.nemo-sidebar__tree-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nemo-sidebar__tree-line {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 14);
+    min-height: calc(var(--head) / 1.5);
+    width: var(--full);
+    box-sizing: border-box;
+}
+
+.nemo-sidebar__tree-expander,
+.nemo-sidebar__tree-link {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 10);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: default;
+}
+
+.nemo-sidebar__tree-spacer {
+    display: inline-block;
+    width: calc(var(--head) / 1.55);
+    flex-shrink: 0;
+}
+
+.nemo-sidebar__tree-link--active,
+.nemo-sidebar__tree-line--active .nemo-sidebar__tree-link {
+    font-weight: 600;
+    background: var(--nemo-item-active-bg, rgba(31, 158, 222, 0.14));
+    border-radius: calc(var(--head) / 18);
+}
+
+.nemo-sidebar__tree-empty {
+    margin: calc(var(--head) / 4);
+    font-size: calc(var(--head) / 2.8);
+    opacity: 0.8;
+}
+
+#nemoFooterContainer>section:nth-child(2) {
+    width: calc(var(--head) * 8);
+}
+
+#nemoFooterContainer>section:nth-child(2)>p {
+    color: var(--nemo-text-primary);
+}
+
+#nemoFooterContainer>section:nth-child(3) {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    justify-content: var(--fe);
+    align-items: var(--c);
+    width: calc(var(--head) * 4);
+}
+
+#nemoFooterContainer>section:nth-child(3)>input {
+    width: var(--nemo-zoom-slider-width);
+    accent-color: var(--nemo-accent);
+}
+
+.nemo-app__drop-target {
+    outline: 2px dashed var(--menu-accent, var(--nemo-accent, #6ac));
+    outline-offset: -2px;
+    background-color: color-mix(in srgb, var(--menu-accent, var(--nemo-accent, #6ac)) 14%, transparent);
+}
+
+a.nemo-app__item--dragging {
+    opacity: 0.55;
+}

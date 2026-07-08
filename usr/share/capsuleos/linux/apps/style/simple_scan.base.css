@@ -1,0 +1,9 @@
+main#simpleScanApp { position:relative; display:flex; flex-flow:column nowrap; width:100%; height:100%; overflow:hidden; font-family:var(--font-ui); font-size:13px; color:var(--ma-text,#2e2e2e); background:var(--ma-bg,#fff); }
+.mint-app__header { flex-shrink:0; min-height:46px; padding:0 12px; display:flex; align-items:center; border-bottom:1px solid var(--ma-border,#d4d4d4); background:var(--ma-header,#ebebeb); }
+.mint-app__title { margin:0; font-size:15px; font-weight:600; }
+.scn-app__body { flex:1 1 auto; display:flex; flex-flow:column nowrap; padding:16px; gap:12px; min-height:0; }
+.scn-app__preview { flex:1 1 auto; display:flex; align-items:center; justify-content:center; border:2px dashed var(--ma-border,#ccc); border-radius:8px; background:#f8f8f8; color:var(--ma-muted,#666); }
+.scn-app__actions { display:flex; gap:8px; flex-shrink:0; }
+.scn-app__btn { padding:6px 14px; border:1px solid var(--ma-border,#c8c8c8); border-radius:4px; font:inherit; background:#f6f6f6; cursor:default; }
+.scn-app__btn--primary { color:#fff; background:var(--ma-accent,#1f9ede); border-color:var(--ma-accent,#1f9ede); }
+.scn-app__btn:disabled { opacity:0.5; }

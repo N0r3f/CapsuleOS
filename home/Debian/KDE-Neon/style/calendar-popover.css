@@ -1,0 +1,296 @@
+/**
+ * KDE Neon — calendrier Plasma (réf. VM Breeze, popup ~560×451 px).
+ * Mesures : popover ~535×267 px @ 1211 px viewport, accent #3daee9.
+ * Ancrage vertical : plasma-panel-dock.css (--kde-neon-panel-anchor-bottom).
+ */
+
+#kde-neon .calendar-popover {
+    position: fixed;
+    right: var(--calendar-popover-offset);
+    z-index: var(--z-calendar-popover);
+    display: flex;
+    flex-direction: column;
+    width: var(--calendar-popover-width);
+    min-height: 0;
+    max-height: var(--calendar-popover-max-height);
+    margin: 0;
+    padding: 0;
+    border: var(--calendar-popover-border);
+    border-radius: var(--calendar-popover-radius);
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: var(--calendar-popover-font-size);
+    color: var(--calendar-popover-text);
+    background: var(--calendar-popover-chrome-bg);
+    box-shadow: var(--calendar-popover-shadow);
+}
+
+#kde-neon .calendar-popover[hidden] {
+    display: none;
+}
+
+#kde-neon .calendar-popover__chrome {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    background: var(--calendar-popover-chrome-bg);
+}
+
+#kde-neon .calendar-popover__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--head) / 4);
+    margin: 0;
+    padding: calc(var(--head) * 0.3) calc(var(--head) * 0.35) calc(var(--head) * 0.18);
+}
+
+#kde-neon .calendar-popover__month-title {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: var(--calendar-popover-month-size);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--calendar-popover-text);
+    text-transform: capitalize;
+}
+
+#kde-neon .calendar-popover__header-actions {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) / 12);
+}
+
+#kde-neon .calendar-popover__icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 0.55);
+    height: calc(var(--head) * 0.55);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: calc(var(--head) / 12);
+    background: transparent;
+    opacity: 0.9;
+}
+
+#kde-neon .calendar-popover__icon-btn > img {
+    display: block;
+    width: calc(var(--head) * 0.55);
+    height: calc(var(--head) * 0.55);
+    object-fit: contain;
+    filter: brightness(0) saturate(100%);
+    opacity: 0.82;
+}
+
+#kde-neon .calendar-popover__controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: calc(var(--head) * 0.25);
+    margin: 0;
+    padding: 0 calc(var(--head) * 0.35) calc(var(--head) * 0.12);
+    border-bottom: var(--calendar-popover-divider);
+}
+
+#kde-neon .calendar-popover__tabs {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#kde-neon .calendar-popover__tab {
+    flex: 0 0 auto;
+    min-width: calc(var(--head) * 1.65);
+    margin: 0;
+    padding: calc(var(--head) * 0.14) calc(var(--head) * 0.22) calc(var(--head) * 0.16);
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    font: inherit;
+    font-size: var(--calendar-popover-tab-size);
+    line-height: 1.2;
+    color: var(--calendar-popover-week-label);
+    text-align: center;
+    cursor: default;
+}
+
+#kde-neon .calendar-popover__tab.is-active {
+    color: var(--calendar-popover-text);
+    border-bottom-color: var(--calendar-popover-tab-active);
+}
+
+#kde-neon .calendar-popover__tab:disabled {
+    opacity: 0.42;
+    cursor: default;
+}
+
+#kde-neon .calendar-popover__month-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-shrink: 0;
+    align-items: center;
+    gap: calc(var(--head) / 40);
+    margin: 0 0 calc(var(--head) * 0.1);
+    padding: 0;
+}
+
+#kde-neon .calendar-popover__today-btn {
+    margin: 0;
+    padding: calc(var(--head) * 0.1) calc(var(--head) * 0.18);
+    border: none;
+    border-radius: calc(var(--head) / 12);
+    background: transparent;
+    font: inherit;
+    font-size: var(--calendar-popover-nav-size);
+    line-height: 1.2;
+    color: var(--calendar-popover-text);
+    white-space: nowrap;
+    cursor: default;
+}
+
+#kde-neon .calendar-popover__today-btn:hover {
+    background: var(--calendar-popover-day-hover-bg);
+}
+
+#kde-neon .calendar-popover__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--calendar-popover-arrow-size);
+    height: var(--calendar-popover-arrow-size);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: var(--calendar-popover-arrow-radius);
+    font-size: var(--calendar-popover-arrow-font-size);
+    line-height: 1;
+    color: var(--calendar-popover-arrow-text);
+    background: var(--calendar-popover-arrow-bg);
+    cursor: default;
+}
+
+#kde-neon .calendar-popover__arrow:hover {
+    background: var(--calendar-popover-arrow-hover-bg);
+}
+
+#kde-neon .calendar-popover__week-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--calendar-popover-week-row-gap);
+    margin: 0;
+    padding: calc(var(--head) * 0.12) calc(var(--head) * 0.35) calc(var(--head) * 0.08);
+    font-size: var(--calendar-popover-week-label-size);
+    line-height: 1.2;
+    color: var(--calendar-popover-week-label);
+    text-align: center;
+}
+
+#kde-neon .calendar-popover__week-cell {
+    margin: 0;
+    padding: var(--calendar-popover-week-cell-padding);
+}
+
+#kde-neon .calendar-popover--kde .calendar-popover__days {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, var(--calendar-popover-day-cell));
+    gap: var(--calendar-popover-days-gap);
+    flex: 0 0 auto;
+    align-content: start;
+    margin: 0;
+    min-height: calc(
+        6 * var(--calendar-popover-day-cell) + 5 * var(--calendar-popover-days-gap) +
+            var(--head) * 0.45
+    );
+    padding: calc(var(--head) * 0.15) calc(var(--head) * 0.3) calc(var(--head) * 0.35);
+    overflow: hidden;
+    background-color: var(--calendar-popover-grid-bg);
+    background-image: url("../../../../usr/share/capsuleos/assets/images/vendors/neon/wallpaper/neon-default.png");
+    background-size: cover;
+    background-position: center bottom;
+}
+
+#kde-neon .calendar-popover--kde .calendar-popover__days::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--calendar-popover-grid-overlay);
+    pointer-events: none;
+}
+
+#kde-neon .calendar-popover__day {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--calendar-popover-day-cell);
+    height: var(--calendar-popover-day-cell);
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--calendar-popover-day-radius);
+    font: inherit;
+    font-size: var(--calendar-popover-day-size);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--calendar-popover-day-text);
+    background: transparent;
+    cursor: default;
+}
+
+#kde-neon .calendar-popover__day:hover:not(:disabled) {
+    background: var(--calendar-popover-day-hover-bg);
+}
+
+#kde-neon .calendar-popover__day--outside {
+    color: var(--calendar-popover-events-muted);
+    font-weight: 400;
+    opacity: 1;
+}
+
+#kde-neon .calendar-popover__day--outside.calendar-popover__day--today {
+    color: var(--calendar-popover-today-text);
+}
+
+#kde-neon .calendar-popover__day--today {
+    font-weight: 600;
+    color: var(--calendar-popover-today-text);
+    background: var(--calendar-popover-today-bg);
+    border-color: var(--calendar-popover-today-ring);
+    box-shadow: none;
+}
+
+#kde-neon .calendar-popover__day--today:hover:not(:disabled) {
+    background: var(--calendar-popover-today-hover-bg);
+    border-color: var(--calendar-popover-today-ring);
+}
+
+#kde-neon .calendar-popover__day--selected:not(.calendar-popover__day--today) {
+    border-color: var(--calendar-popover-today-ring);
+    box-shadow: none;
+}
+
+@media (max-width: 400px) {
+    #kde-neon .calendar-popover {
+        right: 0.2rem;
+        left: 0.2rem;
+        width: auto;
+    }
+}
+
+html:not([data-theme="light"]) #kde-neon .calendar-popover__icon-btn > img {
+    filter: none;
+    opacity: 0.88;
+}

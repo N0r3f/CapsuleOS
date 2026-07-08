@@ -1,0 +1,14 @@
+{
+  "siteId": "search-google",
+  "title": "Recherche CapsuleOS",
+  "hosts": ["search.capsuleos.local"],
+  "locale": "fr-FR",
+  "contentLicense": "GPL-3.0-or-later",
+  "author": "CapsuleOS",
+  "searchResults": [
+    { "title": "Linux Mint — site officiel (simulé)", "url": "linuxmint.com", "siteId": "linuxmint", "snippet": "From freedom came elegance — distribution Linux pour débutants." },
+    { "title": "La Capsule — CapsuleOS", "url": "lacapsule.org", "siteId": "lacapsule", "snippet": "Bureaux simulés pour apprendre les systèmes d'exploitation." },
+    { "title": "Les bases Linux — module pédagogique", "url": "capsuleos://mnt/linux-bases/s01-decouverte-bureau", "type": "mnt", "moduleId": "linux-bases", "scenarioId": "s01-decouverte-bureau", "snippet": "Découverte du bureau simulé : explorateur, terminal, premières commandes." },
+    { "title": "Wikipédia (stub pédagogique)", "url": "fr.wikipedia.org", "siteId": "wikipedia-fr", "snippet": "Encyclopédie libre — version pédagogique CapsuleOS." }
+  ]
+}

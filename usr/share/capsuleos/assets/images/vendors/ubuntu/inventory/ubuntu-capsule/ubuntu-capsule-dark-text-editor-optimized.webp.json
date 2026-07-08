@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-text-editor.png",
+  "sourceSha256": "cf5f4fa8a459671dcd469e6dc83fa0980faafafa767934af0572dcf7fbdaf643",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-text-editor-optimized.webp",
+  "outputSha256": "0d338d72c3370753b74e96e01cca53a55d13a6854f3a3fca11137a97a3d5cc5c",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:13.883Z"
+}

@@ -1,0 +1,319 @@
+/* Calendar popover Ubuntu - GNOME Shell layout (notifications gauche, calendrier droite). */
+/* Ancré au centre sous l'horloge via body#elementary overrides en fin de fichier. */
+
+.calendar-popover {
+  position: fixed;
+  right: var(--calendar-popover-offset);
+  bottom: calc(var(--taskbar-height) + var(--calendar-popover-offset));
+  z-index: var(--z-calendar-popover);
+  width: min(var(--calendar-popover-width), calc(100vw - var(--calendar-popover-viewport-gap)));
+  max-height: min(var(--calendar-popover-max-height), calc(100vh - var(--taskbar-height) - var(--calendar-popover-max-height-gap)));
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--calendar-popover-radius);
+  overflow: hidden;
+  background: var(--calendar-popover-bg);
+  border: var(--calendar-popover-border);
+  box-shadow: var(--calendar-popover-shadow);
+  color: var(--calendar-popover-text);
+  font-family: var(--font-ui);
+  font-size: var(--calendar-popover-font-size);
+}
+
+.calendar-popover[hidden] {
+  display: none;
+}
+
+/* Layout deux colonnes */
+.calendar-popover__columns {
+  display: grid;
+  grid-template-columns: var(--calendar-popover-columns-ratio);
+  flex: 1;
+  min-height: var(--calendar-popover-columns-min-height);
+}
+
+/* ---- Colonne gauche : notifications ---- */
+.calendar-popover__notifications {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: var(--calendar-popover-divider);
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem 0.75rem 0.7rem;
+}
+
+.calendar-popover__notif-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.calendar-popover__notif-icon {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin: 0 auto 0.25rem;
+  opacity: 0.4;
+  background: var(--calendar-popover-events-muted);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.calendar-popover__notif-text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--calendar-popover-events-muted);
+}
+
+.calendar-popover__notif-footer {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 0.5rem;
+}
+
+.calendar-popover__clear-btn {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--calendar-popover-settings-text);
+  font: inherit;
+  font-size: 0.76rem;
+  cursor: default;
+  transition: background-color 0.15s;
+}
+
+.calendar-popover__clear-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--calendar-popover-text);
+}
+
+/* ---- Colonne droite : calendrier ---- */
+.calendar-popover__calendar {
+  padding: 0.7rem 0.65rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.calendar-popover__cal-head {
+  text-align: center;
+  margin-bottom: 0.1rem;
+}
+
+.calendar-popover__weekday-big {
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: capitalize;
+  color: var(--calendar-popover-date-sub);
+}
+
+.calendar-popover__date-sub {
+  font-size: var(--calendar-popover-weekday-big-size, 1.35rem);
+  font-weight: 700;
+  color: var(--calendar-popover-text);
+  text-transform: capitalize;
+  line-height: 1.2;
+}
+
+.calendar-popover__month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--calendar-popover-month-nav-gap);
+  margin-top: 0.3rem;
+}
+
+.calendar-popover__arrow {
+  width: var(--calendar-popover-arrow-size);
+  height: var(--calendar-popover-arrow-size);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--calendar-popover-arrow-bg);
+  color: var(--calendar-popover-arrow-text);
+  font-size: var(--calendar-popover-arrow-font-size);
+  line-height: 1;
+  cursor: default;
+  transition: background-color 0.12s;
+}
+
+.calendar-popover__arrow:hover {
+  background: var(--calendar-popover-arrow-hover-bg);
+}
+
+.calendar-popover__month-label {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: var(--calendar-popover-month-label-size);
+}
+
+.calendar-popover__week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--calendar-popover-week-row-gap);
+  margin-top: 0.25rem;
+  font-size: var(--calendar-popover-week-label-size);
+  color: var(--calendar-popover-week-label);
+  text-align: center;
+}
+
+.calendar-popover__week-cell {
+  padding: var(--calendar-popover-week-cell-padding);
+}
+
+.calendar-popover__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--calendar-popover-days-gap);
+  margin-top: 0.15rem;
+}
+
+.calendar-popover__day {
+  aspect-ratio: 1;
+  max-height: var(--calendar-popover-day-max-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--calendar-popover-day-text);
+  font: inherit;
+  font-size: var(--calendar-popover-day-size);
+  cursor: default;
+  transition: background-color 0.1s;
+}
+
+.calendar-popover__day:hover:not(:disabled) {
+  background: var(--calendar-popover-day-hover-bg);
+}
+
+.calendar-popover__day--today {
+  background: var(--calendar-popover-today-bg);
+  color: var(--calendar-popover-today-text);
+  font-weight: 700;
+}
+
+.calendar-popover__day--today:hover:not(:disabled) {
+  background: var(--calendar-popover-today-hover-bg);
+}
+
+.calendar-popover__day--selected:not(.calendar-popover__day--today) {
+  box-shadow: var(--calendar-popover-selected-ring);
+}
+
+.calendar-popover__day--empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Section "Aujourd'hui" */
+.calendar-popover__today-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.45rem 0.5rem;
+  margin-top: 0.25rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  min-height: 2.6rem;
+}
+
+.calendar-popover__today-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--calendar-popover-text);
+  text-transform: capitalize;
+}
+
+.calendar-popover__today-events {
+  font-size: 0.72rem;
+  color: var(--calendar-popover-events-muted);
+  font-style: italic;
+}
+
+/* Boutons d'action */
+.calendar-popover__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.calendar-popover__action-btn {
+  display: block;
+  width: 100%;
+  padding: 0.38rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--calendar-popover-text);
+  font: inherit;
+  font-size: 0.73rem;
+  text-align: left;
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.12s;
+}
+
+.calendar-popover__action-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* =========================================================
+   Ubuntu : ancrage sous la top bar, centré sous l'horloge
+   ========================================================= */
+body#elementary .calendar-popover {
+  bottom: auto;
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(var(--elementary-top-bar-height) + 4px);
+  max-height: min(var(--calendar-popover-max-height, 28rem), calc(100vh - var(--elementary-top-bar-height) - 1rem));
+}
+
+/* Variante thème clair */
+html[data-theme="light"]:has(#elementary) body#elementary .calendar-popover {
+  background: rgba(242, 242, 242, 0.99);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .calendar-popover__notifications {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .calendar-popover__clear-btn {
+  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .calendar-popover__today-section {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .calendar-popover__action-btn {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .calendar-popover__action-btn:hover {
+  background: rgba(0, 0, 0, 0.09);
+}

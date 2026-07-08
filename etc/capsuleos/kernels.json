@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "updated": "2026-06-04",
+  "description": "Taxonomie des noyaux CapsuleOS — isolation par kernel, branches Linux uniquement.",
+  "kernelSpecVersion": 1,
+  "kernels": [
+    {
+      "id": "linux",
+      "label": "Linux",
+      "family": "linux",
+      "branching": true,
+      "shellPath": "usr/lib/capsuleos/kernels/linux/",
+      "sharePath": "usr/share/capsuleos/linux/",
+      "skill": "os-linux"
+    },
+    {
+      "id": "windows-nt",
+      "label": "Windows NT",
+      "family": "windows",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/windows-nt/",
+      "sharePath": "usr/share/capsuleos/windows/",
+      "skill": "os-windows"
+    },
+    {
+      "id": "darwin",
+      "label": "Darwin",
+      "family": "macos",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/darwin/",
+      "sharePath": "usr/share/capsuleos/macos/",
+      "skill": "os-macos",
+      "internalKernel": "xnu"
+    },
+    {
+      "id": "xnu",
+      "label": "XNU",
+      "family": "macos",
+      "branching": false,
+      "metadataOnly": true,
+      "description": "Noyau hybride Apple — spécification interne Darwin, pas de leaf skin."
+    },
+    {
+      "id": "freebsd",
+      "label": "FreeBSD",
+      "family": "bsd",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/freebsd/",
+      "sharePath": "usr/share/capsuleos/bsd/",
+      "skill": "os-bsd"
+    },
+    {
+      "id": "openbsd",
+      "label": "OpenBSD",
+      "family": "bsd",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/openbsd/",
+      "sharePath": "usr/share/capsuleos/bsd/",
+      "skill": "os-bsd"
+    },
+    {
+      "id": "netbsd",
+      "label": "NetBSD",
+      "family": "bsd",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/netbsd/",
+      "sharePath": "usr/share/capsuleos/bsd/",
+      "skill": "os-bsd"
+    },
+    {
+      "id": "solaris",
+      "label": "Solaris",
+      "family": "unix",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/solaris/",
+      "sharePath": "usr/share/capsuleos/unix/",
+      "skill": "os-unix"
+    },
+    {
+      "id": "haiku",
+      "label": "Haiku",
+      "family": "retro",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/haiku/",
+      "sharePath": "usr/share/capsuleos/retro/",
+      "skill": "os-stub"
+    },
+    {
+      "id": "qnx-neutrino",
+      "label": "QNX Neutrino",
+      "family": "other",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/qnx-neutrino/",
+      "sharePath": "usr/share/capsuleos/qnx/",
+      "skill": "os-stub"
+    },
+    {
+      "id": "vxworks",
+      "label": "VxWorks",
+      "family": "other",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/vxworks/",
+      "sharePath": "usr/share/capsuleos/vxworks/",
+      "skill": "os-stub"
+    },
+    {
+      "id": "minix3",
+      "label": "MINIX 3",
+      "family": "other",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/minix3/",
+      "sharePath": "usr/share/capsuleos/minix/",
+      "skill": "os-stub"
+    },
+    {
+      "id": "android",
+      "label": "Android (Linux-derived)",
+      "family": "android",
+      "branching": false,
+      "linuxDerived": true,
+      "shellPath": "usr/lib/capsuleos/kernels/android/",
+      "sharePath": "usr/share/capsuleos/android/",
+      "skill": "os-android"
+    },
+    {
+      "id": "chromeos",
+      "label": "ChromeOS (Linux-derived)",
+      "family": "chromeos",
+      "branching": false,
+      "linuxDerived": true,
+      "shellPath": "usr/lib/capsuleos/kernels/chromeos/",
+      "sharePath": "usr/share/capsuleos/chromeos/",
+      "skill": "os-chromeos"
+    },
+    {
+      "id": "harmonyos",
+      "label": "HarmonyOS",
+      "family": "harmonyos",
+      "branching": false,
+      "shellPath": "usr/lib/capsuleos/kernels/harmonyos/",
+      "sharePath": "usr/share/capsuleos/harmonyos/",
+      "skill": "os-harmonyos"
+    }
+  ],
+  "linuxBranches": [
+    { "id": "debian", "label": "Debian", "kernelId": "linux" },
+    { "id": "ubuntu", "label": "Ubuntu", "kernelId": "linux" },
+    { "id": "fedora", "label": "Fedora", "kernelId": "linux" },
+    { "id": "arch", "label": "Arch Linux", "kernelId": "linux" },
+    { "id": "opensuse", "label": "openSUSE", "kernelId": "linux" },
+    { "id": "slackware", "label": "Slackware", "kernelId": "linux" },
+    { "id": "gentoo", "label": "Gentoo", "kernelId": "linux" },
+    { "id": "rhel", "label": "Red Hat Enterprise Linux", "kernelId": "linux" },
+    { "id": "mint", "label": "Linux Mint", "kernelId": "linux" },
+    { "id": "manjaro", "label": "Manjaro", "kernelId": "linux" },
+    { "id": "kali", "label": "Kali Linux", "kernelId": "linux" },
+    { "id": "alpine", "label": "Alpine Linux", "kernelId": "linux" }
+  ],
+  "browserMinCapabilitiesDefault": {
+    "clipboard": false,
+    "serviceWorker": true,
+    "customEvent": true,
+    "maskImage": true,
+    "backdropFilter": true,
+    "fileProtocolEmbed": true
+  }
+}

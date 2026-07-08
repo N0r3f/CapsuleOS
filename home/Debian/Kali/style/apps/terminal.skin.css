@@ -1,0 +1,215 @@
+/* Rocky — Ptyxis (GNOME 49) : headerbar unique, onglets intégrés.
+ * Invite : user@host #33d17a (Adwaita), : ~ $ couleur texte — cf. kali-dark-ptyxis.png VM.
+ * Tokens : style/gnome-shell/tokens.css --fedora-terminal-prompt-* */
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora {
+    --terminal-font-family: "Red Hat Mono", "Adwaita Mono", "Liberation Mono", ui-monospace, monospace;
+    --terminal-font-size: 11pt;
+    --terminal-line-height: 1.38;
+    --terminal-body-padding: 0.5rem 0.65rem;
+    width: min(52rem, calc(100vw - var(--fedora-dock-width, 0px) - 2.5rem));
+    height: min(36rem, calc(100vh - var(--fedora-top-bar-height) - 2.5rem));
+    min-width: min(40rem, calc(100vw - 3rem));
+    min-height: min(26rem, calc(100vh - var(--fedora-top-bar-height) - 4rem));
+    padding: 0;
+    border: 1px solid var(--fedora-app-header-border);
+    border-radius: var(--terminal-window-radius, 0.8rem);
+    background: var(--fedora-app-terminal-surface);
+    box-shadow: var(--fedora-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42));
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora.windowElementActive {
+    border-color: var(--menu-accent);
+    box-shadow: var(--capsule-chrome-window-active-ring, 0 0 0 2px color-mix(in srgb, var(--menu-accent, #3584e4) 55%, transparent)),
+        var(--fedora-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42));
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #windowHeader,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: var(--full);
+    min-width: var(--full);
+    max-width: var(--full);
+    min-height: var(--gnome-adw-headerbar-h, 2.875rem);
+    height: var(--gnome-adw-headerbar-h, 2.875rem);
+    padding: 0 0.45rem;
+    border-radius: var(--terminal-window-radius, 0.8rem) var(--terminal-window-radius, 0.8rem) 0 0;
+    border-bottom: 1px solid var(--fedora-app-header-border);
+    color: var(--fedora-app-text);
+    background: var(--fedora-app-header-alt-bg);
+    gap: 0.35rem;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #windowHeader > nav {
+    min-width: auto;
+    height: var(--full);
+    gap: 0.35rem;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #windowHeader > nav:last-child {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #windowTitle {
+    display: none !important;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header__tabs {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    max-width: 100%;
+    height: var(--full);
+    padding: 0 0.25rem;
+    overflow: hidden;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #windowHeader > nav:last-child {
+    flex: 0 0 auto;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #minimizeBtn,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #resizeBtn,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #closeBtn,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: var(--fedora-window-control-color);
+    background: var(--fedora-window-control-bg);
+    background-image: none;
+    cursor: pointer;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header__button:hover,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #minimizeBtn:hover,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #resizeBtn:hover,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #closeBtn:hover {
+    background-color: var(--fedora-window-control-hover-bg);
+    transform: none;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header__button--add {
+    border: 1px solid currentColor;
+    border-radius: 0.28rem;
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header__button--grid::before,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #minimizeBtn::before,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #resizeBtn::before,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #closeBtn::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-header__button--grid::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2 2h4v4H2V2zm8 0h4v4h-4V2zM2 10h4v4H2v-4zm8 0h4v4h-4v-4z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2 2h4v4H2V2zm8 0h4v4h-4V2zM2 10h4v4H2v-4zm8 0h4v4h-4v-4z'/%3E%3C/svg%3E");
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #closeBtn {
+    border-radius: 999px;
+    background: var(--fedora-window-control-close-bg);
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #closeBtn:hover {
+    color: var(--fedora-window-control-close-hover-color);
+    background: var(--fedora-window-control-close-hover-bg);
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs {
+    gap: var(--terminal-tab-gap, 0.35rem);
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__tab,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__tab {
+    margin: 0;
+    padding: 0 0.55rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--fedora-app-text);
+    background: transparent;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    cursor: default;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__tab--active,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__tab--active {
+    background: var(--fedora-app-header-active-bg);
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__label,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__label {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__close,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora .fedora-terminal-tabs__close {
+    flex: 0 0 auto;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.7;
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora > #terminalContainer,
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora > .capsule-terminal-shell {
+    padding: 0;
+    border-radius: 0 0 var(--terminal-window-radius, 0.8rem) var(--terminal-window-radius, 0.8rem);
+    color: var(--fedora-app-text);
+    background: var(--fedora-app-terminal-surface);
+}
+
+body#kali .windowElement[data-link="terminal"].terminal-window--fedora:not(.windowElementActive) {
+    border-color: var(--fedora-app-header-border);
+    box-shadow: var(--fedora-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42));
+}

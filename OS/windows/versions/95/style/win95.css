@@ -1,0 +1,226 @@
+/* Fidélité Windows 95 — surcharges skin 95 uniquement (chargé en dernier) */
+
+body[data-win-version="95"] {
+    --texte: #000000;
+    --hovwin: #000080;
+}
+
+/* Bureau : icônes avec libellé sous l’icône */
+body[data-win-version="95"] main > a.desktop-icon {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 72px;
+    min-height: 64px;
+    margin: 8px 4px;
+    padding: 4px;
+    color: #ffffff;
+    font-family: var(--win-font-family);
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #000000;
+}
+
+body[data-win-version="95"] main > a.desktop-icon:hover {
+    background: rgba(0, 0, 128, 0.35);
+    outline: 1px dotted #ffffff;
+}
+
+body[data-win-version="95"] main > a.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin: 0 0 4px;
+    image-rendering: pixelated;
+}
+
+body[data-win-version="95"] main > a.desktop-icon span {
+    display: block;
+    max-width: 68px;
+    word-wrap: break-word;
+}
+
+/* Bouton Démarrer Win95 (gris + logo) */
+body[data-win-version="95"] footer menu .taskbar-start--classic {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: auto;
+    min-width: 54px;
+    height: 22px;
+    margin: 2px;
+    padding: 0 8px 0 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--win95-highlight) var(--win95-dkshadow) var(--win95-dkshadow) var(--win95-highlight);
+    border-radius: 0;
+    background: var(--win95-surface);
+    box-shadow: none;
+}
+
+body[data-win-version="95"] footer menu .taskbar-start--classic::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 14px;
+    margin-right: 4px;
+    background: url(../../../../../usr/share/capsuleos/assets/images/toolkits/windows/95/win95-flag.svg) center / contain no-repeat;
+}
+
+body[data-win-version="95"] footer menu .taskbar-start--classic::after {
+    content: "Démarrer";
+    color: #000000;
+    font-weight: 700;
+    font-size: 11px;
+    text-shadow: none;
+    padding: 0;
+}
+
+body[data-win-version="95"] footer menu .taskbar-start--classic:active {
+    border-color: var(--win95-dkshadow) var(--win95-highlight) var(--win95-highlight) var(--win95-dkshadow);
+    padding: 1px 7px 0 3px;
+}
+
+/* Barre des tâches */
+body[data-win-version="95"] footer {
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    height: 28px;
+    padding: 0;
+}
+
+body[data-win-version="95"] footer > menu {
+    flex: 0 0 auto;
+    width: auto;
+    height: 100%;
+}
+
+body[data-win-version="95"] .taskbar-tasks {
+    flex: 1 1 auto;
+    height: 22px;
+    margin: 2px 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+    background: var(--win95-surface);
+}
+
+body[data-win-version="95"] .taskbar-tray {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 22px;
+    margin: 2px 2px 2px 0;
+    padding: 0 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+    background: var(--win95-surface);
+}
+
+body[data-win-version="95"] footer > a.taskbar-tray__clock {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 52px;
+    height: 100%;
+    padding: 0 6px;
+    color: #000000;
+    font-family: var(--win-font-family);
+    font-size: 11px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+body[data-win-version="95"] footer > a.taskbar-tray__clock:hover {
+    background: transparent;
+}
+
+body[data-win-version="95"] #heure-date {
+    width: auto;
+    font-weight: 400;
+}
+
+/* Fenêtres — renforce chrome-classic */
+body[data-win-version="95"] #windowContainer,
+body[data-win-version="95"] .win-window {
+    border-radius: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--win95-highlight) var(--win95-dkshadow) var(--win95-dkshadow) var(--win95-highlight);
+    box-shadow: 1px 1px 0 #000000;
+    background: var(--win95-surface);
+}
+
+body[data-win-version="95"] #windowHeader {
+    min-height: 18px;
+    padding: 2px 3px 2px 4px;
+    border-radius: 0;
+    background: linear-gradient(90deg, var(--win95-title-active) 0%, var(--win95-title-active-end) 100%);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+body[data-win-version="95"] #windowHeader > span:first-child {
+    width: 16px;
+    height: 14px;
+    flex-shrink: 0;
+    margin-right: 4px;
+    background: url(../../../../../usr/share/capsuleos/assets/images/toolkits/windows/95/computer.svg) center / contain no-repeat;
+    filter: brightness(1.2);
+}
+
+body[data-win-version="95"] #windowTitle {
+    flex: 1 1 auto;
+    width: auto;
+    text-align: left;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body[data-win-version="95"] #windowHeader > button {
+    width: 16px;
+    height: 14px;
+    min-width: 16px;
+    margin-left: 2px;
+    padding: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--win95-highlight) var(--win95-dkshadow) var(--win95-dkshadow) var(--win95-highlight);
+    border-radius: 0;
+    background: var(--win95-surface);
+    color: #000000;
+    font-family: var(--win-font-family);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+body[data-win-version="95"] #windowHeader > #minimizeBtn {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+body[data-win-version="95"] #windowHeader > #resizeBtn {
+    font-size: 9px;
+    font-weight: 400;
+}
+
+body[data-win-version="95"] #windowHeader > #closeBtn {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+body[data-win-version="95"] #windowHeader > button:active {
+    border-color: var(--win95-dkshadow) var(--win95-highlight) var(--win95-highlight) var(--win95-dkshadow);
+    padding: 1px 0 0 1px;
+}

@@ -1,0 +1,62 @@
+{
+  "id": "linux-debian-kde",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "debian",
+  "vendor": "debian",
+  "displayName": "Debian KDE (Plasma)",
+  "bodyId": "debian-kde",
+  "embedKey": "debiankde",
+  "tier": "P2",
+  "status": "planned",
+  "fidelityLevel": 4,
+  "upstreamId": null,
+  "clusterIds": [
+    "explorer.dolphin.kde",
+    "toolkit.kde"
+  ],
+  "extends": "kernel:linux/branch:debian/toolkit:kde",
+  "paths": {
+    "facade": "OS/linux/families/debian/debian-kde/index.html",
+    "skin": "home/Debian/Debian-KDE/index.html"
+  },
+  "toolkit": {
+    "id": "kde",
+    "shell": "plasma"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/kde",
+    "vendorPack": "vendors/debian",
+    "iconPacks": [
+      "icons/kde"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Dolphin",
+    "CAPSULE_EXPLORER_TEMPLATE": "dolphin",
+    "CAPSULE_EMBED_SKIN_KEY": "debiankde",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/debian/debian-kde/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian",
+    "CAPSULE_WINDOW_CHROME_CONTEXT": {
+      "toolkitId": "kde",
+      "explorerTemplate": "dolphin",
+      "dragMode": "window-header"
+    },
+    "CAPSULE_EXPLORER_APP_ID": "dolphin",
+    "CAPSULE_EXPLORER_SKIN_KEY": "dolphin",
+    "CAPSULE_TEMPLATE_OVERRIDES": {
+      "update_manager": "../../../usr/share/capsuleos/linux/apps/update_manager_kde_neon.html",
+      "themes": "../../../usr/share/capsuleos/linux/apps/systemsettings_kde_neon.html",
+      "spectacle": "../../../usr/share/capsuleos/linux/apps/spectacle_kde_neon.html",
+      "kinfocenter": "../../../usr/share/capsuleos/linux/apps/kinfocenter_kde_neon.html",
+      "kdeconnect": "../../../usr/share/capsuleos/linux/apps/kdeconnect_kde_neon.html"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "macos-sonoma",
+  "version": 2,
+  "family": "macos",
+  "kernelId": "darwin",
+  "vendor": "apple",
+  "displayName": "macOS Sonoma",
+  "bodyId": "macos-sonoma",
+  "embedKey": "macos-sonoma",
+  "tier": "P4",
+  "status": "planned",
+  "fidelityLevel": 0,
+  "upstreamId": null,
+  "paths": {
+    "facade": "OS/macos/sonoma/index.html",
+    "skin": "home/macOS/Sonoma/index.html"
+  },
+  "toolkit": {
+    "id": "macos-aqua",
+    "shell": "aqua"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/macos-aqua",
+    "vendorPack": "vendors/apple"
+  },
+  "capsuleGlobals": {
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json"
+  },
+  "scaffoldAt": "2026-06-15"
+}

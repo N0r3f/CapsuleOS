@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/glasscurtains_light.webp",
+  "outputSha256": "0744998d9f5ec6099ddbdbae6a3fd8ab60d8a23116afe2d392ba16d646a0d3e0",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.698Z",
+  "note": "repair-manifest"
+}

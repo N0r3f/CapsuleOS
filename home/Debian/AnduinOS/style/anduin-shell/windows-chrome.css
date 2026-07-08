@@ -1,0 +1,17 @@
+/**
+ * AnduinOS — positionnement fenêtres (taskbar basse).
+ * Chrome GNOME commun : themes/linux/window-chrome.gnome.base.css
+ */
+
+body#anduinos .windowElement[data-window-chrome-toolkit="gnome"]:not(#mainMenu) {
+    top: var(--anduin-window-inset-top);
+    right: auto;
+    bottom: var(--anduin-window-inset-bottom);
+    left: calc(var(--head) * 0.65);
+    height: auto;
+    max-height: none;
+}
+
+body#anduinos .windowElement[data-window-chrome-toolkit="gnome"].windowElementActive:not(#mainMenu) {
+    box-shadow: 0 0 0 2px rgba(53, 132, 228, 0.5), var(--anduin-window-shadow);
+}

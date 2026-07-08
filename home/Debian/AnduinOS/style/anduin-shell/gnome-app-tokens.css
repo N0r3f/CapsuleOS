@@ -1,0 +1,112 @@
+/**
+ * AnduinOS — tokens apps GTK / chrome fenêtre (Adwaita dark VM).
+ * Les skins dérivés Rocky/Ubuntu consomment --fedora-* ; ce fichier les matérialise.
+ * Réf. : home/Debian/Ubuntu/style/gnome-shell/ubuntu-tokens.css (surfaces #303030).
+ */
+
+html:has(#anduinos) {
+    --fedora-top-bar-height: var(--anduin-window-inset-top, calc(var(--head) * 0.65));
+    --fedora-dock-width: 0px;
+    --fedora-window-radius: var(--anduin-window-radius, 0.72rem);
+    --fedora-window-border: var(--anduin-window-header-border, rgba(0, 0, 0, 0.45));
+    --fedora-window-active-ring: 0 0 0 2px color-mix(in srgb, var(--menu-accent, #3584e4) 55%, transparent);
+    --fedora-window-shadow: var(--anduin-window-shadow, 0 8px 32px rgba(0, 0, 0, 0.45));
+    --fedora-window-surface: var(--anduin-window-surface, #2a2a2e);
+    --fedora-window-header-bg: var(--anduin-window-header-bg, #38383d);
+    --fedora-window-header-border: var(--anduin-window-header-border, rgba(0, 0, 0, 0.45));
+    --fedora-window-header-active: var(--anduin-window-header-active, #404046);
+    --fedora-window-title-color: var(--anduin-window-title-color, #f5f6f8);
+    --fedora-window-control-color: var(--anduin-window-control-color, #f5f6f8);
+    --fedora-window-control-bg: var(--anduin-window-control-bg, transparent);
+    --fedora-window-control-hover-bg: var(--anduin-window-control-hover-bg, rgba(255, 255, 255, 0.12));
+    --fedora-window-control-close-bg: var(--anduin-window-control-close-bg, transparent);
+    --fedora-window-control-close-hover-bg: var(--anduin-window-control-close-hover-bg, #c01c28);
+    --fedora-window-control-close-hover-color: var(--anduin-window-control-close-hover-color, #ffffff);
+
+    --anduin-app-surface: #303030;
+    --anduin-app-terminal-surface: #1d1d20;
+    --anduin-app-header-bg: #383838;
+    --anduin-app-header-alt-bg: #303030;
+    --anduin-app-header-active-bg: #404046;
+    --anduin-app-header-border: #1f1f24;
+    --anduin-app-border: #25252a;
+    --anduin-app-text: #ffffff;
+    --anduin-app-muted-text: rgba(255, 255, 255, 0.62);
+    --anduin-app-button-hover-bg: rgba(255, 255, 255, 0.1);
+    --anduin-app-control-bg: rgba(255, 255, 255, 0.12);
+    --anduin-app-control-hover-bg: rgba(255, 255, 255, 0.16);
+    --anduin-app-tab-bg: #46464d;
+    --anduin-app-tab-hover-bg: #54545b;
+    --anduin-app-tab-active-bg: #515158;
+    --anduin-app-tab-border: #55555d;
+    --anduin-app-field-bg: #2f3844;
+    --anduin-app-field-focus-bg: #344153;
+    --anduin-app-field-border: #3584e4;
+    --anduin-app-field-text: #e9eef5;
+    --anduin-app-icon-muted: #b8c8d8;
+
+    --fedora-app-surface: var(--anduin-app-surface);
+    --fedora-app-terminal-surface: var(--anduin-app-terminal-surface);
+    --fedora-app-header-bg: var(--anduin-app-header-bg);
+    --fedora-app-header-alt-bg: var(--anduin-app-header-alt-bg);
+    --fedora-app-header-active-bg: var(--anduin-app-header-active-bg);
+    --fedora-app-header-border: var(--anduin-app-header-border);
+    --fedora-app-border: var(--anduin-app-border);
+    --fedora-app-text: var(--anduin-app-text);
+    --fedora-app-muted-text: var(--anduin-app-muted-text);
+    --fedora-app-button-hover-bg: var(--anduin-app-button-hover-bg);
+    --fedora-app-control-bg: var(--anduin-app-control-bg);
+    --fedora-app-control-hover-bg: var(--anduin-app-control-hover-bg);
+    --fedora-app-tab-bg: var(--anduin-app-tab-bg);
+    --fedora-app-tab-hover-bg: var(--anduin-app-tab-hover-bg);
+    --fedora-app-tab-active-bg: var(--anduin-app-tab-active-bg);
+    --fedora-app-tab-border: var(--anduin-app-tab-border);
+    --fedora-app-field-bg: var(--anduin-app-field-bg);
+    --fedora-app-field-focus-bg: var(--anduin-app-field-focus-bg);
+    --fedora-app-field-border: var(--anduin-app-field-border);
+    --fedora-app-field-text: var(--anduin-app-field-text);
+    --fedora-app-icon-muted: var(--anduin-app-icon-muted);
+
+    --fedora-terminal-prompt: #33d17a;
+    --fedora-terminal-prompt-user: #33d17a;
+    --fedora-terminal-prompt-text: var(--fedora-app-text);
+    --fedora-terminal-prompt-path-seg: #62a0ea;
+    --fedora-terminal-error: #ff7b72;
+    --fedora-terminal-success: #33d17a;
+    --terminal-window-radius: 0.8rem;
+    --terminal-body-padding: 0.5rem 0.65rem;
+    --terminal-tab-gap: 0.35rem;
+    --terminal-tab-min-width: 0;
+
+    --nemoHC: var(--fedora-window-header-bg);
+    --nemoMCSF: var(--fedora-window-header-active);
+    --menuDefaultCcol: var(--fedora-window-surface);
+}
+
+html[data-theme="light"]:has(#anduinos) {
+    --anduin-app-surface: #fafafa;
+    --anduin-app-terminal-surface: #ffffff;
+    --anduin-app-header-bg: #f6f6f6;
+    --anduin-app-header-alt-bg: #ebebeb;
+    --anduin-app-header-active-bg: #ffffff;
+    --anduin-app-header-border: #cfcfd3;
+    --anduin-app-border: #d7d7dc;
+    --anduin-app-text: #1e1e1e;
+    --anduin-app-muted-text: rgba(0, 0, 0, 0.55);
+    --anduin-app-button-hover-bg: rgba(0, 0, 0, 0.07);
+    --anduin-app-control-bg: rgba(0, 0, 0, 0.08);
+    --anduin-app-control-hover-bg: rgba(0, 0, 0, 0.12);
+    --anduin-app-tab-bg: #e7e7e7;
+    --anduin-app-tab-hover-bg: #dddddd;
+    --anduin-app-tab-active-bg: #ffffff;
+    --anduin-app-tab-border: #c8c8c8;
+    --anduin-app-field-bg: #ffffff;
+    --anduin-app-field-focus-bg: #ffffff;
+    --anduin-app-field-border: #3584e4;
+    --anduin-app-field-text: #1e1e1e;
+    --anduin-app-icon-muted: #5c5c5c;
+
+    --fedora-terminal-prompt: #26a269;
+    --fedora-terminal-prompt-user: #26a269;
+    --fedora-terminal-prompt-path-seg: #1a5fb4;
+}

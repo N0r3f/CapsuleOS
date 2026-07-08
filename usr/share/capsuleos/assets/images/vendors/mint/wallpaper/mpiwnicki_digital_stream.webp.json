@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/mpiwnicki_digital_stream.jpg",
+  "sourceSha256": "357537eb0b6683807306ba236211cd6ff036e6a1a99177100589b7fa9f15c943",
+  "output": "images/vendors/mint/wallpaper/mpiwnicki_digital_stream.webp",
+  "outputSha256": "0ff5dcdfad9bce5a27680a1785406eb95594bec829191f9ac6159d3c74aacd8d",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:27.167Z"
+}

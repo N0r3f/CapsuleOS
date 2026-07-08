@@ -1,0 +1,98 @@
+/**
+ * fedora — calculator (structure Rocky).
+ */
+body#fedora {
+    --gnome-calc-bg: #242424;
+    --gnome-calc-fn-bg: #303030;
+    --gnome-calc-key-bg: #383838;
+    --gnome-calc-op-bg: #404040;
+    --gnome-calc-op-active-bg: #3584e4;
+    --gnome-calc-eq-bg: #3584e4;
+    --gnome-calc-text: #ffffff;
+    --gnome-calc-expr: rgba(255, 255, 255, 0.5);
+    --gnome-calc-entry-bg: #242424;
+}
+
+html[data-theme="light"]:has(#fedora) {
+    --gnome-calc-bg: #fafafa;
+    --gnome-calc-fn-bg: #ebebeb;
+    --gnome-calc-key-bg: #ffffff;
+    --gnome-calc-op-bg: #e4e4e4;
+    --gnome-calc-op-active-bg: #3584e4;
+    --gnome-calc-eq-bg: #3584e4;
+    --gnome-calc-text: #1e1e1e;
+    --gnome-calc-expr: rgba(0, 0, 0, 0.45);
+    --gnome-calc-entry-bg: #ffffff;
+}
+
+body#fedora div[data-link="calculator"].windowElement {
+    width: min(calc(60px * 4 + 4px * 3 + 24px), calc(var(--head) * 7.5));
+    min-width: calc(60px * 4 + 4px * 3 + 24px);
+    max-width: calc(var(--head) * 8.5);
+    height: auto;
+    min-height: calc(44px * 5 + 4px * 4 + var(--gnome-adw-headerbar-h, 2.875rem) + var(--head) * 2.35);
+}
+
+body#fedora div[data-link="calculator"].gnome-app--csd {
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+body#fedora div[data-link="calculator"] .gnome-calc__header {
+    background: var(--gnome-calc-bg);
+    border-bottom: 1px solid var(--xed-border, rgba(255, 255, 255, 0.08));
+}
+
+body#fedora main#gnomeCalculatorApp {
+    color: var(--gnome-calc-text);
+    background: var(--gnome-calc-bg);
+}
+
+body#fedora .gnome-calc__mode:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"]:has(#fedora) .gnome-calc__mode:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+body#fedora .gnome-calc__display {
+    background: var(--gnome-calc-entry-bg);
+}
+
+body#fedora .gnome-calc__history {
+    color: var(--gnome-calc-expr);
+}
+
+body#fedora .gnome-calc__key {
+    border-color: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+}
+
+html[data-theme="light"]:has(#fedora) .gnome-calc__key {
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+body#fedora .gnome-calc__key--fn {
+    background: var(--gnome-calc-fn-bg);
+}
+
+body#fedora .gnome-calc__key--op {
+    background: var(--gnome-calc-op-bg);
+}
+
+body#fedora .gnome-calc__key--digit {
+    background: var(--gnome-calc-key-bg);
+}
+
+body#fedora .gnome-calc__key--eq {
+    background: var(--gnome-calc-eq-bg);
+    color: #ffffff;
+}
+
+body#fedora .gnome-calc__key--op.is-active {
+    background: var(--gnome-calc-op-active-bg);
+    color: #ffffff;
+}

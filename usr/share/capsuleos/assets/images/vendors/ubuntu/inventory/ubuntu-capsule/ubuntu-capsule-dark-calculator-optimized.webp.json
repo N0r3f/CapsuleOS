@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-calculator.png",
+  "sourceSha256": "3f6424fdaed261af4ca288d8dfc615899e7c0faced4d068eaa386bc6f1f640f5",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-calculator-optimized.webp",
+  "outputSha256": "6220a1bdbc6b8838eb5a0da48dd44df16a6fef28ea73d17037ac6414bf2ab615",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:04.468Z"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "contrib-firefox-mozilla",
+  "slotId": "firefox",
+  "category": "internet/browser",
+  "vendor": "mozilla",
+  "name": "firefox",
+  "labelFr": "Firefox",
+  "version": 1,
+  "license": "GPL-3.0-or-later",
+  "description": "Pack contrib navigateur Firefox — moteur de recherche, favoris et index web simulé.",
+  "kernel": "usr/lib/capsuleos/shells/linux/firefoxBrowser.js",
+  "template": "usr/share/capsuleos/linux/apps/firefox.html",
+  "webIndexContract": "etc/capsuleos/contracts/simulated-web-index.json"
+}

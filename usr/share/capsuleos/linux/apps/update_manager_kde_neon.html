@@ -1,0 +1,154 @@
+<main id="updateManagerApp" class="update-manager update-manager--kde update-manager--kde-neon" data-discover-view="home" aria-label="Discover">
+    <div class="kde-updates">
+        <aside class="kde-updates__sidebar" aria-label="Navigation">
+            <div class="kde-updates__search">
+                <span class="kde-updates__search-icon" aria-hidden="true"></span>
+                <input type="search" class="kde-updates__search-input" data-discover-search placeholder="Rechercher…" aria-label="Rechercher">
+            </div>
+
+            <nav class="kde-updates__nav" aria-label="Sections">
+                <button type="button" class="kde-updates__navitem is-active" data-discover-nav="home" aria-current="page">
+                    <span class="kde-updates__navicon kde-updates__navicon--home" aria-hidden="true"></span>
+                    <span>Accueil</span>
+                </button>
+                <button type="button" class="kde-updates__navitem" data-discover-nav="installed">
+                    <span class="kde-updates__navicon kde-updates__navicon--installed" aria-hidden="true"></span>
+                    <span>Installé(s)</span>
+                </button>
+                <button type="button" class="kde-updates__navitem" data-discover-nav="updates">
+                    <span class="kde-updates__navicon kde-updates__navicon--updates" aria-hidden="true"></span>
+                    <span>Mises à jour</span>
+                    <span class="kde-updates__badge" data-discover-updates-badge aria-label="1 mise à jour">1</span>
+                </button>
+                <button type="button" class="kde-updates__navitem" data-discover-nav="config">
+                    <span class="kde-updates__navicon kde-updates__navicon--config" aria-hidden="true"></span>
+                    <span>Configuration</span>
+                </button>
+                <button type="button" class="kde-updates__navitem" data-discover-nav="about">
+                    <span class="kde-updates__navicon kde-updates__navicon--about" aria-hidden="true"></span>
+                    <span>À propos</span>
+                </button>
+            </nav>
+
+            <hr class="kde-updates__sep" aria-hidden="true">
+
+            <nav class="kde-updates__cats" aria-label="Catégories">
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--all" aria-hidden="true"></span>
+                    <span>Toutes les applications</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--accessibility" aria-hidden="true"></span>
+                    <span>Accessibilité</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--office" aria-hidden="true"></span>
+                    <span>Bureautique</span>
+                </button>
+                <button type="button" class="kde-updates__cat kde-updates__cat--expandable">
+                    <span class="kde-updates__caticon kde-updates__caticon--development" aria-hidden="true"></span>
+                    <span>Développement</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--education" aria-hidden="true"></span>
+                    <span>Éducation</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--graphics" aria-hidden="true"></span>
+                    <span>Graphisme</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--internet" aria-hidden="true"></span>
+                    <span>Internet</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--games" aria-hidden="true"></span>
+                    <span>Jeux</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--multimedia" aria-hidden="true"></span>
+                    <span>Multimédia</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--science" aria-hidden="true"></span>
+                    <span>Science &amp; Mathématiq...</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--system" aria-hidden="true"></span>
+                    <span>Système</span>
+                </button>
+                <button type="button" class="kde-updates__cat">
+                    <span class="kde-updates__caticon kde-updates__caticon--utilities" aria-hidden="true"></span>
+                    <span>Utilitaires</span>
+                </button>
+                <button type="button" class="kde-updates__cat kde-updates__cat--expandable">
+                    <span class="kde-updates__caticon kde-updates__caticon--addons" aria-hidden="true"></span>
+                    <span>Modules d'applications</span>
+                </button>
+            </nav>
+        </aside>
+
+        <div class="kde-discover-panels">
+            <main class="kde-updates__main kde-discover-panel kde-discover-panel--home" data-discover-panel="home" aria-label="Page d'accueil">
+                <div class="kde-discover-home" data-discover-home-mount></div>
+            </main>
+
+            <main class="kde-updates__main kde-discover-panel kde-discover-panel--installed" data-discover-panel="installed" hidden aria-label="Installé(s)">
+                <header class="kde-discover-installed__header">
+                    <h1 class="kde-discover-installed__title" data-discover-view-heading data-discover-installed-heading>Installé(s)</h1>
+                    <div class="kde-discover-installed__actions">
+                        <button type="button" class="kde-discover-installed__sort" data-discover-installed-sort>
+                            <span class="kde-discover-installed__sort-icon" aria-hidden="true"></span>
+                            <span data-discover-installed-sort-label>Tri : Nom</span>
+                        </button>
+                    </div>
+                </header>
+                <div class="kde-discover-installed" data-discover-installed-mount role="list"></div>
+                <p class="kde-discover-installed__status" data-discover-installed-status hidden role="status"></p>
+            </main>
+
+            <main class="kde-updates__main kde-discover-panel kde-discover-panel--updates" data-discover-panel="updates" hidden aria-label="Mises à jour">
+                <header class="kde-updates__header">
+                    <h1 class="kde-updates__title" data-discover-view-heading>Mises à jour</h1>
+                    <div class="kde-updates__actions">
+                        <button type="button" class="kde-updates__action" data-um-kde-action="updateAll">
+                            <span class="kde-updates__action-icon kde-updates__action-icon--updateall" aria-hidden="true"></span>
+                            <span>Tout mettre à jour</span>
+                        </button>
+                        <button type="button" class="kde-updates__action" data-um-kde-action="refresh">
+                            <span class="kde-updates__action-icon kde-updates__action-icon--refresh" aria-hidden="true"></span>
+                            <span>Rafraîchir</span>
+                        </button>
+                    </div>
+                </header>
+                <section class="kde-updates__list" data-discover-updates-list aria-label="Logiciels du système">
+                    <h2 class="kde-updates__section-title" data-discover-updates-section>Logiciels du système</h2>
+                    <div class="kde-updates__rows" data-discover-updates-mount role="list"></div>
+                    <p class="kde-updates__empty" data-discover-updates-empty hidden>À jour</p>
+                </section>
+                <footer class="kde-updates__footer" data-discover-updates-footer aria-label="Actions et taille totale">
+                    <button type="button" class="kde-updates__footer-btn" data-discover-updates-select="all" disabled aria-disabled="true">Tout sélectionner</button>
+                    <button type="button" class="kde-updates__footer-btn" data-discover-updates-select="none" disabled aria-disabled="true">Ne rien sélectionner</button>
+                    <span class="kde-updates__total" data-discover-updates-total>Taille totale&nbsp;: 836 Kio</span>
+                </footer>
+            </main>
+
+            <main class="kde-updates__main kde-discover-panel kde-discover-panel--config" data-discover-panel="config" hidden aria-label="Configuration">
+                <header class="kde-discover-config__header">
+                    <h1 class="kde-updates__title" data-discover-view-heading>Configuration</h1>
+                    <div class="kde-updates__actions">
+                        <button type="button" class="kde-updates__action" data-um-kde-action="configureUpdates">
+                            <span class="kde-updates__action-icon kde-updates__action-icon--configure" aria-hidden="true"></span>
+                            <span>Configurer les mises à jour…</span>
+                        </button>
+                    </div>
+                </header>
+                <div class="kde-discover-config" data-discover-config-mount role="list"></div>
+            </main>
+
+            <main class="kde-updates__main kde-discover-panel kde-discover-panel--about" data-discover-panel="about" hidden aria-label="À propos">
+                <div class="kde-discover-about" data-discover-about-mount></div>
+            </main>
+        </div>
+    </div>
+</main>

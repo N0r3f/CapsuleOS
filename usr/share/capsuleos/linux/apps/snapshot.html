@@ -1,0 +1,42 @@
+<main id="gnomeSnapshotApp" class="gnome-snapshot" aria-label="Snapshot">
+    <header class="gnome-snapshot__header">
+        <nav class="gnome-snapshot__modes" role="tablist" aria-label="Mode">
+            <button type="button" role="tab" class="gnome-snapshot__mode is-active" data-snapshot-gnome-mode="photo" aria-selected="true" id="gnome-snapshot-tab-photo">Photo</button>
+            <button type="button" role="tab" class="gnome-snapshot__mode" data-snapshot-gnome-mode="video" aria-selected="false" id="gnome-snapshot-tab-video">Vidéo</button>
+        </nav>
+        <button type="button" class="gnome-snapshot__header-btn" aria-label="Menu" title="Menu" disabled>
+            <span class="gnome-snapshot__glyph gnome-snapshot__glyph--menu" aria-hidden="true"></span>
+        </button>
+    </header>
+
+    <section class="gnome-snapshot__stage" aria-label="Aperçu caméra">
+        <div class="gnome-snapshot__viewport" role="img" aria-label="Aucun flux caméra"></div>
+        <div class="gnome-snapshot__empty" id="gnome-snapshot-empty">
+            <p class="gnome-snapshot__empty-title" id="gnome-snapshot-empty-title">Aucune caméra détectée</p>
+            <p class="gnome-snapshot__empty-hint" id="gnome-snapshot-empty-hint">Connectez une webcam pour utiliser Snapshot dans CapsuleOS.</p>
+        </div>
+    </section>
+
+    <footer class="gnome-snapshot__controls" aria-label="Contrôles">
+        <div class="gnome-snapshot__effects" role="group" aria-label="Effets" id="gnome-snapshot-effects">
+            <button type="button" class="gnome-snapshot__effect is-active" disabled aria-label="Aucun effet" title="Aucun effet">
+                <span class="gnome-snapshot__effect-glyph gnome-snapshot__effect-glyph--none" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="gnome-snapshot__effect" disabled aria-label="Noir et blanc" title="Noir et blanc">
+                <span class="gnome-snapshot__effect-glyph gnome-snapshot__effect-glyph--mono" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="gnome-snapshot__effect" disabled aria-label="Sépia" title="Sépia">
+                <span class="gnome-snapshot__effect-glyph gnome-snapshot__effect-glyph--sepia" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="gnome-snapshot__shutter-row">
+            <button type="button" class="gnome-snapshot__side-btn" disabled aria-label="Galerie" title="Galerie">
+                <span class="gnome-snapshot__glyph gnome-snapshot__glyph--gallery" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="gnome-snapshot__shutter" disabled aria-label="Prendre une photo" title="Prendre une photo" data-snapshot-shutter></button>
+            <button type="button" class="gnome-snapshot__side-btn" disabled aria-label="Changer de caméra" title="Changer de caméra">
+                <span class="gnome-snapshot__glyph gnome-snapshot__glyph--switch" aria-hidden="true"></span>
+            </button>
+        </div>
+    </footer>
+</main>

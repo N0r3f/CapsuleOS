@@ -1,0 +1,37 @@
+/**
+ * Polices Rocky Linux 9.8 — ground truth VM (gsettings: Cantarell 11, Source Code Pro 10).
+ * VM default: org.gnome.desktop.interface font-name 'Cantarell 11'
+ * VM mono:    org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
+ * Source : pull-vm-assets.sh · inventaire *-visual-fidelity.json → typography.fontEmbedding
+ */
+@font-face {
+    font-family: "Cantarell";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/rocky/Cantarell-VF.otf") format("opentype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/rocky/SourceCodePro-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Red Hat Text";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/redhat/RedHatText[wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Red Hat Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/redhat/RedHatMono[wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}

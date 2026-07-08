@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "description": "Contextes chrome fenêtre par toolkit DE. Le runtime résout via CapsuleWindowHeaderContext ; les profils skin peuvent surcharger via CAPSULE_WINDOW_CHROME_CONTEXT.",
+  "explorerSlotId": "nemo",
+  "toolkits": {
+    "cinnamon": {
+      "displayName": "Cinnamon / Muffin SSD",
+      "chromeCssCluster": "usr/share/capsuleos/themes/clusters/toolkit-cinnamon/chrome.css",
+      "headerLayout": "capsule",
+      "headerIconPack": "cinnamon",
+      "behaviorsModule": "cinnamon-window-behaviors.js",
+      "explorerTemplates": ["nemo"],
+      "explorerChromeProvider": "nemo",
+      "explorerDragMode": "unified-titlebar",
+      "slotChromeProviders": {
+        "default": "cinnamon"
+      }
+    },
+    "gnome": {
+      "displayName": "GNOME / Mutter SSD",
+      "chromeCssCluster": "usr/share/capsuleos/themes/clusters/toolkit-gnome/chrome.css",
+      "headerLayout": "capsule",
+      "headerIconPack": "gnome",
+      "behaviorsModule": "gnome-window-behaviors.js",
+      "explorerTemplates": ["nemo-gnome", "nautilus"],
+      "explorerChromeProvider": "nemo-gnome",
+      "explorerDragMode": "app-headerbar-passthrough",
+      "slotChromeProviders": {
+        "firefox": "firefox-gnome",
+        "terminal": "terminal-gnome",
+        "calculator": "libadwaita-gnome",
+        "text_editor": "libadwaita-gnome",
+        "calendar": "libadwaita-gnome",
+        "clocks": "libadwaita-gnome",
+        "update_manager": "libadwaita-gnome",
+        "profile": "libadwaita-gnome",
+        "checklist": "libadwaita-gnome",
+        "librewriter": "libadwaita-gnome",
+        "libreoffice_startcenter": "libadwaita-gnome",
+        "librecalc": "libadwaita-gnome",
+        "libreoffice_impress": "libadwaita-gnome",
+        "libreoffice_draw": "libadwaita-gnome",
+        "themes": "libadwaita-gnome",
+        "visionneur_images": "libadwaita-gnome",
+        "visionneur_pdf": "libadwaita-gnome",
+        "lecteur_multimedia": "libadwaita-gnome",
+        "snapshot": "libadwaita-gnome",
+        "screenshot": "libadwaita-gnome",
+        "baobab": "libadwaita-gnome",
+        "characters": "libadwaita-gnome",
+        "system_monitor": "libadwaita-gnome",
+        "tour": "libadwaita-gnome",
+        "file_roller": "file-roller-gtk",
+        "thunderbird": "libadwaita-gnome",
+        "transmission": "libadwaita-gnome",
+        "rhythmbox": "libadwaita-gnome",
+        "drawing": "libadwaita-gnome",
+        "simple_scan": "libadwaita-gnome",
+        "warpinator": "libadwaita-gnome",
+        "timeshift": "libadwaita-gnome",
+        "default": "default"
+      },
+      "slotChromeProviderOverrides": {
+      }
+    },
+    "kde": {
+      "displayName": "KDE Plasma / Breeze",
+      "chromeCssCluster": "usr/share/capsuleos/themes/clusters/toolkit-kde/chrome.css",
+      "headerLayout": "capsule",
+      "headerIconPack": "kde-breeze",
+      "behaviorsModule": null,
+      "explorerTemplates": ["dolphin"],
+      "explorerChromeProvider": "dolphin",
+      "explorerDragMode": "window-header",
+      "slotChromeProviders": {
+        "default": "default"
+      }
+    },
+    "cosmic": {
+      "displayName": "COSMIC",
+      "chromeCssCluster": "usr/share/capsuleos/themes/clusters/toolkit-cosmic/chrome.css",
+      "headerLayout": "capsule",
+      "headerIconPack": "cosmic",
+      "behaviorsModule": null,
+      "explorerTemplates": ["nemo-cosmic", "nautilus-cosmic"],
+      "explorerChromeProvider": "nemo-gnome",
+      "explorerDragMode": "app-headerbar-passthrough",
+      "slotChromeProviders": {
+        "terminal": "terminal-cosmic",
+        "default": "default"
+      }
+    }
+  },
+  "templateToToolkit": {
+    "nemo": "cinnamon",
+    "nemo-gnome": "gnome",
+    "nautilus": "gnome",
+    "dolphin": "kde",
+    "nemo-cosmic": "cosmic",
+    "nautilus-cosmic": "cosmic"
+  }
+}

@@ -1,0 +1,51 @@
+/**
+ * anduinos — screenshot (structure Rocky).
+ */
+body#anduinos div[data-link="screenshot"].windowElement {
+    width: min(22rem, calc(100vw - var(--fedora-dock-width) - 2rem));
+    min-height: min(26rem, calc(100vh - var(--fedora-top-bar-height) - 2rem));
+}
+
+body#anduinos div[data-link="screenshot"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--fedora-app-surface);
+}
+
+body#anduinos div[data-link="screenshot"] main#gnomeScreenshotApp {
+    color: var(--fedora-app-text);
+    background: var(--fedora-app-surface);
+}
+
+body#anduinos div[data-link="screenshot"] .gnome-shot__headerbar {
+    display: flex;
+    align-items: center;
+    min-height: calc(var(--head) * 0.95);
+    padding: 0 calc(var(--head) / 3);
+    border-bottom: 1px solid var(--fedora-app-header-border);
+    background: var(--fedora-app-header-bg);
+}
+
+body#anduinos div[data-link="screenshot"] .gnome-shot__title {
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 600;
+}
+
+body#anduinos .screenshot-flash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.12s ease-out;
+}
+
+body#anduinos .screenshot-flash.is-active {
+    opacity: 0.85;
+}
+
+body#anduinos .screenshot-flash[hidden] {
+    display: none;
+}

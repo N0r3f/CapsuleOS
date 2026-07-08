@@ -1,0 +1,260 @@
+main#gnomeSnapshotApp {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-ui, Cantarell, sans-serif);
+    color: var(--gnome-snapshot-text, #f6f6f6);
+    background: var(--gnome-snapshot-bg, #242424);
+    box-sizing: border-box;
+}
+
+.gnome-snapshot__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    min-height: var(--gnome-adw-headerbar-h, 2.875rem);
+    padding: 0 0.65rem;
+    border-bottom: 1px solid var(--gnome-snapshot-border, rgba(255, 255, 255, 0.08));
+    background: var(--gnome-snapshot-header-bg, #383838);
+    gap: 0.5rem;
+}
+
+.gnome-snapshot__modes {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.15rem;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.gnome-snapshot__mode {
+    margin: 0;
+    padding: 0.35rem 0.75rem;
+    border: 0;
+    border-radius: 999px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.72;
+}
+
+.gnome-snapshot__mode.is-active,
+.gnome-snapshot__mode[aria-selected="true"] {
+    opacity: 1;
+    background: rgba(127, 127, 127, 0.22);
+}
+
+.gnome-snapshot__header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: inherit;
+    background: transparent;
+    cursor: default;
+    opacity: 0.45;
+}
+
+.gnome-snapshot__glyph {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.gnome-snapshot__glyph--menu {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 4h10v1.2H3V4zm0 3.4h10v1.2H3V7.4zm0 3.4h10V12H3v-1.2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 4h10v1.2H3V4zm0 3.4h10v1.2H3V7.4zm0 3.4h10V12H3v-1.2z'/%3E%3C/svg%3E");
+}
+
+.gnome-snapshot__glyph--gallery {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2.5 3.5h11v9h-11v-9zm1 1v5.8l2.2-2.1 1.6 1.5 2.4-3 1.8 2.3V4.5h-8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M2.5 3.5h11v9h-11v-9zm1 1v5.8l2.2-2.1 1.6 1.5 2.4-3 1.8 2.3V4.5h-8z'/%3E%3C/svg%3E");
+}
+
+.gnome-snapshot__glyph--switch {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M11.2 2.2 10 3.4A5 5 0 1 0 13 8h1.5a6.5 6.5 0 1 1-2-4.6l1.2-1.2H8.5V2h4v4h-1.3V2.2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M11.2 2.2 10 3.4A5 5 0 1 0 13 8h1.5a6.5 6.5 0 1 1-2-4.6l1.2-1.2H8.5V2h4v4h-1.3V2.2z'/%3E%3C/svg%3E");
+}
+
+.gnome-snapshot__stage {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    gap: 0.85rem;
+    min-height: 0;
+    padding: 1rem;
+    position: relative;
+    background: var(--gnome-snapshot-stage-bg, #1a1a1a);
+}
+
+.gnome-snapshot__viewport {
+    width: min(100%, 28rem);
+    max-height: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 0.65rem;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.06), transparent 45%),
+        linear-gradient(145deg, #121212, #2a2a2a 55%, #181818);
+    border: 1px solid var(--gnome-snapshot-border, rgba(255, 255, 255, 0.08));
+    opacity: 0.55;
+}
+
+.gnome-snapshot__empty {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.35rem;
+    max-width: 16rem;
+    text-align: center;
+}
+
+.gnome-snapshot__empty-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.gnome-snapshot__empty-hint {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--gnome-snapshot-muted, rgba(255, 255, 255, 0.62));
+}
+
+.gnome-snapshot__controls {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem 1rem;
+    border-top: 1px solid var(--gnome-snapshot-border, rgba(255, 255, 255, 0.08));
+    background: var(--gnome-snapshot-header-bg, #383838);
+}
+
+.gnome-snapshot__effects {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.gnome-snapshot__effect {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    margin: 0;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    color: inherit;
+    background: rgba(127, 127, 127, 0.18);
+    cursor: default;
+    opacity: 0.5;
+}
+
+.gnome-snapshot__effect.is-active {
+    border-color: currentColor;
+    opacity: 0.85;
+}
+
+.gnome-snapshot__effect-glyph {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.9;
+}
+
+.gnome-snapshot__effect-glyph--none {
+    background: linear-gradient(135deg, #888, #ccc);
+    opacity: 1;
+}
+
+.gnome-snapshot__effect-glyph--mono {
+    background: linear-gradient(135deg, #222, #eee);
+    opacity: 1;
+}
+
+.gnome-snapshot__effect-glyph--sepia {
+    background: linear-gradient(135deg, #6b4f2a, #d4b896);
+    opacity: 1;
+}
+
+.gnome-snapshot__shutter-row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    width: 100%;
+}
+
+.gnome-snapshot__side-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: inherit;
+    background: rgba(127, 127, 127, 0.15);
+    cursor: default;
+    opacity: 0.45;
+}
+
+.gnome-snapshot__shutter {
+    width: 4.25rem;
+    height: 4.25rem;
+    margin: 0;
+    padding: 0;
+    border: 0.28rem solid rgba(255, 255, 255, 0.92);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+
+.gnome-snapshot--video .gnome-snapshot__shutter {
+    border-radius: 0.85rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: #e01b24;
+    border-color: rgba(255, 255, 255, 0.92);
+}
+
+.gnome-snapshot--video .gnome-snapshot__effects {
+    opacity: 0.35;
+}

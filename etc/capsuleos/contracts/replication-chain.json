@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "description": "Chaîne de réplication VM → CapsuleOS — ordre des prédicats et gates (logique formelle §2.7). Paramétré par registryId.",
+  "domains": {
+    "skin-clone": {
+      "label": "Clone bureau complet",
+      "predicates": ["H2", "M", "I", "A", "S", "T", "L", "H6"],
+      "doc": "root/docs/convention-reproduction-os.md"
+    },
+    "gnome-settings-playbook": {
+      "label": "Playbook Paramètres GNOME",
+      "predicates": ["H2", "M", "A", "S", "T", "L", "V", "G", "Vc", "Vp", "H6"],
+      "doc": "root/docs/procedure-replication-formelle.md",
+      "specialization": "root/docs/procedure-creation-playbook-gnome-settings.md"
+    },
+    "cinnamon-settings-playbook": {
+      "label": "Playbook Paramètres Cinnamon",
+      "predicates": ["H2", "M", "I", "A", "Se", "SeΣ", "H6"],
+      "doc": "root/docs/procedure-cinnamon-settings.md",
+      "specialization": "root/docs/ground-truth-cinnamon.md",
+      "matrix": "root/tools/lab/cinnamon-settings-parity-matrix.json"
+    },
+    "kde-settings-playbook": {
+      "label": "Playbook Paramètres KDE",
+      "predicates": ["H2", "M", "I", "KdC", "KdSe", "KdΣ"],
+      "doc": "root/docs/procedure-kde-settings.md",
+      "specialization": "root/docs/ground-truth-kde.md",
+      "matrix": "root/tools/lab/kde-settings-parity-matrix.json",
+      "status": "phase-2b"
+    }
+  },
+  "predicateChecks": {
+    "H2": { "gate": "validate-all", "script": "usr/lib/capsuleos/tools/validate-all.mjs" },
+    "A": { "gate": "verify-playbook-assets", "script": "usr/lib/capsuleos/tools/lab/verify-playbook-assets.mjs", "args": ["--registry", "--strict"] },
+    "S": { "inventory": "root/docs/inventaires/{id}-gnome-settings-assets.json" },
+    "T": { "file": "usr/share/capsuleos/assets/images/vendors/{vendor}/SOURCE-VM.txt", "nonEmpty": true },
+    "L": { "gate": "run-gnome-settings-lab", "script": "usr/lib/capsuleos/tools/lab/run-gnome-settings-lab.mjs" },
+    "V": { "inventory": "root/docs/inventaires/{id}-gnome-settings-visual-investigation.json", "field": "summary.documented", "minP0": 1 },
+    "G": { "inventory": "root/docs/inventaires/{id}-gnome-settings-visual-investigation.json", "field": "gsettingsDeepPass.p0Enriched", "min": 1 },
+    "Vc": { "inventory": "root/docs/inventaires/{id}-gnome-settings-visual-investigation.json", "field": "summary.capsuleCapturesP0", "min": 1 },
+    "Vp": { "inventory": "root/docs/inventaires/{id}-gnome-settings-visual-investigation.json", "field": "summary.visualMatchClassifiedP0", "min": 1 }
+  },
+  "steps": [
+    { "id": "collect-vm-assets", "requires": ["M", "A"], "negates": ["S"], "script": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs", "args": ["--id"] },
+    { "id": "verify-assets", "requires": ["M", "S"], "negates": ["A"], "script": "usr/lib/capsuleos/tools/lab/verify-playbook-assets.mjs", "args": ["--registry", "--strict"] },
+    { "id": "visual-investigation", "requires": ["L", "S"], "negates": ["V"], "script": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-visual-investigation.mjs", "args": ["--id", "--filter", "P0"] },
+    { "id": "gsettings-deep-pass", "requires": ["V"], "negates": ["G"], "script": "usr/lib/capsuleos/tools/lab/enrich-visual-investigation-gsettings-pass.mjs", "args": ["--id"] },
+    { "id": "capsule-captures", "requires": ["G"], "negates": ["Vc"], "script": "usr/lib/capsuleos/tools/lab/collect-capsule-visual-investigation.mjs", "args": ["--id"] },
+    { "id": "visual-parity-close", "requires": ["Vc"], "negates": ["Vp"], "script": "usr/lib/capsuleos/tools/lab/enrich-visual-investigation-capsule-parity.mjs", "args": ["--id"] }
+  ],
+  "capsuleControlScenes": {
+    "theme": {
+      "panels": ["appearance"],
+      "referenceFiles": ["{prefix}-dark-desktop.png", "{prefix}-light-desktop.png", "{prefix}-dark-settings-appearance.png"],
+      "surfaces": ["desktop", "settings-app"]
+    },
+    "night-light": {
+      "panels": ["displays"],
+      "referenceFiles": ["{prefix}-dark-settings-displays.png", "{prefix}-dark-desktop.png"],
+      "surfaces": ["desktop", "settings-app"]
+    },
+    "dynamic-workspaces": {
+      "panels": [],
+      "referenceFiles": ["{prefix}-dark-overview.png"],
+      "surfaces": ["overview-mini-workspaces"]
+    },
+    "dnd": {
+      "panels": [],
+      "referenceFiles": ["{prefix}-dark-quick-settings.png"],
+      "surfaces": ["quick-settings-tile"]
+    },
+    "accent": {
+      "panels": [{ "panel": "appearance", "prepare": "accent-orange" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "wallpaper": {
+      "panels": [
+        { "panel": "background", "prepare": "wallpaper-abstract-2" },
+        { "panel": "background", "prepare": "wallpaper-abstract-2", "shot": "desktop" }
+      ],
+      "referenceFiles": [],
+      "surfaces": ["desktop", "settings-app"]
+    },
+    "hot-corner": {
+      "panels": [{ "panel": "multitasking", "prepare": "hot-corners-off" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "display-scale": {
+      "panels": [{ "panel": "displays", "prepare": "display-scale-125" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app", "desktop"]
+    },
+    "font-scale": {
+      "panels": [{ "panel": "accessibility", "prepare": "font-scale-125" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "contrast": {
+      "panels": [{ "panel": "accessibility", "prepare": "contrast-high" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "power-mode": {
+      "panels": [{ "panel": "power", "prepare": "power-mode-performance" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app", "quick-settings-tile"]
+    },
+    "search-files": {
+      "panels": [{ "panel": "search", "prepare": "search-files-off" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "notifications": {
+      "panels": [{ "panel": "notifications", "prepare": "notifications-banners-off" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "power-dim": {
+      "panels": [{ "panel": "power", "prepare": "power-dim-short" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app"]
+    },
+    "wifi": {
+      "panels": [{ "panel": "wifi", "prepare": "wifi-off" }],
+      "referenceFiles": [],
+      "surfaces": ["settings-app", "quick-settings-network"]
+    }
+  }
+}

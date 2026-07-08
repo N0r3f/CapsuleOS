@@ -1,0 +1,6 @@
+/** Alma — Numériseur simple (slot store P1). */
+body#alma main#simpleScanApp {
+    --scn-bg: #242424;
+    --scn-text: #ffffff;
+    --scn-border: rgba(255, 255, 255, 0.08);
+}

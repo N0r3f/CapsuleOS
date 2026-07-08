@@ -1,0 +1,44 @@
+/* SPDX-FileCopyrightText: 2020-2026 les contributeurs CapsuleOS */
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
+body.capsule-web-page {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background: #f5f5f5;
+}
+
+.capsule-web-header {
+    padding: 1.5rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.capsule-web-badge {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+}
+
+.capsule-web-main {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.capsule-web-main a {
+    color: #0b57d0;
+}
+
+.capsule-web-error {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.capsule-web-error h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}

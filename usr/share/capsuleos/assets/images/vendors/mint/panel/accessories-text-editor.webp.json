@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/accessories-text-editor.png",
+  "sourceSha256": "2e9f4a1113b8486b5a5a72b7ed0b3a37dc5a15284caf128bb15024fcf38ea1b1",
+  "output": "images/vendors/mint/panel/accessories-text-editor.webp",
+  "outputSha256": "dd059e72f0b67d7aae9f0f4d8c36714c6ba8ddff379927e306e3528ce9f0f0f9",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.487Z"
+}

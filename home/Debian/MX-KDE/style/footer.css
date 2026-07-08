@@ -1,0 +1,263 @@
+#mx-kde footer .taskbar-pins {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    gap: calc(var(--head) / 18);
+    min-width: 0;
+    flex: 1;
+}
+
+#mx-kde footer .taskbar-pins__apps {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 28);
+}
+
+#mx-kde footer .taskbar-pins__launcher,
+#mx-kde footer .taskbar-pins__apps > a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) * 1.12);
+    height: calc(var(--head) * 0.9);
+    margin: var(--z);
+    background: transparent;
+    border-radius: calc(var(--head) / 10);
+    border: 1px solid transparent;
+    transition: background-color var(--eas2), border-color var(--eas2);
+    position: relative;
+    text-decoration: var(--n);
+}
+
+#mx-kde footer .taskbar-pins__launcher {
+    width: calc(var(--head) * 1.2);
+}
+
+#mx-kde footer .taskbar-pins__launcher:hover,
+#mx-kde footer .taskbar-pins__apps > a:hover {
+    background: var(--mint-taskbar-item-bg-hover);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+#mx-kde footer .taskbar-pins__apps > a.active-link,
+#mx-kde footer .taskbar-pins__launcher.active-link {
+    background: var(--mint-taskbar-item-bg-active);
+    border-color: var(--mint-taskbar-item-border-hover);
+    box-shadow: var(--mint-taskbar-item-shadow-active);
+}
+
+#mx-kde footer .taskbar-pins__launcher > img,
+#mx-kde footer .taskbar-pins__apps > a > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.78);
+    height: calc(var(--head) * 0.78);
+    object-fit: contain;
+    image-rendering: var(--a);
+}
+
+#mx-kde footer .taskbar-pins__launcher > img {
+    width: calc(var(--head) * 0.86);
+    height: calc(var(--head) * 0.86);
+    filter: var(--mx-kde-mono-logo-filter);
+}
+
+#mx-kde footer .taskbar-pins__launcher:focus-visible,
+#mx-kde footer .taskbar-pins__apps > a:focus-visible {
+    outline: 2px solid rgba(130, 180, 255, 0.72);
+    outline-offset: 1px;
+}
+
+#mx-kde footer .taskbar-right {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: stretch;
+    justify-content: var(--c);
+    gap: calc(var(--head) / 18);
+    margin-right: 0;
+}
+
+#mx-kde footer .taskbar-tray {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    align-self: center;
+    gap: calc(var(--head) / 12);
+    color: var(--mint-tray-color);
+    padding: 0 calc(var(--head) / 12);
+    border-radius: calc(var(--head) / 10);
+    background: var(--mint-taskbar-right-bg);
+    border: 1px solid var(--mint-taskbar-right-separator);
+}
+
+#mx-kde footer .taskbar-tray__link,
+#mx-kde footer .taskbar-tray__item,
+#mx-kde footer .taskbar-tray__btn {
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 0.82);
+    height: calc(var(--head) * 0.82);
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: transparent;
+    color: inherit;
+    text-decoration: var(--n);
+    cursor: default;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+#mx-kde footer .taskbar-tray__link:hover,
+#mx-kde footer .taskbar-tray__btn:hover {
+    background: var(--mint-taskbar-item-bg-hover);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+#mx-kde footer .taskbar-tray__link > img,
+#mx-kde footer .taskbar-tray__item > img {
+    width: calc(var(--head) * 0.44);
+    height: calc(var(--head) * 0.44);
+    object-fit: contain;
+    opacity: 0.95;
+}
+
+#mx-kde footer .taskbar-tray__icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.44);
+    height: calc(var(--head) * 0.44);
+    opacity: 0.95;
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
+}
+
+/* Updates (Discover) */
+#mx-kde footer .taskbar-tray__icon--updates {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4a8 8 0 108 8h2A10 10 0 1112 2v2zm1 3v7h5v-2h-3V7h-2zm4.3-2.3L22 6l-4.3 1.3V4.7z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4a8 8 0 108 8h2A10 10 0 1112 2v2zm1 3v7h5v-2h-3V7h-2zm4.3-2.3L22 6l-4.3 1.3V4.7z'/%3E%3C/svg%3E");
+}
+
+#mx-kde footer .taskbar-tray__btn--updates {
+    position: relative;
+}
+
+#mx-kde footer .taskbar-tray__btn--updates[data-has-updates="true"]::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #3daee9;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
+}
+
+#mx-kde footer .taskbar-clock-trigger {
+    display: var(--f);
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: var(--c);
+    align-self: center;
+    min-width: calc(var(--head) * 1.95);
+    height: calc(var(--head) * 0.9);
+    margin: var(--z);
+    padding: calc(var(--head) / 26) calc(var(--head) / 10);
+    border: 1px solid transparent;
+    border-top: 2px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--texte);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.5);
+    cursor: default;
+    white-space: nowrap;
+    transition: background-color var(--eas2), border-color var(--eas2);
+    gap: 1px;
+}
+
+#mx-kde footer .taskbar-clock-trigger:hover {
+    background: var(--mint-taskbar-item-bg-hover);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+#mx-kde footer .taskbar-clock-trigger[aria-expanded="true"] {
+    background: rgba(110, 146, 203, 0.18);
+    border-color: rgba(130, 180, 255, 0.35);
+    border-top-color: #3daee9;
+}
+
+#mx-kde footer .taskbar-clock-trigger:focus-visible {
+    outline: 2px solid rgba(130, 180, 255, 0.72);
+    outline-offset: 1px;
+}
+
+#mx-kde footer .taskbar-clock-trigger > .taskbar__clock {
+    color: inherit;
+    font-size: calc(var(--head) / 2.55);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    line-height: 1.05;
+    pointer-events: none;
+}
+
+#mx-kde footer .taskbar-clock-trigger > .taskbar__date {
+    color: var(--mint-clock-date-color);
+    font-size: calc(var(--head) / 3.7);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.05;
+    pointer-events: none;
+}
+
+#mx-kde footer .taskbar-show-desktop {
+    flex-shrink: 0;
+    align-self: stretch;
+    width: calc(var(--head) / 11);
+    min-width: 0.35rem;
+    max-width: 0.45rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: var(--calendar-popover-today-bg, #3daee9);
+    cursor: default;
+    transition: background-color var(--eas2);
+}
+
+#mx-kde footer .taskbar-show-desktop:hover {
+    background: var(--calendar-popover-today-hover-bg, #4ebaf0);
+}
+
+#mx-kde footer .taskbar-show-desktop:focus-visible {
+    outline: 2px solid rgba(130, 180, 255, 0.72);
+    outline-offset: -2px;
+}
+
+@media (max-width: 900px) {
+    #mx-kde footer .taskbar-tray__link,
+    #mx-kde footer .taskbar-tray__item,
+    #mx-kde footer .taskbar-tray__btn {
+        width: calc(var(--head) * 0.74);
+        height: calc(var(--head) * 0.74);
+    }
+
+    #mx-kde footer .taskbar-clock-trigger {
+        min-width: calc(var(--head) * 1.7);
+        align-items: center;
+    }
+
+    #mx-kde footer .taskbar-clock-trigger > .taskbar__date {
+        display: none;
+    }
+}

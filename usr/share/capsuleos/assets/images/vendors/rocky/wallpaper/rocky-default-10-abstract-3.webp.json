@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-3.png",
+  "sourceSha256": "ae3eefaac4dd05fe002c1d2624a638f3c5a5b5352c913c8870d6fe058a0422c4",
+  "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-3.webp",
+  "outputSha256": "0cc893f56c06d86ddadc6df05cef0be85d8532c84fdcdd5465632da3f1af376d",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 3072,
+  "preparedAt": "2026-06-07T09:28:53.771Z"
+}

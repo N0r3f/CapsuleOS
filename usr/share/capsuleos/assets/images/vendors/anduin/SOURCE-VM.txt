@@ -1,0 +1,17 @@
+# Ground truth VM — linux-anduinos
+# Host: <lab-inventory:linux-anduinos>
+# Date: 2026-06-16
+# Matrice: root/tools/lab/gnome-settings-assets-matrix-anduin.json
+
+/usr/share/backgrounds/new_mountain-light.png
+/usr/share/backgrounds/new_mountain-dark.png
+/usr/share/backgrounds/Floating-objects-dark.png
+/usr/share/backgrounds/Floating-objects-light.jpg
+/usr/share/backgrounds/Fluent-building-light.png
+/usr/share/backgrounds/Fluent-building-night.png
+/usr/share/backgrounds/new_bubbles-dark.jpg
+/usr/share/backgrounds/new_bubbles-light.jpg
+
+# import-manifest-staging 2026-06-17T10:40:54.089Z
+files: 95
+Connexion SSH : etc/capsuleos/lab-inventory.json (local, gitignoré).

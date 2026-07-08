@@ -1,0 +1,33 @@
+/**
+ * Variables dérivées (--head) — une seule source pour chrome, Nemo, Dolphin, GNOME.
+ * Importer après variables-linux.css.
+ */
+:root {
+    --head-gutter: calc(var(--head) / 20);
+    --head-quarter: calc(var(--head) / 4);
+    --head-fifth: calc(var(--head) / 5);
+    --head-eighth: calc(var(--head) / 8);
+    --head-tenth: calc(var(--head) / 10);
+    --head-twelfth: calc(var(--head) / 12);
+
+    --window-header-height: calc(var(--head) / 1.3);
+    --window-header-width: calc(var(--full) - var(--head-gutter));
+    --window-header-max-width: var(--full);
+    --window-header-padding: var(--head-quarter);
+    --window-header-radius: var(--head-quarter);
+    --window-client-min-height: calc(var(--full) - var(--window-header-height));
+    --window-iframe-width: var(--window-header-width);
+
+    --chrome-btn-size: calc(var(--head) / 2);
+    --chrome-nav-min-width: calc(var(--head) * 2.2);
+    --explorer-titlebar-min-height: calc(var(--head) * 1.35);
+    --explorer-font-lg: calc(var(--head) / 2.1);
+    --explorer-font-md: calc(var(--head) / 2.2);
+    --explorer-font-sm: calc(var(--head) / 2.55);
+    --explorer-gap-md: var(--head-fifth);
+    --explorer-gap-sm: var(--head-tenth);
+    --explorer-sidebar-width: clamp(200px, calc(var(--head) * 7), 280px);
+    --explorer-padding-md: var(--head-fifth) var(--head-quarter);
+
+    --win-client-gutter: var(--head-gutter);
+}

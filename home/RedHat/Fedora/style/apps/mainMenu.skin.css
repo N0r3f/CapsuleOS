@@ -1,0 +1,45 @@
+/**
+ * Fedora - menu Activités (surcouche injectée après mainMenu.base.css).
+ * Positionnement type shell GNOME sous la top bar, teinte sombre Adwaita-like.
+ */
+
+body#fedora {
+    --menu-sidebar-bg: #2b2b2b;
+    --menu-cats-bg: #303030;
+    --menu-apps-bg: #343434;
+    --menu-shell-border: rgba(0, 0, 0, 0.55);
+    --menu-sidebar-separator: rgba(255, 255, 255, 0.07);
+    --menu-border-soft-light: 1px solid rgba(255, 255, 255, 0.06);
+    --menu-border-soft-dark: 1px solid rgba(0, 0, 0, 0.35);
+    --menu-item-active-bg: rgba(53, 132, 228, 0.35);
+    --menu-shortcut-hover: rgba(255, 255, 255, 0.08);
+    --menu-action-hover: rgba(255, 255, 255, 0.12);
+    --menu-accent: #3584e4;
+}
+
+html[data-theme="light"]:has(#fedora) body#fedora {
+    --menu-sidebar-bg: #ececec;
+    --menu-cats-bg: #e6e6e6;
+    --menu-apps-bg: #f2f2f2;
+    --menu-shell-border: rgba(0, 0, 0, 0.12);
+    --menu-sidebar-separator: rgba(0, 0, 0, 0.08);
+    --menu-border-soft-light: 1px solid rgba(255, 255, 255, 0.9);
+    --menu-border-soft-dark: 1px solid rgba(0, 0, 0, 0.1);
+    --menu-item-active-bg: rgba(53, 132, 228, 0.22);
+    --menu-shortcut-hover: rgba(0, 0, 0, 0.05);
+    --menu-action-hover: rgba(0, 0, 0, 0.07);
+}
+
+body#fedora object > div[data-link="mainMenu"] {
+    top: calc(var(--fedora-top-bar-height) + calc(var(--head) / 10));
+    bottom: auto;
+    left: calc(var(--fedora-dock-width) + calc(var(--head) / 10));
+    border-radius: 14px;
+    box-shadow: var(--fedora-window-shadow, 0 12px 40px rgba(0, 0, 0, 0.42));
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+html[data-theme="light"]:has(#fedora) body#fedora object > div[data-link="mainMenu"] {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--fedora-window-shadow);
+}

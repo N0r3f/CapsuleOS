@@ -1,0 +1,6 @@
+/* Mint — Baobab (analyseur d'espace disque) */
+body#mint div[data-link="baobab"].windowElement {
+    width: calc(var(--head) * 18);
+    min-width: calc(var(--head) * 15);
+    height: calc(var(--head) * 13);
+}

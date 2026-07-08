@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "description": "Contrat manifeste distribution VM — ground truth multi-vendor (apps + médias réplication).",
+  "predicates": {
+    "ManV": "Manifeste collecté proc/<id>/distribution-manifest.json",
+    "ManS": "smoke-vm-distribution-manifest OK",
+    "ManA": "validation.approved — approve-vm-distribution-manifest.mjs",
+    "ManI": "import.status=completed — import-manifest-staging.mjs (recommandé) ou import-vm-manifest-assets.mjs (legacy)",
+    "PbM": "Playbook réplication généré (generate-manifest-replication-playbook.mjs)",
+    "ManSt": "Staging VM centralisé (run-manifest-staging-on-vm.mjs)",
+    "ManΣ": "ManV ∧ ManS ∧ ManA ∧ ManI",
+    "ManΣ′": "ManV ∧ PbM ∧ ManS ∧ ManA ∧ ManSt ∧ ManI"
+  },
+  "manifestVersion": 2,
+  "mediaSections": [
+    "fonts", "mimetypes", "places", "emblems", "symbolic", "panel", "branding", "wallpapers", "appIcons"
+  ],
+  "mediaCatalog": "etc/capsuleos/contracts/vm-manifest-media-catalog.json",
+  "requiredFields": [
+    "manifestVersion",
+    "registryId",
+    "distribution",
+    "toolkit",
+    "applications",
+    "media",
+    "import",
+    "validation"
+  ],
+  "toolkitDenyIds": {
+    "gnome": [
+      "org.gnome.Evolution-alarm-notify",
+      "org.gnome.evolution-data-server.OAuth2-handler",
+      "org.gnome.OnlineAccounts.OAuth2",
+      "org.gnome.goa-daemon",
+      "org.gnome.Papers-previewer",
+      "org.gnome.Zenity",
+      "org.gnome.Shell.Extensions",
+      "info",
+      "nm-connection-editor",
+      "vim"
+    ],
+    "kde": [],
+    "cinnamon": []
+  },
+  "desktopSearchPaths": [
+    "/usr/share/applications",
+    "/usr/local/share/applications",
+    "/var/lib/snapd/desktop/applications",
+    "/var/lib/flatpak/exports/share/applications",
+    "~/.local/share/flatpak/exports/share/applications",
+    "~/.local/share/applications"
+  ],
+  "chain": [
+    "ensure-vm-manifest-vendor.mjs --write",
+    "collect-vm-distribution-manifest.mjs --write --ssh",
+    "smoke-vm-distribution-manifest.mjs",
+    "generate-manifest-replication-playbook.mjs --write",
+    "approve-vm-distribution-manifest.mjs --write",
+    "run-manifest-staging-on-vm.mjs --write",
+    "import-manifest-staging.mjs --write",
+    "collect-vm-apps-inventory.mjs --write"
+  ],
+  "orchestrator": "usr/lib/capsuleos/tools/lab/run-manifest-replication-chain.mjs",
+  "outputPaths": {
+    "manifest": "proc/<registryId>/distribution-manifest.json",
+    "alias": "proc/<registryId>/<distribution.slug>.json",
+    "desktopRaw": "proc/<registryId>/desktop-entries-raw.json",
+    "appV": "root/docs/inventaires/<registryId>-vm-apps-installed.json"
+  }
+}

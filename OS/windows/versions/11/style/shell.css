@@ -1,0 +1,45 @@
+:root {
+    --win-taskbar-bg: #1a1a1a;
+    --win-taskbar-hover: rgba(255, 255, 255, 0.08);
+    --win-window-radius: 8px;
+    --win-window-header-bg: #2d2d2d;
+    --win-start-menu-bg: rgba(36, 36, 36, 0.96);
+    --win-font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+    --win-desktop-bg-gradient: linear-gradient(160deg, #1a3a5c 0%, #2d5a87 40%, #4a90c4 100%);
+    /* fond.jpg optionnel — win-desktop.js tente wallpaper.* */
+    --win-desktop-bg-image: none;
+}
+
+body {
+    font-family: var(--win-font-family);
+}
+
+main {
+    background-color: #1a3a5c;
+    background-image: var(--win-desktop-bg-gradient);
+    background-size: cover;
+    background-position: center;
+}
+
+footer {
+    background: var(--win-taskbar-bg);
+}
+
+footer>menu>a:hover,
+footer>menu>i:hover {
+    background: var(--win-taskbar-hover);
+}
+
+#windowContainer,
+.win-window {
+    border-radius: var(--win-window-radius);
+}
+
+#windowHeader {
+    background: var(--win-window-header-bg);
+    border-radius: var(--win-window-radius) var(--win-window-radius) 0 0;
+}
+
+div#menu {
+    background: var(--win-start-menu-bg);
+}

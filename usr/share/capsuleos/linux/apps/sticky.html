@@ -1,0 +1,32 @@
+<main id="stickyApp" class="stk-app" aria-label="Notes">
+
+    <header class="stk-app__toolbar sticky-toolbar">
+        <button type="button" class="stk-app__btn" data-stk-action="new" aria-label="Nouvelle note">+</button>
+        <button type="button" class="stk-app__btn" data-stk-action="delete" aria-label="Supprimer">🗑</button>
+        <div class="stk-app__colors" aria-label="Couleur de la note">
+            <button type="button" class="stk-app__color" data-stk-color="yellow" aria-label="Jaune" title="Jaune"></button>
+            <button type="button" class="stk-app__color" data-stk-color="green" aria-label="Vert" title="Vert"></button>
+            <button type="button" class="stk-app__color" data-stk-color="pink" aria-label="Rose" title="Rose"></button>
+        </div>
+        <span class="stk-app__toolbar-title">Notes</span>
+    </header>
+
+    <div class="stk-app__body">
+        <ul class="stk-app__list" id="stk-list" aria-label="Liste des notes">
+            <li class="stk-app__item is-active sticky-note" data-stk-id="1">
+                <span class="stk-app__item-title">Liste de courses</span>
+            </li>
+            <li class="stk-app__item sticky-note" data-stk-id="2">
+                <span class="stk-app__item-title">Idées Mint</span>
+            </li>
+        </ul>
+        <textarea class="stk-app__editor sticky-note" id="stk-editor" aria-label="Contenu de la note">Lait
+Pain
+Café</textarea>
+    </div>
+
+    <div class="stk-app__delete-confirm sticky-delete sticky-delete-confirm" id="stk-delete-confirm" hidden role="alert">
+        Note supprimée
+    </div>
+
+</main>

@@ -1,0 +1,8 @@
+/** Alma — Thunderbird (slot store P1). */
+body#alma main#thunderbirdApp {
+    --tbd-bg: #242424;
+    --tbd-text: #ffffff;
+    --tbd-muted: rgba(255, 255, 255, 0.62);
+    --tbd-menubar: #303030;
+    --tbd-border: rgba(255, 255, 255, 0.08);
+}

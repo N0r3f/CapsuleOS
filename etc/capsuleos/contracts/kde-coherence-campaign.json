@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "description": "Campagne cohérence KDE Neon (legacy G-coherence — voir v12-excellence replication-state).",
+  "doc": "root/docs/briefs/linux-kde-neon.md",
+  "registryId": "linux-kde-neon",
+  "entrypoint": "usr/lib/capsuleos/tools/lab/run-kde-coherence-campaign.mjs",
+  "defaultHttpBase": "http://127.0.0.1:8765",
+  "phases": [
+    {
+      "id": "Gc0",
+      "pallier": 0,
+      "label": "Socle anti-régression",
+      "commitMessage": "KDE Neon Gc0 : socle anti-régression bundle smokes.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs", "label": "H2" },
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-discover-kde-neon.mjs", "label": "Discover syntax" },
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-h6-kde-settings-ready.mjs", "label": "H6 settings ready", "args": ["--id"] },
+        { "script": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs", "label": "SeΣ chain", "args": ["--id"] }
+      ],
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "Gc1",
+      "pallier": 1,
+      "label": "Se+ Paramètres KDE",
+      "commitMessage": "KDE Neon Gc1 : Se+ matrice Paramètres KDE (panneaux VM delta).",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs", "label": "SeΣ", "args": ["--id"] },
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-h6-kde-settings-ready.mjs", "label": "H6 settings", "args": ["--id"] }
+      ],
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "Gc2",
+      "pallier": 2,
+      "label": "Shell cohérence UI state effects",
+      "commitMessage": "KDE Neon Gc2 : cohérence shell UI state effects KDE.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-kde-ui-state-effects-pass.mjs", "label": "KDE UI state", "args": ["--id", "--write"] },
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-kde-neon-shell-polish.mjs", "label": "Shell polish" },
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-kde-neon-kickoff.mjs", "label": "Kickoff" }
+      ],
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "Gc3",
+      "pallier": 3,
+      "label": "Discover install chain",
+      "commitMessage": "KDE Neon Gc3 : chaîne install Discover cohérente kickoff.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-discover-kde-neon.mjs", "label": "Discover syntax" },
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-kde-neon-discover.mjs", "label": "Discover runtime" }
+      ],
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "Gc4",
+      "pallier": 4,
+      "label": "CredΣ étendu",
+      "commitMessage": "KDE Neon Gc4 : CredΣ étendu themes discover install.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-kde-fidelity-all.mjs", "label": "CredΣ all", "args": ["--id"] }
+      ],
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "Gc5",
+      "pallier": 5,
+      "label": "Passe intégrale pivot",
+      "commitMessage": "KDE Neon Gc5 : passe intégrale pivot Π cohérent.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-kde-neon-pass.mjs", "label": "Neon pass", "args": ["--write"] },
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs", "label": "H2" }
+      ],
+      "closure": ["sync-all-views", "commit-push"]
+    },
+    {
+      "id": "Gc6a",
+      "pallier": 6,
+      "label": "Propagation Se openSUSE",
+      "commitMessage": "KDE Neon Gc6a : cohérence Se openSUSE.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs", "label": "Se openSUSE", "args": ["--id", "linux-opensuse"] }
+      ],
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "Gc6b",
+      "pallier": 7,
+      "label": "Propagation Se MX-KDE",
+      "commitMessage": "KDE Neon Gc6b : cohérence Se MX-KDE.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs", "label": "Se MX-KDE", "args": ["--id", "linux-mx-kde"] }
+      ],
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "Gc6c",
+      "pallier": 8,
+      "label": "Propagation Se Debian-KDE",
+      "commitMessage": "KDE Neon Gc6c : cohérence Se Debian-KDE.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs", "label": "Se Debian-KDE", "args": ["--id", "linux-debian-kde"] }
+      ],
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "Gc7",
+      "pallier": 9,
+      "label": "Clôture campagne G-coherence",
+      "commitMessage": "KDE Neon Gc7 : clôture campagne G-coherence.",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs", "label": "H2" },
+        { "script": "usr/lib/capsuleos/tools/lab/run-cross-regression-gates.mjs", "label": "Cx", "optional": true },
+        { "script": "usr/lib/capsuleos/tools/validate-os-reproduction-coherence.mjs", "label": "OsRepro", "optional": true }
+      ],
+      "closure": ["sync-all-views", "commit-push"]
+    }
+  ]
+}

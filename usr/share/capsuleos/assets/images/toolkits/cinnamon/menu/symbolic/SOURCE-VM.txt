@@ -1,0 +1,14 @@
+# Icônes catégories menu Cinnamon — symboliques officielles XApp (xsi-*)
+# Source VM : registryId linux-mint — voir lab-inventory.json (local)
+# Chemin VM : /usr/share/icons/hicolor/scalable/actions/xsi-*.svg
+#             /usr/share/icons/hicolor/scalable/categories/cinnamon-all-applications-symbolic.svg
+# Paquet : xapp / cinnamon (menu@cinnamon.org, option symbolic-category-icons)
+# Collecte : 2026-06-11 — campagne générale Mint Φ (visual-scenes.json scène shell/menu)
+# Usage : colonne catégories du menu principal (mainMenu-data-cinnamon.js MENU_CATS)
+# Rendu : fill sombre d'origine ; recoloration thème via CSS filter (aligné St.Icon SYMBOLIC)
+#
+# Sidebar menu (avatar + boutons session) — collecte 2026-06-11 :
+#   xsi-avatar-default-symbolic.svg      ← /usr/share/icons/Mint-Y/status/symbolic/avatar-default-symbolic.svg (paquet mint-y-icons)
+#   xsi-system-lock-screen-symbolic.svg  ← /usr/share/icons/Adwaita/symbolic/status/system-lock-screen-symbolic.svg (fallback Mint-Y→Adwaita, paquet adwaita-icon-theme)
+#   xsi-system-log-out-symbolic.svg      ← /usr/share/icons/Adwaita/symbolic/actions/system-log-out-symbolic.svg
+#   xsi-system-shutdown-symbolic.svg     ← /usr/share/icons/Adwaita/symbolic/actions/system-shutdown-symbolic.svg

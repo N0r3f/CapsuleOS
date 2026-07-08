@@ -1,0 +1,22 @@
+<main id="gnomeCharactersApp" class="gnome-characters" aria-label="Caractères">
+
+    <header class="gnome-characters__header">
+        <div class="gnome-characters__search-wrap">
+            <span class="gnome-characters__search-icon" aria-hidden="true"></span>
+            <input type="search" id="gnome-characters-search" class="gnome-characters__search" data-characters-gnome-action="search" placeholder="Rechercher…" aria-label="Rechercher un caractère" autocomplete="off" spellcheck="false">
+        </div>
+    </header>
+
+    <section class="gnome-characters__body">
+        <div class="gnome-characters__preview" id="gnome-characters-preview" aria-live="polite">
+            <span class="gnome-characters__glyph" id="gnome-characters-glyph" aria-hidden="true">é</span>
+            <span class="gnome-characters__name" id="gnome-characters-name">e accent aigu</span>
+            <span class="gnome-characters__code" id="gnome-characters-code">U+00E9</span>
+            <button type="button" class="gnome-characters__copy" id="gnome-characters-copy" data-characters-gnome-action="copy" title="Copier dans le presse-papiers">Copier</button>
+        </div>
+        <h3 class="gnome-characters__section-title">Récents</h3>
+        <div class="gnome-characters__grid" id="gnome-characters-grid" role="list" aria-label="Caractères récents"></div>
+        <p class="gnome-characters__empty" id="gnome-characters-empty" hidden>Aucun caractère ne correspond à la recherche.</p>
+    </section>
+
+</main>

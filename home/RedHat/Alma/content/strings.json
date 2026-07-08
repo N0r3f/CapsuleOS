@@ -1,0 +1,10 @@
+{
+    "explorer.windowTitle": "Dossier personnel - Fichiers",
+    "mainMenu.windowTitle": "Activités",
+    "themes.windowTitle": "Paramètres",
+    "checklist.windowTitle": "Missions",
+    "checklist.description": "Explore AlmaLinux en accomplissant ces missions. Ta progression est sauvegardée.",
+    "checklist.hint.open-nemo": "Lance Fichiers depuis le dock ou l'aperçu",
+    "checklist.hint.open-menu": "Ouvre l'aperçu des activités (barre du haut)",
+    "checklist.hint.open-profile": "Ouvre le profil AlmaLinux"
+}

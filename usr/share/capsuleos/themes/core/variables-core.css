@@ -1,0 +1,16 @@
+/* Primitives noyau central — une seule définition par token */
+:root {
+    --capsule-space-unit: 0.25rem;
+    --capsule-radius-sm: 0.25rem;
+    --capsule-radius-md: 0.5rem;
+    --capsule-radius-lg: 0.75rem;
+    --capsule-z-base: 1;
+    --capsule-z-window: 100;
+    --capsule-z-panel: 500;
+    --capsule-z-modal: 1000;
+    --capsule-duration-fast: 120ms;
+    --capsule-duration-normal: 200ms;
+    --capsule-font-size-sm: 0.8125rem;
+    --capsule-font-size-md: 0.875rem;
+    --capsule-font-size-lg: 1rem;
+}

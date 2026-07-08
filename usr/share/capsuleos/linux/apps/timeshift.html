@@ -1,0 +1,33 @@
+<main id="timeshiftApp" class="tsh-app" aria-label="Timeshift">
+
+    <header class="tsh-app__header">
+        <img class="tsh-app__logo" src="./assets/images/toolkits/gnome/apps/timeshift-gtk" alt="">
+        <h1 class="tsh-app__title">Timeshift</h1>
+        <button type="button" class="tsh-app__btn" data-tsh-action="settings">Paramètres</button>
+    </header>
+
+    <div class="tsh-app__body">
+        <aside class="tsh-app__sidebar">
+            <button type="button" class="tsh-app__nav is-active" data-tsh-view="snapshots">Instantanés</button>
+            <button type="button" class="tsh-app__nav" data-tsh-view="schedule">Planification</button>
+        </aside>
+        <section class="tsh-app__main" data-tsh-panel="snapshots">
+            <div class="tsh-app__toolbar">
+                <button type="button" class="tsh-app__btn tsh-app__btn--primary" data-tsh-action="create">Créer</button>
+                <button type="button" class="tsh-app__btn" data-tsh-action="restore">Restaurer</button>
+                <button type="button" class="tsh-app__btn" data-tsh-action="delete">Supprimer</button>
+            </div>
+            <ul class="tsh-app__list" id="tsh-list">
+                <li class="tsh-app__snap is-selected">
+                    <span class="tsh-app__snap-date">2026-06-08 08:00</span>
+                    <span class="tsh-app__snap-type">Planifié</span>
+                </li>
+                <li class="tsh-app__snap">
+                    <span class="tsh-app__snap-date">2026-06-07 08:00</span>
+                    <span class="tsh-app__snap-type">Planifié</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+</main>

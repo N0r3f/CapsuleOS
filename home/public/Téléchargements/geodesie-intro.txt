@@ -1,0 +1,7 @@
+Géodésie — extrait pédagogique
+
+La géodésie mesure la forme et le champ de gravité de la Terre.
+Les satellites GNSS (GPS, Galileo) s’appuient sur des modèles géodésiques
+pour convertir les coordonnées en positions sur la carte.
+
+CapsuleOS : fichier d’exemple dans Téléchargements.

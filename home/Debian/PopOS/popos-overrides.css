@@ -1,0 +1,21 @@
+/* Dernier lien CSS - ajustements shell Pop!_OS après skins apps. */
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/popos/Ubuntu[wdth,wght].ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/popos/UbuntuMono-Italic[wght].ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body#popos {
+    --font-ui: "Open Sans", "Ubuntu Sans", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Ubuntu Mono", "DejaVu Sans Mono", monospace;
+}

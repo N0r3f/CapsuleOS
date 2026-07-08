@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jbaer_wave.jpg",
+  "sourceSha256": "a88a462f659854bb121746dcfbf2731574da7f243965688b691a01985547b007",
+  "output": "images/vendors/mint/wallpaper/jbaer_wave.webp",
+  "outputSha256": "8596188246b384f8efb56b2a1b882b0996dc44be60b265787c8d3649521d0441",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 640,
+  "preparedAt": "2026-06-15T19:41:39.431Z"
+}

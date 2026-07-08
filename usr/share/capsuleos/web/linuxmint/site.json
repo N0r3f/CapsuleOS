@@ -1,0 +1,9 @@
+{
+  "siteId": "linuxmint",
+  "title": "Linux Mint (simulé)",
+  "hosts": ["linuxmint.com", "www.linuxmint.com"],
+  "locale": "fr-FR",
+  "contentLicense": "GPL-3.0-or-later",
+  "author": "CapsuleOS — contenu pédagogique original",
+  "note": "Contenu original CapsuleOS ; marques Linux Mint appartiennent à leurs titulaires."
+}

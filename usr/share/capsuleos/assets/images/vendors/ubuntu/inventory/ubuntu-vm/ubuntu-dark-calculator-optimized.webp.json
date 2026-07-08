@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-calculator.png",
+  "sourceSha256": "58ce8696008dca6f454bed97b4e8002de9f658409b6b0a45af73d59b537d9b9c",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-calculator-optimized.webp",
+  "outputSha256": "9fc90d1127708505dfd1cafe6f94f3508c11e278f9043a48e7d7fbf34b30c86a",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:27.130Z"
+}

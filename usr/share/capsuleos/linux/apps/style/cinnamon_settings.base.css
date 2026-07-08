@@ -1,0 +1,332 @@
+main#cinnamonSettingsApp {
+    position: var(--rel);
+    display: flex;
+    flex-flow: column nowrap;
+    width: var(--full);
+    height: var(--full);
+    overflow: hidden;
+    font-family: var(--font-ui, 'Ubuntu', sans-serif);
+    font-size: 13.3px;
+    color: #e1e1e1;
+    background: #2e2e33;
+}
+
+.cs-home,
+.cs-panel-view {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+}
+
+.cs-panel-view[hidden],
+.cs-home[hidden] {
+    display: none !important;
+}
+
+/* Barre recherche VM — toujours visible (accueil et panneau) */
+.cs-app__top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 8px 12px 6px;
+    border-bottom: 1px solid #202023;
+}
+
+.cs-home__search {
+    width: 220px;
+    padding: 5px 8px 5px 28px;
+    border: 1px solid #404046;
+    border-radius: 3px;
+    background-color: #222226;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 16 16'%3E%3Cpath fill='%23aaa' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    color: #e1e1e1;
+    font: inherit;
+    font-size: 13.3px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.cs-home__search:focus {
+    outline: 2px solid #1f9ede;
+    outline-offset: 0;
+    border-color: #1f9ede;
+}
+
+.cs-home__scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 8px 12px;
+}
+
+.cs-home__category {
+    margin-bottom: 6px;
+}
+
+.cs-home__category-head {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 4px 4px;
+    color: #b8b8bc;
+    font-size: 13.3px;
+    font-weight: 600;
+}
+
+.cs-home__category-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.cs-home__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px 0;
+}
+
+.cs-home__tile {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 8px 4px 10px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    cursor: var(--p);
+    min-height: 88px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.cs-home__tile:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.cs-home__tile[hidden] {
+    display: none !important;
+}
+
+.cs-home__tile-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.cs-home__tile-label {
+    display: block;
+    max-width: 100%;
+    padding: 0 2px;
+    font-size: 12px;
+    line-height: 1.25;
+    color: #d4d4d6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Vue panneau */
+.cs-panel-view__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border-bottom: 1px solid #202023;
+}
+
+.cs-panel-view__back {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid #404046;
+    border-radius: 4px;
+    background: #333338;
+    color: #e1e1e1;
+    font-size: 12px;
+    cursor: var(--p);
+}
+
+.cs-panel-view__back:hover {
+    background: #3c3c44;
+}
+
+.cs-panel-view__title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.cs-app__panels {
+    flex: 1;
+    overflow: auto;
+    padding: 0.75rem 0.85rem;
+}
+
+.cs-panel[hidden] {
+    display: none !important;
+}
+
+.cs-panel.is-active {
+    display: block;
+}
+
+.cs-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cs-row__label {
+    flex: 1;
+}
+
+.cs-switch {
+    width: 2.6rem;
+    height: 1.35rem;
+    border: 0;
+    border-radius: 999px;
+    background: #555;
+    cursor: var(--p);
+    position: relative;
+}
+
+.cs-switch.is-on {
+    background: #1f9ede;
+}
+
+.cs-switch::after {
+    content: "";
+    position: absolute;
+    top: 0.15rem;
+    left: 0.15rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.15s ease;
+}
+
+.cs-switch.is-on::after {
+    transform: translateX(1.2rem);
+}
+
+.cs-row--parity {
+    padding: 0.65rem 0.85rem;
+}
+
+.cs-row--select {
+    flex-wrap: wrap;
+}
+
+.cs-select {
+    min-width: 12rem;
+    max-width: 100%;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 4px;
+    background: #2a2a2e;
+    color: #e8e8ec;
+    font: inherit;
+    cursor: var(--p);
+}
+
+.cs-panel--parity {
+    overflow-y: auto;
+    padding: 0.35rem 0;
+}
+
+.cs-panel--parity.cs-backgrounds .cs-bg-panel {
+    margin-top: 0.5rem;
+    padding: 0.75rem 0.85rem 0.35rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cs-bg-panel__title {
+    margin: 0 0 0.65rem;
+    font-size: 13px;
+    font-weight: 600;
+    color: #b8b8bc;
+}
+
+.cs-panel--parity .themes-wallpaper-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+    gap: 10px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.cs-panel--themes {
+    overflow-y: auto;
+    padding: 0.65rem 0.85rem;
+}
+
+.cs-panel--themes #themesApp {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #e1e1e1;
+}
+
+.themes-style-popover {
+    position: absolute;
+    z-index: 20;
+    top: 100%;
+    left: 0;
+    min-width: 12rem;
+    margin-top: 0.25rem;
+    padding: 0.35rem 0;
+    border: 1px solid #3a3a40;
+    border-radius: 4px;
+    background: #2e2e33;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.themes-app__control {
+    position: relative;
+}
+
+.themes-style-popover__item {
+    display: block;
+    width: 100%;
+    padding: 0.45rem 0.75rem;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: var(--p);
+}
+
+.themes-style-popover__item:hover,
+.themes-style-popover__item.is-active {
+    background: rgba(31, 158, 222, 0.22);
+}

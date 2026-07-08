@@ -1,0 +1,88 @@
+/* Bureau Cinnamon — menu contextuel clic droit */
+body#mint {
+    --mint-desktop-context-border: 1px solid rgba(255, 255, 255, 0.1);
+    --mint-desktop-context-bg: rgba(32, 32, 36, 0.96);
+    --mint-desktop-context-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    --mint-desktop-context-text: #f5f6f8;
+    --mint-desktop-context-hover: rgba(255, 255, 255, 0.1);
+    --mint-desktop-context-muted: rgba(245, 246, 248, 0.55);
+}
+
+html[data-theme="light"] body#mint {
+    --mint-desktop-context-border: 1px solid rgba(0, 0, 0, 0.12);
+    --mint-desktop-context-bg: rgba(248, 248, 250, 0.98);
+    --mint-desktop-context-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    --mint-desktop-context-text: #1e1e22;
+    --mint-desktop-context-hover: rgba(0, 0, 0, 0.06);
+    --mint-desktop-context-muted: rgba(30, 30, 34, 0.5);
+}
+
+.desktop-context-menu {
+    position: fixed;
+    z-index: 700;
+    min-width: calc(var(--head) * 6.5);
+    margin: 0;
+    padding: calc(var(--head) / 10) 0;
+    list-style: none;
+    border: var(--mint-desktop-context-border);
+    border-radius: calc(var(--head) / 10);
+    background: var(--mint-desktop-context-bg);
+    box-shadow: var(--mint-desktop-context-shadow);
+    color: var(--mint-desktop-context-text);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.8);
+}
+
+.desktop-context-menu[hidden] {
+    display: none;
+}
+
+.desktop-context-menu__item {
+    display: block;
+    width: 100%;
+    padding: calc(var(--head) / 5) calc(var(--head) / 2.5);
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: default;
+    transition: background-color var(--eas2);
+}
+
+.desktop-context-menu__item:hover:not(:disabled) {
+    background: var(--mint-desktop-context-hover);
+}
+
+.desktop-context-menu__item:disabled {
+    color: var(--mint-desktop-context-muted);
+    opacity: 0.72;
+    cursor: default;
+}
+
+.desktop-context-menu__separator {
+    height: 1px;
+    margin: calc(var(--head) / 12) calc(var(--head) / 6);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] .desktop-context-menu__separator {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Menu contextuel barre titre Muffin — réutilise tokens bureau */
+.muffin-window-context-menu {
+    z-index: 12000;
+}
+
+.muffin-window-context-menu__item--checked::before {
+    content: "✓";
+    display: inline-block;
+    width: 1.1em;
+    margin-right: 0.15em;
+    opacity: 0.9;
+}
+
+/* Menu contextuel panel Cinnamon — au-dessus du footer #tableau */
+.mint-panel-context-menu {
+    z-index: 8000;
+}

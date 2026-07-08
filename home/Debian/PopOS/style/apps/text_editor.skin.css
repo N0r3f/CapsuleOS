@@ -1,0 +1,56 @@
+/**
+ * Pop!_OS — Éditeur de texte COSMIC.
+ */
+body#popos {
+    --xed-chrome-bg: #1a1a1e;
+    --xed-status-bg: #121214;
+    --xed-buffer-bg: #f4f4f6;
+    --xed-buffer-text: #1a1a1e;
+    --xed-text: #f4f4f6;
+    --xed-border: rgba(255, 255, 255, 0.08);
+    --xed-menu-surface-bg: #242428;
+    --xed-menu-hover-bg: rgba(72, 185, 199, 0.15);
+    --xed-toolbar-hover-bg: rgba(255, 255, 255, 0.08);
+    --xed-toolbar-active-bg: rgba(72, 185, 199, 0.22);
+    --xed-toolbar-icon-filter: brightness(0) invert(1);
+}
+
+html[data-theme="light"]:has(#popos) body#popos {
+    --xed-chrome-bg: #f3f3f3;
+    --xed-status-bg: #e8e8e8;
+    --xed-buffer-bg: #ffffff;
+    --xed-buffer-text: #1a1a1e;
+    --xed-text: #1a1a1e;
+    --xed-border: rgba(0, 0, 0, 0.1);
+    --xed-menu-surface-bg: #ffffff;
+    --xed-menu-hover-bg: rgba(42, 154, 173, 0.12);
+    --xed-toolbar-icon-filter: brightness(0);
+}
+
+body#popos div[data-link="text_editor"] #windowHeader {
+    background: var(--xed-chrome-bg);
+    border-bottom: 1px solid var(--xed-border);
+}
+
+body#popos div[data-link="text_editor"] #windowTitle {
+    color: var(--xed-text);
+}
+
+body#popos main#xedApp {
+    color: var(--xed-text);
+    background: var(--xed-chrome-bg);
+}
+
+body#popos .xed-app__editor-wrap,
+body#popos .xed-app__area {
+    color: var(--xed-buffer-text);
+    background: var(--xed-buffer-bg);
+}
+
+body#popos .xed-app__tool:hover {
+    border-color: #48b9c7;
+}
+
+body#popos .xed-app__tool img {
+    filter: var(--xed-toolbar-icon-filter);
+}

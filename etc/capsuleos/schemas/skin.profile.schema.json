@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://capsuleos.local/schemas/skin.profile.schema.json",
+  "title": "CapsuleOS Skin Profile",
+  "description": "Contrat déclaratif d'un bureau simulé CapsuleOS.",
+  "type": "object",
+  "required": ["id", "version", "family", "displayName", "bodyId", "embedKey", "tier", "status", "paths"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "family": {
+      "type": "string",
+      "enum": ["linux", "windows", "macos", "android", "ios", "bsd", "chromeos", "harmonyos", "unix", "retro", "other"]
+    },
+    "vendor": { "type": "string" },
+    "displayName": { "type": "string" },
+    "bodyId": { "type": "string" },
+    "embedKey": { "type": "string" },
+    "tier": { "type": "string", "enum": ["P0", "P1", "P2", "P3", "P4"] },
+    "status": {
+      "type": "string",
+      "enum": ["active", "beta", "stub", "planned", "deprecated", "archived"]
+    },
+    "maturity": { "type": "number", "minimum": 0, "maximum": 1 },
+    "paths": {
+      "type": "object",
+      "required": ["facade"],
+      "properties": {
+        "facade": { "type": "string" },
+        "skin": { "type": "string" }
+      }
+    },
+    "toolkit": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "shell": { "type": "string" },
+        "themeEngine": { "type": "string" }
+      }
+    },
+    "apps": { "type": "object" },
+    "assets": { "type": "object" },
+    "css": { "type": "object" },
+    "scripts": { "type": "object" },
+    "capsuleGlobals": { "type": "object" },
+    "skills": { "type": "array", "items": { "type": "string" } },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "label"],
+        "properties": {
+          "type": { "type": "string", "enum": ["hig", "design", "wiki", "icons", "license"] },
+          "label": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

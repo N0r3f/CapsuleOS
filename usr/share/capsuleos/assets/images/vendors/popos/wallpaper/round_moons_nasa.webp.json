@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/round_moons_nasa.jpg",
+  "sourceSha256": "d78bb03c77c04ae5aad0bc29c59e2a59a8df8f5efa1839d3063d465f1459c285",
+  "output": "images/vendors/popos/wallpaper/round_moons_nasa.webp",
+  "outputSha256": "f62b6f0bb95f485d642089253eb219e6dfc1f1ec6b82bf9bac50514ea3e50e8e",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:11.508Z"
+}

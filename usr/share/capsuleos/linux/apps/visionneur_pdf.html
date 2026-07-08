@@ -1,0 +1,43 @@
+<main id="visionneurPdf" class="viewer-app papers-app" data-papers-gnome-root aria-label="Papers">
+    <header class="viewer-app__toolbar papers-app__toolbar" data-papers-gnome-toolbar aria-label="Barre d'outils">
+        <div class="papers-app__toolbar-group papers-app__toolbar-group--nav">
+            <button type="button" class="papers-app__tool" data-papers-gnome-action="sidebar" data-xr-action="sidebar" aria-label="Miniatures" title="Miniatures" aria-pressed="false">
+                <span class="papers-app__tool-glyph papers-app__tool-glyph--sidebar" aria-hidden="true"></span>
+            </button>
+            <span class="papers-app__sep" role="separator" aria-hidden="true"></span>
+            <button type="button" class="papers-app__tool" data-papers-gnome-action="prev" data-xr-action="prev" aria-label="Page précédente" title="Page précédente" disabled>
+                <span class="papers-app__tool-glyph papers-app__tool-glyph--prev" aria-hidden="true"></span>
+            </button>
+            <span class="papers-app__page" id="xreader-page" data-papers-gnome-page>Page 0 sur 0</span>
+            <button type="button" class="papers-app__tool" data-papers-gnome-action="next" data-xr-action="next" aria-label="Page suivante" title="Page suivante" disabled>
+                <span class="papers-app__tool-glyph papers-app__tool-glyph--next" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="papers-app__toolbar-group papers-app__toolbar-group--zoom">
+            <button type="button" class="papers-app__tool" data-papers-gnome-action="zoom-out" data-xr-action="zoom-out" aria-label="Zoom arrière" title="Zoom arrière">
+                <span class="papers-app__tool-glyph papers-app__tool-glyph--zoom-out" aria-hidden="true"></span>
+            </button>
+            <span class="papers-app__zoom-label" id="xreader-zoom" data-papers-gnome-zoom>100 %</span>
+            <button type="button" class="papers-app__tool" data-papers-gnome-action="zoom-in" data-xr-action="zoom-in" aria-label="Zoom avant" title="Zoom avant">
+                <span class="papers-app__tool-glyph papers-app__tool-glyph--zoom-in" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="papers-app__tool" data-papers-gnome-action="zoom-fit" data-xr-action="zoom-fit" aria-label="Ajuster à la largeur" title="Ajuster à la largeur">
+                <span class="papers-app__tool-glyph papers-app__tool-glyph--zoom-fit" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+    <div class="papers-app__body">
+        <aside class="papers-app__sidebar" id="xreader-sidebar" data-papers-gnome-sidebar aria-label="Miniatures" hidden>
+            <p class="papers-app__sidebar-hint">Aucun document</p>
+        </aside>
+        <section class="papers-app__canvas" id="mint-pdf-viewer-content" data-papers-gnome-canvas aria-label="Document">
+            <div class="papers-app__empty" id="papers-empty-state" data-papers-gnome-empty>
+                <p class="papers-app__empty-title">Ouvrir un document</p>
+                <p class="papers-app__empty-hint">Ouvrez un fichier PDF depuis Fichiers pour l'afficher ici.</p>
+            </div>
+        </section>
+    </div>
+    <footer class="papers-app__status" data-papers-gnome-status aria-label="État">
+        <span class="papers-app__status-name" id="mint-pdf-viewer-filename" data-papers-gnome-filename>Aucun document ouvert</span>
+    </footer>
+</main>

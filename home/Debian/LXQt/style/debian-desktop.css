@@ -1,0 +1,85 @@
+/**
+ * Debian KDE - bureau + panel Plasma clair (basé sur openSUSE desktop).
+ */
+
+html:has(#lxqt) {
+    color-scheme: light;
+}
+
+html:has(#lxqt) {
+    --lxqt-plasma-accent: #3daee9;
+    /* Panel sombre comme Plasma (image 2) */
+    --lxqt-plasma-panel-bg: rgba(30, 33, 38, 0.92);
+    --lxqt-plasma-panel-border: rgba(255, 255, 255, 0.08);
+    --lxqt-plasma-text: rgba(245, 246, 247, 0.95);
+    --lxqt-plasma-text-muted: rgba(245, 246, 247, 0.75);
+    --desktop-shortcut-text: #ffffff;
+    --desktop-shortcut-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    --desktop-shortcut-hover-bg: rgba(61, 174, 233, 0.12);
+    --mint-taskbar-bg: var(--lxqt-plasma-panel-bg);
+    --mint-taskbar-top-border: 1px solid var(--lxqt-plasma-panel-border);
+    --mint-taskbar-item-bg-hover: rgba(61, 174, 233, 0.14);
+    --mint-taskbar-item-bg-active: rgba(61, 174, 233, 0.18);
+    --mint-taskbar-item-border-hover: rgba(61, 174, 233, 0.45);
+    --mint-taskbar-item-shadow-active: inset 0 0 0 1px rgba(61, 174, 233, 0.28);
+    --mint-taskbar-right-bg: transparent;
+    --mint-taskbar-right-separator: transparent;
+    --mint-tray-color: var(--lxqt-plasma-text);
+    --mint-clock-date-color: var(--lxqt-plasma-text-muted);
+    --mint-clock-hover-bg: rgba(61, 174, 233, 0.1);
+    --lxqt-mono-logo-filter: none;
+    --menu-accent: var(--lxqt-plasma-accent);
+    --lxqt-taskbar-edge-gap: calc(var(--head) / 5);
+}
+
+#lxqt {
+    --taskbar-height: calc(var(--head) * 0.85);
+    background-image: url("../../../../usr/share/capsuleos/assets/images/vendors/debian/wallpaper-debian-kde.jpg");
+    background-color: #243042;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#lxqt #desktop {
+    position: relative;
+}
+
+#lxqt #tableau {
+    padding: var(--z) var(--lxqt-taskbar-edge-gap) var(--z) calc(var(--head) / 4);
+    border-top: var(--mint-taskbar-top-border);
+}
+
+/* Tray */
+#lxqt footer .taskbar-tray {
+    color: var(--lxqt-plasma-text);
+    padding-right: 0;
+}
+
+#lxqt footer .taskbar-tray__link > img,
+#lxqt footer .taskbar-tray__item > img {
+    opacity: 0.9;
+    /* Pack Chameleon déjà adapté pour fond sombre */
+    filter: none;
+}
+
+#lxqt footer .taskbar-tray__expand > img {
+    width: calc(var(--head) * 0.36);
+    height: calc(var(--head) * 0.36);
+    opacity: 0.75;
+}
+
+#lxqt footer .taskbar-clock-trigger {
+    color: var(--lxqt-plasma-text);
+    background: transparent;
+    margin-left: calc(var(--head) / -10);
+    margin-right: var(--lxqt-taskbar-edge-gap);
+    padding-left: calc(var(--head) / 18);
+    padding-right: calc(var(--head) / 18);
+}
+
+#lxqt footer .taskbar-clock-trigger[aria-expanded="true"] {
+    border-top-color: var(--lxqt-plasma-accent);
+    background: rgba(61, 174, 233, 0.1);
+}
+

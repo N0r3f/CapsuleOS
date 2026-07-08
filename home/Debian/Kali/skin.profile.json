@@ -1,0 +1,47 @@
+{
+  "id": "linux-kali",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "kali",
+  "vendor": "kali",
+  "displayName": "Kali Linux",
+  "bodyId": "kali",
+  "embedKey": "kali",
+  "tier": "P4",
+  "status": "planned",
+  "fidelityLevel": 0,
+  "upstreamId": "linux-rocky",
+  "clusterIds": [
+    "toolkit.xfce"
+  ],
+  "extends": "kernel:linux/branch:kali/toolkit:xfce",
+  "paths": {
+    "facade": "OS/linux/families/debian/kali/index.html",
+    "skin": "home/Debian/Kali/index.html"
+  },
+  "toolkit": {
+    "id": "xfce",
+    "shell": "xfce"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/xfce",
+    "vendorPack": "vendors/kali",
+    "iconPacks": [
+      "icons/cinnamon"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Thunar",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo",
+    "CAPSULE_EMBED_SKIN_KEY": "kali",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/debian/kali/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian"
+  }
+}

@@ -1,0 +1,435 @@
+/* MX-KDE - Menu démarrer (réf. startup_menu) + panneau apps en flyout (réf. Plasma explo.png) */
+
+body#mx-kde div[data-link="mainMenu"],
+body#mx-kde #mainMenu {
+    position: fixed;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: var(--taskbar-height);
+    width: var(--mx-kde-menu-width);
+    height: var(--mx-kde-menu-height);
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--mx-kde-menu-border);
+    border-radius: var(--mx-kde-menu-radius);
+    background: var(--mx-kde-menu-bg);
+    box-shadow: 0 0.85rem 2.25rem rgba(0, 0, 0, 0.48);
+    overflow: hidden;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    body#mx-kde div[data-link="mainMenu"],
+    body#mx-kde #mainMenu {
+        background: #2b3036;
+    }
+
+    html[data-theme="light"] #mx-kde div[data-link="mainMenu"],
+    html[data-theme="light"] #mx-kde #mainMenu {
+        background: #f5f8fc;
+    }
+}
+
+body#mx-kde div[data-link="mainMenu"] > #windowHeader,
+body#mx-kde #mainMenu > #windowHeader {
+    display: none;
+    height: 0;
+}
+
+body#mx-kde #mainMenu .menu-root {
+    display: grid;
+    grid-template-columns: var(--mx-kde-menu-rail-width) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: "rail cats";
+    width: 100%;
+    height: 100%;
+    color: var(--mx-kde-menu-text);
+    font-family: "Cantarell", var(--font-ui);
+}
+
+body#mx-kde #mainMenu .menu-sidebar {
+    grid-area: rail;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: var(--mx-kde-menu-rail-width);
+    height: 100%;
+    padding: 0.28rem 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.14);
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-sidebar {
+    border-right-color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+body#mx-kde #mainMenu .menu-user {
+    display: none;
+}
+
+body#mx-kde #mainMenu .menu-shortcuts {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.1rem;
+    width: 100%;
+    flex: 1;
+    margin: 0;
+    padding: 0.15rem 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+body#mx-kde #mainMenu .menu-shortcuts > li {
+    width: 100%;
+}
+
+body#mx-kde #mainMenu .menu-shortcut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: var(--mx-kde-menu-rail-shortcut-min-h);
+    margin: 0;
+    padding: 0.2rem 0.14rem;
+    border: 0;
+    border-radius: var(--mx-kde-menu-btn-radius);
+    color: var(--mx-kde-menu-text);
+    background: transparent;
+}
+
+body#mx-kde #mainMenu .menu-shortcut:hover {
+    background: var(--mx-kde-menu-hover);
+}
+
+body#mx-kde #mainMenu .menu-shortcut span {
+    display: none;
+}
+
+body#mx-kde #mainMenu .menu-shortcut img {
+    width: var(--mx-kde-menu-rail-icon-size);
+    height: var(--mx-kde-menu-rail-icon-size);
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+}
+
+/* Icônes monochromes Breeze (ColorScheme-Text) : lisibles sur fond menu sombre */
+html:not([data-theme="light"]) body#mx-kde #mainMenu .menu-shortcut img[data-capsule-rail-mono="true"] {
+    filter: brightness(0) invert(1);
+    opacity: 0.94;
+}
+
+html[data-theme="light"] body#mx-kde #mainMenu .menu-shortcut img[data-capsule-rail-mono="true"] {
+    filter: none;
+    opacity: 1;
+}
+
+body#mx-kde #mainMenu .menu-actions {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 0.22rem;
+    width: 100%;
+    margin: 0;
+    padding: 0.36rem 0.14rem 0.48rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-actions {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+body#mx-kde #mainMenu .menu-action {
+    width: var(--mx-kde-menu-rail-action-size);
+    height: var(--mx-kde-menu-rail-action-size);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--mx-kde-menu-btn-radius);
+    background: transparent;
+}
+
+body#mx-kde #mainMenu .menu-action:hover {
+    background: var(--mx-kde-menu-hover);
+}
+
+body#mx-kde #mainMenu .menu-action img {
+    width: var(--mx-kde-menu-rail-action-icon);
+    height: var(--mx-kde-menu-rail-action-icon);
+    filter: none;
+    opacity: 1;
+}
+
+html:not([data-theme="light"]) body#mx-kde #mainMenu .menu-action img {
+    filter: brightness(0) invert(1);
+    opacity: 0.94;
+}
+
+html[data-theme="light"] body#mx-kde #mainMenu .menu-action img {
+    filter: none;
+    opacity: 1;
+}
+
+body#mx-kde #mainMenu .menu-categories {
+    grid-area: cats;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    border: 0;
+    background: transparent;
+}
+
+body#mx-kde #mainMenu .menu-kde-back {
+    display: none;
+    align-items: center;
+    gap: 0.35rem;
+    width: 100%;
+    min-height: var(--mx-kde-menu-body-row-min-h);
+    margin: 0;
+    padding: 0.48rem 0.58rem;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--mx-kde-menu-text);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-kde-back {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Colonne catégories toujours visible : bouton retour Plasma inutile (noyau peut encore l’injecter ailleurs) */
+body#mx-kde #mainMenu .menu-root.menu-root--apps-open .menu-kde-back {
+    display: none;
+}
+
+body#mx-kde #mainMenu .menu-cats {
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 0.18rem 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+body#mx-kde #mainMenu .menu-cat {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.52rem;
+    width: 100%;
+    min-height: var(--mx-kde-menu-body-row-min-h);
+    margin: 0;
+    padding: 0.32rem 1.12rem 0.32rem 0.58rem;
+    border: 0;
+    border-left: 3px solid transparent;
+    border-radius: 0;
+    color: var(--mx-kde-menu-text);
+    font-size: 0.84rem;
+    font-weight: 500;
+    text-align: left;
+    background: transparent;
+}
+
+body#mx-kde #mainMenu .menu-cat::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: var(--mx-kde-menu-cat-icon-size);
+    height: var(--mx-kde-menu-cat-icon-size);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: var(--menu-cat-icon, none);
+    opacity: 0.96;
+}
+
+body#mx-kde #mainMenu .menu-cat::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.52rem;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-top: 1.5px solid rgba(239, 240, 241, 0.72);
+    border-right: 1.5px solid rgba(239, 240, 241, 0.72);
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0.72;
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-cat::after {
+    border-top-color: rgba(31, 35, 40, 0.62);
+    border-right-color: rgba(31, 35, 40, 0.62);
+}
+
+body#mx-kde #mainMenu .menu-cat:hover {
+    background: var(--mx-kde-menu-hover);
+}
+
+body#mx-kde #mainMenu .menu-cat.is-active {
+    background: var(--mx-kde-menu-active);
+    border-left-color: var(--mx-kde-menu-search-focus);
+}
+
+body#mx-kde #mainMenu .menu-cat.menu-cat--decorative,
+body#mx-kde #mainMenu .menu-cat.menu-cat--disabled {
+    color: var(--mx-kde-menu-text-muted);
+    cursor: default;
+}
+
+body#mx-kde #mainMenu .menu-cat.menu-cat--decorative::after,
+body#mx-kde #mainMenu .menu-cat.menu-cat--disabled::after {
+    opacity: 0.42;
+}
+
+body#mx-kde #mainMenu .menu-cat.menu-cat--decorative:hover,
+body#mx-kde #mainMenu .menu-cat.menu-cat--disabled:hover {
+    background: transparent;
+}
+
+body#mx-kde #mainMenu .menu-search-wrap {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0.42rem 0.42rem 0.52rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-search-wrap {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+body#mx-kde #mainMenu .menu-search {
+    width: 100%;
+    min-height: var(--mx-kde-menu-search-min-height);
+    height: var(--mx-kde-menu-search-min-height);
+    margin: 0;
+    padding: 0 0.58rem 0 calc(var(--mx-kde-menu-search-icon-left) + var(--mx-kde-menu-search-icon-size) + 0.42rem);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--mx-kde-menu-btn-radius);
+    color: var(--mx-kde-menu-text);
+    font-family: inherit;
+    font-size: 0.82rem;
+    background:
+        url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/search-symbolic.svg") no-repeat var(--mx-kde-menu-search-icon-left) center / var(--mx-kde-menu-search-icon-size),
+        rgba(0, 0, 0, 0.22);
+    outline: none;
+    transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-search {
+    background:
+        url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/search-symbolic.svg") no-repeat var(--mx-kde-menu-search-icon-left) center / var(--mx-kde-menu-search-icon-size),
+        rgba(0, 0, 0, 0.04);
+}
+
+body#mx-kde #mainMenu .menu-search:focus {
+    border-color: var(--mx-kde-menu-search-focus);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.45);
+    background-color: rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme="light"] #mx-kde #mainMenu .menu-search:focus {
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+/* Flyout apps : hors #mainMenu (reparentage JS), aligné à droite du shell menu */
+body#mx-kde #mx-kde-menu-apps-flyout {
+    display: none;
+    position: fixed;
+    z-index: var(--mx-kde-menu-apps-flyout-z);
+    box-sizing: border-box;
+    flex-direction: column;
+    width: var(--mx-kde-menu-apps-flyout-width);
+    min-height: var(--mx-kde-menu-apps-flyout-min-height);
+    margin: 0;
+    padding: 0.38rem 0.46rem;
+    border: 1px solid var(--mx-kde-menu-border);
+    border-radius: var(--mx-kde-menu-radius);
+    background: var(--mx-kde-menu-bg);
+    box-shadow: 0 0.85rem 2.25rem rgba(0, 0, 0, 0.48);
+    color: var(--mx-kde-menu-text);
+    font-family: "Cantarell", var(--font-ui);
+    overflow: hidden;
+    pointer-events: none;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    body#mx-kde #mx-kde-menu-apps-flyout {
+        background: #2b3036;
+    }
+
+    html[data-theme="light"] body#mx-kde #mx-kde-menu-apps-flyout {
+        background: #f5f8fc;
+    }
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout.mx-kde-menu-apps-flyout--open {
+    display: flex;
+    pointer-events: auto;
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-apps {
+    display: flex;
+    flex: 1;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-list {
+    flex: 1;
+    min-height: 0;
+    margin: 0;
+    padding: 0.2rem 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-item {
+    min-height: calc(var(--mx-kde-menu-body-row-min-h) + 0.12rem);
+    padding: 0.34rem 0.58rem;
+    border-left: 3px solid transparent;
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-item:hover:not(.is-unavailable) {
+    background: var(--mx-kde-menu-hover);
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-item__icon {
+    width: var(--mx-kde-menu-app-icon-size);
+    height: var(--mx-kde-menu-app-icon-size);
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-item__name {
+    font-size: 0.84rem;
+    color: var(--mx-kde-menu-text);
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-item__desc {
+    font-size: 0.74rem;
+    color: var(--mx-kde-menu-text-muted);
+}
+
+body#mx-kde #mx-kde-menu-apps-flyout .menu-app-list.is-empty::after {
+    color: var(--mx-kde-menu-text-muted);
+}

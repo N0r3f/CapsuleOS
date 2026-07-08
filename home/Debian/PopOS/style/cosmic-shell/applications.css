@@ -1,0 +1,225 @@
+/**
+ * Grille Applications - Apps.png (fenêtre flottante, au-dessus du dock).
+ */
+body#popos .cosmic-applications {
+    position: fixed;
+    top: calc(var(--popos-top-bar-height) + var(--popos-apps-gap));
+    right: var(--popos-apps-gap);
+    bottom: calc(var(--popos-dock-bottom) + var(--popos-dock-block-height) + var(--popos-apps-gap));
+    left: var(--popos-apps-gap);
+    z-index: 220;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+body#popos .cosmic-applications:not([hidden]) {
+    pointer-events: auto;
+}
+
+body#popos .cosmic-applications[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-applications__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--popos-apps-panel-width);
+    height: 100%;
+    max-height: 100%;
+    padding: calc(var(--head) * 0.5) calc(var(--head) * 0.65) calc(var(--head) * 0.4);
+    border: var(--popos-panel-border);
+    border-radius: var(--popos-apps-panel-radius);
+    background: var(--popos-panel-bg);
+    box-shadow: var(--popos-panel-shadow);
+    overflow: hidden;
+    box-sizing: border-box;
+    pointer-events: auto;
+}
+
+body#popos .cosmic-applications__search {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex-shrink: 0;
+    gap: calc(var(--head) / 5);
+    width: var(--popos-apps-search-width);
+    min-width: calc(var(--head) * 12);
+    margin: 0 0 calc(var(--head) * 0.45);
+    padding: calc(var(--head) / 5) calc(var(--head) / 2.8);
+    border: 1px solid var(--popos-accent-border);
+    border-radius: 999px;
+    background: var(--popos-search-bar-bg);
+    box-sizing: border-box;
+    transition: border-color var(--eas2), box-shadow var(--eas2);
+}
+
+body#popos .cosmic-applications__search:focus-within {
+    border-color: var(--popos-accent);
+    box-shadow: 0 0 0 1px var(--popos-accent-focus-ring);
+}
+
+body#popos .cosmic-applications__search-icon {
+    flex-shrink: 0;
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    background: currentColor;
+    opacity: 0.7;
+    -webkit-mask: var(--popos-search-icon-mask) center / contain no-repeat;
+    mask: var(--popos-search-icon-mask) center / contain no-repeat;
+}
+
+body#popos .cosmic-applications__search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.35);
+    outline: none;
+}
+
+body#popos .cosmic-applications__search-input::placeholder {
+    color: var(--popos-input-placeholder);
+}
+
+body#popos .cosmic-applications__scroll {
+    align-self: stretch;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0 calc(var(--head) * 0.1);
+    box-sizing: border-box;
+}
+
+body#popos .cosmic-applications__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--popos-apps-grid-cols), minmax(0, 1fr));
+    gap: calc(var(--head) / 1.85) calc(var(--head) / 2.4);
+    width: 100%;
+    justify-items: center;
+}
+
+body#popos .cosmic-applications__app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: calc(var(--head) * 4.2);
+    gap: calc(var(--head) / 6);
+    padding: calc(var(--head) / 5) calc(var(--head) / 10);
+    border: 1px solid transparent;
+    border-radius: var(--popos-panel-radius);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.75);
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .cosmic-applications__app:hover:not([aria-disabled="true"]) {
+    background: var(--popos-surface-hover);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos .cosmic-applications__app--static,
+body#popos .cosmic-applications__app[aria-disabled="true"] {
+    opacity: 0.92;
+    cursor: default;
+}
+
+body#popos .cosmic-applications__app[hidden] {
+    display: none;
+}
+
+body#popos .cosmic-applications__app img {
+    width: var(--popos-apps-icon-size);
+    height: var(--popos-apps-icon-size);
+    max-width: 100%;
+    object-fit: contain;
+}
+
+body#popos .cosmic-applications__app span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body#popos .cosmic-applications__footer {
+    align-self: stretch;
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: calc(var(--head) * 0.35);
+    padding-top: calc(var(--head) * 0.2);
+    box-sizing: border-box;
+}
+
+body#popos .cosmic-applications__sep {
+    height: 1px;
+    margin: 0 0 calc(var(--head) * 0.35);
+    background: var(--popos-apps-footer-sep);
+}
+
+body#popos .cosmic-applications__categories {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: calc(var(--head) / 2.5);
+    flex-wrap: wrap;
+}
+
+body#popos .cosmic-applications__category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--head) / 10);
+    min-width: calc(var(--head) * 2.6);
+    padding: calc(var(--head) / 6) calc(var(--head) / 4);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 5);
+    background: transparent;
+    color: var(--popos-shell-text);
+    font-size: calc(var(--head) / 2.9);
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .cosmic-applications__category:hover:not([aria-disabled="true"]) {
+    background: var(--popos-surface-hover-subtle);
+}
+
+body#popos .cosmic-applications__category--active,
+body#popos .cosmic-applications__category[aria-pressed="true"] {
+    background: var(--popos-apps-category-pill-bg);
+    border-color: var(--popos-apps-category-pill-border);
+}
+
+body#popos .cosmic-applications__category[aria-disabled="true"] {
+    opacity: 0.85;
+    cursor: default;
+}
+
+body#popos .cosmic-applications__category-symbolic {
+    width: calc(var(--head) / 1.35);
+    height: calc(var(--head) / 1.35);
+    object-fit: contain;
+    opacity: 0.92;
+    filter: var(--popos-symbolic-category-filter);
+}
+
+body#popos .cosmic-applications__category--active .cosmic-applications__category-symbolic,
+body#popos .cosmic-applications__category[aria-pressed="true"] .cosmic-applications__category-symbolic {
+    opacity: 1;
+}

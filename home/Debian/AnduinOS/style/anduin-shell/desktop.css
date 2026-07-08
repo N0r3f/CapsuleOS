@@ -1,0 +1,64 @@
+body#anduinos .anduin-workspace {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: var(--anduin-taskbar-height);
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+body#anduinos #desktop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+body#anduinos .desktop-shortcut {
+    position: absolute;
+    top: calc(var(--head) * 0.55);
+    left: calc(var(--head) * 0.55);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(var(--head) * 2.4);
+    padding: 0.35rem 0.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.45rem;
+    color: var(--anduin-desktop-shortcut-color);
+    text-decoration: none;
+    text-shadow: var(--anduin-desktop-shortcut-shadow);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#anduinos .desktop-shortcut:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#anduinos .desktop-shortcut img {
+    display: block;
+    width: calc(var(--head) * 1.15);
+    height: calc(var(--head) * 1.15);
+    margin-bottom: 0.35rem;
+    object-fit: contain;
+}
+
+body#anduinos .desktop-shortcut span {
+    display: block;
+    max-width: 100%;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}

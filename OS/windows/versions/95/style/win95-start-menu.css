@@ -1,0 +1,97 @@
+body[data-win-version="95"] div#menu {
+    bottom: calc(var(--head) + var(--head) / 3);
+    left: 2px;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+}
+
+body[data-win-version="95"] .win95-start-menu {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    min-width: 220px;
+    max-width: 280px;
+    font-family: var(--win-font-family);
+    font-size: 11px;
+    color: #000000;
+}
+
+body[data-win-version="95"] .win95-start-menu__banner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 22px;
+    padding: 8px 4px;
+    background: linear-gradient(180deg, #000080 0%, #1084d0 55%, #000080 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    user-select: none;
+}
+
+body[data-win-version="95"] .win95-start-menu__items {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    padding: 4px;
+    background: var(--win95-surface);
+}
+
+body[data-win-version="95"] .win95-start-menu__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 22px;
+    padding: 4px 24px 4px 8px;
+    border: none;
+    background: transparent;
+    color: #000000;
+    font-family: inherit;
+    font-size: 11px;
+    text-align: left;
+    text-decoration: none;
+    cursor: default;
+}
+
+body[data-win-version="95"] .win95-start-menu__item:hover,
+body[data-win-version="95"] .win95-start-menu__item:focus-visible {
+    background: var(--win-taskbar-hover);
+    color: #ffffff;
+}
+
+body[data-win-version="95"] .win95-start-menu__item img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+body[data-win-version="95"] .win95-start-menu__item--arrow::after {
+    content: "▸";
+    position: absolute;
+    right: 8px;
+    font-size: 10px;
+}
+
+body[data-win-version="95"] .win95-start-menu__item-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+body[data-win-version="95"] .win95-start-menu__sep {
+    height: 2px;
+    margin: 3px 2px;
+    border-top: 1px solid var(--win95-shadow);
+    border-bottom: 1px solid var(--win95-highlight);
+}
+
+body[data-win-version="95"] .win95-start-menu__shutdown {
+    margin-top: 2px;
+}

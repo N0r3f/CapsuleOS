@@ -1,0 +1,293 @@
+/* Surcouche Mint — update manager (réf. visuel/update_mint/mint_update.png) */
+/* Barre titre Muffin : cinnamon-window-chrome.css */
+
+main#updateManagerApp {
+    color: #222;
+    background: #f6f6f6;
+}
+
+.update-manager__menubar {
+    position: relative;
+    z-index: 4;
+    overflow: visible;
+}
+
+.update-manager__menu-dropdown {
+    border-color: #c8c8c8;
+    background: #f8f8f8;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.update-manager__menu-entry:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.update-manager__layout--mint {
+    width: 100%;
+}
+
+.update-manager__menubar {
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #222;
+    background: #f6f6f6;
+}
+
+.update-manager__menuitem {
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 3px;
+}
+
+.update-manager__toolbar {
+    flex-wrap: nowrap;
+    padding: 4px 6px;
+    gap: 8px;
+    background: #f1f1f1;
+    border-top: 1px solid #dadada;
+}
+
+.update-manager__tool {
+    flex: 0 0 auto;
+    min-width: 72px;
+    height: 52px;
+    border-color: transparent;
+    background: transparent;
+    color: #222;
+    gap: 4px;
+}
+
+.update-manager__tool:hover {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
+    transform: none;
+}
+
+.update-manager__tool--primary {
+    min-width: 120px;
+}
+
+.update-manager__tool-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.85;
+}
+
+.update-manager__tool > span:last-child {
+    font-size: 11px;
+}
+
+.update-manager__banner {
+    padding: 6px 8px;
+    gap: 10px;
+    border-bottom: 1px solid #cfe3f4;
+    background: #4aa7d9;
+}
+
+.update-manager__banner-icon {
+    width: 18px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.update-manager__banner-title {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.update-manager__banner-subtitle {
+    font-size: 11px;
+}
+
+.update-manager__banner-btn {
+    height: 22px;
+    padding: 0 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.update-manager__tablewrap {
+    background: #fff;
+    overflow: auto;
+}
+
+.update-manager__table thead th {
+    padding: 4px 8px;
+    font-size: 11px;
+    color: #444;
+    background: #efefef;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.update-manager__table tbody td {
+    padding: 3px 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.update-manager__table tbody tr {
+    cursor: default;
+}
+
+.update-manager__table tbody tr.is-selected {
+    background: #e8f4fc;
+}
+
+.update-manager__table tbody tr.is-selected td {
+    border-bottom-color: #d4e8f6;
+}
+
+main#updateManagerApp[data-um-busy="true"] .update-manager__tool {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.update-manager__type {
+    color: #666;
+}
+
+.update-manager__desc {
+    font-size: 10.5px;
+    color: #666;
+}
+
+.update-manager__pkg {
+    color: #111;
+    font-weight: 700;
+}
+
+.update-manager__version {
+    font-size: 11px;
+    color: #444;
+}
+
+.update-manager__tabs {
+    padding: 6px 8px 0;
+    gap: 6px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.update-manager__tab {
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 2px 2px 0 0;
+    border-color: #d6d6d6;
+    background: #f1f1f1;
+    font-size: 11px;
+    color: #333;
+}
+
+.update-manager__tab.is-active {
+    background: #fff;
+    border-bottom-color: #fff;
+    box-shadow: none;
+}
+
+.update-manager__panel {
+    min-height: 24px;
+    max-height: calc(var(--head) * 5.5);
+    overflow: auto;
+    padding: 4px 8px;
+    background: #fff;
+}
+
+.update-manager__status {
+    padding: 6px 8px;
+    background: #f1f1f1;
+    border-top: 1px solid #d6d6d6;
+    font-size: 11px;
+    color: #333;
+}
+
+/* Mint-Y-Dark-Aqua (défaut bureau Mint) — VM linux-mint */
+html:not([data-theme="light"]) body#mint main#updateManagerApp {
+    color: rgba(255, 255, 255, 0.87);
+    background: #2f2f2f;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__menubar {
+    color: rgba(255, 255, 255, 0.87);
+    background: #383838;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__menu-dropdown {
+    border-color: #454545;
+    background: #3a3a3a;
+    color: #eee;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__menu-entry:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__toolbar {
+    background: #333;
+    border-top-color: #454545;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__tool {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__tool:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__tablewrap {
+    background: #2f2f2f;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__table thead th {
+    color: rgba(255, 255, 255, 0.72);
+    background: #383838;
+    border-bottom-color: #454545;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__table tbody td {
+    border-bottom-color: #3a3a3a;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__table tbody tr.is-selected {
+    background: rgba(31, 158, 222, 0.18);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__pkg {
+    color: #f0f0f0;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__desc,
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__version,
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__type {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__tabs {
+    background: #333;
+    border-bottom-color: #454545;
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__tab {
+    border-color: #454545;
+    background: #383838;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__tab.is-active {
+    background: #2f2f2f;
+    border-bottom-color: #2f2f2f;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__panel {
+    background: #2f2f2f;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+html:not([data-theme="light"]) body#mint main#updateManagerApp .update-manager__status {
+    background: #333;
+    border-top-color: #454545;
+    color: rgba(255, 255, 255, 0.72);
+}
+

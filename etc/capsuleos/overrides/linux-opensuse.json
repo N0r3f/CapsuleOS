@@ -1,0 +1,24 @@
+{
+  "capsuleGlobals": {
+    "CAPSULE_EXPLORER_SKIN_KEY": "dolphin",
+    "CAPSULE_TEMPLATE_OVERRIDES": {
+      "update_manager": "../../../usr/share/capsuleos/linux/apps/update_manager_kde_neon.html"
+    },
+    "CAPSULE_WINDOW_CONTEXT": {
+      "family": "linux",
+      "draggable": true,
+      "resizable": true,
+      "forceOnOpen": true,
+      "requireHeader": true,
+      "headerLayout": "capsule",
+      "edgeTiling": false,
+      "skipSlots": ["mainMenu"],
+      "bounds": {
+        "mainSelector": "object#desktop, #desktop",
+        "desktopSelector": "object#desktop, #desktop",
+        "footerSelector": "footer, #tableau",
+        "subtractFooter": false
+      }
+    }
+  }
+}

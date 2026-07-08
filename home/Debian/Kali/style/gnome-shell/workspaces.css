@@ -1,0 +1,67 @@
+/**
+ * Bureaux virtuels GNOME — 4 fixes, visibilité fenêtres, bandeau Aperçu.
+ */
+
+body#kali .windowElement.workspace-offscreen {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body#kali .fedora-overview__mini-workspace.is-active {
+    border-color: rgba(255, 255, 255, 0.42);
+    filter: brightness(1.12);
+    transform: scale(1.04);
+}
+
+body#kali .fedora-overview__workspace-prev {
+    position: absolute;
+    left: max(calc(var(--head) * -2.2), -4.5vw);
+    z-index: 1;
+    display: block;
+    width: min(32vw, calc(var(--head) * 7.2));
+    height: min(58vh, calc(var(--head) * 10));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 0;
+    border-radius: 0 calc(var(--head) / 2.7) calc(var(--head) / 2.7) 0;
+    box-shadow: 10px 0 28px rgba(0, 0, 0, 0.34);
+    background: var(--fedora-bg);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.88) saturate(0.95);
+    opacity: 0.92;
+    cursor: pointer;
+}
+
+body#kali .fedora-overview__workspace-prev[hidden] {
+    display: none;
+}
+
+body#kali[data-active-workspace="3"] .fedora-overview__workspace-next {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Vignettes fenêtres sur la carte bureau (Aperçu workspace) */
+body#kali .fedora-overview__workspace-thumbs {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+body#kali .fedora-overview__workspace-thumb {
+    position: absolute;
+    border-radius: 7px;
+    background: var(--fedora-window-surface, #303030);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
+    min-width: calc(var(--head) * 1.2);
+    min-height: calc(var(--head) * 0.9);
+}
+
+body#kali .fedora-overview__workspace-thumb.is-focused {
+    border-color: color-mix(in srgb, var(--menu-accent) 70%, transparent);
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.42),
+        0 0 0 1px color-mix(in srgb, var(--menu-accent) 45%, transparent);
+}

@@ -1,0 +1,13 @@
+Assets copiés depuis la VM lab (registryId: linux-alma) le 2026-06-09T16:57:34Z.
+Vendor : alma · toolkit : gnome
+Thème icônes VM : Adwaita (gsettings org.gnome.desktop.interface icon-theme).
+Polices VM : /usr/share/fonts/redhat-vf/ → assets/fonts/vendors/alma/
+MIME Adwaita : scalable/mimetypes/ → icons/gnome/adwaita/mimetypes/
+Yaru (ubuntu) : icons/gnome/yaru/{mimetypes,places,emblems,symbolic}/ — PNG/SVG depuis VM
+Fonds ubuntu : wallpaper/ + wallpaper/thumbnails/ (scan VM) ; WebP via prepare-web-media.mjs
+Explorateur VM : Nautilus (org.gnome.Nautilus) — gabarit Capsule slot nemo.
+Ne pas réinventer les chemins : relancer ce script après changement de VM ou de thème.
+
+# import-manifest-staging 2026-06-17T08:26:31.449Z
+files: 51
+Connexion SSH : etc/capsuleos/lab-inventory.json (local, gitignoré).

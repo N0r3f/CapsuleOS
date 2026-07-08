@@ -1,0 +1,218 @@
+{
+  "registry": "linux-anduinos",
+  "generatedAt": "2026-06-17T10:42:59.285Z",
+  "source": "linux-anduinos-gnome-settings-playbook.json",
+  "controlCount": 30,
+  "controls": {
+    "wifi": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-wifi-enabled",
+      "schema": null,
+      "key": null,
+      "panelId": "wifi"
+    },
+    "bluetooth": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-bluetooth-enabled",
+      "schema": null,
+      "key": null,
+      "panelId": "bluetooth"
+    },
+    "theme": {
+      "capsuleExpected": "dark",
+      "capsuleKey": "mint-theme",
+      "schema": "org.gnome.desktop.interface",
+      "key": "color-scheme",
+      "panelId": "appearance"
+    },
+    "accent": {
+      "capsuleExpected": "blue",
+      "capsuleKey": "gnome-accent",
+      "schema": "org.gnome.desktop.interface",
+      "key": "accent-color",
+      "panelId": "appearance"
+    },
+    "wallpaper": {
+      "capsuleExpected": "file:///usr/share/backgrounds/new_mountain-light.png",
+      "capsuleKey": "gnome-wallpaper",
+      "schema": "org.gnome.desktop.background",
+      "key": "picture-uri",
+      "panelId": "background"
+    },
+    "notifications": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-notifications-enabled",
+      "schema": "org.gnome.desktop.notifications",
+      "key": "show-banners",
+      "panelId": "notifications"
+    },
+    "lock-notifications": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-lock-notifications",
+      "schema": "org.gnome.desktop.notifications",
+      "key": "show-in-lock-screen",
+      "panelId": "notifications"
+    },
+    "dnd": {
+      "capsuleExpected": "off",
+      "capsuleKey": "gnome-dnd-enabled",
+      "schema": "org.capsuleos.gnome.shell",
+      "key": "dnd-enabled",
+      "panelId": "notifications"
+    },
+    "dynamic-workspaces": {
+      "capsuleExpected": "Activé",
+      "capsuleKey": "gnome-dynamic-workspaces",
+      "schema": "org.gnome.mutter",
+      "key": "dynamic-workspaces",
+      "panelId": "multitasking"
+    },
+    "hot-corner": {
+      "capsuleExpected": "Désactivé",
+      "capsuleKey": "gnome-hot-corner",
+      "schema": "org.gnome.desktop.interface",
+      "key": "enable-hot-corners",
+      "panelId": "multitasking"
+    },
+    "apps-all-workspaces": {
+      "capsuleExpected": "Activé",
+      "capsuleKey": "gnome-apps-all-workspaces",
+      "schema": "org.gnome.shell.app-switcher",
+      "key": "current-workspace-only",
+      "panelId": "multitasking"
+    },
+    "sound-alert": {
+      "capsuleExpected": "Yaru",
+      "capsuleKey": "gnome-sound-alert",
+      "schema": "org.gnome.desktop.sound",
+      "key": "theme-name",
+      "panelId": "sound"
+    },
+    "power-mode": {
+      "capsuleExpected": "Équilibré",
+      "capsuleKey": "gnome-power-mode",
+      "schema": "org.capsuleos.gnome.power",
+      "key": "active-profile",
+      "panelId": "power"
+    },
+    "power-dim": {
+      "capsuleExpected": "1800s",
+      "capsuleKey": "gnome-power-dim-screen",
+      "schema": "org.gnome.settings-daemon.plugins.power",
+      "key": "sleep-inactive-ac-timeout",
+      "panelId": "power"
+    },
+    "power-sleep": {
+      "capsuleExpected": "30 minutes",
+      "capsuleKey": "gnome-power-sleep",
+      "schema": "org.gnome.settings-daemon.plugins.power",
+      "key": "sleep-inactive-ac-type",
+      "panelId": "power"
+    },
+    "display-scale": {
+      "capsuleExpected": "100 %",
+      "capsuleKey": "gnome-display-scale",
+      "schema": "org.gnome.desktop.interface",
+      "key": "text-scaling-factor",
+      "panelId": "displays"
+    },
+    "night-light": {
+      "capsuleExpected": "off",
+      "capsuleKey": "gnome-night-light",
+      "schema": "org.gnome.settings-daemon.plugins.color",
+      "key": "night-light-enabled",
+      "panelId": "displays"
+    },
+    "mouse-handedness": {
+      "capsuleExpected": "Gauche",
+      "capsuleKey": "gnome-mouse-handedness",
+      "schema": "org.gnome.desktop.peripherals.mouse",
+      "key": "left-handed",
+      "panelId": "mouse"
+    },
+    "pointer-speed": {
+      "capsuleExpected": "50",
+      "capsuleKey": "gnome-pointer-speed",
+      "schema": "org.gnome.desktop.peripherals.mouse",
+      "key": "speed",
+      "panelId": "mouse"
+    },
+    "touchpad": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-touchpad-enabled",
+      "schema": "org.gnome.desktop.peripherals.touchpad",
+      "key": "send-events",
+      "panelId": "mouse"
+    },
+    "tap-to-click": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-tap-to-click",
+      "schema": "org.gnome.desktop.peripherals.touchpad",
+      "key": "tap-to-click",
+      "panelId": "mouse"
+    },
+    "scroll-direction": {
+      "capsuleExpected": "Naturel",
+      "capsuleKey": "gnome-scroll-direction",
+      "schema": "org.gnome.desktop.peripherals.touchpad",
+      "key": "natural-scroll",
+      "panelId": "mouse"
+    },
+    "keyboard-layout": {
+      "capsuleExpected": "Français",
+      "capsuleKey": "gnome-keyboard-layout",
+      "schema": "org.gnome.desktop.input-sources",
+      "key": "sources",
+      "panelId": "keyboard"
+    },
+    "keyboard-repeat": {
+      "capsuleExpected": "500 ms",
+      "capsuleKey": "gnome-keyboard-repeat-delay",
+      "schema": "org.gnome.desktop.peripherals.keyboard",
+      "key": "delay",
+      "panelId": "keyboard"
+    },
+    "contrast": {
+      "capsuleExpected": "normal",
+      "capsuleKey": "mint-contrast-mode",
+      "schema": "org.gnome.desktop.interface",
+      "key": "gtk-theme",
+      "panelId": "accessibility"
+    },
+    "font-scale": {
+      "capsuleExpected": "100",
+      "capsuleKey": "mint-font-scale",
+      "schema": "org.gnome.desktop.interface",
+      "key": "text-scaling-factor",
+      "panelId": "accessibility"
+    },
+    "camera": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-privacy-camera",
+      "schema": "org.gnome.desktop.privacy",
+      "key": "disable-camera",
+      "panelId": "privacy"
+    },
+    "microphone": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-privacy-microphone",
+      "schema": "org.gnome.desktop.privacy",
+      "key": "disable-microphone",
+      "panelId": "privacy"
+    },
+    "auto-lock": {
+      "capsuleExpected": "on",
+      "capsuleKey": "gnome-auto-lock",
+      "schema": "org.gnome.desktop.screensaver",
+      "key": "lock-enabled",
+      "panelId": "privacy"
+    },
+    "lock-delay": {
+      "capsuleExpected": "Immédiatement",
+      "capsuleKey": "gnome-lock-delay",
+      "schema": "org.gnome.desktop.screensaver",
+      "key": "lock-delay",
+      "panelId": "privacy"
+    }
+  }
+}

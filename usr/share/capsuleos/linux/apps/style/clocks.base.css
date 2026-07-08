@@ -1,0 +1,258 @@
+main#gnomeClocksApp {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui, Cantarell, sans-serif);
+}
+
+.gnome-clocks__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+}
+
+.gnome-clocks__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gnome-clocks__add {
+    display: none;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: inherit;
+    background: transparent;
+    cursor: default;
+}
+
+.gnome-clocks__add.is-visible {
+    display: inline-flex;
+}
+
+.gnome-clocks__add-glyph {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M7.25 3.25h1.5v3.5h3.5v1.5h-3.5v3.5h-1.5V8.25h-3.5v-1.5h3.5V3.25z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M7.25 3.25h1.5v3.5h3.5v1.5h-3.5v3.5h-1.5V8.25h-3.5v-1.5h3.5V3.25z'/%3E%3C/svg%3E");
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.gnome-clocks__shell {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.gnome-clocks__nav {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 0 auto;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0.35rem 0.3rem;
+    border: 0;
+    border-right: 1px solid transparent;
+}
+
+.gnome-clocks__nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.55rem;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+}
+
+.gnome-clocks__nav-glyph {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: currentColor;
+    opacity: 0.72;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.gnome-clocks__nav-btn.is-active .gnome-clocks__nav-glyph,
+.gnome-clocks__nav-btn[aria-selected="true"] .gnome-clocks__nav-glyph {
+    opacity: 1;
+}
+
+.gnome-clocks__nav-glyph--world {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm5.2 6.5H9.6c-.1 1.5-.5 2.9-1.1 4.1A5.2 5.2 0 0 0 13.2 8zM8 2.8c.7 1.1 1.2 2.4 1.4 3.9H6.6c.2-1.5.7-2.8 1.4-3.9zM5.5 12.6c-.6-1.2-1-2.6-1.1-4.1H2.8a5.2 5.2 0 0 0 2.7 4.1zM2.8 7.5h1.6c.1-1.5.5-2.9 1.1-4.1A5.2 5.2 0 0 0 2.8 7.5zm3.9-4.1c.6 1.2 1 2.6 1.1 4.1H7.5c-.1-1.5-.5-2.9-1.1-4.1A5.2 5.2 0 0 0 6.7 3.4zm1.4 5.6h2.4c-.2 1.5-.7 2.8-1.4 3.9-.7-1.1-1.2-2.4-1.4-3.9zm2.5 5.2c.6-1.2 1-2.6 1.1-4.1h1.6a5.2 5.2 0 0 1-2.7 4.1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zm5.2 6.5H9.6c-.1 1.5-.5 2.9-1.1 4.1A5.2 5.2 0 0 0 13.2 8zM8 2.8c.7 1.1 1.2 2.4 1.4 3.9H6.6c.2-1.5.7-2.8 1.4-3.9zM5.5 12.6c-.6-1.2-1-2.6-1.1-4.1H2.8a5.2 5.2 0 0 0 2.7 4.1zM2.8 7.5h1.6c.1-1.5.5-2.9 1.1-4.1A5.2 5.2 0 0 0 2.8 7.5zm3.9-4.1c.6 1.2 1 2.6 1.1 4.1H7.5c-.1-1.5-.5-2.9-1.1-4.1A5.2 5.2 0 0 0 6.7 3.4zm1.4 5.6h2.4c-.2 1.5-.7 2.8-1.4 3.9-.7-1.1-1.2-2.4-1.4-3.9zm2.5 5.2c.6-1.2 1-2.6 1.1-4.1h1.6a5.2 5.2 0 0 1-2.7 4.1z'/%3E%3C/svg%3E");
+}
+
+.gnome-clocks__nav-glyph--alarms {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M8 1.25a5.75 5.75 0 0 0-5.75 5.75v2.1L1.2 11.15l.9.9 2.05-2.05h7.7l2.05 2.05.9-.9-1.05-1.05V7A5.75 5.75 0 0 0 8 1.25zM8 12.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M8 1.25a5.75 5.75 0 0 0-5.75 5.75v2.1L1.2 11.15l.9.9 2.05-2.05h7.7l2.05 2.05.9-.9-1.05-1.05V7A5.75 5.75 0 0 0 8 1.25zM8 12.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z'/%3E%3C/svg%3E");
+}
+
+.gnome-clocks__nav-glyph--timer {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M6.5 1.5h3v1.5h-3V1.5zM8 3.25a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5zm0 1.5a4.25 4.25 0 1 1 0 8.5 4.25 4.25 0 0 1 0-8.5zM7.25 6.5V9h2.5V7.75H8.5V6.5H7.25z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M6.5 1.5h3v1.5h-3V1.5zM8 3.25a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5zm0 1.5a4.25 4.25 0 1 1 0 8.5 4.25 4.25 0 0 1 0-8.5zM7.25 6.5V9h2.5V7.75H8.5V6.5H7.25z'/%3E%3C/svg%3E");
+}
+
+.gnome-clocks__nav-glyph--stopwatch {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M6.25 1.5h3.5v1.25H9.5V3h-3v-.25H6.25V1.5zM8 4.25a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5zm0 1.5a4.25 4.25 0 1 1 0 8.5 4.25 4.25 0 0 1 0-8.5zM7.25 7v2.9l2 1.15.75-1.3-1.5-.85V7H7.25z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M6.25 1.5h3.5v1.25H9.5V3h-3v-.25H6.25V1.5zM8 4.25a5.75 5.75 0 1 0 0 11.5 5.75 5.75 0 0 0 0-11.5zm0 1.5a4.25 4.25 0 1 1 0 8.5 4.25 4.25 0 0 1 0-8.5zM7.25 7v2.9l2 1.15.75-1.3-1.5-.85V7H7.25z'/%3E%3C/svg%3E");
+}
+
+.gnome-clocks__content {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.gnome-clocks__panel {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.gnome-clocks__panel.is-active {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.gnome-clocks__list {
+    flex: 1;
+    margin: 0;
+    padding: 0.35rem 0.75rem 0.75rem;
+    list-style: none;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.55rem;
+}
+
+.gnome-clocks__card {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.15rem;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid transparent;
+    border-radius: 0.65rem;
+}
+
+.gnome-clocks__city {
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.gnome-clocks__time {
+    font-size: 2rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+}
+
+.gnome-clocks__date {
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+.gnome-clocks__panel--empty,
+.gnome-clocks__panel--timer,
+.gnome-clocks__panel--stopwatch {
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+}
+
+.gnome-clocks__empty {
+    margin: 0;
+    font-size: 0.92rem;
+    opacity: 0.72;
+}
+
+.gnome-clocks__empty--hint {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+}
+
+.gnome-clocks__face-btn {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0.5rem;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+}
+
+.gnome-clocks__timer-face,
+.gnome-clocks__stopwatch-face {
+    margin: 0;
+    font-size: 2.75rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+    line-height: 1;
+}
+
+.gnome-clocks__alarm-list {
+    width: 100%;
+}
+
+.gnome-clocks__alarm {
+    align-items: flex-start;
+}
+
+.gnome-clocks__alarm-time {
+    font-size: 2rem;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+}
+
+.gnome-clocks__alarm-label {
+    font-size: 0.82rem;
+    opacity: 0.75;
+}

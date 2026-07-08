@@ -1,0 +1,29 @@
+body#kde-neon div[data-link="system_monitor"].windowElement {
+    width: min(36rem, calc(100vw - 2rem));
+    height: min(24rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+body#kde-neon div[data-link="system_monitor"] main#systemMonitorApp {
+    height: 100%;
+}
+
+html[data-theme="light"] body#kde-neon main#systemMonitorApp.gsm-app {
+    --gsm-bg: #fcfcfc;
+    --gsm-text: #232629;
+    --gsm-header-bg: #eff0f1;
+    --gsm-border: rgba(35, 38, 41, 0.1);
+    --gsm-accent: #3daee9;
+}
+
+html:not([data-theme="light"]) body#kde-neon main#systemMonitorApp.gsm-app {
+    --gsm-bg: #31363b;
+    --gsm-text: #eff0f1;
+    --gsm-header-bg: #2a2e32;
+    --gsm-border: rgba(239, 240, 241, 0.1);
+    --gsm-accent: #3daee9;
+}
+
+body#kde-neon div[data-link="system_monitor"] .gsm-app__tab.is-active {
+    border-bottom-color: #3daee9;
+    color: #3daee9;
+}

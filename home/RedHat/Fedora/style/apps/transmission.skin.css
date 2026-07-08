@@ -1,0 +1,6 @@
+/** fedora — Transmission (slot store P1). */
+body#fedora main#transmissionApp {
+    --trm-bg: #242424;
+    --trm-text: #ffffff;
+    --trm-border: rgba(255, 255, 255, 0.08);
+}

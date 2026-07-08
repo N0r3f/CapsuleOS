@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_city.jpg",
+  "sourceSha256": "9041eed76c5a34e65e53fb4a94077e10fa1f12106ec71aff59c44e238aceef35",
+  "output": "images/vendors/mint/wallpaper/jpanchal_city.webp",
+  "outputSha256": "49b6185a014c938a927ab458f39f7c87b9dd521fc2118c92dc54de46b83eabb0",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 640,
+  "preparedAt": "2026-06-15T19:41:46.733Z"
+}

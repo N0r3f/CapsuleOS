@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/adwaita-d.jxl",
+  "sourceSha256": "272e19528d2af2e91009e9d1dfc0ec14a587dc0082b06314c9537afd6b3785e2",
+  "output": "images/vendors/fedora/wallpaper/adwaita-d.webp",
+  "outputSha256": "0780560a1e18b50c0781cb70d755f2f3d55b2ff3491eaf8b2cc07d2a4cbb7858",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:22:20.917Z"
+}

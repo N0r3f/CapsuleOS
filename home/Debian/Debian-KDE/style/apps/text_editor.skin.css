@@ -1,0 +1,45 @@
+/**
+ * openSUSE — Kate (éditeur de texte KDE / Breeze).
+ */
+body#debian-kde {
+    --xed-chrome-bg: #31363b;
+    --xed-status-bg: #2a2e33;
+    --xed-buffer-bg: #232629;
+    --xed-buffer-text: #eff0f1;
+    --xed-text: #eff0f1;
+    --xed-border: #2a2e33;
+    --xed-menu-surface-bg: #31363b;
+    --xed-menu-hover-bg: rgba(61, 174, 233, 0.15);
+    --xed-toolbar-hover-bg: rgba(255, 255, 255, 0.08);
+    --xed-toolbar-active-bg: rgba(61, 174, 233, 0.22);
+    --xed-toolbar-icon-filter: brightness(0) invert(1);
+}
+
+body#debian-kde div[data-link="text_editor"] #windowHeader {
+    background: var(--xed-chrome-bg);
+    border-bottom: 1px solid var(--xed-border);
+}
+
+body#debian-kde div[data-link="text_editor"] #windowTitle {
+    color: var(--xed-text);
+}
+
+body#debian-kde main#xedApp {
+    color: var(--xed-text);
+    background: var(--xed-chrome-bg);
+}
+
+body#debian-kde .xed-app__editor-wrap,
+body#debian-kde .xed-app__area {
+    color: var(--xed-buffer-text);
+    background: var(--xed-buffer-bg);
+}
+
+body#debian-kde .xed-app__tool:hover {
+    background: var(--xed-toolbar-hover-bg);
+    border-color: #3daee9;
+}
+
+body#debian-kde .xed-app__tool img {
+    filter: var(--xed-toolbar-icon-filter);
+}

@@ -1,0 +1,64 @@
+/**
+ * Polices Ubuntu — ground truth VM (manifeste ManΣ).
+ * Ubuntu 26.04 : Adwaita Sans (UI) + Ubuntu Sans Mono (terminal).
+ */
+
+/* Adwaita Sans — UI par défaut Ubuntu 26.04 */
+@font-face {
+    font-family: "Adwaita Sans";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/AdwaitaSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Adwaita Sans";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/AdwaitaSans-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Adwaita Mono — fallback monospace GNOME */
+@font-face {
+    font-family: "Adwaita Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/AdwaitaMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Ubuntu Sans Mono — terminal VM (Ptyxis Monospace 10) */
+@font-face {
+    font-family: "Ubuntu Sans Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/UbuntuSansMono[wght].ttf") format("truetype");
+    font-weight: 100 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Legacy Ubuntu — fallback */
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/Ubuntu-R.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/Ubuntu-M.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/UbuntuMono-R.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

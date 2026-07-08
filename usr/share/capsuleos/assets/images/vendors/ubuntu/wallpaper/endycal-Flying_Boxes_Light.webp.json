@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/endycal-Flying_Boxes_Light.png",
+  "sourceSha256": "6bd2465b21bd4531a0513cf9a04759029720cd7fca3713ff69b7e33bc1cda159",
+  "output": "images/vendors/ubuntu/wallpaper/endycal-Flying_Boxes_Light.webp",
+  "outputSha256": "58bfcbb485c50bdc2d922f92802492093fd0d04a9fb69b99ca15e185753edf7e",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:46.344Z"
+}

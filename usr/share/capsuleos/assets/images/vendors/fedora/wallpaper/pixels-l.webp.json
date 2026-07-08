@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/pixels-l.jxl",
+  "sourceSha256": "ebfb7f1b9b6ecf7e877c6814a97862ffc141a0f602051d76cf2735f63a2b350c",
+  "output": "images/vendors/fedora/wallpaper/pixels-l.webp",
+  "outputSha256": "19a30e213b37a9b458a4feaadc07a34f5f66d9f6587a09a335623b62bd819b0f",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:27:53.065Z"
+}

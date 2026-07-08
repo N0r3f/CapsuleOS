@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Light.png",
+  "sourceSha256": "d1c419d2f6da721a696668af25fb558c9e040cb0021f970dae7c0390a46c623c",
+  "output": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Light.webp",
+  "outputSha256": "c8ea902872c0125c8017e4288249ae96de1b9d635a44f5f45d657ddd2b59e503",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2860,
+  "preparedAt": "2026-06-16T09:46:48.170Z"
+}

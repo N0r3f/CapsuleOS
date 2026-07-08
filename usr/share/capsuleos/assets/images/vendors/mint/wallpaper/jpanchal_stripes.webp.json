@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_stripes.jpg",
+  "sourceSha256": "087ce2d794aaf46a053f9c6fd0b64d268f04670af06f2295b857fccdd8328acb",
+  "output": "images/vendors/mint/wallpaper/jpanchal_stripes.webp",
+  "outputSha256": "8e8604f6c05479347813748f41556760108d7dbcc5512b759efe094841074636",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:08.306Z"
+}

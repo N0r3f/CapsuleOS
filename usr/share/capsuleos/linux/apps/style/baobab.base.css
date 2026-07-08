@@ -1,0 +1,297 @@
+main#gnomeBaobabApp {
+    position: var(--rel);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    width: var(--full);
+    height: var(--full);
+    overflow: hidden;
+    font-family: var(--font-ui);
+    color: var(--gnome-baobab-text, #f6f6f6);
+    background: var(--gnome-baobab-bg, #242424);
+}
+
+.gnome-baobab__header {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: space-between;
+    flex-shrink: 0;
+    gap: calc(var(--head) / 3);
+    min-height: calc(var(--head) * 0.95);
+    padding: 0 calc(var(--head) / 2.5);
+    border-bottom: 1px solid var(--gnome-baobab-border, rgba(255, 255, 255, 0.08));
+    background: var(--gnome-baobab-header-bg, #383838);
+}
+
+.gnome-baobab__title {
+    margin: 0;
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 600;
+}
+
+.gnome-baobab__scan-btn {
+    padding: calc(var(--head) / 6) calc(var(--head) / 2.8);
+    border: 1px solid var(--gnome-baobab-border, rgba(255, 255, 255, 0.14));
+    border-radius: calc(var(--head) / 5);
+    font: inherit;
+    font-size: calc(var(--head) / 2.9);
+    color: inherit;
+    background: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+}
+
+.gnome-baobab__scan-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.gnome-baobab__scan-btn:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.gnome-baobab__body {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    flex: 1;
+    min-height: 0;
+}
+
+.gnome-baobab__sidebar {
+    flex: 0 0 38%;
+    max-width: 14rem;
+    border-right: 1px solid var(--gnome-baobab-border, rgba(255, 255, 255, 0.08));
+    background: rgba(0, 0, 0, 0.12);
+    overflow: auto;
+}
+
+.gnome-baobab__places {
+    margin: 0;
+    padding: calc(var(--head) / 4) 0;
+    list-style: none;
+}
+
+.gnome-baobab__place {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: calc(var(--head) / 4);
+    padding: calc(var(--head) / 3.5) calc(var(--head) / 2.5);
+    font-size: calc(var(--head) / 2.85);
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: transparent;
+}
+
+.gnome-baobab__place:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.gnome-baobab__place--active {
+    background: rgba(53, 132, 228, 0.22);
+}
+
+.gnome-baobab__place-icon {
+    width: calc(var(--head) / 2.2);
+    height: calc(var(--head) / 2.2);
+    border-radius: 4px;
+    background: var(--gnome-baobab-accent, #3584e4);
+    opacity: 0.85;
+    flex-shrink: 0;
+}
+
+.gnome-baobab__place-icon--home {
+    border-radius: 50%;
+    background: #57c8ff;
+}
+
+.gnome-baobab__place-icon--boot {
+    border-radius: 2px;
+    background: #986a44;
+}
+
+.gnome-baobab__place-size {
+    font-size: calc(var(--head) / 3.1);
+    color: var(--gnome-baobab-muted, rgba(255, 255, 255, 0.62));
+}
+
+.gnome-baobab__main {
+    position: relative;
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    padding: calc(var(--head) / 2);
+}
+
+.gnome-baobab__view {
+    display: none;
+    flex-flow: var(--cnw);
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) / 2);
+    width: 100%;
+}
+
+.gnome-baobab__view.is-active {
+    display: var(--f);
+}
+
+.gnome-baobab__ring {
+    position: relative;
+    width: min(100%, calc(var(--head) * 9));
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--gnome-baobab-accent, #3584e4) 0 var(--baobab-used-pct, 62%),
+        rgba(255, 255, 255, 0.12) var(--baobab-used-pct, 62%) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gnome-baobab__ring::before {
+    content: "";
+    position: absolute;
+    inset: 18%;
+    border-radius: 50%;
+    background: var(--gnome-baobab-bg, #242424);
+}
+
+.gnome-baobab__ring-center {
+    position: relative;
+    z-index: 1;
+    font-size: calc(var(--head) / 2);
+    font-weight: 700;
+}
+
+.gnome-baobab__legend {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: calc(var(--head) / 2.85);
+}
+
+.gnome-baobab__legend li {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 4);
+    margin-bottom: calc(var(--head) / 5);
+}
+
+.gnome-baobab__swatch {
+    width: calc(var(--head) / 3.5);
+    height: calc(var(--head) / 3.5);
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.gnome-baobab__swatch--used {
+    background: var(--gnome-baobab-accent, #3584e4);
+}
+
+.gnome-baobab__swatch--free {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.gnome-baobab__path {
+    margin: 0 0 calc(var(--head) / 4);
+    align-self: flex-start;
+    width: 100%;
+    font-size: calc(var(--head) / 3);
+    font-family: var(--font-mono, monospace);
+    color: var(--gnome-baobab-muted, rgba(255, 255, 255, 0.62));
+}
+
+.gnome-baobab__treemap-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    gap: 2px;
+    width: 100%;
+    min-height: calc(var(--head) * 7);
+    max-height: calc(var(--head) * 9);
+    border-radius: calc(var(--head) / 6);
+    overflow: hidden;
+    border: 1px solid var(--gnome-baobab-border, rgba(255, 255, 255, 0.08));
+}
+
+.gnome-baobab__treemap-cell {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: flex-start;
+    justify-content: flex-end;
+    min-width: calc(var(--head) * 2.2);
+    min-height: calc(var(--head) * 2);
+    padding: calc(var(--head) / 5);
+    font-size: calc(var(--head) / 3.2);
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    box-sizing: border-box;
+}
+
+.gnome-baobab__treemap-legend {
+    margin: calc(var(--head) / 4) 0 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    font-size: calc(var(--head) / 3);
+    color: var(--gnome-baobab-muted, rgba(255, 255, 255, 0.72));
+}
+
+.gnome-baobab__treemap-legend li {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 5);
+    margin-bottom: calc(var(--head) / 7);
+}
+
+.gnome-baobab__treemap-swatch {
+    width: calc(var(--head) / 4);
+    height: calc(var(--head) / 4);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.gnome-baobab__scan-panel {
+    position: absolute;
+    inset: calc(var(--head) / 2);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) / 3);
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: calc(var(--head) / 5);
+    z-index: 2;
+}
+
+.gnome-baobab__progress {
+    width: min(100%, 18rem);
+    height: calc(var(--head) / 5);
+    border-radius: calc(var(--head) / 10);
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+
+.gnome-baobab__progress-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background: var(--gnome-baobab-accent, #3584e4);
+    transition: width 0.15s linear;
+}
+
+.gnome-baobab__progress-label {
+    margin: 0;
+    font-size: calc(var(--head) / 2.85);
+    color: var(--gnome-baobab-text, #f6f6f6);
+}

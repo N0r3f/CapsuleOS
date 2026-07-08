@@ -1,0 +1,52 @@
+@import url(./imports.css);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--texte);
+}
+
+body {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    overflow: var(--n);
+}
+
+header {
+    height: var(--z);
+}
+
+main {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--max-w);
+    height: var(--max-h);
+    background-size: var(--scov);
+    background-repeat: var(--nr);
+    position: relative;
+}
+
+main>a,
+main>a>img {
+    width: var(--a);
+    height: calc(var(--head) * 1.2);
+    margin: calc(var(--head) / 4);
+}
+
+footer {
+    position: var(--abs);
+    bottom: var(--z);
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: calc(var(--head) + var(--head) / 3);
+    z-index: 5;
+}

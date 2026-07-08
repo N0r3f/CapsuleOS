@@ -1,0 +1,1341 @@
+/**
+ * Nautilus 47 (GNOME 45+ split headerbars) — gabarits nemo-gnome / nautilus.
+ * Référence : VM Rocky — plaque « Fichiers » au-dessus de la sidebar, toolbar au-dessus du contenu.
+ *
+ * Les IDs #nemoHeaderContainer / #nemoMainContainer viennent de nemo/base.css (flex colonne + ligne).
+ * Ce fichier doit les surcharger par sélecteur ID, sinon le grid N47 ne s’applique jamais.
+ */
+
+.nautilus-app--n47#gestionnaire,
+main#gestionnaire.nautilus-app--n47 {
+    display: grid;
+    grid-template-columns: var(--nautilus-sidebar-w, 14.5rem) minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr);
+    min-height: 0;
+    height: 100%;
+}
+
+/* --- En-tête : 2 colonnes (sidebar | toolbar), une seule ligne --- */
+main#gestionnaire.nautilus-app--n47 > #nemoHeaderContainer.nautilus-app__win-head,
+div[data-link="nemo"] main.nautilus-app--n47 > #nemoHeaderContainer {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: var(--nautilus-sidebar-w, 14.5rem) minmax(0, 1fr);
+    grid-template-rows: minmax(0, auto);
+    align-items: stretch;
+    justify-content: stretch;
+    flex: 0 0 auto;
+    flex-flow: unset;
+    width: 100%;
+    height: auto;
+    min-height: var(--nautilus-hbar-h, 2.875rem);
+    margin-top: 0;
+    border-bottom: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+    background: transparent;
+    box-sizing: border-box;
+}
+
+main#gestionnaire.nautilus-app--n47 > .nautilus-app__tabstrip-rail,
+div[data-link="nemo"] main.nautilus-app--n47 > .nautilus-app__tabstrip-rail {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: var(--nautilus-tabstrip-h, 2.125rem);
+    border-right: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+    border-bottom: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+    background: var(--nemo-sidebar-bg, #262626);
+}
+
+main#gestionnaire.nautilus-app--n47 > #nautilus-tabstrip,
+div[data-link="nemo"] main.nautilus-app--n47 > #nautilus-tabstrip {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--nautilus-tabstrip-h, 2.125rem);
+    padding: 0;
+    border-bottom: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+    background: var(--nemo-toolbar-bg, #303030);
+    overflow-x: auto;
+}
+
+main#gestionnaire.nautilus-app--n47 > #nautilus-tabstrip:empty,
+div[data-link="nemo"] main.nautilus-app--n47 > #nautilus-tabstrip:empty {
+    display: none;
+}
+
+main#gestionnaire.nautilus-app--n47:has(#nautilus-tabstrip:empty) > .nautilus-app__tabstrip-rail,
+div[data-link="nemo"] main.nautilus-app--n47:has(#nautilus-tabstrip:empty) > .nautilus-app__tabstrip-rail {
+    display: none;
+}
+
+main#gestionnaire.nautilus-app--n47:has(#nautilus-tabstrip:empty) > #nemoMainContainer,
+div[data-link="nemo"] main.nautilus-app--n47:has(#nautilus-tabstrip:empty) > #nemoMainContainer {
+    grid-row: 2 / 4;
+}
+
+.nautilus-app--n47 .nautilus-app__tab {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    min-width: 0;
+    max-width: none;
+    height: 100%;
+    padding: 0 0.85rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--nemo-text-muted, rgba(255, 255, 255, 0.62));
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: default;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.nautilus-app--n47 .nautilus-app__tab > span:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nautilus-app--n47 .nautilus-app__tab.has-separator {
+    border-right: 1px solid var(--nemo-toolbar-border, rgba(255, 255, 255, 0.08));
+}
+
+.nautilus-app--n47 .nautilus-app__tab.is-active {
+    background: var(--nemo-tab-active-bg, #383838);
+    color: var(--nemo-text-primary, #fff);
+}
+
+.nautilus-app--n47 .nautilus-app__tab-close {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-left: 0.1rem;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font-size: 0.9rem;
+    line-height: 1;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.nautilus-app--n47 .nautilus-app__tab-close:hover {
+    opacity: 1;
+    background: var(--nemo-toolbar-button-hover-bg, rgba(255, 255, 255, 0.08));
+}
+
+main#gestionnaire.nautilus-app--n47 > #nemoHeaderContainer > .nautilus-app__head-plate {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+}
+
+main#gestionnaire.nautilus-app--n47 > #nemoHeaderContainer > .nautilus-app__headerbar {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__win-head {
+    box-sizing: border-box;
+}
+
+.nautilus-app--n47 .nautilus-app__head-plate {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    align-self: stretch;
+    gap: 0.35rem;
+    min-height: var(--nautilus-hbar-h, 2.875rem);
+    padding: 0 0.5rem 0 0.72rem;
+    min-width: 0;
+    border-right: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+    background: var(--nemo-sidebar-bg, #262626);
+    box-sizing: border-box;
+}
+
+.nautilus-app--n47 .nautilus-app__win-title {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font: inherit;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--nemo-text-primary, #1e1e1e);
+    cursor: grab;
+}
+
+.nautilus-app--n47 .nautilus-app__win-title:active {
+    cursor: grabbing;
+}
+
+.nautilus-app--n47 .nautilus-app__headerbar {
+    align-self: stretch;
+    min-height: var(--nautilus-hbar-h, 2.875rem);
+    height: var(--nautilus-hbar-h, 2.875rem);
+    background: var(--nemo-toolbar-bg, #f6f6f6);
+}
+
+/* --- Corps : 2 colonnes alignées sur l’en-tête --- */
+main#gestionnaire.nautilus-app--n47 > #nemoMainContainer.nautilus-app__split-body,
+div[data-link="nemo"] main.nautilus-app--n47 > #nemoMainContainer {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: var(--nautilus-sidebar-w, 14.5rem) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    flex: 1 1 auto;
+    flex-flow: unset;
+    align-items: stretch;
+    justify-content: stretch;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+}
+
+main#gestionnaire.nautilus-app--n47 > #nemoMainContainer > #voletnemo {
+    grid-column: 1;
+    grid-row: 1;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+}
+
+main#gestionnaire.nautilus-app--n47 > #nemoMainContainer > .nautilus-app__content-column {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__places {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 0;
+    overflow: hidden;
+    border-right: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+    background: var(--nemo-sidebar-bg, #f3f3f5);
+}
+
+.nautilus-app--n47 .nautilus-app__places .nemo-app__sidebar-places,
+.nautilus-app--n47 .nautilus-app__places .nemo-app__sidebar-xdg {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.06rem;
+    padding: 0.45rem 0.55rem;
+    overflow: auto;
+    min-height: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__places .nemo-app__sidebar-xdg {
+    flex: 1 1 auto;
+    margin-top: 0.35rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.08));
+}
+
+.nautilus-app--n47 .nautilus-app__content-column {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    position: relative;
+    background: var(--nemo-bg-primary, #ffffff);
+}
+
+.nautilus-app--n47 .nautilus-app__content-wrap {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+}
+
+/* voletContainer n’est plus enfant direct de #nemoMainContainer — rétablir la vue grille (row wrap) */
+main#gestionnaire.nautilus-app--n47 #voletContainer,
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+main#gestionnaire.nautilus-app--n47 #voletContainer > .nautilus-search-empty,
+main#gestionnaire.nautilus-app--n47 #voletContainer > .nemoElement,
+main#gestionnaire.nautilus-app--n47 #voletContainer > section.nemo-app__content-grid,
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > .nautilus-search-empty,
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > .nemoElement,
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > section.nemo-app__content-grid {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+main#gestionnaire.nautilus-app--n47 #voletContainer > .nautilus-search-empty,
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > .nautilus-search-empty {
+    flex-flow: column nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+main#gestionnaire.nautilus-app--n47 #voletContainer > .nautilus-search-empty[hidden],
+main#gestionnaire.nautilus-app--n47 #voletContainer > .nemoElement[hidden],
+main#gestionnaire.nautilus-app--n47 #voletContainer > section.nemo-app__content-grid[hidden],
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > .nautilus-search-empty[hidden],
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > .nemoElement[hidden],
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > section.nemo-app__content-grid[hidden] {
+    display: none !important;
+}
+
+main#gestionnaire.nautilus-app--n47 #voletContainer > .nemo-app__content-grid--list,
+div[data-link="nemo"] main.nautilus-app--n47 #voletContainer > .nemo-app__content-grid--list {
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+
+/* --- Toolbar (colonne contenu) : flex ligne, pas l’empilement nemo/base --- */
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__headerbar.nemo-app__toolbar,
+main#gestionnaire.nautilus-app--n47 .nautilus-app__headerbar.nemo-app__toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--nautilus-hbar-gap, 0.375rem);
+    padding: 0 var(--nautilus-hbar-pad-x, 0.375rem);
+    border-top: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+}
+
+.nautilus-app--n47 .nautilus-app__leading {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 0.125rem;
+}
+
+.nautilus-app--n47 .nautilus-app__nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0;
+    padding: 0.125rem;
+    border-radius: var(--nautilus-corner, 0.5rem);
+    background: var(--nemo-chrome-surface, rgba(0, 0, 0, 0.04));
+}
+
+.nautilus-app--n47 .nautilus-app__center {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: stretch;
+    align-self: stretch;
+    min-width: 0;
+    min-height: var(--nautilus-path-h, 2.125rem);
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumbbar {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumbbar[hidden] {
+    display: none !important;
+}
+
+.nautilus-app--n47 .nautilus-app__path-pill {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: min(100%, 42rem);
+    height: var(--nautilus-path-h, 2.125rem);
+    border: 1px solid var(--nemo-pathbar-border, rgba(0, 0, 0, 0.1));
+    border-radius: var(--nautilus-corner, 0.5rem);
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.nautilus-app--n47 .nautilus-app__path-pill-main {
+    display: inline-flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0.65rem;
+    border: 0;
+    background: transparent;
+    color: var(--nemo-pathbar-text, #1e1e1e);
+    font: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: default;
+}
+
+.nautilus-app--n47 .nautilus-app__path-pill-icon {
+    flex: 0 0 auto;
+    width: var(--nautilus-icon-size, 1rem);
+    height: var(--nautilus-icon-size, 1rem);
+    opacity: 0.72;
+    filter: var(--nemo-toolbar-icon-filter, none);
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumbs {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.15rem;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumb-icon {
+    width: var(--nautilus-icon-size, 1rem);
+    height: var(--nautilus-icon-size, 1rem);
+    opacity: 0.72;
+    filter: var(--nemo-toolbar-icon-filter, none);
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumb-sep {
+    opacity: 0.55;
+    font-weight: 500;
+    padding: 0 0.1rem;
+}
+
+.nautilus-app--n47 .nautilus-app__path-crumb:hover {
+    text-decoration: underline;
+}
+
+.nautilus-app--n47 .nautilus-app__path-pill-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-left: 1px solid var(--nemo-pathbar-border, rgba(0, 0, 0, 0.08));
+    background: transparent;
+    color: var(--nemo-text-muted, #5e5e62);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.nautilus-app--n47 .nautilus-app__path-pill-menu:hover,
+.nautilus-app--n47 .nautilus-app__path-pill-menu[aria-expanded="true"] {
+    background: var(--nemo-toolbar-button-hover-bg, rgba(0, 0, 0, 0.05));
+}
+
+.nautilus-app--n47 .nautilus-app__search-field[hidden] {
+    display: none !important;
+}
+
+.nautilus-app--n47 .nautilus-app__search-clear {
+    width: 1.75rem;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    opacity: 0.65;
+}
+
+.nautilus-app--n47 .nautilus-search-empty {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 0;
+    height: 100%;
+    padding: 2.5rem 1.5rem 4rem;
+    text-align: center;
+    background: var(--nemo-bg-primary, #fff);
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.nautilus-app--n47 .nautilus-search-empty[hidden] {
+    display: none !important;
+}
+
+.nautilus-app--n47 .nautilus-search-empty__icon {
+    width: 4.75rem;
+    height: 4.75rem;
+    margin-bottom: 0.35rem;
+    opacity: 0.28;
+    background: var(--nemo-text-muted, #9a9a9e);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M10.5 9.5h-.6l-.2-.2a4.2 4.2 0 1 0-.7.7l.2.2v.6l3.2 3.2 1-1-3.2-3.1zm-3.7 0a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M10.5 9.5h-.6l-.2-.2a4.2 4.2 0 1 0-.7.7l.2.2v.6l3.2 3.2 1-1-3.2-3.1zm-3.7 0a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.nautilus-app--n47 .nautilus-search-empty__title {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--nemo-text-primary, #1e1e1e);
+}
+
+.nautilus-app--n47 .nautilus-search-empty__hint {
+    margin: 0;
+    max-width: 26rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--nemo-text-muted, #5e5e62);
+}
+
+.nautilus-app--n47 .nautilus-search-empty__settings {
+    margin-top: 0.75rem;
+    padding: 0.45rem 1.1rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    color: var(--nemo-text-primary, #1e1e1e);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nautilus-app--n47 .nautilus-search-empty__settings:hover {
+    background: var(--nemo-item-active-bg, rgba(0, 0, 0, 0.06));
+}
+
+.nautilus-app--n47 .nautilus-app__content-column {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 0;
+    min-width: 0;
+}
+
+.nautilus-app--n47 #voletContainer {
+    position: relative;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+}
+
+.nautilus-app--n47 .nautilus-folder-empty {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    gap: 0.65rem;
+    min-height: 16rem;
+    padding: 2.5rem 1.5rem 5rem;
+    text-align: center;
+}
+
+.nautilus-app--n47 .nautilus-folder-empty__icon {
+    width: 5rem;
+    height: 4rem;
+    margin-bottom: 0.35rem;
+    opacity: 0.28;
+}
+
+.nautilus-app--n47 .nautilus-folder-empty--folder .nautilus-folder-empty__icon {
+    border: 0.3rem solid currentColor;
+    border-radius: 0.35rem 0.65rem 0.35rem 0.35rem;
+    color: var(--nemo-text-muted, #9a9a9e);
+}
+
+.nautilus-app--n47 .nautilus-folder-empty--star .nautilus-folder-empty__icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    background: currentColor;
+    color: var(--nemo-text-muted, #9a9a9e);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.nautilus-app--n47 .nautilus-folder-empty--network .nautilus-folder-empty__icon {
+    width: 5.5rem;
+    height: 3.5rem;
+    border: 0.28rem solid currentColor;
+    border-radius: 0.35rem;
+    color: var(--nemo-text-muted, #9a9a9e);
+    box-shadow: 0 0.65rem 0 -0.35rem currentColor;
+}
+
+.nautilus-app--n47 .nautilus-folder-empty__title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--nemo-text-primary, #1e1e1e);
+}
+
+.nautilus-app--n47 .nautilus-folder-empty__hint {
+    margin: 0;
+    max-width: 24rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--nemo-text-muted, #5e5e62);
+}
+
+.nautilus-app--n47 .nautilus-network-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem var(--nautilus-content-pad-x, 1.35rem) 0.85rem;
+    border-top: 1px solid var(--nemo-border, rgba(0, 0, 0, 0.1));
+    background: var(--nemo-bg-primary, #fff);
+}
+
+.nautilus-app--n47 .nautilus-network-bar[hidden] {
+    display: none !important;
+}
+
+.nautilus-app--n47 .nautilus-network-bar__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 2.125rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--nemo-pathbar-border, rgba(0, 0, 0, 0.1));
+    border-radius: var(--nautilus-corner, 0.5rem);
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    color: var(--nemo-text-primary, #1e1e1e);
+    font: inherit;
+    font-size: 0.82rem;
+}
+
+.nautilus-app--n47 .nautilus-network-bar__connect {
+    height: 2.125rem;
+    padding: 0 1rem;
+    border: 0;
+    border-radius: var(--nautilus-corner, 0.5rem);
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    color: var(--nemo-text-muted, #5e5e62);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: default;
+}
+
+.nautilus-app--n47 .nautilus-network-bar__connect:not(:disabled) {
+    color: var(--nemo-text-primary, #1e1e1e);
+    cursor: pointer;
+}
+
+.nautilus-app--n47 .nautilus-network-info {
+    max-width: 22rem;
+    padding: 0.85rem 1rem;
+}
+
+.nautilus-app--n47 .nautilus-network-info__title {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.nautilus-app--n47 .nautilus-network-info__intro,
+.nautilus-app--n47 .nautilus-network-info__examples {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--nemo-text-muted, #5e5e62);
+}
+
+.nautilus-app--n47 .nautilus-network-info__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+}
+
+.nautilus-app--n47 .nautilus-network-info__table th,
+.nautilus-app--n47 .nautilus-network-info__table td {
+    padding: 0.35rem 0.25rem;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid var(--nemo-border, rgba(0, 0, 0, 0.1));
+}
+
+.nautilus-app--n47 .nautilus-context-menu__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+}
+
+.nautilus-app--n47 .nautilus-context-menu__icon {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 1rem;
+    opacity: 0.92;
+    object-fit: contain;
+}
+
+.nautilus-app--n47 .nautilus-context-menu__icon--spacer {
+    display: inline-block;
+    width: 1rem;
+    flex: 0 0 1rem;
+}
+
+.nautilus-app--n47 .nautilus-context-menu__label {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.nautilus-app--n47 .nemo-app__item--renaming {
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.nautilus-app--n47 .nemo-app__item-rename-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    max-width: 100%;
+}
+
+.nautilus-app--n47 .nemo-app__item-rename-input {
+    box-sizing: border-box;
+    min-width: 4.5rem;
+    max-width: min(100%, 14rem);
+    margin: 0;
+    padding: 0.1rem 0.35rem;
+    border: 1px solid var(--nemo-accent, #3584e4);
+    border-radius: 0.25rem;
+    background: var(--nemo-bg-primary, #fff);
+    color: var(--nemo-text-primary, #1e1e1e);
+    font: inherit;
+    line-height: 1.35;
+    outline: none;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--nemo-accent, #3584e4) 35%, transparent);
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a.nemo-app__item--renaming {
+    background: var(--nemo-item-active-bg, rgba(53, 132, 228, 0.16));
+    border-radius: 0.5rem;
+}
+
+.nautilus-app--n47 .nemo-app__item-rename-suffix {
+    opacity: 0.85;
+    font: inherit;
+    white-space: nowrap;
+}
+
+.nautilus-app--n47 .nemo-app__list-header + .nemoElement a.nemo-app__item--renaming .nemo-app__item-rename-input,
+.nautilus-app--n47 .nemo-app__content-grid--list a.nemo-app__item--renaming .nemo-app__item-rename-input {
+    max-width: 100%;
+    width: 100%;
+}
+
+.nautilus-app--n47 .nautilus-context-menu__item kbd {
+    font-family: inherit;
+    font-size: 0.72rem;
+    color: var(--nemo-text-muted, #5e5e62);
+}
+
+.nautilus-app--n47 .nautilus-context-menu__sub {
+    opacity: 0.65;
+}
+
+.nautilus-app--n47 .nautilus-context-menu__separator[hidden] {
+    display: none;
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a {
+    box-sizing: border-box;
+    max-width: 7.5rem;
+    padding: 0.35rem 0.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a .nemo-app__item-name {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.nautilus-app--n47 .nemo-app__content-grid--list > a {
+    max-width: none;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nautilus-app--n47 .nemo-app__content-grid--list > a .nemo-app__item-name {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: left;
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a:hover:not(.nemo-app__item--selected):not(.nemo-app__item--renaming) {
+    background: var(--nemo-content-hover-bg, rgba(0, 0, 0, 0.04));
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a.nemo-app__item--selected {
+    background: var(--nemo-item-active-bg, rgba(53, 132, 228, 0.16));
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a:focus-visible {
+    border-color: var(--nemo-focus-ring, rgba(53, 132, 228, 0.55));
+    box-shadow: 0 0 0 1px var(--nemo-focus-ring, rgba(53, 132, 228, 0.35));
+}
+
+.nautilus-app--n47 .nemo-app__content-grid > a.nemo-app__item--selected:focus-visible {
+    background: var(--nemo-item-active-bg, rgba(53, 132, 228, 0.16));
+    border-color: var(--nemo-focus-ring-strong, rgba(53, 132, 228, 0.85));
+    box-shadow: 0 0 0 2px var(--nemo-focus-ring, rgba(53, 132, 228, 0.45));
+}
+
+.nautilus-app--n47 .nautilus-info-dialog {
+    border: 0;
+    padding: 0;
+    border-radius: 0.65rem;
+    background: var(--nemo-menu-surface-bg, #383838);
+    color: var(--nemo-text-primary, #fff);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.nautilus-app--n47 .nautilus-info-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.nautilus-app--n47 .nautilus-info-dialog__panel {
+    margin: 0;
+    padding: 0;
+    min-width: 18rem;
+    max-width: 26rem;
+}
+
+.nautilus-app--n47 .nautilus-info-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--nemo-border, rgba(255, 255, 255, 0.1));
+}
+
+.nautilus-app--n47 .nautilus-info-dialog__header h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.nautilus-app--n47 .nautilus-info-dialog__body {
+    padding: 0.85rem 1rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.nautilus-app--n47 .nautilus-info-dialog__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nautilus-app--n47 .nautilus-info-dialog__list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.25rem 0;
+}
+
+.nautilus-app--n47 .nautilus-context-menu__item:disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.nautilus-app--n47 .nautilus-popover__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.nautilus-app--n47 .nautilus-popover__item kbd {
+    flex: 0 0 auto;
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--nemo-text-muted, #5e5e62);
+    opacity: 0.9;
+}
+
+.nautilus-app--n47 .nautilus-popover--panel {
+    min-width: 15rem;
+    padding: 0.75rem;
+}
+
+.nautilus-app--n47 .nautilus-popover__panel-section + .nautilus-popover__panel-section {
+    margin-top: 0.75rem;
+}
+
+.nautilus-app--n47 .nautilus-popover__panel-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--nemo-text-muted, #5e5e62);
+}
+
+.nautilus-app--n47 .nautilus-popover__panel-field {
+    display: block;
+    width: 100%;
+    padding: 0.45rem 0.65rem;
+    border: 0;
+    border-radius: 0.45rem;
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    color: var(--nemo-text-primary, #1e1e1e);
+    font: inherit;
+    font-size: 0.8rem;
+    text-align: left;
+    cursor: default;
+}
+
+.nautilus-app--n47 .nautilus-popover__segmented {
+    display: flex;
+    flex-flow: row nowrap;
+    border-radius: 0.45rem;
+    overflow: hidden;
+    background: var(--nemo-pathbar-bg, #ebebeb);
+}
+
+.nautilus-app--n47 .nautilus-popover__segment {
+    flex: 1 1 50%;
+    margin: 0;
+    padding: 0.4rem 0.5rem;
+    border: 0;
+    background: transparent;
+    color: var(--nemo-text-primary, #1e1e1e);
+    font: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.nautilus-app--n47 .nautilus-popover__segment.is-active {
+    background: var(--nemo-item-active-bg, rgba(0, 0, 0, 0.1));
+    font-weight: 600;
+}
+
+.nautilus-app--n47 .nautilus-popover__row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+}
+
+.nautilus-app--n47 .nautilus-popover__zoom {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.nautilus-app--n47 .nautilus-popover__zoom-btn {
+    width: 1.65rem;
+    height: 1.65rem;
+    border: 0;
+    border-radius: 0.35rem;
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    color: var(--nemo-text-primary, #1e1e1e);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.nautilus-app--n47 .nautilus-popover__group-label {
+    display: block;
+    padding: 0.2rem 1rem 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--nemo-text-muted, #5e5e62);
+}
+
+.nautilus-app--n47 .nautilus-app__search-field {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    flex: none;
+    gap: 0.25rem;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0 0.35rem 0 0.5rem;
+    border: 1px solid var(--nemo-pathbar-border, rgba(0, 0, 0, 0.1));
+    border-radius: var(--nautilus-corner, 0.5rem);
+    background: var(--nemo-pathbar-bg, #ebebeb);
+    box-sizing: border-box;
+}
+
+.nautilus-app--n47 .nautilus-app__search-field-icon {
+    flex: 0 0 auto;
+    width: var(--nautilus-icon-size, 1rem);
+    height: var(--nautilus-icon-size, 1rem);
+    opacity: 0.55;
+    filter: var(--nemo-toolbar-icon-filter, none);
+}
+
+.nautilus-app--n47 .nautilus-app__search-field:focus-within {
+    border-color: var(--nemo-pathbar-border, rgba(0, 0, 0, 0.1));
+    box-shadow: none;
+    outline: none;
+}
+
+.nautilus-app--n47 .nautilus-app__search-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--nemo-pathbar-text, #1e1e1e);
+    font: inherit;
+    font-size: 0.8125rem;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.nautilus-app--n47 .nautilus-app__search-input:focus,
+.nautilus-app--n47 .nautilus-app__search-input:focus-visible {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__search-input::-webkit-search-decoration,
+.nautilus-app--n47 .nautilus-app__search-input::-webkit-search-cancel-button,
+.nautilus-app--n47 .nautilus-app__search-input::-webkit-search-results-button,
+.nautilus-app--n47 .nautilus-app__search-input::-webkit-search-results-decoration {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.nautilus-app--n47 .nautilus-app__search-input::placeholder {
+    color: var(--nemo-text-muted, #5e5e62);
+    opacity: 0.95;
+}
+
+.nautilus-app--n47 .nautilus-app__search-filter,
+.nautilus-app--n47 .nautilus-app__search-info {
+    width: 1.75rem;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    border-radius: calc(var(--nautilus-corner, 0.5rem) - 0.125rem);
+}
+
+.nautilus-app--n47 .nautilus-app__headerbar > .nautilus-app__leading,
+.nautilus-app--n47 .nautilus-app__headerbar > .nautilus-app__center,
+.nautilus-app--n47 .nautilus-app__headerbar > .nautilus-app__trailing {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    min-width: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__trailing {
+    gap: 0.125rem;
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.nautilus-app--n47 .nautilus-app__trailing .gnome-app__window-controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.2rem;
+    flex-shrink: 0;
+    margin-left: 0.15rem;
+}
+
+.nautilus-app--n47 .nautilus-app__trailing:has(.gnome-app__window-controls #closeBtn) .nautilus-app__window-close {
+    display: none !important;
+}
+
+.nautilus-app--n47 .nautilus-app__view-group {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 0.125rem;
+    border-radius: var(--nautilus-corner, 0.5rem);
+    background: var(--nemo-chrome-surface, rgba(0, 0, 0, 0.04));
+}
+
+.nautilus-app--n47 .nautilus-app__view-group .nautilus-app__icon-btn {
+    border-radius: 0;
+}
+
+.nautilus-app--n47 .nautilus-app__view-group .nautilus-app__icon-btn:first-child {
+    border-radius: var(--nautilus-corner, 0.5rem) 0 0 var(--nautilus-corner, 0.5rem);
+}
+
+.nautilus-app--n47 .nautilus-app__view-menu-btn {
+    border-radius: 0 var(--nautilus-corner, 0.5rem) var(--nautilus-corner, 0.5rem) 0;
+}
+
+.nautilus-app--n47 .nautilus-app__icon-btn,
+.nautilus-app--n47 .nautilus-app__window-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--nautilus-btn-size, 2.125rem);
+    height: var(--nautilus-btn-size, 2.125rem);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--nautilus-corner, 0.5rem);
+    color: var(--nemo-text-primary, #1e1e1e);
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nautilus-app--n47 .nautilus-app__icon-btn:hover,
+.nautilus-app--n47 .nautilus-app__window-close:hover {
+    background: var(--nemo-toolbar-button-hover-bg, rgba(0, 0, 0, 0.05));
+}
+
+.nautilus-app--n47 .nautilus-app__icon-btn img {
+    display: block;
+    width: var(--nautilus-icon-size, 1rem);
+    height: var(--nautilus-icon-size, 1rem);
+    filter: var(--nemo-toolbar-icon-filter, none);
+}
+
+.nautilus-app--n47 .nautilus-app__window-close span {
+    font-size: 1.125rem;
+    line-height: 1;
+    font-weight: 400;
+    opacity: 0.72;
+}
+
+/* Pastille statut Nautilus 47 — bas gauche de la zone contenu (pas barre #nemoFooterContainer legacy) */
+main#gestionnaire.nautilus-app--n47 #nemoFooterContainer.nautilus-app__status-pill,
+div[data-link="nemo"] main.nautilus-app--n47 #nemoFooterContainer {
+    position: absolute;
+    left: var(--nautilus-content-pad-x, 1.35rem);
+    right: auto;
+    bottom: var(--nautilus-status-inset-bottom, 1rem);
+    top: auto;
+    z-index: 4;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: max-content;
+    max-width: min(40rem, calc(100% - calc(var(--nautilus-content-pad-x, 1.35rem) * 2)));
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--nemo-toolbar-border, rgba(0, 0, 0, 0.1));
+    border-top: 0;
+    border-radius: 999px;
+    background: var(--nemo-footer-bg, #f4f4f4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    align-self: auto;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+/* VM Nautilus 47 : pas de pastille compteur au repos (home) — visible seulement en sélection. */
+main#gestionnaire.nautilus-app--n47 #nemoFooterContainer:not(.nautilus-app__status-pill--selection),
+div[data-link="nemo"] main.nautilus-app--n47 #nemoFooterContainer:not(.nautilus-app__status-pill--selection) {
+    display: none;
+}
+
+.nautilus-app--n47 .nautilus-app__status-text {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--nemo-status-text, #5a5a60);
+    white-space: nowrap;
+}
+
+.nautilus-app--n47 #nemoFooterContainer.nautilus-app__status-pill--selection {
+    border-color: color-mix(in srgb, var(--nemo-accent, #3584e4) 35%, var(--nemo-toolbar-border, rgba(255, 255, 255, 0.1)));
+}
+
+.nautilus-app--n47 #nemoFooterContainer.nautilus-app__status-pill--selection .nautilus-app__status-text {
+    color: var(--nemo-text-primary, #fff);
+    font-weight: 600;
+}
+
+.nautilus-app--n47 .nautilus-app__sr-only,
+div[data-link="nemo"] main.nautilus-app--n47 .nemo-app__path-current.nautilus-app__sr-only,
+div[data-link="nemo"] main.nautilus-app--n47 #nemo-path-label,
+div[data-link="nemo"] main.nautilus-app--n47 #parent,
+div[data-link="nemo"] main.nautilus-app--n47 #home {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    background: transparent;
+    display: block;
+    flex: none;
+    min-width: 0;
+    min-height: 0;
+    color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+div[data-link="nemo"] main.nautilus-app--n47#gestionnaire {
+    display: grid;
+    flex-flow: unset;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+}
+
+div[data-link="nemo"] main.nautilus-app--n47 > #nemoHeaderContainer {
+    display: grid;
+    flex-flow: unset;
+    height: auto;
+    min-height: var(--nautilus-hbar-h, 2.875rem);
+    margin-top: 0;
+}
+
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__icon-btn,
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__window-close,
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__plate-search,
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__sidebar-menu-btn {
+    border: 0;
+    background: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__icon-btn:hover,
+div[data-link="nemo"] main.nautilus-app--n47 .nautilus-app__window-close:hover {
+    transform: none;
+}
+
+div[data-link="nemo"] .nautilus-app--n47 .nautilus-app__toolbar-group > a,
+div[data-link="nemo"] .nautilus-app--n47 .nautilus-app__toolbar-group--path > a {
+    min-width: var(--nautilus-btn-size, 2.125rem);
+    height: var(--nautilus-btn-size, 2.125rem);
+    padding: 0;
+    border: 0;
+    transform: none;
+}
+
+div[data-link="nemo"] .nautilus-app--n47 .nautilus-app__view-group > a.nemo-app__view-btn--active,
+div[data-link="nemo"] .nautilus-app--n47 .nautilus-app__view-group > a[aria-current="true"] {
+    background: var(--nemo-item-active-bg, rgba(53, 132, 228, 0.14));
+}
+
+.nautilus-app--n47 .nautilus-app__places > a {
+    display: flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0 0.55rem;
+    border-radius: 0.5rem;
+    color: var(--nemo-sidebar-text, #1e1e1e);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nautilus-app--n47 .nautilus-app__places img {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    filter: var(--nemo-symbolic-icon-filter, none);
+}

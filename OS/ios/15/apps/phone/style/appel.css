@@ -1,0 +1,221 @@
+@import url(../../../../../../usr/share/capsuleos/themes/portal/imports.css);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--noir);
+    user-select: var(--n);
+}
+
+ul,
+li {
+    list-style: var(--n);
+    margin: var(--z);
+    padding: var(--z);
+}
+
+p,
+a, h1 {
+    margin: var(--z);
+}
+
+
+/************* INTERFACE GLOBALE *************/
+#ios15 {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    background-image: url(../../../../../../usr/share/capsuleos/assets/images/toolkits/ios/background2.webp);
+    background-size: cover;
+    overflow: var(--n);
+}
+
+#iosheader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: var(--head);
+    padding: calc(var(--head) / 15) calc(var(--head) / 5);
+    font-size: 0.8em;
+    position: var(--fix);
+    z-index: 555;
+    color: var(--bgw);
+}
+
+#headercellular {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+}
+
+#iosheader img {
+    height: calc(var(--head) * 0.35);
+}
+
+#headercellular>img {
+    padding-right: calc(var(--head) / 10);
+}
+#heure{
+    margin-right: 8vw;
+}
+
+#headercellular>p:last-child {
+    padding-left: calc(var(--head) / 5);
+}
+
+#headerbattery>img {
+    padding-left: calc(var(--head) / 10);
+}
+
+#headerbattery {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fe);
+}
+
+
+
+
+/************* APPLICATION *************/
+main {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: calc(var(--max-w) * 0.9);
+    height: var(--max-h);
+    position: var(--abs);
+    padding-top: var(--head);
+}
+
+.app-head{
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+}
+.app-head>h1{
+    font-weight: normal;
+    color: var(--bgw);
+}
+.app-head>p{
+    color:#c7c7c9;
+}
+
+.buttons{
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    margin-top: var(--head);
+}
+.buttons>article{
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+}
+.buttons>article>div{
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    color: var(--bgw);
+    margin-bottom: calc(var(--head) / 2);
+}
+
+.buttons>article>div>a{
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    background-color: #ffffff1c;
+    border-radius: calc(var(--head) * 1.2);
+    margin-bottom: calc(var(--head) / 8);
+    
+}
+.buttons>article>div>a>img{
+    height: calc(var(--head) / 1.3);
+    width: calc(var(--head) / 1.2);
+    filter:brightness(1000%);
+}
+.buttons>article:nth-child(1)>div:nth-child(2)>a>img{
+    width: calc(var(--head) / 1.4);
+}
+.buttons>article:nth-child(1)>div:last-child>a>img{
+    width: calc(var(--head) / 1.1);
+}
+.buttons>article:nth-child(2)>div:nth-child(1)>a>img{
+    height: calc(var(--head) / 2);
+}
+
+
+.buttons>article>div>p{
+    font-size: small;
+}
+
+main>a{
+    margin-bottom: var(--head);
+}
+
+main>a>img{
+    width: calc(var(--head) * 1.5);
+}
+
+
+footer {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--max-w);
+    height: calc(var(--head) * 1.2);
+    position: var(--fix);
+    bottom: var(--z);
+    background-color: #f9f9f6;
+    border-top: 1px solid #c7c7c9;
+}
+
+footer>nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: var(--full);
+    height: var(--full);
+}
+
+footer>nav>a {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    height: var(--head);
+}
+
+footer>nav>a>img {
+    height: calc(var(--head) / 1.8);
+    width: calc(var(--head) / 1.2);
+}
+
+footer>nav>a>p {
+    margin: var(--z);
+    font-size: x-small;
+    color: #959594;
+}
+
+.active-icon {
+    color: #007aff;
+}

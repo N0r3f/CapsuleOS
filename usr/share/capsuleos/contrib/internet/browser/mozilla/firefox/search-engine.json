@@ -1,0 +1,10 @@
+{
+  "defaultEngine": "google",
+  "engines": {
+    "google": {
+      "siteId": "search-google",
+      "queryParam": "q",
+      "placeholderFr": "Rechercher avec Google ou saisir une adresse"
+    }
+  }
+}

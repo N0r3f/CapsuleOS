@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AlmaLinux">
+  <rect width="128" height="128" rx="24" fill="#081F2D"/>
+  <circle cx="64" cy="64" r="34" fill="none" stroke="#00AEEA" stroke-width="8"/>
+  <path fill="#FF4A00" d="M64 34c-8 14-12 28-12 30s4 16 12 30c8-14 12-28 12-30S72 48 64 34z"/>
+  <path fill="#00AEEA" d="M34 64c14-8 28-12 30-12s16 4 30 12c-14 8-28 12-30 12S48 72 34 64z"/>
+</svg>

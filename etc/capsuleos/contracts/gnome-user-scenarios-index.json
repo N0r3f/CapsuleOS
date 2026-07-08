@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "description": "Index manifeste des contrats scénarios pédagogiques GNOME — toolkit partagé (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/procedure-playbook-gnome-apps-overview.md",
+  "pattern": "root/docs/procedure-scenarios-pedagogiques-gnome.md",
+  "predicates": {
+    "ScΣ": "Contrat JSON valide + kernel + gabarit + smoke",
+    "ScAll": "Tous les contrats indexés passent leurs validateurs dédiés"
+  },
+  "registryIdsDefault": ["linux-rocky", "linux-fedora", "linux-alma", "linux-ubuntu"],
+  "slotToContractFile": {
+    "update_manager": "software-user-scenarios.json",
+    "text_editor": "text-editor-user-scenarios.json",
+    "calculator": "calculator-user-scenarios.json",
+    "themes": "themes-user-scenarios.json",
+    "clocks": "clocks-user-scenarios.json",
+    "calendar": "calendar-user-scenarios.json",
+    "baobab": "baobab-user-scenarios.json",
+    "tour": "tour-user-scenarios.json",
+    "snapshot": "snapshot-user-scenarios.json",
+    "characters": "characters-user-scenarios.json",
+    "system_monitor": "system-monitor-user-scenarios.json",
+    "screenshot": "screenshot-user-scenarios.json",
+    "nemo": "nautilus-user-scenarios.json",
+    "firefox": "firefox-user-scenarios.json",
+    "terminal": "terminal-user-scenarios.json",
+    "librewriter": "librewriter-user-scenarios.json",
+    "checklist": "checklist-user-scenarios.json",
+    "visionneur_images": "loupe-user-scenarios.json",
+    "visionneur_pdf": "papers-user-scenarios.json",
+    "lecteur_multimedia": "rhythmbox-user-scenarios.json"
+  },
+  "contracts": [
+    {
+      "id": "software",
+      "slot": "update_manager",
+      "labelFr": "Logiciels (GNOME Software)",
+      "contract": "etc/capsuleos/contracts/software-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-software-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-software-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-software-views.mjs",
+      "campaign": "C15",
+      "status": "ok"
+    },
+    {
+      "id": "text-editor",
+      "slot": "text_editor",
+      "labelFr": "Éditeur de texte",
+      "contract": "etc/capsuleos/contracts/text-editor-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-text-editor-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-text-editor-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-text-editor-views.mjs",
+      "campaign": "C16",
+      "status": "ok"
+    },
+    {
+      "id": "calculator",
+      "slot": "calculator",
+      "labelFr": "Calculatrice",
+      "contract": "etc/capsuleos/contracts/calculator-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-calculator-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-calculator-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-calculator-views.mjs",
+      "campaign": "C17",
+      "status": "ok"
+    },
+    {
+      "id": "themes",
+      "slot": "themes",
+      "labelFr": "Paramètres des thèmes",
+      "contract": "etc/capsuleos/contracts/themes-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-themes-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-themes-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-themes-views.mjs",
+      "campaign": "C18",
+      "status": "ok"
+    },
+    {
+      "id": "clocks",
+      "slot": "clocks",
+      "labelFr": "Horloges",
+      "contract": "etc/capsuleos/contracts/clocks-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-clocks-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-clocks-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-clocks-views.mjs",
+      "campaign": "C19",
+      "status": "ok"
+    },
+    {
+      "id": "calendar",
+      "slot": "calendar",
+      "labelFr": "Agenda",
+      "contract": "etc/capsuleos/contracts/calendar-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-calendar-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-calendar-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-calendar-views.mjs",
+      "campaign": "C20",
+      "status": "ok"
+    },
+    {
+      "id": "baobab",
+      "slot": "baobab",
+      "labelFr": "Utilisation des disques",
+      "contract": "etc/capsuleos/contracts/baobab-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-baobab-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-baobab-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-baobab-views.mjs",
+      "campaign": "C24",
+      "status": "ok"
+    },
+    {
+      "id": "tour",
+      "slot": "tour",
+      "labelFr": "Visite guidée",
+      "contract": "etc/capsuleos/contracts/tour-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-tour-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-tour-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-tour-views.mjs",
+      "campaign": "C24",
+      "status": "ok"
+    },
+    {
+      "id": "snapshot",
+      "slot": "snapshot",
+      "labelFr": "Caméra (Snapshot)",
+      "contract": "etc/capsuleos/contracts/snapshot-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-snapshot-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-snapshot-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-snapshot-views.mjs",
+      "campaign": "C25",
+      "status": "ok"
+    },
+    {
+      "id": "characters",
+      "slot": "characters",
+      "labelFr": "Caractères",
+      "contract": "etc/capsuleos/contracts/characters-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-characters-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-characters-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-characters-views.mjs",
+      "campaign": "C25",
+      "status": "ok"
+    },
+    {
+      "id": "system-monitor",
+      "slot": "system_monitor",
+      "labelFr": "Moniteur système",
+      "contract": "etc/capsuleos/contracts/system-monitor-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-system-monitor-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-system-monitor-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-system-monitor-views.mjs",
+      "campaign": "C25",
+      "status": "ok"
+    },
+    {
+      "id": "screenshot",
+      "slot": "screenshot",
+      "labelFr": "Capture d'écran",
+      "contract": "etc/capsuleos/contracts/screenshot-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-screenshot-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-screenshot-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-screenshot-views.mjs",
+      "campaign": "C25",
+      "status": "ok",
+      "note": "Capsule-only sur Alma el10 (gnome-screenshot absent VM)"
+    },
+    {
+      "id": "nautilus",
+      "slot": "nemo",
+      "labelFr": "Fichiers (Nautilus)",
+      "contract": "etc/capsuleos/contracts/nautilus-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-nautilus-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-nautilus-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-nautilus-views.mjs",
+      "campaign": "C26",
+      "status": "ok",
+      "note": "Slot CapsuleOS nemo = Nautilus VM (≠ Nemo Cinnamon Mint)"
+    },
+    {
+      "id": "firefox",
+      "slot": "firefox",
+      "labelFr": "Firefox",
+      "contract": "etc/capsuleos/contracts/firefox-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-firefox-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-firefox-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-firefox-views.mjs",
+      "campaign": "C27",
+      "status": "ok",
+      "note": "Firefox 140 ESR · chrome Proton GNOME · F1–F4 navigation/onglets/favoris"
+    },
+    {
+      "id": "terminal",
+      "slot": "terminal",
+      "labelFr": "Terminal (Ptyxis)",
+      "contract": "etc/capsuleos/contracts/terminal-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-terminal-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-terminal-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-terminal-views.mjs",
+      "campaign": "C28",
+      "status": "ok",
+      "note": "Ptyxis 47.x · invite capsule@host · Te1–Te4 commandes/onglets · anti-régression Mint Konsole"
+    },
+    {
+      "id": "librewriter",
+      "slot": "librewriter",
+      "labelFr": "LibreOffice Writer",
+      "contract": "etc/capsuleos/contracts/librewriter-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-librewriter-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-librewriter-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-librewriter-views.mjs",
+      "campaign": "C29",
+      "status": "ok",
+      "note": "LibreOffice 24.x FR simulé · Lw1–Lw4 · cohérent Software S1 · ≠ text_editor"
+    },
+    {
+      "id": "checklist",
+      "slot": "checklist",
+      "labelFr": "Missions CapsuleOS",
+      "contract": "etc/capsuleos/contracts/checklist-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-checklist-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-checklist-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-checklist-views.mjs",
+      "campaign": "C30",
+      "status": "ok",
+      "note": "Capsule-only · Ck1–Ck4 · module pédagogique /mnt · chrome GNOME Alma · pas d'app VM"
+    },
+    {
+      "id": "loupe",
+      "slot": "visionneur_images",
+      "labelFr": "Loupe (visionneur d'images)",
+      "contract": "etc/capsuleos/contracts/loupe-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-loupe-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-loupe-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-loupe-views.mjs",
+      "campaign": "C31",
+      "status": "ok",
+      "note": "org.gnome.Loupe · Li1–Li4 · functionalDepth partial · Rocky overview P1"
+    },
+    {
+      "id": "papers",
+      "slot": "visionneur_pdf",
+      "labelFr": "Papers (visionneur PDF)",
+      "contract": "etc/capsuleos/contracts/papers-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-papers-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-papers-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-papers-views.mjs",
+      "campaign": "C31",
+      "status": "ok",
+      "note": "org.gnome.Papers · Pa1–Pa4 · functionalDepth partial · Rocky overview P1"
+    },
+    {
+      "id": "rhythmbox",
+      "slot": "lecteur_multimedia",
+      "labelFr": "Rhythmbox (lecteur multimédia Ubuntu)",
+      "contract": "etc/capsuleos/contracts/rhythmbox-user-scenarios.json",
+      "validator": "usr/lib/capsuleos/tools/validate-rhythmbox-user-scenarios.mjs",
+      "smoke": "usr/lib/capsuleos/tools/lab/smoke-gnome-rhythmbox-scenarios.mjs",
+      "capture": "usr/lib/capsuleos/tools/lab/capture-capsule-rhythmbox-views.mjs",
+      "campaign": "C31",
+      "status": "ok",
+      "note": "org.gnome.Rhythmbox3 · Rb1–Rb4 · override gabarit Ubuntu · dash+overview P0"
+    }
+  ],
+  "backlog": [],
+  "predicateChecks": {
+    "ScAll": {
+      "script": "usr/lib/capsuleos/tools/validate-gnome-user-scenarios-all.mjs"
+    },
+    "overviewAudit": {
+      "script": "usr/lib/capsuleos/tools/lab/audit-gnome-overview-scenarios.mjs"
+    }
+  }
+}

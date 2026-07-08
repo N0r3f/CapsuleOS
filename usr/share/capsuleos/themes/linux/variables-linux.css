@@ -1,0 +1,218 @@
+/**
+ * Noyau Linux CapsuleOS - tokens partagés par toutes les distributions.
+ * Chaîne d’imports : themes/global/reset.css → themes/global/variables.css → ce fichier → skin.
+ */
+:root {
+    --linux-skin-label: "Linux";
+
+    /** Tailles initiales des fenêtres (Cinnamon / bureau Linux) — base --head (40px) */
+    --win-default-width: calc(var(--head) * 22.5);
+    --win-default-height: calc(var(--head) * 12);
+    --win-default-min-width: calc(var(--head) * 16);
+    --win-default-min-height: calc(var(--head) * 9);
+
+    /** Gouttière interne des fenêtres (.windowElement padding) — aligne chrome + apps inline (Nemo, terminal). */
+    --win-client-gutter: calc(var(--head) / 20);
+
+    --win-nemo-width: calc(var(--head) * 22.5);
+    --win-nemo-height: calc(var(--head) * 15);
+    --win-nemo-min-width: calc(var(--head) * 18);
+    --win-nemo-min-height: calc(var(--head) * 12);
+
+    --win-firefox-width: calc(var(--head) * 28);
+    --win-firefox-height: calc(var(--head) * 17.5);
+    --win-firefox-min-width: calc(var(--head) * 20);
+    --win-firefox-min-height: calc(var(--head) * 14);
+
+    --win-terminal-width: calc(var(--head) * 17.5);
+    --win-terminal-height: calc(var(--head) * 11);
+    --win-terminal-min-width: calc(var(--head) * 14);
+    --win-terminal-min-height: calc(var(--head) * 8);
+
+    --win-profile-width: calc(var(--head) * 14);
+    --win-profile-height: calc(var(--head) * 10.5);
+    --win-profile-min-width: calc(var(--head) * 12);
+    --win-profile-min-height: calc(var(--head) * 8);
+
+    --win-themes-width: calc(var(--head) * 16);
+    --win-themes-height: calc(var(--head) * 12);
+    --win-themes-min-width: calc(var(--head) * 13);
+    --win-themes-min-height: calc(var(--head) * 9);
+
+    --win-text_editor-width: calc(var(--head) * 20);
+    --win-text_editor-height: calc(var(--head) * 13);
+    --win-text_editor-min-width: calc(var(--head) * 14);
+    --win-text_editor-min-height: calc(var(--head) * 9);
+
+    --win-checklist-width: calc(var(--head) * 18);
+    --win-checklist-height: calc(var(--head) * 13);
+    --win-checklist-min-width: calc(var(--head) * 14);
+    --win-checklist-min-height: calc(var(--head) * 10);
+
+    --win-librewriter-width: calc(var(--head) * 24);
+    --win-librewriter-height: calc(var(--head) * 16);
+    --win-librewriter-min-width: calc(var(--head) * 18);
+    --win-librewriter-min-height: calc(var(--head) * 12);
+    --win-librecalc-width: calc(var(--head) * 24);
+    --win-librecalc-height: calc(var(--head) * 16);
+    --win-librecalc-min-width: calc(var(--head) * 18);
+    --win-librecalc-min-height: calc(var(--head) * 12);
+
+    /** Update Manager 7.1.4 — géométrie VM wmctrl (790×570) */
+    --win-update_manager-width: 790px;
+    --win-update_manager-height: 602px;
+    --win-update_manager-min-width: 640px;
+    --win-update_manager-min-height: 460px;
+
+    /** File Roller 43 — géométrie VM wmctrl (652×579, gschema min 600×480) */
+    --win-file_roller-width: 652px;
+    --win-file_roller-height: 579px;
+    --win-file_roller-min-width: 600px;
+    --win-file_roller-min-height: 480px;
+    --win-mintdrivers-width: 640px;
+    --win-mintdrivers-height: 480px;
+    --win-mintdrivers-min-width: 520px;
+    --win-mintdrivers-min-height: 400px;
+
+    /** Logithèque mintinstall 8.4 — géométrie VM visible 860×732 (wmctrl 912×784 inclut 26px d'ombre CSD par côté) */
+    --win-mintinstall-width: 808px;
+    --win-mintinstall-height: 680px;
+    --win-mintinstall-min-width: 720px;
+    --win-mintinstall-min-height: 560px;
+
+    /** GNOME System Monitor 46 — géométrie VM wmctrl (822×622) */
+    --win-system_monitor-width: 822px;
+    --win-system_monitor-height: 622px;
+    --win-system_monitor-min-width: 640px;
+    --win-system_monitor-min-height: 480px;
+
+    /** Baobab (Analyseur d'espace disque) — gabarit GTK standard 800×580 */
+    --win-baobab-width: 800px;
+    --win-baobab-height: 580px;
+    --win-baobab-min-width: 640px;
+    --win-baobab-min-height: 480px;
+
+    --win-webapp_manager-width: 860px;
+    --win-webapp_manager-height: 580px;
+    --win-webapp_manager-min-width: 720px;
+    --win-webapp_manager-min-height: 480px;
+    --win-sticky-width: 420px;
+    --win-sticky-height: 360px;
+    --win-sticky-min-width: 360px;
+    --win-sticky-min-height: 300px;
+    --win-warpinator-width: 640px;
+    --win-warpinator-height: 480px;
+    --win-warpinator-min-width: 520px;
+    --win-warpinator-min-height: 400px;
+    --win-hypnotix-width: 900px;
+    --win-hypnotix-height: 560px;
+    --win-hypnotix-min-width: 720px;
+    --win-hypnotix-min-height: 480px;
+    --win-transmission-width: 700px;
+    --win-transmission-height: 480px;
+    --win-transmission-min-width: 560px;
+    --win-transmission-min-height: 400px;
+    --win-mintbackup-width: 560px;
+    --win-mintbackup-height: 420px;
+    --win-mintbackup-min-width: 480px;
+    --win-mintbackup-min-height: 360px;
+    --win-bulky-width: 720px;
+    --win-bulky-height: 520px;
+    --win-bulky-min-width: 600px;
+    --win-bulky-min-height: 440px;
+    --win-timeshift-width: 740px;
+    --win-timeshift-height: 520px;
+    --win-timeshift-min-width: 620px;
+    --win-timeshift-min-height: 440px;
+    --win-thunderbird-width: 960px;
+    --win-thunderbird-height: 640px;
+    --win-thunderbird-min-width: 800px;
+    --win-thunderbird-min-height: 520px;
+    --win-mintwelcome-width: 720px;
+    --win-mintwelcome-height: 540px;
+    --win-mintwelcome-min-width: 600px;
+    --win-mintwelcome-min-height: 460px;
+
+    --win-gucharmap-width: 640px;
+    --win-gucharmap-height: 480px;
+    --win-gucharmap-min-width: 520px;
+    --win-gucharmap-min-height: 400px;
+    --win-simple_scan-width: 720px;
+    --win-simple_scan-height: 520px;
+    --win-simple_scan-min-width: 600px;
+    --win-simple_scan-min-height: 440px;
+    --win-thingy-width: 860px;
+    --win-thingy-height: 560px;
+    --win-thingy-min-width: 720px;
+    --win-thingy-min-height: 480px;
+    --win-rhythmbox-width: 900px;
+    --win-rhythmbox-height: 580px;
+    --win-rhythmbox-min-width: 760px;
+    --win-rhythmbox-min-height: 480px;
+    --win-gnome_disks-width: 800px;
+    --win-gnome_disks-height: 560px;
+    --win-gnome_disks-min-width: 680px;
+    --win-gnome_disks-min-height: 460px;
+    --win-libreoffice_startcenter-width: 640px;
+    --win-libreoffice_startcenter-height: 480px;
+    --win-libreoffice_startcenter-min-width: 560px;
+    --win-libreoffice_startcenter-min-height: 400px;
+    --win-libreoffice_draw-width: 960px;
+    --win-libreoffice_draw-height: 640px;
+    --win-libreoffice_draw-min-width: 800px;
+    --win-libreoffice_draw-min-height: 520px;
+    --win-libreoffice_impress-width: 960px;
+    --win-libreoffice_impress-height: 640px;
+    --win-libreoffice_impress-min-width: 800px;
+    --win-libreoffice_impress-min-height: 520px;
+
+    --win-mintstick-width: 520px;
+    --win-mintstick-height: 380px;
+    --win-mintstick-min-width: 440px;
+    --win-mintstick-min-height: 320px;
+    --win-mintstick_format-width: 480px;
+    --win-mintstick_format-height: 340px;
+    --win-mintstick_format-min-width: 400px;
+    --win-mintstick_format-min-height: 300px;
+    --win-font_viewer-width: 720px;
+    --win-font_viewer-height: 480px;
+    --win-font_viewer-min-width: 560px;
+    --win-font_viewer-min-height: 400px;
+    --win-power_stats-width: 560px;
+    --win-power_stats-height: 420px;
+    --win-power_stats-min-width: 480px;
+    --win-power_stats-min-height: 360px;
+    --win-mate_color_select-width: 360px;
+    --win-mate_color_select-height: 320px;
+    --win-mate_color_select-min-width: 320px;
+    --win-mate_color_select-min-height: 280px;
+
+    --win-visionneur_images-width: calc(var(--head) * 20);
+    --win-visionneur_images-height: calc(var(--head) * 14);
+    --win-visionneur_images-min-width: calc(var(--head) * 16);
+    --win-visionneur_images-min-height: calc(var(--head) * 10);
+
+    --win-visionneur_pdf-width: calc(var(--head) * 20);
+    --win-visionneur_pdf-height: calc(var(--head) * 14);
+    --win-visionneur_pdf-min-width: calc(var(--head) * 16);
+    --win-visionneur_pdf-min-height: calc(var(--head) * 10);
+
+    --win-lecteur_multimedia-width: calc(var(--head) * 22);
+    --win-lecteur_multimedia-height: calc(var(--head) * 14.5);
+    --win-lecteur_multimedia-min-width: calc(var(--head) * 17);
+    --win-lecteur_multimedia-min-height: calc(var(--head) * 10);
+}
+
+/** cinnamon-settings 6.6 — géométrie VM gnome-screenshot -w (800×632 incl. barre titre 32px) */
+html:has(body#mint) {
+    --win-themes-width: 800px;
+    --win-themes-height: 632px;
+    --win-themes-min-width: 800px;
+    --win-themes-min-height: 632px;
+
+    /** gnome-calculator 1:41.1+mint1+wilma — géométrie VM mesurée mode Basique (680×539 en Avancé/Programmation, géré par calculator.js) */
+    --win-calculator-width: 360px;
+    --win-calculator-height: 486px;
+    --win-calculator-min-width: 360px;
+    --win-calculator-min-height: 486px;
+}

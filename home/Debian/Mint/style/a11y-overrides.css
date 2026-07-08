@@ -1,0 +1,152 @@
+html[data-font-scale="100"] {
+    --a11y-font-scale-factor: 1;
+    --head: 40px;
+}
+
+html[data-font-scale="110"] {
+    --a11y-font-scale-factor: 1.1;
+    --head: 44px;
+    font-size: 110%;
+}
+
+html[data-font-scale="125"] {
+    --a11y-font-scale-factor: 1.25;
+    --head: 50px;
+    font-size: 125%;
+}
+
+html[data-font-scale="100"] #mint,
+html[data-font-scale="110"] #mint,
+html[data-font-scale="125"] #mint {
+    font-size: inherit;
+}
+
+.menu-shortcut,
+.menu-cat,
+.menu-app-item,
+.themes-card,
+.themes-app__select,
+.themes-scale-button,
+.themes-contrast-card {
+    font-size: calc(var(--head) / 3 * var(--a11y-font-scale-factor));
+}
+
+#windowTitle,
+.taskbar__clock,
+.desktop-shortcut > span,
+.themes-app__help,
+.menu-app-item__desc,
+.menu-app-item__name {
+    font-size: calc((var(--head) / 3) * var(--a11y-font-scale-factor));
+}
+
+html[data-contrast-mode="high"] #mint {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] .menu-root,
+html[data-contrast-mode="high"] .menu-sidebar,
+html[data-contrast-mode="high"] .menu-categories,
+html[data-contrast-mode="high"] .menu-apps,
+html[data-contrast-mode="high"] #tableau,
+html[data-contrast-mode="high"] .windowElement,
+html[data-contrast-mode="high"] #windowHeader,
+html[data-contrast-mode="high"] .themes-app,
+html[data-contrast-mode="high"] .themes-app__cards,
+html[data-contrast-mode="high"] .themes-app__help,
+html[data-contrast-mode="high"] .themes-card,
+html[data-contrast-mode="high"] .themes-contrast-card,
+html[data-contrast-mode="high"] .menu-search,
+html[data-contrast-mode="high"] .calendar-popover {
+    background: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+    border-color: var(--a11y-contrast-border);
+}
+
+html[data-contrast-mode="high"] .menu-shortcut:hover,
+html[data-contrast-mode="high"] .menu-cat:hover,
+html[data-contrast-mode="high"] .menu-app-item:hover:not(.is-unavailable),
+html[data-contrast-mode="high"] .themes-card:hover,
+html[data-contrast-mode="high"] .themes-contrast-card:hover,
+html[data-contrast-mode="high"] .themes-scale-button:hover,
+html[data-contrast-mode="high"] .menu-action:hover {
+    background: var(--a11y-contrast-hover);
+}
+
+html[data-contrast-mode="high"] .menu-app-item__desc,
+html[data-contrast-mode="high"] .themes-app__help,
+html[data-contrast-mode="high"] .menu-user__name {
+    color: var(--a11y-contrast-muted);
+}
+
+html[data-contrast-mode="high"] .menu-app-item.is-unavailable,
+html[data-contrast-mode="high"] .menu-shortcut.is-unavailable {
+    opacity: 0.6;
+}
+
+/* WCAG 2.2 AA — contraste élevé : surfaces + bordures accent sur les contrôles interactifs */
+html[data-contrast-mode="high"] body#mint {
+    --a11y-contrast-bg: #101010;
+    --a11y-contrast-surface: #1a1a1a;
+    --a11y-contrast-text: #ffffff;
+    --a11y-contrast-muted: #ececec;
+    --a11y-contrast-border: var(--menu-accent);
+    --a11y-contrast-hover: #2a2a2a;
+    --a11y-interactive-border: var(--menu-accent);
+    --a11y-focus-ring: var(--menu-accent);
+    --a11y-focus-shadow: 0 0 0 2px var(--menu-accent), 0 0 0 4px rgba(31, 158, 222, 0.4);
+}
+
+html[data-theme="light"][data-contrast-mode="high"] body#mint {
+    --a11y-contrast-bg: #dfe4ea;
+    --a11y-contrast-surface: #eef2f6;
+    --a11y-contrast-text: #1f2a38;
+    --a11y-contrast-muted: #39485a;
+    --a11y-contrast-hover: #d4dbe4;
+}
+
+html[data-contrast-mode="high"] body#mint > footer > nav > a,
+html[data-contrast-mode="high"] body#mint .taskbar-window-list__btn,
+html[data-contrast-mode="high"] body#mint .taskbar-tray__btn,
+html[data-contrast-mode="high"] body#mint .taskbar-favorites__btn,
+html[data-contrast-mode="high"] body#mint .taskbar-clock-trigger,
+html[data-contrast-mode="high"] body#mint .mint-cornerbar-strip,
+html[data-contrast-mode="high"] body#mint .desktop-shortcut,
+html[data-contrast-mode="high"] body#mint #windowHeader nav > button,
+html[data-contrast-mode="high"] body#mint .menu-cat,
+html[data-contrast-mode="high"] body#mint .menu-shortcut,
+html[data-contrast-mode="high"] body#mint .menu-app-item,
+html[data-contrast-mode="high"] body#mint .menu-action,
+html[data-contrast-mode="high"] body#mint .themes-card,
+html[data-contrast-mode="high"] body#mint .themes-contrast-card,
+html[data-contrast-mode="high"] body#mint .themes-scale-button,
+html[data-contrast-mode="high"] body#mint .mint-tray-popover__row,
+html[data-contrast-mode="high"] body#mint .desktop-context-menu__item {
+    border: 1px solid var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint > footer > nav > a[data-link="mainMenu"],
+html[data-contrast-mode="high"] body#mint > footer > nav > a[data-link="mainMenu"]:active,
+html[data-contrast-mode="high"] body#mint > footer > nav > a[data-link="mainMenu"].active-link {
+    border-color: var(--a11y-interactive-border);
+    background: var(--a11y-contrast-surface);
+    box-shadow: none;
+}
+
+html[data-contrast-mode="high"] body#mint > footer > nav > a.active-link,
+html[data-contrast-mode="high"] body#mint .taskbar-window-list__btn.is-active {
+    border-color: var(--a11y-interactive-border);
+    box-shadow: inset 0 -3px 0 var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint .taskbar__clock,
+html[data-contrast-mode="high"] body#mint .taskbar-clock-trigger {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] body#mint .volume-popover,
+html[data-contrast-mode="high"] body#mint .mint-tray-popover,
+html[data-contrast-mode="high"] body#mint .desktop-context-menu,
+html[data-contrast-mode="high"] body#mint .sticky-applet {
+    border: 1px solid var(--a11y-interactive-border);
+}

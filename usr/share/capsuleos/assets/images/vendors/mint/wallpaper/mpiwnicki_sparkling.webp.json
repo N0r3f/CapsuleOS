@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/mpiwnicki_sparkling.jpg",
+  "sourceSha256": "5a8abe8a7916be1f773e2b77f68be6ada1d3a8d3d7b4df2e0bc8f5086c1f6238",
+  "output": "images/vendors/mint/wallpaper/mpiwnicki_sparkling.webp",
+  "outputSha256": "e99ead72be0dda371f57b015e83613aa4ea1729756ecdd6bb38f286be4f64ead",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 640,
+  "preparedAt": "2026-06-15T19:42:30.435Z"
+}

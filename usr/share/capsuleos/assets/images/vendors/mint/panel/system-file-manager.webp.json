@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/system-file-manager.png",
+  "sourceSha256": "89d9f98d2a2b8f650003bc229e86b51d938290e0a2a0a8fbb09caf31237e77f7",
+  "output": "images/vendors/mint/panel/system-file-manager.webp",
+  "outputSha256": "387613128be41ba193aec834fa554cdce6d3edbf98344bb4ab2a507f78764920",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:41.010Z"
+}

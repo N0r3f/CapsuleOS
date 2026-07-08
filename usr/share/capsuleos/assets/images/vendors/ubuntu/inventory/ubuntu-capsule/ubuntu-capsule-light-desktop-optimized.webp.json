@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-desktop.png",
+  "sourceSha256": "217a223c74b4d5c416984a0675f840758ceb38f3de6c671b4408983b21b38361",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-desktop-optimized.webp",
+  "outputSha256": "da810d1bd5ab640febf0fe5f7e95091ec8476cfb834b39ea6934d7caeee808cc",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:14.460Z"
+}

@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Modules pédagogiques — CapsuleOS",
+      "url": "https://os.lacapsule.org/mnt/index.html",
+      "description": "Parcours et scénarios montables sur les bureaux simulés.",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Modules /mnt",
+      "numberOfItems": 1,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LearningResource",
+            "name": "Les bases Linux",
+            "description": "Découverte du bureau simulé : explorateur, terminal, premières commandes. Module pilote montable sous /mnt.",
+            "identifier": "linux-bases",
+            "inLanguage": "fr-FR",
+            "learningResourceType": "module",
+            "url": "https://os.lacapsule.org/mnt/debutant/linux-bases",
+            "hasPart": [
+              {
+                "@type": "Course",
+                "name": "Découverte du bureau",
+                "identifier": "s01-decouverte-bureau",
+                "position": 1,
+                "url": "https://os.lacapsule.org/mnt/debutant/linux-bases/scenarios/s01-decouverte-bureau.json",
+                "inLanguage": "fr-FR"
+              },
+              {
+                "@type": "Course",
+                "name": "Premières commandes shell",
+                "identifier": "s02-premieres-commandes",
+                "position": 2,
+                "url": "https://os.lacapsule.org/mnt/debutant/linux-bases/scenarios/s02-premieres-commandes.json",
+                "inLanguage": "fr-FR"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

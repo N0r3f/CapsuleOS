@@ -1,0 +1,8 @@
+{
+  "siteId": "lacapsule",
+  "title": "La Capsule — CapsuleOS",
+  "hosts": ["lacapsule.org", "os.lacapsule.org"],
+  "locale": "fr-FR",
+  "contentLicense": "GPL-3.0-or-later",
+  "author": "La Capsule"
+}

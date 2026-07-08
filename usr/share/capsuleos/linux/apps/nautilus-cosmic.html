@@ -1,0 +1,55 @@
+<main id="gestionnaire" class="nemo-app cosmic-files-app">
+        <header id="nemoHeaderContainer" class="nemo-app__header nemo-app__header--menubar-only" data-window-drag-handle>
+                <section class="menuOutils nemo-app__menubar cosmic-files-app__menubar">
+                        <img class="cosmic-files-app__app-icon" src="./assets/icons/cinnamon/nemo/cosmic-files-app.svg" alt="" width="20" height="20" aria-hidden="true">
+                        <nav class="nemo-app__menubar-nav" aria-label="Menu Fichiers">
+                                <ul class="menuHeader nemo-app__menu">
+                                        <li><a href="#">Fichier</a></li>
+                                        <li><a href="#">Modifier</a></li>
+                                        <li><a href="#">Affichage</a></li>
+                                        <li><a href="#">Trier</a></li>
+                                </ul>
+                        </nav>
+                        <button type="button" class="cosmic-files-app__search" aria-label="Rechercher" tabindex="-1">
+                                <img src="./assets/icons/cinnamon/nemo/system-search-symbolic.svg" alt="" width="16" height="16" aria-hidden="true">
+                        </button>
+                </section>
+        </header>
+        <div class="cosmic-files-app__body">
+                <aside id="voletnemo" class="nemo-app__sidebar cosmic-files-app__sidebar">
+                        <nav class="cosmic-files-app__sidebar-nav" aria-label="Emplacements">
+                                <a href="#" class="cosmic-files-app__sidebar-link" data-sidebar-id="recent" title="Récents"><img src="./assets/icons/cinnamon/nemo/places/folder-recent-symbolic.svg" alt="">Récents</a>
+                                <a data-link="Dossier Personnel" class="cosmic-files-app__sidebar-link" data-sidebar-id="home" title="Dossier personnel"><img src="./assets/icons/cinnamon/nemo/places/user-home-symbolic.svg" alt="">Dossier personnel</a>
+                                <a data-link="Documents" class="cosmic-files-app__sidebar-link" data-sidebar-id="documents" title="Documents"><img src="./assets/icons/cinnamon/nemo/places/folder-documents-symbolic.svg" alt="">Documents</a>
+                                <a data-link="Téléchargements" class="cosmic-files-app__sidebar-link" data-sidebar-id="downloads" title="Téléchargements"><img src="./assets/icons/cinnamon/nemo/places/folder-download-symbolic.svg" alt="">Téléchargements</a>
+                                <a data-link="Musique" class="cosmic-files-app__sidebar-link" data-sidebar-id="music" title="Musique"><img src="./assets/icons/cinnamon/nemo/places/folder-music-symbolic.svg" alt="">Musique</a>
+                                <a data-link="Images" class="cosmic-files-app__sidebar-link" data-sidebar-id="pictures" title="Images"><img src="./assets/icons/cinnamon/nemo/places/folder-pictures-symbolic.svg" alt="">Images</a>
+                                <a data-link="Vidéos" class="cosmic-files-app__sidebar-link" data-sidebar-id="videos" title="Vidéos"><img src="./assets/icons/cinnamon/nemo/places/folder-videos-symbolic.svg" alt="">Vidéos</a>
+                                <div class="cosmic-files-app__sidebar-sep" role="separator" aria-hidden="true"></div>
+                                <a href="#" class="cosmic-files-app__sidebar-link" data-sidebar-id="trash" title="Corbeille"><img src="./assets/icons/cinnamon/nemo/places/user-trash-symbolic.svg" alt="">Corbeille</a>
+                                <a href="#" class="cosmic-files-app__sidebar-link" data-sidebar-id="network" title="Réseaux"><img src="./assets/icons/cinnamon/nemo/places/network-workgroup-symbolic.svg" alt="">Réseaux</a>
+                        </nav>
+                </aside>
+                <div class="cosmic-files-app__content-column">
+                        <section class="menuOutils nemo-app__toolbar">
+                                <div class="sousMenuOutils nemo-app__toolbar-group nemo-app__toolbar-group--path cosmic-files-app__path-nav">
+                                        <a href="#" id="precedent" aria-label="Précédent"><img src="./assets/icons/cinnamon/nemo/go-previous-symbolic.svg" alt=""></a>
+                                        <a href="#" id="suivant" aria-label="Suivant"><img src="./assets/icons/cinnamon/nemo/go-next-symbolic.svg" alt=""></a>
+                                        <a href="#" class="nemo-app__path-current" id="nemo-path-label">Dossier personnel</a>
+                                </div>
+                        </section>
+                        <main id="nemoMainContainer" class="nemo-app__main">
+                                <aside id="voletContainer" class="nemo-app__content-wrap">
+                                        <div class="nemo-app__list-header" aria-hidden="true">
+                                                <span class="nemo-app__list-header-name">Nom</span>
+                                                <span class="nemo-app__list-header-modified">Modifié</span>
+                                                <span class="nemo-app__list-header-size">Taille</span>
+                                        </div>
+                                        <section class="nemoElement nemo-app__content-grid nemo-app__content-grid--list">
+                                                <!-- AFFICHAGE DES DOSSIERS ET FICHIERS -->
+                                        </section>
+                                </aside>
+                        </main>
+                </div>
+        </div>
+</main>

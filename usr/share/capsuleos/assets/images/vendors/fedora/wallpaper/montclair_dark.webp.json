@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/montclair_dark.webp",
+  "outputSha256": "f161b7188940997ab55fe62eb12be5d0a827e1b3b0986ff3641e9acf76e67fe3",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.704Z",
+  "note": "repair-manifest"
+}

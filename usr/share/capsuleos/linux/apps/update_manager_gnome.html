@@ -1,0 +1,251 @@
+<main id="updateManagerApp" class="update-manager update-manager--gnome" aria-label="Logiciels" data-um-gnome-view="explore">
+    <div class="gnome-software">
+        <aside class="gnome-software__sidebar" aria-label="Navigation">
+            <h1 class="gnome-software__brand">Logiciels</h1>
+
+            <nav class="gnome-software__nav" aria-label="Sections">
+                <button type="button" class="gnome-software__navitem is-active" data-um-gnome-nav="explore" aria-current="page">
+                    <span class="gnome-software__navicon gnome-software__navicon--explore" aria-hidden="true"></span>
+                    <span>Découvrir</span>
+                </button>
+            </nav>
+
+            <div class="gnome-software__spacer" aria-hidden="true"></div>
+
+            <nav class="gnome-software__nav gnome-software__nav--bottom" aria-label="Bas de navigation">
+                <button type="button" class="gnome-software__navitem" data-um-gnome-nav="updates">
+                    <span class="gnome-software__navicon gnome-software__navicon--updates" aria-hidden="true"></span>
+                    <span>Mises à jour</span>
+                    <span class="gnome-software__badge" data-um-gnome-badge aria-label="4 mises à jour">4</span>
+                </button>
+                <button type="button" class="gnome-software__navitem" data-um-gnome-nav="installed">
+                    <span class="gnome-software__navicon gnome-software__navicon--installed" aria-hidden="true"></span>
+                    <span>Installées</span>
+                </button>
+            </nav>
+        </aside>
+
+        <section class="gnome-software__main" aria-label="Contenu principal">
+            <header class="gnome-software__titlebar gnome-software__search--collapsed" aria-label="Barre de titre">
+                <button type="button" class="gnome-software__search-toggle" data-um-gnome-action="toggleSearch"
+                        aria-label="Rechercher des applications" title="Rechercher"></button>
+                <div class="gnome-software__search" data-um-gnome-search-panel>
+                    <span class="gnome-software__search-icon" aria-hidden="true"></span>
+                    <input class="gnome-software__search-input" type="search"
+                           placeholder="Rechercher des applications" aria-label="Rechercher des applications"
+                           data-um-gnome-search>
+                    <button type="button" class="gnome-software__search-close" data-um-gnome-action="closeSearch"
+                            aria-label="Fermer la recherche" title="Fermer la recherche"></button>
+                </div>
+                <div class="gnome-software__chrome-actions" data-um-gnome-chrome-actions hidden>
+                    <button type="button" class="gnome-software__menu-btn" data-um-gnome-action="menu"
+                            aria-label="Menu principal" title="Menu" aria-haspopup="true" aria-expanded="false"></button>
+                    <nav class="gnome-software__menu" data-um-gnome-menu hidden aria-label="Menu Logiciels">
+                        <button type="button" class="gnome-software__menu-item" data-um-gnome-menu-action="refresh">
+                            Actualiser le cache logiciel
+                        </button>
+                        <button type="button" class="gnome-software__menu-item" data-um-gnome-menu-action="about">
+                            À propos de Logiciels
+                        </button>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Vue Découvrir -->
+            <div class="gnome-software__content gnome-software__pane" data-um-gnome-pane="explore">
+                <button type="button" class="gnome-software__updates-banner" data-um-gnome-nav="updates"
+                        data-um-gnome-updates-banner aria-label="Mises à jour disponibles — afficher">
+                    <span class="gnome-software__updates-banner-icon" aria-hidden="true"></span>
+                    <span class="gnome-software__updates-banner-text">
+                        <strong data-um-gnome-banner-strong>4 mises à jour disponibles</strong>
+                        <span data-um-gnome-banner-sub>Cliquez pour afficher les mises à jour</span>
+                    </span>
+                    <span class="gnome-software__updates-banner-chevron" aria-hidden="true"></span>
+                </button>
+
+                <section class="gnome-software__hero" data-um-gnome-hero hidden aria-labelledby="gs-hero-title">
+                    <button type="button" class="gnome-software__hero-nav gnome-software__hero-nav--prev"
+                            data-um-gnome-hero-prev aria-label="Application précédente" hidden></button>
+                    <button type="button" class="gnome-software__hero-card" data-um-gnome-hero-card>
+                        <span class="gnome-software__hero-icon gnome-software__cardicon gnome-software__cardicon--has-icon"
+                              data-um-gnome-hero-icon aria-hidden="true"></span>
+                        <span>
+                            <h2 class="gnome-software__hero-title" id="gs-hero-title" data-um-gnome-hero-title>À la une</h2>
+                            <p class="gnome-software__hero-sub" data-um-gnome-hero-sub></p>
+                        </span>
+                    </button>
+                    <button type="button" class="gnome-software__hero-nav gnome-software__hero-nav--next"
+                            data-um-gnome-hero-next aria-label="Application suivante" hidden></button>
+                    <div class="gnome-software__hero-dots" data-um-gnome-hero-dots aria-hidden="true" hidden></div>
+                </section>
+
+                <section class="gnome-software__section" data-um-gnome-category-hero-section hidden>
+                    <div class="gnome-software__category-hero-grid" role="list" data-um-gnome-category-hero-grid></div>
+                </section>
+
+                <section class="gnome-software__section" aria-labelledby="gs-featured-title" data-um-gnome-featured-section>
+                    <h2 class="gnome-software__section-title" id="gs-featured-title">Populaires</h2>
+                    <div class="gnome-software__grid" role="list" data-um-gnome-featured-grid></div>
+                </section>
+
+                <section class="gnome-software__section" aria-labelledby="gs-discover-title"
+                         data-um-gnome-discover-section hidden>
+                    <h2 class="gnome-software__section-title" id="gs-discover-title">À découvrir</h2>
+                    <div class="gnome-software__grid" role="list" data-um-gnome-discover-grid></div>
+                </section>
+
+                <section class="gnome-software__section" aria-labelledby="gs-categories-title"
+                         data-um-gnome-legacy-categories>
+                    <h2 class="gnome-software__section-title" id="gs-categories-title">Catégories</h2>
+                    <div class="gnome-software__categories" role="list">
+                        <button type="button" class="gnome-software__category" role="listitem" data-um-gnome-category="productivity">
+                            <span class="gnome-software__categoryicon gnome-software__categoryicon--productivity" aria-hidden="true"></span>
+                            <span>Productivité</span>
+                        </button>
+                        <button type="button" class="gnome-software__category" role="listitem" data-um-gnome-category="creation">
+                            <span class="gnome-software__categoryicon gnome-software__categoryicon--creation" aria-hidden="true"></span>
+                            <span>Création</span>
+                        </button>
+                        <button type="button" class="gnome-software__category" role="listitem" data-um-gnome-category="development">
+                            <span class="gnome-software__categoryicon gnome-software__categoryicon--development" aria-hidden="true"></span>
+                            <span>Développement</span>
+                        </button>
+                        <button type="button" class="gnome-software__category" role="listitem" data-um-gnome-category="utilities">
+                            <span class="gnome-software__categoryicon gnome-software__categoryicon--utilities" aria-hidden="true"></span>
+                            <span>Utilitaires</span>
+                        </button>
+                    </div>
+                </section>
+
+                <p class="gnome-software__status" id="um-status-text" aria-live="polite">Catalogue AppStream (simulation)</p>
+            </div>
+
+            <!-- Vue catégorie -->
+            <div class="gnome-software__content gnome-software__pane" data-um-gnome-pane="category" hidden>
+                <header class="gnome-software__page-head">
+                    <div class="gnome-software__title-block">
+                        <h2 class="gnome-software__title" data-um-gnome-category-title>Catégorie</h2>
+                        <p class="gnome-software__subtitle" data-um-gnome-category-sub>Applications de la catégorie</p>
+                    </div>
+                    <button type="button" class="gnome-software__action" data-um-gnome-nav="explore">Retour</button>
+                </header>
+                <div class="gnome-software__grid" role="list" data-um-gnome-category-grid></div>
+            </div>
+
+            <!-- Vue recherche -->
+            <div class="gnome-software__content gnome-software__pane" data-um-gnome-pane="search" hidden>
+                <header class="gnome-software__page-head">
+                    <div class="gnome-software__title-block">
+                        <h2 class="gnome-software__title">Résultats</h2>
+                        <p class="gnome-software__subtitle" data-um-gnome-search-sub>Aucune recherche</p>
+                    </div>
+                </header>
+                <div class="gnome-software__grid" role="list" data-um-gnome-search-grid></div>
+                <p class="gnome-software__empty" data-um-gnome-search-empty hidden>
+                    Aucune application ne correspond à votre recherche.
+                </p>
+            </div>
+
+            <!-- Vue Mises à jour -->
+            <div class="gnome-software__content gnome-software__pane" data-um-gnome-pane="updates" hidden>
+                <header class="gnome-software__page-head">
+                    <div class="gnome-software__title-block">
+                        <h2 class="gnome-software__title">Mises à jour</h2>
+                        <p class="gnome-software__subtitle" data-um-gnome-updates-subtitle="">4 mises à jour disponibles</p>
+                    </div>
+                    <div class="gnome-software__actions">
+                        <button type="button" class="gnome-software__action" data-um-gnome-action="check">
+                            Rechercher des mises à jour
+                        </button>
+                        <button type="button" class="gnome-software__action gnome-software__action--primary" data-um-gnome-action="updateAll">
+                            Tout mettre à jour
+                        </button>
+                    </div>
+                </header>
+
+                <p class="gnome-software__empty" data-um-gnome-updates-empty hidden>
+                    Le système est à jour. Aucune mise à jour disponible.
+                </p>
+
+                <div class="gnome-software__updates-group" role="region" aria-label="Mises à jour disponibles" data-um-gnome-updates-list>
+                    <div class="gnome-software__updates" data-um-gnome-updates-rows></div>
+                </div>
+
+                <p class="gnome-software__status" aria-live="polite">Dernière vérification : aujourd’hui</p>
+            </div>
+
+            <!-- Vue Installées -->
+            <div class="gnome-software__content gnome-software__pane" data-um-gnome-pane="installed" hidden>
+                <header class="gnome-software__page-head">
+                    <div class="gnome-software__title-block">
+                        <h2 class="gnome-software__title">Installées</h2>
+                        <p class="gnome-software__subtitle">Applications installées sur ce système</p>
+                    </div>
+                </header>
+
+                <div class="gnome-software__updates-group" role="region" aria-label="Applications installées">
+                    <div class="gnome-software__updates" data-um-gnome-installed-list></div>
+                </div>
+            </div>
+
+            <!-- Fiche application -->
+            <div class="gnome-software__detail gnome-software__pane" data-um-gnome-pane="detail" hidden>
+                <header class="gnome-software__detail-head">
+                    <button type="button" class="gnome-software__detail-back" data-um-gnome-nav="explore"
+                            aria-label="Retour">
+                        <span aria-hidden="true"></span>
+                    </button>
+                    <span class="gnome-software__detail-icon gnome-software__cardicon gnome-software__cardicon--firefox gnome-software__cardicon--has-icon"
+                          data-um-gnome-detail-icon aria-hidden="true"></span>
+                    <div class="gnome-software__detail-titles">
+                        <h2 class="gnome-software__detail-title" data-um-gnome-detail-title>Firefox</h2>
+                        <p class="gnome-software__detail-sub" data-um-gnome-detail-sub>Navigateur Web</p>
+                        <p class="gnome-software__detail-developer" data-um-gnome-detail-developer hidden></p>
+                        <p class="gnome-software__detail-rating" data-um-gnome-detail-rating hidden></p>
+                    </div>
+                    <div class="gnome-software__detail-actions">
+                        <span class="gnome-software__detail-source" data-um-gnome-detail-source-chip hidden>
+                            <span class="gnome-software__detail-source-icon" aria-hidden="true"></span>
+                            <span data-um-gnome-detail-source-text>AppStream · RPM</span>
+                        </span>
+                        <button type="button" class="gnome-software__detail-uninstall" data-um-gnome-action="uninstall"
+                                aria-label="Désinstaller" title="Désinstaller" hidden></button>
+                        <button type="button" class="gnome-software__action gnome-software__action--primary gnome-software__detail-install"
+                                data-um-gnome-action="install">
+                            Installer
+                        </button>
+                    </div>
+                </header>
+                <div class="gnome-software__install-progress" data-um-gnome-install-progress hidden aria-hidden="true">
+                    <div class="gnome-software__install-progress-track" aria-hidden="true">
+                        <div class="gnome-software__install-progress-bar" data-um-gnome-install-bar style="width: 0%"></div>
+                    </div>
+                    <p class="gnome-software__install-progress-label" data-um-gnome-install-label>Installation…</p>
+                </div>
+                <p class="gnome-software__network-error" data-um-gnome-network-error hidden role="alert">
+                    Impossible de contacter le dépôt. Vérifiez votre connexion réseau.
+                </p>
+                <div class="gnome-software__detail-screenshots" data-um-gnome-detail-screenshots hidden>
+                    <button type="button" class="gnome-software__screenshot-nav" aria-label="Capture précédente" hidden></button>
+                    <div class="gnome-software__screenshot-frame" data-um-gnome-screenshot aria-hidden="true"></div>
+                    <button type="button" class="gnome-software__screenshot-nav" aria-label="Capture suivante" hidden></button>
+                </div>
+                <div class="gnome-software__detail-body">
+                    <p class="gnome-software__detail-long" data-um-gnome-detail-long></p>
+                    <dl class="gnome-software__detail-meta">
+                        <div><dt>Version</dt><dd data-um-gnome-detail-version>140.11.0esr</dd></div>
+                        <div><dt>Taille</dt><dd data-um-gnome-detail-size>~95 Mo</dd></div>
+                        <div><dt>Licence</dt><dd data-um-gnome-detail-license>Licence libre</dd></div>
+                        <div><dt>Origine</dt><dd data-um-gnome-detail-origin>Fedora Linux</dd></div>
+                        <div><dt>Source</dt><dd data-um-gnome-detail-source>AppStream · RPM</dd></div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="gnome-software__loading" data-um-gnome-loading hidden aria-live="polite" aria-busy="true">
+                <span class="gnome-software__loading-spinner" aria-hidden="true"></span>
+                <span data-um-gnome-loading-text>Chargement…</span>
+            </div>
+        </section>
+    </div>
+</main>

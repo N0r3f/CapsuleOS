@@ -1,0 +1,201 @@
+/* MX-KDE - À propos */
+
+body#mx-kde div[data-link="profile"] {
+    --konsole-chrome: #31363b;
+    --konsole-chrome-border: #2a2e33;
+    --konsole-chrome-text: #eff0f1;
+    --konsole-chrome-muted: #bdc3c7;
+    --konsole-header-height: var(--mx-kde-konsole-header-height);
+    align-items: stretch;
+    justify-content: flex-start;
+    width: min(36rem, calc(100vw - 2.5rem));
+    height: min(38rem, calc(100vh - var(--taskbar-height) - 2.5rem));
+    min-width: calc(var(--head) * 16);
+    min-height: calc(var(--head) * 14);
+    padding: 0;
+    border: 1px solid var(--konsole-chrome-border);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.48);
+    overflow: hidden;
+}
+
+body#mx-kde div[data-link="profile"].windowElementActive {
+    border-color: rgba(61, 174, 233, 0.55);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35), 0 12px 28px rgba(0, 0, 0, 0.52);
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: var(--konsole-header-height);
+    margin: 0;
+    padding: 0 0.42rem;
+    border: 0;
+    border-bottom: 1px solid var(--mx-kde-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    color: var(--mx-kde-window-titlebar-fg);
+    background: var(--mx-kde-window-titlebar-bg);
+    box-shadow: none;
+    user-select: none;
+    pointer-events: auto;
+}
+
+body#mx-kde div[data-link="profile"].windowElementActive #windowHeader {
+    background: var(--mx-kde-window-titlebar-bg-active);
+    border-bottom-color: var(--mx-kde-window-titlebar-border-color-active);
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:first-child {
+    position: absolute;
+    top: 0;
+    left: 0.34rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:first-child::before,
+body#mx-kde div[data-link="profile"] #windowHeader > nav:first-child::after {
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:first-child::before {
+    width: var(--mx-kde-header-icon-size);
+    height: var(--mx-kde-header-icon-size);
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/user-info.png");
+    opacity: 0.94;
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:first-child::after {
+    width: var(--mx-kde-header-pin-size);
+    height: var(--mx-kde-header-pin-size);
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/add-pin.svg");
+    filter: var(--mx-kde-mono-logo-filter);
+    opacity: 0.76;
+}
+
+body#mx-kde div[data-link="profile"] #windowTitle {
+    display: block;
+    width: auto;
+    max-width: calc(100% - 9.5rem);
+    margin: 0 auto;
+    overflow: hidden;
+    color: var(--mx-kde-window-titlebar-fg-muted);
+    font-family: "Cantarell", var(--font-ui);
+    font-size: var(--mx-kde-header-title-size);
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    text-shadow: none;
+    filter: none;
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: 0.34rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.18rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:last-child > button {
+    position: relative;
+    width: 1.22rem;
+    height: 1.22rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.18rem;
+    color: var(--konsole-chrome-text);
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    transform: none;
+}
+
+body#mx-kde div[data-link="profile"] #minimizeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/go-down.svg");
+    background-size: 0.72rem;
+    filter: var(--mx-kde-header-control-filter);
+}
+
+body#mx-kde div[data-link="profile"] #resizeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-restore.svg");
+    background-size: 0.72rem;
+}
+
+body#mx-kde div[data-link="profile"] #closeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-close.svg");
+    background-size: 0.72rem;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+body#mx-kde div[data-link="profile"] #windowHeader > nav:last-child > button:hover {
+    background-color: rgba(239, 240, 241, 0.12);
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body#mx-kde div[data-link="profile"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.28);
+}
+
+html[data-theme="light"] #mx-kde div[data-link="profile"] #windowHeader > nav:last-child > button,
+html[data-theme="light"] #mx-kde div[data-link="profile"] #minimizeBtn {
+    filter: var(--mx-kde-header-control-filter-light);
+}
+
+html[data-theme="light"] #mx-kde div[data-link="profile"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.2);
+}
+
+body#mx-kde div[data-link="profile"] .profile-app__logo {
+    filter: var(--mx-kde-mono-logo-filter);
+}
+
+body#mx-kde div[data-link="profile"] #windowIframe,
+body#mx-kde div[data-link="profile"] #profileApp,
+body#mx-kde div[data-link="profile"] .profile-app {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - var(--konsole-header-height));
+    min-height: 0;
+    margin: 0;
+    padding: calc(var(--head) / 2);
+    border-radius: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}

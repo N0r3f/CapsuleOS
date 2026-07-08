@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "description": "Chaîne ground truth COSMIC — Pop!_OS pilote toolkit cosmic.",
+  "doc": "root/docs/procedure-playbook-general.md",
+  "registryId": "linux-popos",
+  "pilotRegistryId": "linux-popos",
+  "toolkit": "cosmic",
+  "vm": {
+    "inventory": "root/docs/inventaires/linux-popos-vm.json",
+    "manifest": "proc/linux-popos/distribution-manifest.json"
+  },
+  "predicates": {
+    "CosI": "Inventaire VM + manifeste ManΣ",
+    "CosC": "Cloisonnement validate-toolkit-paradigm",
+    "CosA": "Assets Paramètres (gate A)",
+    "CosP": "Playbook + matrice COSMIC settings",
+    "CosΣ": "CosC ∧ CosA ∧ CosP"
+  },
+  "chains": {
+    "playbook": "root/docs/inventaires/linux-popos-cosmic-settings-playbook.json",
+    "matrix": "root/tools/lab/cosmic-settings-parity-matrix.json",
+    "assetsMatrix": "root/tools/lab/gnome-settings-assets-matrix-popos.json"
+  },
+  "gates": [
+    {
+      "predicate": "CosC",
+      "script": "usr/lib/capsuleos/tools/validate-toolkit-paradigm.mjs",
+      "args": ["--id", "linux-popos"]
+    },
+    {
+      "predicate": "CosA",
+      "script": "usr/lib/capsuleos/tools/lab/verify-playbook-assets.mjs",
+      "args": ["--registry", "linux-popos", "--strict"]
+    },
+    {
+      "predicate": "CosP",
+      "script": "usr/lib/capsuleos/tools/lab/verify-cosmic-settings-parity-chain.mjs",
+      "args": ["--id", "linux-popos"]
+    }
+  ],
+  "orchestrator": "usr/lib/capsuleos/tools/lab/run-cosmic-formal-chain.mjs",
+  "gapMap": "usr/lib/capsuleos/tools/lab/map-cosmic-ground-truth-gaps.mjs",
+  "generator": "usr/lib/capsuleos/tools/lab/generate-cosmic-settings-playbook.mjs"
+}

@@ -1,0 +1,10 @@
+/**
+ * Debian KDE Plasma — tokens (couleurs à valeurs littérales).
+ * Importé par debian-desktop.css.
+ */
+
+html:has(#debian-kde) {
+    --debian-kde-plasma-accent: #3daee9;
+    --desktop-shortcut-text: #ffffff;
+    --debian-kde-bg-color: #243042;
+}

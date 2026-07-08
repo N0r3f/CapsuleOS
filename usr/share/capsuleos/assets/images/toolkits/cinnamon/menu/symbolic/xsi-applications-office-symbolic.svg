@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="16px"
+   viewBox="0 0 16 16"
+   width="16px"
+   version="1.1"
+   id="svg1481"
+   sodipodi:docname="xsi-applications-office-symbolic.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1485" />
+  <sodipodi:namedview
+     id="namedview1483"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="64.1875"
+     inkscape:cx="5.6553067"
+     inkscape:cy="8.0077897"
+     inkscape:window-width="2560"
+     inkscape:window-height="1348"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1481" />
+  <g
+     id="SVGRepo_bgCarrier"
+     stroke-width="0"
+     transform="translate(-12.671295,-6.2633972)"
+     style="fill:#2e3436;fill-opacity:1" />
+  <g
+     id="SVGRepo_tracerCarrier"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     transform="translate(-12.671295,-6.2633972)"
+     style="fill:#2e3436;fill-opacity:1" />
+  <g
+     id="SVGRepo_bgCarrier-5"
+     stroke-width="0"
+     transform="matrix(0.03781419,0,0,0.03781462,-1.7073863,-2.0701841)"
+     style="fill:#2e3436;fill-opacity:1" />
+  <g
+     id="SVGRepo_tracerCarrier-3"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     transform="matrix(0.03781419,0,0,0.03781462,-1.7073863,-2.0701841)"
+     style="fill:#2e3436;fill-opacity:1" />
+  <g
+     id="SVGRepo_iconCarrier-5"
+     transform="matrix(0.03529324,0,0,0.03529364,-1.0410928,-0.93217088)"
+     style="fill:#2e3436;fill-opacity:1">
+    <title
+       id="title2166">attach</title>
+    <g
+       id="Page-1"
+       stroke="none"
+       stroke-width="1"
+       fill="none"
+       fill-rule="evenodd"
+       style="fill:#2e3436;fill-opacity:1">
+      <g
+         id="add"
+         fill="#000000"
+         transform="translate(45.152,54.7456)"
+         style="fill:#2e3436;fill-opacity:1">
+        <path
+           d="M 130.38933,396.672 C 95.552,396.672 62.784,383.104 38.144,358.464 c -50.858667,-50.85867 -50.858667,-133.632 0,-184.49067 L 212.11733,0 239.27467,27.178667 65.301333,201.13067 c -35.882666,35.904 -35.882666,94.29333 0,130.176 17.386667,17.38666 40.511997,26.96533 65.087997,26.96533 24.576,0 47.70134,-9.57867 65.088,-26.96533 L 367.59467,159.18933 c 21.39733,-21.39733 21.39733,-56.192 0,-77.58933 -20.736,-20.757333 -56.896,-20.693333 -77.58934,-0.02133 L 121.45067,250.00533 c -3.54134,3.54134 -5.48267,8.256 -5.48267,13.26934 0,5.01333 1.94133,9.728 5.504,13.26933 7.08267,7.14667 19.47733,7.104 26.56,0 L 289.536,135.06133 316.69333,162.24 175.21067,303.72267 c -22.336,22.29333 -58.60267,22.25066 -80.896003,0 -22.293334,-22.29334 -22.293334,-58.60267 0,-80.87467 L 262.86933,54.442667 c 17.57867,-17.6 41.024,-27.306667 65.94134,-27.306667 24.896,0 48.32,9.685333 65.96266,27.306667 36.352,36.373333 36.352,95.552003 0,131.925333 L 222.63467,358.464 c -24.64,24.64 -57.38667,38.208 -92.24534,38.208"
+           id="attach"
+           style="fill:#2e3436;fill-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

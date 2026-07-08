@@ -1,0 +1,278 @@
+{
+  "version": 1,
+  "description": "Profils recette lab hot-reload — matrices et scripts par registryId (P11, pas de fallback silencieux). Éditer ce fichier pour adapter la recette à la volée sans toucher au code.",
+  "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+  "storeChain": "etc/capsuleos/contracts/store-replication-chain.json",
+  "skinToolkitRecipe": "etc/capsuleos/contracts/skin-toolkit-recipe.json",
+  "skinToolkitRunner": "usr/lib/capsuleos/tools/linux/run-toolkit-skin-recipe.mjs",
+  "matrixKinds": {
+    "parity": {
+      "vendorPattern": "root/tools/lab/gnome-settings-parity-matrix-{vendor}.json",
+      "label": "Matrice panneaux Paramètres GNOME"
+    },
+    "assets": {
+      "vendorPattern": "root/tools/lab/gnome-settings-assets-matrix-{vendor}.json",
+      "label": "Matrice assets Paramètres GNOME"
+    },
+    "visual": {
+      "vendorPattern": "root/tools/lab/gnome-settings-visual-investigation-matrix-{vendor}.json",
+      "label": "Matrice enquête visuelle Paramètres"
+    }
+  },
+  "profiles": {
+    "linux-rocky": {
+      "toolkit": "gnome",
+      "vendor": "rocky",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "storeCampaign": {
+        "chain": "etc/capsuleos/contracts/store-replication-chain.json",
+        "groundReferenceRegistryId": "linux-fedora",
+        "contentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+        "chromeProfile": "gs50-tabs",
+        "campaignPhases": [
+          "CR-0",
+          "CR-3",
+          "CR-5",
+          "CR-6"
+        ]
+      },
+      "matrices": {
+        "parity": "root/tools/lab/gnome-settings-parity-matrix-rocky.json",
+        "assets": "root/tools/lab/gnome-settings-assets-matrix-rocky.json",
+        "visual": "root/tools/lab/gnome-settings-visual-investigation-matrix-rocky.json"
+      },
+      "scripts": {
+        "collectAssets": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs",
+        "collectPlaybook": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-playbook.mjs"
+      }
+    },
+    "linux-fedora": {
+      "toolkit": "gnome",
+      "vendor": "fedora",
+      "upstreamId": "linux-rocky",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "storeCampaign": {
+        "chain": "etc/capsuleos/contracts/store-replication-chain.json",
+        "groundReferenceRegistryId": "linux-fedora",
+        "contentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+        "chromeProfile": "gs50-tabs",
+        "campaignPhases": [
+          "CR-0",
+          "CR-1",
+          "CR-2",
+          "CR-3",
+          "CR-4",
+          "CR-5",
+          "CR-6"
+        ]
+      },
+      "matrices": {
+        "parity": "root/tools/lab/gnome-settings-parity-matrix-fedora.json",
+        "assets": "root/tools/lab/gnome-settings-assets-matrix-fedora.json",
+        "visual": "root/tools/lab/gnome-settings-visual-investigation-matrix-fedora.json"
+      },
+      "scripts": {
+        "collectAssets": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs",
+        "collectPlaybook": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-playbook.mjs"
+      }
+    },
+    "linux-ubuntu": {
+      "toolkit": "gnome",
+      "vendor": "ubuntu",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "storeCampaign": {
+        "chain": "etc/capsuleos/contracts/store-replication-chain.json",
+        "groundReferenceRegistryId": "linux-fedora",
+        "contentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+        "chromeProfile": "gs50-tabs",
+        "campaignPhases": [
+          "CR-0",
+          "CR-5",
+          "CR-6"
+        ]
+      },
+      "matrices": {
+        "parity": "root/tools/lab/gnome-settings-parity-matrix-ubuntu.json",
+        "assets": "root/tools/lab/gnome-settings-assets-matrix-ubuntu.json",
+        "visual": "root/tools/lab/gnome-settings-visual-investigation-matrix-ubuntu.json"
+      },
+      "bootstrap": {
+        "assets": "proc:ubuntu-manifest-playbook",
+        "parity": "toolkit:gnome",
+        "visual": "toolkit:gnome+skinRewrite"
+      },
+      "labProfiles": {
+        "visual-prereq": "run-gnome-settings-lab.mjs --profile visual-prereq",
+        "visual-vm": "collect-vm-gnome-settings-visual-investigation.mjs --filter P0"
+      },
+      "notes": "P0 visuel = 4 contrôles shell (theme, night-light, dynamic-workspaces, dnd) ; P1 requiert gcc",
+      "scripts": {
+        "collectAssets": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs",
+        "collectPlaybook": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-playbook.mjs"
+      }
+    },
+    "linux-alma": {
+      "toolkit": "gnome",
+      "vendor": "alma",
+      "upstreamId": "linux-rocky",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "storeCampaign": {
+        "chain": "etc/capsuleos/contracts/store-replication-chain.json",
+        "groundReferenceRegistryId": "linux-fedora",
+        "contentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+        "chromeProfile": "gs50-tabs",
+        "campaignPhases": [
+          "CR-0",
+          "CR-5",
+          "CR-6"
+        ]
+      },
+      "matrices": {
+        "parity": "root/tools/lab/gnome-settings-parity-matrix-alma.json",
+        "assets": "root/tools/lab/gnome-settings-assets-matrix-alma.json",
+        "visual": "root/tools/lab/gnome-settings-visual-investigation-matrix-alma.json"
+      },
+      "bootstrap": {
+        "parity": "toolkit:gnome+upstream:linux-rocky",
+        "assets": "upstream:linux-rocky",
+        "visual": "toolkit:gnome+skinRewrite+upstream:linux-rocky"
+      },
+      "notes": "C21 — matrices vendor dédiées (bootstrap upstream Rocky) ; VM <lab-inventory:linux-alma>",
+      "scripts": {
+        "collectAssets": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs",
+        "collectPlaybook": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-playbook.mjs"
+      }
+    },
+    "linux-mint": {
+      "toolkit": "cinnamon",
+      "vendor": "mint",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "groundTruth": "etc/capsuleos/contracts/cinnamon-ground-truth-chain.json",
+      "matrices": {
+        "parity": "root/tools/lab/cinnamon-settings-parity-matrix.json"
+      },
+      "scripts": {
+        "verifyParity": "usr/lib/capsuleos/tools/lab/verify-cinnamon-settings-parity-chain.mjs",
+        "formalChain": "usr/lib/capsuleos/tools/lab/run-cinnamon-formal-chain.mjs"
+      },
+      "notes": "Pilote Cinnamon — CredΣ, SeΣ via verify-cinnamon-settings-parity-chain"
+    },
+    "linux-kde-neon": {
+      "toolkit": "kde",
+      "vendor": "neon",
+      "upstreamId": "linux-debian-kde",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "coherenceCampaign": "etc/capsuleos/contracts/kde-coherence-campaign.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "groundTruth": "etc/capsuleos/contracts/kde-ground-truth-chain.json",
+      "matrices": {
+        "parity": "root/tools/lab/kde-settings-parity-matrix.json"
+      },
+      "scripts": {
+        "verifyParity": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs",
+        "gapMap": "usr/lib/capsuleos/tools/lab/map-kde-ground-truth-gaps.mjs"
+      },
+      "notes": "Pilote KDE — Phase 2b kde-settings-parity.js"
+    },
+    "linux-anduinos": {
+      "toolkit": "gnome",
+      "vendor": "anduin",
+      "upstreamId": "linux-ubuntu",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "storeCampaign": {
+        "chain": "etc/capsuleos/contracts/store-replication-chain.json",
+        "groundReferenceRegistryId": "linux-fedora",
+        "contentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+        "chromeProfile": "gs50-tabs",
+        "campaignPhases": [
+          "CR-0",
+          "CR-5",
+          "CR-6"
+        ]
+      },
+      "matrices": {
+        "parity": "root/tools/lab/gnome-settings-parity-matrix-anduin.json",
+        "assets": "root/tools/lab/gnome-settings-assets-matrix-anduin.json",
+        "visual": "root/tools/lab/gnome-settings-visual-investigation-matrix-anduin.json"
+      },
+      "bootstrap": {
+        "parity": "toolkit:gnome+upstream:linux-ubuntu",
+        "assets": "upstream:linux-ubuntu",
+        "visual": "toolkit:gnome+skinRewrite+upstream:linux-ubuntu"
+      },
+      "notes": "Phase 2 — héritage Ubuntu GNOME ; VM lab à ajouter",
+      "scripts": {
+        "collectAssets": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs",
+        "collectPlaybook": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-playbook.mjs"
+      }
+    },
+    "linux-elementary": {
+      "toolkit": "pantheon",
+      "vendor": "elementary",
+      "upstreamId": "linux-ubuntu",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+      "notes": "Squelette AccΣ — pilote linux-ubuntu"
+    },
+    "linux-kali": {
+      "toolkit": "xfce",
+      "vendor": "kali",
+      "upstreamId": "linux-rocky",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+      "notes": "Squelette AccΣ — pilote linux-rocky"
+    },
+    "linux-lxqt": {
+      "toolkit": "lxqt",
+      "vendor": "generic",
+      "upstreamId": "linux-debian-kde",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+      "notes": "Squelette AccΣ — pilote linux-debian-kde"
+    },
+    "linux-debian-kde": {
+      "toolkit": "kde",
+      "vendor": "debian",
+      "upstreamId": "linux-kde-neon",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "groundTruth": "etc/capsuleos/contracts/kde-ground-truth-chain.json",
+      "matrices": {
+        "parity": "root/tools/lab/kde-settings-parity-matrix.json"
+      },
+      "scripts": {
+        "verifyParity": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs"
+      },
+      "notes": "Dérivé KDE — propagation neon P-OS7"
+    },
+    "linux-mx-kde": {
+      "toolkit": "kde",
+      "vendor": "mx",
+      "upstreamId": "linux-kde-neon",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "groundTruth": "etc/capsuleos/contracts/kde-ground-truth-chain.json",
+      "matrices": {
+        "parity": "root/tools/lab/kde-settings-parity-matrix.json"
+      },
+      "notes": "Dérivé KDE — slotOverlays MX"
+    },
+    "linux-opensuse": {
+      "toolkit": "kde",
+      "vendor": "opensuse",
+      "upstreamId": "linux-kde-neon",
+      "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+      "settingsEffectsChain": "etc/capsuleos/contracts/settings-effects-chain.json",
+      "groundTruth": "etc/capsuleos/contracts/kde-ground-truth-chain.json",
+      "matrices": {
+        "parity": "root/tools/lab/kde-settings-parity-matrix.json"
+      },
+      "notes": "Dérivé KDE — VM Tumbleweed ; matrices vendor si GapΔ"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/**
+ * Capture d'écran GNOME — Linux Mint Cinnamon.
+ */
+body#mint .gnome-shot__headerbar {
+    display: none;
+}
+
+body#mint {
+    --gnome-shot-bg: #f8f8f9;
+    --gnome-shot-text: #1e1e1e;
+}
+
+body#mint div[data-link="screenshot"].windowElement {
+    width: calc(var(--head) * 9.5);
+    min-width: calc(var(--head) * 8.5);
+    max-width: calc(var(--head) * 11);
+    height: auto;
+    min-height: calc(var(--head) * 10);
+    max-height: calc(100% - var(--taskbar-height) - calc(var(--head) / 2));
+}
+
+body#mint main#gnomeScreenshotApp {
+    color: var(--gnome-shot-text);
+    background: var(--gnome-shot-bg);
+}
+
+body#mint .gnome-shot__legend,
+body#mint .gnome-shot__option span {
+    color: var(--gnome-shot-text);
+}
+
+body#mint .screenshot-flash {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+    background: #ffffff;
+    opacity: 0;
+    transition: opacity 0.12s ease-out;
+}
+
+body#mint .screenshot-flash.is-active {
+    opacity: 0.85;
+}
+
+body#mint .screenshot-flash[hidden] {
+    display: none;
+}

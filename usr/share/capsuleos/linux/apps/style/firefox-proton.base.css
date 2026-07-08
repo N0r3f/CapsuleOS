@@ -1,0 +1,304 @@
+/**
+ * Firefox Proton — chrome et nouvel onglet partagés (toutes distributions).
+ * Tokens couleur : firefox.skin.css par vendor · variables --firefox-*.
+ */
+.capsule-browser--proton .capsule-browser__chrome {
+    border-bottom: 0;
+}
+
+.capsule-browser--proton .capsule-browser__toolbar {
+    border-top: 0;
+    border-bottom: 1px solid var(--firefox-toolbar-top-border, var(--firefox-chrome-border, transparent));
+    min-height: 2.35rem;
+    padding: 0.28rem 0.5rem;
+}
+
+.capsule-browser--proton .capsule-browser__addressbar {
+    flex: 1;
+    min-width: 0;
+    height: 1.85rem;
+    padding: 0 0.55rem;
+    border-radius: 999px;
+    background: var(--firefox-address-bg);
+}
+
+.capsule-browser--proton .capsule-browser__address-search {
+    width: 0.95rem;
+    height: 0.95rem;
+    flex-shrink: 0;
+    background: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/google-g.png") center / contain no-repeat;
+    opacity: 0.92;
+}
+
+.capsule-browser--proton .capsule-browser__address-prefix {
+    width: 0.72rem;
+    height: 0.72rem;
+    background: var(--firefox-address-prefix-icon, var(--firefox-toolbar-icon-color, #909099));
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/shield.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/shield.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.capsule-browser--proton .capsule-browser__btn--icon-profile {
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #5eb3f6 0%, #0060df 100%);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.capsule-browser--proton .capsule-browser__btn--icon-profile::before {
+    content: "";
+    display: block;
+    width: 0.72rem;
+    height: 0.72rem;
+    background: #fff;
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/profile-avatar.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/profile-avatar.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.capsule-browser--proton .capsule-browser__btn--icon-pocket::before {
+    content: "";
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    background: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/pocket.svg") center / contain no-repeat;
+}
+
+.capsule-browser--proton .capsule-browser-newtab {
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.1rem;
+    padding: 1.35rem 1.5rem 1.75rem;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    align-self: flex-start;
+    margin-left: 0.35rem;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__brand-logo {
+    width: 2rem;
+    height: 2rem;
+    background: var(
+        --firefox-proton-brand-logo,
+        url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/brand/firefox-app-48.png")
+    ) center / contain no-repeat;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__brand-name {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--firefox-text-main);
+    letter-spacing: -0.02em;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__search {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: min(100%, 36rem);
+    padding: 0 0.85rem;
+    border: var(--firefox-newtab-search-border, var(--firefox-address-border));
+    border-radius: 999px;
+    background: var(--firefox-newtab-search-bg, var(--firefox-address-bg));
+}
+
+.capsule-browser--proton .capsule-browser-newtab__search-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+    background: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/google-g.png") center / contain no-repeat;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__search-input {
+    flex: 1;
+    min-width: 0;
+    height: 2.45rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 0.92rem;
+    color: var(--firefox-newtab-search-text, var(--firefox-address-text));
+}
+
+.capsule-browser--proton .capsule-browser-newtab__search-input:focus {
+    outline: none;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcuts {
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.35rem 1.1rem;
+    width: min(100%, 46rem);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut,
+.capsule-browser--proton .capsule-browser-newtab__shortcut--add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 4.75rem;
+    max-width: 5.25rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    text-align: center;
+    text-decoration: none;
+    color: var(--firefox-newtab-shortcut-text, var(--firefox-text-main));
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut::before,
+.capsule-browser--proton .capsule-browser-newtab__shortcut--add .capsule-browser-newtab__shortcut-add-icon {
+    display: block;
+    width: 3.35rem;
+    height: 3.35rem;
+    margin-bottom: 0.35rem;
+    border-radius: 0.45rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: var(--firefox-newtab-shortcut-bg, #fff);
+    background-size: 68%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--amazon::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/amazon.jpg");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--temu::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/temu.jpg");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--aliexpress::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/aliexpress.jpg");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--wikipedia::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/wikipedia.ico");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--youtube::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/youtube.ico");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--lemonde::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/lemonde.ico");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--reddit::before {
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/newtab/reddit.ico");
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut--add .capsule-browser-newtab__shortcut-add-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    line-height: 1;
+    color: #5b5b66;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__sponsored {
+    display: block;
+    margin-top: 0.08rem;
+    font-size: 0.62rem;
+    color: #5b5b66;
+    opacity: 0.85;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__shortcut:hover,
+.capsule-browser--proton .capsule-browser-newtab__shortcut--add:hover {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 0.35rem;
+    transform: none;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket {
+    align-self: stretch;
+    max-width: 56rem;
+    margin: 0.75rem auto 0;
+    padding: 0 0.35rem;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-title {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--firefox-text-main);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-card {
+    border-radius: 0.55rem;
+    overflow: hidden;
+    background: var(--firefox-home-card-bg, #fff);
+    border: 1px solid var(--firefox-home-card-border, rgba(0, 0, 0, 0.08));
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-thumb {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #d8d8de, #ececf0);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-thumb--1 {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-thumb--2 {
+    background: linear-gradient(135deg, #2c3e50, #7f8c8d);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-thumb--3 {
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-card h3 {
+    margin: 0.55rem 0.65rem 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--firefox-text-main);
+}
+
+.capsule-browser--proton .capsule-browser-newtab__pocket-source {
+    margin: 0 0.65rem 0.65rem;
+    font-size: 0.68rem;
+    color: #5b5b66;
+}
+
+.capsule-browser--proton .capsule-browser__btn--go {
+    display: none;
+}
+
+.capsule-browser--proton .capsule-browser__bookmark--import {
+    font-style: italic;
+    opacity: 0.85;
+}

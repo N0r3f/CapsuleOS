@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/toolkits/kde/apps/firefox.png",
+  "sourceSha256": "395e0e25367f7f8b277213ea18c16c89adb12321a402ca4ba503c41fe1e2fc6f",
+  "output": "images/toolkits/kde/apps/firefox.webp",
+  "outputSha256": "2b756f08c0c44b6178171a89fbc435b95c12acc42b8f5f88bf73e463b2e8ba93",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 256,
+  "height": 256,
+  "preparedAt": "2026-06-07T22:17:41.858Z"
+}

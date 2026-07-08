@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-day.png",
+  "sourceSha256": "1804924555805cd562853dc3e36fb68b035ad7d0b87ba56c54ebe1f3bc175267",
+  "output": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-day.webp",
+  "outputSha256": "460b795e275de9bdf42850d143fb7a10232550221f0ad5272770b25cf82c2d5f",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4000,
+  "height": 2250,
+  "preparedAt": "2026-06-07T09:29:01.858Z"
+}

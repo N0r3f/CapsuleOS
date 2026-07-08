@@ -1,0 +1,1859 @@
+/**
+ * KDE Neon — Dolphin (P0 parité VM).
+ * Thèmes Breeze : body#kde-neon dans explorers/dolphin/themes.css.
+ */
+
+/* Barre titre claire Plasma (alignée Discover / fenêtres génériques Neon) */
+html[data-theme="light"] body#kde-neon div[data-link="nemo"] {
+    --dolphin-window-header-start: var(--kde-neon-window-titlebar-bg, #eff0f1);
+    --dolphin-window-header-end: var(--kde-neon-window-titlebar-bg, #eff0f1);
+    --dolphin-window-header-active-start: var(--kde-neon-window-titlebar-bg-active, #e5e7ea);
+    --dolphin-window-header-active-end: var(--kde-neon-window-titlebar-bg-active, #e5e7ea);
+    --dolphin-window-title-fg: var(--kde-neon-window-titlebar-fg, #232629);
+    --dolphin-window-titlebar-border: var(--kde-neon-window-titlebar-border-color, rgba(35, 38, 41, 0.14));
+    --dolphin-icon-filter-sidebar: none;
+    --dolphin-icon-opacity-sidebar: 1;
+    --nemo-list-row-border: rgba(35, 38, 41, 0.12);
+    --nemo-list-col-tree: 1.35rem;
+    --nemo-list-col-icon: calc(var(--head) / 0.94);
+    --nemo-list-col-size: 6.75rem;
+    --nemo-list-col-modified: 10rem;
+    --nemo-list-col-star: 0;
+    --nemo-list-pad-x: 0.75rem;
+    --nemo-list-pad-icon: 0.55rem;
+    --dolphin-compact-col-gap: calc(var(--head) / 1.35);
+    --dolphin-compact-col-min: calc(var(--head) * 6);
+    --dolphin-compact-icon-size: calc(var(--head) / 0.94);
+    --dolphin-compact-font-size: calc(var(--head) / 2.05);
+    --dolphin-compact-row-min: calc(var(--head) / 0.86);
+    --dolphin-header-padding-top: 0;
+}
+
+html[data-theme="light"] body#kde-neon div[data-link="nemo"] #resizeBtn,
+html[data-theme="light"] body#kde-neon div[data-link="nemo"] #closeBtn,
+html[data-theme="light"] body#kde-neon div[data-link="nemo"] #minimizeBtn {
+    filter: brightness(0) saturate(100%);
+    opacity: 0.88;
+}
+
+html[data-theme="light"] body#kde-neon div[data-link="nemo"] #minimizeBtn {
+    opacity: 0.92;
+}
+
+html:not([data-theme="light"]) body#kde-neon div[data-link="nemo"] {
+    --nemo-list-row-border: rgba(255, 255, 255, 0.08);
+    --nemo-list-col-tree: 1.35rem;
+    --nemo-list-col-icon: calc(var(--head) / 0.94);
+    --nemo-list-col-size: 6.75rem;
+    --nemo-list-col-modified: 10rem;
+    --nemo-list-col-star: 0;
+    --nemo-list-pad-x: 0.75rem;
+    --nemo-list-pad-icon: 0.55rem;
+    --dolphin-compact-col-gap: calc(var(--head) / 1.35);
+    --dolphin-compact-col-min: calc(var(--head) * 6);
+    --dolphin-compact-icon-size: calc(var(--head) / 0.94);
+    --dolphin-compact-font-size: calc(var(--head) / 2.05);
+    --dolphin-compact-row-min: calc(var(--head) / 0.86);
+    --dolphin-header-padding-top: 0;
+}
+
+/* P3 — sidebar : icônes Breeze monochromes (#232629), sans filtre gris */
+body#kde-neon div[data-link="nemo"] .dolphin-app #voletnemo .dolphin-sidebar__link img,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-sidebar__root-row img {
+    filter: none;
+    opacity: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-sidebar__nav--peripherals .dolphin-sidebar__empty {
+    display: none;
+}
+
+/* VM Dolphin : pas de pill « N dossiers » en vue icônes par défaut */
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-folder-pill {
+    display: none !important;
+}
+
+/* P4 — masquer menubar classique (Dolphin ≥23 = hamburger) */
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__menubar,
+body#kde-neon div[data-link="nemo"] .dolphin-app .menuOutils {
+    display: none !important;
+}
+
+/* P4 — chrome fenêtre (bordure Discover : nette, sans halo latéral/bas) */
+body#kde-neon div[data-link="nemo"].windowElement {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    border: 1px solid rgba(35, 38, 41, 0.16);
+    border-radius: 5px;
+    box-shadow: 0 6px 20px rgba(35, 38, 41, 0.12);
+    background: #ffffff;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"].windowElementActive {
+    border-color: rgba(61, 174, 233, 0.4);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.18), 0 8px 24px rgba(35, 38, 41, 0.16);
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: var(--kde-neon-konsole-header-height);
+    min-height: var(--kde-neon-konsole-header-height);
+    margin: 0;
+    padding: 0 0.42rem;
+    border: 0;
+    border-bottom: 1px solid var(--dolphin-window-titlebar-border, rgba(35, 38, 41, 0.12));
+    border-radius: 5px 5px 0 0;
+    background: var(--dolphin-window-header-start, #eff0f1);
+    box-shadow: none;
+    color: var(--dolphin-window-title-fg, #232629);
+    pointer-events: auto;
+    cursor: grab;
+    user-select: none;
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader:active {
+    cursor: grabbing;
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader > nav:first-child {
+    position: absolute;
+    top: 0;
+    left: 0.42rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    gap: 0;
+    pointer-events: none;
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader > nav:first-child::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/org.kde.dolphin.svg") no-repeat center / contain;
+    opacity: 0.94;
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader > nav:first-child::after {
+    content: none;
+    display: none;
+}
+
+body#kde-neon div[data-link="nemo"].windowElementActive #windowHeader {
+    background: var(--dolphin-window-header-active-start, #e5e7ea);
+    border-bottom-color: var(--dolphin-window-titlebar-border, rgba(35, 38, 41, 0.12));
+}
+
+body#kde-neon div[data-link="nemo"] #windowTitle {
+    display: block;
+    width: auto;
+    max-width: calc(100% - 7rem);
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    text-shadow: none;
+    filter: none;
+    color: var(--dolphin-window-title-fg, #232629);
+    cursor: grab;
+    user-select: none;
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: 0.34rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.18rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader > nav:last-child > button {
+    border: 0;
+    border-radius: 0.18rem;
+    box-shadow: none;
+    transform: none;
+    filter: var(--kde-neon-header-control-filter-light);
+}
+
+body#kde-neon div[data-link="nemo"] #windowHeader > nav:last-child > button:hover {
+    background-color: rgba(35, 38, 41, 0.08);
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body#kde-neon div[data-link="nemo"] #closeBtn {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+body#kde-neon div[data-link="nemo"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.2);
+    border-color: transparent;
+    box-shadow: none;
+}
+
+html[data-theme="light"] #kde-neon div[data-link="nemo"] #windowHeader > nav > button,
+html[data-theme="light"] #kde-neon div[data-link="nemo"] #windowHeader > nav > button:hover {
+    filter: var(--kde-neon-header-control-filter-light);
+}
+
+body#kde-neon div[data-link="nemo"] #windowIframe {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto !important;
+    margin: 0;
+    padding: 0;
+    border-radius: 0 0 5px 5px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"][data-maximized="true"] {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    box-shadow: none;
+}
+
+body#kde-neon div[data-link="nemo"][data-maximized="true"] #windowHeader {
+    border-radius: 0;
+}
+
+body#kde-neon div[data-link="nemo"][data-maximized="true"] #windowIframe {
+    border-radius: 0;
+}
+
+body#kde-neon div[data-link="nemo"] main#gestionnaire.dolphin-app {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+body#kde-neon div[data-link="nemo"] #nemoHeaderContainer {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 4;
+    margin-top: 0;
+    padding-top: 0;
+    min-height: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__toolbar.dolphin-toolbar {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 5;
+}
+
+body#kde-neon div[data-link="nemo"] #windowIframe,
+body#kde-neon div[data-link="nemo"] .dolphin-app {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"] #nemoMainContainer {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-wrap--split .dolphin-content-panes {
+    flex-direction: row;
+    align-items: stretch;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-wrap--split .dolphin-content-pane {
+    flex: 1 1 50%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-wrap--split .dolphin-content-pane > .nemo-app__content-grid,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid:not(.nemo-app__content-grid--compact) {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-wrap--split .dolphin-content-pane--secondary {
+    border-left: 1px solid var(--dolphin-content-split-border, #e0e0e2);
+}
+
+/* Volet secondaire / pathbar secondaire : ne jamais laisser display:flex écraser [hidden] */
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane--secondary[hidden],
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-panes:not(.dolphin-content-panes--split) > .dolphin-content-pane--secondary {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path--secondary[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane--active .dolphin-folder-pill {
+    opacity: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane:not(.dolphin-content-pane--active) .dolphin-folder-pill {
+    opacity: 0.82;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path--secondary {
+    order: 4;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path--active {
+    background: #fff;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path:not(.dolphin-toolbar__path--active) {
+    background: var(--nemo-pathbar-bg);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-ico--close-x {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/cross.svg");
+    filter: brightness(0) saturate(100%) invert(27%) sepia(85%) saturate(1200%) hue-rotate(330deg);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app #dolphin-split-toggle.dolphin-toolbar__btn--split-open {
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app #dolphin-split-toggle.dolphin-toolbar__btn--split-open .dolphin-toolbar__btn-label {
+    color: var(--dolphin-text);
+}
+
+/* P4 — menu hamburger VM */
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu {
+    position: absolute;
+    top: calc(100% + calc(var(--head) / 18));
+    right: 0;
+    z-index: 1200;
+    min-width: calc(var(--head) * 8.2);
+    max-width: calc(var(--head) * 11);
+    padding: calc(var(--head) / 14) 0;
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 3px;
+    background: var(--dolphin-menu-surface-bg, #fff);
+    box-shadow: 0 4px 16px rgba(35, 38, 41, 0.16);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item {
+    display: grid;
+    grid-template-columns: calc(var(--head) / 1.5) minmax(0, 1fr) auto calc(var(--head) / 2.2);
+    align-items: center;
+    gap: calc(var(--head) / 14);
+    width: 100%;
+    min-height: calc(var(--head) / 1.32);
+    padding: calc(var(--head) / 16) calc(var(--head) / 8);
+    border: 0;
+    background: transparent;
+    color: var(--dolphin-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.55);
+    text-align: left;
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item--submenu,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item--submenu {
+    position: relative;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) / 1.55);
+    height: calc(var(--head) / 1.55);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__icon img,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__icon-img {
+    width: calc(var(--head) / 2.15);
+    height: calc(var(--head) / 2.15);
+    object-fit: contain;
+    opacity: 0.95;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__icon-spacer {
+    display: inline-block;
+    width: calc(var(--head) / 1.55);
+    height: calc(var(--head) / 1.55);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__label {
+    min-width: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item:hover:not(:disabled),
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item:focus-visible:not(:disabled),
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item.is-open:not(:disabled) {
+    background: var(--dolphin-sidebar-hover-bg);
+    outline: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__item--submenu::after {
+    content: ">";
+    grid-column: 4;
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.35);
+    line-height: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout {
+    position: absolute;
+    right: calc(100% - 2px);
+    top: 0;
+    z-index: 1300;
+    min-width: calc(var(--head) * 9.5);
+    max-width: calc(var(--head) * 14);
+    padding: calc(var(--head) / 14) 0;
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 3px;
+    background: var(--dolphin-menu-surface-bg, #fff);
+    box-shadow: 0 4px 16px rgba(35, 38, 41, 0.16);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item {
+    display: grid;
+    grid-template-columns: calc(var(--head) / 1.65) minmax(0, 1fr) auto calc(var(--head) / 2.2);
+    align-items: center;
+    gap: calc(var(--head) / 14);
+    width: 100%;
+    min-height: calc(var(--head) / 1.35);
+    padding: calc(var(--head) / 18) calc(var(--head) / 8);
+    border: 0;
+    background: transparent;
+    color: var(--dolphin-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.55);
+    text-align: left;
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item:hover:not(:disabled),
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item:focus-visible:not(:disabled),
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item.is-open:not(:disabled) {
+    background: var(--dolphin-sidebar-hover-bg);
+    outline: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item:disabled {
+    opacity: 0.45;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item--submenu::after {
+    content: ">";
+    grid-column: 4;
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.35);
+    line-height: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__check {
+    width: calc(var(--head) / 2.1);
+    height: calc(var(--head) / 2.1);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__flyout-item--checkable.is-checked .dolphin-hamburger-menu__check {
+    background: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/checkbox.svg") center / contain no-repeat;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__shortcut {
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.75);
+    white-space: nowrap;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-hamburger-menu__sep {
+    height: 1px;
+    margin: calc(var(--head) / 18) calc(var(--head) / 10);
+    background: var(--nemo-pathbar-border);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions {
+    position: relative;
+    margin-left: auto !important;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--head) / 12);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view {
+    display: inline-flex;
+    order: 2;
+    flex: 0 0 auto;
+    align-items: center;
+    position: relative;
+    margin-right: calc(var(--head) / 28);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view-trigger {
+    min-width: calc(var(--head) / 1.32);
+    height: calc(var(--head) / 1.32);
+    padding: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view-btn {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu {
+    position: absolute;
+    top: calc(100% + calc(var(--head) / 18));
+    left: 0;
+    z-index: 1200;
+    min-width: calc(var(--head) * 5.2);
+    padding: calc(var(--head) / 14) 0;
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 3px;
+    background: var(--dolphin-menu-surface-bg, #fff);
+    box-shadow: 0 4px 16px rgba(35, 38, 41, 0.16);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__item {
+    display: grid;
+    grid-template-columns: calc(var(--head) / 1.6) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: calc(var(--head) / 12);
+    width: 100%;
+    min-height: calc(var(--head) / 1.35);
+    padding: calc(var(--head) / 14) calc(var(--head) / 8);
+    border: 0;
+    background: transparent;
+    color: var(--dolphin-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.55);
+    text-align: left;
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__item:hover,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__item:focus-visible {
+    background: var(--dolphin-sidebar-hover-bg);
+    outline: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__check {
+    width: calc(var(--head) / 2.4);
+    height: calc(var(--head) / 2.4);
+    background: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/radio-checked.svg") center / contain no-repeat;
+    opacity: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__item[aria-checked="true"] .dolphin-view-menu__check {
+    opacity: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__check--empty {
+    background: none;
+    opacity: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__item--config .dolphin-view-menu__label {
+    padding-left: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__shortcut {
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.85);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-menu__sep {
+    height: 1px;
+    margin: calc(var(--head) / 14) calc(var(--head) / 10);
+    background: var(--nemo-pathbar-border);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(35, 38, 41, 0.28);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__panel {
+    width: min(calc(var(--head) * 11.5), calc(100vw - 2rem));
+    padding: calc(var(--head) / 2.2) calc(var(--head) / 1.8);
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 4px;
+    background: var(--dolphin-menu-surface-bg, #fff);
+    box-shadow: 0 10px 28px rgba(35, 38, 41, 0.22);
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__title {
+    margin: 0 0 calc(var(--head) / 2.5);
+    font-size: calc(var(--head) / 2.15);
+    font-weight: 600;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__row {
+    display: grid;
+    grid-template-columns: calc(var(--head) * 3.2) minmax(0, 1fr);
+    align-items: center;
+    gap: calc(var(--head) / 4);
+    margin-bottom: calc(var(--head) / 3.5);
+    font-size: calc(var(--head) / 2.55);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__checks {
+    display: grid;
+    gap: calc(var(--head) / 5);
+    margin: calc(var(--head) / 2.8) 0;
+    font-size: calc(var(--head) / 2.55);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__checks label {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--head) / 6);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__select {
+    width: 100%;
+    min-height: calc(var(--head) / 1.45);
+    padding: calc(var(--head) / 10) calc(var(--head) / 8);
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 2px;
+    background: var(--nemo-pathbar-bg);
+    color: var(--dolphin-text);
+    font: inherit;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: calc(var(--head) / 8);
+    margin-top: calc(var(--head) / 2.2);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__btn {
+    min-width: calc(var(--head) * 1.5);
+    min-height: calc(var(--head) / 1.35);
+    padding: 0 calc(var(--head) / 4);
+    border: 1px solid var(--nemo-pathbar-border);
+    border-radius: 3px;
+    background: var(--nemo-toolbar-button-bg);
+    color: var(--dolphin-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.55);
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__btn--primary {
+    border-color: var(--dolphin-accent);
+    background: var(--dolphin-accent);
+    color: #fff;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-view-config__btn:disabled {
+    opacity: 0.45;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__path {
+    display: flex !important;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    order: 3;
+    min-width: 0;
+    gap: 0;
+    margin-right: calc(var(--head) / 12);
+    margin-left: 0;
+    box-sizing: border-box;
+    border: 1px solid var(--nemo-pathbar-border);
+    background: var(--nemo-pathbar-bg);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__path-current {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+    font-weight: 700;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: calc(var(--head) / 16) calc(var(--head) / 12);
+    padding-left: calc(var(--head) / 7);
+    gap: 0;
+    position: relative;
+    text-align: left;
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__path-current::before {
+    content: none;
+    display: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__crumb-prefix {
+    position: static;
+    top: auto;
+    left: auto;
+    flex: 0 0 auto;
+    margin: 0 0.25em 0 0;
+    transform: none;
+    color: var(--dolphin-text);
+    font-weight: 700;
+    font-size: calc(var(--head) / 2.1);
+    line-height: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__search {
+    display: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    order: 0;
+    width: calc(var(--head) / 1.32);
+    min-width: calc(var(--head) / 1.32);
+    height: calc(var(--head) / 1.32);
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    border: 1px solid var(--nemo-toolbar-button-border);
+    border-radius: 3px;
+    background: var(--nemo-toolbar-button-bg);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__search:hover {
+    background: var(--nemo-toolbar-button-hover-bg);
+    border-color: var(--dolphin-accent);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__search .dolphin-ico--search {
+    width: calc(var(--head) / 2.05);
+    height: calc(var(--head) / 2.05);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__search-input,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__search input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__btn--preview {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app #dolphin-split-toggle {
+    width: auto;
+    min-width: calc(var(--head) * 1.45);
+    padding: 0 calc(var(--head) / 9.5) 0 calc(var(--head) / 15);
+    gap: calc(var(--head) / 12);
+    font-size: calc(var(--head) / 2.55);
+    font-weight: 500;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app #dolphin-split-toggle .dolphin-toolbar__btn-label {
+    display: inline;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-toolbar__actions .dolphin-toolbar__btn:first-child::after {
+    content: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-ico--menu {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/open-menu-symbolic.svg");
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app #nemoFooterContainer {
+    display: none !important;
+}
+
+/* Vue Détails (liste) — parité VM Dolphin Breeze */
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__list-header {
+    order: 1;
+    flex-shrink: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .dolphin-folder-pill {
+    order: 3;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list {
+    order: 2;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__list-header {
+    display: grid;
+    grid-template-columns:
+        var(--nemo-list-col-tree)
+        var(--nemo-list-col-icon)
+        minmax(0, 1fr)
+        var(--nemo-list-col-size)
+        var(--nemo-list-col-modified);
+    align-items: center;
+    width: 100%;
+    min-height: calc(var(--head) / 1.45);
+    margin: 0;
+    padding: calc(var(--head) / 14) var(--nemo-list-pad-x) calc(var(--head) / 16) calc(var(--nemo-list-pad-icon) + var(--nemo-list-col-tree));
+    border-bottom: 1px solid var(--nemo-list-row-border);
+    background: var(--dolphin-view);
+    color: var(--dolphin-text-muted);
+    font-size: calc(var(--head) / 2.75);
+    font-weight: 500;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__list-header-name {
+    grid-column: 3;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__list-header-size {
+    grid-column: 4;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__list-header-modified {
+    grid-column: 5;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__list-header-name::after {
+    content: " ↑";
+    font-size: calc(var(--head) / 3.1);
+    font-weight: 700;
+    opacity: 0.72;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__list-header[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 0;
+    background: var(--dolphin-view);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--nemo-list-pad-icon) + var(--nemo-list-col-tree) + (var(--nemo-list-col-icon) / 2));
+    width: 1px;
+    background: rgba(35, 38, 41, 0.1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a {
+    position: relative;
+    display: grid;
+    grid-template-columns:
+        var(--nemo-list-col-tree)
+        var(--nemo-list-col-icon)
+        minmax(0, 1fr)
+        var(--nemo-list-col-size)
+        var(--nemo-list-col-modified);
+    grid-template-rows: 1fr;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: var(--dolphin-compact-row-min, calc(var(--head) / 0.86));
+    max-height: none;
+    margin: 0;
+    padding:
+        calc(var(--head) / 14)
+        var(--nemo-list-pad-x)
+        calc(var(--head) / 14)
+        calc(var(--nemo-list-pad-icon) + var(--nemo-list-col-tree) + (var(--dolphin-list-depth, 0) * var(--nemo-list-col-tree)));
+    border: 0;
+    border-bottom: 0;
+    border-radius: 0;
+    color: var(--dolphin-text);
+    font-size: var(--dolphin-compact-font-size, calc(var(--head) / 2.05));
+    text-align: left;
+    text-decoration: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a.nemo-app__item--folder-expandable::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    width: calc(var(--head) / 2.35);
+    height: calc(var(--head) / 2.35);
+    background: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/go-next-symbolic.svg") center / contain no-repeat;
+    filter: brightness(0) saturate(100%) opacity(0.5);
+    transition: transform 0.12s ease;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a.nemo-app__item--folder-expandable.nemo-app__item--list-expanded::before {
+    transform: rotate(90deg);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a:not(.nemo-app__item--folder-expandable)::before {
+    content: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a:hover {
+    background: var(--dolphin-sidebar-hover-bg);
+    border-radius: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a > img {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    width: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    height: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    min-width: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    max-width: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    margin: 0;
+    object-fit: contain;
+    filter: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a > .nemo-app__item-body {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a > .nemo-app__item-body > .nemo-app__item-name {
+    font-weight: 400;
+    font-size: var(--dolphin-compact-font-size, calc(var(--head) / 2.05));
+    line-height: 1.3;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a > .nemo-app__item-size {
+    display: block;
+    grid-column: 4;
+    grid-row: 1;
+    font-size: var(--dolphin-compact-font-size, calc(var(--head) / 2.05));
+    color: var(--dolphin-text-muted);
+    text-align: left;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a > .nemo-app__item-modified {
+    display: block;
+    grid-column: 5;
+    grid-row: 1;
+    font-size: var(--dolphin-compact-font-size, calc(var(--head) / 2.05));
+    color: var(--dolphin-text-muted);
+    text-align: left;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--list > a[data-list-depth]:not([data-list-depth="0"]) {
+    box-shadow: inset 1px 0 0 rgba(35, 38, 41, 0.08);
+}
+
+/* Reset nemo.base — ne pas centrer le volet contenu en plein écran */
+body#kde-neon div[data-link="nemo"] #nemoMainContainer > #voletContainer.dolphin-content-wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    height: auto !important;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="nemo"] #nemoMainContainer > #voletContainer {
+    height: auto !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-panes,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Vue icônes — layout + taille VM (grille dans .dolphin-content-pane) */
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__content-grid--icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: calc(var(--head) / 2);
+    padding-top: calc(var(--head) / 1.22);
+    padding-left: calc(var(--head) / 8);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__content-grid--icons > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(var(--head) * 3.32);
+    max-width: calc(var(--head) * 3.32);
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__content-grid--icons > a > img {
+    display: block;
+    width: calc(var(--head) * 1.8);
+    height: calc(var(--head) * 1.8);
+    padding: 0;
+    object-fit: contain;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__content-grid--icons > a > .nemo-app__item-name,
+body#kde-neon div[data-link="nemo"] .dolphin-app .nemo-app__content-grid--icons > a > span {
+    display: block;
+    width: 100%;
+    margin-top: calc(var(--head) / 11);
+    font-size: calc(var(--head) / 2.45);
+    text-align: center;
+    line-height: 1.25;
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--icons > a > .nemo-app__item-modified,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--icons > a > .nemo-app__item-size,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a > .nemo-app__item-modified,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a > .nemo-app__item-size {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--icons > a > .nemo-app__item-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Vue Synthétique (compacte) — 1 colonne, puis colonnes supplémentaires si débordement vertical */
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: calc(var(--head) / 5) calc(var(--head) / 2.8);
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--dolphin-view);
+    column-count: 1;
+    column-width: auto;
+    column-gap: var(--dolphin-compact-col-gap, calc(var(--head) / 1.35));
+    column-fill: balance;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact.nemo-app__content-grid--compact-wrap {
+    column-count: var(--dolphin-compact-cols, 2);
+    column-fill: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--head) / 6);
+    width: 100%;
+    min-height: var(--dolphin-compact-row-min, calc(var(--head) / 0.86));
+    max-width: 100%;
+    margin: 0 0 calc(var(--head) / 24);
+    padding: calc(var(--head) / 14) calc(var(--head) / 12);
+    border: 0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    text-align: left;
+    text-decoration: none;
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a > img {
+    flex: 0 0 auto;
+    width: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    height: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    min-width: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    max-width: var(--dolphin-compact-icon-size, calc(var(--head) / 0.94));
+    margin: 0;
+    object-fit: contain;
+    filter: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a > .nemo-app__item-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a > .nemo-app__item-body > .nemo-app__item-name,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a > .nemo-app__item-name {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--dolphin-compact-font-size, calc(var(--head) / 2.05));
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--dolphin-text);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a:hover {
+    background: var(--dolphin-sidebar-hover-bg);
+    border-radius: 3px;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a:hover > img,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a:focus-visible > img,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a:focus > img,
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a.nemo-app__item--selected > img {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-app .dolphin-content-pane > .nemo-app__content-grid--compact > a.nemo-app__item--selected {
+    background: var(--dolphin-sidebar-active-bg, rgba(61, 174, 233, 0.22));
+    outline: 1px solid rgba(61, 174, 233, 0.35);
+    outline-offset: -1px;
+}
+
+/* —— Barre de recherche Dolphin (VM : loupe → panneau 2 lignes sous toolbar) —— */
+body#kde-neon div[data-link="nemo"] .dolphin-app.dolphin-app--search-open .dolphin-toolbar__search {
+    border-color: var(--dolphin-accent, #3daee9);
+    background: var(--dolphin-sidebar-active-bg, rgba(61, 174, 233, 0.15));
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.42rem 0.55rem 0.38rem;
+    border-bottom: 1px solid rgba(35, 38, 41, 0.1);
+    background: #fcfcfc;
+}
+
+body#kde-neon div[data-link="nemo"] #voletContainer > .dolphin-search-bar {
+    order: -1;
+    align-self: stretch;
+}
+
+body#kde-neon div[data-link="nemo"] #voletContainer > #dolphin-content-panes {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__main-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: calc(var(--head) / 1.25);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__scope-row {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    padding-left: 0.05rem;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__field {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 8rem;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__input {
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(var(--head) / 1.32);
+    padding: 0 2rem 0 0.55rem;
+    border: 1px solid rgba(35, 38, 41, 0.18);
+    border-radius: 3px;
+    background: #fff;
+    color: var(--dolphin-text, #232629);
+    font: inherit;
+    font-size: calc(var(--head) / 2.45);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__input:focus {
+    outline: none;
+    border-color: var(--dolphin-accent, #3daee9);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__scope-btn {
+    appearance: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--dolphin-text, #232629);
+    font: inherit;
+    font-size: calc(var(--head) / 2.65);
+    padding: 0.18rem 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__scope-btn.is-active {
+    border-color: rgba(35, 38, 41, 0.16);
+    background: rgba(35, 38, 41, 0.06);
+    font-weight: 600;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__save {
+    position: absolute;
+    top: 50%;
+    right: 0.28rem;
+    transform: translateY(-50%);
+    width: calc(var(--head) / 1.55);
+    height: calc(var(--head) / 1.55);
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    background: transparent;
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__save img {
+    width: calc(var(--head) / 2.25);
+    height: calc(var(--head) / 2.25);
+    filter: brightness(0) saturate(100%);
+    opacity: 0.7;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__filter-wrap {
+    position: relative;
+    flex: 0 0 auto;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    height: calc(var(--head) / 1.32);
+    padding: 0 0.45rem 0 0.4rem;
+    border: 1px solid rgba(35, 38, 41, 0.16);
+    border-radius: 3px;
+    background: #eff0f1;
+    color: var(--dolphin-text, #232629);
+    font: inherit;
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 400;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__filter-icon {
+    width: calc(var(--head) / 2.35);
+    height: calc(var(--head) / 2.35);
+    filter: brightness(0) saturate(100%);
+    opacity: 0.82;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__filter-btn:hover {
+    background: rgba(35, 38, 41, 0.06);
+    border-color: rgba(35, 38, 41, 0.2);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__filter-btn[aria-expanded="true"] {
+    background: rgba(35, 38, 41, 0.08);
+    border-color: rgba(35, 38, 41, 0.22);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__filter-caret {
+    width: 0;
+    height: 0;
+    margin-left: 0.05rem;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid rgba(35, 38, 41, 0.72);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__close {
+    flex: 0 0 auto;
+    width: calc(var(--head) / 1.32);
+    height: calc(var(--head) / 1.32);
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--dolphin-text, #232629);
+    font-size: calc(var(--head) / 1.45);
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-bar__close:hover {
+    opacity: 1;
+    background: rgba(35, 38, 41, 0.08);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    z-index: 40;
+    min-width: 18rem;
+    max-width: 22rem;
+    padding: 0.5rem 0.6rem 0.55rem;
+    border: 1px solid rgba(35, 38, 41, 0.14);
+    border-radius: 3px;
+    background: #eff0f1;
+    color: #232629;
+    box-shadow: 0 4px 16px rgba(35, 38, 41, 0.16);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__section + .dolphin-search-filter-menu__section {
+    margin-top: 0.45rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid rgba(35, 38, 41, 0.1);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__heading {
+    margin: 0 0 0.28rem;
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 700;
+    color: #232629;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__option {
+    display: flex;
+    align-items: center;
+    gap: 0.38rem;
+    margin: 0.08rem 0;
+    padding: 0.06rem 0;
+    font-size: calc(var(--head) / 2.55);
+    line-height: 1.25;
+    cursor: pointer;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__option--with-meta {
+    justify-content: space-between;
+    gap: 0.45rem;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+    border: none;
+    background: transparent url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/radio.svg") center / contain no-repeat;
+    cursor: pointer;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__option input[type="radio"]:checked {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/radio-checked.svg");
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__option-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    min-width: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__option-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.12rem;
+    flex: 0 0 auto;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__icon-btn {
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__icon-btn img {
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    filter: brightness(0) saturate(100%);
+    opacity: 0.75;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__kfind {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    margin-top: 0.18rem;
+    padding: 0.32rem 0.5rem;
+    border: 1px solid rgba(35, 38, 41, 0.14);
+    border-radius: 3px;
+    background: #fcfcfc;
+    color: #232629;
+    font: inherit;
+    font-size: calc(var(--head) / 2.55);
+    text-align: center;
+    opacity: 0.72;
+    cursor: not-allowed;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-search-filter-menu__kfind img {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Menu contextuel Dolphin (Breeze) + fallback Nautilus */
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu {
+    position: fixed;
+    z-index: 12000;
+    min-width: 12.5rem;
+    padding: 0.35rem 0;
+    border-radius: 6px;
+    background: #eff0f1;
+    border: 1px solid rgba(35, 38, 41, 0.14);
+    box-shadow: 0 6px 18px rgba(35, 38, 41, 0.18);
+    color: #232629;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu {
+    min-width: 17.5rem;
+    padding: 0.3rem 0;
+    border-radius: 4px;
+    background: #fcfcfc;
+    border: 1px solid rgba(35, 38, 41, 0.16);
+    box-shadow: 0 2px 6px rgba(35, 38, 41, 0.08), 0 12px 28px rgba(35, 38, 41, 0.14);
+    font-size: 0.8125rem;
+    line-height: 1.25;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.55rem;
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.2rem 0.75rem 0.2rem 0.55rem;
+    border: 0;
+    background: transparent;
+    color: #232629;
+    font: inherit;
+    text-align: left;
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu .nautilus-context-menu__item {
+    min-height: 2rem;
+    padding: 0.22rem 0.85rem 0.22rem 0.65rem;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item--submenu {
+    padding-right: 0.55rem;
+    position: relative;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__flyout {
+    position: absolute;
+    left: calc(100% - 2px);
+    top: 0;
+    z-index: 1400;
+    min-width: 12.5rem;
+    padding: 0.22rem 0;
+    border: 1px solid rgba(35, 38, 41, 0.12);
+    border-radius: 3px;
+    background: #fcfcfc;
+    box-shadow: 0 4px 16px rgba(35, 38, 41, 0.16);
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__flyout[hidden] {
+    display: none !important;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__flyout-item {
+    display: block;
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.22rem 0.85rem;
+    border: 0;
+    background: transparent;
+    color: #232629;
+    font: inherit;
+    text-align: left;
+    cursor: default;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__flyout-item:hover,
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__flyout-item:focus-visible {
+    background: rgba(61, 174, 233, 0.22);
+    outline: none;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item.is-open {
+    background: rgba(61, 174, 233, 0.22);
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item kbd {
+    margin-left: auto;
+    padding-left: 1.25rem;
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #7f8c8d;
+    white-space: nowrap;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__sub {
+    margin-left: auto;
+    padding-left: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    color: #7f8c8d;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item:hover:not(:disabled),
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item:focus-visible {
+    background: rgba(61, 174, 233, 0.22);
+    color: #232629;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item:disabled {
+    opacity: 0.45;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__item[hidden] {
+    display: none;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__separator {
+    height: 1px;
+    margin: 0.28rem 0.55rem;
+    background: rgba(35, 38, 41, 0.11);
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu .nautilus-context-menu__separator {
+    margin: 0.3rem 0.65rem;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__icon {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 1rem;
+    opacity: 0.95;
+    object-fit: contain;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu .nautilus-context-menu__icon {
+    width: 1.05rem;
+    height: 1.05rem;
+    flex-basis: 1.05rem;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__icon--spacer {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 1rem;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-context-menu__label {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__folder-colors {
+    padding: 0.35rem 0.65rem 0.15rem;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__folder-colors-swatches {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch {
+    width: 1.35rem;
+    height: 1.35rem;
+    padding: 0;
+    border: 1px solid rgba(35, 38, 41, 0.14);
+    border-radius: 3px;
+    cursor: default;
+    opacity: 0.92;
+}
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch--red { background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%); }
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch--orange { background: linear-gradient(180deg, #f39c12 0%, #e67e22 100%); }
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch--yellow { background: linear-gradient(180deg, #f1c40f 0%, #f39c12 100%); }
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch--green { background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%); }
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch--blue { background: linear-gradient(180deg, #3498db 0%, #2980b9 100%); }
+
+body#kde-neon div[data-link="nemo"] .dolphin-context-menu__swatch-other {
+    margin-left: 0.15rem;
+    font-size: 0.75rem;
+    color: #7f8c8d;
+    white-space: nowrap;
+}
+
+body#kde-neon div[data-link="nemo"] .nemo-app__item-name--renaming-host {
+    display: block !important;
+    padding: 0;
+    margin-top: calc(var(--head) / 11);
+}
+
+body#kde-neon div[data-link="nemo"] .nemo-app__item-rename-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+body#kde-neon div[data-link="nemo"] .nemo-app__item-rename-input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.1rem 0.25rem;
+    box-sizing: border-box;
+    background: #fff;
+    color: #232629;
+    border: 1px solid #3daee9;
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35);
+    font: inherit;
+    font-size: inherit;
+    line-height: 1.25;
+    text-align: center;
+}
+
+body#kde-neon div[data-link="nemo"] .nemo-app__content-grid--list .nemo-app__item-name--renaming-host {
+    margin-top: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .nemo-app__content-grid--list .nemo-app__item-rename-input {
+    text-align: left;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog {
+    padding: 0;
+    border: 1px solid rgba(35, 38, 41, 0.18);
+    border-radius: 6px;
+    background: #eff0f1;
+    color: #232629;
+    max-width: 28rem;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog::backdrop {
+    background: rgba(35, 38, 41, 0.35);
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__panel {
+    margin: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(35, 38, 41, 0.12);
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__header h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__close {
+    border: 1px solid rgba(35, 38, 41, 0.18);
+    border-radius: 4px;
+    background: #f7f8f9;
+    padding: 0.25rem 0.65rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__body {
+    padding: 0.85rem 1rem 1rem;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__body dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.35rem 0.85rem;
+    margin: 0;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__body dt {
+    font-weight: 600;
+    color: #7f8c8d;
+}
+
+body#kde-neon div[data-link="nemo"] .nautilus-properties-dialog__body dd {
+    margin: 0;
+}

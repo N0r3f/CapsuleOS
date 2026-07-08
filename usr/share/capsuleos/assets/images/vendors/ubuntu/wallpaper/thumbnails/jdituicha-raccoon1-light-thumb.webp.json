@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/jdituicha-raccoon1-light.jpg",
+  "role": "wallpaper-thumb",
+  "profile": "wallpaper-thumb",
+  "encoder": "sharp",
+  "options": {
+    "maxWidth": 512,
+    "quality": 78
+  },
+  "width": 512,
+  "height": 288,
+  "preparedAt": "2026-06-16T09:50:45.660Z"
+}

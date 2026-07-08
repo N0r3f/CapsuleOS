@@ -1,0 +1,294 @@
+<main id="gestionnaire" class="nemo-app nautilus-app nautilus-app--split nautilus-app--n47" data-nautilus-gnome-root>
+        <header class="nautilus-app__win-head" id="nemoHeaderContainer">
+                <div class="nautilus-app__head-plate" data-window-drag-region>
+                        <button type="button" class="nautilus-app__icon-btn nautilus-app__plate-search"
+                                aria-label="Recherche globale" title="Recherche">
+                                <img src="./assets/icons/cinnamon/nemo/search-symbolic.svg" alt=""
+                                        width="16" height="16">
+                        </button>
+                        <h1 class="nautilus-app__win-title" data-nautilus-gnome-title data-window-drag-region>Fichiers</h1>
+                        <button type="button" class="nautilus-app__icon-btn nautilus-app__sidebar-menu-btn"
+                                aria-label="Menu principal" title="Menu principal">
+                                <img src="./assets/icons/cinnamon/nemo/open-menu-symbolic.svg" alt=""
+                                        width="16" height="16">
+                        </button>
+                </div>
+                <section class="nautilus-app__headerbar nemo-app__toolbar" role="toolbar"
+                        aria-label="Barre d’outils">
+                        <div class="nautilus-app__leading">
+                                <nav class="nautilus-app__nav" aria-label="Navigation">
+                                        <a href="#" id="precedent" class="nautilus-app__icon-btn"
+                                                aria-label="Précédent" title="Précédent"><img
+                                                        src="./assets/icons/cinnamon/nemo/go-previous-symbolic.svg"
+                                                        alt="" width="16" height="16"></a>
+                                        <a href="#" id="suivant" class="nautilus-app__icon-btn"
+                                                aria-label="Suivant" title="Suivant"><img
+                                                        src="./assets/icons/cinnamon/nemo/go-next-symbolic.svg"
+                                                        alt="" width="16" height="16"></a>
+                                </nav>
+                                <span class="window-drag-region window-drag-region--gap"
+                                        data-window-drag-region aria-hidden="true"></span>
+                                <a href="#" id="parent" class="nautilus-app__sr-only" tabindex="-1"
+                                        aria-hidden="true">Parent</a>
+                                <button type="button" id="home" class="nautilus-app__sr-only" tabindex="-1"
+                                        aria-hidden="true">Accueil</button>
+                        </div>
+                        <div class="nautilus-app__center" data-nautilus-chrome>
+                                <span class="window-drag-region window-drag-region--layer"
+                                        data-window-drag-region aria-hidden="true"></span>
+                                <div class="nautilus-app__path-crumbbar" id="nautilus-path-crumbbar" data-nautilus-gnome-path-crumbbar>
+                                        <div class="nautilus-app__path-pill" role="group" aria-label="Emplacement actuel">
+                                                <button type="button" class="nautilus-app__path-pill-main"
+                                                        id="nautilus-path-pill" title="Emplacement actuel">
+                                                        <span class="nautilus-app__path-crumbs"
+                                                                id="nautilus-path-crumbs"
+                                                                aria-live="polite">Dossier personnel</span>
+                                                </button>
+                                                <button type="button" class="nautilus-app__path-pill-menu"
+                                                        id="nautilus-path-pill-menu"
+                                                        aria-label="Actions sur l'emplacement"
+                                                        title="Actions sur l'emplacement">⋮</button>
+                                        </div>
+                                </div>
+                                <div class="nautilus-app__search-field" id="nemo-search-wrap" hidden>
+                                        <img class="nautilus-app__search-field-icon" aria-hidden="true"
+                                                src="./assets/icons/cinnamon/nemo/search-symbolic.svg" alt=""
+                                                width="16" height="16">
+                                        <input type="search" id="nemo-search-input"
+                                                class="nautilus-app__search-input"
+                                                placeholder="Rechercher dans le dossier actuel"
+                                                aria-label="Rechercher dans le dossier actuel"
+                                                autocomplete="off">
+                                        <button type="button"
+                                                class="nautilus-app__icon-btn nautilus-app__search-filter"
+                                                aria-label="Filtres de recherche" title="Filtres">
+                                                <img src="./assets/icons/cinnamon/nemo/view-more-symbolic.svg"
+                                                        alt="" width="16" height="16">
+                                        </button>
+                                        <button type="button"
+                                                class="nautilus-app__icon-btn nautilus-app__search-info"
+                                                aria-label="Saisir l'emplacement" title="Saisir l'emplacement">
+                                                <img src="./assets/icons/cinnamon/nemo/find-location-symbolic.svg"
+                                                        alt="" width="16" height="16">
+                                        </button>
+                                        <button type="button" class="nautilus-app__icon-btn nautilus-app__search-clear"
+                                                id="nautilus-search-clear" aria-label="Effacer la recherche"
+                                                title="Effacer" hidden>×</button>
+                                </div>
+                                <span id="nemo-path-label" class="nemo-app__path-current nautilus-app__sr-only">Dossier personnel</span>
+                        </div>
+                        <div class="nautilus-app__trailing">
+                                <span class="window-drag-region window-drag-region--gap"
+                                        data-window-drag-region aria-hidden="true"></span>
+                                <button type="button" class="nautilus-app__icon-btn nautilus-app__new-folder-btn"
+                                        data-nautilus-gnome-action="new-folder"
+                                        aria-label="Nouveau dossier" title="Nouveau dossier">
+                                        <img src="./assets/icons/cinnamon/nemo/tab-new.svg" alt=""
+                                                width="16" height="16">
+                                </button>
+                                <div class="nemo-app__toolbar-group--view nautilus-app__view-group" role="group"
+                                        aria-label="Mode d’affichage">
+                                        <a href="#" class="nautilus-app__icon-btn" data-view-mode="list"
+                                                aria-label="Vue en liste" title="Vue en liste"><img
+                                                        src="./assets/icons/cinnamon/nemo/view-list-symbolic.svg"
+                                                        alt="" width="16" height="16"></a>
+                                        <a href="#" class="nautilus-app__icon-btn" data-view-mode="icons"
+                                                aria-label="Vue en icônes" title="Vue en icônes"><img
+                                                        src="./assets/icons/cinnamon/nemo/view-grid-symbolic.svg"
+                                                        alt="" width="16" height="16"></a>
+                                        <button type="button"
+                                                class="nautilus-app__icon-btn nautilus-app__view-menu-btn"
+                                                aria-label="Autres vues" title="Autres vues">
+                                                <img src="./assets/icons/cinnamon/nemo/view-more-symbolic.svg"
+                                                        alt="" width="16" height="16">
+                                        </button>
+                                </div>
+                                <button type="button"
+                                        class="nautilus-app__icon-btn nautilus-app__window-close"
+                                        aria-label="Fermer la fenêtre" title="Fermer"><span
+                                                aria-hidden="true">×</span></button>
+                        </div>
+                </section>
+        </header>
+        <div class="nautilus-app__tabstrip-rail" aria-hidden="true"></div>
+        <div class="nautilus-app__tabstrip" id="nautilus-tabstrip" role="tablist" aria-label="Onglets" data-nautilus-gnome-tabstrip></div>
+        <div id="nemoMainContainer" class="nemo-app__main nautilus-app__split-body">
+                <aside id="voletnemo" class="nemo-app__sidebar nemo-app__sidebar--gnome nautilus-app__places" data-nautilus-gnome-sidebar>
+                        <div class="nemo-app__sidebar-places" data-nautilus-gnome-sidebar-section="places">
+                                <a data-link="Dossier Personnel" data-nautilus-gnome-sidebar="home"
+                                        title="Dossier personnel"><img
+                                                src="./assets/icons/cinnamon/nemo/user-home-symbolic.svg"
+                                                alt="">Dossier personnel</a>
+                                <a data-link="Récent" data-nautilus-gnome-sidebar="recent" title="Récents"><img src="./assets/icons/cinnamon/nemo/recent.svg" alt="">Récents</a>
+                                <a data-link="Favoris" data-nautilus-gnome-sidebar="starred" title="Favoris"><img src="./assets/icons/cinnamon/nemo/starred-symbolic.svg" alt="">Favoris</a>
+                                <a data-link="Réseau" data-nautilus-gnome-sidebar="network" title="Réseau"><img src="./assets/icons/cinnamon/nemo/network-workgroup-symbolic.svg" alt="">Réseau</a>
+                                <a data-link="Corbeille" data-nautilus-gnome-sidebar="trash" title="Corbeille"><img src="./assets/icons/cinnamon/nemo/user-trash-symbolic.svg" alt="">Corbeille</a>
+                        </div>
+                        <div class="nemo-app__sidebar-xdg" data-nautilus-gnome-sidebar-section="other-places">
+                                <a data-link="Bureau" data-nautilus-gnome-sidebar="desktop" title="Bureau"><img
+                                                src="./assets/icons/cinnamon/nemo/user-desktop-symbolic.svg" alt="">Bureau</a>
+                                <a data-link="Documents" data-nautilus-gnome-sidebar="documents" title="Documents"><img
+                                                src="./assets/icons/cinnamon/nemo/folder-documents-symbolic.svg" alt="">Documents</a>
+                                <a data-link="Musique" title="Musique"><img
+                                                src="./assets/icons/cinnamon/nemo/folder-music-symbolic.svg" alt="">Musique</a>
+                                <a data-link="Images" title="Images"><img
+                                                src="./assets/icons/cinnamon/nemo/folder-pictures-symbolic.svg" alt="">Images</a>
+                                <a data-link="Vidéos" title="Vidéos"><img
+                                                src="./assets/icons/cinnamon/nemo/folder-videos-symbolic.svg" alt="">Vidéos</a>
+                                <a data-link="Téléchargements" data-nautilus-gnome-sidebar="downloads" title="Téléchargements"><img
+                                                src="./assets/icons/cinnamon/nemo/folder-download-symbolic.svg" alt="">Téléchargements</a>
+                        </div>
+                </aside>
+                <div class="nautilus-app__content-column">
+                        <aside id="voletContainer" class="nemo-app__content-wrap">
+                                <section class="nautilus-search-empty" id="nautilus-search-empty" hidden
+                                        aria-label="Rechercher partout">
+                                        <div class="nautilus-search-empty__icon" aria-hidden="true"></div>
+                                        <h2 class="nautilus-search-empty__title">Rechercher partout</h2>
+                                        <p class="nautilus-search-empty__hint">Trouver des fichiers et dossiers dans tous les emplacements de recherche</p>
+                                        <button type="button" class="nautilus-search-empty__settings"
+                                                data-nautilus-chrome="search-settings">Paramètres de recherche</button>
+                                </section>
+                                <section class="nemoElement nemo-app__content-grid" data-nautilus-gnome-grid>
+                                        <!-- AFFICHAGE DES DOSSIERS ET FICHIERS -->
+                                </section>
+                        </aside>
+                        <div class="nautilus-network-bar" id="nautilus-network-bar" hidden>
+                                <input type="text" class="nautilus-network-bar__input" id="nautilus-network-input"
+                                        placeholder="Adresse du serveur" aria-label="Adresse du serveur"
+                                        autocomplete="off">
+                                <button type="button" class="nautilus-network-bar__connect" id="nautilus-network-connect"
+                                        disabled>Se connecter</button>
+                                <button type="button" class="nautilus-network-bar__info nautilus-app__icon-btn"
+                                        id="nautilus-network-info" aria-label="Adresses de serveurs"
+                                        title="Adresses de serveurs">ⓘ</button>
+                        </div>
+                        <footer id="nemoFooterContainer"
+                                class="nemo-app__statusbar nautilus-app__statusbar nautilus-app__status-pill">
+                                <p class="nautilus-app__status-text" id="nemo-status-label">Prêt</p>
+                        </footer>
+                </div>
+        </div>
+        <dialog id="nemo-properties-dialog" class="nautilus-properties-dialog" aria-labelledby="nemo-properties-title">
+                <form method="dialog" class="nautilus-properties-dialog__panel">
+                        <header class="nautilus-properties-dialog__header">
+                                <h2 id="nemo-properties-title">Propriétés</h2>
+                                <button type="submit" class="nautilus-properties-dialog__close" value="close">Fermer</button>
+                        </header>
+                        <div class="nautilus-properties-dialog__body">
+                                <dl>
+                                        <dt>Nom</dt>
+                                        <dd id="nemo-properties-name">—</dd>
+                                        <dt>Type</dt>
+                                        <dd id="nemo-properties-type">—</dd>
+                                        <dt>Emplacement</dt>
+                                        <dd id="nemo-properties-location">—</dd>
+                                        <dt>Contenu</dt>
+                                        <dd id="nemo-properties-size">—</dd>
+                                        <dt>Modifié</dt>
+                                        <dd id="nemo-properties-modified">—</dd>
+                                </dl>
+                        </div>
+                </form>
+        </dialog>
+        <nav id="nautilus-main-menu" class="nautilus-popover nautilus-popover--menu" role="menu" aria-label="Menu principal" hidden>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="new-window"><span>Nouvelle fenêtre</span><kbd>Ctrl+N</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="new-tab"><span>Nouvel onglet</span><kbd>Ctrl+T</kbd></button>
+                <div class="nautilus-popover__separator" role="separator"></div>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="undo" disabled><span>Annuler</span><kbd>Ctrl+Z</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="redo" disabled><span>Rétablir</span><kbd>Maj+Ctrl+Z</kbd></button>
+                <div class="nautilus-popover__separator" role="separator"></div>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="preferences"><span>Préférences</span><kbd>Ctrl+,</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="shortcuts"><span>Raccourcis clavier</span><kbd>Ctrl+?</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="help"><span>Aide</span><kbd>F1</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-menu="about"><span>À propos de Fichiers</span></button>
+        </nav>
+        <nav id="nautilus-path-menu" class="nautilus-popover nautilus-popover--menu" role="menu" aria-label="Actions emplacement" hidden>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="new-folder"><span>Nouveau dossier…</span><kbd>Maj+Ctrl+N</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="open-terminal"><span>Ouvrir dans la console</span></button>
+                <div class="nautilus-popover__separator" role="separator"></div>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="refresh"><span>Actualiser</span><kbd>F5</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="bookmark"><span>Ajouter aux signets</span><kbd>Ctrl+D</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="location"><span>Saisir l'emplacement</span><kbd>Ctrl+L</kbd></button>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="copy-location"><span>Copier l'emplacement</span></button>
+                <div class="nautilus-popover__separator" role="separator"></div>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-path="properties"><span>Propriétés</span><kbd>Alt+Entrée</kbd></button>
+        </nav>
+        <nav id="nautilus-search-filter-menu" class="nautilus-popover nautilus-popover--panel" role="dialog" aria-label="Filtres de recherche" hidden>
+                <div class="nautilus-popover__panel-section">
+                        <span class="nautilus-popover__panel-label">Quoi</span>
+                        <button type="button" class="nautilus-popover__panel-field" data-nautilus-search-filter="all">N'importe lequel</button>
+                </div>
+                <div class="nautilus-popover__panel-section">
+                        <span class="nautilus-popover__panel-label">Type</span>
+                        <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-search-filter="all" aria-checked="true">Tous les éléments</button>
+                        <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-search-filter="folders">Dossiers uniquement</button>
+                        <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-search-filter="files">Fichiers uniquement</button>
+                </div>
+                <div class="nautilus-popover__panel-section">
+                        <span class="nautilus-popover__panel-label">Recherche</span>
+                        <div class="nautilus-popover__segmented" role="group" aria-label="Mode de recherche">
+                                <button type="button" class="nautilus-popover__segment is-active" data-nautilus-search-mode="fulltext">Texte intégral</button>
+                                <button type="button" class="nautilus-popover__segment" data-nautilus-search-mode="filename">Nom du fichier</button>
+                        </div>
+                </div>
+        </nav>
+        <nav id="nautilus-view-menu" class="nautilus-popover nautilus-popover--menu" role="menu" aria-label="Autres vues" hidden>
+                <div class="nautilus-popover__row">
+                        <span>Taille d'icône</span>
+                        <div class="nautilus-popover__zoom">
+                                <button type="button" class="nautilus-popover__zoom-btn" data-nautilus-view="zoom-out" aria-label="Réduire">−</button>
+                                <button type="button" class="nautilus-popover__zoom-btn" data-nautilus-view="zoom-in" aria-label="Agrandir">+</button>
+                        </div>
+                </div>
+                <div class="nautilus-popover__separator" role="separator"></div>
+                <span class="nautilus-popover__group-label">Trier</span>
+                <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-view="sort-az" aria-checked="true">A-Z</button>
+                <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-view="sort-za">Z-A</button>
+                <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-view="sort-modified">Dernière modification</button>
+                <button type="button" class="nautilus-popover__item" role="menuitemradio" data-nautilus-view="compact">Vue compacte</button>
+                <div class="nautilus-popover__separator" role="separator"></div>
+                <button type="button" class="nautilus-popover__item" role="menuitem" data-nautilus-view="toggle-hidden"><span>Afficher les fichiers cachés</span><kbd>Ctrl+H</kbd></button>
+        </nav>
+        <nav id="nautilus-network-info-menu" class="nautilus-popover nautilus-popover--panel nautilus-network-info"
+                role="dialog" aria-label="Adresses de serveurs" hidden>
+                <h3 class="nautilus-network-info__title">Adresses de serveurs</h3>
+                <p class="nautilus-network-info__intro">Les adresses de serveurs sont constituées d’un préfixe de protocole et d’une adresse. Exemples&nbsp;:</p>
+                <p class="nautilus-network-info__examples"><code>smb://gnome.org</code> · <code>ssh://203.0.113.10</code> · <code>ftp://[2001:db8::1]</code></p>
+                <table class="nautilus-network-info__table">
+                        <thead><tr><th>Protocoles disponibles</th><th>Préfixe</th></tr></thead>
+                        <tbody>
+                                <tr><td>Protocole de transfert de fichiers (FTP)</td><td><code>ftp://</code> ou <code>ftps://</code></td></tr>
+                                <tr><td>Samba</td><td><code>smb://</code></td></tr>
+                                <tr><td>Protocole de transfert de fichiers SSH (SFTP)</td><td><code>sftp://</code> ou <code>ssh://</code></td></tr>
+                                <tr><td>WebDAV</td><td><code>dav://</code> ou <code>davs://</code></td></tr>
+                        </tbody>
+                </table>
+        </nav>
+        <nav id="nemo-context-menu" class="nautilus-context-menu" role="menu" aria-label="Menu contextuel Fichiers" hidden>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open" data-nemo-ctx-scope="item" data-nemo-ctx-icon="document-open"><span class="nautilus-context-menu__label">Ouvrir</span><span class="nautilus-context-menu__sub" aria-hidden="true">›</span></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open-with" data-nemo-ctx-scope="item" data-nemo-ctx-icon="open-menu"><span class="nautilus-context-menu__label">Ouvrir avec…</span></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="cut" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-cut"><span class="nautilus-context-menu__label">Couper</span><kbd>Ctrl+X</kbd></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="copy" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-copy"><span class="nautilus-context-menu__label">Copier</span><kbd>Ctrl+C</kbd></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="move-to" data-nemo-ctx-scope="item" data-nemo-ctx-icon="go-jump"><span class="nautilus-context-menu__label">Déplacer vers…</span></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="copy-to" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-copy"><span class="nautilus-context-menu__label">Copier vers…</span></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="rename" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-rename"><span class="nautilus-context-menu__label">Renommer…</span><kbd>F2</kbd></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="compress" data-nemo-ctx-scope="item" data-nemo-ctx-icon="package-x-generic"><span class="nautilus-context-menu__label">Compresser…</span></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="trash" data-nemo-ctx-scope="item" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Mettre à la corbeille</span><kbd>Suppr</kbd></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="restore-trash" data-nemo-ctx-scope="trash-item" data-nemo-ctx-icon="edit-undo"><span class="nautilus-context-menu__label">Restaurer</span></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="delete-forever" data-nemo-ctx-scope="trash-item" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Supprimer définitivement</span><kbd>Maj+Suppr</kbd></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="trash-item" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="empty-trash" data-nemo-ctx-scope="trash" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Vider la corbeille</span></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="trash" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="new-folder" data-nemo-ctx-scope="background" data-nemo-ctx-icon="folder-new"><span class="nautilus-context-menu__label">Nouveau dossier…</span><kbd>Maj+Ctrl+N</kbd></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open-terminal" data-nemo-ctx-scope="background" data-nemo-ctx-icon="utilities-terminal"><span class="nautilus-context-menu__label">Ouvrir dans la console</span></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="background" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="paste" data-nemo-ctx-scope="background" data-nemo-ctx-icon="edit-paste"><span class="nautilus-context-menu__label">Coller</span><kbd>Ctrl+V</kbd></button>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="select-all" data-nemo-ctx-scope="background" data-nemo-ctx-icon="edit-select-all"><span class="nautilus-context-menu__label">Tout sélectionner</span><kbd>Ctrl+A</kbd></button>
+                <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="background" role="separator"></div>
+                <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="properties" data-nemo-ctx-scope="both" data-nemo-ctx-icon="document-properties"><span class="nautilus-context-menu__label">Propriétés</span><kbd>Alt+Entrée</kbd></button>
+        </nav>
+</main>

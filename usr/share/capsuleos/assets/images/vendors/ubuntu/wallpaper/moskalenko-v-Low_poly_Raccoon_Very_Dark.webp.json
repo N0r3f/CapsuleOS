@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/ubuntu/wallpaper/moskalenko-v-Low_poly_Raccoon_Very_Dark.webp",
+  "outputSha256": "bfe285352dfc3becab21e05790f756b0ba47d72a72efd67c4ff29c1683f10fb2",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.804Z",
+  "note": "repair-manifest"
+}

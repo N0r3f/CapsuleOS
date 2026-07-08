@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/default_background.jpg",
+  "sourceSha256": "578f7e1a927f9d22ed4b16b144576969330b237da1fba72394d4d2b7b8f24b4f",
+  "output": "images/vendors/mint/wallpaper/default_background.webp",
+  "outputSha256": "373ce03908f3070c54da3dffcb7ad7afb4ca5dcc59d21931ec4b6c16e7fcc8ed",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:41:38.813Z"
+}

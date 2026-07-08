@@ -1,0 +1,12 @@
+body#mint {
+    --wrp-bg: #ffffff;
+    --wrp-text: #2e2e2e;
+    --wrp-muted: #5c5c5c;
+    --wrp-header-bg: #ebebeb;
+    --wrp-border: #d4d4d4;
+    --wrp-accent: #0c75de;
+    --wrp-ok: #27ae60;
+    --wrp-peer-bg: #f8f8f8;
+    --wrp-btn-bg: #f6f6f6;
+    --wrp-btn-border: #c8c8c8;
+}

@@ -1,0 +1,41 @@
+/**
+ * KDE Neon — tokens (couleurs à valeurs littérales).
+ * Importé par debian-desktop.css.
+ */
+
+html:has(#kde-neon) {
+    --kde-neon-plasma-accent: #3daee9;
+    --desktop-shortcut-text: #ffffff;
+    --kde-neon-bg-color: #243042;
+}
+
+html[data-theme="light"] body#kde-neon {
+    --kde-neon-menu-text: #232629;
+    --kde-neon-menu-text-muted: #7f8c8d;
+    --kde-neon-menu-search-bg: #ffffff;
+    --kde-neon-menu-search-highlight-bg: #cce8ff;
+    --kde-neon-menu-search-hover-bg: #e3f3fc;
+    --kde-neon-plasma-panel-bg: #eff0f1;
+    --kde-neon-plasma-panel-border: #d9d9d9;
+    --kde-neon-plasma-text: #232629;
+    --kde-neon-plasma-text-muted: #7f8c8d;
+    --kde-neon-taskbar-notch: #eff0f1;
+    --calendar-popover-chrome-bg: #eff0f1;
+    --calendar-popover-grid-bg: #eff0f1;
+    --calendar-popover-bg: #eff0f1;
+    --calendar-popover-text: #232629;
+    --calendar-popover-week-label: #7a8b9a;
+    --calendar-popover-events-muted: #8e99a3;
+    --calendar-popover-day-text: #232629;
+    --calendar-popover-tab-active: #3daee9;
+    --calendar-popover-today-text: #232629;
+    --calendar-popover-today-ring: #3daee9;
+    --calendar-popover-arrow-text: #232629;
+}
+
+html:not([data-theme="light"]) body#kde-neon {
+    --calendar-popover-grid-bg: #31363b;
+    --calendar-popover-tab-active: #3daee9;
+    --calendar-popover-today-text: #232629;
+    --calendar-popover-today-ring: #3daee9;
+}

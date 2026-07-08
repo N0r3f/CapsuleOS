@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/warty-final-ubuntu.png",
+  "sourceSha256": "b9c407a19963ea7274291d2bf57601962291f4b5339222d877b5921deec0932d",
+  "output": "images/vendors/ubuntu/wallpaper/warty-final-ubuntu.webp",
+  "outputSha256": "16a85b9b4e202334b2d0f50ceffafd0e586711048af7247d019ed03fcac59adb",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:47:03.606Z"
+}

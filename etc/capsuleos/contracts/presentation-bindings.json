@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "description": "Couche présentation par registryId — bodyId, toolkit, StoreFront, locale.",
+  "bindings": {
+    "linux-alma": {
+      "registryId": "linux-alma",
+      "bodyId": "alma",
+      "toolkit": "gnome",
+      "localeDefault": "fr",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Logiciels",
+        "sources": ["rpm", "flatpak"]
+      }
+    },
+    "linux-rocky": {
+      "registryId": "linux-rocky",
+      "bodyId": "rocky",
+      "toolkit": "gnome",
+      "localeDefault": "fr",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Logiciels",
+        "sources": ["rpm", "flatpak"]
+      }
+    },
+    "linux-fedora": {
+      "registryId": "linux-fedora",
+      "bodyId": "fedora",
+      "toolkit": "gnome",
+      "localeDefault": "fr",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Logiciels",
+        "sources": ["rpm", "flatpak"]
+      }
+    },
+    "linux-ubuntu": {
+      "registryId": "linux-ubuntu",
+      "bodyId": "ubuntu",
+      "toolkit": "gnome",
+      "localeDefault": "fr",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Logiciels",
+        "sources": ["snap", "deb", "flatpak"]
+      }
+    },
+    "linux-mint": {
+      "registryId": "linux-mint",
+      "bodyId": "mint",
+      "toolkit": "cinnamon",
+      "localeDefault": "fr",
+      "storeCatalogStatus": "active",
+      "storeFront": {
+        "slot": "mintinstall",
+        "labelFr": "Logithèque",
+        "sources": ["apt", "flatpak"]
+      }
+    },
+    "linux-popos": {
+      "registryId": "linux-popos",
+      "bodyId": "popos",
+      "toolkit": "cosmic",
+      "storeToolkit": "gnome",
+      "localeDefault": "fr",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Pop Shop",
+        "sources": ["deb", "flatpak"]
+      }
+    },
+    "linux-anduinos": {
+      "registryId": "linux-anduinos",
+      "bodyId": "anduinos",
+      "toolkit": "gnome",
+      "localeDefault": "fr",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Logiciels",
+        "sources": ["deb", "flatpak"]
+      }
+    },
+    "linux-kde-neon": {
+      "registryId": "linux-kde-neon",
+      "bodyId": "kde-neon",
+      "toolkit": "kde",
+      "localeDefault": "fr",
+      "storeCatalogStatus": "active",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Discover",
+        "sources": ["apt", "flatpak"]
+      }
+    },
+    "linux-opensuse": {
+      "registryId": "linux-opensuse",
+      "bodyId": "opensuse",
+      "toolkit": "kde",
+      "localeDefault": "fr",
+      "storeCatalogStatus": "deferred",
+      "storeFront": {
+        "slot": "update_manager",
+        "labelFr": "Discover",
+        "sources": ["rpm", "flatpak"]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_stripes.webp",
+  "role": "wallpaper-thumb",
+  "profile": "wallpaper-thumb",
+  "encoder": "convert",
+  "options": {
+    "maxWidth": 512,
+    "quality": 78
+  },
+  "width": 512,
+  "height": 288,
+  "preparedAt": "2026-06-15T19:42:41.459Z"
+}

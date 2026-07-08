@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "description": "Chaîne de réplication shell terminal — investigation VM → conversion noyau → réplication Capsule (socle shell global).",
+  "doc": "root/docs/convention-shell-global.md",
+  "procedure": "root/docs/procedure-terminal-commandes.md",
+  "commandsContract": "etc/capsuleos/contracts/terminal-commands.json",
+  "predicates": {
+    "Ti": "Inventaire VM terminal documenté (*-terminal-vm.json)",
+    "Tc": "Noyau core défini et aligné contrat",
+    "Tf": "Extensions famille déclarées",
+    "Tv": "Singularités vendor déclarées si requises",
+    "Te": "Registre ↔ executeCommand cohérent",
+    "Ts": "Sync FS terminal ↔ explorateur (smoke T1–T8)",
+    "Tr": "Scénarios réplication P0 pass ou écarts classés",
+    "Rv1": "Rafraîchissement vues post-action FS (transversal)",
+    "TΣ": "Ti ∧ Tc ∧ Tf ∧ Te ∧ Ts ∧ Tr — shell prêt clôture skin terminal P0",
+    "To": "Rendu sortie — indentation, sauts de ligne, coloration (terminal-output-fidelity.json)",
+    "Tb": "Profil ~/.bashrc virtuel chargeable (terminal-bashrc.js)",
+    "TΣprime": "TΣ ∧ To — clôture P0 stricte"
+  },
+  "outputFidelityContract": "etc/capsuleos/contracts/terminal-output-fidelity.json",
+  "kernelAgnosticism": {
+    "principle": "Un seul moteur usr/lib ; projections par famille/vendor/skin",
+    "agnosticModules": [
+      "usr/lib/capsuleos/shells/linux/terminal/terminal-core.js",
+      "usr/lib/capsuleos/shells/linux/terminal/executeCommand.js",
+      "usr/lib/capsuleos/shells/linux/terminal/terminal-shell-parse.js",
+      "usr/lib/capsuleos/shells/linux/terminal/config/command-core.js",
+      "usr/lib/capsuleos/shells/linux/terminal/config/command-registry.js",
+      "usr/lib/capsuleos/shells/linux/terminal/config/terminal-profile-builder.js"
+    ],
+    "projectionModules": [
+      "usr/lib/capsuleos/shells/linux/terminal/terminal.js",
+      "usr/lib/capsuleos/shells/linux/terminal/terminal-tabs.js",
+      "usr/lib/capsuleos/shells/linux/terminal/terminal-profile.js"
+    ],
+    "bridgeModules": [
+      "usr/lib/capsuleos/shells/common/capsule-user-fs.js",
+      "usr/lib/capsuleos/shells/linux/terminal/virtual-shell.js"
+    ],
+    "forbidden": [
+      "Fork executeCommand.js par distro dans home/",
+      "Copie divergente OS/linux/kernel/js/terminal/",
+      "Liste blanche commandes uniquement dans index.html sans profil"
+    ]
+  },
+  "process": {
+    "investigation": {
+      "predicate": "Ti",
+      "template": "root/docs/inventaires/_template-terminal-vm.json",
+      "output": "root/docs/inventaires/{registryId}-terminal-vm.json",
+      "requires": ["M", "I"]
+    },
+    "conversion": {
+      "predicates": ["Tc", "Tf", "Tv", "Te"],
+      "steps": [
+        "Classifier commandes VM → core|family|vendor",
+        "Mettre à jour terminal-commands.json + command-core.js",
+        "Implémenter case executeCommand.js (+ CapsuleUserFs si mutation)",
+        "validate-terminal-commands.mjs"
+      ]
+    },
+    "replication": {
+      "predicates": ["Ts", "Tr", "Rv1"],
+      "gates": [
+        {
+          "id": "fs-sync",
+          "predicate": "Ts",
+          "script": "usr/lib/capsuleos/tools/lab/smoke-fs-terminal-explorer-sync.mjs",
+          "playbook": "root/docs/inventaires/fs-sync-playbook.json"
+        },
+        {
+          "id": "terminal-registry",
+          "predicate": "Te",
+          "script": "usr/lib/capsuleos/tools/validate-terminal-commands.mjs"
+        }
+      ],
+      "manual": "replicationScenarios[] dans *-terminal-vm.json"
+    }
+  },
+  "predicateChecks": {
+    "Ti": {
+      "inventory": "root/docs/inventaires/{id}-terminal-vm.json",
+      "requiredFields": ["registryId", "packageManager", "commandAudit"]
+    },
+    "Te": {
+      "script": "usr/lib/capsuleos/tools/validate-terminal-commands.mjs"
+    },
+    "Ts": {
+      "script": "usr/lib/capsuleos/tools/lab/smoke-fs-terminal-explorer-sync.mjs",
+      "env": ["CAPSULE_HTTP_BASE"]
+    }
+  },
+  "integrationNewOs": {
+    "checklist": [
+      "os-registry.json + skin.profile.json",
+      "CAPSULE_TERMINAL_PROFILE + chaîne scripts index.html",
+      "Profil famille (existant ou profiles/linux/<famille>.js)",
+      "Inventaire Ti *-terminal-vm.json",
+      "Smokes Ts + scénarios Tr",
+      "Chrome terminal (toolkit)",
+      "TΣ avant merge skin P0"
+    ],
+    "familyMap": {
+      "rocky": "redhat",
+      "alma": "redhat",
+      "fedora": "redhat",
+      "ubuntu": "debian",
+      "mint": "debian",
+      "popos": "debian",
+      "opensuse": "suse"
+    }
+  }
+}

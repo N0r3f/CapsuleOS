@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/phytoplankton_bloom_nasa_oli2_20240121.jpg",
+  "sourceSha256": "d8cac87b51f60cbd95eaa8b2772f00cf14025c907eaf1ccb72d98902332b399c",
+  "output": "images/vendors/popos/wallpaper/phytoplankton_bloom_nasa_oli2_20240121.webp",
+  "outputSha256": "22ddd57c106ceaac5fe7cc57233fb793e9ba278b14a069965a625ae88da1b1ca",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:10.345Z"
+}

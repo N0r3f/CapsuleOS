@@ -1,0 +1,6 @@
+/** elementary — Warpinator (slot store P1). */
+body#elementary main#warpinatorApp {
+    --wrp-bg: #242424;
+    --wrp-text: #ffffff;
+    --wrp-border: rgba(255, 255, 255, 0.08);
+}

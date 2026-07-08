@@ -1,0 +1,263 @@
+{
+  "version": 2,
+  "updated": "2026-06-05",
+  "description": "Métadonnées sourcing design et licences assets — fusionnées dans os-registry.json par build-os-registry.mjs",
+  "assetPolicy": {
+    "default": "Icônes FOSS uniquement (Adwaita, Breeze, Papirus, Material Symbols…)",
+    "proprietaryUi": "macOS, iOS, Windows, HarmonyOS → récréations SVG CapsuleOS, jamais assets officiels Apple/Microsoft/Huawei",
+    "distroBranding": "Logos distro : usage éducatif, vérifier charte marque ; pas de redistribution commerciale"
+  },
+  "entries": {
+    "linux-mint": {
+      "licenseNotes": "Mint-Y / Adwaita dérivés — auditer SVG custom GPL/LGPL",
+      "iconPacks": [
+        "Adwaita",
+        "Mint-Y"
+      ]
+    },
+    "linux-ubuntu": {
+      "licenseNotes": "Yaru + Adwaita (GPL/LGPL)",
+      "iconPacks": [
+        "Yaru",
+        "Adwaita"
+      ]
+    },
+    "linux-fedora": {
+      "licenseNotes": "Adwaita",
+      "iconPacks": [
+        "Adwaita"
+      ]
+    },
+    "linux-debian-kde": {
+      "licenseNotes": "Breeze ; pack usr/share/capsuleos/assets/icons/kde/",
+      "iconPacks": [
+        "Breeze"
+      ]
+    },
+    "linux-mx-kde": {
+      "licenseNotes": "Breeze + pack MX FOSS",
+      "iconPacks": [
+        "Breeze"
+      ]
+    },
+    "linux-opensuse": {
+      "licenseNotes": "Breeze, thème openSUSE",
+      "iconPacks": [
+        "Breeze"
+      ]
+    },
+    "linux-popos": {
+      "licenseNotes": "COSMIC icons (auditer) + Adwaita fallback",
+      "iconPacks": [
+        "COSMIC",
+        "Adwaita"
+      ],
+      "sources": [
+        {
+          "type": "design",
+          "label": "COSMIC design",
+          "url": "https://github.com/pop-os/cosmic-design"
+        }
+      ]
+    },
+    "linux-anduinos": {
+      "licenseNotes": "Adwaita / dérivés",
+      "iconPacks": [
+        "Adwaita"
+      ]
+    },
+    "linux-arch": {
+      "licenseNotes": "Papirus, Adwaita, Breeze selon DE simulé",
+      "iconPacks": [
+        "Papirus",
+        "Adwaita",
+        "Breeze"
+      ]
+    },
+    "linux-manjaro-kde": {
+      "licenseNotes": "Breeze/Adwaita FOSS uniquement",
+      "iconPacks": [
+        "Breeze",
+        "Adwaita"
+      ]
+    },
+    "linux-elementary": {
+      "licenseNotes": "elementary icons (GPL) — respecter marque",
+      "iconPacks": [
+        "elementary"
+      ]
+    },
+    "linux-zorin": {
+      "licenseNotes": "Adwaita ; marque Zorin non redistribuable",
+      "iconPacks": [
+        "Adwaita"
+      ]
+    },
+    "linux-kali": {
+      "licenseNotes": "Papirus/Faenza ; éviter assets offensive-security non FOSS",
+      "iconPacks": [
+        "Papirus",
+        "Faenza"
+      ]
+    },
+    "linux-steamos": {
+      "licenseNotes": "Breeze ; branding Valve en récréation",
+      "iconPacks": [
+        "Breeze"
+      ]
+    },
+    "linux-nixos": {
+      "licenseNotes": "Skin pédagogique générique + terminal",
+      "iconPacks": [
+        "Adwaita"
+      ]
+    },
+    "windows-95": {
+      "licenseNotes": "UI récréée — aucun bitmap Microsoft"
+    },
+    "windows-98": {
+      "licenseNotes": "UI récréée — aucun bitmap Microsoft"
+    },
+    "windows-me": {
+      "licenseNotes": "UI récréée — aucun bitmap Microsoft"
+    },
+    "windows-2000": {
+      "licenseNotes": "UI récréée"
+    },
+    "windows-xp": {
+      "licenseNotes": "UI récréée style Luna"
+    },
+    "windows-vista": {
+      "licenseNotes": "UI récréée style Aero"
+    },
+    "windows-7": {
+      "licenseNotes": "UI récréée style Aero"
+    },
+    "windows-8": {
+      "licenseNotes": "UI récréée Modern UI"
+    },
+    "windows-8.1": {
+      "licenseNotes": "UI récréée Modern UI + bureau"
+    },
+    "windows-10": {
+      "licenseNotes": "UI récréée Fluent"
+    },
+    "windows-11": {
+      "licenseNotes": "UI récréée Fluent + Mica"
+    },
+    "macos-sonoma": {
+      "licenseNotes": "Récréation SVG ; pas SF Symbols ni assets Apple",
+      "assetPolicy": "proprietaryUi"
+    },
+    "macos-ventura": {
+      "licenseNotes": "Récréation SVG ; pas assets Apple",
+      "assetPolicy": "proprietaryUi"
+    },
+    "macos-monterey": {
+      "licenseNotes": "Récréation SVG ; pas assets Apple",
+      "assetPolicy": "proprietaryUi"
+    },
+    "macos-sequoia": {
+      "licenseNotes": "Récréation SVG ; pas assets Apple",
+      "assetPolicy": "proprietaryUi"
+    },
+    "macos-big-sur": {
+      "licenseNotes": "Récréation SVG ; pas assets Apple",
+      "assetPolicy": "proprietaryUi"
+    },
+    "android-vanilla": {
+      "licenseNotes": "Material Symbols Apache-2.0 ; pas assets Google Play retail",
+      "iconPacks": [
+        "Material Symbols"
+      ]
+    },
+    "ios-15": {
+      "licenseNotes": "Récréation stricte UIKit patterns",
+      "assetPolicy": "proprietaryUi"
+    },
+    "ios-17": {
+      "licenseNotes": "Récréation stricte",
+      "assetPolicy": "proprietaryUi"
+    },
+    "ios-18": {
+      "licenseNotes": "Récréation stricte",
+      "assetPolicy": "proprietaryUi"
+    },
+    "chromeos": {
+      "licenseNotes": "Material + récréation ; pas logos Chrome retail",
+      "iconPacks": [
+        "Material Symbols"
+      ]
+    },
+    "harmonyos": {
+      "licenseNotes": "Assets Huawei interdits ; UI inspirée uniquement",
+      "assetPolicy": "proprietaryUi"
+    },
+    "freebsd": {
+      "licenseNotes": "Adwaita/Papirus via ports"
+    },
+    "ghostbsd": {
+      "licenseNotes": "MATE icons GPL",
+      "iconPacks": [
+        "MATE"
+      ]
+    },
+    "haiku": {
+      "licenseNotes": "Haiku icons MIT",
+      "iconPacks": [
+        "Haiku"
+      ]
+    },
+    "reactos": {
+      "licenseNotes": "Projet FOSS ; style Win2k/XP"
+    },
+    "linux-kde-neon": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-rocky": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-manjaro-gnome": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-alma": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-slackware": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-gentoo": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-xubuntu": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-lxqt": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "linux-alpine": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "android-lineage": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "openbsd": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "netbsd": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "solaris-illumos": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "qnx-neutrino": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "vxworks": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    },
+    "minix3": {
+      "licenseNotes": "À documenter — entrée auto-générée"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/flight_dark.webp",
+  "outputSha256": "54c10e74ebf92cea53300385360b05d37eb745418e52e3aa46e8615c050202b6",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.678Z",
+  "note": "repair-manifest"
+}

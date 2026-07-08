@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/toolkits/gnome/apps/dash/org.gnome.Rhythmbox3.png",
+  "sourceSha256": "5e731bac2a1892c4968a282b50f364a56f7188e02c2ad7817b5a72e4ed9c46bf",
+  "output": "images/toolkits/gnome/apps/dash/org.gnome.Rhythmbox3.webp",
+  "outputSha256": "6f6c8c1b5fb61c5cf4a31d22f463a8bbb6300adf653248ba80466322fdf71abd",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T21:19:04.516Z"
+}

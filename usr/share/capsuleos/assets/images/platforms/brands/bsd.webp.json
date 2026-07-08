@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/platforms/brands/bsd.webp",
+  "outputSha256": "e88681f49711a1107433e2ec3c8301c5db17b384153f302dd7198a2db8207c2e",
+  "role": "branding",
+  "profile": "branding",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.562Z",
+  "note": "repair-manifest"
+}

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "doc": "root/docs/convention-portail.md",
+  "defaultDriver": "sqlite",
+  "drivers": ["sqlite", "pgsql"],
+  "schemaVersion": 7,
+  "env": {
+    "driver": "CAPSULE_PORTAL_DB_DRIVER",
+    "url": "CAPSULE_PORTAL_DATABASE_URL",
+    "host": "CAPSULE_PORTAL_DB_HOST",
+    "port": "CAPSULE_PORTAL_DB_PORT",
+    "name": "CAPSULE_PORTAL_DB_NAME",
+    "user": "CAPSULE_PORTAL_DB_USER",
+    "password": "CAPSULE_PORTAL_DB_PASSWORD"
+  },
+  "sqlite": {
+    "pathContract": "portal-security.json",
+    "pathKey": "paths.sqlite"
+  },
+  "sync": {
+    "moduleCatalog": true,
+    "onMigrate": true
+  }
+}

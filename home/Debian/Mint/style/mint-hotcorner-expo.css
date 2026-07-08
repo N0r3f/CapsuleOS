@@ -1,0 +1,17 @@
+body#mint.mint-hotcorner-expo #mint-workspace-indicator {
+    position: fixed;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%) scale(2.4);
+    z-index: 12000;
+    padding: 1.25rem 1.75rem;
+    border-radius: 12px;
+    background: rgba(20, 20, 24, 0.88);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+body#mint.mint-hotcorner-expo #mint-workspace-indicator .mint-workspace-indicator__dot {
+    width: 14px;
+    height: 14px;
+    margin: 0 6px;
+}

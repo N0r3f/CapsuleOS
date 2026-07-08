@@ -1,0 +1,70 @@
+/**
+ * Dock flottant centré en bas - COSMIC.
+ * Échelle globale : --popos-dock-scale (popos-tokens.css).
+ */
+body#popos .cosmic-dock {
+    position: fixed;
+    left: 50%;
+    bottom: var(--popos-dock-bottom);
+    transform: translateX(-50%);
+    z-index: 120;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: calc(var(--head) / 8 * var(--popos-dock-scale)) calc(var(--head) / 5 * var(--popos-dock-scale));
+    border-radius: var(--popos-dock-radius);
+    background: var(--popos-dock-bg);
+    border: var(--popos-dock-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+}
+
+body#popos .cosmic-dock__apps {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) / 10 * var(--popos-dock-scale));
+}
+
+body#popos .cosmic-dock__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 1.05 * var(--popos-dock-scale));
+    height: calc(var(--head) * 1.05 * var(--popos-dock-scale));
+    padding: calc(var(--head) / 14 * var(--popos-dock-scale));
+    border: none;
+    border-radius: calc(var(--head) / 5 * var(--popos-dock-scale));
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform var(--eas2), background-color var(--eas2);
+}
+
+body#popos .cosmic-dock__item:hover {
+    transform: translateY(calc(-2px * var(--popos-dock-scale)));
+    background: var(--popos-surface-hover);
+}
+
+body#popos .cosmic-dock__item--active,
+body#popos .cosmic-dock__item[aria-pressed="true"] {
+    background: rgba(98, 208, 233, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(98, 208, 233, 0.35);
+}
+
+body#popos .cosmic-dock__item img {
+    width: calc(var(--head) * 0.72 * var(--popos-dock-scale));
+    height: calc(var(--head) * 0.72 * var(--popos-dock-scale));
+    object-fit: contain;
+    display: block;
+}
+
+body#popos .cosmic-dock__separator {
+    width: 1px;
+    height: calc(var(--head) * 0.55 * var(--popos-dock-scale));
+    margin: 0 calc(var(--head) / 16 * var(--popos-dock-scale));
+    background: var(--popos-launcher-row-hover-bg);
+}

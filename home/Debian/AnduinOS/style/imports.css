@@ -1,0 +1,15 @@
+@import url(../../../../usr/share/capsuleos/themes/global/reset.css);
+@import url(../../../../usr/share/capsuleos/themes/global/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/clusters/toolkit-gnome/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/linux/variables-linux.css);
+@import url(../../../../usr/share/capsuleos/themes/linux/variables-linux-computed.css);
+@import url(../../../../usr/share/capsuleos/themes/clusters/toolkit-gnome/chrome.css);
+@import url(./anduin-shell/tokens.css);
+@import url(./anduin-shell/gnome-app-tokens.css);
+@import url(./anduin-shell/desktop.css);
+@import url(./anduin-shell/taskbar.css);
+@import url(./anduin-shell/windows-chrome.css);
+@import url(./anduin-shell/volume-popover.css);
+@import url(../../../../usr/share/capsuleos/linux/apps/style/mainMenu-gnome.base.css);
+@import url(./apps/mainMenu.skin.css);
+@import url(./anduin-shell/a11y-anduin.css);

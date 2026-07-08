@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Baobab (org.gnome.baobab) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-baobab-vm-inventory.json",
+  "slot": "baobab",
+  "template": "baobab.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/baobab.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "BΣ": "Contrat valide + kernel baobab.js (data-baobab-gnome-volume, data-baobab-gnome-action, data-baobab-gnome-view)",
+    "B1": "B1 ouvrir et consulter le Dossier personnel",
+    "B2": "B2 naviguer vers Ordinateur",
+    "B3": "B3 analyser et afficher le graphique treemap",
+    "B4": "B4 consulter la partition /boot"
+  },
+  "scenarios": [
+    {
+      "id": "B1",
+      "priority": "P0",
+      "title": "Ouvrir et consulter le Dossier personnel",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.baobab",
+        "rpm": "baobab",
+        "version": "46.0-4.el10",
+        "labelFr": "Analyseur d'utilisation des disques",
+        "homeLabelFr": "Dossier personnel",
+        "scanLabelFr": "Analyser le dossier"
+      },
+      "steps": [
+        { "id": "open-baobab", "action": "openWindowByDataLink", "target": "baobab", "label": "Ouvrir Baobab" },
+        { "id": "home-volume", "selector": "[data-baobab-gnome-volume=\"home\"].gnome-baobab__place--active", "label": "Dossier personnel actif" },
+        { "id": "overview", "selector": "[data-baobab-gnome-view=\"overview\"].is-active", "label": "Vue d'ensemble" },
+        { "id": "ring", "selector": "#gnome-baobab-ring", "label": "Anneau d'utilisation" },
+        { "id": "volume-label", "predicate": "dataset.baobabVolumeLabel", "expectTextContains": "personnel", "label": "Libellé FR dossier personnel" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-baobab-scenarios.mjs --scenario B1",
+        "capture": "rocky-capsule-dark-baobab-home.png"
+      }
+    },
+    {
+      "id": "B2",
+      "priority": "P0",
+      "title": "Naviguer vers Ordinateur",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "computerLabelFr": "Ordinateur",
+        "path": "/"
+      },
+      "steps": [
+        { "id": "open-baobab", "action": "openWindowByDataLink", "target": "baobab", "label": "Ouvrir Baobab" },
+        { "id": "select-root", "selector": "[data-baobab-gnome-volume=\"root\"]", "label": "Sélectionner Ordinateur" },
+        { "id": "active-root", "selector": "[data-baobab-gnome-volume=\"root\"].gnome-baobab__place--active", "label": "Ordinateur actif" },
+        { "id": "volume-id", "predicate": "dataset.baobabVolume", "expectValue": "root", "label": "Volume root sélectionné" },
+        { "id": "title", "selector": "#gnome-baobab-title", "expectTextContains": "Ordinateur", "label": "Titre Ordinateur" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-baobab-scenarios.mjs --scenario B2",
+        "capture": "rocky-capsule-dark-baobab-computer.png"
+      }
+    },
+    {
+      "id": "B3",
+      "priority": "P0",
+      "title": "Analyser et afficher le graphique",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "activeChartFr": "Graphique actif",
+        "scanCompletedFr": "Analyse effectuée",
+        "treemap": true
+      },
+      "steps": [
+        { "id": "open-home", "selector": "[data-baobab-gnome-volume=\"home\"]", "label": "Dossier personnel" },
+        { "id": "scan", "selector": "[data-baobab-gnome-action=\"scan\"]", "label": "Lancer analyse" },
+        { "id": "scanning", "predicate": "dataset.baobabScanning", "expectValue": "true", "label": "Analyse en cours" },
+        { "id": "treemap-view", "selector": "[data-baobab-gnome-view=\"treemap\"].is-active", "label": "Vue treemap active" },
+        { "id": "treemap-ready", "predicate": "dataset.baobabTreemapReady", "expectValue": "true", "label": "Graphique prêt" },
+        { "id": "treemap-cell", "selector": "[data-baobab-gnome-treemap-cell]", "label": "Cellules treemap" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-baobab-scenarios.mjs --scenario B3",
+        "capture": "rocky-capsule-dark-baobab-treemap.png"
+      }
+    },
+    {
+      "id": "B4",
+      "priority": "P0",
+      "title": "Consulter la partition /boot",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "bootPath": "/boot"
+      },
+      "steps": [
+        { "id": "open-baobab", "action": "openWindowByDataLink", "target": "baobab", "label": "Ouvrir Baobab" },
+        { "id": "select-boot", "selector": "[data-baobab-gnome-volume=\"boot\"]", "label": "Sélectionner /boot" },
+        { "id": "active-boot", "selector": "[data-baobab-gnome-volume=\"boot\"].gnome-baobab__place--active", "label": "/boot actif" },
+        { "id": "volume-id", "predicate": "dataset.baobabVolume", "expectValue": "boot", "label": "Volume boot" },
+        { "id": "scan-enabled", "selector": "[data-baobab-gnome-action=\"scan\"]:not([disabled])", "label": "Bouton Analyser actif" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-baobab-scenarios.mjs --scenario B4",
+        "capture": "rocky-capsule-dark-baobab-boot.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "BΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-baobab-user-scenarios.mjs"
+    }
+  }
+}

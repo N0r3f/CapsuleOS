@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../usr/share/capsuleos/themes/global/reset.css">
+    <link rel="stylesheet" href="../../../../usr/share/capsuleos/themes/global/variables.css">
+    <link rel="stylesheet" href="../style/finder.css">
+    <title>Finder</title>
+</head>
+
+<body class="mac-finder-page">
+    <div class="mac-finder" role="application" aria-label="Finder">
+        <header class="mac-finder__toolbar" role="toolbar" aria-label="Barre d'outils Finder">
+            <nav class="mac-finder__toolbar-nav" aria-label="Navigation">
+                <button type="button" class="mac-finder__toolbar-btn" id="macFinderBack" title="Précédent"
+                    aria-label="Précédent" disabled>
+                    <span aria-hidden="true">‹</span>
+                </button>
+                <button type="button" class="mac-finder__toolbar-btn" id="macFinderForward" title="Suivant"
+                    aria-label="Suivant" disabled>
+                    <span aria-hidden="true">›</span>
+                </button>
+            </nav>
+            <div class="mac-finder__path" id="macFinderPath" aria-live="polite">utilisateur</div>
+            <nav class="mac-finder__toolbar-views" aria-label="Mode d'affichage">
+                <button type="button" class="mac-finder__toolbar-btn mac-finder__toolbar-btn--active"
+                    id="macFinderViewIcons" title="Par icônes" aria-label="Par icônes" aria-pressed="true">
+                    <span aria-hidden="true">▦</span>
+                </button>
+                <button type="button" class="mac-finder__toolbar-btn" id="macFinderViewList" title="Par liste"
+                    aria-label="Par liste" aria-pressed="false">
+                    <span aria-hidden="true">☰</span>
+                </button>
+            </nav>
+        </header>
+        <div class="mac-finder__body">
+            <aside class="mac-finder__sidebar" id="macFinderSidebar" aria-label="Barre latérale"></aside>
+            <main class="mac-finder__content mac-finder__content--icons" id="macFinderContent"
+                aria-label="Contenu du dossier"></main>
+        </div>
+        <footer class="mac-finder__statusbar">
+            <span id="macFinderStatus">Chargement…</span>
+        </footer>
+    </div>
+    <script src="../../../../usr/lib/capsuleos/common/user-home.js"></script>
+    <script>
+        window.CAPSULE_FINDER_MANIFEST_URL = typeof CapsuleUserHome !== 'undefined'
+            ? CapsuleUserHome.finderManifestPath()
+            : '../../../../../home/public/.capsule-finder-manifest.json';
+    </script>
+    <script src="../../../../usr/lib/capsuleos/shells/macos/finder.js"></script>
+</body>
+
+</html>

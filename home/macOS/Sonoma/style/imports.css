@@ -1,0 +1,9 @@
+@import url(../../../../usr/share/capsuleos/themes/global/reset.css);
+@import url(../../../../usr/share/capsuleos/themes/global/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/global/interactions-window.base.css);
+@import url(./header.css);
+@import url(./footer.css);
+@import url(./windows.css);
+@import url(./launchpad.css);
+@import url(./finder.css);
+@import url(./a11y-overrides.css?v=scaffold);

@@ -1,0 +1,5 @@
+/** popos — lecteur_multimedia (stub catalogue). */
+body#popos div[data-link="lecteur_multimedia"] {
+    color: var(--popos-app-text);
+    background: var(--popos-app-surface);
+}

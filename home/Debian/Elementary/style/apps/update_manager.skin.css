@@ -1,0 +1,53 @@
+/**
+ * elementary — update_manager (structure Rocky).
+ */
+body#elementary {
+    --gnome-software-bg: #303030;
+    --gnome-software-sidebar-bg: #262626;
+    --gnome-software-surface: #383838;
+    --gnome-software-search-bg: #3a3a3a;
+    --gnome-software-text: #ffffff;
+    --gnome-software-muted: rgba(255, 255, 255, 0.62);
+    --gnome-software-border: rgba(255, 255, 255, 0.08);
+    --gnome-software-nav-active: rgba(53, 132, 228, 0.22);
+    --gnome-software-accent: #3584e4;
+    --gnome-software-sidebar-w: 13.75rem;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary {
+    --gnome-software-bg: #fafafa;
+    --gnome-software-sidebar-bg: #f3f3f5;
+    --gnome-software-surface: #ffffff;
+    --gnome-software-search-bg: #ffffff;
+    --gnome-software-text: #1e1e1e;
+    --gnome-software-muted: rgba(0, 0, 0, 0.52);
+    --gnome-software-border: rgba(0, 0, 0, 0.1);
+    --gnome-software-nav-active: rgba(53, 132, 228, 0.14);
+}
+
+body#elementary div[data-link="update_manager"].gnome-app--csd {
+    width: min(54rem, calc(100vw - var(--elementary-dock-width, 0px) - 2rem));
+    height: min(38rem, calc(100vh - var(--elementary-top-bar-height, 2.75rem) - 2rem));
+    min-width: 42rem;
+    min-height: 28rem;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--gnome-software-bg);
+}
+
+body#elementary .gnome-software__appicon--firefox {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.svg");
+}
+
+body#elementary .gnome-software__appicon--shell {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/start-here.svg");
+}
+
+body#elementary .gnome-software__appicon--terminal {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Ptyxis.svg");
+}
+
+body#elementary .gnome-software__appicon--files {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Nautilus.svg");
+}

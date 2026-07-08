@@ -1,0 +1,55 @@
+/**
+ * elementary — system_monitor (structure Rocky).
+ */
+body#elementary {
+    --gnome-sysmon-bg: #303030;
+    --gnome-sysmon-header-bg: #383838;
+    --gnome-sysmon-card: #383838;
+    --gnome-sysmon-text: #f6f6f6;
+    --gnome-sysmon-muted: rgba(255, 255, 255, 0.62);
+    --gnome-sysmon-border: rgba(255, 255, 255, 0.08);
+    --gnome-sysmon-accent: #3584e4;
+}
+
+html[data-theme="light"]:has(#elementary) {
+    --gnome-sysmon-bg: #fafafa;
+    --gnome-sysmon-header-bg: #f6f6f6;
+    --gnome-sysmon-card: #ffffff;
+    --gnome-sysmon-text: #1e1e1e;
+    --gnome-sysmon-muted: rgba(0, 0, 0, 0.55);
+    --gnome-sysmon-border: rgba(0, 0, 0, 0.1);
+}
+
+body#elementary div[data-link="system_monitor"].windowElement {
+    width: min(48rem, calc(100vw - var(--elementary-dock-width, 0px) - 2rem));
+    height: min(32rem, calc(100vh - var(--elementary-top-bar-height, 2.5rem) - 2rem));
+}
+
+body#elementary div[data-link="system_monitor"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="system_monitor"] main#systemMonitorApp {
+    height: 100%;
+    --gsm-bg: var(--gnome-sysmon-bg);
+    --gsm-menubar-bg: var(--gnome-sysmon-header-bg);
+    --gsm-text: var(--gnome-sysmon-text);
+    --gsm-muted: var(--gnome-sysmon-muted);
+    --gsm-border: var(--gnome-sysmon-border);
+    --gsm-accent: var(--gnome-sysmon-accent);
+    --gsm-icon: var(--gnome-sysmon-text);
+    --gsm-table-head: var(--gnome-sysmon-header-bg);
+    --gsm-row-border: var(--gnome-sysmon-border);
+    --gsm-row-hover: rgba(53, 132, 228, 0.12);
+    --gsm-row-selected: rgba(53, 132, 228, 0.22);
+    --gsm-chart-bg: var(--gnome-sysmon-card);
+    --gsm-chart-fill: var(--gnome-sysmon-accent);
+    --gsm-chart-net: #33d17a;
+}
+
+html[data-theme="light"]:has(#elementary) div[data-link="system_monitor"] main#systemMonitorApp {
+    --gsm-row-hover: #edf5ff;
+    --gsm-row-selected: #d8eaf6;
+}

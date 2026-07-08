@@ -1,0 +1,6 @@
+/** elementary — Transmission (slot store P1). */
+body#elementary main#transmissionApp {
+    --trm-bg: #242424;
+    --trm-text: #ffffff;
+    --trm-border: rgba(255, 255, 255, 0.08);
+}

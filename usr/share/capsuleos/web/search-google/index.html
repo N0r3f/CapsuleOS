@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche — CapsuleOS</title>
+    <link rel="stylesheet" href="../_shared/site.css">
+    <style>
+        .serp-query { font-size: 0.9rem; color: #555; margin-bottom: 1rem; }
+        .serp-list { list-style: none; padding: 0; margin: 0; }
+        .serp-item { margin-bottom: 1.25rem; }
+        .serp-item a { font-size: 1.1rem; text-decoration: none; color: #1a0dab; }
+        .serp-item a:hover { text-decoration: underline; }
+        .serp-url { font-size: 0.85rem; color: #006621; }
+        .serp-snippet { font-size: 0.9rem; color: #444; margin: 0.25rem 0 0; }
+    </style>
+</head>
+<body class="capsule-web-page">
+    <header class="capsule-web-header">
+        <h1>Recherche CapsuleOS</h1>
+        <p class="serp-query" id="serp-query" hidden></p>
+    </header>
+    <main class="capsule-web-main">
+        <ul class="serp-list" id="serp-results" aria-label="Résultats de recherche"></ul>
+    </main>
+    <script src="../_shared/site-nav.js"></script>
+    <script>
+        (function renderSerp() {
+            var params = new URLSearchParams(window.location.search);
+            var q = params.get('q') || '';
+            var queryEl = document.getElementById('serp-query');
+            if (q) {
+                queryEl.hidden = false;
+                queryEl.textContent = 'Résultats pour : « ' + q + ' »';
+            }
+            var results = [
+                { title: 'Linux Mint — site officiel (simulé)', url: 'linuxmint.com', nav: 'linuxmint.com', snippet: 'From freedom came elegance — distribution Linux pour débutants.' },
+                { title: 'Amazon.fr — simulation CapsuleOS', url: 'amazon.fr', nav: 'amazon.fr', snippet: 'Boutique en ligne simulée pour pratiquer la navigation.' },
+                { title: 'Temu — simulation CapsuleOS', url: 'temu.com', nav: 'temu.com', snippet: 'Offres et catégories fictives.' },
+                { title: 'Wikipédia (stub pédagogique)', url: 'fr.wikipedia.org', nav: 'fr.wikipedia.org', snippet: 'Encyclopédie libre — version pédagogique CapsuleOS.' },
+                { title: 'YouTube — simulation CapsuleOS', url: 'youtube.com', nav: 'youtube.com', snippet: 'Grille vidéo fictive pour l’environnement offline.' },
+                { title: 'Reddit — simulation CapsuleOS', url: 'reddit.com', nav: 'reddit.com', snippet: 'Fil de discussion simulé.' },
+                { title: 'La Capsule — CapsuleOS', url: 'lacapsule.org', nav: 'lacapsule.org', snippet: 'Bureaux simulés pour apprendre les systèmes d\'exploitation.' },
+                { title: 'Les bases Linux — module pédagogique', url: 'capsuleos://mnt/linux-bases', nav: 'capsuleos://mnt/linux-bases', snippet: 'Découverte du bureau simulé : explorateur, terminal, premières commandes.' }
+            ];
+            var list = document.getElementById('serp-results');
+            var filtered = q
+                ? results.filter(function (r) {
+                    var hay = (r.title + ' ' + r.snippet + ' ' + r.url).toLowerCase();
+                    return hay.indexOf(q.toLowerCase()) >= 0;
+                })
+                : results;
+            if (!filtered.length) {
+                filtered = results;
+            }
+            filtered.forEach(function (item) {
+                var li = document.createElement('li');
+                li.className = 'serp-item';
+                li.innerHTML = '<a href="#" data-capsule-web-nav="' + item.nav + '">' + item.title + '</a>'
+                    + '<div class="serp-url">' + item.url + '</div>'
+                    + '<p class="serp-snippet">' + item.snippet + '</p>';
+                list.appendChild(li);
+            });
+        }());
+    </script>
+</body>
+</html>

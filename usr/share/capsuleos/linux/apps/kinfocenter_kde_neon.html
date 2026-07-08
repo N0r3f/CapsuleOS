@@ -1,0 +1,54 @@
+<main id="kinfocenterApp" class="kde-kinfocenter" aria-label="Centre d'informations">
+    <aside class="kde-kinfocenter__nav" aria-label="Sections">
+        <button type="button" class="kde-kinfocenter__navitem is-active" data-kinfo-section="summary">
+            <span class="kde-kinfocenter__navicon kde-kinfocenter__navicon--summary" aria-hidden="true"></span>
+            <span>Synthèse</span>
+        </button>
+        <button type="button" class="kde-kinfocenter__navitem" data-kinfo-section="devices">
+            <span class="kde-kinfocenter__navicon kde-kinfocenter__navicon--devices" aria-hidden="true"></span>
+            <span>Appareils</span>
+        </button>
+        <button type="button" class="kde-kinfocenter__navitem" data-kinfo-section="graphs">
+            <span class="kde-kinfocenter__navicon kde-kinfocenter__navicon--graphs" aria-hidden="true"></span>
+            <span>Graphiques</span>
+        </button>
+        <button type="button" class="kde-kinfocenter__navitem" data-kinfo-section="software">
+            <span class="kde-kinfocenter__navicon kde-kinfocenter__navicon--software" aria-hidden="true"></span>
+            <span>Logiciels</span>
+        </button>
+    </aside>
+    <section class="kde-kinfocenter__content" data-kinfo-panel="summary">
+        <h2 class="kde-kinfocenter__title">Synthèse du système</h2>
+        <dl class="kde-kinfocenter__facts">
+            <div><dt>Système d'exploitation</dt><dd>KDE neon User Edition 24.04</dd></div>
+            <div><dt>Version Plasma</dt><dd>6.6.5</dd></div>
+            <div><dt>Noyau Linux</dt><dd>6.17.0-35-generic</dd></div>
+            <div><dt>Processeur</dt><dd>Intel(R) Core(TM) i5-6500T @ 2,50 GHz · 2 cœurs</dd></div>
+            <div><dt>Mémoire</dt><dd>7,6 Go</dd></div>
+            <div><dt>Carte graphique</dt><dd>VirtIO 1.0 GPU · driver virtio_gpu</dd></div>
+        </dl>
+    </section>
+    <section class="kde-kinfocenter__content" data-kinfo-panel="devices" hidden>
+        <h2 class="kde-kinfocenter__title">Appareils</h2>
+        <ul class="kde-kinfocenter__list">
+            <li>Processeur — Intel Core i5-6500T</li>
+            <li>Mémoire — 7,6 Go</li>
+            <li>Disque — virtio-scsi 64 Go</li>
+            <li>Réseau — virtio-net</li>
+        </ul>
+    </section>
+    <section class="kde-kinfocenter__content" data-kinfo-panel="graphs" hidden>
+        <h2 class="kde-kinfocenter__title">Graphiques</h2>
+        <p class="kde-kinfocenter__muted">Historique CPU et mémoire (simulation pédagogique).</p>
+        <div class="kde-kinfocenter__chart" aria-hidden="true"></div>
+    </section>
+    <section class="kde-kinfocenter__content" data-kinfo-panel="software" hidden>
+        <h2 class="kde-kinfocenter__title">Logiciels</h2>
+        <ul class="kde-kinfocenter__list">
+            <li>Plasma — 6.6.5</li>
+            <li>Frameworks — 6.6.5</li>
+            <li>Qt — 6.11.1</li>
+            <li>Discover — 6.6.5</li>
+        </ul>
+    </section>
+</main>

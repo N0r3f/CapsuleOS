@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Snapshot (org.gnome.Snapshot) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-snapshot-vm-inventory.json",
+  "slot": "snapshot",
+  "template": "snapshot.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/snapshot.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "SnΣ": "Contrat valide + kernel snapshot.js (data-snapshot-gnome-mode, dataset.snapshotMode)",
+    "Sn1": "Sn1 ouvrir Caméra en mode Photo",
+    "Sn2": "Sn2 basculer en mode Vidéo",
+    "Sn3": "Sn3 état sans caméra (sandbox)",
+    "Sn4": "Sn4 libellés FR Photo/Vidéo"
+  },
+  "scenarios": [
+    {
+      "id": "Sn1",
+      "priority": "P0",
+      "title": "Ouvrir Caméra en mode Photo",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Snapshot",
+        "rpm": "snapshot",
+        "version": "46.3-1.el10",
+        "labelFr": "Caméra",
+        "photoTabFr": "Photo"
+      },
+      "steps": [
+        { "id": "open-snapshot", "action": "openWindowByDataLink", "target": "snapshot", "label": "Ouvrir Caméra" },
+        { "id": "init", "predicate": "dataset.snapshotInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "photo-mode", "predicate": "dataset.snapshotMode", "expectValue": "photo", "label": "Mode Photo actif" },
+        { "id": "photo-tab", "selector": "[data-snapshot-gnome-mode=\"photo\"].is-active", "label": "Onglet Photo actif" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-snapshot-scenarios.mjs --scenario Sn1",
+        "capture": "rocky-capsule-dark-snapshot-photo.png"
+      }
+    },
+    {
+      "id": "Sn2",
+      "priority": "P0",
+      "title": "Basculer en mode Vidéo",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "videoTabFr": "Vidéo"
+      },
+      "steps": [
+        { "id": "open-snapshot", "action": "openWindowByDataLink", "target": "snapshot", "label": "Ouvrir Caméra" },
+        { "id": "video-tab-click", "selector": "[data-snapshot-gnome-mode=\"video\"]", "label": "Cliquer Vidéo" },
+        { "id": "video-mode", "predicate": "dataset.snapshotMode", "expectValue": "video", "label": "Mode Vidéo actif" },
+        { "id": "video-tab", "selector": "[data-snapshot-gnome-mode=\"video\"].is-active", "label": "Onglet Vidéo actif" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-snapshot-scenarios.mjs --scenario Sn2",
+        "capture": "rocky-capsule-dark-snapshot-video.png"
+      }
+    },
+    {
+      "id": "Sn3",
+      "priority": "P0",
+      "title": "État sans caméra (sandbox CapsuleOS)",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "emptyTitleFr": "Aucune caméra détectée"
+      },
+      "steps": [
+        { "id": "open-snapshot", "action": "openWindowByDataLink", "target": "snapshot", "label": "Ouvrir Caméra" },
+        { "id": "camera-none", "predicate": "dataset.snapshotCamera", "expectValue": "none", "label": "Pas de flux caméra" },
+        { "id": "empty-title", "selector": "#gnome-snapshot-empty-title", "expectTextContains": "caméra", "label": "Message FR sans caméra" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-snapshot-scenarios.mjs --scenario Sn3",
+        "capture": "rocky-capsule-dark-snapshot-empty.png"
+      }
+    },
+    {
+      "id": "Sn4",
+      "priority": "P0",
+      "title": "Libellés FR Photo et Vidéo",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-snapshot", "action": "openWindowByDataLink", "target": "snapshot", "label": "Ouvrir Caméra" },
+        { "id": "photo-label", "selector": "#gnome-snapshot-tab-photo", "expectTextContains": "Photo", "label": "Onglet Photo FR" },
+        { "id": "video-label", "selector": "#gnome-snapshot-tab-video", "expectTextContains": "Vidéo", "label": "Onglet Vidéo FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-snapshot-scenarios.mjs --scenario Sn4",
+        "capture": "rocky-capsule-dark-snapshot.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "SnΣ": { "script": "usr/lib/capsuleos/tools/validate-snapshot-user-scenarios.mjs" }
+  }
+}

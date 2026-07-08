@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-busy.png",
+  "sourceSha256": "778b157b1f288c464b18d9bf717700a93b0f7cde7b639bdfb8c914c37786756e",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-busy-optimized.webp",
+  "outputSha256": "471b58735996e1e4db7cbb75d3d7fe3d6d8831cf03be8ca998f19d709816ca50",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:08.989Z"
+}

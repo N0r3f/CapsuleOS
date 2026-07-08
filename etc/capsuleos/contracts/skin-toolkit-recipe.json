@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "description": "Recette déterministe skin/toolkit — scripts partagés, variants par toolkit, skins par vendor. R-LOC1 : aucun fallback silencieux entre toolkits.",
+  "taxonomyContract": "etc/capsuleos/contracts/taxonomy.json",
+  "conventionDoc": "root/docs/convention-taxonomie-semantique.md",
+  "resolutionKey": ["kernelId", "branchId", "toolkitId", "registryId"],
+  "catalog": "etc/capsuleos/contracts/apps-catalog.json",
+  "phases": [
+    {
+      "id": "taxonomy",
+      "label": "Taxonomie — profils, extends, embed (Tax)",
+      "script": "usr/lib/capsuleos/tools/validate-taxonomy.mjs",
+      "required": true
+    },
+    {
+      "id": "regenerate-views",
+      "label": "Vues dérivées (profils, façades, embed)",
+      "script": "usr/lib/capsuleos/tools/sync-all-views.mjs",
+      "required": true
+    },
+    {
+      "id": "gnome-pack-sync",
+      "label": "Sync skins GNOME dérivés depuis Rocky",
+      "script": "usr/lib/capsuleos/tools/linux/sync-gnome-toolkit-pack.mjs",
+      "required": false,
+      "when": { "toolkitId": "gnome" }
+    },
+    {
+      "id": "slot-variant-wiring",
+      "label": "Câblage slot→variant (profils ↔ catalog)",
+      "script": "usr/lib/capsuleos/tools/validate-slot-variant-wiring.mjs",
+      "required": true
+    },
+    {
+      "id": "toolkit-chrome-isolation",
+      "label": "Isolation chrome toolkit (imports.css)",
+      "script": "usr/lib/capsuleos/tools/validate-toolkit-chrome-isolation.mjs",
+      "required": true
+    },
+    {
+      "id": "ui-contracts",
+      "label": "Contrats UI (chrome apps, composants GNOME)",
+      "script": "usr/lib/capsuleos/tools/validate-ui-contracts-all.mjs",
+      "required": true
+    },
+    {
+      "id": "repo-hygiene",
+      "label": "Hygiène dépôt (legacy, captures dupliquées)",
+      "script": "usr/lib/capsuleos/tools/validate-repo-hygiene.mjs",
+      "required": true
+    },
+    {
+      "id": "validate-all",
+      "label": "Gate release globale",
+      "script": "usr/lib/capsuleos/tools/validate-all.mjs",
+      "required": true
+    }
+  ],
+  "invariants": [
+    "Slot logique stable (data-link) ; variant HTML par toolkit via apps-catalog.slotSpecs",
+    "CAPSULE_TEMPLATE_OVERRIDES généré ou validé — jamais de gabarit Cinnamon sur profil GNOME",
+    "imports.css charge un seul cluster toolkit-{gnome|cinnamon|kde|cosmic}/chrome.css",
+    "Skin vendor = tokens + fenêtre ; structure N2 dans *.base.css du variant",
+    "Scripts usr/lib partagés ; pas de chemins Mint dans home/RedHat/"
+  ]
+}

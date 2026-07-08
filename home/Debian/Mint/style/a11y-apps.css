@@ -1,0 +1,311 @@
+/**
+ * Mint — accessibilité apps (slots .windowElement).
+ * Contraste élevé : html[data-contrast-mode="high"].
+ * Texte agrandi : --head + font-size html (a11y-overrides.css).
+ */
+
+/* Focus clavier étendu (2.4.11) — shell + apps */
+#mint :where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"],
+    [role="radio"],
+    [role="checkbox"],
+    [role="tab"],
+    [role="menuitem"],
+    [role="option"],
+    [role="switch"],
+    [role="link"],
+    [tabindex="0"]
+):focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 1px;
+    box-shadow: var(--a11y-focus-shadow);
+}
+
+/* ── Surfaces applicatives ───────────────────────────────────── */
+html[data-contrast-mode="high"] body#mint .windowElement,
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    main,
+    section,
+    article,
+    aside,
+    nav:not(#windowHeader nav),
+    header:not(#windowHeader),
+    footer,
+    form,
+    fieldset,
+    dialog,
+    [role="dialog"],
+    [role="tabpanel"]
+) {
+    background-color: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    h1, h2, h3, h4, h5, h6,
+    label,
+    legend,
+    p,
+    li,
+    dt,
+    dd,
+    th,
+    td,
+    caption,
+    figcaption
+) {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    small,
+    .menu-app-item__desc,
+    [class*="__help"],
+    [class*="__hint"],
+    [class*="__sub"],
+    [class*="__desc"],
+    [class*="__muted"],
+    [class*="__status"],
+    [class*="__empty"]
+) {
+    color: var(--a11y-contrast-muted);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement ::placeholder {
+    color: var(--a11y-contrast-muted);
+    opacity: 1;
+}
+
+/* ── Contrôles interactifs (1.4.11 non-text contrast) ────────── */
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    button:not([hidden]):not(.cs-switch),
+    input:not([type="hidden"]):not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([disabled]),
+    select:not([disabled]),
+    textarea:not([disabled]),
+    a[href]:not(.nemo-app__content-grid > a),
+    [role="button"]:not([aria-hidden="true"]),
+    [role="tab"],
+    [role="menuitem"],
+    [role="option"],
+    [role="radio"],
+    [role="checkbox"],
+    [role="switch"],
+    [role="link"],
+    summary
+) {
+    border: 1px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+    background-color: var(--a11y-contrast-surface);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement a[href]:not(.nemo-app__content-grid > a) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    button:not(.cs-switch),
+    input:not([type="hidden"]):not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea
+):hover:not(:disabled) {
+    background-color: var(--a11y-contrast-hover);
+    border-color: var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    .is-active,
+    .is-selected,
+    .is-checked,
+    [aria-selected="true"],
+    [aria-current="page"],
+    [aria-current="true"],
+    [aria-pressed="true"]
+) {
+    border-color: var(--a11y-interactive-border);
+    box-shadow: inset 0 0 0 1px var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled,
+    [aria-disabled="true"]
+) {
+    opacity: 0.62;
+    border-color: var(--a11y-interactive-border);
+}
+
+/* Switches Paramètres — contour sans casser le thumb */
+html[data-contrast-mode="high"] body#mint .cs-switch {
+    outline: 2px solid var(--a11y-interactive-border);
+    outline-offset: 2px;
+}
+
+html[data-contrast-mode="high"] body#mint .cs-switch.is-on {
+    background: var(--menu-accent);
+}
+
+html[data-contrast-mode="high"] body#mint .cs-row,
+html[data-contrast-mode="high"] body#mint .cs-nav__item,
+html[data-contrast-mode="high"] body#mint .cs-select {
+    border-color: var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint .cs-nav__item.is-active {
+    box-shadow: inset 3px 0 0 var(--a11y-interactive-border);
+}
+
+/* Tables */
+html[data-contrast-mode="high"] body#mint .windowElement :is(table, .update-manager__table, [class*="__table"]) {
+    border: 1px solid var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement :is(th, td) {
+    border: 1px solid var(--a11y-interactive-border);
+}
+
+/* Sliders */
+html[data-contrast-mode="high"] body#mint .windowElement input[type="range"] {
+    accent-color: var(--menu-accent);
+    outline: 1px solid var(--a11y-interactive-border);
+    outline-offset: 2px;
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement input[type="checkbox"],
+html[data-contrast-mode="high"] body#mint .windowElement input[type="radio"] {
+    accent-color: var(--menu-accent);
+    outline: 2px solid var(--a11y-interactive-border);
+    outline-offset: 2px;
+}
+
+/* Nemo / explorateur */
+html[data-contrast-mode="high"] body#mint div[data-link="nemo"] .nemo-app__content-grid > a,
+html[data-contrast-mode="high"] body#mint div[data-link="nemo"] .dolphin-sidebar__link,
+html[data-contrast-mode="high"] body#mint div[data-link="nemo"] .dolphin-toolbar__btn,
+html[data-contrast-mode="high"] body#mint div[data-link="nemo"] .nemo-app__toolbar-group > a,
+html[data-contrast-mode="high"] body#mint div[data-link="nemo"] .dolphin-context-menu__item {
+    border: 1px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] body#mint div[data-link="nemo"] .nemo-app__content-grid > a.nemo-app__item--selected {
+    box-shadow: inset 0 0 0 2px var(--a11y-interactive-border);
+}
+
+/* Terminal — lisibilité conservée, chrome contrasté */
+html[data-contrast-mode="high"] body#mint div[data-link="terminal"] .capsule-terminal-toolbar__btn,
+html[data-contrast-mode="high"] body#mint div[data-link="terminal"] .fedora-terminal-popover__item {
+    border: 1px solid var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint div[data-link="terminal"] :is(
+    #command,
+    .capsule-terminal__command,
+    [data-terminal-command],
+    .capsule-terminal__output
+) {
+    color: #ffffff;
+    background-color: #0a0a0a;
+    caret-color: var(--menu-accent);
+}
+
+/* Firefox simulé */
+html[data-contrast-mode="high"] body#mint div[data-link="firefox"] :is(
+    .capsule-browser__tab,
+    .capsule-browser__btn,
+    .capsule-browser__address-input
+) {
+    border: 1px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+    background-color: var(--a11y-contrast-surface);
+}
+
+html[data-contrast-mode="high"] body#mint div[data-link="firefox"] .capsule-browser__tab--active {
+    box-shadow: inset 0 -2px 0 var(--a11y-interactive-border);
+}
+
+/* Calculatrice */
+html[data-contrast-mode="high"] body#mint .gnome-calc__key {
+    border: 1px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+    background-color: var(--a11y-contrast-surface);
+}
+
+html[data-contrast-mode="high"] body#mint .gnome-calc__entry {
+    border: 2px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+    background-color: var(--a11y-contrast-bg);
+}
+
+/* Motifs BEM transverses (toutes apps CapsuleOS) */
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    [class*="__btn"]:not([class*="__btn-group"]):not([class*="__btnbar"]),
+    [class*="__button"],
+    [class*="__tab"]:not([class*="__tabs"]):not([class*="__table"]),
+    [class*="__tool"]:not([class*="__tool-icon"]):not([class*="__toolbar"]):not([class*="__tools"]),
+    [class*="__menu-item"],
+    [class*="__menu-btn"],
+    [class*="__menu-entry"],
+    [class*="__menuitem"],
+    [class*="__row"]:not([class*="__rowtext"]):not(tr),
+    [class*="__card"]:not([class*="__cardicon"]):not([class*="__cardname"]):not([class*="__cardsub"]),
+    [class*="__chip"],
+    [class*="__field"],
+    [class*="__input"],
+    [class*="__link"]:not([class*="__link-icon"]),
+    [class*="__action"],
+    [class*="__nav"]:not(nav),
+    [class*="__select"],
+    [class*="__toggle"],
+    [class*="__entry"],
+    [class*="__key"]:not([class*="__keypad"]),
+    [class*="__cell"],
+    [class*="__option"],
+    [class*="__tile"],
+    [class*="__tile-btn"]
+) {
+    border: 1px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] body#mint .windowElement [class*="__toolbar"] > button,
+html[data-contrast-mode="high"] body#mint .windowElement [class*="__menubar"] button,
+html[data-contrast-mode="high"] body#mint .windowElement [class*="__menubar"] [class*="__menu-btn"] {
+    border: 1px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+}
+
+/* Séparateurs visibles */
+html[data-contrast-mode="high"] body#mint .windowElement :is(
+    hr,
+    [role="separator"],
+    [class*="__sep"],
+    [class*="__separator"]
+) {
+    border-color: var(--a11y-interactive-border);
+    background-color: var(--a11y-interactive-border);
+}
+
+/* Alt+Tab */
+html[data-contrast-mode="high"] body#mint .cinnamon-alt-tab__panel {
+    background: var(--a11y-contrast-surface);
+    border: 2px solid var(--a11y-interactive-border);
+}
+
+html[data-contrast-mode="high"] body#mint .cinnamon-alt-tab__item {
+    border: 2px solid var(--a11y-interactive-border);
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] body#mint .cinnamon-alt-tab__item.is-selected {
+    background: var(--a11y-contrast-hover);
+    box-shadow: inset 0 0 0 2px var(--a11y-interactive-border);
+}

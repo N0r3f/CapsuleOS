@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "description": "Chaîne ground truth Cinnamon — Linux Mint (pilote toolkit cinnamon).",
+  "doc": "root/docs/ground-truth-cinnamon.md",
+  "registryId": "linux-mint",
+  "pilotRegistryId": "linux-mint",
+  "toolkit": "cinnamon",
+  "vm": {
+    "host": "<lab-inventory:linux-mint>",
+    "inventory": "root/docs/inventaires/linux-mint-vm.json"
+  },
+  "predicates": {
+    "CinI": "Inventaire VM documenté",
+    "CinM": "ManΣ proc/ drift=0",
+    "CinA": "Assets clone validate-clone-assets",
+    "CinC": "Cloisonnement validate-toolkit-paradigm",
+    "CinS": "Shell parity UI 8/8 + panel 6/6",
+    "CinSe": "SeΣ settings-effects cinnamon",
+    "CinΠ": "pi_global >= 100",
+    "CinCred": "CredΣ campagne crédibilité",
+    "CinΣ": "CinI ∧ CinM ∧ CinA ∧ CinC ∧ CinS ∧ CinCred"
+  },
+  "chains": {
+    "settingsEffects": "etc/capsuleos/contracts/settings-effects-chain.json",
+    "cloneCycle": "etc/capsuleos/contracts/clone-cycle-engine.json",
+    "replication": "cinnamon-settings-playbook"
+  },
+  "gates": [
+    { "predicate": "CinA", "script": "usr/lib/capsuleos/tools/validate-clone-assets.mjs", "args": ["--id", "linux-mint"] },
+    { "predicate": "CinC", "script": "usr/lib/capsuleos/tools/validate-toolkit-paradigm.mjs", "args": ["--id", "linux-mint"] },
+    { "predicate": "CinSe", "script": "usr/lib/capsuleos/tools/lab/verify-cinnamon-settings-parity-chain.mjs", "args": ["--id", "linux-mint"] }
+  ],
+  "orchestrator": "usr/lib/capsuleos/tools/lab/run-cinnamon-formal-chain.mjs",
+  "gapMap": "usr/lib/capsuleos/tools/lab/map-cinnamon-ground-truth-gaps.mjs"
+}

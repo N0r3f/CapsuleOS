@@ -1,0 +1,95 @@
+{
+  "id": "linux-mint",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "mint",
+  "vendor": "mint",
+  "displayName": "Linux Mint (Cinnamon)",
+  "bodyId": "mint",
+  "embedKey": "mint",
+  "tier": "P0",
+  "status": "active",
+  "fidelityLevel": 4,
+  "upstreamId": null,
+  "clusterIds": [
+    "explorer.nemo.cinnamon",
+    "toolkit.cinnamon"
+  ],
+  "extends": "kernel:linux/branch:mint/toolkit:cinnamon",
+  "paths": {
+    "facade": "OS/linux/families/debian/mint/index.html",
+    "skin": "home/Debian/Mint/index.html"
+  },
+  "toolkit": {
+    "id": "cinnamon",
+    "shell": "cinnamon"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/cinnamon",
+    "vendorPack": "vendors/mint",
+    "iconPacks": [
+      "icons/cinnamon"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Nemo",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo",
+    "CAPSULE_EMBED_SKIN_KEY": "mint",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/debian/mint/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian",
+    "CAPSULE_WINDOW_CHROME_CONTEXT": {
+      "toolkitId": "cinnamon",
+      "explorerTemplate": "nemo",
+      "dragMode": "unified-titlebar"
+    },
+    "CAPSULE_CHECKLIST_STORAGE_KEY": "mint-checklist",
+    "CAPSULE_SLOT_LOAD_TIERED": true,
+    "CAPSULE_SLOT_LOAD_BATCH": 4,
+    "CAPSULE_SLOT_LOAD_PRIORITY": [
+      "mainMenu",
+      "nemo",
+      "firefox",
+      "terminal",
+      "themes",
+      "update_manager",
+      "mintinstall",
+      "profile",
+      "text_editor",
+      "calculator",
+      "visionneur_images",
+      "visionneur_pdf",
+      "lecteur_multimedia",
+      "file_roller"
+    ],
+    "CAPSULE_TEMPLATE_OVERRIDES": {
+      "themes": "../../../usr/share/capsuleos/linux/apps/cinnamon_settings.html",
+      "visionneur_images": "../../../usr/share/capsuleos/linux/apps/visionneur_images_pix.html",
+      "visionneur_pdf": "../../../usr/share/capsuleos/linux/apps/visionneur_pdf_xreader.html"
+    },
+    "CAPSULE_WINDOW_CONTEXT": {
+      "family": "linux",
+      "draggable": true,
+      "resizable": true,
+      "forceOnOpen": true,
+      "requireHeader": true,
+      "headerLayout": "capsule",
+      "edgeTiling": true,
+      "skipSlots": [
+        "mainMenu"
+      ],
+      "bounds": {
+        "mainSelector": "object#desktop, #desktop",
+        "desktopSelector": "object#desktop, #desktop",
+        "footerSelector": "footer, #tableau",
+        "subtractFooter": false
+      }
+    }
+  }
+}

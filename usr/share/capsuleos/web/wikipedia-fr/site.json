@@ -1,0 +1,8 @@
+{
+  "siteId": "wikipedia-fr",
+  "title": "Wikipédia — stub pédagogique",
+  "hosts": ["fr.wikipedia.org", "wikipedia.org"],
+  "locale": "fr-FR",
+  "contentLicense": "GPL-3.0-or-later",
+  "author": "CapsuleOS"
+}

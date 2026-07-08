@@ -1,0 +1,31 @@
+@keyframes background {
+    from {
+        background: var(--background);
+    }
+
+    50% {
+        background: var(--bleu);
+    }
+
+    to {
+        background: var(--background);
+    }
+}
+
+@keyframes dock {
+    from {
+        margin-bottom: var(--min-h);
+    }
+    25% {
+        margin-bottom: calc(var(--min-h) + var(--min-h));
+    }
+    50% {
+        margin-bottom: var(--min-h);
+    }
+    75% {
+        margin-bottom: calc(var(--min-h) + var(--min-h));
+    }
+    to {
+        margin-bottom: var(--min-h);
+    }
+}

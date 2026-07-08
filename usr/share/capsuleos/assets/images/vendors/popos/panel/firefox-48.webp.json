@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/panel/firefox-48.png",
+  "sourceSha256": "d9df64a49f932e5f7c8e1f5fccc0b998dafb57f9a7ed2ac9a8e4a43bed45eb1a",
+  "output": "images/vendors/popos/panel/firefox-48.webp",
+  "outputSha256": "00a30665a6663daf4b9eb81310bab5f87d4998a9f4778acbf3f34ce9e25998e4",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "sharp",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-19T13:33:04.232Z"
+}

@@ -1,0 +1,5 @@
+body#mint div[data-link="mate_color_select"] .mcs-app__btn--primary {
+    background: #87cf3e;
+    border-color: #87cf3e;
+    color: #1a1f14;
+}

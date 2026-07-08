@@ -1,0 +1,32 @@
+/* Mint Driver Manager — GTK3 mintdrivers (main.ui 640×480) */
+main#mintDriversApp {
+    color: #2e2e2e;
+    background: #ffffff;
+}
+
+.md-page__title {
+    color: #2e2e2e;
+}
+
+.md-page__body,
+.md-page__hint {
+    color: #555555;
+}
+
+html:not([data-theme="light"]) body#mint main#mintDriversApp {
+    color: rgba(255, 255, 255, 0.87);
+    background: #2f2f2f;
+}
+
+html:not([data-theme="light"]) body#mint main#mintDriversApp .md-page__title {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+html:not([data-theme="light"]) body#mint main#mintDriversApp .md-page__body,
+html:not([data-theme="light"]) body#mint main#mintDriversApp .md-page__hint {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.md-spinner {
+    border-top-color: #0c75de;
+}

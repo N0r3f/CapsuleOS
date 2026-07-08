@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/preferences-desktop-theme.png",
+  "sourceSha256": "cbd28058b3a48c26eaf37f9ef4a37f0f85d78ad1eb02af279915da8f2c57d627",
+  "output": "images/vendors/mint/panel/preferences-desktop-theme.webp",
+  "outputSha256": "52159939321bdaba7593a1cf8b8bea51c2b796e7ae84dd9e154ba5324f950085",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.904Z"
+}

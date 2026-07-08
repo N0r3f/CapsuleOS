@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-night.png",
+  "sourceSha256": "40084eb1909ae590068a374c45136071fcff64a211b14530858891fd955f35db",
+  "output": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-night.webp",
+  "outputSha256": "acc56664aa4b7be34954ae7e2988b37682a5dd609acfaa899cebe6b7395a291b",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4000,
+  "height": 2250,
+  "preparedAt": "2026-06-07T09:29:03.670Z"
+}

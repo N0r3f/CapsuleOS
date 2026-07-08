@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Papers (org.gnome.Papers) — slot CapsuleOS `visionneur_pdf`, toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-rocky-papers-vm-inventory.json",
+  "slot": "visionneur_pdf",
+  "template": "visionneur_pdf.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/mint-viewers.js",
+  "functionalDepth": "partial",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "PaΣ": "Contrat valide + kernel syncPapersGnomeDataset + gabarit data-papers-gnome-*",
+    "Pa1": "Pa1 ouvrir Papers → état vide",
+    "Pa2": "Pa2 ouvrir document PDF démo",
+    "Pa3": "Pa3 navigation pages",
+    "Pa4": "Pa4 miniatures latérales"
+  },
+  "scenarios": [
+    {
+      "id": "Pa1",
+      "priority": "P0",
+      "title": "Ouvrir Papers — état vide",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Papers",
+        "rpm": "papers",
+        "labelFr": "Papers",
+        "emptyTitleFr": "Ouvrir un document",
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-papers", "action": "openWindowByDataLink", "target": "visionneur_pdf", "label": "Ouvrir Papers" },
+        { "id": "root", "selector": "[data-papers-gnome-root]", "label": "Racine Papers GNOME" },
+        { "id": "init", "predicate": "dataset.papersGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "empty", "selector": "[data-papers-gnome-empty]:not([hidden])", "label": "État vide visible" },
+        { "id": "no-doc", "predicate": "dataset.papersGnomeHasDocument", "expectValue": "false", "label": "Aucun document ouvert" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-papers-scenarios.mjs --scenario Pa1",
+        "capture": "rocky-capsule-dark-papers-empty.png"
+      }
+    },
+    {
+      "id": "Pa2",
+      "priority": "P0",
+      "title": "Ouvrir un document PDF",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "demoAsset": "Bash.pdf",
+        "pagesSimulated": 3
+      },
+      "steps": [
+        { "id": "open-papers", "action": "openWindowByDataLink", "target": "visionneur_pdf", "label": "Ouvrir Papers" },
+        { "id": "demo-pdf", "action": "openXreaderDemoPdf", "label": "Charger PDF démo" },
+        { "id": "has-doc", "predicate": "dataset.papersGnomeHasDocument", "expectValue": "true", "label": "Document chargé" },
+        { "id": "frame", "selector": "[data-papers-gnome-canvas] .viewer-app__frame", "label": "Vue document visible" },
+        { "id": "filename", "selector": "[data-papers-gnome-filename]", "expectTextContains": "Bash", "label": "Nom PDF affiché" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-papers-scenarios.mjs --scenario Pa2",
+        "capture": "rocky-capsule-dark-papers-document.png"
+      }
+    },
+    {
+      "id": "Pa3",
+      "priority": "P0",
+      "title": "Navigation entre pages",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "pageLabelFr": "Page",
+        "navigation": ["prev", "next"]
+      },
+      "steps": [
+        { "id": "open-demo", "action": "openXreaderDemoPdf", "label": "PDF démo" },
+        { "id": "page-1", "predicate": "dataset.papersGnomePage", "expectValue": "1", "label": "Page 1 active" },
+        { "id": "next", "selector": "[data-papers-gnome-action=\"next\"]", "label": "Page suivante" },
+        { "id": "page-2", "predicate": "dataset.papersGnomePage", "expectValue": "2", "label": "Page 2 active" },
+        { "id": "prev", "selector": "[data-papers-gnome-action=\"prev\"]", "label": "Page précédente" },
+        { "id": "page-back", "predicate": "dataset.papersGnomePage", "expectValue": "1", "label": "Retour page 1" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-papers-scenarios.mjs --scenario Pa3",
+        "capture": "rocky-capsule-dark-papers-pages.png"
+      }
+    },
+    {
+      "id": "Pa4",
+      "priority": "P0",
+      "title": "Miniatures latérales",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "sidebarLabelFr": "Miniatures",
+        "thumbnails": true
+      },
+      "steps": [
+        { "id": "open-demo", "action": "openXreaderDemoPdf", "label": "PDF démo" },
+        { "id": "toggle-sidebar", "selector": "[data-papers-gnome-action=\"sidebar\"]", "label": "Basculer miniatures" },
+        { "id": "sidebar-open", "predicate": "dataset.papersGnomeSidebar", "expectValue": "true", "label": "Miniatures visibles" },
+        { "id": "sidebar-pane", "selector": "[data-papers-gnome-sidebar]:not([hidden])", "label": "Panneau miniatures affiché" },
+        { "id": "thumb", "selector": "[data-papers-gnome-sidebar] .papers-app__thumb", "label": "Vignettes présentes" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-papers-scenarios.mjs --scenario Pa4",
+        "capture": "rocky-capsule-dark-papers-sidebar.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "PaΣ": { "script": "usr/lib/capsuleos/tools/validate-papers-user-scenarios.mjs" }
+  }
+}

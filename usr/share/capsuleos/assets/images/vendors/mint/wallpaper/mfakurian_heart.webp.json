@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/mfakurian_heart.jpg",
+  "sourceSha256": "bf15bbd3c3064b926d12c257b35ba868afcb6576fa21e41e599661016b6d13fb",
+  "output": "images/vendors/mint/wallpaper/mfakurian_heart.webp",
+  "outputSha256": "b14ec1b3926d6577301ffd789d0d243588184afb8496d5cfb373a6389721f8e2",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 768,
+  "preparedAt": "2026-06-15T19:42:24.194Z"
+}

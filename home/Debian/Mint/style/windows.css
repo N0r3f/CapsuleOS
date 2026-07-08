@@ -1,0 +1,129 @@
+/* Tailles par application — chrome commun dans window-chrome.base.css */
+
+div.windowElement[data-link="nemo"]:not(#mainMenu) {
+    width: var(--win-nemo-width);
+    min-width: var(--win-nemo-min-width);
+    height: var(--win-nemo-height);
+    min-height: var(--win-nemo-min-height);
+}
+
+div.windowElement[data-link="firefox"]:not(#mainMenu) {
+    width: var(--win-firefox-width);
+    min-width: var(--win-firefox-min-width);
+    height: var(--win-firefox-height);
+    min-height: var(--win-firefox-min-height);
+}
+
+div.windowElement[data-link="terminal"]:not(#mainMenu) {
+    width: var(--win-terminal-width);
+    min-width: var(--win-terminal-min-width);
+    height: var(--win-terminal-height);
+    min-height: var(--win-terminal-min-height);
+}
+
+div.windowElement[data-link="profile"]:not(#mainMenu) {
+    width: var(--win-profile-width);
+    min-width: var(--win-profile-min-width);
+    height: var(--win-profile-height);
+    min-height: var(--win-profile-min-height);
+}
+
+div.windowElement[data-link="themes"]:not(#mainMenu) {
+    width: var(--win-themes-width);
+    min-width: var(--win-themes-min-width);
+    height: var(--win-themes-height);
+    min-height: var(--win-themes-min-height);
+}
+
+div.windowElement[data-link="checklist"]:not(#mainMenu) {
+    width: var(--win-checklist-width);
+    min-width: var(--win-checklist-min-width);
+    height: var(--win-checklist-height);
+    min-height: var(--win-checklist-min-height);
+}
+
+div.windowElement[data-link="update_manager"]:not(#mainMenu) {
+    width: var(--win-update_manager-width);
+    min-width: var(--win-update_manager-min-width);
+    height: var(--win-update_manager-height);
+    min-height: var(--win-update_manager-min-height);
+}
+
+div.windowElement[data-link="mintinstall"]:not(#mainMenu) {
+    width: var(--win-mintinstall-width);
+    min-width: var(--win-mintinstall-min-width);
+    height: var(--win-mintinstall-height);
+    min-height: var(--win-mintinstall-min-height);
+}
+
+div.windowElement[data-link="system_monitor"]:not(#mainMenu) {
+    width: var(--win-system_monitor-width);
+    min-width: var(--win-system_monitor-min-width);
+    height: var(--win-system_monitor-height);
+    min-height: var(--win-system_monitor-min-height);
+}
+
+div.windowElement[data-link="file_roller"]:not(#mainMenu) {
+    width: var(--win-file_roller-width);
+    min-width: var(--win-file_roller-min-width);
+    height: var(--win-file_roller-height);
+    min-height: var(--win-file_roller-min-height);
+}
+
+div.windowElement[data-link="mintdrivers"]:not(#mainMenu) {
+    width: var(--win-mintdrivers-width);
+    min-width: var(--win-mintdrivers-min-width);
+    height: var(--win-mintdrivers-height);
+    min-height: var(--win-mintdrivers-min-height);
+}
+
+div.windowElement[data-link="text_editor"]:not(#mainMenu) {
+    width: var(--win-text_editor-width);
+    min-width: var(--win-text_editor-min-width);
+    height: var(--win-text_editor-height);
+    min-height: var(--win-text_editor-min-height);
+}
+
+div.windowElement[data-link="librewriter"]:not(#mainMenu) {
+    width: var(--win-librewriter-width);
+    min-width: var(--win-librewriter-min-width);
+    height: var(--win-librewriter-height);
+    min-height: var(--win-librewriter-min-height);
+}
+
+div.windowElement[data-link="librecalc"]:not(#mainMenu) {
+    width: var(--win-librecalc-width);
+    min-width: var(--win-librecalc-min-width);
+    height: var(--win-librecalc-height);
+    min-height: var(--win-librecalc-min-height);
+}
+
+div.windowElement[data-link="visionneur_images"]:not(#mainMenu),
+div.windowElement[data-link="visionneur_pdf"]:not(#mainMenu) {
+    width: var(--win-visionneur_images-width);
+    min-width: var(--win-visionneur_images-min-width);
+    height: var(--win-visionneur_images-height);
+    min-height: var(--win-visionneur_images-min-height);
+}
+
+div.windowElement[data-link="lecteur_multimedia"]:not(#mainMenu) {
+    width: var(--win-lecteur_multimedia-width);
+    min-width: var(--win-lecteur_multimedia-min-width);
+    height: var(--win-lecteur_multimedia-height);
+    min-height: var(--win-lecteur_multimedia-min-height);
+}
+
+#minimizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/minimize.svg);
+    background-size: cover;
+}
+
+#resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/maximize.svg);
+    background-size: cover;
+}
+
+#closeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/close.svg);
+    background-size: cover;
+}

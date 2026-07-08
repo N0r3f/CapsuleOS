@@ -1,0 +1,8 @@
+/* Branche KDE — tokens Breeze factorisés (openSUSE, Debian-KDE, KDE-Neon, MX-KDE) */
+:root {
+    --branch-kde-accent: #3daee9;
+    --branch-kde-chrome-bg: #eff0f1;
+    --branch-kde-panel-height: calc(var(--capsule-space-unit) * 10);
+    --opensuse-breeze-accent: var(--branch-kde-accent);
+    --opensuse-breeze-chrome: var(--branch-kde-chrome-bg);
+}

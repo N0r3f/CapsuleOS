@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../../../usr/lib/capsuleos/core/capsule-a11y-bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../usr/lib/capsuleos/common/user-home.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-assets-manifest.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-skin-profiles.js"></script>
+    <script>window.CAPSULE_SKIN_PROFILE_ID = 'linux-popos';</script>
+    <script src="../../../usr/lib/capsuleos/common/capsule-resource.js"></script>
+    <script src="../../../usr/lib/capsuleos/core/cluster-registry.js"></script>
+        <script src="./data/manifest-icon-pack-refs.js?v=20260608"></script>
+    <script src="../../../usr/lib/capsuleos/common/capsule-skin-boot.js"></script>
+    <link rel="icon" href="../../../usr/share/capsuleos/assets/images/vendors/popos/pop-logo.png" type="image/png">
+    <link rel="stylesheet" href="./style/imports.css?v=20260622" type="text/css">
+    <link rel="stylesheet" href="../../../usr/share/capsuleos/linux/apps/style/Dossier personnel.base.css" type="text/css">
+    <link rel="stylesheet" href="./popos-overrides.css?v=20260522" type="text/css">
+    <title>Pop!_OS - COSMIC - CapsuleOS</title>
+</head>
+<body id="popos" data-skin="popos" data-capsule-rev="20260622">
+    <header class="cosmic-top-bar" role="banner">
+        <div class="cosmic-top-bar__left">
+            <button type="button" class="cosmic-top-bar__nav-btn" id="cosmic-btn-workspaces"
+                    data-cosmic-nav aria-pressed="false">Workspaces</button>
+            <button type="button" class="cosmic-top-bar__nav-btn" id="cosmic-btn-applications"
+                    data-cosmic-nav aria-pressed="false">Applications</button>
+        </div>
+        <div class="cosmic-top-bar__center">
+            <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger"
+                    aria-expanded="false" aria-controls="taskbar-calendar-popover" aria-label="Date et heure">
+                <span class="popos-clock-date" id="popos-clock-date" aria-hidden="true"></span>
+                <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
+            </button>
+        </div>
+        <div class="cosmic-top-bar__right">
+            <div class="taskbar-tray">
+                <span class="taskbar-tray__lang" aria-label="Disposition clavier">fr</span>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Accessibilité" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/accessibility.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Disposition fenêtres" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/tiling.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Volume" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/volume.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Réseau sans fil" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/network.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Batterie" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/battery.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Notifications" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/notifications.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" aria-label="Capture d'écran" tabindex="-1">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/screenshot.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+                <button type="button" class="taskbar-tray__cluster" id="cosmic-tray-power-btn"
+                        aria-expanded="false" aria-controls="cosmic-power-menu" aria-label="Alimentation">
+                    <img class="taskbar-tray__icon" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/tray/power.svg" alt="" width="16" height="16" aria-hidden="true">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="cosmic-stage">
+        <aside class="cosmic-workspaces-rail" id="cosmic-workspaces-rail" hidden aria-label="Espaces de travail">
+            <ul class="cosmic-workspaces-rail__list">
+                <li>
+                    <button type="button"
+                            class="cosmic-workspaces-rail__workspace cosmic-workspaces-rail__workspace--active"
+                            data-workspace-select aria-label="Espace de travail 1">
+                        <span class="cosmic-workspaces-rail__preview" aria-hidden="true">
+                            <img src="../../../usr/share/capsuleos/assets/images/vendors/popos/wallpaper-cosmic.jpg" alt="" width="280" height="175">
+                        </span>
+                        <span class="cosmic-workspaces-rail__name">Espace de travail 1</span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="cosmic-workspaces-rail__workspace"
+                            data-workspace-select aria-label="Espace de travail 2">
+                        <span class="cosmic-workspaces-rail__preview" aria-hidden="true">
+                            <img src="../../../usr/share/capsuleos/assets/images/vendors/popos/wallpaper-cosmic.jpg" alt="" width="280" height="175">
+                        </span>
+                        <span class="cosmic-workspaces-rail__name">Espace de travail 2</span>
+                    </button>
+                </li>
+            </ul>
+        </aside>
+
+        <object id="desktop" aria-label="Bureau Pop!_OS">
+            <a class="desktop-shortcut" target="windowElement" data-link="profile" title="Pop!_OS - À propos">
+                <img src="../../../usr/share/capsuleos/assets/images/vendors/popos/pop-logo.png" alt="Pop!_OS" width="48" height="48">
+                <span>Pop!_OS<br>À propos</span>
+            </a>
+            <div class="windowElement" data-link="mainMenu" id="mainMenu" style="display: none;"></div>
+            <div class="windowElement" data-link="nemo" id="nemo" style="display: none;"></div>
+            <div class="windowElement" data-link="firefox" id="firefox" style="display: none;"></div>
+            <div class="windowElement" data-link="terminal" id="terminal" style="display: none;"></div>
+            <div class="windowElement" data-link="themes" id="themes" style="display: none;"></div>
+            <div class="windowElement" data-link="profile" id="profile" style="display: none;"></div>
+            <div class="windowElement" data-link="checklist" id="checklist" style="display: none;"></div>
+            <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none;"></div>
+            <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none;"></div>
+            <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none;"></div>
+            <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none;"></div>
+            <div class="windowElement" data-link="libreoffice_startcenter" id="libreoffice_startcenter" style="display: none;"></div>
+            <div class="windowElement" data-link="screenshot" id="screenshot" style="display: none;"></div>
+                <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none;"></div>
+                <div class="windowElement" data-link="text_editor" id="text_editor" style="display: none;"></div>
+                <div class="windowElement" data-link="calendar" id="calendar" style="display: none;"></div>
+                <div class="windowElement" data-link="file_roller" id="file_roller" style="display: none;"></div>
+                <div class="windowElement" data-link="thunderbird" id="thunderbird" style="display: none;"></div>
+                <div class="windowElement" data-link="transmission" id="transmission" style="display: none;"></div>
+                <div class="windowElement" data-link="rhythmbox" id="rhythmbox" style="display: none;"></div>
+                <div class="windowElement" data-link="drawing" id="drawing" style="display: none;"></div>
+                <div class="windowElement" data-link="simple_scan" id="simple_scan" style="display: none;"></div>
+                <div class="windowElement" data-link="warpinator" id="warpinator" style="display: none;"></div>
+                <div class="windowElement" data-link="timeshift" id="timeshift" style="display: none;"></div>
+            </object>
+
+        <nav class="cosmic-dock" aria-label="Dock">
+            <div class="cosmic-dock__apps">
+                <button type="button" class="cosmic-dock__item" id="cosmic-dock-launcher"
+                        aria-label="Launcher" aria-pressed="false">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/launcher.svg" alt="" width="40" height="40">
+                </button>
+                <button type="button" class="cosmic-dock__item" id="cosmic-dock-workspaces"
+                        aria-label="Workspaces" title="Workspaces">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/workspaces.svg" alt="" width="40" height="40">
+                </button>
+                <button type="button" class="cosmic-dock__item" id="cosmic-dock-applications"
+                        aria-label="Applications">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/applications-grid.svg" alt="" width="40" height="40">
+                </button>
+                <span class="cosmic-dock__separator" aria-hidden="true"></span>
+                <a class="cosmic-dock__item" target="windowElement" data-link="firefox" title="Firefox">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.webp" alt="Firefox" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="nemo" title="Fichiers">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/files.svg" alt="Fichiers" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="text_editor" title="Éditeur de texte">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/text-editor.svg" alt="Éditeur de texte" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="terminal" title="Terminal">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/terminal.svg" alt="Terminal" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="update_manager" title="COSMIC Store">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-store.svg" alt="COSMIC Store" width="40" height="40">
+                </a>
+                <a class="cosmic-dock__item" target="windowElement" data-link="themes" title="Paramètres">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/settings.svg" alt="Paramètres" width="40" height="40">
+                </a>
+            </div>
+        </nav>
+    </main>
+
+    <section class="cosmic-launcher" id="cosmic-launcher" hidden aria-label="Launcher">
+        <form class="cosmic-launcher__search" role="search" onsubmit="return false;">
+            <span class="cosmic-launcher__search-icon" aria-hidden="true"></span>
+            <label class="sr-only" for="cosmic-launcher-search">Rechercher</label>
+            <input id="cosmic-launcher-search" class="cosmic-launcher__search-input" type="search"
+                   placeholder="Tapez pour chercher des applis ou tapez « ? » pour plus d'options…"
+                   autocomplete="off" spellcheck="false" aria-controls="cosmic-launcher-results"
+                   aria-expanded="false" aria-autocomplete="list">
+        </form>
+        <div class="cosmic-launcher__results" id="cosmic-launcher-results" hidden>
+            <ul class="cosmic-launcher__list" id="cosmic-launcher-list" role="listbox" aria-label="Résultats"></ul>
+        </div>
+        <template id="cosmic-launcher-row-tpl">
+            <li class="cosmic-launcher__row" role="option">
+                <button type="button" class="cosmic-launcher__row-btn">
+                    <span class="cosmic-launcher__open" aria-hidden="true"></span>
+                    <img class="cosmic-launcher__app-icon" src="" alt="" width="40" height="40">
+                    <span class="cosmic-launcher__text">
+                        <span class="cosmic-launcher__title"></span>
+                        <span class="cosmic-launcher__subtitle"></span>
+                    </span>
+                    <span class="cosmic-launcher__shortcut" aria-hidden="true"></span>
+                </button>
+            </li>
+        </template>
+    </section>
+
+    <section class="cosmic-applications" id="cosmic-applications" hidden aria-label="Applications">
+        <div class="cosmic-applications__panel">
+            <form class="cosmic-applications__search" role="search" onsubmit="return false;">
+                <span class="cosmic-applications__search-icon" aria-hidden="true"></span>
+                <label class="sr-only" for="cosmic-applications-search">Rechercher des applications</label>
+                <input id="cosmic-applications-search" class="cosmic-applications__search-input" type="search"
+                       placeholder="Taper pour rechercher des applications…" autocomplete="off" spellcheck="false">
+            </form>
+            <div class="cosmic-applications__scroll">
+                <div class="cosmic-applications__grid" id="cosmic-applications-grid">
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="nemo"
+                            data-cosmic-category="home utilities" aria-label="Fichiers COSMIC">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-files.svg" alt="">
+                        <span>Fichiers COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="firefox"
+                            data-cosmic-category="home office" aria-label="Firefox">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.webp" alt="">
+                        <span>Firefox</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="lecteur_multimedia"
+                            data-cosmic-category="home utilities" aria-label="Lecteur Multimédia COSMIC">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-player.svg" alt="">
+                        <span>Lecteur Multimédia COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="themes"
+                            data-cosmic-category="home system" aria-label="Paramètres COSMIC">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-settings.svg" alt="">
+                        <span>Paramètres COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app cosmic-applications__app--static"
+                            data-cosmic-category="home" tabindex="-1" aria-disabled="true"
+                            aria-label="Paramètres de Qt5">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/qt5-settings.svg" alt="">
+                        <span>Paramètres de Qt5</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app cosmic-applications__app--static"
+                            data-cosmic-category="home" tabindex="-1" aria-disabled="true"
+                            aria-label="Paramètres de Qt6">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/qt6-settings.svg" alt="">
+                        <span>Paramètres de Qt6</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="update_manager"
+                            data-cosmic-category="home system" aria-label="COSMIC Store">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-store.svg" alt="">
+                        <span>COSMIC Store</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="terminal"
+                            data-cosmic-category="home system" aria-label="Terminal COSMIC">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-terminal.svg" alt="">
+                        <span>Terminal COSMIC</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__app" data-cosmic-app-link="text_editor"
+                            data-cosmic-category="home office" aria-label="Éditeur de texte COSMIC">
+                        <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-text-editor.svg" alt="">
+                        <span>Éditeur de texte COSMIC</span>
+                    </button>
+                </div>
+            </div>
+            <footer class="cosmic-applications__footer">
+                <div class="cosmic-applications__sep" role="separator" aria-hidden="true"></div>
+                <nav class="cosmic-applications__categories" aria-label="Catégories d'applications">
+                    <button type="button" class="cosmic-applications__category cosmic-applications__category--active"
+                            data-apps-category="home" aria-pressed="true">
+                        <img class="cosmic-applications__category-symbolic" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/apps-categories/home.svg" alt="" aria-hidden="true">
+                        <span>Accueil</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category" data-apps-category="office"
+                            aria-pressed="false">
+                        <img class="cosmic-applications__category-symbolic" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/apps-categories/office.svg" alt="" aria-hidden="true">
+                        <span>Bureautique</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category" data-apps-category="system"
+                            aria-pressed="false">
+                        <img class="cosmic-applications__category-symbolic" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/apps-categories/system.svg" alt="" aria-hidden="true">
+                        <span>Système</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category" data-apps-category="utilities"
+                            aria-pressed="false">
+                        <img class="cosmic-applications__category-symbolic" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/apps-categories/utilities.svg" alt="" aria-hidden="true">
+                        <span>Utilitaires</span>
+                    </button>
+                    <button type="button" class="cosmic-applications__category cosmic-applications__category--add"
+                            data-apps-category="add" aria-pressed="false" tabindex="-1" aria-disabled="true">
+                        <img class="cosmic-applications__category-symbolic" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/apps-categories/folder-new.svg" alt="" aria-hidden="true">
+                        <span>Ajout dossier</span>
+                    </button>
+                </nav>
+            </footer>
+        </div>
+    </section>
+
+    <div class="cosmic-power-menu" id="cosmic-power-menu" role="dialog" aria-label="Alimentation" hidden>
+        <button type="button" class="cosmic-power-menu__row cosmic-power-menu__row--settings" data-power-action="settings">
+            <img class="cosmic-power-menu__icon cosmic-power-menu__icon--row" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/power/settings.svg" alt="" width="16" height="16" aria-hidden="true">
+            <span class="cosmic-power-menu__label">Paramètres…</span>
+        </button>
+        <div class="cosmic-power-menu__sep" role="separator" aria-hidden="true"></div>
+        <ul class="cosmic-power-menu__list">
+            <li>
+                <button type="button" class="cosmic-power-menu__row" data-power-action="lock">
+                    <img class="cosmic-power-menu__icon cosmic-power-menu__icon--row" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/power/lock.svg" alt="" width="16" height="16" aria-hidden="true">
+                    <span class="cosmic-power-menu__label">Verrouiller l'écran</span>
+                    <span class="cosmic-power-menu__shortcut">Super + Échap</span>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="cosmic-power-menu__row" data-power-action="logout">
+                    <img class="cosmic-power-menu__icon cosmic-power-menu__icon--row" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/power/logout.svg" alt="" width="16" height="16" aria-hidden="true">
+                    <span class="cosmic-power-menu__label">Se déconnecter</span>
+                    <span class="cosmic-power-menu__shortcut">Super + Maj + Échap</span>
+                </button>
+            </li>
+        </ul>
+        <div class="cosmic-power-menu__sep" role="separator" aria-hidden="true"></div>
+        <div class="cosmic-power-menu__actions" role="group" aria-label="Alimentation système">
+            <button type="button" class="cosmic-power-menu__action" data-power-action="suspend"
+                    aria-label="Suspendre">
+                <img class="cosmic-power-menu__icon cosmic-power-menu__icon--action" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/power/suspend.svg" alt="" width="24" height="24" aria-hidden="true">
+            </button>
+            <button type="button" class="cosmic-power-menu__action" data-power-action="restart"
+                    aria-label="Redémarrer">
+                <img class="cosmic-power-menu__icon cosmic-power-menu__icon--action" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/power/restart.svg" alt="" width="24" height="24" aria-hidden="true">
+            </button>
+            <button type="button" class="cosmic-power-menu__action" data-power-action="poweroff"
+                    aria-label="Éteindre">
+                <img class="cosmic-power-menu__icon cosmic-power-menu__icon--action" src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/symbolic/power/poweroff.svg" alt="" width="24" height="24" aria-hidden="true">
+            </button>
+        </div>
+    </div>
+
+    <div class="calendar-popover cosmic-calendar-popover" id="taskbar-calendar-popover" role="dialog"
+         aria-label="Calendrier" hidden>
+        <div id="cal-long-date" hidden aria-hidden="true"></div>
+        <span class="calendar-popover__month-label" id="cal-month-label" hidden aria-hidden="true"></span>
+        <div class="calendar-popover__calendar">
+            <header class="calendar-popover__cal-head cosmic-calendar-popover__head">
+                <div class="cosmic-calendar-popover__head-text">
+                    <div class="cosmic-calendar-popover__date-line" id="cal-date-sub"></div>
+                    <div class="cosmic-calendar-popover__weekday-line" id="cal-weekday-big"></div>
+                </div>
+                <div class="cosmic-calendar-popover__head-nav">
+                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month"
+                            aria-label="Mois précédent">‹</button>
+                    <button type="button" class="calendar-popover__arrow" id="cal-next-month"
+                            aria-label="Mois suivant">›</button>
+                </div>
+            </header>
+            <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
+            <div class="calendar-popover__days" id="cal-days-grid"></div>
+            <footer class="cosmic-calendar-popover__footer">
+                <button type="button" class="cosmic-calendar-popover__settings-btn">
+                    Paramètres date, heure et agenda…
+                </button>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        if (typeof CapsuleUserHome !== 'undefined') {
+            window.CAPSULE_CONTENT_ROOT = CapsuleUserHome.resolveRelative();
+            window.CAPSULE_TERMINAL_HOME = window.CAPSULE_USER_HOME || window.CAPSULE_TERMINAL_HOME;
+        }
+    </script>
+
+    <script src="../../../usr/lib/capsuleos/site/capsule-pick-return.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-app-embed.js?v=20260622b"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/strings-default.js?v=20260424"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-strings.js?v=20260427b"></script>
+    <script src="../../../usr/lib/capsuleos/common/capsule-window.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/resizeWindow.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/window-drag.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-context.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-desktop-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-header-buttons.js"></script>
+        <script src="../../../usr/lib/capsuleos/shells/common/capsule-memory-conventions.js"></script>
+<script src="../../../usr/lib/capsuleos/shells/common/capsule-window-memory.js"></script>
+    <script>window.CAPSULE_WINDOW_FAMILY = 'linux';</script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/windowContainer.js?v=20260424"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme.js?v=20260424"></script>
+    <script src="./js/cosmic-maximize-shell.js?v=20260522d"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme-storage.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-gsettings-bindings.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-gsettings-store.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-settings-parity.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/themes.js?v=20260424"></script>
+    <script src="./content/profile-data.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/profile.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/checklist.js"></script>
+        <script src="../../../var/lib/capsuleos/generated/capsule-simulated-web-index.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-firefox-contrib.js"></script>
+<script>window.CAPSULE_MNT_BASE=window.CAPSULE_MNT_BASE||'../../../mnt';window.CAPSULE_MNT_MODULES=window.CAPSULE_MNT_MODULES||['debutant/linux-bases'];</script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/simulatedWebResolver.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-mnt-modules.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-mnt-bridge.js"></script>
+<script src="../../../usr/lib/capsuleos/shells/linux/firefoxBrowser.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/firefox-iframe-bridge.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/explorers/explorer-registry.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerInfo.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/explorer-toolkit-paths.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/nemo-icon-map.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/explorer-icon-base.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/contentLoader.js?v=20260427b"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-window-instances.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerHeader.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerContainer.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerVfs.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerCore.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-user-fs.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerWindowState.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerDnD.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileViewerRouter.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerLoader.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/date.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calendar-popover.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-registry.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-core.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/terminal-profile-builder.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/profiles/linux/debian.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/terminal-vendor-extensions.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-profile.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-bashrc.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-core.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-listing.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-command-options.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/terminal-completion.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/terminal-editors.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-tabs.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-shell-parse.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-package-managers.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-fs-ops.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-links.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-text-compare.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-archives.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-processes.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-network.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-users.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-system-info.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/executeCommand.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/filesystem.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/virtual-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/manuel.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/librewriter.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/text-editor.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/search/appSearch.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calendar-app.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/file-roller.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/thunderbird.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/transmission.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/rhythmbox.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/drawing.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/simple-scan.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/warpinator.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/timeshift.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-store-catalog.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-gnome-software-content.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-store-catalog.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cosmic-store-ground.js"></script>
+
+    <script src="../../../usr/lib/capsuleos/shells/linux/update-manager.js"></script>
+    <script src="./js/cosmic-app-launch.js?v=20260525"></script>
+    <script src="./js/cosmic-apps-catalog.js?v=20260525"></script>
+    <script src="./js/cosmic-shell-state.js?v=20260622"></script>
+    <script src="./js/cosmic-workspaces.js?v=20260524"></script>
+    <script src="./js/cosmic-launcher.js?v=20260622"></script>
+    <script src="./js/cosmic-applications.js?v=20260622"></script>
+    <script src="./js/cosmic-dock.js?v=20260522"></script>
+    <script src="./js/cosmic-power-menu.js?v=20260522g"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var dockWs = document.getElementById('cosmic-dock-workspaces');
+        var btnWs = document.getElementById('cosmic-btn-workspaces');
+        if (dockWs && btnWs) {
+            dockWs.addEventListener('click', function () { btnWs.click(); });
+        }
+    });
+    </script>
+</body>
+</html>

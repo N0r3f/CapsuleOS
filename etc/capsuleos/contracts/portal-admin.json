@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "doc": "root/docs/convention-portail-admin.md",
+  "role": "administrateur",
+  "publicPath": "/admin",
+  "loginPath": "/admin/login",
+  "logoutPath": "/admin/logout",
+  "loginRoute": "portal/admin-login.php",
+  "logoutRoute": "portal/admin-logout.php",
+  "dashboardRoute": "portal/admin.php",
+  "sections": [
+    "dashboard",
+    "users",
+    "admins",
+    "subscriptions",
+    "tickets",
+    "os",
+    "modules",
+    "offers",
+    "content",
+    "classes",
+    "usage",
+    "progress",
+    "gamification",
+    "runtime",
+    "entitlements",
+    "grades",
+    "legal",
+    "accessibility",
+    "audit"
+  ],
+  "seedDevAdmin": {
+    "email": "admin@capsuleos.local",
+    "displayName": "Administrateur"
+  }
+}

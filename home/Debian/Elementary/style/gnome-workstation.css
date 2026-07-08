@@ -1,0 +1,337 @@
+/**
+ * Ubuntu 26.04 LTS — coque GNOME (branche Debian, dock latéral).
+ */
+#elementary {
+    --linux-skin-label: "Ubuntu 26.04 LTS";
+    --elementary-dock-gap: calc(var(--head) / 11);
+    --elementary-dock-item: calc(var(--head) * 1.02);
+    --elementary-bg: url(../../../../usr/share/capsuleos/assets/images/vendors/ubuntu/wallpaper/wallpaper-racoon.webp) center/cover no-repeat;
+    --gnome-shell-taskbar-bg: var(--elementary-top-bar-bg);
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: var(--max-w);
+    height: var(--max-h);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    color: var(--texte);
+    background: var(--elementary-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Extension VM background-logo@fedorahosted.org — logo-size 9 %, border 50 px, bottom-right */
+body#elementary:not(.is-overview)::after {
+    content: "";
+    position: absolute;
+    right: var(--rocky-watermark-inset);
+    bottom: var(--rocky-watermark-inset);
+    width: var(--rocky-watermark-width);
+    aspect-ratio: 907.78 / 415.08;
+    background: var(--rocky-watermark) no-repeat right bottom / contain;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#elementary .fedora-top-bar {
+    position: relative;
+    /* 2 colonnes : le centre horloge est en absolute (hors flux) */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    height: var(--elementary-top-bar-height);
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+    border-bottom: var(--elementary-top-bar-border-bottom);
+    background: var(--elementary-top-bar-bg);
+    box-sizing: border-box;
+    z-index: 50;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    #elementary .fedora-top-bar {
+        -webkit-backdrop-filter: blur(14px) saturate(1.05);
+        backdrop-filter: blur(14px) saturate(1.05);
+    }
+}
+
+body#elementary.is-overview .fedora-top-bar {
+    background: rgba(0, 0, 0, 0.72);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+#elementary .fedora-top-bar__left {
+    grid-column: 1;
+    justify-self: start;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: calc(var(--head) / 4);
+    min-width: 0;
+}
+
+#elementary .fedora-top-bar__center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#elementary .fedora-top-bar__center .taskbar-clock-trigger {
+    pointer-events: auto;
+}
+
+#elementary .fedora-top-bar__right {
+    grid-column: 2;
+    justify-self: end;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: calc(var(--head) / 4);
+    gap: calc(var(--head) / 12);
+}
+
+#elementary .fedora-overview-trigger {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) / 8);
+    padding: calc(var(--head) / 7) calc(var(--head) / 4);
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--elementary-shell-text);
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+#elementary .fedora-overview-trigger:hover,
+#elementary .fedora-overview-trigger:focus-visible {
+    background: var(--gnome-shell-clock-hover-bg);
+    border-color: var(--elementary-shell-border-soft);
+}
+
+#elementary .fedora-overview-trigger__dot {
+    display: block;
+    width: calc(var(--head) / 6.4);
+    height: calc(var(--head) / 6.4);
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.95;
+}
+
+#elementary .fedora-overview-trigger__bar {
+    display: block;
+    width: calc(var(--head) / 1.95);
+    height: calc(var(--head) / 7.2);
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.95;
+}
+
+#elementary .fedora-main-row {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    transform: scale(1);
+    transition:
+        opacity 220ms cubic-bezier(0.25, 0.1, 0.25, 1),
+        transform 280ms cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* GNOME Wayland RHEL : pas de dock permanent (contrairement à Ubuntu / Unity). Favoris = Aperçu. */
+#elementary #tableau.fedora-dock {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: var(--elementary-dock-width);
+    flex-shrink: 0;
+    height: auto;
+    min-height: 0;
+    padding: calc(var(--head) / 4) var(--elementary-dock-gap) calc(var(--head) / 3);
+    border: none;
+    border-right: var(--elementary-dock-border-right);
+    background: var(--elementary-dock-bg);
+    box-sizing: border-box;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    #elementary #tableau.fedora-dock {
+        -webkit-backdrop-filter: blur(12px) saturate(1.1);
+        backdrop-filter: blur(12px) saturate(1.1);
+    }
+}
+
+#elementary #tableau.fedora-dock .fedora-dock__nav {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--elementary-dock-gap);
+    width: 100%;
+    flex: 1;
+}
+
+#elementary #tableau.fedora-dock a {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: var(--elementary-dock-item);
+    height: var(--elementary-dock-item);
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 3.2);
+    background: transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+#elementary #tableau.fedora-dock a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+#elementary #tableau.fedora-dock a.active-link {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: transparent;
+    box-shadow: none;
+}
+
+#elementary #tableau.fedora-dock a.active-link::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--head) / 14);
+    top: 50%;
+    width: calc(var(--head) / 18);
+    height: 52%;
+    border-radius: calc(var(--head) / 22);
+    background: var(--menu-accent);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+#elementary #tableau.fedora-dock a > img {
+    display: block;
+    width: calc(var(--head) * 0.58);
+    height: calc(var(--head) * 0.58);
+    object-fit: contain;
+    filter: none;
+}
+
+#elementary .fedora-desktop-area {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    background: transparent;
+}
+
+#elementary #desktop {
+    position: relative;
+    display: flex;
+    background: transparent;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    flex: 1;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+#elementary .desktop-shortcut {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 3.4);
+    margin: 0;
+    padding: calc(var(--head) / 6);
+    gap: calc(var(--head) / 8);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 8);
+    color: var(--desktop-shortcut-text);
+    text-decoration: none;
+    text-shadow: var(--desktop-shortcut-shadow);
+    top: calc(var(--head) / 2);
+    left: calc(var(--head) / 2);
+    box-sizing: border-box;
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+    z-index: 10;
+}
+
+#elementary .desktop-shortcut > img {
+    display: block;
+    width: calc(var(--head) * 1.3);
+    height: calc(var(--head) * 1.3);
+    object-fit: contain;
+}
+
+#elementary .desktop-shortcut > span {
+    display: block;
+    width: 100%;
+    margin: 0;
+    font-size: calc(var(--head) / 3.2);
+    line-height: 1.2;
+    text-align: center;
+}
+
+#elementary .desktop-shortcut:hover,
+#elementary .desktop-shortcut.active-link {
+    border-color: var(--menu-accent);
+    background: var(--desktop-shortcut-hover-bg);
+    transform: translateY(-1px);
+}
+
+html[data-theme="light"]:has(#elementary) #elementary {
+    --elementary-bg: url("../../../../usr/share/capsuleos/assets/images/vendors/ubuntu/wallpaper/wallpaper-racoon-light.webp") center/cover no-repeat
+}
+
+html[data-theme="light"]:has(#elementary) #elementary #tableau.fedora-dock a:hover {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"]:has(#elementary) #elementary #tableau.fedora-dock a.active-link {
+    background: rgba(0, 0, 0, 0.04);
+}

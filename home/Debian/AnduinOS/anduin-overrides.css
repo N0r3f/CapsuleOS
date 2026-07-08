@@ -1,0 +1,8 @@
+/**
+ * Surcharges AnduinOS (dernier lien CSS dans index.html).
+ * VM : proc/linux-anduinos/distribution-manifest.json — fontName Noto Sans 11.
+ */
+html:has(#anduinos) {
+    --font-ui: "Noto Sans", "Ubuntu", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Cascadia Code", "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+}

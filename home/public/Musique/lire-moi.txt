@@ -1,0 +1,3 @@
+Dossier Musique — placeholder CapsuleOS.
+
+Un fichier audio (.ogg) pourra être ajouté ici pour tester le lecteur multimédia.

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/lzhang_uzumaki.jpg",
+  "sourceSha256": "5439d5708156caca236a7ab3c74769dffcca7676fe8900c5fe9d806998a8cec3",
+  "output": "images/vendors/mint/wallpaper/lzhang_uzumaki.webp",
+  "outputSha256": "2141bd76b709b637e83470139b4fb1a84e002350d930fca767b8b4251c22b996",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:19.978Z"
+}

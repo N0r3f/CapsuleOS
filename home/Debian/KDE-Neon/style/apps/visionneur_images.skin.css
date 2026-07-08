@@ -1,0 +1,109 @@
+/**
+ * KDE Neon — Gwenview (slot visionneur_images).
+ */
+body#kde-neon div[data-link="visionneur_images"].windowElement {
+    width: min(40rem, calc(100vw - 2rem));
+    height: min(28rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+body#kde-neon div[data-link="visionneur_images"] main#gwenviewApp {
+    height: 100%;
+}
+
+html[data-theme="light"] body#kde-neon main#gwenviewApp.kde-gwenview {
+    --gwen-bg: #eff0f1;
+    --gwen-toolbar: #e7e8ea;
+    --gwen-text: #232629;
+    --gwen-muted: rgba(35, 38, 41, 0.65);
+    --gwen-border: rgba(35, 38, 41, 0.14);
+    --gwen-accent: #3daee9;
+}
+
+html:not([data-theme="light"]) body#kde-neon main#gwenviewApp.kde-gwenview {
+    --gwen-bg: #31363b;
+    --gwen-toolbar: #2a2e32;
+    --gwen-text: #eff0f1;
+    --gwen-muted: rgba(239, 240, 241, 0.65);
+    --gwen-border: rgba(239, 240, 241, 0.12);
+    --gwen-accent: #3daee9;
+}
+
+body#kde-neon main#gwenviewApp.kde-gwenview {
+    display: flex;
+    flex-direction: column;
+    color: var(--gwen-text);
+    background: var(--gwen-bg);
+}
+
+body#kde-neon .kde-gwenview__toolbar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.5rem;
+    border-bottom: 1px solid var(--gwen-border);
+    background: var(--gwen-toolbar);
+}
+
+body#kde-neon .kde-gwenview__tool {
+    padding: 0.2rem 0.55rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: var(--gwen-text);
+    background: transparent;
+    cursor: pointer;
+}
+
+body#kde-neon .kde-gwenview__tool:hover:not(:disabled) {
+    border-color: var(--gwen-accent);
+    background: color-mix(in srgb, var(--gwen-accent) 18%, transparent);
+}
+
+body#kde-neon .kde-gwenview__tool:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+body#kde-neon .kde-gwenview__filename {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--gwen-muted);
+}
+
+body#kde-neon .kde-gwenview__spacer {
+    flex: 1 1 auto;
+}
+
+body#kde-neon .kde-gwenview__zoom {
+    font-size: 0.85rem;
+    color: var(--gwen-muted);
+}
+
+body#kde-neon .kde-gwenview__content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    overflow: hidden;
+    background: #1a1a1a;
+}
+
+html[data-theme="light"] body#kde-neon .kde-gwenview__content {
+    background: #2b2b2b;
+}
+
+body#kde-neon .kde-gwenview__empty {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border: 1px dashed var(--gwen-border);
+    border-radius: 6px;
+    color: var(--gwen-muted);
+}
+
+body#kde-neon .kde-gwenview__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transform-origin: center center;
+}

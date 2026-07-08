@@ -1,0 +1,32 @@
+/**
+ * popos — Gestionnaire d'archives (File Roller, slot store P0).
+ */
+body#popos {
+    --fr-bg: #242424;
+    --fr-text: #ffffff;
+    --fr-muted: rgba(255, 255, 255, 0.62);
+    --fr-header-bg: #303030;
+    --fr-nav-bg: #2a2a2a;
+    --fr-border: rgba(255, 255, 255, 0.08);
+    --fr-btn-bg: #383838;
+    --fr-btn-hover: #404040;
+    --fr-btn-border: rgba(255, 255, 255, 0.12);
+    --fr-table-head: #303030;
+    --fr-row-hover: rgba(53, 132, 228, 0.15);
+    --fr-row-border: rgba(255, 255, 255, 0.06);
+}
+
+body#popos div[data-link="file_roller"].file-roller--csd {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+body#popos main#fileRollerApp {
+    background: var(--fr-bg);
+    color: var(--fr-text);
+}
+
+body#popos div[data-link="file_roller"] .fr-app__headerbar {
+    background: var(--fr-header-bg);
+    border-bottom: 1px solid var(--fr-border);
+}

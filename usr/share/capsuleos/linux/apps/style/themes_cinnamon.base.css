@@ -1,0 +1,221 @@
+/* Cinnamon Settings — Paramètres du système (Mint) */
+main#cinnamonSettingsApp.cs-app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: var(--nemo-text-primary, #e8e8ea);
+    background: var(--menu-apps-bg, #2e2e33);
+    font-size: 13px;
+}
+
+.cs-app__searchbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--nemo-toolbar-border, rgba(255, 255, 255, 0.08));
+    background: var(--menuInput, #222226);
+    flex: 0 0 auto;
+}
+
+.cs-app__search-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.65;
+    background: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.cs-app__search {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: 1px solid var(--nemo-toolbar-button-border, rgba(255, 255, 255, 0.12));
+    border-radius: 6px;
+    padding: 6px 10px;
+    background: var(--menu-apps-bg, #2e2e33);
+    color: inherit;
+    font: inherit;
+}
+
+.cs-app__body {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.cs-app__sidebar {
+    flex: 0 0 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 6px 4px;
+    overflow-y: auto;
+    border-right: 1px solid var(--nemo-toolbar-border, rgba(255, 255, 255, 0.08));
+    background: var(--menuInput, #222226);
+}
+
+.cs-app__nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.cs-app__nav:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.cs-app__nav.is-active {
+    background: rgba(31, 158, 222, 0.22);
+    box-shadow: inset 0 0 0 1px rgba(31, 158, 222, 0.45);
+}
+
+.cs-app__nav-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.cs-app__main {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.cs-app__panel-title {
+    margin: 0;
+    padding: 14px 18px 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    flex: 0 0 auto;
+}
+
+.cs-app__panels {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+    padding: 0 18px 16px;
+}
+
+.cs-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cs-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 40px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cs-row--combo {
+    flex-wrap: wrap;
+}
+
+.cs-row__label {
+    flex: 1 1 auto;
+    min-width: 120px;
+}
+
+.cs-switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.cs-switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.15s ease;
+}
+
+.cs-switch.is-on {
+    background: #1f9ede;
+}
+
+.cs-switch.is-on::after {
+    transform: translateX(20px);
+}
+
+.cs-combo {
+    border: 1px solid var(--nemo-toolbar-button-border, rgba(255, 255, 255, 0.12));
+    border-radius: 6px;
+    padding: 6px 12px;
+    background: var(--menuInput, #222226);
+    color: inherit;
+    font: inherit;
+    cursor: default;
+    min-width: 180px;
+    text-align: left;
+}
+
+.cs-slider {
+    width: 160px;
+    accent-color: #1f9ede;
+}
+
+.cs-themes .themes-app__cards {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cs-themes .themes-card {
+    min-width: 96px;
+}
+
+.cs-bg-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cs-bg-add {
+    align-self: flex-start;
+    min-width: 108px;
+    min-height: 68px;
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    background: transparent;
+    color: inherit;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+div[data-link="themes"] #windowHeader {
+    background: var(--nemo-header-bg, #2e2e33);
+}
+
+div[data-link="themes"] #windowTitle {
+    color: var(--nemo-text-primary, #e8e8ea);
+}

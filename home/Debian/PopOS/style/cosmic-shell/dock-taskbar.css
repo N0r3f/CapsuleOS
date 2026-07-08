@@ -1,0 +1,53 @@
+/**
+ * Dock Cosmic → barre pleine largeur en maximize (visuel/exemple.png).
+ * Mêmes icônes que la pilule, centrées ; pas de tray ni pastilles workspace.
+ */
+body#popos.cosmic-shell--taskbar-mode {
+    --popos-work-area-bottom: var(--popos-taskbar-height);
+}
+
+body#popos.cosmic-shell--taskbar-mode .cosmic-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    z-index: 130;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    min-height: var(--popos-taskbar-height);
+    margin: 0;
+    padding: calc(var(--head) / 10 * var(--popos-dock-scale)) calc(var(--head) / 6);
+    border-radius: 0;
+    background: var(--popos-taskbar-bg);
+    border: 0;
+    border-top: var(--popos-taskbar-border);
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+body#popos.cosmic-shell--taskbar-mode .cosmic-dock__apps {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    gap: calc(var(--head) / 10 * var(--popos-dock-scale));
+    min-width: 0;
+}
+
+body#popos.cosmic-shell--taskbar-mode .cosmic-dock__item {
+    transform: none;
+}
+
+body#popos.cosmic-shell--taskbar-mode .cosmic-dock__item:hover {
+    transform: none;
+}
+
+body#popos.cosmic-shell--taskbar-mode.cosmic-workspaces-open .cosmic-workspaces-rail {
+    bottom: var(--popos-taskbar-height);
+}

@@ -1,0 +1,193 @@
+{
+  "root": "../../../home/public",
+  "rootLabel": "Dossier personnel",
+  "folders": {
+    "../../../home/public/Bureau": {
+      "label": "Bureau",
+      "items": [
+        {
+          "type": "file",
+          "name": "Bienvenue-CapsuleOS.txt",
+          "extension": "txt",
+          "href": "../../../home/public/Bureau/Bienvenue-CapsuleOS.txt"
+        }
+      ]
+    },
+    "../../../home/public/Documents": {
+      "label": "Documents",
+      "items": [
+        {
+          "type": "file",
+          "name": "Bash.pdf",
+          "extension": "pdf",
+          "href": "../../../home/public/Documents/Bash.pdf"
+        },
+        {
+          "type": "file",
+          "name": "introduction-bash.txt",
+          "extension": "txt",
+          "href": "../../../home/public/Documents/introduction-bash.txt"
+        },
+        {
+          "type": "file",
+          "name": "notes-capsuleos.md",
+          "extension": "md",
+          "href": "../../../home/public/Documents/notes-capsuleos.md"
+        }
+      ]
+    },
+    "../../../home/public/Images": {
+      "label": "Images",
+      "items": [
+        {
+          "type": "file",
+          "name": "lunaire-bureau.png",
+          "extension": "png",
+          "href": "../../../home/public/Images/lunaire-bureau.png"
+        },
+        {
+          "type": "file",
+          "name": "lunaire-bureau.svg",
+          "extension": "svg",
+          "href": "../../../home/public/Images/lunaire-bureau.svg"
+        }
+      ]
+    },
+    "../../../home/public/Modèles": {
+      "label": "Modèles",
+      "items": []
+    },
+    "../../../home/public/Musique": {
+      "label": "Musique",
+      "items": [
+        {
+          "type": "file",
+          "name": "lire-moi.txt",
+          "extension": "txt",
+          "href": "../../../home/public/Musique/lire-moi.txt"
+        },
+        {
+          "type": "file",
+          "name": "mheuuuu.ogg",
+          "extension": "ogg",
+          "href": "../../../home/public/Musique/mheuuuu.ogg"
+        }
+      ]
+    },
+    "../../../home/public/Public": {
+      "label": "Public",
+      "items": [
+        {
+          "type": "file",
+          "name": "README.txt",
+          "extension": "txt",
+          "href": "../../../home/public/Public/README.txt"
+        }
+      ]
+    },
+    "../../../home/public/Téléchargements": {
+      "label": "Téléchargements",
+      "items": [
+        {
+          "type": "file",
+          "name": "geodesie-intro.txt",
+          "extension": "txt",
+          "href": "../../../home/public/Téléchargements/geodesie-intro.txt"
+        },
+        {
+          "type": "file",
+          "name": "Géodésie.pdf",
+          "extension": "pdf",
+          "href": "../../../home/public/Téléchargements/Géodésie.pdf"
+        }
+      ]
+    },
+    "../../../home/public/Vidéos": {
+      "label": "Vidéos",
+      "items": [
+        {
+          "type": "file",
+          "name": "Capsule_s.mp4",
+          "extension": "mp4",
+          "href": "../../../home/public/Vidéos/Capsule_s.mp4"
+        },
+        {
+          "type": "file",
+          "name": "lire-moi.txt",
+          "extension": "txt",
+          "href": "../../../home/public/Vidéos/lire-moi.txt"
+        }
+      ]
+    },
+    "../../../home/public/capsuleos-lab": {
+      "label": "capsuleos-lab",
+      "items": [
+        {
+          "type": "file",
+          "name": "README.txt",
+          "extension": "txt",
+          "href": "../../../home/public/capsuleos-lab/README.txt"
+        }
+      ]
+    },
+    "../../../home/public/snap": {
+      "label": "snap",
+      "items": []
+    },
+    "../../../home/public": {
+      "label": "Dossier personnel",
+      "items": [
+        {
+          "type": "folder",
+          "name": "Bureau",
+          "path": "../../../home/public/Bureau"
+        },
+        {
+          "type": "folder",
+          "name": "capsuleos-lab",
+          "path": "../../../home/public/capsuleos-lab"
+        },
+        {
+          "type": "folder",
+          "name": "Documents",
+          "path": "../../../home/public/Documents"
+        },
+        {
+          "type": "folder",
+          "name": "Images",
+          "path": "../../../home/public/Images"
+        },
+        {
+          "type": "folder",
+          "name": "Modèles",
+          "path": "../../../home/public/Modèles"
+        },
+        {
+          "type": "folder",
+          "name": "Musique",
+          "path": "../../../home/public/Musique"
+        },
+        {
+          "type": "folder",
+          "name": "Public",
+          "path": "../../../home/public/Public"
+        },
+        {
+          "type": "folder",
+          "name": "snap",
+          "path": "../../../home/public/snap"
+        },
+        {
+          "type": "folder",
+          "name": "Téléchargements",
+          "path": "../../../home/public/Téléchargements"
+        },
+        {
+          "type": "folder",
+          "name": "Vidéos",
+          "path": "../../../home/public/Vidéos"
+        }
+      ]
+    }
+  }
+}

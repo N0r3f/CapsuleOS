@@ -1,0 +1,142 @@
+/* Chrome fenêtre CapsuleOS — pilote Cinnamon / KDE (Muffin / Breeze).
+ * Skins GNOME : importer window-chrome.gnome.base.css à la place (pas ce fichier). */
+@import url(../global/interactions-window.base.css);
+@import url(../global/window-drag-regions.css);
+@import url(../global/window-context-menu.css);
+
+div[class^="windowElement"]:not(#mainMenu) {
+    position: var(--fix);
+    top: var(--head);
+    bottom: auto;
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--win-default-width);
+    min-width: var(--win-default-min-width);
+    height: var(--win-default-height);
+    min-height: var(--win-default-min-height);
+    padding: var(--win-client-gutter);
+    border: calc(var(--min-bt) * 4) solid var(--t);
+    border-radius: calc(var(--head) / 4);
+    box-shadow: var(--frame);
+    background: var(--menuDefaultCcol);
+    overflow: var(--h);
+    scrollbar-width: var(--z);
+    transition: border-color var(--eas2), box-shadow var(--ease), transform var(--eas2);
+}
+
+.windowElementActive {
+    z-index: 500;
+    border-color: var(--menu-accent);
+    box-shadow: 0 0 0 2px var(--menu-accent), var(--frame);
+}
+
+#windowHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: var(--c);
+    width: var(--window-header-width);
+    min-width: var(--z);
+    max-width: var(--full);
+    height: var(--window-header-height);
+    padding: var(--window-header-padding);
+    border-radius: var(--window-header-radius) var(--window-header-radius) var(--z) var(--z);
+    background: var(--nemoHC);
+    box-sizing: border-box;
+    overflow: hidden;
+    user-select: none;
+    border-bottom: 1px solid var(--mint-window-header-border);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+.windowElementActive #windowHeader {
+    background: var(--nemoMCSF);
+    border-bottom: 1px solid var(--mint-window-header-border-active);
+}
+
+#windowHeader>nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    flex-shrink: 0;
+    min-width: var(--chrome-nav-min-width);
+    height: var(--head);
+    z-index: 1;
+}
+
+#windowHeader>nav:first-child {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+
+#windowHeader>nav:last-child {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+}
+
+#windowTitle {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    width: auto;
+    max-width: calc(100% - calc(var(--chrome-nav-min-width) * 2));
+    min-width: var(--z);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: var(--c);
+    text-shadow: var(--bs);
+    filter: var(--inv);
+    pointer-events: none;
+}
+
+#windowHeader>nav>button {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--chrome-btn-size);
+    height: var(--chrome-btn-size);
+    padding: var(--z);
+    outline: var(--n);
+    border-radius: var(--mid);
+    border: 1px var(--t);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+}
+
+#windowHeader>nav>button:hover {
+    transform: translateY(-1px);
+    border-color: var(--mint-window-control-border-hover);
+    background-color: var(--mint-window-control-bg-hover);
+}
+
+#windowHeader>nav>button:active {
+    transform: translateY(0);
+    border-color: var(--mint-window-control-border-hover);
+    background-color: var(--mint-window-control-bg-hover);
+}
+
+#windowIframe {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--window-iframe-width);
+    height: var(--a);
+    min-height: var(--window-client-min-height);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    overflow: var(--h);
+}
+
+section.windowElement {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+}

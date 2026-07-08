@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/mendhak-Red_Acer.jpg",
+  "sourceSha256": "1fbfcf0cc4b7a176d86404ba92d017fdec0ec799426b64ed198d6f1e90abd0fe",
+  "output": "images/vendors/ubuntu/wallpaper/mendhak-Red_Acer.webp",
+  "outputSha256": "b19877a3d51908503617454ad68cff4318ce49146158689cbbfcf23e144451c3",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:55.212Z"
+}

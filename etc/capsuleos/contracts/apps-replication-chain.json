@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "description": "Chaîne fidélité applications — mêmes principes que gnome-settings-playbook (structure → runtime → VM → visuel).",
+  "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+  "referenceDomain": "gnome-settings-playbook",
+  "principles": [
+    "VM prime — inventaire apps et captures ground truth avant H5 app",
+    "Matrice unique — catalogue strict + apps-parity-matrix alimente smokes et inventaire visuel",
+    "Triple couche — statique (structure) → Playwright (runtime façade OS) → VM (vérité machine)",
+    "Prédicats séquentiels — AppVv documente, AppVc miroir Capsule, AppVp classe ; pas de saut",
+    "Façade OS canonique — resolveCapsuleOsUrl(registryId), jamais home/ direct en Playwright",
+    "Drift explicite — écarts catalogue ↔ skin ↔ embed dans smoke-apps-matrix",
+    "Classification P0/P1/P2 — AppΣ structurel ≠ parité visuelle complète (AppVp)",
+    "Cohérence OsRepro — grille argumentation 5 dimensions + contentGaps avant implémentation (C1–C7)"
+  ],
+  "domains": {
+    "apps-playbook": {
+      "label": "Playbook applications GNOME",
+      "predicates": ["AppV", "AppC", "AppP0", "AppL", "AppVv", "AppVc", "AppVp", "AppΣ"],
+      "doc": "root/docs/procedure-apps-replication-formelle.md"
+    }
+  },
+  "predicateChecks": {
+    "AppV": { "inventory": "root/docs/inventaires/{id}-vm-apps-installed.json", "minInstalled": 1 },
+    "AppC": { "inventory": "root/docs/inventaires/{id}-apps-catalog.json", "field": "summary.p0Gaps" },
+    "AppP0": { "inventory": "root/docs/inventaires/{id}-apps-catalog.json", "field": "summary.p0Gaps", "equals": 0 },
+    "AppL": { "gate": "run-apps-lab", "script": "usr/lib/capsuleos/tools/lab/run-apps-lab.mjs", "state": "root/docs/inventaires/{id}-apps-lab-state.json" },
+    "AppVv": { "inventory": "root/docs/inventaires/{id}-apps-visual-investigation.json", "field": "summary.documentedP0", "min": 1 },
+    "AppVc": { "inventory": "root/docs/inventaires/{id}-apps-visual-investigation.json", "field": "summary.capsuleCapturesP0", "min": 1 },
+    "AppVp": { "inventory": "root/docs/inventaires/{id}-apps-visual-investigation.json", "field": "summary.visualMatchClassifiedP0", "min": 1 },
+    "AppΣ": { "expr": "AppV && AppC && AppP0 && AppL" }
+  },
+  "smokeLayers": {
+    "structure": [
+      "smoke-apps-catalog.mjs",
+      "smoke-apps-matrix.mjs",
+      "smoke-apps-interaction-playbook.mjs",
+      "smoke-apps-snapshot.mjs",
+      "smoke-visual-fidelity.mjs",
+      "validate-os-facade-fidelity.mjs"
+    ],
+    "runtime": [
+      "smoke-os-facade-rocky.mjs",
+      "smoke-apps-interactions.mjs",
+      "smoke-apps-snapshot.mjs",
+      "smoke-gnome-nautilus-routing.mjs",
+      "smoke-gnome-nautilus-interactions.mjs",
+      "smoke-rocky-overview-search-icons.mjs",
+      "smoke-window-resize-left.mjs"
+    ],
+    "shell": [
+      "smoke-rocky-gnome-ref.mjs",
+      "smoke-rocky-shell-polish.mjs",
+      "smoke-rocky-shell-polish-phase2.mjs"
+    ],
+    "settingsCross": [
+      "run-gnome-settings-lab.mjs"
+    ]
+  },
+  "steps": [
+    { "id": "apps-lab", "requires": ["AppP0"], "negates": ["AppL"], "script": "usr/lib/capsuleos/tools/lab/run-apps-lab.mjs", "args": ["--id"] },
+    { "id": "apps-vm-visual", "requires": ["AppL"], "negates": ["AppVv"], "script": "usr/lib/capsuleos/tools/lab/collect-vm-apps-visual-investigation.mjs", "args": ["--id", "--filter", "P0"] },
+    { "id": "apps-capsule-captures", "requires": ["AppVv"], "negates": ["AppVc"], "script": "usr/lib/capsuleos/tools/lab/collect-capsule-apps-visual-investigation.mjs", "args": ["--id"] },
+    { "id": "apps-visual-parity", "requires": ["AppVc"], "negates": ["AppVp"], "script": "usr/lib/capsuleos/tools/lab/enrich-apps-visual-investigation-parity.mjs", "args": ["--id"] }
+  ],
+  "registryDefaults": {
+    "linux-rocky": {
+      "toolkit": "gnome",
+      "facadeUrl": "OS/linux/families/redhat/rocky/index.html",
+      "capturePrefix": "rocky-apps-capsule"
+    }
+  }
+}

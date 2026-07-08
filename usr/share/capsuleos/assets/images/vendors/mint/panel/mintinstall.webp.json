@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/mintinstall.png",
+  "sourceSha256": "c2c7882988d795f8acc05eb308d81efb7ce6d156e518684ace5ec9774711e139",
+  "output": "images/vendors/mint/panel/mintinstall.webp",
+  "outputSha256": "7c71c79f72ecae091dfe3e083240f7519f4173f59b50886416baad595f1dc7bd",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.695Z"
+}

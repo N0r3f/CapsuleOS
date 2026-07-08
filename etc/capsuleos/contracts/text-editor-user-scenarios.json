@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Text Editor (org.gnome.TextEditor) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-text-editor-vm-inventory.json",
+  "slot": "text_editor",
+  "template": "text_editor.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/text-editor.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "TeΣ": "Contrat valide + kernel implémente handlers data-te-gnome-*",
+    "Te1": "T1 nouveau document → saisie → titre Document sans titre",
+    "Te2": "T2 ouvrir fichier VFS home/public simulé",
+    "Te3": "T3 enregistrer sous → toast confirmation",
+    "Te4": "T4 nouvel onglet → fermer onglet → document précédent"
+  },
+  "scenarios": [
+    {
+      "id": "T1",
+      "priority": "P0",
+      "title": "Nouveau document et saisie",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.TextEditor",
+        "rpm": "gnome-text-editor",
+        "untitledFr": "Document sans titre",
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-editor", "action": "openWindowByDataLink", "target": "text_editor", "label": "Ouvrir Éditeur de texte" },
+        { "id": "type-text", "selector": "[data-te-gnome-area]", "value": "Bonjour CapsuleOS", "label": "Saisir du texte" },
+        { "id": "dirty-title", "selector": "#windowTitle", "expectTextContains": "Document sans titre", "label": "Titre avec marqueur modification" },
+        { "id": "dirty-flag", "predicate": "dataset.teGnomeDirty", "label": "État modifié actif" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-text-editor-scenarios.mjs --scenario T1",
+        "capture": "rocky-capsule-dark-text-editor-new-doc.png"
+      }
+    },
+    {
+      "id": "T2",
+      "priority": "P0",
+      "title": "Ouvrir un fichier depuis le home simulé",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "sampleFile": "introduction-bash.txt",
+        "vfsHref": "../../../home/public/Documents/introduction-bash.txt"
+      },
+      "steps": [
+        { "id": "open-vfs", "selector": "[data-te-gnome-action=\"open-vfs\"]", "label": "Ouvrir introduction-bash.txt (VFS)" },
+        { "id": "file-title", "selector": "#windowTitle", "expectTextContains": "introduction-bash.txt", "label": "Titre = nom du fichier" },
+        { "id": "file-content", "selector": "[data-te-gnome-area]", "expectTextContains": "Introduction à Bash", "label": "Contenu chargé" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-text-editor-scenarios.mjs --scenario T2",
+        "capture": "rocky-capsule-dark-text-editor-open-file.png"
+      }
+    },
+    {
+      "id": "T3",
+      "priority": "P0",
+      "title": "Enregistrer sous",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "type-before-save", "selector": "[data-te-gnome-area]", "value": "Contenu pédagogique", "label": "Saisir avant enregistrement" },
+        { "id": "save-as", "selector": "[data-te-gnome-action=\"save-as\"]", "label": "Enregistrer sous…" },
+        { "id": "save-dialog", "selector": "[data-te-gnome-save-dialog]:not([hidden])", "label": "Dialogue visible" },
+        { "id": "confirm-save", "selector": "[data-te-gnome-action=\"save-apply\"]", "label": "Confirmer enregistrement" },
+        { "id": "toast", "selector": "[data-te-gnome-toast]:not([hidden])", "label": "Toast de confirmation" },
+        { "id": "clean-state", "predicate": "dataset.teGnomeDirty", "expectValue": "false", "label": "Plus de modification en attente" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-text-editor-scenarios.mjs --scenario T3",
+        "capture": "rocky-capsule-dark-text-editor-save-as.png"
+      }
+    },
+    {
+      "id": "T4",
+      "priority": "P0",
+      "title": "Nouvel onglet et fermeture",
+      "locale": "fr-FR",
+      "vmNote": "org.gnome.TextEditor 47 — onglets natifs ; Capsule simule barre d'onglets gnome",
+      "steps": [
+        { "id": "tab0-text", "selector": "[data-te-gnome-area]", "value": "Onglet un", "label": "Saisie premier onglet" },
+        { "id": "new-tab", "selector": "[data-te-gnome-action=\"new-tab\"]", "label": "Nouvel onglet" },
+        { "id": "tab1-text", "selector": "[data-te-gnome-area]", "value": "Onglet deux", "label": "Saisie second onglet" },
+        { "id": "close-tab", "selector": "[data-te-gnome-action=\"close-tab\"]", "label": "Fermer l'onglet courant" },
+        { "id": "restore-tab0", "selector": "[data-te-gnome-area]", "expectTextContains": "Onglet un", "label": "Retour au premier onglet" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-text-editor-scenarios.mjs --scenario T4",
+        "capture": "rocky-capsule-dark-text-editor-tabs.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "TeΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-text-editor-user-scenarios.mjs"
+    }
+  }
+}

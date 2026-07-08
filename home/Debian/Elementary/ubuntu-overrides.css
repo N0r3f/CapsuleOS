@@ -1,0 +1,19 @@
+/**
+ * Surcharges Ubuntu (dernier lien CSS dans index.html).
+ */
+html:has(#elementary) {
+    --font-ui: "Ubuntu", "Noto Sans", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+}
+
+body#elementary .fedora-overview__brand,
+body#elementary .elementary-overview__brand {
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+    color: #E95420;
+}
+
+body#elementary .fedora-overview-trigger:hover,
+body#elementary .fedora-overview-trigger:focus-visible {
+    border-color: rgba(233, 84, 32, 0.45);
+}

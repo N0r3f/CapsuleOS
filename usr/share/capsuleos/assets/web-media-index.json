@@ -1,0 +1,1776 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "output": "images/toolkits/gnome/apps/dash/libreoffice-writer.webp",
+      "source": "images/toolkits/gnome/apps/dash/libreoffice-writer.png",
+      "preparedAt": "2026-06-07T21:19:04.619Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/toolkits/gnome/apps/dash/org.gnome.Rhythmbox3.webp",
+      "source": "images/toolkits/gnome/apps/dash/org.gnome.Rhythmbox3.png",
+      "preparedAt": "2026-06-07T21:19:04.619Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/toolkits/gnome/apps/firefox.webp",
+      "source": "images/toolkits/gnome/apps/firefox.png",
+      "preparedAt": "2026-06-07T09:55:03.032Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/toolkits/kde/apps/firefox.webp",
+      "source": "images/toolkits/kde/apps/firefox.png",
+      "preparedAt": "2026-06-07T22:17:41.860Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/alma/panel/firefox-48.webp",
+      "source": "images/vendors/alma/panel/firefox-48.png",
+      "preparedAt": "2026-06-07T09:12:14.054Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/anduin/taskbar/firefox.webp",
+      "source": "images/vendors/anduin/taskbar/firefox.png",
+      "preparedAt": "2026-06-07T22:18:28.123Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/panel/firefox-48.webp",
+      "source": "images/vendors/fedora/panel/firefox-48.png",
+      "preparedAt": "2026-06-13T18:42:25.692Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/adwaita-d.webp",
+      "source": "images/vendors/fedora/wallpaper/adwaita-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/adwaita-l.webp",
+      "source": "images/vendors/fedora/wallpaper/adwaita-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/balls-d.webp",
+      "source": "images/vendors/fedora/wallpaper/balls-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/balls-l.webp",
+      "source": "images/vendors/fedora/wallpaper/balls-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/blendpills-d.webp",
+      "source": "images/vendors/fedora/wallpaper/blendpills-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/blendpills-l.webp",
+      "source": "images/vendors/fedora/wallpaper/blendpills-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/curvy-d.webp",
+      "source": "images/vendors/fedora/wallpaper/curvy-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/curvy-l.webp",
+      "source": "images/vendors/fedora/wallpaper/curvy-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/dithered-sun-d.webp",
+      "source": "images/vendors/fedora/wallpaper/dithered-sun-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/dithered-sun-l.webp",
+      "source": "images/vendors/fedora/wallpaper/dithered-sun-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/f44-01-day.webp",
+      "source": "images/vendors/fedora/wallpaper/f44-01-day.jxl",
+      "preparedAt": "2026-06-07T02:29:03.818Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/f44-01-night.webp",
+      "source": "images/vendors/fedora/wallpaper/f44-01-night.jxl",
+      "preparedAt": "2026-06-13T18:32:54.183Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/glass-chip-d.webp",
+      "source": "images/vendors/fedora/wallpaper/glass-chip-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/glass-chip-l.webp",
+      "source": "images/vendors/fedora/wallpaper/glass-chip-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/lcd-rainbow-d.webp",
+      "source": "images/vendors/fedora/wallpaper/lcd-rainbow-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/lcd-rainbow-l.webp",
+      "source": "images/vendors/fedora/wallpaper/lcd-rainbow-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/pixel-pusher-d.webp",
+      "source": "images/vendors/fedora/wallpaper/pixel-pusher-d.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/pixel-pusher-l.webp",
+      "source": "images/vendors/fedora/wallpaper/pixel-pusher-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/fedora/wallpaper/pixels-l.webp",
+      "source": "images/vendors/fedora/wallpaper/pixels-l.jxl",
+      "preparedAt": "2026-06-08T23:28:23.024Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/accessories-text-editor.webp",
+      "source": "images/vendors/mint/panel/accessories-text-editor.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/firefox-48.webp",
+      "source": "images/vendors/mint/panel/firefox-48.png",
+      "preparedAt": "2026-06-15T19:29:04.845Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/firefox.webp",
+      "source": "images/vendors/mint/panel/firefox.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/libreoffice-writer.webp",
+      "source": "images/vendors/mint/panel/libreoffice-writer.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/mintinstall.webp",
+      "source": "images/vendors/mint/panel/mintinstall.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/nemo.webp",
+      "source": "images/vendors/mint/panel/nemo.png",
+      "preparedAt": "2026-06-15T19:29:04.845Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/org.gnome.Calculator.webp",
+      "source": "images/vendors/mint/panel/org.gnome.Calculator.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/org.gnome.Calendar.webp",
+      "source": "images/vendors/mint/panel/org.gnome.Calendar.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/org.gnome.Terminal.webp",
+      "source": "images/vendors/mint/panel/org.gnome.Terminal.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/preferences-desktop-theme.webp",
+      "source": "images/vendors/mint/panel/preferences-desktop-theme.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/panel/system-file-manager.webp",
+      "source": "images/vendors/mint/panel/system-file-manager.png",
+      "preparedAt": "2026-06-07T22:17:41.012Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/bookwood_linuxmint.webp",
+      "source": "images/vendors/mint/wallpaper/bookwood_linuxmint.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/bookwood_ring.webp",
+      "source": "images/vendors/mint/wallpaper/bookwood_ring.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/default_background.webp",
+      "source": "images/vendors/mint/wallpaper/default_background.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/edesigner_linuxmint.webp",
+      "source": "images/vendors/mint/wallpaper/edesigner_linuxmint.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jbaer_wave.webp",
+      "source": "images/vendors/mint/wallpaper/jbaer_wave.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jleung_confetti.webp",
+      "source": "images/vendors/mint/wallpaper/jleung_confetti.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_building.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_building.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_city.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_city.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_cpu.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_cpu.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_cubes.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_cubes.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_curved.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_curved.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_curves.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_curves.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_gold.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_gold.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_hearts.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_hearts.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_pipes.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_pipes.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_square.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_square.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_stripes.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_stripes.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_wall.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_wall.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_waves.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_waves.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jpanchal_white.webp",
+      "source": "images/vendors/mint/wallpaper/jpanchal_white.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/jvasek_xmas_bokeh.webp",
+      "source": "images/vendors/mint/wallpaper/jvasek_xmas_bokeh.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/ktee_linuxmint.webp",
+      "source": "images/vendors/mint/wallpaper/ktee_linuxmint.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/linuxmint.webp",
+      "source": "images/vendors/mint/wallpaper/linuxmint.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/lzhang_uzumaki.webp",
+      "source": "images/vendors/mint/wallpaper/lzhang_uzumaki.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mfakurian_abstract.webp",
+      "source": "images/vendors/mint/wallpaper/mfakurian_abstract.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mfakurian_black.webp",
+      "source": "images/vendors/mint/wallpaper/mfakurian_black.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mfakurian_heart.webp",
+      "source": "images/vendors/mint/wallpaper/mfakurian_heart.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mfakurian_order.webp",
+      "source": "images/vendors/mint/wallpaper/mfakurian_order.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mfakurian_silver.webp",
+      "source": "images/vendors/mint/wallpaper/mfakurian_silver.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mpiwnicki_curtain.webp",
+      "source": "images/vendors/mint/wallpaper/mpiwnicki_curtain.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mpiwnicki_digital_stream.webp",
+      "source": "images/vendors/mint/wallpaper/mpiwnicki_digital_stream.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mpiwnicki_light.webp",
+      "source": "images/vendors/mint/wallpaper/mpiwnicki_light.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mpiwnicki_pearl.webp",
+      "source": "images/vendors/mint/wallpaper/mpiwnicki_pearl.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/mpiwnicki_sparkling.webp",
+      "source": "images/vendors/mint/wallpaper/mpiwnicki_sparkling.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/pczerwinski_3d_render.webp",
+      "source": "images/vendors/mint/wallpaper/pczerwinski_3d_render.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/sele_linuxmint_center.webp",
+      "source": "images/vendors/mint/wallpaper/sele_linuxmint_center.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/sele_linuxmint.webp",
+      "source": "images/vendors/mint/wallpaper/sele_linuxmint.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/sele_ring_center_green.webp",
+      "source": "images/vendors/mint/wallpaper/sele_ring_center_green.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/sele_ring_center.webp",
+      "source": "images/vendors/mint/wallpaper/sele_ring_center.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/sele_ring_green.webp",
+      "source": "images/vendors/mint/wallpaper/sele_ring_green.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/sele_ring.webp",
+      "source": "images/vendors/mint/wallpaper/sele_ring.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/bookwood_linuxmint-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/bookwood_linuxmint-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/bookwood_linuxmint-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/bookwood_linuxmint-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/bookwood_ring-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/bookwood_ring-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/bookwood_ring-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/bookwood_ring-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/default_background-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/default_background-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/default_background-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/default_background-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/edesigner_linuxmint-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/edesigner_linuxmint-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/edesigner_linuxmint-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/edesigner_linuxmint-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jbaer_wave-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jbaer_wave-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jbaer_wave-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jbaer_wave-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jleung_confetti-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jleung_confetti-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jleung_confetti-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jleung_confetti-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_building-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_building-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_building-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_building-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_city-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_city-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_city-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_city-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cpu-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cpu-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cpu-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cpu-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cubes-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cubes-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cubes-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_cubes-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curved-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curved-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curved-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curved-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curves-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curves-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curves-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_curves-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_gold-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_gold-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_gold-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_gold-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_hearts-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_hearts-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_hearts-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_hearts-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_pipes-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_pipes-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_pipes-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_pipes-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_square-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_square-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_square-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_square-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_stripes-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_stripes-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_stripes-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_stripes-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_wall-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_wall-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_wall-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_wall-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_waves-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_waves-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_waves-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_waves-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_white-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_white-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jpanchal_white-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jpanchal_white-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jvasek_xmas_bokeh-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jvasek_xmas_bokeh-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/jvasek_xmas_bokeh-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/jvasek_xmas_bokeh-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/ktee_linuxmint-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/ktee_linuxmint-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/ktee_linuxmint-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/ktee_linuxmint-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/linuxmint-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/linuxmint-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/linuxmint-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/linuxmint-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/lzhang_uzumaki-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/lzhang_uzumaki-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/lzhang_uzumaki-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/lzhang_uzumaki-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_abstract-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_abstract-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_abstract-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_abstract-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_black-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_black-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_black-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_black-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_heart-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_heart-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_heart-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_heart-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_order-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_order-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_order-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_order-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_silver-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_silver-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.883Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mfakurian_silver-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mfakurian_silver-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_curtain-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_curtain-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_curtain-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_curtain-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_digital_stream-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_digital_stream-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_digital_stream-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_digital_stream-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_light-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_light-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_light-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_light-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_pearl-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_pearl-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_pearl-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_pearl-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_sparkling-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_sparkling-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_sparkling-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/mpiwnicki_sparkling-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/pczerwinski_3d_render-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/pczerwinski_3d_render-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/pczerwinski_3d_render-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/pczerwinski_3d_render-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint_center-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint_center-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint_center-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint_center-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_linuxmint-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center_green-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center_green-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center_green-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center_green-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring_center-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring_green-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring_green-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring_green-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring_green-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring-thumb-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring-thumb-thumb.webp",
+      "preparedAt": "2026-06-15T19:42:44.884Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/mint/wallpaper/thumbnails/sele_ring-thumb-thumb.webp",
+      "source": "images/vendors/mint/wallpaper/thumbnails/sele_ring-thumb.webp",
+      "preparedAt": "2026-06-15T19:41:21.954Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/popos/panel/firefox-48.webp",
+      "source": "images/vendors/popos/panel/firefox-48.png",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/A_stormy_stellar_nursery_esa_379309.webp",
+      "source": "images/vendors/popos/wallpaper/A_stormy_stellar_nursery_esa_379309.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/orion_nebula_nasa_heic0601a.webp",
+      "source": "images/vendors/popos/wallpaper/orion_nebula_nasa_heic0601a.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/otherworldly_earth_nasa_ISS064-E-29444.webp",
+      "source": "images/vendors/popos/wallpaper/otherworldly_earth_nasa_ISS064-E-29444.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/phytoplankton_bloom_nasa_oli2_20240121.webp",
+      "source": "images/vendors/popos/wallpaper/phytoplankton_bloom_nasa_oli2_20240121.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/round_moons_nasa.webp",
+      "source": "images/vendors/popos/wallpaper/round_moons_nasa.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/tarantula_nebula_nasa_PIA23646.webp",
+      "source": "images/vendors/popos/wallpaper/tarantula_nebula_nasa_PIA23646.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/popos/wallpaper/webb-inspired-wallpaper-system76.webp",
+      "source": "images/vendors/popos/wallpaper/webb-inspired-wallpaper-system76.jpg",
+      "preparedAt": "2026-06-19T13:33:15.745Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/rocky/panel/firefox-48.webp",
+      "source": "images/vendors/rocky/panel/firefox-48.png",
+      "preparedAt": "2026-06-07T09:12:13.812Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-1-day.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-1-day.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-1-night.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-1-night.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-2.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-2.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-3.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-3.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-4.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-4.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-5.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-5.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-arizona-sunrise.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-arizona-sunrise.jpg",
+      "preparedAt": "2026-06-19T13:18:08.665Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-arizona-sunset.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-arizona-sunset.jpg",
+      "preparedAt": "2026-06-19T13:18:08.665Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-day.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-day.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-night.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-night.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-quartz-forest-day.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-quartz-forest-day.jpg",
+      "preparedAt": "2026-06-19T13:18:08.665Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-quartz-forest-night.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-quartz-forest-night.jpg",
+      "preparedAt": "2026-06-19T13:18:08.665Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-sapphire-light.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-sapphire-light.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/rocky/wallpaper/rocky-default-10-sapphire.webp",
+      "source": "images/vendors/rocky/wallpaper/rocky-default-10-sapphire.png",
+      "preparedAt": "2026-06-07T09:29:11.176Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-calculator-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-calculator.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-desktop-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-desktop.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-firefox-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-firefox.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-nautilus-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-nautilus.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-apps-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-apps.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-busy-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-busy.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-overview.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-quick-settings-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-quick-settings.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-settings-appearance-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-settings-appearance.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-settings-background-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-settings-background.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-text-editor-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-text-editor.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-desktop-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-desktop.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-firefox-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-firefox.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-nautilus-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-nautilus.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-overview-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-overview.png",
+      "preparedAt": "2026-06-07T22:13:17.791Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.calculator.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.firefox.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.lecteur_multimedia.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.librewriter.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/during-150ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/during-150ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/during-80ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.contextmenu/during-80ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.rename-inline/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.rename-inline/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.rename-inline/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.rename-inline/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.rename-inline/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.nautilus.rename-inline/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.terminal.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.text_editor.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.themes.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/during-400ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/app.update_manager.open/during-400ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/during-150ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/during-150ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/during-80ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/desktop.contextmenu/during-80ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-120ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-120ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-160ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-160ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-200ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-200ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-40ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-40ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-80ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.animation-burst/during-80ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.close/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.close/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.close/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.close/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.close/during-100ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.close/during-100ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/during-120ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/during-120ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/during-250ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.overview.open/during-250ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/after-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/after.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/before-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/before.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/during-150ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/during-150ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/during-50ms-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-ui-effects-vm/shell.quickSettings.open/during-50ms.png",
+      "preparedAt": "2026-06-07T21:18:37.786Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-dark-overview-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-dark-overview.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-light-overview-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-light-overview.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-calculator-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-calculator.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-desktop-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-desktop.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-firefox-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-firefox.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-nautilus-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-nautilus.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-text-editor-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-text-editor.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-desktop-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-desktop.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-firefox-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-firefox.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-nautilus-optimized.webp",
+      "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-nautilus.png",
+      "preparedAt": "2026-06-07T22:13:52.171Z",
+      "encoder": "ffmpeg+convert"
+    },
+    {
+      "output": "images/vendors/ubuntu/panel/firefox-48.webp",
+      "source": "images/vendors/ubuntu/panel/firefox-48.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/cnusr25-Simple_Raccoon_Light.webp",
+      "source": "images/vendors/ubuntu/wallpaper/cnusr25-Simple_Raccoon_Light.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/endycal-Flying_Boxes_Dark.webp",
+      "source": "images/vendors/ubuntu/wallpaper/endycal-Flying_Boxes_Dark.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/endycal-Flying_Boxes_Light.webp",
+      "source": "images/vendors/ubuntu/wallpaper/endycal-Flying_Boxes_Light.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Dark.webp",
+      "source": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Dark.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Light.webp",
+      "source": "images/vendors/ubuntu/wallpaper/ezspain-Ubuntu_Coffee_Mug_Light.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/iryge-Anomaly.webp",
+      "source": "images/vendors/ubuntu/wallpaper/iryge-Anomaly.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/jdituicha-raccoon1-light.webp",
+      "source": "images/vendors/ubuntu/wallpaper/jdituicha-raccoon1-light.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/manuej-Vor.webp",
+      "source": "images/vendors/ubuntu/wallpaper/manuej-Vor.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/mendhak-Bluebells_Suspended_In_Time.webp",
+      "source": "images/vendors/ubuntu/wallpaper/mendhak-Bluebells_Suspended_In_Time.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/mendhak-Red_Acer.webp",
+      "source": "images/vendors/ubuntu/wallpaper/mendhak-Red_Acer.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/mizuno-as-Big_Dipper.webp",
+      "source": "images/vendors/ubuntu/wallpaper/mizuno-as-Big_Dipper.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/mizuno-as-Winter_Grand_Triangle.webp",
+      "source": "images/vendors/ubuntu/wallpaper/mizuno-as-Winter_Grand_Triangle.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/osselo-Ask_a_friend.webp",
+      "source": "images/vendors/ubuntu/wallpaper/osselo-Ask_a_friend.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Dimmed_3840x2160.webp",
+      "source": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Dimmed_3840x2160.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Light_3840x2160.webp",
+      "source": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Light_3840x2160.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/rubenslp-Twin_brothers.webp",
+      "source": "images/vendors/ubuntu/wallpaper/rubenslp-Twin_brothers.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/ubuntu-wallpaper-d.webp",
+      "source": "images/vendors/ubuntu/wallpaper/ubuntu-wallpaper-d.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/vale1ntin0omf-Electric_Veins_of_the_Storm.webp",
+      "source": "images/vendors/ubuntu/wallpaper/vale1ntin0omf-Electric_Veins_of_the_Storm.jpg",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/wallpaper-racoon-light.webp",
+      "source": "images/vendors/ubuntu/wallpaper/wallpaper-racoon-light.png",
+      "preparedAt": "2026-06-16T09:50:47.904Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/wallpaper-racoon.webp",
+      "source": "images/vendors/ubuntu/wallpaper/wallpaper-racoon.png",
+      "preparedAt": "2026-06-16T09:50:47.904Z",
+      "encoder": "sharp"
+    },
+    {
+      "output": "images/vendors/ubuntu/wallpaper/warty-final-ubuntu.webp",
+      "source": "images/vendors/ubuntu/wallpaper/warty-final-ubuntu.png",
+      "preparedAt": "2026-06-16T09:47:10.200Z",
+      "encoder": "sharp"
+    }
+  ],
+  "updatedAt": "2026-06-19T13:33:15.765Z"
+}

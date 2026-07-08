@@ -1,0 +1,12 @@
+/**
+ * Cluster toolkit COSMIC — variables shell partagées Pop!_OS / System76.
+ */
+:root {
+    --cluster-cosmic-menu-accent: #62d0e9;
+    --cosmic-shell-tray-color: rgba(255, 255, 255, 0.92);
+    --cosmic-shell-tray-separator: rgba(255, 255, 255, 0.1);
+    --cosmic-shell-tray-item-hover-bg: rgba(255, 255, 255, 0.1);
+    --cosmic-shell-tray-icon-filter: brightness(0) invert(1);
+    --cosmic-shell-clock-hover-bg: rgba(255, 255, 255, 0.12);
+    --cosmic-shell-taskbar-bg: transparent;
+}

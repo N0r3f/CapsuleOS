@@ -1,0 +1,42 @@
+<main id="drawingApp" class="drawing-app" aria-label="Dessin">
+
+    <header class="drawing-app__menubar" aria-label="Barre d'outils">
+        <button type="button" class="drawing-app__menu-btn" data-drawing-action="new" title="Nouveau">Nouveau</button>
+        <button type="button" class="drawing-app__menu-btn" data-drawing-action="undo" title="Annuler">Annuler</button>
+        <button type="button" class="drawing-app__menu-btn" data-drawing-action="redo" title="Rétablir">Rétablir</button>
+        <span class="drawing-app__menubar-sep" aria-hidden="true"></span>
+        <button type="button" class="drawing-app__menu-btn" data-drawing-action="save" title="Enregistrer">Enregistrer</button>
+    </header>
+
+    <div class="drawing-app__workspace">
+        <aside class="drawing-app__tools" role="toolbar" aria-label="Outils">
+            <button type="button" class="drawing-app__tool is-active" data-tool="pencil" title="Crayon" aria-pressed="true">
+                <span class="drawing-app__tool-icon drawing-app__tool-icon--pencil" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="drawing-app__tool" data-tool="eraser" title="Gomme" aria-pressed="false">
+                <span class="drawing-app__tool-icon drawing-app__tool-icon--eraser" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="drawing-app__tool" data-tool="line" title="Ligne" aria-pressed="false">
+                <span class="drawing-app__tool-icon drawing-app__tool-icon--line" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="drawing-app__tool" data-tool="rect" title="Rectangle" aria-pressed="false">
+                <span class="drawing-app__tool-icon drawing-app__tool-icon--rect" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="drawing-app__tool" data-tool="ellipse" title="Ellipse" aria-pressed="false">
+                <span class="drawing-app__tool-icon drawing-app__tool-icon--ellipse" aria-hidden="true"></span>
+            </button>
+        </aside>
+
+        <div class="drawing-app__canvas-wrap">
+            <canvas class="drawing-app__canvas" id="drawing-canvas" aria-label="Zone de dessin"></canvas>
+        </div>
+
+        <aside class="drawing-app__sidebar" aria-label="Couleurs et pinceau">
+            <p class="drawing-app__sidebar-title">Couleurs</p>
+            <div class="drawing-app__palette" id="drawing-palette" role="list"></div>
+            <label class="drawing-app__size-label" for="drawing-size">Épaisseur</label>
+            <input type="range" class="drawing-app__size" id="drawing-size" min="1" max="32" value="4" aria-valuetext="4 px">
+        </aside>
+    </div>
+
+</main>

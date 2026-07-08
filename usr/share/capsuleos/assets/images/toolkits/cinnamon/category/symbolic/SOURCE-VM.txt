@@ -1,0 +1,7 @@
+# Icônes catégories mintinstall 8.4 — symboliques officielles
+# Source VM : registryId linux-mint — voir lab-inventory.json (local)
+# Chemin VM : /usr/share/icons/hicolor/scalable/categories/mintinstall-*-symbolic.svg
+# Paquet : mintinstall 8.4.0
+# Collecte : 2026-06-11 — campagne fidélité visuelle Φ (visual-scenes.json)
+# Usage : tuiles Catégories accueil Logithèque (home/Debian/Mint/content/mintinstall-catalog.js)
+# Rendu : fill #474747 d'origine ; recoloration blanche via CSS filter sur thème sombre (aligné GTK symbolic recolor)

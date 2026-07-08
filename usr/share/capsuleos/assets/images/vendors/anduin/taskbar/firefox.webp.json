@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/anduin/taskbar/firefox.png",
+  "sourceSha256": "d9df64a49f932e5f7c8e1f5fccc0b998dafb57f9a7ed2ac9a8e4a43bed45eb1a",
+  "output": "images/vendors/anduin/taskbar/firefox.webp",
+  "outputSha256": "576059973e10fd3073b31a9e85be9877254ad1a89c1db6a4ee9e22cf6be57c62",
+  "role": "unknown",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:18:28.122Z"
+}

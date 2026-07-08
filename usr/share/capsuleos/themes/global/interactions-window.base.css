@@ -1,0 +1,57 @@
+/**
+ * États d’interaction partagés — fenêtres CapsuleOS (toutes familles importatrices).
+ * Clic / hover / active / focus clavier / drag (grab) sur chrome capsule.
+ */
+
+#windowHeader {
+    cursor: grab;
+    touch-action: none;
+}
+
+#windowHeader:active,
+#windowHeader[data-window-drag-handle]:active {
+    cursor: grabbing;
+}
+
+#windowTitle {
+    cursor: grab;
+}
+
+#windowTitle:active {
+    cursor: grabbing;
+}
+
+#windowHeader > nav > button,
+#windowHeader > button {
+    cursor: default;
+    touch-action: manipulation;
+}
+
+#windowHeader > nav > button:hover,
+#windowHeader > button:hover {
+    cursor: default;
+}
+
+#windowHeader > nav > button:active,
+#windowHeader > button:active {
+    cursor: default;
+    transform: translateY(0);
+}
+
+#windowHeader > nav > button:focus-visible,
+#windowHeader > button:focus-visible {
+    outline: 2px solid var(--a11y-focus-ring, var(--menu-accent, #3daee9));
+    outline-offset: 1px;
+    box-shadow: var(--a11y-focus-shadow, none);
+}
+
+.desktop-shortcut:focus-visible {
+    outline: 2px solid var(--a11y-focus-ring, var(--menu-accent, #3daee9));
+    outline-offset: 2px;
+}
+
+.windowElement .resize-handle,
+[data-capsule-resize-handle] {
+    cursor: nwse-resize;
+    touch-action: none;
+}

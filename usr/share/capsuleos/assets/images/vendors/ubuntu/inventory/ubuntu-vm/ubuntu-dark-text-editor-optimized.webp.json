@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-text-editor.png",
+  "sourceSha256": "c199b16ddd09984ed9d0e794ff6ef30f6ca81a26bd0ac934ddb358959c7908da",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-text-editor-optimized.webp",
+  "outputSha256": "1883701b30e6c48666e16dac121cc9049f2a040ec6587675985bdbc5bc53d0ed",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:39.438Z"
+}

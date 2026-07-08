@@ -1,0 +1,745 @@
+{
+  "version": 1,
+  "toolkit": "cinnamon",
+  "scope": "default-apps",
+  "status": "skeleton",
+  "description": "Squelette catalogue composants Cinnamon (Linux Mint) — extension miroir du modèle GNOME. Apps par défaut Mint uniquement.",
+  "modelRef": "etc/capsuleos/contracts/ui-components-gnome.json",
+  "referenceRegistryId": "linux-mint",
+  "sources": {
+    "cinnamonProject": "https://projects.linuxmint.com/cinnamon/",
+    "cinnamonGithub": "https://github.com/linuxmint/Cinnamon",
+    "nemoGithub": "https://github.com/linuxmint/nemo",
+    "mintUserGuide": "https://linuxmint.com/documentation.php",
+    "capsuleParadigm": "root/docs/paradigme-toolkit-cinnamon.md",
+    "capsuleDoc": "root/docs/convention-composants-cinnamon.md"
+  },
+  "levels": {
+    "N0": {
+      "label": "Primitives design (tokens Cinnamon)",
+      "paths": [
+        "usr/share/capsuleos/themes/clusters/toolkit-cinnamon/variables.css",
+        "usr/share/capsuleos/themes/clusters/toolkit-cinnamon/chrome.css",
+        "usr/share/capsuleos/themes/linux/window-chrome.base.css"
+      ]
+    },
+    "N1": {
+      "label": "Composants plateforme documentés",
+      "contractKey": "components"
+    },
+    "N2": {
+      "label": "Compositions applicatives (slots Mint)",
+      "contractKey": "appCompositions"
+    }
+  },
+  "components": {
+    "cinnamon.muffin-window": {
+      "labelFr": "Fenêtre Muffin (SSD rail Capsule)",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/themes/clusters/toolkit-cinnamon/chrome.css"
+      ],
+      "capsuleSelectors": [
+        "#windowHeader",
+        ".windowElement[data-window-chrome-toolkit=\"cinnamon\"]"
+      ],
+      "states": [
+        "default",
+        "maximized",
+        "tiled"
+      ],
+      "acquisitionVm": [
+        "rail 3 boutons droite",
+        "titlebar drag",
+        "coins arrondis actif/inactif"
+      ]
+    },
+    "cinnamon.panel": {
+      "labelFr": "Panel Cinnamon (40px)",
+      "status": "skeleton",
+      "capsuleSelectors": [
+        ".mint-panel",
+        ".mint-panel__menu-btn",
+        ".mint-panel__window-list",
+        ".mint-panel__tray"
+      ],
+      "states": [
+        "default",
+        "menu-open",
+        "window-list-grouped"
+      ],
+      "acquisitionVm": [
+        "régions menu | fenêtres | tray",
+        "applets ordonnés VM"
+      ]
+    },
+    "cinnamon.menu-popup": {
+      "labelFr": "Menu Démarrer (grille Cinnamon)",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/mainMenu.base.css"
+      ],
+      "capsuleSelectors": [
+        "#mainMenu",
+        ".mainMenu-grid"
+      ],
+      "states": [
+        "closed",
+        "open",
+        "search-active"
+      ],
+      "acquisitionVm": [
+        "grille 600×480",
+        "catégories",
+        "champ recherche"
+      ]
+    },
+    "cinnamon.nemo-explorer": {
+      "labelFr": "Nemo (explorateur Cinnamon)",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/nemo.base.css"
+      ],
+      "capsuleSelectors": [
+        ".nemo-app",
+        ".nemo-app__context-menu"
+      ],
+      "states": [
+        "default",
+        "context-menu-item",
+        "context-menu-background"
+      ],
+      "acquisitionVm": [
+        "sidebar places",
+        "toolbar",
+        "menu contextuel dynamique 7 entrées"
+      ]
+    },
+    "cinnamon.tray-applets": {
+      "labelFr": "Zone tray + applets",
+      "status": "skeleton",
+      "capsuleSelectors": [
+        ".mint-panel__tray",
+        ".mint-tray-popover"
+      ],
+      "states": [
+        "default",
+        "popover-open"
+      ],
+      "acquisitionVm": [
+        "volume",
+        "réseau",
+        "calendrier",
+        "notifications"
+      ]
+    },
+    "cinnamon.settings-panels": {
+      "labelFr": "Paramètres système Cinnamon",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/cinnamon_settings.base.css"
+      ],
+      "states": [
+        "sidebar",
+        "panel-content"
+      ],
+      "acquisitionVm": [
+        "liste panneaux gauche",
+        "sous-panneaux mint-*"
+      ]
+    },
+    "cinnamon.xviewer-app": {
+      "labelFr": "Pix (xviewer 3.x)",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/visionneur_images_pix.base.css"
+      ],
+      "capsuleSelectors": [
+        ".xviewer-app",
+        ".xviewer-app__toolbar",
+        ".xviewer-app__viewport"
+      ],
+      "states": [
+        "empty",
+        "image-loaded",
+        "slideshow"
+      ],
+      "acquisitionVm": [
+        "menubar",
+        "toolbar zoom",
+        "zone image",
+        "barre état"
+      ]
+    },
+    "cinnamon.xreader-app": {
+      "labelFr": "Xreader (PDF 4.x)",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/visionneur_pdf_xreader.base.css"
+      ],
+      "capsuleSelectors": [
+        ".xreader-app",
+        ".xreader-app__sidebar",
+        ".xreader-app__viewport"
+      ],
+      "states": [
+        "empty",
+        "document-loaded",
+        "sidebar-open"
+      ],
+      "acquisitionVm": [
+        "miniatures",
+        "navigation pages",
+        "zoom"
+      ]
+    },
+    "cinnamon.xapp-window": {
+      "labelFr": "Fenêtre XApp (apps mint-*)",
+      "status": "skeleton",
+      "capsuleCss": [
+        "usr/share/capsuleos/themes/linux/window-chrome.base.css"
+      ],
+      "states": [
+        "default"
+      ],
+      "acquisitionVm": [
+        "headerbar XApp",
+        "boutons window classiques"
+      ]
+    }
+  },
+  "appCompositions": {
+    "nemo": {
+      "labelFr": "Nemo",
+      "vmDesktopIds": [
+        "nemo.desktop",
+        "nemo-autorun.desktop"
+      ],
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.nemo-explorer"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/nemo.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/nemo.base.css",
+      "skinCss": "nemo.skin.css",
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "toolbar",
+        "places-sidebar",
+        "context-menu"
+      ]
+    },
+    "firefox": {
+      "labelFr": "Firefox",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/firefox.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/firefox.base.css",
+      "skinCss": "firefox.skin.css",
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "tabs",
+        "url-bar"
+      ]
+    },
+    "terminal": {
+      "labelFr": "Terminal",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/terminal.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/terminal.base.css",
+      "skinCss": "terminal.skin.css",
+      "acquisitionOrder": [
+        "window-chrome",
+        "tabs"
+      ]
+    },
+    "themes": {
+      "labelFr": "Paramètres système",
+      "vmDesktopIds": [
+        "cinnamon-settings.desktop"
+      ],
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.settings-panels"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/cinnamon_settings.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/cinnamon_settings.base.css",
+      "skinCss": "cinnamon_settings.skin.css",
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "panel-list",
+        "display-panel",
+        "themes-panel"
+      ]
+    },
+    "mintinstall": {
+      "labelFr": "Gestionnaire de logiciels",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/mintinstall.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/mintinstall.base.css",
+      "skinCss": "mintinstall.skin.css",
+      "acquisitionOrder": [
+        "featured",
+        "categories",
+        "app-detail"
+      ]
+    },
+    "update_manager": {
+      "labelFr": "Gestionnaire de mises à jour",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/update_manager.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/update_manager.base.css",
+      "skinCss": "update_manager.skin.css",
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "updates-list",
+        "changelog"
+      ]
+    },
+    "visionneur_images": {
+      "labelFr": "Pix (visionneur d'images)",
+      "vmDesktopIds": [
+        "pix.desktop",
+        "xviewer.desktop"
+      ],
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xviewer-app"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/visionneur_images_pix.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/visionneur_images_pix.base.css",
+      "skinCss": "visionneur_images.skin.css",
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "toolbar",
+        "image-canvas",
+        "status-bar"
+      ]
+    },
+    "visionneur_pdf": {
+      "labelFr": "Xreader (PDF)",
+      "vmDesktopIds": [
+        "xreader.desktop"
+      ],
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xreader-app"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/visionneur_pdf_xreader.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/visionneur_pdf_xreader.base.css",
+      "skinCss": "visionneur_pdf.skin.css",
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "toolbar",
+        "sidebar",
+        "document-view"
+      ]
+    },
+    "mainMenu": {
+      "labelFr": "Menu Démarrer (shell)",
+      "planned": true,
+      "shellSurface": true,
+      "components": [
+        "cinnamon.menu-popup"
+      ],
+      "baseCss": "usr/share/capsuleos/linux/apps/style/mainMenu.base.css",
+      "skinCss": "mainMenu.skin.css",
+      "acquisitionOrder": [
+        "grid",
+        "favorites",
+        "search"
+      ]
+    },
+    "text_editor": {
+      "labelFr": "Éditeur de texte",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "toolbar",
+        "editor-pane"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/text_editor.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/text_editor.base.css",
+      "skinCss": "text_editor.skin.css"
+    },
+    "calculator": {
+      "labelFr": "Calculatrice",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "display",
+        "keypad"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/calculator.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/calculator.base.css",
+      "skinCss": "calculator.skin.css"
+    },
+    "calendar": {
+      "labelFr": "Agenda",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "month-grid",
+        "sidebar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/calendar.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/calendar.base.css",
+      "skinCss": "calendar.skin.css"
+    },
+    "file_roller": {
+      "labelFr": "Gestionnaire d'archives",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "toolbar",
+        "archive-list"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/file_roller.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/file_roller.base.css",
+      "skinCss": "file_roller.skin.css"
+    },
+    "libreoffice_startcenter": {
+      "labelFr": "LibreOffice",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "startcenter-tiles"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/libreoffice_startcenter.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/libreoffice_startcenter.base.css",
+      "skinCss": "libreoffice_startcenter.skin.css"
+    },
+    "librewriter": {
+      "labelFr": "LibreOffice Writer",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "menubar",
+        "document-canvas"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/librewriter.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/librewriter.base.css",
+      "skinCss": "librewriter.skin.css"
+    },
+    "librecalc": {
+      "labelFr": "LibreOffice Calc",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "menubar",
+        "spreadsheet-grid"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/librecalc.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/librecalc.base.css",
+      "skinCss": "librecalc.skin.css"
+    },
+    "libreoffice_impress": {
+      "labelFr": "LibreOffice Impress",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "menubar",
+        "slide-canvas"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/libreoffice_impress.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/libreoffice_impress.base.css",
+      "skinCss": "libreoffice_impress.skin.css"
+    },
+    "libreoffice_draw": {
+      "labelFr": "LibreOffice Draw",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "menubar",
+        "draw-canvas"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/libreoffice_draw.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/libreoffice_draw.base.css",
+      "skinCss": "libreoffice_draw.skin.css"
+    },
+    "lecteur_multimedia": {
+      "labelFr": "Lecteur vidéos",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "transport",
+        "video-surface"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/lecteur_multimedia.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/lecteur_multimedia.base.css",
+      "skinCss": "lecteur_multimedia.skin.css"
+    },
+    "system_monitor": {
+      "labelFr": "Moniteur système",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "process-list",
+        "resource-graphs"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/system_monitor.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/system_monitor.base.css",
+      "skinCss": "system_monitor.skin.css"
+    },
+    "thunderbird": {
+      "labelFr": "Thunderbird",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/thunderbird.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/thunderbird.base.css",
+      "skinCss": "thunderbird.skin.css"
+    },
+    "transmission": {
+      "labelFr": "Transmission",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/transmission.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/transmission.base.css",
+      "skinCss": "transmission.skin.css"
+    },
+    "rhythmbox": {
+      "labelFr": "Rhythmbox",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "library",
+        "now-playing"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/rhythmbox.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/rhythmbox.base.css",
+      "skinCss": "rhythmbox.skin.css"
+    },
+    "drawing": {
+      "labelFr": "Drawing",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/drawing.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/drawing.base.css",
+      "skinCss": "drawing.skin.css"
+    },
+    "simple_scan": {
+      "labelFr": "Numériseur simple",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/simple_scan.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/simple_scan.base.css",
+      "skinCss": "simple_scan.skin.css"
+    },
+    "warpinator": {
+      "labelFr": "Warpinator",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "peer-list",
+        "transfer-queue"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/warpinator.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/warpinator.base.css",
+      "skinCss": "warpinator.skin.css"
+    },
+    "timeshift": {
+      "labelFr": "Timeshift",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "snapshots",
+        "restore-actions"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/timeshift.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/timeshift.base.css",
+      "skinCss": "timeshift.skin.css"
+    },
+    "mintdrivers": {
+      "labelFr": "Gestionnaire de pilotes",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "driver-list",
+        "actions"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/mintdrivers.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/mintdrivers.base.css",
+      "skinCss": "mintdrivers.skin.css"
+    },
+    "mintwelcome": {
+      "labelFr": "Bienvenue Linux Mint",
+      "planned": true,
+      "components": [
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "welcome-slides"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/mintwelcome.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/mintwelcome.base.css",
+      "skinCss": "mintwelcome.skin.css"
+    },
+    "screenshot": {
+      "labelFr": "Capture d'écran",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/screenshot.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/screenshot.base.css",
+      "skinCss": "screenshot.skin.css"
+    },
+    "profile": {
+      "labelFr": "À propos",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/profile.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/profile.base.css",
+      "skinCss": "profile.skin.css"
+    },
+    "checklist": {
+      "labelFr": "Missions CapsuleOS",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "window-chrome",
+        "main-content"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/checklist.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/checklist.base.css",
+      "skinCss": "checklist.skin.css"
+    },
+    "baobab": {
+      "labelFr": "Analyseur d'espace disque",
+      "planned": true,
+      "components": [
+        "cinnamon.muffin-window",
+        "cinnamon.xapp-window"
+      ],
+      "chromeProvider": "cinnamon",
+      "acquisitionOrder": [
+        "volume-list",
+        "treemap",
+        "scan-progress"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/baobab.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/baobab.base.css",
+      "skinCss": "baobab.skin.css"
+    }
+  },
+  "distroExtension": {
+    "description": "Compléter slotSpecs dans apps-catalog.json toolkits.cinnamon lors de la sortie du statut skeleton.",
+    "futureValidator": "validate-ui-components-cinnamon.mjs"
+  }
+}

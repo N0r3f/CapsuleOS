@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/mint/panel/mintupdate.webp",
+  "outputSha256": "119dd8c79e48b2f35f54a461c2be328363d8f1197a6aaad49f23c5cd09634741",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.735Z",
+  "note": "repair-manifest"
+}

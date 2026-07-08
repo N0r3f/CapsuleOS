@@ -1,0 +1,213 @@
+{
+  "matrixVersion": 1,
+  "generatedAt": "2026-06-19T13:49:34.224Z",
+  "source": "gnome-settings-parity-matrix.json",
+  "bindingCount": 33,
+  "bindings": {
+    "mint-theme": {
+      "controlId": "theme",
+      "schema": "org.gnome.desktop.interface",
+      "key": "color-scheme",
+      "map": "colorScheme"
+    },
+    "gnome-accent": {
+      "controlId": "accent",
+      "schema": "org.gnome.desktop.interface",
+      "key": "accent-color",
+      "map": "accentColor"
+    },
+    "gnome-wallpaper": {
+      "controlId": "wallpaper",
+      "schema": "org.gnome.desktop.background",
+      "key": "picture-uri",
+      "map": "wallpaperUri"
+    },
+    "gnome-notifications-enabled": {
+      "controlId": "notifications",
+      "schema": "org.gnome.desktop.notifications",
+      "key": "show-banners",
+      "map": "boolOnOff"
+    },
+    "gnome-lock-notifications": {
+      "controlId": "lock-notifications",
+      "schema": "org.gnome.desktop.notifications",
+      "key": "show-in-lock-screen",
+      "map": "boolOnOff"
+    },
+    "gnome-dnd-enabled": {
+      "controlId": "dnd",
+      "schema": "org.capsuleos.gnome.shell",
+      "key": "dnd-enabled",
+      "map": "boolOnOff",
+      "simulated": true
+    },
+    "gnome-search-history": {
+      "controlId": "search-history",
+      "schema": "org.gnome.desktop.search-providers",
+      "key": "disabled",
+      "map": "searchProviderToggle",
+      "providerId": "org.gnome.History"
+    },
+    "gnome-search-files": {
+      "controlId": "search-files",
+      "schema": "org.gnome.desktop.search-providers",
+      "key": "disabled",
+      "map": "searchProviderToggle",
+      "providerId": "org.gnome.Nautilus"
+    },
+    "gnome-search-calculator": {
+      "controlId": "search-calculator",
+      "schema": "org.gnome.desktop.search-providers",
+      "key": "disabled",
+      "map": "searchProviderToggle",
+      "providerId": "org.gnome.Calculator"
+    },
+    "gnome-dynamic-workspaces": {
+      "controlId": "dynamic-workspaces",
+      "schema": "org.gnome.mutter",
+      "key": "dynamic-workspaces",
+      "map": "enabledLabelFr"
+    },
+    "gnome-hot-corner": {
+      "controlId": "hot-corner",
+      "schema": "org.gnome.desktop.interface",
+      "key": "enable-hot-corners",
+      "map": "enabledLabelFr"
+    },
+    "gnome-apps-all-workspaces": {
+      "controlId": "apps-all-workspaces",
+      "schema": "org.gnome.shell.app-switcher",
+      "key": "current-workspace-only",
+      "map": "workspaceOnlyInverted"
+    },
+    "gnome-sound-alert": {
+      "controlId": "sound-alert",
+      "schema": "org.gnome.desktop.sound",
+      "key": "theme-name",
+      "map": "soundTheme"
+    },
+    "gnome-power-mode": {
+      "controlId": "power-mode",
+      "schema": "org.capsuleos.gnome.power",
+      "key": "active-profile",
+      "map": "powerProfile",
+      "simulated": true
+    },
+    "gnome-power-dim-screen": {
+      "controlId": "power-dim",
+      "schema": "org.gnome.settings-daemon.plugins.power",
+      "key": "sleep-inactive-ac-timeout",
+      "map": "powerDimTimeout"
+    },
+    "gnome-power-sleep": {
+      "controlId": "power-sleep",
+      "schema": "org.gnome.settings-daemon.plugins.power",
+      "key": "sleep-inactive-ac-type",
+      "map": "powerSleepType"
+    },
+    "gnome-display-scale": {
+      "controlId": "display-scale",
+      "schema": "org.gnome.desktop.interface",
+      "key": "text-scaling-factor",
+      "map": "textScalingPercent"
+    },
+    "gnome-night-light": {
+      "controlId": "night-light",
+      "schema": "org.gnome.settings-daemon.plugins.color",
+      "key": "night-light-enabled",
+      "map": "boolOnOff"
+    },
+    "gnome-mouse-handedness": {
+      "controlId": "mouse-handedness",
+      "schema": "org.gnome.desktop.peripherals.mouse",
+      "key": "left-handed",
+      "map": "mouseHandedness"
+    },
+    "gnome-pointer-speed": {
+      "controlId": "pointer-speed",
+      "schema": "org.gnome.desktop.peripherals.mouse",
+      "key": "speed",
+      "map": "pointerSpeedPercent"
+    },
+    "gnome-touchpad-enabled": {
+      "controlId": "touchpad",
+      "schema": "org.gnome.desktop.peripherals.touchpad",
+      "key": "send-events",
+      "map": "touchpadEnabled"
+    },
+    "gnome-tap-to-click": {
+      "controlId": "tap-to-click",
+      "schema": "org.gnome.desktop.peripherals.touchpad",
+      "key": "tap-to-click",
+      "map": "boolOnOff"
+    },
+    "gnome-scroll-direction": {
+      "controlId": "scroll-direction",
+      "schema": "org.gnome.desktop.peripherals.touchpad",
+      "key": "natural-scroll",
+      "map": "scrollDirection"
+    },
+    "gnome-keyboard-layout": {
+      "controlId": "keyboard-layout",
+      "schema": "org.gnome.desktop.input-sources",
+      "key": "sources",
+      "map": "keyboardLayoutFr"
+    },
+    "gnome-keyboard-repeat-delay": {
+      "controlId": "keyboard-repeat",
+      "schema": "org.gnome.desktop.peripherals.keyboard",
+      "key": "delay",
+      "map": "keyboardDelayMs"
+    },
+    "mint-contrast-mode": {
+      "controlId": "contrast",
+      "schema": "org.gnome.desktop.interface",
+      "key": "gtk-theme",
+      "map": "gtkHighContrast"
+    },
+    "mint-font-scale": {
+      "controlId": "font-scale",
+      "schema": "org.gnome.desktop.interface",
+      "key": "text-scaling-factor",
+      "map": "fontScalePercent"
+    },
+    "gnome-privacy-camera": {
+      "controlId": "camera",
+      "schema": "org.gnome.desktop.privacy",
+      "key": "disable-camera",
+      "map": "privacyInverted"
+    },
+    "gnome-privacy-microphone": {
+      "controlId": "microphone",
+      "schema": "org.gnome.desktop.privacy",
+      "key": "disable-microphone",
+      "map": "privacyInverted"
+    },
+    "gnome-auto-lock": {
+      "controlId": "auto-lock",
+      "schema": "org.gnome.desktop.screensaver",
+      "key": "lock-enabled",
+      "map": "boolOnOff"
+    },
+    "gnome-lock-delay": {
+      "controlId": "lock-delay",
+      "schema": "org.gnome.desktop.screensaver",
+      "key": "lock-delay",
+      "map": "lockDelayFr"
+    },
+    "gnome-theme": {
+      "controlId": "theme",
+      "schema": "org.gnome.desktop.interface",
+      "key": "color-scheme",
+      "map": "colorScheme",
+      "derivedFrom": "mint-theme"
+    },
+    "gnome-event-sounds": {
+      "controlId": "event-sounds",
+      "schema": "org.gnome.desktop.sound",
+      "key": "event-sounds",
+      "map": "boolOnOff",
+      "derived": true
+    }
+  }
+}

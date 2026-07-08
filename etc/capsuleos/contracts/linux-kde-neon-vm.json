@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "registryId": "linux-kde-neon",
+  "displayName": "KDE neon User Edition",
+  "lab": {
+    "ssh": "<lab-inventory:linux-kde-neon>",
+    "sshFallback": "<lab-inventory:linux-kde-neon>",
+    "sshIdentity": "~/.ssh/capsuleos-lab",
+    "sessionType": "wayland",
+    "display": ":1",
+    "capsuleUrl": "http://127.0.0.1:5500/home/Debian/KDE-Neon/index.html",
+    "probeScript": "bash root/tools/lab/vm-kde-neon-inventory.sh",
+    "virshName": "KDE-Neon",
+    "inventoryDoc": "root/docs/inventaires/linux-kde-neon-vm.json"
+  },
+  "storeFront": {
+    "slot": "update_manager",
+    "appId": "org.kde.discover",
+    "labelFr": "Discover",
+    "sources": ["apt", "flatpak"]
+  },
+  "notes": "VM lab Discover — plasma-discover, flatpak Flathub. Inventaire : bash root/tools/lab/vm-kde-neon-inventory.sh"
+}

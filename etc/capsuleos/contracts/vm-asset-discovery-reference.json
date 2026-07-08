@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "description": "Référentiel découverte assets VM — sources officielles et chemins. Doc : root/docs/referentiel-assets-vm-officiels.md",
+  "mediaCatalog": "etc/capsuleos/contracts/vm-manifest-media-catalog.json",
+  "manifestContract": "etc/capsuleos/contracts/vm-distribution-manifest.json",
+  "collector": "root/tools/lab/vm-distribution-manifest.py",
+  "officialSpecs": [
+    {
+      "id": "icon-theme",
+      "label": "Freedesktop Icon Theme",
+      "url": "https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html"
+    },
+    {
+      "id": "basedir",
+      "label": "XDG Base Directory",
+      "url": "https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html"
+    },
+    {
+      "id": "desktop-entry",
+      "label": "Desktop Entry",
+      "url": "https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html"
+    },
+    {
+      "id": "shared-mime",
+      "label": "Shared MIME-Info",
+      "url": "https://specifications.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html"
+    },
+    {
+      "id": "fontconfig",
+      "label": "fontconfig",
+      "url": "https://www.freedesktop.org/wiki/Software/fontconfig/"
+    },
+    {
+      "id": "gnome-hig",
+      "label": "GNOME HIG",
+      "url": "https://developer.gnome.org/hig/"
+    },
+    {
+      "id": "cinnamon",
+      "label": "Cinnamon (Linux Mint)",
+      "url": "https://projects.linuxmint.com/cinnamon/"
+    },
+    {
+      "id": "mint-artwork",
+      "label": "linuxmint-artwork",
+      "url": "https://github.com/linuxmint/linuxmint-artwork"
+    },
+    {
+      "id": "kde-hig",
+      "label": "KDE HIG",
+      "url": "https://develop.kde.org/hig/"
+    },
+    {
+      "id": "yaru",
+      "label": "Ubuntu Yaru",
+      "url": "https://github.com/CanonicalLtd/yaru"
+    }
+  ],
+  "iconBases": [
+    "$HOME/.icons",
+    "$XDG_DATA_DIRS/icons",
+    "/usr/share/icons",
+    "/usr/share/pixmaps"
+  ],
+  "iconContexts": [
+    "apps",
+    "mimetypes",
+    "places",
+    "emblems",
+    "categories",
+    "devices",
+    "status",
+    "symbolic/actions",
+    "symbolic/places",
+    "symbolic/status"
+  ],
+  "sections": [
+    {
+      "id": "appIcons",
+      "required": true,
+      "discovery": [
+        "applications.gridVisible[].icon",
+        "resolve_icon_paths() with active icon-theme"
+      ],
+      "vmPaths": [
+        "/usr/share/icons/<theme>/{scalable,48x48}/apps/",
+        "/snap/*/current/meta/gui/*.png",
+        "absolute Icon= in .desktop"
+      ],
+      "capsuleZone": "usr/share/capsuleos/assets/images/toolkits/"
+    },
+    {
+      "id": "panel",
+      "required": true,
+      "discovery": ["mediaCatalog.panel[]", "active icon-theme"],
+      "vmPaths": ["/usr/share/icons/<theme>/*/apps/"],
+      "capsuleZone": "usr/share/capsuleos/assets/images/vendors/{vendor}/panel/"
+    },
+    {
+      "id": "places",
+      "required": true,
+      "discovery": ["mediaCatalog.places[]"],
+      "vmPaths": ["/usr/share/icons/<theme>/scalable/places/"],
+      "capsuleZone": "usr/share/capsuleos/assets/icons/"
+    },
+    {
+      "id": "mimetypes",
+      "required": true,
+      "discovery": ["mediaCatalog.mimetypes[]"],
+      "vmPaths": ["/usr/share/icons/<theme>/scalable/mimetypes/"],
+      "capsuleZone": "usr/share/capsuleos/assets/icons/"
+    },
+    {
+      "id": "symbolic",
+      "required": true,
+      "discovery": ["mediaCatalog.symbolic.{actions,places,status}"],
+      "vmPaths": ["/usr/share/icons/<theme>/symbolic/"],
+      "capsuleZone": "usr/share/capsuleos/assets/icons/"
+    },
+    {
+      "id": "emblems",
+      "required": false,
+      "discovery": ["mediaCatalog.emblems[] (vendor)"],
+      "vmPaths": ["/usr/share/icons/<theme>/scalable/emblems/"],
+      "capsuleZone": "usr/share/capsuleos/assets/icons/"
+    },
+    {
+      "id": "wallpapers",
+      "required": true,
+      "discovery": [
+        "gsettings picture-uri (toolkit-specific)",
+        "mediaCatalog.wallpaperCandidates[]",
+        "find /usr/share/backgrounds"
+      ],
+      "vmPaths": [
+        "/usr/share/backgrounds/",
+        "/usr/share/backgrounds/linuxmint/",
+        "/usr/share/backgrounds/gnome/",
+        "/usr/share/wallpapers/"
+      ],
+      "capsuleZone": "usr/share/capsuleos/assets/images/vendors/{vendor}/wallpaper/"
+    },
+    {
+      "id": "fonts",
+      "required": true,
+      "discovery": [
+        "mediaCatalog.fonts[].vmCandidates",
+        "gsettings font-name / monospace-font-name",
+        "fc-list"
+      ],
+      "vmPaths": ["/usr/share/fonts/"],
+      "capsuleZone": "usr/share/capsuleos/assets/fonts/vendors/{vendor}/"
+    },
+    {
+      "id": "branding",
+      "required": true,
+      "discovery": ["mediaCatalog.branding.vmCandidates"],
+      "vmPaths": [
+        "/usr/share/icons/hicolor/scalable/apps/",
+        "/usr/share/pixmaps/",
+        "/usr/share/linuxmint/",
+        "/usr/share/*-logos/"
+      ],
+      "capsuleZone": "usr/share/capsuleos/assets/images/vendors/{vendor}/"
+    }
+  ],
+  "toolkits": {
+    "cinnamon": {
+      "gsettings": {
+        "iconTheme": "org.cinnamon.desktop.interface icon-theme",
+        "gtkTheme": "org.cinnamon.desktop.interface gtk-theme",
+        "wallpaper": "org.cinnamon.desktop.background picture-uri",
+        "fontUi": "org.cinnamon.desktop.interface font-name",
+        "fontMono": "org.cinnamon.desktop.interface monospace-font-name",
+        "favorites": "org.cinnamon favorite-apps"
+      },
+      "defaultIconThemes": ["Mint-Y", "Mint-X", "hicolor"],
+      "wallpaperDirs": ["/usr/share/backgrounds/linuxmint", "/usr/share/backgrounds"]
+    },
+    "gnome": {
+      "gsettings": {
+        "iconTheme": "org.gnome.desktop.interface icon-theme",
+        "gtkTheme": "org.gnome.desktop.interface gtk-theme",
+        "wallpaper": "org.gnome.desktop.background picture-uri",
+        "fontUi": "org.gnome.desktop.interface font-name",
+        "fontMono": "org.gnome.desktop.interface monospace-font-name",
+        "favorites": "org.gnome.shell favorite-apps"
+      },
+      "defaultIconThemes": ["Adwaita", "Yaru", "hicolor"],
+      "wallpaperDirs": ["/usr/share/backgrounds/gnome", "/usr/share/backgrounds"]
+    },
+    "kde": {
+      "config": {
+        "iconTheme": "kreadconfig6 --file kdeglobals --group Icons --key Theme"
+      },
+      "defaultIconThemes": ["breeze", "breeze-dark", "hicolor"],
+      "wallpaperDirs": ["/usr/share/wallpapers", "/usr/share/backgrounds"]
+    }
+  },
+  "vendors": {
+    "mint": {
+      "extendsToolkit": "cinnamon",
+      "brandingPaths": [
+        "/usr/share/icons/hicolor/scalable/apps/mint-logo.svg",
+        "/usr/share/linuxmint/logo.png"
+      ],
+      "wallpaperPaths": ["/usr/share/backgrounds/linuxmint/"],
+      "fontPaths": [
+        "/usr/share/fonts/truetype/ubuntu/",
+        "/usr/share/fonts/truetype/dejavu/"
+      ],
+      "docs": ["https://github.com/linuxmint/linuxmint-artwork"]
+    },
+    "ubuntu": {
+      "extendsToolkit": "gnome",
+      "iconPack": "Yaru",
+      "wallpaperPaths": [
+        "/usr/share/backgrounds/gnome/adwaita-d.jxl",
+        "/usr/share/backgrounds/ubuntu-wallpaper-d.png"
+      ],
+      "docs": ["https://github.com/CanonicalLtd/yaru"]
+    },
+    "rocky": {
+      "extendsToolkit": "gnome",
+      "fontPaths": ["/usr/share/fonts/redhat-vf/"],
+      "brandingPaths": ["/usr/share/rocky-logos/", "/usr/share/fedora-logos/"]
+    },
+    "fedora": {
+      "extendsToolkit": "gnome",
+      "wallpaperPaths": ["/usr/share/backgrounds/f44/"]
+    },
+    "opensuse": {
+      "extendsToolkit": "kde",
+      "brandingPaths": ["/usr/share/icons/hicolor/scalable/apps/YaST-icon.svg"]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<main id="visionneurPdf" class="xreader-app" aria-label="Visionneur de documents">
+
+    <nav class="xreader-app__menubar" aria-label="Menu">
+        <button type="button" class="xreader-app__menu">Fichier</button>
+        <button type="button" class="xreader-app__menu">Édition</button>
+        <button type="button" class="xreader-app__menu">Affichage</button>
+        <button type="button" class="xreader-app__menu">Aide</button>
+    </nav>
+
+    <div class="xreader-app__toolbar" aria-label="Outils">
+        <button type="button" class="xreader-app__tool xreader-app__tool--sidebar" data-xr-action="sidebar" title="Miniatures" aria-label="Miniatures" aria-pressed="false"></button>
+        <span class="xreader-app__sep" role="separator"></span>
+        <button type="button" class="xreader-app__tool xreader-app__tool--prev" data-xr-action="prev" title="Page précédente" aria-label="Page précédente" disabled></button>
+        <span class="xreader-app__page" id="xreader-page">Page 0 sur 0</span>
+        <button type="button" class="xreader-app__tool xreader-app__tool--next" data-xr-action="next" title="Page suivante" aria-label="Page suivante" disabled></button>
+        <span class="xreader-app__sep" role="separator"></span>
+        <button type="button" class="xreader-app__tool xreader-app__tool--zoom-out" data-xr-action="zoom-out" title="Zoom arrière" aria-label="Zoom arrière"></button>
+        <button type="button" class="xreader-app__tool xreader-app__tool--zoom-fit" data-xr-action="zoom-fit" title="Ajuster à la largeur" aria-label="Ajuster à la largeur"></button>
+        <button type="button" class="xreader-app__tool xreader-app__tool--zoom-in" data-xr-action="zoom-in" title="Zoom avant" aria-label="Zoom avant"></button>
+    </div>
+
+    <div class="xreader-app__body">
+        <aside class="xreader-app__sidebar" id="xreader-sidebar" hidden aria-label="Miniatures">
+            <p class="xreader-app__sidebar-hint">Aucun document</p>
+        </aside>
+        <section class="xreader-app__viewport" id="mint-pdf-viewer-content" aria-label="Document">
+            <p class="xreader-app__empty">Ouvrez un fichier PDF depuis Nemo pour l'afficher ici.</p>
+        </section>
+    </div>
+
+    <footer class="xreader-app__status" aria-label="État">
+        <span class="xreader-app__status-zoom" id="xreader-zoom">100 %</span>
+        <span class="xreader-app__status-name" id="mint-pdf-viewer-filename">Aucun document sélectionné</span>
+    </footer>
+
+</main>

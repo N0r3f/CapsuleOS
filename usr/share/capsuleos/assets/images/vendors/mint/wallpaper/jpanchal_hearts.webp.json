@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_hearts.jpg",
+  "sourceSha256": "de195d4462f1189ca666f09487cdf29bca18f79dd44bb06eda19b060d9428f78",
+  "output": "images/vendors/mint/wallpaper/jpanchal_hearts.webp",
+  "outputSha256": "32d281553bfde312b26fa63991b587ff5b9f6541630905bebe77ee0904c46431",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:41:59.645Z"
+}

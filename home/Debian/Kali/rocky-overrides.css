@@ -1,0 +1,21 @@
+/**
+ * Surcharges Rocky Linux — dernier lien CSS du skin.
+ * Shell GNOME partagé avec Fedora (classes fedora-*, tokens html:has(#kali)).
+ * Fichiers : Nautilus sur la VM, slot gabarit nemo dans CapsuleOS (voir linux-gnome-capsule-slots.md).
+ * Thèmes : sombre = défaut ; clair = html[data-theme="light"]:has(#kali).
+ * Accent VM : blue (#3584e4).
+ */
+html:has(#kali) {
+    --menu-accent: #3584e4;
+    --font-ui: "Red Hat Text", "Cantarell", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Red Hat Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+    --fedora-bg: url("../../../usr/share/capsuleos/assets/images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-night.webp");
+}
+
+html[data-theme="light"]:has(#kali) {
+    --fedora-bg: url("../../../usr/share/capsuleos/assets/images/vendors/rocky/wallpaper/rocky-default-10-gemstone-skies-day.webp");
+}
+
+html[data-theme="light"]:has(#kali) {
+    --menu-accent: #3584e4;
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/linuxmint.jpg",
+  "sourceSha256": "dcd595df0e05b2cd601fe5731be2f95594d47f318d3e5200693e1bb516652684",
+  "output": "images/vendors/mint/wallpaper/linuxmint.webp",
+  "outputSha256": "6cd7f09af5917c0a8f996ede004a3edd2fd06f15cc79b77a6693ecbd22310323",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:19.210Z"
+}

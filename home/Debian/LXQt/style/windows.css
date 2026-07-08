@@ -1,0 +1,71 @@
+@import url(../../../SUSE/openSUSE/style/windows.css?v=20260514a);
+
+/* Les règles openSUSE sont scoppées sur body#opensuse : on les duplique pour Debian KDE. */
+body#lxqt div.windowElement:not([data-link="nemo"]):not(#mainMenu) #windowHeader {
+    height: var(--lxqt-konsole-header-height);
+    min-height: var(--lxqt-konsole-header-height);
+}
+
+body#lxqt div.windowElement:not([data-link="nemo"]):not(#mainMenu) #windowIframe {
+    height: calc(100% - var(--lxqt-konsole-header-height));
+    min-height: calc(100% - var(--lxqt-konsole-header-height));
+}
+
+html[data-theme="light"] #lxqt #windowTitle {
+    color: var(--lxqt-window-titlebar-fg);
+    filter: none;
+    text-shadow: none;
+}
+
+/* Assure que les icônes des boutons existent aussi en file:// (CSS url ne passe pas par resolveCapsuleResourceUrl) */
+body#lxqt #minimizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/minimize.svg);
+}
+
+body#lxqt #resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/maximize.svg);
+    background-size: calc(var(--head) / 2.55);
+}
+
+body#lxqt .windowElement[data-maximized="true"] #resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/restore.svg);
+    background-size: calc(var(--head) / 2.55);
+}
+
+body#lxqt #closeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/close.svg);
+}
+
+/* Boutons réduire / plein écran / fermer visibles en thème clair */
+html[data-theme="light"] #lxqt #windowHeader > nav > button {
+    filter: invert(1) brightness(0.2) saturate(0);
+}
+
+html[data-theme="light"] #lxqt #windowHeader > nav > button:hover {
+    border-color: rgba(81, 118, 167, 0.55);
+    background-color: rgba(80, 123, 183, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+}
+
+html[data-theme="light"] #lxqt #closeBtn {
+    border-color: rgba(180, 79, 92, 0.18);
+    background-color: rgba(209, 88, 103, 0.11);
+}
+
+html[data-theme="light"] #lxqt #closeBtn:hover {
+    border-color: rgba(176, 67, 82, 0.46);
+    background-color: rgba(216, 78, 95, 0.22);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46);
+}
+
+/* Thème sombre: icônes claires, texte clair */
+html:not([data-theme="light"]) #lxqt #windowTitle {
+    color: rgba(255, 255, 255, 0.92);
+    filter: none;
+    text-shadow: none;
+}
+
+html:not([data-theme="light"]) #lxqt #windowHeader > nav > button {
+    filter: none;
+}
+

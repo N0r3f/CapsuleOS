@@ -1,0 +1,6 @@
+/** elementary — Rhythmbox (slot store P1, decorative). */
+body#elementary main#rhythmboxApp {
+    --rb-bg: #242424;
+    --rb-text: #ffffff;
+    --rb-border: rgba(255, 255, 255, 0.08);
+}

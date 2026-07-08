@@ -1,0 +1,98 @@
+@import url(./imports.css);
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto-Regular';
+}
+
+#android {
+	width: var(--max-w);
+	height: var(--max-h);
+	display: var(--f);
+	flex-flow: var(--cnw);
+	justify-content: var(--sb);
+	align-items: var(--c);
+	background-image: var(--android);
+	background-size: var(--scov);
+}
+
+header {
+	width: var(--full);
+	height: calc(var(--head) / 4 * 3);
+	display: var(--f);
+	justify-content: var(--sb);
+	padding: calc(var(--head) / 8) calc(var(--head) / 4);
+	align-items: var(--c);
+	color: var(--nemofoot);
+	z-index: 50001;
+	font-weight: var(--wb);
+}
+
+.informations {
+	display: var(--f);
+	justify-content: var(--c);
+	align-items: var(--c);
+	gap: calc(var(--head) / 8);
+}
+
+main {
+	width: var(--max-w);
+	height: calc(var(--max-h) - calc(var(--head) * 1.75));
+}
+
+footer {
+	width: var(--full);
+	height: var(--a);
+	display: var(--f);
+	flex-flow: var(--cnw);
+	justify-content: var(--sb);
+	align-items: var(--c);
+	gap: calc(var(--head) + calc(var(--head) / 4));
+	z-index: 1;
+}
+
+#shortcut {
+	width: var(--full);
+	height: var(--a);
+	display: var(--f);
+	flex-flow: var(--rnw);
+	justify-content: var(--se);
+	align-items: var(--c);
+}
+header img{
+	height: calc(var(--head) / 6 * 3);
+	width: calc(var(--head) / 6 * 3);
+}
+
+.icon {
+	width: calc(var(--head) * 1.2);
+	object-fit: var(--scov);
+	border-radius: calc(var(--head) / 3);
+}
+
+#navigation {
+	width: var(--full);
+	height: calc(var(--head) * 1.75);
+	display: var(--f);
+	justify-content: var(--c);
+	align-items: var(--c);
+}
+
+#navigation ul {
+	width: var(--full);
+	height: var(--full);
+	display: var(--f);
+	justify-content: var(--se);
+	align-items: var(--c);
+	list-style: var(--n);
+}
+
+#navigation ul li {
+	width: var(--a);
+	height: var(--a);
+	display: var(--f);
+	justify-content: var(--c);
+	align-items: var(--c);
+	cursor: var(--p);
+}

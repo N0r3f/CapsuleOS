@@ -1,0 +1,851 @@
+{
+  "views": {
+    "home": {
+      "title": "Page d'accueil — Discover",
+      "heading": "Page d'accueil",
+      "searchPlaceholder": "Rechercher…"
+    },
+    "installed": {
+      "title": "Installé(s) — Discover",
+      "heading": "Installé(s)",
+      "searchPlaceholder": "Rechercher dans « Installé(s) »…",
+      "titleSuffix": " — Discover"
+    },
+    "updates": {
+      "title": "Mises à jour — Discover",
+      "heading": "Mises à jour",
+      "searchPlaceholder": "Rechercher dans « Mises à jour »…"
+    },
+    "config": {
+      "title": "Configuration — Discover",
+      "heading": "Configuration",
+      "searchPlaceholder": "Rechercher…"
+    },
+    "about": {
+      "title": "À propos — Discover",
+      "heading": "À propos",
+      "searchPlaceholder": "Rechercher…"
+    }
+  },
+  "homeSections": [
+    {
+      "id": "popular",
+      "title": "Les plus populaires",
+      "apps": [
+        {
+          "id": "vlc",
+          "name": "VLC",
+          "desc": "VLC media player, the open-source multimedia player",
+          "icon": "vlc.png"
+        },
+        {
+          "id": "gimp",
+          "name": "Éditeur d'image GIMP",
+          "desc": "Créer des images et modifier des photographies",
+          "icon": "gimp.png"
+        },
+        {
+          "id": "wine",
+          "name": "Wine",
+          "desc": "Run Windows applications on Linux, BSD, Solaris and Mac OS X",
+          "icon": "wine.png"
+        },
+        {
+          "id": "steam",
+          "name": "Steam (installer)",
+          "desc": "Launcher for the Steam software distribution service",
+          "icon": "steam.png"
+        },
+        {
+          "id": "kdenlive",
+          "name": "Kdenlive",
+          "desc": "Éditeur vidéo non linéaire par KDE",
+          "icon": "kdenlive.png"
+        }
+      ]
+    },
+    {
+      "id": "editor-pick",
+      "title": "Sélection de l'éditeur",
+      "apps": [
+        {
+          "id": "kolourpaint",
+          "name": "KolourPaint",
+          "desc": "Logiciel de dessin",
+          "icon": "kolourpaint.png"
+        },
+        {
+          "id": "kate",
+          "name": "Kate",
+          "desc": "Éditeur de texte avancé",
+          "icon": "kate.png"
+        },
+        {
+          "id": "krita",
+          "name": "Krita",
+          "desc": "Peinture numérique, liberté créatrice",
+          "icon": "krita.png"
+        },
+        {
+          "id": "kpat",
+          "name": "KPatience",
+          "desc": "Jeu de solitaire",
+          "icon": "kpat.svg"
+        }
+      ]
+    }
+  ],
+  "installedMeta": {
+    "totalCount": 119,
+    "sortLabel": "Nom",
+    "source": "VM plasma-discover 6.6.5 — capture 2026-06-11"
+  },
+  "installed": [
+    {
+      "id": "ark",
+      "name": "Ark",
+      "desc": "Outil d'archivage",
+      "icon": "ark.png",
+      "sizeKb": 7471
+    },
+    {
+      "id": "discover",
+      "name": "Discover",
+      "desc": "Installer et supprimer des applications et modules",
+      "icon": "discover-installed.png",
+      "sizeKb": 10201
+    },
+    {
+      "id": "dolphin",
+      "name": "Dolphin",
+      "desc": "Gérer vos fichiers",
+      "icon": "dolphin.svg",
+      "sizeKb": 20047
+    },
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "desc": "Navigateur rapide et privé",
+      "icon": "../panel/firefox.png",
+      "iconBase": "panel",
+      "sizeKb": 310072
+    },
+    {
+      "id": "gwenview",
+      "name": "Gwenview",
+      "desc": "Visionneuse d'images simple",
+      "icon": "gwenview.png",
+      "sizeKb": 14655
+    },
+    {
+      "id": "khelpcenter",
+      "name": "Centre d'aide",
+      "desc": "Parcourir et rechercher de la documentation",
+      "icon": "khelpcenter.svg",
+      "sizeKb": 9887
+    },
+    {
+      "id": "kdeconnect",
+      "name": "KDE Connect",
+      "desc": "Faire de tous vos appareils un seul",
+      "icon": "kdeconnect.svg",
+      "sizeKb": 15489
+    },
+    {
+      "id": "kate",
+      "name": "Kate",
+      "desc": "Éditeur de texte avancé",
+      "icon": "kate-installed.png",
+      "sizeKb": 20059
+    },
+    {
+      "id": "konsole",
+      "name": "Konsole",
+      "desc": "Accès en ligne de commande",
+      "icon": "konsole.svg",
+      "sizeKb": 8203
+    },
+    {
+      "id": "okular",
+      "name": "Okular",
+      "desc": "Visionneuse universelle de documents",
+      "icon": "okular.png",
+      "sizeKb": 16695
+    },
+    {
+      "id": "systemsettings",
+      "name": "Paramètres système",
+      "desc": "Configurer le comportement et l'apparence du système",
+      "icon": "systemsettings.svg",
+      "sizeKb": 1969
+    },
+    {
+      "id": "spectacle",
+      "name": "Spectacle",
+      "desc": "Prendre des captures d'écran et enregistrements",
+      "icon": "spectacle.svg",
+      "sizeKb": 8446
+    },
+    {
+      "id": "systemmonitor",
+      "name": "Surveillance du système",
+      "desc": "Surveiller l'utilisation des ressources par les applications",
+      "icon": "systemmonitor.svg",
+      "sizeKb": 3851
+    },
+    {
+      "id": "vlc",
+      "name": "Lecteur multimédia VLC",
+      "desc": "Lire, capturer et diffuser vos flux multimédias",
+      "icon": "vlc-installed.png",
+      "sizeKb": 195
+    }
+  ],
+  "updates": [
+    {
+      "id": "nano",
+      "name": "nano",
+      "from": "7.2-2ubuntu0.1",
+      "to": "7.2-2ubuntu0.2",
+      "size": "836 Kio",
+      "icon": "nano.svg",
+      "section": "Logiciels du système"
+    }
+  ],
+  "updatesMeta": {
+    "sectionTitle": "Logiciels du système"
+  },
+  "configSources": [
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "default": true,
+      "sources": [
+        {
+          "id": "ubuntu-main",
+          "label": "archive.ubuntu.com — Ubuntu noble",
+          "checked": true
+        },
+        {
+          "id": "ubuntu-security",
+          "label": "security.ubuntu.com — Ubuntu noble-security",
+          "checked": true
+        },
+        {
+          "id": "ubuntu-updates",
+          "label": "archive.ubuntu.com — Ubuntu noble-updates",
+          "checked": true
+        },
+        {
+          "id": "neon-user",
+          "label": "archive.neon.kde.org — KDE neon noble user",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "id": "flatpak",
+      "name": "Flatpak",
+      "addSource": true,
+      "sources": [
+        {
+          "id": "flathub",
+          "label": "Flathub",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "id": "snap",
+      "name": "Snap Store",
+      "sources": [
+        {
+          "id": "snap-store",
+          "label": "Snap Store",
+          "checked": true
+        }
+      ]
+    }
+  ],
+  "about": {
+    "appName": "Discover",
+    "version": "6.6.5",
+    "tagline": "Installer et supprimer des applications et des modules complémentaires",
+    "copyright": "© 2010-2025 Plasma Development Team",
+    "license": {
+      "name": "Licence publique générale GNU, version 2 ou ultérieure"
+    },
+    "links": [
+      {
+        "id": "donate",
+        "label": "Faire un don",
+        "icon": "donate-symbolic.svg"
+      },
+      {
+        "id": "involved",
+        "label": "Contribuer",
+        "icon": "applications-development-symbolic.svg"
+      },
+      {
+        "id": "bug",
+        "label": "Signaler un bogue",
+        "icon": "tools-report-bug-symbolic.svg"
+      }
+    ],
+    "libraries": [
+      {
+        "name": "Qt",
+        "version": "6.11.1"
+      },
+      {
+        "name": "KDE Frameworks",
+        "version": "6.12.0"
+      },
+      {
+        "name": "Kirigami Addons",
+        "version": "1.6.0"
+      },
+      {
+        "name": "plasma-discover",
+        "version": "6.6.5"
+      }
+    ],
+    "authors": [
+      {
+        "name": "Aleix Pol Gonzalez",
+        "role": "",
+        "email": "aleixpol@kde.org",
+        "web": "https://proli.net"
+      },
+      {
+        "name": "Nate Graham",
+        "role": "Contrôle qualité, conception et ergonomie",
+        "email": "nate@kde.org",
+        "web": "https://pointieststick.com/"
+      },
+      {
+        "name": "Dan Leinir Turthra Jensen",
+        "role": "KNewStuff",
+        "email": "admin@leinir.dk",
+        "web": "https://leinir.dk/"
+      }
+    ]
+  },
+  "appDetails": {
+    "vlc": {
+      "summary": "VLC media player, the open-source multimedia player",
+      "description": "VLC is a free and open source cross-platform multimedia player and\n            framework that plays most multimedia files as well as DVDs, Audio CDs,\n            VCDs, and various streaming protocols.",
+      "version": "3.0.20-3build6",
+      "size": "195 Kio",
+      "license": "GPL-2.0+",
+      "origin": "ubuntu-noble-universe",
+      "developer": "VideoLAN et al.",
+      "verifiedDeveloper": false,
+      "rating": 4,
+      "ratingCount": "1 581 notes",
+      "ageRating": "Tout le monde",
+      "screenshots": [
+        {
+          "id": "win7",
+          "asset": "screenshots/vlc-screenshot-win7.jpg",
+          "sourceUrl": "http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-win7.jpg",
+          "sha256": "17c9b92503b4a9caed72f545aebdfcf5c0aa01677800c285e4535de7921d46dc"
+        },
+        {
+          "id": "lion",
+          "asset": "screenshots/vlc-screenshot-lion.jpg",
+          "sourceUrl": "http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-lion.jpg",
+          "sha256": "4eceb7ec4d33d9b75dc4b4bfcfa51b116f524e579673f56a03e45b1a16085073"
+        },
+        {
+          "id": "poney",
+          "asset": "screenshots/vlc-screenshot-poney.jpg",
+          "sourceUrl": "http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-poney.jpg",
+          "sha256": "cce040bf089591ecf9ed2a112b2850fa94842a7cc2884a7369acdb7b548c02f7"
+        }
+      ],
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "gimp": {
+      "summary": "Éditeur d'images GNU avec outils de retouche et composition avancés.",
+      "version": "2.10.36",
+      "size": "98 Mo",
+      "license": "GPL v3",
+      "origin": "Ubuntu"
+    },
+    "firefox": {
+      "summary": "Fast, Private & Safe Web Browser",
+      "version": "151.0.3~build1",
+      "size": "303 Mo",
+      "license": "MPL-2.0",
+      "origin": "Mozilla",
+      "description": "When it comes to your life online, you have a choice: accept the factory settings or put your privacy first. When you choose Firefox as your default browser, you’re choosing to protect your data while supporting an independent tech company. Firefox is also the only major browser backed by a non-profit fighting to give you more openness, transparency and control of your life online. Join hundreds of millions of people who choose to protect what's important by choosing Firefox - a web browser designed to be fast, easy to use, customizable and private.",
+      "developer": "Mozilla",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "ark": {
+      "summary": "Outil d'archivage",
+      "description": "Ark est un utilitaire graphique de compression / décompression de fichiers prenant en charge de multiples formats, notamment tar, gzip, bzip2, rar et zip, ainsi que les images de CD-ROM. Ark peut être utilisé pour parcourir, extraire, créer et modifier des archives.\n\nFonctionnalités :\n\n• Plusieurs formats sont pris en charge : gzip, bzip2, zip, rar, 7z et d'autres\n\n• Affichage du contenu des fichiers sans les extraire",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build33",
+      "size": "7,3 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "discover": {
+      "summary": "Installer et supprimer des applications et des modules complémentaires",
+      "description": "Discover vous aide à trouver et à installer des applications, des jeux et des outils. Vous pouvez chercher ou naviguer par catégorie, ou consulter les captures d'écran et les avis d'utilisateurs pour vous aider à trouver l'appli parfaite.\n\nGrâce à Discover, vous pouvez gérer des logiciels provenant de plusieurs sources, dont le dépôt de logiciels de votre système d'exploitation, les dépôts « Flatpak », la boutique « Snap » ou même des modules « AppImage  »de la boutique « store.kde.org ».\n\nEnfin, Discover vous permet de trouver, d'installer et de gérer des modules complémentaires pour Plasma et toutes vos applis KDE préférées !",
+      "version": "6.6.5-0zneon+24.04+noble+release+build57",
+      "size": "10,0 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "dolphin": {
+      "summary": "Gérer vos fichiers",
+      "description": "Dolphin est le gestionnaire de fichiers de KDE, vous permettant de naviguer et d'explorer le contenu de vos disques durs, vos clés USB et bien plus. La création, le déplacement ou la suppression de fichiers et de dossiers sont simples et rapides.\n\nDolphin contient de nombreuses fonctionnalités pour la productivité vous permettant de gagner du temps. Les fonctionnalités d'onglets multiples et d'affichage scindé vous permettent de naviguer dans plusieurs dossiers en même temps. Vous pouvez aussi réaliser facilement des glisser et déposer entre les affichages pour les déplacer ou les copier. Le menu de Dolphin accessible par un clic droit fournit plusieurs actions rapides vous permettant de compresser, partager et dupliquer des fichiers, entre autres actions. Vous pouvez aussi ajouter votre propres actions personnalisées.\n\nDolphin est peu consommateur de ressources mais, en même temps, vous pouvez l'adapter à vos besoins spécifiques. Cela signifie que vous pouvez configurer votre gestion de fichiers, exactement comme vous le souhaitez. Dolphin prend en charge trois modes différents d'affichage : un affichage classique en grille pour tous vos fichiers, un affichage plus détaillé et un affichage en arborescence. Vous pouvez configurer la plupart des comportement de Dolphin.\n\nDolphin peut afficher des fichiers et des dossiers à partir de nombreux services de stockage sur Internet (Cloud) et d'ordinateurs distants, comme s'ils étaient directement sur votre ordinateur.\n\nDolphin est aussi livré avec un terminal intégré, vous permettant d'exécuter des commandes sur votre dossier courant. Vous pouvez étendre les fonctionnalités de Dolphin encore plus avec de puissants modules externes pour s'adapter à vos processus de travail. Vous pouvez utiliser le module externe « git » pour interagir avec les dépôts « git » ou le module externe « Nextcloud » pour synchroniser vos fichiers en ligne et bien d'autres choses encore.",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build37",
+      "size": "20 Mo",
+      "license": "GPL-2.0-or-later",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "gwenview": {
+      "summary": "Afficheur d'image",
+      "description": "Gwenview est un afficheur d'images rapide et facile à utiliser pour KDE, idéal pour parcourir et afficher une collection d'images.\n\nFonctionnalités :\n\n• Modifications simples d'images : rotation, rognage, re-dimensionnement, inversion, réduction des yeux rouges, ajustement\nde la luminosité, du contraste et du gamma.\n\n• Annotez et balisez les images avec des flèches, des formes, des zones de texte, des timbres d'images et plus encore\n\n• Actions basiques de gestion de fichiers comme copier, déplacer, supprimer et autres",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build42",
+      "size": "14 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "khelpcenter": {
+      "summary": "Parcourir et rechercher de la documentation",
+      "description": "Une application de recherche et de lecture de la documentation de toutes vos applications KDE et utilitaires système\n\nFonctionnalités :\n\n• Afficher la documentation depuis diverses sources (les applications de la communauté KDE, les pages de manuel, etc.)\n\n• Rechercher dans la documentation disponible",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build34",
+      "size": "9,7 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "kdeconnect": {
+      "summary": "Connexion facile avec vos périphériques",
+      "description": "KDEConnect permet à votre téléphone et à votre ordinateur de mieux fonctionner ensemble : partagez votre presse-papier, accédez aux fichiers entre périphériques, transformez votre téléphone en télécommande pour votre ordinateur, trouvez votre téléphone lorsqu'il a glissé à l'arrière de votre canapé, voyez les notifications de votre téléphone sur votre ordinateur, et bien plus encore !",
+      "version": "26.04.1-0zneon+24.04+noble+release+build60",
+      "size": "15 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "kate": {
+      "summary": "Éditeur de texte avancé",
+      "description": "Kate est un éditeur de texte rapide, multi-documents et multi-affichages pour les équipes de développement de KDE. Il offre des fonctionnalités telles que la prise en charge du module « LSP » (Language Server Protocol), des projets, de plusieurs curseurs et sélections, de l'intégration de Git, de la recherche sur la totalité des dossier, des divisions horizontales et verticales, du mode vi, de la coloration syntaxique pour plus de 300 langues, d'un terminal intégré, du retour à la ligne dynamique et bien plus encore. Il est disponible pour Linux, BSD, Windows et macOS.\n\nFonctionnalités :\n\n• Interface multi-documents, fenêtres scindées, organisation par onglets\n\n• Vérification orthographique\n\n• Prise en charge des retours à la ligne CR, CRLF, LF\n\n• Prise en charge de l'encodage (UTF-8, UTF-16, ASCII, etc.)\n\n• Conversion d'encodage\n\n• Rechercher & remplacé utilisant les expressions rationnelles\n\n• Coloration syntaxique pour plus de 300 langues\n\n• Repliement de code et de texte\n\n• Plusieurs curseurs et plusieurs sélections\n\n• Mode de sélection par bloc\n\n• Indentation automatique\n\n• Prise en charge du complètement automatique\n\n• Intégration avec l'interpréteur de commande\n\n• Prise en charge de protocoles variés (http, ftp, ssh, WebDAV, etc.)\n\n• Extensible grâce à des modules externes\n\n• Terminal intégré\n\n• Automatisable en utilisant JavaScript\n\n• Mode Vi\n\n• Prise en charge de IntelliSense à l'aide d'un module « LSP » (Language Server Protocol)\n\n• Prise en charge du protocole « DAP » (Debug Adapter Protocol)\n\n• Onglets verticaux / liste de documents\n\n• Prise en charge légère du projet. Kate peut ouvrir des dossiers en tant que projets.\n\n• Formatage de code à l'aide de formateurs natifs tels que « clang-format », « prettier », etc.\n\n• Compilé dans le navigateur du système de fichiers\n\n• Prise en charge de CTags\n\n• Recherche sur la totalité du projet et du dossier\n\n• Intégration avec Git",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build32",
+      "size": "20 Mo",
+      "license": "LGPL-2.1+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "konsole": {
+      "summary": "Utiliser une interface en ligne de commandes",
+      "description": "Konsole est un terminal pour lancer une invite de commande. Il fournit une interface de ligne de commande pour contrôler directement votre ordinateur.\n\nFonctionnalités :\n\n• Onglets\n\n• Profils multiples\n\n• Détection d'activité et de non activité\n\n• Prise en charge des signets\n\n• Recherche\n\n• Enregistrement de la sortie",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build33",
+      "size": "8,0 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "okular": {
+      "summary": "Afficher et annoter les documents",
+      "description": "Okular est un afficheur universel de documents développé par KDE. Okular fonctionne sur de multiples plate-formes, comme Linux, Windows, Mac OS X, etc.\n\nFonctionnalités :\n\n• Formats de fichiers pris en charge : pdf, ps, Tiff, DjVU, Images, DVI, XPS, Fiction Book, Comic Book, Plucker, ePub,\nFax\n\n• Barre latérale montrant les contenus, vignettes, informations de relecture et signets\n\n• Gestion des annotations",
+      "version": "4:26.04.1-0zneon+24.04+noble+release+build42",
+      "size": "16 Mo",
+      "license": "GPL-2.0+ and GFDL-1.3",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "systemsettings": {
+      "summary": "Configurer le comportement et l'apparence du système",
+      "description": "La configuration du système vous permet de configurer et d'ajuster votre environnement de bureau KDE Plasma pour l'adapter à vos besoins.",
+      "version": "4:6.6.5-0zneon+24.04+noble+release+build47",
+      "size": "1,9 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "spectacle": {
+      "summary": "Prendre des copies d'écran et faire des enregistrements",
+      "description": "Spectacle est une application simple permettant la réalisation de copies d'écran. L'application permet la copie d'images du bureau complet, d'un unique moniteur, de la fenêtre se trouvant sous le pointeur, ou du région rectangulaire de l'écran. Les images peuvent être imprimées, envoyées vers d'autres applications pour y être manipulées, ou rapidement enregistrées telles-quelles.\n\nFonctionnalités :\n\n• Copie le bureau entier\n\n• Copie le moniteur courant\n\n• Copie la fenêtre active\n\n• Copie une région rectangulaire\n\n• Raccourcis clavier pour prendre des copies d'écran",
+      "version": "1:6.6.5-0zneon+24.04+noble+release+build60",
+      "size": "8,2 Mo",
+      "license": "GPL-2.0+",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    },
+    "systemmonitor": {
+      "summary": "Surveiller l'utilisation des applications et des ressources du système",
+      "description": "Le moniteur de surveillance de Plasma fournit une interface la surveillance des senseurs du système, le traitement des informations et des autres ressources du système.",
+      "version": "6.6.5-0zneon+24.04+noble+release+build49",
+      "size": "3,8 Mo",
+      "license": "GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL",
+      "origin": "KDE neon",
+      "developer": "KDE",
+      "verifiedDeveloper": true,
+      "installed": true,
+      "primaryAction": "Lancer"
+    }
+  },
+  "categoryFilters": {
+    "all": {
+      "label": "Toutes les applications"
+    },
+    "internet": {
+      "label": "Internet",
+      "appIds": [
+        "wine",
+        "steam",
+        "firefox",
+        "thunderbird",
+        "transmission",
+        "warpinator"
+      ]
+    },
+    "graphics": {
+      "label": "Graphisme",
+      "appIds": [
+        "gimp",
+        "kolourpaint",
+        "krita",
+        "gwenview",
+        "okular",
+        "drawing",
+        "simple-scan"
+      ]
+    },
+    "multimedia": {
+      "label": "Multimédia",
+      "appIds": [
+        "vlc",
+        "kdenlive",
+        "rhythmbox",
+        "lecteur-multimedia"
+      ]
+    },
+    "development": {
+      "label": "Développement",
+      "appIds": [
+        "kate",
+        "kdenlive"
+      ]
+    },
+    "office": {
+      "label": "Bureautique",
+      "appIds": [
+        "kolourpaint",
+        "kate",
+        "okular",
+        "libreoffice",
+        "calendar"
+      ]
+    },
+    "games": {
+      "label": "Jeux",
+      "appIds": [
+        "steam",
+        "kpat",
+        "wine"
+      ]
+    },
+    "utilities": {
+      "label": "Utilitaires",
+      "appIds": [
+        "wine",
+        "kpat",
+        "ark",
+        "spectacle",
+        "keepsecret",
+        "vim",
+        "yelp",
+        "file-roller",
+        "simple-scan"
+      ]
+    },
+    "system": {
+      "label": "Système",
+      "appIds": [
+        "dolphin",
+        "discover",
+        "systemsettings",
+        "spectacle",
+        "systemmonitor",
+        "konsole",
+        "terminal",
+        "keepsecret",
+        "kmenuedit",
+        "kwalletmanager",
+        "timeshift"
+      ]
+    },
+    "accessibility": {
+      "label": "Accessibilité",
+      "appIds": [
+        "orca",
+        "kcm-access"
+      ]
+    },
+    "education": {
+      "label": "Éducation",
+      "appIds": [
+        "kpat",
+        "step",
+        "kalzium",
+        "ktouch",
+        "parley",
+        "kmplot",
+        "calendar"
+      ]
+    },
+    "science": {
+      "label": "Science & Mathématiques",
+      "appIds": [
+        "drawing",
+        "simple-scan"
+      ]
+    },
+    "addons": {
+      "label": "Modules d'applications",
+      "appIds": [
+        "kdeconnect"
+      ]
+    }
+  },
+  "browseApps": [
+    {
+      "id": "app",
+      "name": "KDE Connect",
+      "desc": "Make all your devices one",
+      "icon": "app.svg",
+      "componentId": "org.kde.kdeconnect.app.desktop"
+    },
+    {
+      "id": "nonplasma",
+      "name": "KDE Connect Indicator",
+      "desc": "Display information about your devices",
+      "icon": "nonplasma.svg",
+      "componentId": "org.kde.kdeconnect.nonplasma.desktop"
+    },
+    {
+      "id": "sms",
+      "name": "KDE Connect SMS",
+      "desc": "Read and send SMS messages on connected devices",
+      "icon": "sms.svg",
+      "componentId": "org.kde.kdeconnect.sms.desktop"
+    },
+    {
+      "id": "terminal",
+      "name": "Terminal",
+      "desc": "Use the command line",
+      "icon": "terminal.svg",
+      "componentId": "org.gnome.Terminal.desktop"
+    },
+    {
+      "id": "keepsecret",
+      "name": "KeepSecret",
+      "desc": "Manage passwords",
+      "icon": "keepsecret.png",
+      "componentId": "org.kde.keepsecret.desktop"
+    },
+    {
+      "id": "kmenuedit",
+      "name": "Menu Editor",
+      "desc": "Edit how applications are presented in app launchers",
+      "icon": "kmenuedit.png",
+      "componentId": "org.kde.kmenuedit.desktop"
+    },
+    {
+      "id": "kwalletmanager",
+      "name": "KWalletManager",
+      "desc": "Store and manage your passwords",
+      "icon": "kwalletmanager.png",
+      "componentId": "org.kde.kwalletmanager.desktop"
+    },
+    {
+      "id": "vim",
+      "name": "Vim",
+      "desc": "Edit text files",
+      "icon": "vim.png",
+      "componentId": "vim.desktop"
+    },
+    {
+      "id": "yelp",
+      "name": "Help",
+      "desc": "Get help with GNOME",
+      "icon": "yelp.svg",
+      "componentId": "yelp.desktop"
+    },
+    {
+      "id": "ark",
+      "name": "Ark",
+      "desc": "Outil d'archivage",
+      "icon": "ark.png"
+    },
+    {
+      "id": "discover",
+      "name": "Discover",
+      "desc": "Installer et supprimer des applications et modules",
+      "icon": "discover-installed.png"
+    },
+    {
+      "id": "dolphin",
+      "name": "Dolphin",
+      "desc": "Gérer vos fichiers",
+      "icon": "dolphin.svg"
+    },
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "desc": "Navigateur rapide et privé",
+      "icon": "../panel/firefox.png",
+      "iconBase": "panel"
+    },
+    {
+      "id": "gwenview",
+      "name": "Gwenview",
+      "desc": "Visionneuse d'images simple",
+      "icon": "gwenview.png"
+    },
+    {
+      "id": "khelpcenter",
+      "name": "Centre d'aide",
+      "desc": "Parcourir et rechercher de la documentation",
+      "icon": "khelpcenter.svg"
+    },
+    {
+      "id": "kdeconnect",
+      "name": "KDE Connect",
+      "desc": "Faire de tous vos appareils un seul",
+      "icon": "kdeconnect.svg"
+    },
+    {
+      "id": "konsole",
+      "name": "Konsole",
+      "desc": "Accès en ligne de commande",
+      "icon": "konsole.svg"
+    },
+    {
+      "id": "okular",
+      "name": "Okular",
+      "desc": "Visionneuse universelle de documents",
+      "icon": "okular.png"
+    },
+    {
+      "id": "systemsettings",
+      "name": "Paramètres système",
+      "desc": "Configurer le comportement et l'apparence du système",
+      "icon": "systemsettings.svg"
+    },
+    {
+      "id": "spectacle",
+      "name": "Spectacle",
+      "desc": "Prendre des captures d'écran et enregistrements",
+      "icon": "spectacle.svg"
+    },
+    {
+      "id": "systemmonitor",
+      "name": "Surveillance du système",
+      "desc": "Surveiller l'utilisation des ressources par les applications",
+      "icon": "systemmonitor.svg"
+    },
+    {
+      "id": "orca",
+      "name": "Orca",
+      "desc": "Lecteur d'écran",
+      "icon": "orca.png",
+      "componentId": "manual:orca"
+    },
+    {
+      "id": "kcm-access",
+      "name": "Accessibilité",
+      "desc": "Configurer les fonctionnalités d'accessibilité",
+      "icon": "kcm-access.svg",
+      "componentId": "manual:kcm-access"
+    },
+    {
+      "id": "step",
+      "name": "Step",
+      "desc": "Simulateur de physique",
+      "icon": "step.svg",
+      "componentId": "manual:step"
+    },
+    {
+      "id": "kalzium",
+      "name": "Kalzium",
+      "desc": "Tableau périodique des éléments",
+      "icon": "kalzium.svg",
+      "componentId": "manual:kalzium"
+    },
+    {
+      "id": "ktouch",
+      "name": "KTouch",
+      "desc": "Apprendre la dactylographie",
+      "icon": "ktouch.svg",
+      "componentId": "manual:ktouch"
+    },
+    {
+      "id": "parley",
+      "name": "Parley",
+      "desc": "Apprendre des vocabulaires",
+      "icon": "parley.svg",
+      "componentId": "manual:parley"
+    },
+    {
+      "id": "kmplot",
+      "name": "KmPlot",
+      "desc": "Traceur de fonctions mathématiques",
+      "icon": "kmplot.svg",
+      "componentId": "manual:kmplot"
+    }
+  ],
+  "categoryAppsMeta": {
+    "source": "vm-kde-neon-discover-category-apps-inventory.sh",
+    "collectedAt": "2026-06-16T12:47:04Z",
+    "vm": "<lab-inventory:linux-lab>",
+    "maxPerCategory": 6
+  }
+}

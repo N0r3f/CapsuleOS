@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/futurecity_light.webp",
+  "outputSha256": "4e7e753a7f8873a84fafefddc0927107b965b19a990a9c6d34d2f679976b065e",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.692Z",
+  "note": "repair-manifest"
+}

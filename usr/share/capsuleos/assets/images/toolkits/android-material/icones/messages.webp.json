@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/toolkits/android-material/icones/messages.webp",
+  "outputSha256": "ec8cbf3f2b8993ea9665bcf0c4c59d76fc6cee9e2c6c597bb118ad4d0519560d",
+  "role": "unknown",
+  "profile": "unknown",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.603Z",
+  "note": "repair-manifest"
+}

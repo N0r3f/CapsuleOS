@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Horloges (org.gnome.clocks) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-clocks-vm-inventory.json",
+  "slot": "clocks",
+  "template": "clocks.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/clocks.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "HΣ": "Contrat valide + kernel clocks.js (data-clocks-view, data-clocks-action, data-clocks-gnome-*)",
+    "H1": "H1 consulter villes Monde et ajouter Tokyo",
+    "H2": "H2 démarrer le chronomètre",
+    "H3": "H3 démarrer le minuteur",
+    "H4": "H4 ajouter une alarme"
+  },
+  "scenarios": [
+    {
+      "id": "H1",
+      "priority": "P0",
+      "title": "Consulter les villes et ajouter Tokyo",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.clocks",
+        "rpm": "gnome-clocks",
+        "version": "46.0-1.el10",
+        "viewsFr": ["Monde", "Alarmes", "Minuteur", "Chronomètre"],
+        "addCityLabelFr": "Ajouter une nouvelle horloge mondiale"
+      },
+      "steps": [
+        { "id": "open-clocks", "action": "openWindowByDataLink", "target": "clocks", "label": "Ouvrir Horloges" },
+        { "id": "world-tab", "selector": "[data-clocks-view=\"world\"].is-active", "label": "Onglet Monde actif" },
+        { "id": "paris-card", "selector": "[data-clocks-gnome-city=\"paris\"]", "label": "Carte Paris" },
+        { "id": "add-city", "selector": "[data-clocks-action=\"add-city\"]", "label": "Ajouter une ville" },
+        { "id": "tokyo-card", "selector": "[data-clocks-gnome-city=\"tokyo\"]", "label": "Carte Tokyo ajoutée" },
+        { "id": "city-count", "predicate": "dataset.clocksCityCount", "expectValue": "4", "label": "Quatre villes affichées" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-clocks-scenarios.mjs --scenario H1",
+        "capture": "rocky-capsule-dark-clocks-world-tokyo.png"
+      }
+    },
+    {
+      "id": "H2",
+      "priority": "P0",
+      "title": "Démarrer le chronomètre",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "viewFr": "Chronomètre",
+        "startHintFr": "Appuyez pour démarrer"
+      },
+      "steps": [
+        { "id": "open-stopwatch", "selector": "[data-clocks-view=\"stopwatch\"]", "label": "Onglet Chronomètre" },
+        { "id": "start", "selector": "[data-clocks-action=\"stopwatch-toggle\"]", "label": "Démarrer" },
+        { "id": "running", "predicate": "dataset.clocksStopwatchRunning", "expectValue": "true", "label": "Chronomètre actif" },
+        { "id": "hint-stop", "selector": "[data-clocks-gnome-hint=\"stopwatch\"]", "expectTextContains": "arrêter", "label": "Libellé pause FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-clocks-scenarios.mjs --scenario H2",
+        "capture": "rocky-capsule-dark-clocks-stopwatch-running.png"
+      }
+    },
+    {
+      "id": "H3",
+      "priority": "P0",
+      "title": "Démarrer le minuteur",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "viewFr": "Minuteur",
+        "startHintFr": "Appuyez pour démarrer"
+      },
+      "steps": [
+        { "id": "open-timer", "selector": "[data-clocks-view=\"timer\"]", "label": "Onglet Minuteur" },
+        { "id": "start", "selector": "[data-clocks-action=\"timer-toggle\"]", "label": "Démarrer décompte" },
+        { "id": "running", "predicate": "dataset.clocksTimerRunning", "expectValue": "true", "label": "Minuteur actif" },
+        { "id": "face", "selector": "[data-clocks-gnome-face=\"timer\"]", "expectTextContains": ":", "label": "Affichage décompte" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-clocks-scenarios.mjs --scenario H3",
+        "capture": "rocky-capsule-dark-clocks-timer-running.png"
+      }
+    },
+    {
+      "id": "H4",
+      "priority": "P0",
+      "title": "Ajouter une alarme",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "viewFr": "Alarmes",
+        "emptyFr": "Aucune alarme",
+        "addLabelFr": "Ajouter une alarme"
+      },
+      "steps": [
+        { "id": "open-alarms", "selector": "[data-clocks-view=\"alarms\"]", "label": "Onglet Alarmes" },
+        { "id": "empty", "selector": "[data-clocks-gnome-empty=\"alarms\"]:not([hidden])", "label": "État vide initial" },
+        { "id": "add-alarm", "selector": "[data-clocks-action=\"add-alarm\"]", "label": "Ajouter alarme" },
+        { "id": "alarm-card", "selector": "[data-clocks-gnome-alarm=\"alarm-1\"]", "label": "Carte alarme 07:00" },
+        { "id": "alarm-count", "predicate": "dataset.clocksAlarmCount", "expectValue": "1", "label": "Une alarme enregistrée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-clocks-scenarios.mjs --scenario H4",
+        "capture": "rocky-capsule-dark-clocks-alarm-added.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "HΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-clocks-user-scenarios.mjs"
+    }
+  }
+}

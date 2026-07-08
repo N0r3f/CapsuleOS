@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "description": "Fidélité rendu sorties terminal — indentation, sauts de ligne, coloration, profil bashrc.",
+  "doc": "root/docs/convention-terminal-rendu-sortie.md",
+  "parentChain": "etc/capsuleos/contracts/terminal-replication-chain.json",
+  "localeContract": "etc/capsuleos/contracts/locale-scalability.json",
+  "localeDefault": "fr-FR",
+  "localeNote": "Parité VM : locale inventaire pour reproduction ; Lj_en = projection internationale additive",
+  "predicates": {
+    "To1": "Indentation et espaces significatifs préservés (pre/pre-wrap)",
+    "To2": "Correspondance ligne à ligne executor ↔ affichage",
+    "To3": "Coloration sémantique (invite, ls, erreurs, paquets) via tokens CSS ou spans",
+    "To": "To1 ∧ To2 ∧ To3",
+    "Tb": "Profil ~/.bashrc virtuel chargeable (alias, PS1, LS_COLORS export)",
+    "TΣprime": "TΣ ∧ To — clôture terminal P0 stricte"
+  },
+  "lineRoles": [
+    "dir",
+    "file",
+    "executable",
+    "symlink",
+    "error",
+    "bold",
+    "dim",
+    "package",
+    "success",
+    "prompt-user",
+    "prompt-host",
+    "prompt-path"
+  ],
+  "cssTokens": {
+    "base": "usr/share/capsuleos/linux/apps/style/terminal-ptyxis.base.css",
+    "required": [
+      "--terminal-prompt-user-color",
+      "--terminal-prompt-path-seg-color",
+      "--terminal-prompt-text-color",
+      "--fedora-terminal-error",
+      "--fedora-terminal-success",
+      "--terminal-ls-dir-color"
+    ],
+    "skinOverride": "home/<Vendor>/<Distro>/style/apps/terminal.skin.css",
+    "skinLock": "etc/capsuleos/contracts/terminal-skin-lock.json"
+  },
+  "bashrc": {
+    "module": "usr/lib/capsuleos/shells/linux/terminal/terminal-bashrc.js",
+    "virtualPath": "~/.bashrc",
+    "supportedDirectives": ["alias", "export PS1", "export LS_COLORS", "export KEY=value"],
+    "deferred": ["source", "function", "if/fi", "shopt", "bind"],
+    "ps1Escapes": ["\\u", "\\h", "\\H", "\\w", "\\W", "\\$", "\\#"]
+  },
+  "investigationFields": {
+    "inventory": "root/docs/inventaires/{registryId}-terminal-vm.json",
+    "outputSamples": {
+      "command": "string",
+      "raw": "string — sortie exacte VM",
+      "capture": "path PNG optionnel",
+      "priority": "P0|P1|P2"
+    },
+    "bashrcSnapshot": {
+      "path": "~/.bashrc",
+      "sha256": "string",
+      "excerpt": "string"
+    }
+  },
+  "commandsOutputP0": [
+    "prompt",
+    "ls",
+    "ls -l",
+    "dnf check-update",
+    "yum check-update",
+    "dnf install <pkg>",
+    "cd <missing>",
+    "grep",
+    "grep -i",
+    "echo",
+    "echo $HOME",
+    "sudo <cmd>",
+    "cp -r",
+    "rm -rf",
+    "ps aux",
+    "wget <url>"
+  ],
+  "renderModules": {
+    "listing": "usr/lib/capsuleos/shells/linux/terminal/terminal-listing.js",
+    "fsOps": "usr/lib/capsuleos/shells/linux/terminal/terminal-fs-ops.js",
+    "links": "usr/lib/capsuleos/shells/linux/terminal/terminal-links.js",
+    "textCompare": "usr/lib/capsuleos/shells/linux/terminal/terminal-text-compare.js",
+    "archives": "usr/lib/capsuleos/shells/linux/terminal/terminal-archives.js",
+    "processes": "usr/lib/capsuleos/shells/linux/terminal/terminal-processes.js",
+    "network": "usr/lib/capsuleos/shells/linux/terminal/terminal-network.js",
+    "users": "usr/lib/capsuleos/shells/linux/terminal/terminal-users.js",
+    "systemInfo": "usr/lib/capsuleos/shells/linux/terminal/terminal-system-info.js",
+    "ptyxis": "usr/lib/capsuleos/shells/linux/terminal/terminal.js",
+    "konsole": "usr/lib/capsuleos/shells/linux/terminal/terminal-konsole-chrome.js",
+    "packageManagers": "usr/lib/capsuleos/shells/linux/terminal/terminal-package-managers.js"
+  },
+  "rules": [
+    "Pas de couleur hex dans executeCommand.js — utiliser lineRoles ou listing spans",
+    "Une ligne executor = une capsule-terminal__line sauf listing multi-span explicite",
+    "Capturer outputSamples VM avant d'ajuster formatGnomeLsLines ou DNF strings"
+  ]
+}

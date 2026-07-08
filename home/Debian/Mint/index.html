@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="../../../usr/lib/capsuleos/core/capsule-a11y-bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../usr/share/capsuleos/assets/images/vendors/mint/mint.webp" type="image/x-icon">
+    <link rel="stylesheet" href="./mint-fonts.css" type="text/css">
+    <link rel="stylesheet" href="./style/mint-y-dark-aqua-tokens.css" type="text/css">
+    <link rel="stylesheet" href="./style/imports.css" type="text/css">
+    <link rel="stylesheet" href="./style/style.css?v=20260618menu-parity" type="text/css">
+    <link rel="stylesheet" href="../../../usr/share/capsuleos/linux/apps/style/Dossier personnel.base.css" type="text/css">
+    <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css" type="text/css">
+    <title>Mint</title>
+</head>
+<body id="mint">
+    <div id="desktop" role="application" aria-label="Bureau Linux Mint">
+        <div class="desktop-shortcuts" aria-label="Icônes du bureau">
+            <a class="desktop-shortcut" href="#" data-desktop-icon="home" title="Dossier personnel">
+                <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/user-home.svg" alt="">
+                <span>Dossier personnel</span>
+            </a>
+            <a class="desktop-shortcut" href="#" data-desktop-icon="trash" title="Corbeille">
+                <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/user-trash.svg" alt="">
+                <span>Corbeille</span>
+            </a>
+        </div>
+        <div class="windowElement" data-link="mainMenu" id="mainMenu" style="display: none;"></div>
+        <div class="windowElement" data-link="nemo" id="nemo" style="display: none;"></div>
+        <div class="windowElement" data-link="firefox" id="firefox" style="display: none;"></div>
+        <div class="windowElement" data-link="terminal" id="terminal" style="display: none;"></div>
+        <div class="windowElement" data-link="themes" id="themes" style="display: none;"></div>
+        <div class="windowElement" data-link="profile" id="profile" style="display: none;"></div>
+        <div class="windowElement" data-link="visionneur_images" id="visionneur_images" style="display: none;"></div>
+        <div class="windowElement" data-link="visionneur_pdf" id="visionneur_pdf" style="display: none;"></div>
+        <div class="windowElement" data-link="lecteur_multimedia" id="lecteur_multimedia" style="display: none;"></div>
+        <div class="windowElement" data-link="text_editor" id="text_editor" style="display: none;"></div>
+        <div class="windowElement" data-link="librecalc" id="librecalc" style="display: none;"></div>
+        <div class="windowElement" data-link="librewriter" id="librewriter" style="display: none;"></div>
+        <div class="windowElement" data-link="system_monitor" id="system_monitor" style="display: none;"></div>
+        <div class="windowElement" data-link="mintinstall" id="mintinstall" style="display: none;"></div>
+        <div class="windowElement" data-link="update_manager" id="update_manager" style="display: none;"></div>
+        <div class="windowElement" data-link="calculator" id="calculator" style="display: none;"></div>
+        <div class="windowElement" data-link="calendar" id="calendar" style="display: none;"></div>
+        <div class="windowElement" data-link="screenshot" id="screenshot" style="display: none;"></div>
+        <div class="windowElement" data-link="snapshot" id="snapshot" style="display: none;"></div>
+        <div class="windowElement" data-link="drawing" id="drawing" style="display: none;"></div>
+        <div class="windowElement" data-link="file_roller" id="file_roller" style="display: none;"></div>
+        <div class="windowElement" data-link="mintdrivers" id="mintdrivers" style="display: none;"></div>
+        <div class="windowElement" data-link="baobab" id="baobab" style="display: none;"></div>
+        <div class="windowElement" data-link="webapp_manager" id="webapp_manager" style="display: none;"></div>
+        <div class="windowElement" data-link="sticky" id="sticky" style="display: none;"></div>
+        <div class="windowElement" data-link="warpinator" id="warpinator" style="display: none;"></div>
+        <div class="windowElement" data-link="hypnotix" id="hypnotix" style="display: none;"></div>
+        <div class="windowElement" data-link="transmission" id="transmission" style="display: none;"></div>
+        <div class="windowElement" data-link="mintbackup" id="mintbackup" style="display: none;"></div>
+        <div class="windowElement" data-link="bulky" id="bulky" style="display: none;"></div>
+        <div class="windowElement" data-link="timeshift" id="timeshift" style="display: none;"></div>
+        <div class="windowElement" data-link="thunderbird" id="thunderbird" style="display: none;"></div>
+        <div class="windowElement" data-link="mintwelcome" id="mintwelcome" style="display: none;"></div>
+        <div class="windowElement" data-link="gucharmap" id="gucharmap" style="display: none;"></div>
+        <div class="windowElement" data-link="simple_scan" id="simple_scan" style="display: none;"></div>
+        <div class="windowElement" data-link="thingy" id="thingy" style="display: none;"></div>
+        <div class="windowElement" data-link="rhythmbox" id="rhythmbox" style="display: none;"></div>
+        <div class="windowElement" data-link="gnome_disks" id="gnome_disks" style="display: none;"></div>
+        <div class="windowElement" data-link="libreoffice_startcenter" id="libreoffice_startcenter" style="display: none;"></div>
+        <div class="windowElement" data-link="libreoffice_draw" id="libreoffice_draw" style="display: none;"></div>
+        <div class="windowElement" data-link="libreoffice_impress" id="libreoffice_impress" style="display: none;"></div>
+        <div class="windowElement" data-link="mintstick" id="mintstick" style="display: none;"></div>
+        <div class="windowElement" data-link="mintstick_format" id="mintstick_format" style="display: none;"></div>
+        <div class="windowElement" data-link="font_viewer" id="font_viewer" style="display: none;"></div>
+        <div class="windowElement" data-link="power_stats" id="power_stats" style="display: none;"></div>
+        <div class="windowElement" data-link="mate_color_select" id="mate_color_select" style="display: none;"></div>
+        <div hidden aria-hidden="true" id="mint-catalog-asset-refs">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/webapp-manager" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/webapp-OnlineChat4519" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/sticky" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/org.x.Warpinator" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/hypnotix" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/transmission-gtk" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/mintbackup" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/bulky" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/timeshift-gtk" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/thunderbird" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/mintwelcome" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/org.gnome.baobab" alt="">
+        </div>
+        <div hidden aria-hidden="true" id="mint-manifest-asset-refs">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/inode-directory.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/text-x-generic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/image-x-generic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/application-x-generic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/application-x-executable.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/x-office-document.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/audio-x-generic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/mimetypes/video-x-generic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/folder.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/folder-documents.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/folder-download.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/folder-music.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/folder-pictures.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/folder-videos.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/user-home.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/places/user-trash.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/actions/go-up-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/actions/go-previous-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/actions/go-next-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/actions/view-list-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/places/user-home-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/places/user-trash-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/icons/cinnamon/mint-y/symbolic/places/folder-documents-symbolic.svg" alt="">
+            <img src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/default_background.webp" alt="">
+            <img src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/linuxmint.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/bookwood_linuxmint.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/bookwood_ring.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/edesigner_linuxmint.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/ktee_linuxmint.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/sele_linuxmint_center.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/sele_linuxmint.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/sele_ring_center_green.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/sele_ring_center.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/sele_ring_green.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/sele_ring.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jbaer_wave.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jleung_confetti.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_building.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_city.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_cpu.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_cubes.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_curved.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_curves.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_gold.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_hearts.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_pipes.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_square.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_stripes.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_wall.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_waves.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jpanchal_white.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/jvasek_xmas_bokeh.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/lzhang_uzumaki.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mfakurian_abstract.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mfakurian_black.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mfakurian_heart.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mfakurian_order.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mfakurian_silver.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mpiwnicki_curtain.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mpiwnicki_digital_stream.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mpiwnicki_light.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mpiwnicki_pearl.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/mpiwnicki_sparkling.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/pczerwinski_3d_render.webp" alt="">
+        </div>
+    </div>
+    <footer id="tableau" class="mint-panel" role="contentinfo" aria-label="Panneau Cinnamon">
+        <nav class="mint-panel__left" aria-label="Menu et fenêtres ouvertes">
+            <a class="mint-panel__menu-btn" target="windowElement" data-link="mainMenu" title="Ouvrir le menu principal">
+                <img src="../../../usr/share/capsuleos/assets/images/vendors/mint/logo.svg" alt="Logo de Linux Mint" title="Menu principal">
+            </a>
+            <span class="mint-panel__separator taskbar-separator" aria-hidden="true"></span>
+            <div id="taskbar-window-list" class="mint-panel__grouped-list taskbar-window-list" role="group" aria-label="Liste des fenêtres"></div>
+            <div id="mint-workspace-indicator" class="mint-workspace-indicator" role="group" aria-label="Espaces de travail" hidden></div>
+        </nav>
+        <div class="mint-panel__right taskbar-right">
+            <div class="mint-panel__tray taskbar-tray taskbar-tray--systray" id="system-tray" aria-label="Zone de notification">
+                <button type="button" class="taskbar-tray__btn sticky-applet-trigger mint-tray--idle-hidden" data-stk-applet-trigger
+                        aria-expanded="false" aria-controls="mint-sticky-applet"
+                        aria-label="Notes" title="Notes" hidden>
+                    <span class="taskbar-tray__icon taskbar-tray__icon--sticky" aria-hidden="true"></span>
+                </button>
+                <div class="mint-tray-popover sticky-applet" id="mint-sticky-applet" role="menu" aria-label="Notes récentes" hidden>
+                    <p class="sticky-applet__title">Notes récentes</p>
+                    <ul class="sticky-applet__list"></ul>
+                </div>
+                <button type="button"
+                        class="taskbar-tray__btn taskbar-tray__btn--updates"
+                        data-update-manager-tray
+                        data-has-updates="true"
+                        aria-label="Mises à jour disponibles"
+                        title="Gestionnaire de mise à jour">
+                    <span class="taskbar-tray__icon taskbar-tray__icon--shield" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="taskbar-tray__btn mint-tray--vm-collapsed mint-tray--idle-hidden" id="tray-btn-xapp"
+                        aria-expanded="false" aria-controls="mint-tray-popover-xapp"
+                        aria-label="Applications XApp" title="Applications XApp" hidden>
+                    <span class="taskbar-tray__icon taskbar-tray__icon--xapp" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="taskbar-tray__btn mint-tray--vm-collapsed mint-tray--idle-hidden" id="tray-btn-notifications"
+                        aria-expanded="false" aria-controls="mint-tray-popover-notifications"
+                        aria-label="Notifications" title="Notifications" hidden>
+                    <span class="taskbar-tray__icon taskbar-tray__icon--notifications" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="taskbar-tray__btn mint-tray--vm-collapsed mint-tray--idle-hidden" id="tray-btn-printers"
+                        aria-expanded="false" aria-controls="mint-tray-popover-printers"
+                        aria-label="Imprimantes" title="Imprimantes" hidden>
+                    <span class="taskbar-tray__icon taskbar-tray__icon--printers" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="taskbar-tray__btn mint-tray--vm-collapsed mint-tray--idle-hidden" id="tray-btn-removable"
+                        aria-expanded="false" aria-controls="mint-tray-popover-removable"
+                        aria-label="Supports amovibles" title="Supports amovibles" hidden>
+                    <span class="taskbar-tray__icon taskbar-tray__icon--removable" aria-hidden="true"></span>
+                </button>
+            </div>
+            <button type="button" class="taskbar-tray__btn taskbar-tray__btn--keyboard-label mint-panel__applet mint-tray--idle-hidden" id="tray-btn-keyboard"
+                    aria-expanded="false" aria-controls="mint-tray-popover-keyboard"
+                    aria-label="Disposition du clavier : français" title="Disposition du clavier" hidden>
+                <span class="taskbar-tray__kbd-label" aria-hidden="true">fr</span>
+            </button>
+            <div class="mint-panel__favorites taskbar-favorites mint-tray--idle-hidden" id="mint-tray-favorites" role="group" aria-label="Applications favorites" hidden></div>
+            <button type="button" class="taskbar-tray__btn mint-panel__applet" id="tray-btn-network"
+                    aria-expanded="false" aria-controls="mint-tray-popover-network"
+                    aria-label="Réseau" title="Réseau">
+                <span class="taskbar-tray__icon taskbar-tray__icon--network" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="taskbar-tray__btn mint-panel__applet" id="tray-sound-btn"
+                    aria-expanded="false" aria-controls="volume-popover"
+                    aria-label="Contrôle du volume" title="Volume">
+                <span class="taskbar-tray__icon taskbar-tray__icon--sound" id="tray-sound-icon" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="taskbar-clock-trigger" id="taskbar-clock-trigger" aria-expanded="false" aria-controls="taskbar-calendar-popover" aria-label="Date et heure">
+                <time class="taskbar__clock" id="taskbar-clock" datetime="">--:--</time>
+            </button>
+            <button type="button" class="taskbar-tray__btn taskbar-tray__btn--cornerbar mint-cornerbar-strip" id="tray-btn-cornerbar"
+                    aria-pressed="false" aria-label="Afficher le bureau" title="Afficher le bureau">
+                <span class="taskbar-tray__icon taskbar-tray__icon--cornerbar" aria-hidden="true"></span>
+            </button>
+        </div>
+    </footer>
+
+    <div id="desktop-context-menu" class="desktop-context-menu" role="menu" hidden>
+        <button type="button" class="desktop-context-menu__item" data-desktop-action="wallpaper">Changer le fond d'écran…</button>
+        <button type="button" class="desktop-context-menu__item" data-desktop-action="desktop-settings">Paramètres du bureau</button>
+        <div class="desktop-context-menu__separator" role="separator"></div>
+        <button type="button" class="desktop-context-menu__item" data-desktop-action="refresh">Actualiser le bureau</button>
+    </div>
+
+    <div id="desktop-icon-context-menu" class="desktop-context-menu" role="menu" hidden>
+        <button type="button" class="desktop-context-menu__item" data-desktop-icon-action="open">Ouvrir</button>
+        <button type="button" class="desktop-context-menu__item" data-desktop-icon-action="cut">Couper</button>
+        <button type="button" class="desktop-context-menu__item" data-desktop-icon-action="copy">Copier</button>
+        <button type="button" class="desktop-context-menu__item" data-desktop-icon-action="rename">Renommer</button>
+        <button type="button" class="desktop-context-menu__item" data-desktop-icon-action="delete">Supprimer</button>
+        <button type="button" class="desktop-context-menu__item" data-desktop-icon-action="properties">Propriétés</button>
+    </div>
+
+    <div id="mint-panel-context-menu" class="desktop-context-menu mint-panel-context-menu" role="menu" hidden>
+        <button type="button" class="desktop-context-menu__item" data-mint-panel-action="add-applets">Ajouter des applets</button>
+        <button type="button" class="desktop-context-menu__item" data-mint-panel-action="configure-panel">Configurer le panel</button>
+    </div>
+
+    <div class="calendar-popover" id="taskbar-calendar-popover" role="dialog" aria-label="Calendrier" hidden>
+        <header class="calendar-popover__top">
+            <div class="calendar-popover__long-date" id="cal-long-date"></div>
+        </header>
+        <div class="calendar-popover__columns">
+            <div class="calendar-popover__events">
+                <div class="calendar-popover__events-inner">
+                    <span class="calendar-popover__events-icon" aria-hidden="true"></span>
+                    <p class="calendar-popover__events-text">Aucun évènement</p>
+                </div>
+            </div>
+            <div class="calendar-popover__calendar">
+                <div class="calendar-popover__cal-head">
+                    <div class="calendar-popover__weekday-big" id="cal-weekday-big"></div>
+                    <div class="calendar-popover__date-sub" id="cal-date-sub"></div>
+                </div>
+                <div class="calendar-popover__month-nav">
+                    <button type="button" class="calendar-popover__arrow" id="cal-prev-month" aria-label="Mois précédent">‹</button>
+                    <span class="calendar-popover__month-label" id="cal-month-label"></span>
+                    <button type="button" class="calendar-popover__arrow" id="cal-next-month" aria-label="Mois suivant">›</button>
+                </div>
+                <div class="calendar-popover__week-row" id="cal-weekday-row" aria-hidden="true"></div>
+                <div class="calendar-popover__days" id="cal-days-grid"></div>
+            </div>
+        </div>
+        <footer class="calendar-popover__bottom">
+            <button type="button" class="calendar-popover__settings-btn">Paramètres de date et d'heure</button>
+        </footer>
+    </div>
+    <div class="mint-tray-popover" id="mint-tray-popover-xapp" role="dialog" aria-label="Applications XApp" hidden>
+        <p class="mint-tray-popover__empty">Aucun indicateur XApp actif</p>
+    </div>
+    <div class="mint-tray-popover" id="mint-tray-popover-notifications" role="dialog" aria-label="Notifications" hidden>
+        <div class="mint-tray-popover__title">Notifications</div>
+        <div id="mint-notifications-list">
+            <p class="mint-tray-popover__empty">Aucune notification</p>
+        </div>
+        <div class="mint-tray-popover__footer">
+            <button type="button" class="mint-tray-popover__footer-btn" id="mint-notifications-clear">Effacer tout</button>
+        </div>
+    </div>
+    <div class="mint-tray-popover" id="mint-tray-popover-printers" role="dialog" aria-label="Imprimantes" hidden>
+        <p class="mint-tray-popover__empty">Aucune imprimante configurée</p>
+        <div class="mint-tray-popover__footer">
+            <button type="button" class="mint-tray-popover__footer-btn" id="mint-tray-printers-settings">Paramètres des imprimantes…</button>
+        </div>
+    </div>
+    <div class="mint-tray-popover" id="mint-tray-popover-removable" role="dialog" aria-label="Supports amovibles" hidden>
+        <p class="mint-tray-popover__empty">Aucun support amovible détecté</p>
+    </div>
+    <div class="mint-tray-popover" id="mint-tray-popover-keyboard" role="dialog" aria-label="Disposition du clavier" hidden>
+        <button type="button" class="mint-tray-popover__row is-active" data-mint-layout="fr">
+            <span class="mint-tray-popover__row-icon taskbar-tray__icon--keyboard" aria-hidden="true"></span>
+            Français
+        </button>
+        <button type="button" class="mint-tray-popover__row" data-mint-layout="en">
+            <span class="mint-tray-popover__row-icon taskbar-tray__icon--keyboard" aria-hidden="true"></span>
+            English (US)
+        </button>
+    </div>
+    <div class="mint-tray-popover" id="mint-tray-popover-network" role="dialog" aria-label="Réseau" hidden>
+        <button type="button" class="mint-tray-popover__row is-active">
+            <span class="mint-tray-popover__row-icon taskbar-tray__icon--network" aria-hidden="true"></span>
+            <span>Connexion filaire — Connecté</span>
+        </button>
+        <button type="button" class="mint-tray-popover__row">
+            <span class="mint-tray-popover__row-icon taskbar-tray__icon--wifi" aria-hidden="true"></span>
+            <span>Mint-Lab-WiFi</span>
+        </button>
+        <div class="mint-tray-popover__footer">
+            <button type="button" class="mint-tray-popover__footer-btn" id="mint-tray-network-settings">Paramètres réseau…</button>
+        </div>
+    </div>
+    <div class="mint-tray-popover mint-power-menu" id="mint-power-menu" role="dialog" aria-label="Alimentation" hidden>
+        <button type="button" class="mint-power-menu__row" data-mint-power-action="lock">Verrouiller l'écran</button>
+        <button type="button" class="mint-power-menu__row" data-mint-power-action="logout">Se déconnecter…</button>
+        <div class="mint-tray-popover__sep" role="separator" aria-hidden="true"></div>
+        <div class="mint-power-menu__actions" role="group" aria-label="Alimentation système">
+            <button type="button" class="mint-power-menu__action" data-mint-power-action="suspend">
+                <span class="mint-power-menu__action-icon taskbar-tray__icon--power" aria-hidden="true"></span>
+                Suspendre
+            </button>
+            <button type="button" class="mint-power-menu__action" data-mint-power-action="restart">
+                <span class="mint-power-menu__action-icon taskbar-tray__icon--power" aria-hidden="true"></span>
+                Redémarrer
+            </button>
+            <button type="button" class="mint-power-menu__action" data-mint-power-action="shutdown">
+                <span class="mint-power-menu__action-icon taskbar-tray__icon--power" aria-hidden="true"></span>
+                Arrêter
+            </button>
+        </div>
+    </div>
+    <div class="volume-popover" id="volume-popover" role="dialog" aria-label="Volume" hidden>
+        <div class="volume-popover__header">
+            <span class="volume-popover__label">Volume</span>
+            <span class="volume-popover__value" id="volume-value">100%</span>
+        </div>
+        <div class="volume-popover__body">
+            <button type="button" class="volume-popover__mute-btn" id="volume-mute-btn"
+                    aria-label="Couper le son" aria-pressed="false">
+                <span class="volume-popover__mute-icon" id="volume-mute-icon" aria-hidden="true"></span>
+            </button>
+            <input type="range" class="volume-slider" id="volume-slider"
+                   min="0" max="100" value="100" step="1"
+                   aria-label="Niveau du volume" aria-valuetext="100%">
+        </div>
+    </div>
+    <script src="../../../usr/lib/capsuleos/common/user-home.js"></script>
+    <script>
+        window.CAPSULE_SKIN_PROFILE_ID = 'linux-mint';
+        if (typeof CapsuleUserHome !== 'undefined') {
+            window.CAPSULE_CONTENT_ROOT = CapsuleUserHome.resolveRelative();
+            window.CAPSULE_TERMINAL_HOME = window.CAPSULE_USER_HOME || window.CAPSULE_TERMINAL_HOME;
+        }
+    </script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-assets-manifest.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-skin-profiles.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/capsule-resource.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-app-raster-ext.js?v=20260608"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-resource-url.js?v=20260608"></script>
+    <script src="../../../usr/lib/capsuleos/core/cluster-registry.js"></script>
+        <script src="./data/manifest-icon-pack-refs.js?v=20260608"></script>
+    <script src="../../../usr/lib/capsuleos/common/capsule-skin-boot.js"></script>
+
+    <script src="../../../usr/lib/capsuleos/site/capsule-pick-return.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-app-embed.js?v=20260611mint84"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/strings-default.js?v=20260421a"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-strings.js?v=20260427b"></script>
+    <script src="../../../usr/lib/capsuleos/common/capsule-window.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/window/drag-targets.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/resizeWindow.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/window-drag.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/window/edge-tiling.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-context.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-desktop-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-header-buttons.js"></script>
+        <script src="../../../usr/lib/capsuleos/shells/common/capsule-memory-conventions.js"></script>
+<script src="../../../usr/lib/capsuleos/shells/common/capsule-window-memory.js"></script>
+    <script>window.CAPSULE_WINDOW_FAMILY = 'linux';</script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/windowContainer.js?v=20260618overflow"></script>
+    <script src="../../../var/lib/capsuleos/generated/mint-wallpaper-catalog.js?v=20260608"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mainMenu-data-cinnamon.js?v=20260608b"></script>
+    <script src="./content/mint-menu-parity.js?v=20260608vmref"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mainMenu.js?v=20260618menu"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme-storage.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/themes.js?v=20260421a"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-gsettings-bindings.js?v=20260612parityP5"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-gsettings-store.js?v=20260612parityP5"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-settings-parity.js?v=20260612polish"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-settings.js?v=20260612polish"></script>
+    <script src="./content/mint-workspace-indicator.js?v=20260612parity"></script>
+    <script src="./content/mint-screensaver-state.js?v=20260612parity"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-wm-button-layout.js?v=20260612parity"></script>
+    <script src="./content/mint-notifications-sound-state.js?v=20260612parity"></script>
+    <script src="./content/mint-hotcorner-effects.js?v=20260612parityP2"></script>
+    <script src="./content/mint-applet-visibility.js?v=20260618panel"></script>
+    <script src="./content/mint-mouse-settings.js?v=20260612parityP3"></script>
+    <script src="./content/mint-clock-parity.js?v=20260612parityP5"></script>
+    <script src="./content/mint-startup-state.js?v=20260612parityP5"></script>
+    <script src="./content/mint-extensions-state.js?v=20260612parityP5"></script>
+    <script src="./content/mint-default-state.js?v=20260612parityP6"></script>
+    <script src="./content/mint-desklets-state.js?v=20260612parityP6"></script>
+    <script src="./content/mint-gestures-state.js?v=20260612parityP6"></script>
+    <script src="./content/mint-locale-state.js?v=20260612parityP7"></script>
+    <script src="./content/mint-online-accounts-state.js?v=20260612parityP7"></script>
+    <script src="./content/mint-user-account-state.js?v=20260612parityP7"></script>
+    <script src="./content/mint-nemo-actions-state.js?v=20260612parityP7"></script>
+    <script src="./content/mint-themes-gtk-state.js?v=20260612parityP8"></script>
+    <script src="./content/mint-background-gsettings-state.js?v=20260612parityP8"></script>
+    <script src="./content/mint-nightlight-state.js?v=20260612parityP8"></script>
+    <script src="./content/mint-input-method-state.js?v=20260612parityP9"></script>
+    <script src="./content/mint-software-sources-state.js?v=20260612parityP9"></script>
+    <script src="./content/mint-system-info-state.js?v=20260612parityP9"></script>
+    <script src="./content/mint-bluetooth-state.js?v=20260612parityP9"></script>
+    <script src="./content/mint-color-calibration-state.js?v=20260612parityP10"></script>
+    <script src="./content/mint-network-proxy-state.js?v=20260612parityP10"></script>
+    <script src="./content/mint-printers-lockdown-state.js?v=20260612parityP10"></script>
+    <script src="./content/mint-firewall-ufw-state.js?v=20260612parityP10"></script>
+    <script src="./content/mint-thunderbolt-state.js?v=20260612parityP10"></script>
+    <script src="./content/profile-data.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/profile.js"></script>
+        <script src="../../../var/lib/capsuleos/generated/capsule-simulated-web-index.js"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-firefox-contrib.js"></script>
+<script>window.CAPSULE_MNT_BASE=window.CAPSULE_MNT_BASE||'../../../mnt';window.CAPSULE_MNT_MODULES=window.CAPSULE_MNT_MODULES||['debutant/linux-bases'];</script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/simulatedWebResolver.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-mnt-modules.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-mnt-bridge.js"></script>
+<script src="../../../usr/lib/capsuleos/shells/linux/firefoxBrowser.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/firefox-iframe-bridge.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/explorers/explorer-registry.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/explorer-toolkit-paths.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/nemo-icon-map.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerInfo.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/explorer-icon-base.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/contentLoader.js?v=20260427b"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-window-instances.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerHeader.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/filesystem.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/virtual-shell.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/nemo-sidebar-controls.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerContainer.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerVfs.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerCore.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/common/capsule-user-fs.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerNemoOps.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerInlineRename.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerProperties.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerContextMenu.js?v=20260610nemoctx6"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerWindowState.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerDnD.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/celluloid.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileViewerRouter.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mint-viewers.js?v=20260608"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerLoader.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/date.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calendar-popover.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-registry.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-core.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/terminal-profile-builder.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/profiles/linux/debian.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/terminal-vendor-extensions.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-profile.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-bashrc.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-core.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-listing.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-command-options.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/terminal-completion.js"></script>
+    <script src="../../../usr/lib/capsuleos/common/terminal-editors.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-tabs.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-shell-parse.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-package-managers.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-fs-ops.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-links.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-text-compare.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-archives.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-processes.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-network.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-users.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-system-info.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/executeCommand.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/manuel.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calculator.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calendar-app.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/screenshot.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/snapshot.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/drawing.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/file-roller.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mintdrivers.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/text-editor.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/volume.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/librecalc.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/librewriter.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/system-monitor.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/baobab.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/webapp-manager.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/sticky.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/warpinator.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/hypnotix.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/transmission.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mintbackup.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/bulky.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/timeshift.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/thunderbird.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mintwelcome.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gucharmap.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/simple-scan.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/thingy.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/rhythmbox.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-disks.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/libreoffice-suite.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mint-final-apps.js"></script>    <script src="../../../var/lib/capsuleos/generated/capsule-store-catalog.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mint-store-catalog.js"></script>
+    <script src="./content/mintinstall-catalog.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mintinstall.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-store-shell-pin.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/update-manager.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-window-effects.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-window-behaviors.js?v=20260609ctx4"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/cinnamon-alt-tab.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/taskbar-launcher-state.js?v=20260618grouped"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/taskbar-window-list.js?v=20260618grouped"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/desktop-context-menu.js?v=20260609icon"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/mint-panel-context-menu.js?v=20260609panel"></script>
+    <script src="./content/mint-desktop-icons.js?v=20260609"></script>
+    <script src="./content/mint-desktop-favorites.js?v=20260604"></script>
+    <script src="./content/mint-panel-pinned.js?v=20260608vmref"></script>
+    <script src="./content/mint-tray-favorites.js?v=20260610shell"></script>
+    <script src="./content/mint-tray.js?v=20260608panelA"></script>
+    <script src="./content/mint-tray-overflow.js?v=20260612panel"></script>
+    <script src="./content/mint-panel-idle-tray.js?v=20260621idle"></script>
+</body>
+</html>

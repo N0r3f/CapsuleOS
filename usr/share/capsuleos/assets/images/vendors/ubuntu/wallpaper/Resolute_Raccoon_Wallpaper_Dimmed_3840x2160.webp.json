@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Dimmed_3840x2160.png",
+  "sourceSha256": "1ecef550c9f16939e61745b98bcecdfb39fc9ce7a8bf007154f29c0b07183608",
+  "output": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Dimmed_3840x2160.webp",
+  "outputSha256": "d9b80012d8c7780755e393e95a4aa88ad02ecb85845a6855f3ccf01334520511",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:42.032Z"
+}

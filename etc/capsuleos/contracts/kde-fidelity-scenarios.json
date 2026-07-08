@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "description": "Campagne crédibilité pédagogique KDE Plasma — pivot linux-kde-neon (au-delà de Kd* / Π structurel v4).",
+  "referenceDomain": "kde-ground-truth-chain",
+  "campaignId": "v5-credibility-pass",
+  "referenceRegistryId": "linux-kde-neon",
+  "principles": [
+    "VM prime — steps depuis kickoff/panel/tray VM Neon (linux-kde-neon-kickoff-apps.json)",
+    "Périmètre Plasma — panel, kickoff, tray + slots P0/B2/B3 (pas 101 entrées Cinnamon)",
+    "Triple couche — inventaire JSON → smokes KDE existants → smoke-kde-fidelity-scenario",
+    "Prédicats séquentiels — CredV → CredC → CredS → CredΠ → CredΣ",
+    "Façade skin canonique — CAPSULE_KDE_NEON_URL ou home/Debian/KDE-Neon/index.html",
+    "Campagne indépendante — relançable sans invalider v4-deep-parity (Kd*)"
+  ],
+  "domains": {
+    "kde-fidelity": {
+      "label": "Crédibilité pédagogique KDE Plasma",
+      "predicates": ["CredV", "CredC", "CredS", "CredΠ"],
+      "doc": "root/docs/ground-truth-kde.md"
+    }
+  },
+  "predicateChecks": {
+    "CredV": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.documented",
+      "min": 1
+    },
+    "CredC": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.implemented",
+      "min": 1
+    },
+    "CredS": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.smokeOk",
+      "min": 1
+    },
+    "CredΠ": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.appsAtPi100",
+      "expr": "scoped apps pi_credibility >= 100 ∧ gapSlotsTotal === 0"
+    }
+  },
+  "phases": [
+    { "id": "P-A", "label": "Inventaire scénarios Plasma", "predicate": "CredV" },
+    { "id": "P-C", "label": "Implémentation clone (héritée v4)", "predicate": "CredC", "requires": ["CredV"] },
+    { "id": "P-D", "label": "Smoke scénario KDE", "predicate": "CredS", "requires": ["CredC"] },
+    { "id": "P-E", "label": "Parité pi_credibility", "predicate": "CredΠ", "requires": ["CredS"] },
+    { "id": "P-F1", "label": "Cartographie kickoff→slots", "artifact": "root/docs/inventaires/{id}-app-fidelity-gaps.json" }
+  ],
+  "steps": [
+    {
+      "id": "kde-fidelity-seed",
+      "requires": [],
+      "negates": ["CredV"],
+      "script": "usr/lib/capsuleos/tools/lab/seed-kde-neon-fidelity-inventory.mjs",
+      "args": ["--write"]
+    },
+    {
+      "id": "kde-fidelity-smoke",
+      "requires": ["CredC"],
+      "negates": ["CredS"],
+      "script": "usr/lib/capsuleos/tools/lab/smoke-kde-fidelity-scenario.mjs",
+      "args": ["--id", "--scenario"]
+    },
+    {
+      "id": "kde-fidelity-gaps",
+      "requires": ["CredV"],
+      "script": "usr/lib/capsuleos/tools/lab/map-kde-fidelity-gaps.mjs",
+      "args": ["--id", "{id}", "--write"]
+    }
+  ],
+  "scopedApps": [
+    "panel",
+    "kickoff",
+    "tray",
+    "nemo",
+    "firefox",
+    "terminal",
+    "update_manager",
+    "kdeconnect",
+    "spectacle",
+    "kinfocenter",
+    "system_monitor",
+    "themes",
+    "text_editor",
+    "visionneur_images",
+    "visionneur_pdf",
+    "lecteur_multimedia"
+  ],
+  "scenariosPerApp": 3
+}

@@ -1,0 +1,31 @@
+/**
+ * KDE Neon - tokens fenêtres / menu / calendrier (basés sur openSUSE Breeze).
+ */
+
+html:has(#kde-neon) {
+    --kde-neon-breeze-accent: #3daee9;
+    --kde-neon-breeze-accent-hover: #4ebaf0;
+    --kde-neon-breeze-chrome-dark: #31363b;
+    --kde-neon-breeze-chrome-dark-fg: #eff0f1;
+    --kde-neon-mono-logo-filter: none;
+    --kde-neon-header-control-filter-light: brightness(0) saturate(100%);
+    /* Tokens menu Kickoff : debian-desktop.css (clair / sombre via data-theme) */
+    /* KDE (capture) : barre de titre claire */
+    --kde-neon-window-titlebar-bg: #eff0f1;
+    --kde-neon-window-titlebar-bg-active: #e5e7ea;
+    --kde-neon-window-titlebar-border-color: rgba(35, 38, 41, 0.14);
+    --kde-neon-window-titlebar-border-color-active: rgba(35, 38, 41, 0.18);
+    --kde-neon-window-titlebar-fg: #232629;
+    --kde-neon-window-titlebar-fg-muted: rgba(35, 38, 41, 0.72);
+    /* Discover VM : fenêtre plus haute pour sidebar catégories complète */
+    --win-update_manager-width: 832px;
+    --win-update_manager-height: 716px;
+    --win-update_manager-min-width: 640px;
+    --win-update_manager-min-height: 520px;
+    /* System Settings VM — gtk-launch systemsettings.desktop */
+    --win-themes-width: 1060px;
+    --win-themes-height: 808px;
+    --win-themes-min-width: 1060px;
+    --win-themes-min-height: 808px;
+}
+

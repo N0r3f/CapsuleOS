@@ -1,0 +1,32 @@
+<main id="mintbackupApp" class="mbk-app" aria-label="Outil de sauvegarde">
+
+    <header class="mbk-app__header">
+        <h1 class="mbk-app__title">Outil de sauvegarde</h1>
+    </header>
+
+    <div class="mbk-app__body">
+        <section class="mbk-app__step is-active" data-mbk-step="source">
+            <h2 class="mbk-app__step-title">Source</h2>
+            <label class="mbk-app__field">
+                <span class="mbk-app__label">Dossier à sauvegarder</span>
+                <div class="mbk-app__path-row">
+                    <input type="text" class="mbk-app__path" id="mbk-source" value="/home/capsule" readonly>
+                    <button type="button" class="mbk-app__btn" data-mbk-action="browse-source">Parcourir…</button>
+                </div>
+            </label>
+            <button type="button" class="mbk-app__btn mbk-app__btn--primary" data-mbk-action="next">Suivant</button>
+        </section>
+        <section class="mbk-app__step" data-mbk-step="dest" hidden>
+            <h2 class="mbk-app__step-title">Destination</h2>
+            <label class="mbk-app__field">
+                <span class="mbk-app__label">Emplacement de la sauvegarde</span>
+                <div class="mbk-app__path-row">
+                    <input type="text" class="mbk-app__path" id="mbk-dest" value="/media/capsule/Backup" readonly>
+                    <button type="button" class="mbk-app__btn" data-mbk-action="browse-dest">Parcourir…</button>
+                </div>
+            </label>
+            <button type="button" class="mbk-app__btn mbk-app__btn--primary" data-mbk-action="backup">Sauvegarder</button>
+        </section>
+    </div>
+
+</main>

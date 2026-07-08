@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/f44-01-night.jxl",
+  "sourceSha256": "e45c353bef190be74389c3862a6a1e797f359f1a5f70e6443b8b0f54602ca555",
+  "output": "images/vendors/fedora/wallpaper/f44-01-night.webp",
+  "outputSha256": "3e7f8e6c13ec9baef79305f2ab2e792e355ea82f7546fc74426ee00e21077d7d",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-13T18:32:54.180Z"
+}

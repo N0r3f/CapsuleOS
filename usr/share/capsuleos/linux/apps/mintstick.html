@@ -1,0 +1,26 @@
+<main id="mintstickApp" class="mstk-app" aria-label="Créateur de clé USB">
+
+    <header class="mstk-app__header">
+        <h1 class="mstk-app__title">Créateur de clé USB</h1>
+    </header>
+
+    <div class="mstk-app__body">
+        <p class="mstk-app__hint">Sélectionnez une image disque (.iso) et la clé USB cible.</p>
+        <label class="mstk-app__field">
+            <span class="mstk-app__label">Image disque</span>
+            <div class="mstk-app__path-row">
+                <input type="text" class="mstk-app__path" id="mstk-iso" value="" placeholder="Aucun fichier sélectionné" readonly>
+                <button type="button" class="mstk-app__btn" data-mstk-action="browse-iso">Parcourir…</button>
+            </div>
+        </label>
+        <label class="mstk-app__field">
+            <span class="mstk-app__label">Clé USB</span>
+            <select class="mstk-app__select" id="mstk-device">
+                <option value="">— Sélectionner un périphérique —</option>
+                <option value="sdb">SanDisk 16 Go (/dev/sdb)</option>
+            </select>
+        </label>
+        <button type="button" class="mstk-app__btn mstk-app__btn--primary" data-mstk-action="write" disabled>Écrire l'image</button>
+    </div>
+
+</main>

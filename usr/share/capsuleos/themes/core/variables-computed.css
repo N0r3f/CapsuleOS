@@ -1,0 +1,13 @@
+/* Dérivées calc() — évite la duplication de tailles */
+:root {
+    --capsule-space-1: calc(var(--capsule-space-unit) * 1);
+    --capsule-space-2: calc(var(--capsule-space-unit) * 2);
+    --capsule-space-3: calc(var(--capsule-space-unit) * 3);
+    --capsule-space-4: calc(var(--capsule-space-unit) * 4);
+    --capsule-space-6: calc(var(--capsule-space-unit) * 6);
+    --capsule-space-8: calc(var(--capsule-space-unit) * 8);
+    --win-header-height: calc(var(--capsule-space-unit) * 9);
+    --win-footer-height: calc(var(--capsule-space-unit) * 7);
+    --explorer-toolbar-height: calc(var(--capsule-space-unit) * 10);
+    --window-header-height: var(--win-header-height);
+}

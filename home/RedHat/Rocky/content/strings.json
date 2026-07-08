@@ -1,0 +1,21 @@
+{
+    "explorer.windowTitle": "Dossier personnel - Fichiers",
+    "mainMenu.windowTitle": "Activités",
+    "update_manager.windowTitle": "Logiciels",
+    "calculator.windowTitle": "Calculatrice",
+    "text_editor.windowTitle": "Éditeur de texte",
+    "calendar.windowTitle": "Calendrier",
+    "clocks.windowTitle": "Horloges",
+    "themes.windowTitle": "Paramètres",
+    "visionneur_images.windowTitle": "Loupe",
+    "visionneur_pdf.windowTitle": "Papers",
+    "lecteur_multimedia.windowTitle": "Lecteur vidéo",
+    "snapshot.windowTitle": "Snapshot",
+    "baobab.windowTitle": "Utilisation des disques",
+    "system_monitor.windowTitle": "Moniteur système",
+    "tour.windowTitle": "Visite guidée",
+    "characters.windowTitle": "Caractères",
+    "screenshot.windowTitle": "Capture d'écran",
+    "librewriter.windowTitle": "Sans titre — LibreOffice Writer",
+    "checklist.description": "Explore Rocky Linux en accomplissant ces missions. Ta progression est sauvegardée."
+}

@@ -1,0 +1,344 @@
+/* Skin fenêtres / apps — Windows 95 (iframe pages partagées) */
+
+html.win95-page {
+    --win95-surface: #c0c0c0;
+    --win95-highlight: #ffffff;
+    --win95-shadow: #808080;
+    --win95-dkshadow: #404040;
+    --win95-selection-bg: #000080;
+    --win95-selection-fg: #ffffff;
+}
+
+html.win95-page,
+html.win95-page body {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+html.win95-page body {
+    font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, Geneva, sans-serif;
+    font-size: 11px;
+    line-height: 1.25;
+    color: #000000;
+    background: var(--win95-surface);
+}
+
+/* Pages simples : pas de second bandeau titre (déjà sur le chrome parent) */
+html.win95-page body > header.win-page__header {
+    display: none;
+}
+
+html.win95-page body > main.win-page__body {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 12px 14px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+html.win95-page .win-page--modern {
+    display: none;
+}
+
+html.win95-page .win-page--classic {
+    display: flex;
+}
+
+html.win95-page .win-page__header,
+html.win95-page .win-page__body {
+    border-radius: 0;
+}
+
+html.win95-page .win-page__header {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--win95-shadow);
+    background: var(--win95-surface);
+}
+
+html.win95-page .win-page__header h1 {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+html.win95-page .win-page__body {
+    padding: 8px;
+    gap: 6px;
+    background: var(--win95-surface);
+}
+
+html.win95-page .win-page__list {
+    border: 2px solid;
+    border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+    background: #ffffff;
+}
+
+html.win95-page .win-page__list li {
+    padding: 2px 6px;
+    border-radius: 0;
+    gap: 6px;
+}
+
+html.win95-page .win-page__list li:hover,
+html.win95-page .win-page__list li:focus {
+    background: var(--win95-selection-bg);
+    color: var(--win95-selection-fg);
+}
+
+html.win95-page .win-page__hint {
+    color: #000000;
+    font-size: 11px;
+}
+
+html.win95-page .win95-dialog__text {
+    margin: 0 0 6px;
+}
+
+/* Explorateur Windows 95 */
+html.win95-page .win95-explorer {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    background: var(--win95-surface);
+}
+
+html.win95-page .win-page--classic {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    height: 100%;
+    min-height: 0;
+}
+
+html.win95-page .win95-cpl {
+    height: 100%;
+    min-height: 0;
+}
+
+html.win95-page .win95-menubar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+    padding: 2px 4px;
+    border-bottom: 1px solid var(--win95-shadow);
+    background: var(--win95-surface);
+}
+
+html.win95-page .win95-menubar span {
+    padding: 2px 6px;
+    cursor: default;
+}
+
+html.win95-page .win95-menubar span:hover {
+    background: var(--win95-selection-bg);
+    color: var(--win95-selection-fg);
+}
+
+html.win95-page .win95-toolbar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+    padding: 3px 4px;
+    border-bottom: 1px solid var(--win95-shadow);
+    background: var(--win95-surface);
+}
+
+html.win95-page .win95-toolbar button {
+    width: 24px;
+    height: 22px;
+    padding: 0;
+    border: 2px solid;
+    border-color: var(--win95-highlight) var(--win95-dkshadow) var(--win95-dkshadow) var(--win95-highlight);
+    background: var(--win95-surface);
+    font-size: 11px;
+    line-height: 1;
+    cursor: default;
+}
+
+html.win95-page .win95-toolbar button:active {
+    border-color: var(--win95-dkshadow) var(--win95-highlight) var(--win95-highlight) var(--win95-dkshadow);
+}
+
+html.win95-page .win95-toolbar__sep {
+    width: 2px;
+    height: 20px;
+    margin: 0 3px;
+    border-left: 1px solid var(--win95-shadow);
+    border-right: 1px solid var(--win95-highlight);
+}
+
+html.win95-page .win95-workspace {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 4px;
+    gap: 4px;
+}
+
+html.win95-page .win95-pane {
+    border: 2px solid;
+    border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+    background: #ffffff;
+    overflow: auto;
+}
+
+html.win95-page .win95-pane--tree {
+    flex: 0 0 140px;
+    padding: 4px;
+}
+
+html.win95-page .win95-pane--list {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0;
+}
+
+html.win95-page .win95-list-header {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2px 4px;
+    border-bottom: 1px solid var(--win95-shadow);
+    background: var(--win95-surface);
+    font-weight: 700;
+}
+
+html.win95-page .win95-list-header span {
+    flex: 1 1 30%;
+    padding: 0 4px;
+}
+
+html.win95-page .win95-list-rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+html.win95-page .win95-list-rows li {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 1px 4px;
+    cursor: default;
+}
+
+html.win95-page .win95-list-rows li span {
+    flex: 1 1 30%;
+    padding: 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html.win95-page .win95-list-rows li:hover,
+html.win95-page .win95-list-rows li.is-selected {
+    background: var(--win95-selection-bg);
+    color: var(--win95-selection-fg);
+}
+
+html.win95-page .win95-tree-item {
+    display: block;
+    padding: 1px 2px;
+    cursor: default;
+}
+
+html.win95-page .win95-tree-item.is-selected {
+    background: var(--win95-selection-bg);
+    color: var(--win95-selection-fg);
+}
+
+html.win95-page .win95-statusbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    min-height: 20px;
+    padding: 2px 4px;
+    border-top: 1px solid var(--win95-highlight);
+    background: var(--win95-surface);
+    font-size: 11px;
+}
+
+html.win95-page .win95-statusbar span {
+    padding: 0 6px;
+    border: 1px solid;
+    border-color: var(--win95-shadow) var(--win95-highlight) var(--win95-highlight) var(--win95-shadow);
+    background: var(--win95-surface);
+}
+
+html.win95-page .win95-statusbar__section {
+    flex: 1 1 auto;
+}
+
+/* Panneau de configuration */
+html.win95-page .win95-cpl {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--win95-surface);
+}
+
+html.win95-page .win95-cpl__titlebar {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--win95-shadow);
+    font-weight: 700;
+}
+
+html.win95-page .win95-cpl__grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    gap: 8px;
+    padding: 12px;
+}
+
+html.win95-page .win95-cpl__icon {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 72px;
+    min-height: 64px;
+    padding: 4px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #000000;
+    font-family: inherit;
+    font-size: 11px;
+    text-align: center;
+    cursor: default;
+}
+
+html.win95-page .win95-cpl__icon:hover,
+html.win95-page .win95-cpl__icon:focus {
+    border: 1px dotted #000000;
+    background: rgba(0, 0, 128, 0.15);
+}
+
+html.win95-page .win95-cpl__icon img,
+html.win95-page .win95-cpl__icon .win95-cpl__glyph {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+html.win95-page .win-page--classic {
+    display: none;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-height: 100vh;
+}

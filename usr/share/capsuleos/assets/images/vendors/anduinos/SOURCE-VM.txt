@@ -1,0 +1,6 @@
+# Import manifeste linux-anduinos
+collectedAt: 2026-06-17T10:40:31Z
+importedAt: 2026-06-17T16:11:47.583Z
+ssh: <lab-inventory:linux-anduinos>
+bundles: fonts
+Connexion SSH : etc/capsuleos/lab-inventory.json (local, gitignoré).

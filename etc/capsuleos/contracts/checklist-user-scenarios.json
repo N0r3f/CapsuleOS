@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Missions CapsuleOS — slot `checklist`, gabarit `checklist.html`. Module pédagogique Capsule-only (pas d'app GNOME équivalente sur VM Alma).",
+  "doc": "root/docs/inventaires/linux-alma-checklist-capsule-inventory.json",
+  "slotCapsule": "checklist",
+  "slot": "checklist",
+  "template": "checklist.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/checklist.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-mint"],
+  "capsuleOnly": true,
+  "predicates": {
+    "CkΣ": "Contrat valide + kernel syncChecklistGnomeDataset + gabarit data-checklist-gnome-*",
+    "Ck1": "Ck1 ouvrir Missions depuis dock/overview → liste 8 missions visible",
+    "Ck2": "Ck2 consulter une mission (nom + indice)",
+    "Ck3": "Ck3 cocher une mission (toggle checklist-item)",
+    "Ck4": "Ck4 progression barre / persistance localStorage"
+  },
+  "scenarios": [
+    {
+      "id": "Ck1",
+      "priority": "P0",
+      "title": "Ouvrir Missions — liste des missions visible",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "capsuleOnly": true,
+        "onVm": false,
+        "labelFr": "Missions de découverte CapsuleOS",
+        "note": "Pas d'application GNOME équivalente sur Alma el10 — module pédagogique intégré au skin GNOME (dock)"
+      },
+      "steps": [
+        { "id": "open-checklist", "action": "openWindowByDataLink", "target": "checklist", "label": "Ouvrir Missions depuis le dock" },
+        { "id": "root", "selector": "[data-checklist-gnome-root]", "label": "Racine checklist GNOME" },
+        { "id": "init", "predicate": "dataset.checklistGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "list", "selector": "[data-checklist-gnome-list]", "label": "Liste des missions" },
+        { "id": "task-count", "predicate": "dataset.checklistGnomeTaskCount", "expectValue": "8", "label": "8 missions pédagogiques" },
+        { "id": "title", "selector": ".checklist-app__title", "expectTextContains": "Missions", "label": "Titre Missions" },
+        { "id": "items", "selector": "[data-checklist-gnome-item]", "expectCount": 8, "label": "8 entrées checklist-item" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-checklist-scenarios.mjs --scenario Ck1",
+        "capture": "alma-capsule-dark-checklist.png"
+      }
+    },
+    {
+      "id": "Ck2",
+      "priority": "P0",
+      "title": "Consulter une mission — nom et indice",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "sampleTaskId": "open-nemo",
+        "sampleNameFr": "Ouvrir l'explorateur de fichiers",
+        "hintKey": "checklist.hint.open-nemo"
+      },
+      "steps": [
+        { "id": "open-checklist", "action": "openWindowByDataLink", "target": "checklist", "label": "Ouvrir Missions" },
+        { "id": "mission", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"]", "label": "Mission explorateur de fichiers" },
+        { "id": "name", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"] .checklist-item__name", "expectTextContains": "explorateur", "label": "Nom mission visible" },
+        { "id": "hint", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"] .checklist-item__hint", "label": "Indice pédagogique visible" },
+        { "id": "not-done", "predicate": "dataset.checklistGnomeItemDone", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"]", "expectValue": "false", "label": "Mission non cochée par défaut" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-checklist-scenarios.mjs --scenario Ck2",
+        "capture": "alma-capsule-dark-checklist-mission.png"
+      }
+    },
+    {
+      "id": "Ck3",
+      "priority": "P0",
+      "title": "Cocher une mission — marquer complétée",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "toggleTaskId": "open-nemo",
+        "ariaChecked": true,
+        "classDone": "is-done"
+      },
+      "steps": [
+        { "id": "open-checklist", "action": "openWindowByDataLink", "target": "checklist", "label": "Ouvrir Missions" },
+        { "id": "check", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"] [data-checklist-gnome-check]", "action": "click", "label": "Cocher la mission" },
+        { "id": "item-done", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"].is-done", "label": "Classe is-done appliquée" },
+        { "id": "aria", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"] [data-checklist-gnome-check][aria-checked=\"true\"]", "label": "aria-checked true" },
+        { "id": "dataset-done", "predicate": "dataset.checklistGnomeItemDone", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"]", "expectValue": "true", "label": "Dataset item done" },
+        { "id": "done-count", "predicate": "dataset.checklistGnomeDoneCount", "expectValue": "1", "label": "1 mission complétée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-checklist-scenarios.mjs --scenario Ck3",
+        "capture": "alma-capsule-dark-checklist-done.png"
+      }
+    },
+    {
+      "id": "Ck4",
+      "priority": "P0",
+      "title": "Progression — barre et persistance",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "progressLabelFr": "1 / 8",
+        "progressPercent": 13,
+        "storageKeyPattern": "*-checklist"
+      },
+      "steps": [
+        { "id": "open-checklist", "action": "openWindowByDataLink", "target": "checklist", "label": "Ouvrir Missions" },
+        { "id": "check", "selector": "[data-checklist-gnome-task-id=\"open-nemo\"] [data-checklist-gnome-check]", "action": "click", "label": "Cocher une mission" },
+        { "id": "progress-label", "selector": "[data-checklist-gnome-progress-label]", "expectTextContains": "1 / 8", "label": "Libellé progression 1/8" },
+        { "id": "progress-dataset", "predicate": "dataset.checklistGnomeProgress", "expectValue": "13", "label": "13 % complété" },
+        { "id": "progressbar", "selector": "[data-checklist-gnome-progressbar][aria-valuenow=\"13\"]", "label": "Barre aria-valuenow 13" },
+        { "id": "reopen", "action": "reloadAndReopenChecklist", "label": "Recharger et rouvrir Missions" },
+        { "id": "persist", "predicate": "dataset.checklistGnomeDoneCount", "expectValue": "1", "label": "État persisté localStorage" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-checklist-scenarios.mjs --scenario Ck4",
+        "capture": "alma-capsule-dark-checklist-progress.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "CkΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-checklist-user-scenarios.mjs"
+    }
+  }
+}

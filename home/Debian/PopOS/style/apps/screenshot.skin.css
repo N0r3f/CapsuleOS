@@ -1,0 +1,5 @@
+/** popos — screenshot (stub catalogue). */
+body#popos div[data-link="screenshot"] {
+    color: var(--popos-app-text);
+    background: var(--popos-app-surface);
+}

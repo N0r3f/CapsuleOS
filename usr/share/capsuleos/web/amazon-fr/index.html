@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon.fr — simulation CapsuleOS</title>
+    <link rel="stylesheet" href="../_shared/site.css">
+    <link rel="stylesheet" href="../_shared/site-brands.css">
+</head>
+<body class="capsule-web-page capsule-web-brand capsule-web-brand--amazon">
+    <header class="capsule-web-brand-header">
+        <p class="capsule-web-badge">Simulation CapsuleOS · contenu original</p>
+        <div class="capsule-web-brand-top">
+            <span class="capsule-web-brand-logo" aria-hidden="true">amazon.fr</span>
+            <form class="capsule-web-brand-search" role="search" aria-label="Rechercher">
+                <input type="search" name="q" placeholder="Rechercher sur Amazon.fr" aria-label="Rechercher sur Amazon.fr">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+    </header>
+    <main class="capsule-web-brand-main">
+        <section class="capsule-web-hero" aria-label="Offres">
+            <h1 id="page-title">Livraison rapide — environnement simulé</h1>
+            <p id="page-lead">Découvrez des catégories fictives pour pratiquer la navigation web dans CapsuleOS.</p>
+        </section>
+        <section class="capsule-web-grid" aria-label="Catégories" id="categories">
+            <article class="capsule-web-tile"><a href="?cat=informatique"><h2>Informatique</h2></a><p>Ordinateurs, périphériques, accessoires.</p></article>
+            <article class="capsule-web-tile"><a href="?cat=maison"><h2>Maison</h2></a><p>Cuisine, bricolage, décoration.</p></article>
+            <article class="capsule-web-tile"><a href="?cat=livres"><h2>Livres</h2></a><p>Roman, BD, manuels scolaires simulés.</p></article>
+            <article class="capsule-web-tile"><a href="?cat=mode"><h2>Mode</h2></a><p>Vêtements et chaussures (fictifs).</p></article>
+        </section>
+        <p style="margin-top:1.5rem"><a href="#" data-capsule-web-nav="lacapsule.org">Retour au portail La Capsule</a></p>
+    </main>
+    <script src="../_shared/site-nav.js"></script>
+    <script>
+        (function amazonCat() {
+            var params = new URLSearchParams(window.location.search);
+            var cat = params.get('cat');
+            var q = params.get('q');
+            if (cat) {
+                document.getElementById('page-title').textContent = 'Catégorie : ' + cat.charAt(0).toUpperCase() + cat.slice(1);
+                document.getElementById('page-lead').textContent = 'Résultats fictifs pour la catégorie « ' + cat + ' ».';
+            }
+            if (q) {
+                document.getElementById('page-title').textContent = 'Recherche : « ' + q + ' »';
+                document.getElementById('page-lead').textContent = 'Résultats simulés Amazon.fr (contenu pédagogique CapsuleOS).';
+            }
+        }());
+    </script>
+</body>
+</html>

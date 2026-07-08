@@ -1,0 +1,55 @@
+/* Discover Neon — grille « À découvrir » (catalogue magasin CapsuleOS, 11 apps).
+ * Chemins relatifs vers usr/share/capsuleos/assets/… (gate validate-css-asset-urls).
+ * Inventaire : root/docs/inventaires/linux-kde-neon-discover-store-icons.json
+ * Chemins logiques (CapsuleResource) : ./assets/images/toolkits/gnome/apps/
+ */
+.update-manager--kde-neon .gnome-software__cardicon {
+    display: inline-block;
+    flex-shrink: 0;
+    background: transparent center / contain no-repeat;
+    border-radius: 4px;
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--calendar {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Calendar.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--file-roller {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.FileRoller.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--libreoffice {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--thunderbird {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/thunderbird.png");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--transmission {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/transmission-gtk.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--rhythmbox {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.Rhythmbox3.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--lecteur-multimedia {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/io.github.celluloid_player.Celluloid.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--drawing {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/com.github.maoschanz.drawing.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--simple-scan {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/simple-scan.svg");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--warpinator {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.x.Warpinator.png");
+}
+
+.update-manager--kde-neon .gnome-software__cardicon--timeshift {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/timeshift-gtk.png");
+}

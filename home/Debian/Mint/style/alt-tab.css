@@ -1,0 +1,119 @@
+/* Sélecteur Alt+Tab — Cinnamon (Mint) */
+
+.cinnamon-alt-tab {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--head) * 2);
+    box-sizing: border-box;
+}
+
+.cinnamon-alt-tab[hidden] {
+    display: none !important;
+}
+
+.cinnamon-alt-tab__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+}
+
+.cinnamon-alt-tab__panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: calc(var(--head) / 2);
+    max-width: min(96vw, calc(var(--head) * 48));
+    padding: calc(var(--head) / 1.2);
+    border-radius: calc(var(--head) / 3);
+    background: var(--mint-taskbar-bg, rgba(40, 40, 40, 0.92));
+    border: 1px solid var(--menu-accent);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.cinnamon-alt-tab__item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(var(--head) / 6);
+    width: calc(var(--head) * 5.5);
+    min-height: calc(var(--head) * 5);
+    padding: calc(var(--head) / 4);
+    border: 2px solid transparent;
+    border-radius: calc(var(--head) / 5);
+    background: transparent;
+    color: var(--texte, #fff);
+    cursor: default;
+    font: inherit;
+    font-size: calc(var(--head) / 3.4);
+    text-align: center;
+    transition: border-color 0.12s ease, background-color 0.12s ease, transform 0.12s ease;
+}
+
+.cinnamon-alt-tab__item:hover {
+    border-color: rgba(31, 158, 222, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.cinnamon-alt-tab__item:active {
+    transform: scale(0.98);
+}
+
+.cinnamon-alt-tab__item:focus-visible {
+    outline: 2px solid var(--a11y-focus-ring, #9ac6ff);
+    outline-offset: 2px;
+}
+
+.cinnamon-alt-tab__item.is-selected {
+    border-color: var(--menu-accent);
+    background: rgba(31, 158, 222, 0.18);
+    transform: scale(1.04);
+}
+
+.cinnamon-alt-tab__item.is-selected:hover {
+    background: rgba(31, 158, 222, 0.26);
+}
+
+.cinnamon-alt-tab__icon {
+    width: calc(var(--head) * 1.8);
+    height: calc(var(--head) * 1.8);
+    object-fit: contain;
+    border-radius: calc(var(--head) / 8);
+}
+
+.cinnamon-alt-tab__icon--placeholder {
+    display: block;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: calc(var(--head) / 8);
+}
+
+.cinnamon-alt-tab__label {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.25;
+}
+
+.cinnamon-alt-tab__hint {
+    position: absolute;
+    bottom: calc(var(--head) / 2);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    margin: 0;
+    padding: calc(var(--head) / 8) calc(var(--head) / 3);
+    border-radius: calc(var(--head) / 6);
+    background: rgba(0, 0, 0, 0.55);
+    color: #eee;
+    font-size: calc(var(--head) / 3.6);
+    pointer-events: none;
+}

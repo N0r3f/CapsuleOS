@@ -1,0 +1,4 @@
+body#ubuntu .windowElement[data-link="terminal"].terminal-window--fedora {
+    --terminal-font-family: "Ubuntu Sans Mono", "Adwaita Mono", "Liberation Mono", ui-monospace, monospace;
+    --terminal-font-size: 10pt;
+}

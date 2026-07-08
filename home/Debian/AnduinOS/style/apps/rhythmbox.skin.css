@@ -1,0 +1,9 @@
+/** anduinos — Rhythmbox (slot store P1). */
+body#anduinos main#rhythmboxApp {
+    --ma-bg: var(--fedora-app-surface, #303030);
+    --ma-text: var(--fedora-app-text, #ffffff);
+    --ma-header: var(--fedora-app-header-bg, #383838);
+    --ma-border: var(--fedora-app-border, rgba(255, 255, 255, 0.08));
+    --ma-muted: var(--fedora-app-muted-text, rgba(255, 255, 255, 0.62));
+    --ma-accent: var(--menu-accent, #3584e4);
+}

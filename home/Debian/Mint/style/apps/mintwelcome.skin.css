@@ -1,0 +1,9 @@
+body#mint {
+    --mwc-bg: #ffffff;
+    --mwc-text: #2e2e2e;
+    --mwc-muted: #5c5c5c;
+    --mwc-border: #d4d4d4;
+    --mwc-accent: #0c75de;
+    --mwc-btn-bg: #f6f6f6;
+    --mwc-btn-border: #c8c8c8;
+}

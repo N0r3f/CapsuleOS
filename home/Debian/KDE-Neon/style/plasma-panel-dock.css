@@ -1,0 +1,133 @@
+/**
+ * KDE Neon — panel Plasma flottant (presque pleine largeur, marges uniformes)
+ * ou barre bord à bord (fenêtre maximisée).
+ */
+
+html:has(#kde-neon) {
+    /* Gestalt : même écart bas / gauche / droite entre panel et bord écran */
+    --kde-neon-panel-dock-inset: calc(var(--head) * 0.18);
+    --kde-neon-panel-radius: calc(var(--head) * 0.1);
+    --kde-neon-panel-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] body#kde-neon {
+    --kde-neon-plasma-panel-bg: rgba(239, 240, 241, 0.9);
+    --kde-neon-plasma-panel-bg-solid: #eff0f1;
+}
+
+html:not([data-theme="light"]) body#kde-neon {
+    --kde-neon-plasma-panel-bg: rgba(30, 33, 38, 0.86);
+    --kde-neon-plasma-panel-bg-solid: rgba(30, 33, 38, 0.96);
+}
+
+#kde-neon {
+    --taskbar-height: calc(var(--head) * 1.02);
+    --kde-neon-panel-anchor-bottom: calc(var(--kde-neon-panel-dock-inset) + var(--taskbar-height));
+    --kde-plasma-panel-anchor-bottom: var(--kde-neon-panel-anchor-bottom);
+    --kde-plasma-menu-divider: var(--kde-neon-menu-divider, rgba(0, 0, 0, 0.08));
+    --kde-plasma-menu-hover: var(--kde-neon-menu-hover, rgba(61, 174, 233, 0.14));
+    --kde-plasma-accent: var(--kde-neon-plasma-accent, #3daee9);
+    --kde-plasma-tray-icon-filter: var(--kde-neon-tray-icon-filter, brightness(0));
+    /* Kickoff : même marge gauche que le panel flottant (réf. VM) */
+    --kde-neon-menu-anchor-left: var(--kde-neon-panel-dock-inset);
+    /* Calendrier : même marge droite que le panel flottant */
+    --kde-neon-calendar-anchor-right: var(--kde-neon-panel-dock-inset);
+}
+
+#kde-neon[data-plasma-panel="expanded"] {
+    --kde-neon-panel-anchor-bottom: var(--taskbar-height);
+    --kde-neon-menu-anchor-left: 0;
+    --kde-neon-calendar-anchor-right: var(--kde-neon-taskbar-edge-gap);
+}
+
+#kde-neon #desktop {
+    height: var(--max-h);
+    max-height: var(--max-h);
+}
+
+/* —— Mode panel flottant (défaut) —— */
+#kde-neon #tableau {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: center;
+    position: fixed;
+    z-index: 9000;
+    left: var(--kde-neon-panel-dock-inset);
+    right: var(--kde-neon-panel-dock-inset);
+    bottom: var(--kde-neon-panel-dock-inset);
+    width: auto;
+    max-width: none;
+    height: var(--taskbar-height);
+    margin: 0;
+    padding: var(--z) var(--kde-neon-taskbar-edge-gap) var(--z) calc(var(--head) / 4);
+    border: 1px solid var(--kde-neon-plasma-panel-border);
+    border-radius: var(--kde-neon-panel-radius);
+    background: var(--kde-neon-plasma-panel-bg);
+    box-shadow: var(--kde-neon-panel-shadow);
+    backdrop-filter: blur(18px) saturate(1.1);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    justify-content: var(--sb);
+    gap: 0;
+    transition:
+        left 0.22s ease,
+        right 0.22s ease,
+        bottom 0.22s ease,
+        border-radius 0.22s ease,
+        box-shadow 0.22s ease,
+        background-color 0.22s ease,
+        padding 0.22s ease;
+}
+
+#kde-neon footer .taskbar-pins {
+    flex: 1;
+    justify-content: var(--fs);
+}
+
+#kde-neon footer .taskbar-right {
+    flex: 0 0 auto;
+}
+
+/* Pas d’encoche Cinnamon — Plasma utilise un surlignage plat */
+#kde-neon footer .taskbar-pins__apps > a.active-link::after,
+#kde-neon footer .taskbar-pins__launcher.active-link::after {
+    display: none;
+}
+
+/* —— Mode barre (fenêtre maximisée) — piloté par plasma-panel-mode.js —— */
+#kde-neon[data-plasma-panel="expanded"] #tableau {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: var(--mint-taskbar-top-border);
+    background: var(--kde-neon-plasma-panel-bg-solid);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Popovers ancrés au panel */
+#kde-neon .calendar-popover,
+#kde-neon .volume-popover,
+#kde-neon .kde-tray-popover {
+    bottom: calc(var(--kde-neon-panel-anchor-bottom) + var(--calendar-popover-offset, calc(var(--head) / 5)));
+}
+
+#kde-neon .calendar-popover {
+    right: var(--kde-neon-calendar-anchor-right);
+    transition:
+        right 0.22s ease,
+        bottom 0.22s ease;
+}
+
+#kde-neon div[data-link="mainMenu"],
+#kde-neon #mainMenu {
+    bottom: var(--kde-neon-panel-anchor-bottom);
+    left: var(--kde-neon-menu-anchor-left, var(--kde-neon-panel-dock-inset, 0));
+    transition:
+        left 0.22s ease,
+        bottom 0.22s ease;
+}

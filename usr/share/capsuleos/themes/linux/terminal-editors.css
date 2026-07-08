@@ -1,0 +1,214 @@
+/**
+ * Overlay nano / vim dans le terminal CapsuleOS (toutes familles OS).
+ * Variables héritées des skins (--mint-terminal-*, etc.) avec repli neutre.
+ */
+.capsule-terminal-editor {
+    --editor-surface: var(--mint-terminal-surface, #2e2e2e);
+    --editor-fg: var(--mint-terminal-prompt-path, #f6f5f4);
+    --editor-accent: var(--mint-terminal-prompt-path-seg, #62a0ea);
+    --editor-error: var(--mint-terminal-error, #f66151);
+    --editor-status-bg: var(--mint-terminal-header-bg, #363636);
+    --editor-footer-bg: #000;
+    --editor-footer-fg: #fff;
+    --editor-cmdline-bg: #1a1a1a;
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    background: var(--editor-surface);
+    color: var(--editor-fg);
+    font-family: 'Ubuntu Mono', 'DejaVu Sans Mono', 'Liberation Mono', monospace;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.capsule-terminal-editor__header {
+    flex: 0 0 auto;
+    padding: 0.35rem 0.6rem;
+    background: var(--editor-status-bg);
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.capsule-terminal-editor__header--modified::after {
+    content: ' *';
+    color: var(--editor-accent);
+    font-weight: bold;
+}
+
+.capsule-terminal-editor__banner {
+    flex: 0 0 auto;
+    padding: 0.3rem 0.6rem;
+    background: rgba(98, 160, 234, 0.18);
+    border-bottom: 1px solid rgba(98, 160, 234, 0.35);
+    color: var(--editor-accent);
+    font-size: 12px;
+}
+
+.capsule-terminal-editor__buffer {
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0.5rem 0.6rem;
+    border: none;
+    resize: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.capsule-terminal-editor__message {
+    flex: 0 0 auto;
+    padding: 0.2rem 0.6rem;
+    font-size: 12px;
+    background: var(--editor-surface);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.capsule-terminal-editor__message--error {
+    color: var(--editor-error);
+}
+
+/* Barre nano — couleurs inversées comme GNU nano */
+.capsule-terminal-editor__nano-footer {
+    flex: 0 0 auto;
+    background: var(--editor-footer-bg);
+    color: var(--editor-footer-fg);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.capsule-terminal-editor__nano-footer-row {
+    padding: 0.15rem 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.capsule-terminal-editor__nano-footer-row + .capsule-terminal-editor__nano-footer-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Vim — bandeau d'aide première ouverture */
+.capsule-terminal-editor__vim-hint {
+    flex: 0 0 auto;
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+    color: rgba(246, 245, 244, 0.85);
+    font-style: italic;
+}
+
+.capsule-terminal-editor__status {
+    flex: 0 0 auto;
+    padding: 0.25rem 0.6rem;
+    background: var(--editor-status-bg);
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 1.4em;
+}
+
+.capsule-terminal-editor__status--mode {
+    color: var(--editor-accent);
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+.capsule-terminal-editor__cmdline {
+    flex: 0 0 auto;
+    display: none;
+    padding: 0.25rem 0.6rem;
+    background: var(--editor-cmdline-bg);
+    color: var(--editor-fg);
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.capsule-terminal-editor--prompt .capsule-terminal-editor__cmdline,
+.capsule-terminal-editor--vim-command .capsule-terminal-editor__cmdline {
+    display: block;
+}
+
+.capsule-terminal-editor--vim-command .capsule-terminal-editor__status--mode {
+    display: none;
+}
+
+.capsule-terminal-editor--vim-insert .capsule-terminal-editor__status {
+    background: var(--editor-cmdline-bg);
+}
+
+.capsule-terminal-editor__status--error {
+    color: var(--editor-error);
+    font-weight: normal;
+    text-align: left;
+}
+
+/* Overlay aide */
+.capsule-terminal-editor__help {
+    position: absolute;
+    inset: 0;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.88);
+    color: var(--editor-fg);
+    padding: 1rem 1.2rem;
+    box-sizing: border-box;
+}
+
+.capsule-terminal-editor__help[hidden] {
+    display: none !important;
+}
+
+.capsule-terminal-editor__help-title {
+    flex: 0 0 auto;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: var(--editor-accent);
+}
+
+.capsule-terminal-editor__help-body {
+    flex: 1 1 auto;
+    margin: 0;
+    overflow: auto;
+    font: inherit;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.capsule-terminal-editor--help-open .capsule-terminal-editor__buffer {
+    filter: blur(1px);
+    opacity: 0.35;
+}
+
+/* Vim modes */
+.capsule-terminal-editor--vim .capsule-terminal-editor__buffer {
+    cursor: text;
+}
+
+.capsule-terminal-editor--vim-normal .capsule-terminal-editor__buffer,
+.capsule-terminal-editor__buffer--readonly {
+    cursor: default;
+}
+
+.capsule-terminal-editor--vim-normal .capsule-terminal-editor__buffer:focus,
+.capsule-terminal-editor__buffer--readonly:focus {
+    outline: none;
+}
+
+.capsule-terminal[data-terminal-editor-active="true"] .capsule-terminal__input {
+    visibility: hidden;
+    pointer-events: none;
+}

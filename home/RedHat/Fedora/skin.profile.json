@@ -1,0 +1,77 @@
+{
+  "id": "linux-fedora",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "fedora",
+  "vendor": "fedora",
+  "displayName": "Fedora Workstation",
+  "bodyId": "fedora",
+  "embedKey": "fedora",
+  "tier": "P1",
+  "status": "active",
+  "fidelityLevel": 3,
+  "upstreamId": "linux-rocky",
+  "clusterIds": [
+    "explorer.nautilus.gnome",
+    "toolkit.gnome"
+  ],
+  "extends": "kernel:linux/branch:fedora/toolkit:gnome",
+  "paths": {
+    "facade": "OS/linux/families/redhat/fedora/index.html",
+    "skin": "home/RedHat/Fedora/index.html"
+  },
+  "toolkit": {
+    "id": "gnome",
+    "shell": "gnome"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/gnome",
+    "vendorPack": "vendors/fedora",
+    "iconPacks": [
+      "icons/gnome"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Fichiers",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo-gnome",
+    "CAPSULE_EMBED_SKIN_KEY": "fedora",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/redhat/fedora/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "fedora",
+    "CAPSULE_WINDOW_CHROME_CONTEXT": {
+      "toolkitId": "gnome",
+      "explorerTemplate": "nemo-gnome",
+      "dragMode": "app-headerbar-passthrough"
+    },
+    "CAPSULE_EXPLORER_SKIN_KEY": "nautilus",
+    "CAPSULE_CHECKLIST_STORAGE_KEY": "fedora-checklist",
+    "CAPSULE_TEMPLATE_OVERRIDES": {
+      "themes": "../../../usr/share/capsuleos/linux/apps/themes_gnome.html",
+      "update_manager": "../../../usr/share/capsuleos/linux/apps/update_manager_gnome.html"
+    },
+    "CAPSULE_WINDOW_CONTEXT": {
+      "family": "linux",
+      "draggable": true,
+      "resizable": true,
+      "forceOnOpen": true,
+      "requireHeader": false,
+      "headerLayout": "capsule",
+      "edgeTiling": false,
+      "skipSlots": [
+        "mainMenu"
+      ],
+      "bounds": {
+        "mainSelector": "main.fedora-desktop-area",
+        "desktopSelector": "object#desktop",
+        "footerSelector": "header.fedora-top-bar, #tableau",
+        "subtractFooter": false
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+/**
+ * MX Linux KDE — panel Plasma flottant (aligné Neon / openSUSE P4).
+ */
+
+html:has(#mx-kde) {
+    --mx-kde-panel-dock-inset: calc(var(--head) * 0.18);
+    --mx-kde-panel-radius: calc(var(--head) * 0.1);
+    --mx-kde-panel-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+    --mx-kde-plasma-panel-bg-solid: #eff0f1;
+    --kde-plasma-panel-anchor-bottom: var(--mx-kde-panel-anchor-bottom);
+    --kde-plasma-menu-divider: rgba(35, 38, 41, 0.1);
+    --kde-plasma-menu-hover: rgba(61, 174, 233, 0.14);
+    --kde-plasma-accent: #3daee9;
+    --kde-plasma-tray-icon-filter: brightness(0);
+}
+
+#mx-kde {
+    --mx-kde-panel-anchor-bottom: calc(var(--mx-kde-panel-dock-inset) + var(--taskbar-height));
+}
+
+#mx-kde[data-plasma-panel="expanded"] {
+    --mx-kde-panel-anchor-bottom: var(--taskbar-height);
+}
+
+#mx-kde #desktop {
+    height: var(--max-h);
+    max-height: var(--max-h);
+}
+
+#mx-kde #tableau {
+    position: fixed;
+    z-index: 9000;
+    left: var(--mx-kde-panel-dock-inset);
+    right: var(--mx-kde-panel-dock-inset);
+    bottom: var(--mx-kde-panel-dock-inset);
+    width: auto;
+    max-width: none;
+    height: var(--taskbar-height);
+    margin: 0;
+    padding: var(--z) var(--mint-taskbar-edge-gap, calc(var(--head) / 5)) var(--z) calc(var(--head) / 4);
+    border: 1px solid var(--mint-taskbar-top-border);
+    border-radius: var(--mx-kde-panel-radius);
+    background: var(--mint-taskbar-bg);
+    box-shadow: var(--mx-kde-panel-shadow);
+    backdrop-filter: blur(18px) saturate(1.1);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    justify-content: var(--sb);
+    gap: 0;
+}
+
+#mx-kde[data-plasma-panel="expanded"] #tableau {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+#mx-kde .calendar-popover,
+#mx-kde .volume-popover,
+:is(#mx-kde) .kde-tray-popover {
+    bottom: calc(var(--kde-plasma-panel-anchor-bottom, var(--taskbar-height)) + var(--calendar-popover-offset, calc(var(--head) / 5)));
+}
+
+#mx-kde div[data-link="mainMenu"],
+#mx-kde #mainMenu {
+    bottom: var(--mx-kde-panel-anchor-bottom);
+}

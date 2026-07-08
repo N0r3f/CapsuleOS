@@ -1,0 +1,26 @@
+/**
+ * ubuntu — libreoffice_startcenter (structure Rocky).
+ */
+body#ubuntu div[data-link="libreoffice_startcenter"].gnome-app--csd {
+    width: min(36rem, calc(100vw - var(--ubuntu-dock-width) - 1.5rem));
+    height: min(28rem, calc(100vh - var(--ubuntu-top-bar-height) - 1.5rem));
+    min-width: 28rem;
+    min-height: 20rem;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#ubuntu div[data-link="libreoffice_startcenter"] .lsc-app,
+body#ubuntu div[data-link="libreoffice_startcenter"] .mint-app {
+    --ma-bg: var(--fedora-window-surface, #303030);
+    --ma-text: rgba(255, 255, 255, 0.92);
+    --ma-header: rgba(255, 255, 255, 0.06);
+    --ma-border: rgba(255, 255, 255, 0.12);
+    --ma-accent: var(--gnome-software-accent, #3584e4);
+    border-radius: 0 0 10px 10px;
+}
+
+body#ubuntu div[data-link="libreoffice_startcenter"] .lsc-app__tile {
+    background: rgba(255, 255, 255, 0.04);
+}

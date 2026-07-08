@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/sele_linuxmint_center.jpg",
+  "sourceSha256": "4c5537c648e83097386c29ee5b6bed754e3ca3588ff7821170d7ac04e5ec3e35",
+  "output": "images/vendors/mint/wallpaper/sele_linuxmint_center.webp",
+  "outputSha256": "b1539b8273ee5a9d61b4e0d4e263394fb99bd9db142ae5e3fc29e3a08c8c52e4",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:33.582Z"
+}

@@ -1,0 +1,13 @@
+# Fond d'écran (Option C — à fournir par vous)
+
+Déposez **un** de ces fichiers dans ce dossier :
+
+- wallpaper.jpg  (recommandé)
+- wallpaper.webp
+- wallpaper.png
+
+Résolution conseillée : 1280×720 minimum.
+
+Sans fichier, un dégradé de la version s'affiche automatiquement.
+
+Voir : .doc/windows/OPTION-C.md

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/pills-d.webp",
+  "outputSha256": "82fb1d07ec94609048f1a27cf67a7c2e4ad2a81a8ba02fc31335190c4390ab32",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.721Z",
+  "note": "repair-manifest"
+}

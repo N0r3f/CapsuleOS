@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/orion_nebula_nasa_heic0601a.jpg",
+  "sourceSha256": "7500f702f0488d4a8df2c5abeb7ca9107a7ca7998e0441727cbaf79465b02388",
+  "output": "images/vendors/popos/wallpaper/orion_nebula_nasa_heic0601a.webp",
+  "outputSha256": "9207791e9fa572528b6ba0dca209004150bd8bb1c23c90eb7284b0c17f7bf8ca",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:07.776Z"
+}

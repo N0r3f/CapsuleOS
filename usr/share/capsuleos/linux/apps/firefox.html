@@ -1,0 +1,178 @@
+  <section class="capsule-browser capsule-browser--proton" data-firefox-app data-firefox-chrome-profile="proton" data-firefox-gnome-root>
+    <header class="capsule-browser__chrome" data-capsule-attr="aria-label:firefox.chromeAriaLabel" aria-label="Interface navigateur" data-firefox-gnome-chrome>
+      <div class="capsule-browser__tabsbar firefox-tabbar" data-capsule-attr="aria-label:firefox.tabsAriaLabel" aria-label="Onglets" data-firefox-gnome-tabstrip>
+        <div class="capsule-browser__tabs-list" data-browser-tabs data-firefox-gnome-tabs role="tablist"></div>
+        <button type="button" class="capsule-browser__tab-add" data-browser-action="new-tab" aria-label="Nouvel onglet" data-capsule-attr="aria-label:firefox.tabNewButtonAria">+</button>
+      </div>
+
+      <div class="capsule-browser__toolbar" data-capsule-attr="aria-label:firefox.toolbarAriaLabel" aria-label="Barre de navigation" data-firefox-gnome-toolbar>
+        <div class="capsule-browser__nav-actions">
+          <button type="button" class="capsule-browser__btn capsule-browser__btn--icon-back" data-browser-action="back" disabled data-capsule-attr="aria-label:firefox.backAria">
+            <span class="sr-only">Retour</span>
+          </button>
+          <button type="button" class="capsule-browser__btn capsule-browser__btn--icon-forward" data-browser-action="forward" disabled data-capsule-attr="aria-label:firefox.forwardAria">
+            <span class="sr-only">Avant</span>
+          </button>
+          <button type="button" class="capsule-browser__btn capsule-browser__btn--icon-reload" data-browser-action="reload" data-capsule-attr="aria-label:firefox.reloadAria">
+            <span class="sr-only">Recharger</span>
+          </button>
+        </div>
+
+        <form class="capsule-browser__addressbar firefox-urlbar" data-browser-form>
+          <label class="sr-only" for="capsule-browser-address-input" data-capsule-text="firefox.addressLabel">Adresse</label>
+          <span class="capsule-browser__address-search" aria-hidden="true"></span>
+          <span class="capsule-browser__address-prefix" aria-hidden="true"></span>
+          <input
+            id="capsule-browser-address-input"
+            class="capsule-browser__address-input"
+            type="text"
+            data-browser-address
+            data-firefox-gnome-address
+            data-capsule-attr="placeholder:firefox.addressPlaceholder"
+            placeholder="Rechercher avec Google ou saisir une adresse"
+            autocomplete="off"
+            spellcheck="false"
+            value=""
+          >
+          <button type="submit" class="capsule-browser__btn capsule-browser__btn--go" data-capsule-attr="aria-label:firefox.goAria" hidden>
+            <span data-capsule-text="firefox.goButton">Aller</span>
+          </button>
+        </form>
+
+        <div class="capsule-browser__toolbar-actions" data-capsule-attr="aria-label:firefox.toolbarActionsAria" aria-label="Actions navigateur">
+          <button type="button" class="capsule-browser__btn capsule-browser__btn--ghost capsule-browser__btn--icon-profile" data-browser-action="profile" data-capsule-attr="aria-label:firefox.profileAria">
+            <span class="sr-only">Profil</span>
+          </button>
+          <button type="button" class="capsule-browser__btn capsule-browser__btn--ghost capsule-browser__btn--icon-pocket" data-browser-action="pocket" data-capsule-attr="aria-label:firefox.pocketAria">
+            <span class="sr-only">Pocket</span>
+          </button>
+          <button type="button" class="capsule-browser__btn capsule-browser__btn--ghost capsule-browser__btn--icon-menu firefox-appmenu-button" data-browser-action="menu" data-capsule-attr="aria-label:firefox.menuAria">
+            <span class="sr-only">Menu</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="capsule-browser__bookmarks" data-browser-bookmarks data-firefox-gnome-bookmarks hidden data-capsule-attr="aria-label:firefox.bookmarksBarAria" aria-label="Favoris"></nav>
+    </header>
+
+    <p class="capsule-browser__status" data-browser-status role="status" aria-live="polite" hidden></p>
+
+    <main class="capsule-browser__viewport firefox-content" data-browser-view="home">
+      <section class="capsule-browser-newtab" data-browser-home data-firefox-gnome-newtab>
+        <div class="capsule-browser-newtab__brand">
+          <span class="capsule-browser-newtab__brand-logo" aria-hidden="true"></span>
+          <span class="capsule-browser-newtab__brand-name">Firefox</span>
+        </div>
+        <form class="capsule-browser-newtab__search" data-browser-newtab-form>
+          <label class="sr-only" for="capsule-browser-newtab-input" data-capsule-text="firefox.newtabSearchLabel">Rechercher</label>
+          <span class="capsule-browser-newtab__search-icon" aria-hidden="true"></span>
+          <input
+            id="capsule-browser-newtab-input"
+            class="capsule-browser-newtab__search-input"
+            type="search"
+            data-browser-newtab-input
+            data-capsule-attr="placeholder:firefox.addressPlaceholder"
+            placeholder="Rechercher avec Google ou saisir une adresse"
+            autocomplete="off"
+            spellcheck="false"
+          >
+        </form>
+        <nav class="capsule-browser-newtab__shortcuts" data-browser-newtab-shortcuts data-capsule-attr="aria-label:firefox.newtabShortcutsAria" aria-label="Raccourcis">
+          <button type="button" class="capsule-browser-newtab__shortcut capsule-browser-newtab__shortcut--add" data-browser-newtab-action="add" data-capsule-attr="aria-label:firefox.newtabShortcutAddAria">
+            <span class="capsule-browser-newtab__shortcut-add-icon" aria-hidden="true">+</span>
+            <span data-capsule-text="firefox.newtabShortcutAdd">Ajouter un raccourci</span>
+          </button>
+        </nav>
+        <section class="capsule-browser-newtab__pocket" aria-labelledby="capsule-firefox-pocket-heading">
+          <h2 id="capsule-firefox-pocket-heading" class="capsule-browser-newtab__pocket-title" data-capsule-text="firefox.newtabPocketTitle">Des articles qui font réfléchir</h2>
+          <div class="capsule-browser-newtab__pocket-grid">
+            <article class="capsule-browser-newtab__pocket-card">
+              <div class="capsule-browser-newtab__pocket-thumb capsule-browser-newtab__pocket-thumb--1" aria-hidden="true"></div>
+              <h3 data-capsule-text="firefox.newtabPocketArticle1Title">InoCat, l'influenceuse sud-coréenne…</h3>
+              <p class="capsule-browser-newtab__pocket-source" data-capsule-text="firefox.newtabPocketArticle1Source">Madame Figaro</p>
+            </article>
+            <article class="capsule-browser-newtab__pocket-card">
+              <div class="capsule-browser-newtab__pocket-thumb capsule-browser-newtab__pocket-thumb--2" aria-hidden="true"></div>
+              <h3 data-capsule-text="firefox.newtabPocketArticle2Title">Vassili Arkhipov, l'homme qui a sauvé l'humanité…</h3>
+              <p class="capsule-browser-newtab__pocket-source" data-capsule-text="firefox.newtabPocketArticle2Source">Le Point</p>
+            </article>
+            <article class="capsule-browser-newtab__pocket-card capsule-browser-newtab__pocket-card--sponsored">
+              <div class="capsule-browser-newtab__pocket-thumb capsule-browser-newtab__pocket-thumb--3" aria-hidden="true"></div>
+              <h3 data-capsule-text="firefox.newtabPocketArticle3Title">3&nbsp;% de votre investissement reversés…</h3>
+              <p class="capsule-browser-newtab__pocket-source" data-capsule-text="firefox.newtabPocketArticle3Source">Sponsorisé par CORUM L'Épargne</p>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="capsule-browser-redirect" data-browser-redirect hidden>
+        <iframe
+          class="capsule-browser-redirect__frame"
+          data-browser-redirect-frame
+          data-capsule-attr="title:firefox.iframeOsLaCapsuleTitle"
+          title="os-lacapsule"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </section>
+
+      <section class="capsule-browser-site" data-browser-site hidden></section>
+
+      <section class="capsule-browser-preferences" data-browser-preferences hidden></section>
+
+      <aside class="capsule-browser-panel" data-browser-panel="history" hidden aria-labelledby="capsule-firefox-history-heading">
+        <header class="capsule-browser-panel__header">
+          <h2 id="capsule-firefox-history-heading" class="capsule-browser-panel__title" data-capsule-text="firefox.panelHistoryTitle">Historique</h2>
+          <button type="button" class="capsule-browser-panel__close" data-browser-panel-close data-capsule-attr="aria-label:firefox.panelCloseAria" aria-label="Fermer">×</button>
+        </header>
+        <div class="capsule-browser-panel__body" data-browser-history-list role="list"></div>
+      </aside>
+
+      <aside class="capsule-browser-panel" data-browser-panel="downloads" hidden aria-labelledby="capsule-firefox-downloads-heading">
+        <header class="capsule-browser-panel__header">
+          <h2 id="capsule-firefox-downloads-heading" class="capsule-browser-panel__title" data-capsule-text="firefox.panelDownloadsTitle">Téléchargements</h2>
+          <button type="button" class="capsule-browser-panel__close" data-browser-panel-close data-capsule-attr="aria-label:firefox.panelCloseAria" aria-label="Fermer">×</button>
+        </header>
+        <ul class="capsule-browser-panel__downloads" data-browser-downloads-list role="list">
+          <li class="capsule-browser-panel__download">
+            <span class="capsule-browser-panel__download-name" data-capsule-text="firefox.downloadDemoName">guide-capsuleos-simulation.pdf</span>
+            <span class="capsule-browser-panel__download-meta" data-capsule-text="firefox.downloadDemoSize">248 Ko</span>
+          </li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer class="capsule-browser-findbar" data-browser-findbar hidden>
+      <input
+        type="text"
+        class="capsule-browser-findbar__input"
+        data-browser-findbar-input
+        data-capsule-attr="placeholder:firefox.findbarPlaceholder"
+        placeholder="Saisir..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <button type="button" class="capsule-browser-findbar__nav capsule-browser-findbar__nav--prev" data-browser-findbar-prev data-capsule-attr="aria-label:firefox.findbarPrevAria" aria-label="Précédent">◀</button>
+      <button type="button" class="capsule-browser-findbar__nav capsule-browser-findbar__nav--next" data-browser-findbar-next data-capsule-attr="aria-label:firefox.findbarNextAria" aria-label="Suivant">▶</button>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-highlight-all checked>
+        <span data-capsule-text="firefox.findbarHighlightAll">Tout surligner</span>
+      </label>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-case>
+        <span data-capsule-text="firefox.findbarMatchCase">Respecter la casse</span>
+      </label>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-diacritics>
+        <span data-capsule-text="firefox.findbarMatchDiacritics">Respecter les diacritiques</span>
+      </label>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-whole-word>
+        <span data-capsule-text="firefox.findbarWholeWord">Mots entiers</span>
+      </label>
+      <span class="capsule-browser-findbar__count" data-browser-findbar-count></span>
+      <button type="button" class="capsule-browser-findbar__close" data-browser-findbar-close data-capsule-attr="aria-label:firefox.findbarCloseAria" aria-label="Fermer">×</button>
+    </footer>
+
+    <section class="capsule-browser-devtools" data-browser-devtools hidden></section>
+  </section>

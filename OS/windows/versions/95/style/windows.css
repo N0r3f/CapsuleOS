@@ -1,0 +1,26 @@
+/* Dimensions fenêtre — le chrome Win95 est dans chrome-classic.css + win95.css */
+
+#windowContainer,
+.win-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 640px;
+    min-width: 320px;
+    height: 420px;
+    min-height: 240px;
+    margin: 0;
+    resize: both;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#windowIframe {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    border: none;
+    background: #ffffff;
+}

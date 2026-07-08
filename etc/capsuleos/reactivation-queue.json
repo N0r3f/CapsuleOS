@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "description": "Waves 1–5 : wave 4 Alma, wave 5 AnduinOS + Pop!_OS. Ajouter un ID : node usr/lib/capsuleos/tools/reactivate-os.mjs <id>",
+  "ids": [
+    "linux-mint",
+    "linux-ubuntu",
+    "linux-opensuse",
+    "windows-11",
+    "windows-10",
+    "macos-sonoma",
+    "ios-15",
+    "linux-fedora",
+    "linux-rocky",
+    "linux-alma",
+    "linux-anduinos",
+    "linux-popos",
+    "linux-kde-neon"
+  ]
+}

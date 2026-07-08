@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-nautilus.png",
+  "sourceSha256": "c82fc88dbd793f9d0a13dfaf96673c8b3a992c42577c992a4a5c7645b22934a1",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-light-nautilus-optimized.webp",
+  "outputSha256": "dc19cac927469dcfc67f25b210fbcdb4276d80aafc7bf7373bca014d2d80c245",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:16.739Z"
+}

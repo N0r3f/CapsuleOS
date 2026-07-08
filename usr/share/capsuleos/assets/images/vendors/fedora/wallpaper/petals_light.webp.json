@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/petals_light.webp",
+  "outputSha256": "c8902299e966028e288857ae8ea7de3d1146cd71a785a274968641c115f71849",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.714Z",
+  "note": "repair-manifest"
+}

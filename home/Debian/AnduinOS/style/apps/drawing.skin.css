@@ -1,0 +1,8 @@
+/** anduinos — Drawing (slot store P1). */
+body#anduinos main#drawingApp {
+    --drawing-bg: var(--fedora-app-surface, #303030);
+    --drawing-text: var(--fedora-app-text, #ffffff);
+    --drawing-border: var(--fedora-app-border, rgba(255, 255, 255, 0.08));
+    background: var(--drawing-bg);
+    color: var(--drawing-text);
+}

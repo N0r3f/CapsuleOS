@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/mint/mint.webp",
+  "outputSha256": "160fb6a6ef1ede25cc5c2aa0a4fce23dde59e05d8f37b07e2161867df9f440d3",
+  "role": "unknown",
+  "profile": "unknown",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.734Z",
+  "note": "repair-manifest"
+}

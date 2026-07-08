@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/ubuntu/wallpaper/moskalenko-v-Snowy_Ubuntu_Dark.webp",
+  "outputSha256": "5a46967a289ed9ab99f0c8e14a28c2a3f09f4064bee4ae83e7ab4d74302e1ab8",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.813Z",
+  "note": "repair-manifest"
+}

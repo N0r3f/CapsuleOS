@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../../usr/share/capsuleos/assets/images/toolkits/windows/10/computer.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Windows 10</title>
+</head>
+<body data-win-version="10" data-win-shell="modern">
+    <header></header>
+    <main>
+        <div id="menu"></div>
+        <a href="../../shared/pages/explorateur.html" target="lien" title="Explorateur de fichiers" class="desktop-icon">
+            <img src="../../../../usr/share/capsuleos/assets/images/toolkits/windows/10/folder.svg" alt="Explorateur" title="Explorateur de fichiers">
+        </a>
+        <a href="../../shared/pages/corbeille.html" target="lien" title="Corbeille" class="desktop-icon">
+            <img src="../../../../usr/share/capsuleos/assets/images/toolkits/windows/10/trash.svg" alt="Corbeille" title="Corbeille">
+        </a>
+        <div id="windowContainer" class="resize-drag" style="display: none; position: fixed;">
+            <div id="windowHeader">
+                <span></span>
+                <span id="windowTitle"></span>
+                <button type="button" id="minimizeBtn" aria-label="Réduire">−</button>
+                <button type="button" id="resizeBtn" aria-label="Agrandir">□</button>
+                <button type="button" id="closeBtn" aria-label="Fermer">×</button>
+            </div>
+            <iframe id="windowIframe" src="" name="lien" title="Fenêtre application"
+                sandbox="allow-same-origin allow-popups allow-scripts" loading="lazy"></iframe>
+        </div>
+    </main>
+    <footer>
+        <menu>
+            <i class="taskbar-start taskbar-start--modern" title="Menu Démarrer" aria-label="Menu Démarrer"></i>
+            <a href="../../shared/pages/explorateur.html" target="lien" title="Explorateur" class="taskbar-icon">
+                <img src="../../../../usr/share/capsuleos/assets/images/toolkits/windows/10/folder.svg" alt="Explorateur" title="Explorateur">
+            </a>
+            <a href="../../shared/pages/settings.html" target="lien" title="Paramètres" class="taskbar-icon">
+                <img src="../../../../usr/share/capsuleos/assets/images/toolkits/windows/10/settings.svg" alt="Paramètres" title="Paramètres">
+            </a>
+        </menu>
+        <a href="../../shared/pages/time.html" target="lien" title="Date et heure">
+            <span id="heure-date"></span>
+        </a>
+    </footer>
+    <script src="../../../../usr/lib/capsuleos/common/user-home.js"></script>
+    <script>
+        window.CAPSULE_WIN_VERSION = '10';
+        window.CAPSULE_WIN_SHELL = 'modern';
+        window.CAPSULE_WIN_START_STYLE = 'classic';
+        window.CAPSULE_WIN_APPS_BASE = '../../shared/apps';
+        window.CAPSULE_WIN_PAGES_BASE = '../../shared/pages';
+        window.CAPSULE_WIN_CONTENT_ROOT = typeof CapsuleUserHome !== 'undefined'
+            ? CapsuleUserHome.resolveRelative()
+            : '../../../../home/public';
+        window.CAPSULE_WIN_SKIN_BASE = '.';
+        window.CAPSULE_WIN_HUB = '../../index.html';
+        window.CAPSULE_WIN_SITE_HOME = '../../../../index.html';
+        window.CAPSULE_PICK_OS = 'windows';
+    </script>
+    <script src="../../kernel/js/capsule-windows-embed.js"></script>
+    <script src="../../kernel/js/date.js"></script>
+    <script src="../../../../usr/lib/capsuleos/common/background.js"></script>
+    <script src="../../../../usr/lib/capsuleos/common/capsule-window.js"></script>
+    <script src="../../../../usr/lib/capsuleos/common/resizeWindow.js"></script>
+    <script src="../../../../usr/lib/capsuleos/shells/common/capsule-window-context.js"></script>
+    <script src="../../../../usr/lib/capsuleos/shells/common/capsule-window-shell.js"></script>
+    <script src="../../../../usr/lib/capsuleos/shells/common/capsule-desktop-shell.js"></script>
+    <script src="../../../../usr/lib/capsuleos/shells/common/capsule-window-header-buttons.js"></script>
+        <script src="../../../../usr/lib/capsuleos/shells/common/capsule-memory-conventions.js"></script>
+<script src="../../../../usr/lib/capsuleos/shells/common/capsule-window-memory.js"></script>
+    <script src="../../kernel/js/win-window-drag.js"></script>
+    <script src="../../../../usr/lib/capsuleos/site/capsule-pick-return.js"></script>
+    <script src="../../kernel/js/win-desktop.js"></script>
+    <script src="../../kernel/js/win-start-menu-build.js"></script>
+    <script src="../../kernel/js/startMenu.js"></script>
+    <script src="../../kernel/js/taskbar.js"></script>
+    <script>window.CAPSULE_WINDOW_FAMILY = 'windows';</script>
+    <script src="../../kernel/js/windowManager.js"></script>
+</body>
+</html>

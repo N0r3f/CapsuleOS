@@ -1,0 +1,37 @@
+body#mint {
+    --stk-bg: #fff9c4;
+    --stk-toolbar: #fff59d;
+    --stk-text: #3e3e3e;
+    --stk-border: rgba(0, 0, 0, 0.14);
+    --stk-btn-border: rgba(0, 0, 0, 0.18);
+}
+
+body#mint .sticky-applet {
+    min-width: 200px;
+}
+
+body#mint .sticky-applet__title {
+    margin: 0 0 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+body#mint .sticky-applet__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body#mint .sticky-applet__item {
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: default;
+}
+
+body#mint .sticky-applet__item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#mint .taskbar-tray__icon--sticky::before {
+    content: "📝";
+}

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/petals_dark.webp",
+  "outputSha256": "a60ce7a590c93857a289e9525e707d338a7ceb7856c9e24991dd742fb621a0d7",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.712Z",
+  "note": "repair-manifest"
+}

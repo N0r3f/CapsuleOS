@@ -1,0 +1,48 @@
+<dialog id="nemo-properties-dialog" class="nautilus-properties-dialog" aria-labelledby="nemo-properties-title">
+    <form method="dialog" class="nautilus-properties-dialog__panel">
+        <header class="nautilus-properties-dialog__header">
+            <h2 id="nemo-properties-title">Propriétés</h2>
+            <button type="submit" class="nautilus-properties-dialog__close" value="close">Fermer</button>
+        </header>
+        <div class="nautilus-properties-dialog__body">
+            <dl>
+                <dt>Nom</dt>
+                <dd id="nemo-properties-name">—</dd>
+                <dt>Type</dt>
+                <dd id="nemo-properties-type">—</dd>
+                <dt>Emplacement</dt>
+                <dd id="nemo-properties-location">—</dd>
+                <dt>Contenu</dt>
+                <dd id="nemo-properties-size">—</dd>
+                <dt>Modifié</dt>
+                <dd id="nemo-properties-modified">—</dd>
+            </dl>
+        </div>
+    </form>
+</dialog>
+<nav id="nemo-context-menu" class="nautilus-context-menu" role="menu" aria-label="Menu contextuel Fichiers" hidden>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open" data-nemo-ctx-scope="item" data-nemo-ctx-icon="document-open"><span class="nautilus-context-menu__label">Ouvrir</span><span class="nautilus-context-menu__sub" aria-hidden="true">›</span></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open-with" data-nemo-ctx-scope="item" data-nemo-ctx-icon="open-menu"><span class="nautilus-context-menu__label">Ouvrir avec…</span></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="cut" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-cut"><span class="nautilus-context-menu__label">Couper</span><kbd>Ctrl+X</kbd></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="copy" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-copy"><span class="nautilus-context-menu__label">Copier</span><kbd>Ctrl+C</kbd></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="move-to" data-nemo-ctx-scope="item" data-nemo-ctx-icon="go-jump"><span class="nautilus-context-menu__label">Déplacer vers…</span></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="copy-to" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-copy"><span class="nautilus-context-menu__label">Copier vers…</span></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="rename" data-nemo-ctx-scope="item" data-nemo-ctx-icon="edit-rename"><span class="nautilus-context-menu__label">Renommer…</span><kbd>F2</kbd></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="compress" data-nemo-ctx-scope="item" data-nemo-ctx-icon="package-x-generic"><span class="nautilus-context-menu__label">Compresser…</span></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="trash" data-nemo-ctx-scope="item" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Mettre à la corbeille</span><kbd>Suppr</kbd></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="item" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="restore-trash" data-nemo-ctx-scope="trash-item" data-nemo-ctx-icon="edit-undo"><span class="nautilus-context-menu__label">Restaurer</span></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="delete-forever" data-nemo-ctx-scope="trash-item" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Supprimer définitivement</span><kbd>Maj+Suppr</kbd></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="trash-item" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="empty-trash" data-nemo-ctx-scope="trash" data-nemo-ctx-icon="user-trash"><span class="nautilus-context-menu__label">Vider la corbeille</span></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="trash" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="new-folder" data-nemo-ctx-scope="background" data-nemo-ctx-icon="folder-new"><span class="nautilus-context-menu__label">Nouveau dossier…</span><kbd>Maj+Ctrl+N</kbd></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="open-terminal" data-nemo-ctx-scope="background" data-nemo-ctx-icon="utilities-terminal"><span class="nautilus-context-menu__label">Ouvrir dans la console</span></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="background" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="paste" data-nemo-ctx-scope="background" data-nemo-ctx-icon="edit-paste"><span class="nautilus-context-menu__label">Coller</span><kbd>Ctrl+V</kbd></button>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="select-all" data-nemo-ctx-scope="background" data-nemo-ctx-icon="edit-select-all"><span class="nautilus-context-menu__label">Tout sélectionner</span><kbd>Ctrl+A</kbd></button>
+    <div class="nautilus-context-menu__separator" data-nemo-ctx-scope="background" role="separator"></div>
+    <button type="button" class="nautilus-context-menu__item" role="menuitem" data-nemo-ctx="properties" data-nemo-ctx-scope="both" data-nemo-ctx-icon="document-properties"><span class="nautilus-context-menu__label">Propriétés</span><kbd>Alt+Entrée</kbd></button>
+</nav>

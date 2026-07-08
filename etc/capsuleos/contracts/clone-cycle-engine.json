@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "description": "Moteur de cycles VM → clone — ordre automatique, gates anti-régression, cible Π_global.",
+  "doc": "root/docs/moteur-clonage-experience.md",
+  "piTarget": 100,
+  "piThresholdOk": 90,
+  "piThresholdMvp": 90,
+  "cycleCountToPi100": {
+    "minimum": 10,
+    "typical": 11,
+    "note": "10 cycles pallier (C0–C9) + C10 polish Π=100 ; Cx cross-régression après tout touch noyau partagé"
+  },
+  "cycles": [
+    {
+      "id": "C0",
+      "pallier": 0,
+      "label": "Baseline H₂ + inventaire VM",
+      "piMin": null,
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs", "label": "H2" },
+        { "script": "usr/lib/capsuleos/tools/print-agent-brief.mjs", "args": ["--id"], "optional": true }
+      ],
+      "inventory": "root/docs/inventaires/{id}-vm.json",
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "C1",
+      "pallier": 1,
+      "label": "ManΣ assets — pull VM, drift=0",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-manifest-replication-chain.mjs", "args": ["--id"], "optional": true },
+        { "script": "usr/lib/capsuleos/tools/validate-clone-assets.mjs", "args": ["--id"] }
+      ],
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "C2",
+      "pallier": 2,
+      "label": "Shell fonctionnel — panel, tray, lanceurs",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs", "args": ["--shell", "panel", "--write"], "env": { "CAPSULE_HTTP_BASE": "http://127.0.0.1:5501" } },
+        { "script": "usr/lib/capsuleos/tools/lab/run-cross-regression-gates.mjs", "args": ["--kernel-touch"], "optional": true }
+      ],
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "C3",
+      "pallier": 3,
+      "label": "Matrice VΣ — états UI shell (8 surfaces)",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs", "args": ["--write"], "env": { "CAPSULE_HTTP_BASE": "http://127.0.0.1:5501" } }
+      ],
+      "target": { "uiStateSurfaces": "8/8" },
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "C4",
+      "pallier": 4,
+      "label": "Shell pixel-perfect — géométrie ≤1 px",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/measure-mint-shell-geometry.mjs", "toolkit": "cinnamon", "optional": true },
+        { "script": "usr/lib/capsuleos/tools/lab/capture-clone-surfaces.mjs", "args": ["--id", "--compare"], "optional": true }
+      ],
+      "target": { "shellGeometryMaxDeltaPx": 1 },
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "C5",
+      "pallier": 5,
+      "label": "Apps P0 — file d'attente prioritaire Π≥90",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-app-parity-pass.mjs", "args": ["--id", "--priority", "--write"], "env": { "CAPSULE_HTTP_BASE": "http://127.0.0.1:5501" } }
+      ],
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "C6",
+      "pallier": 6,
+      "label": "Catalogue menu — slots ouverts OK",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/smoke-apps-catalog.mjs", "args": ["--id"], "optional": true }
+      ],
+      "target": { "slotsOpenOk": "catalog" },
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "C7",
+      "pallier": 7,
+      "label": "Menu principal — fonctionnel + ctx + pixel-perfect",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs", "args": ["--shell", "mainMenu", "--write"], "env": { "CAPSULE_HTTP_BASE": "http://127.0.0.1:5501" } },
+        { "script": "usr/lib/capsuleos/tools/lab/measure-mint-shell-geometry.mjs", "toolkit": "cinnamon", "optional": true }
+      ],
+      "target": { "shell.mainMenu.pi": 100 },
+      "closure": ["sync-linux-skin-closure", "commit-push"]
+    },
+    {
+      "id": "C8",
+      "pallier": 8,
+      "label": "Recette intégrale — cloisonnement + checklist VM",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/validate-toolkit-paradigm.mjs", "args": ["--id"] },
+        { "script": "usr/lib/capsuleos/tools/lab/run-cross-regression-gates.mjs", "args": ["--id"] },
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs", "label": "H6" }
+      ],
+      "closure": ["sync-all-views", "commit-push"]
+    },
+    {
+      "id": "C9",
+      "pallier": 9,
+      "label": "Dettes P2 + CapsuleOnly — clôture non-conformités",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs" }
+      ],
+      "target": { "nonConformites": 0 },
+      "closure": ["commit-push"]
+    },
+    {
+      "id": "C10",
+      "pallier": 10,
+      "label": "Polish Π_global=100",
+      "gates": [
+        { "script": "usr/lib/capsuleos/tools/lab/run-app-parity-pass.mjs", "args": ["--id", "--write"], "env": { "CAPSULE_HTTP_BASE": "http://127.0.0.1:5501" } },
+        { "script": "usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs", "args": ["--write"], "env": { "CAPSULE_HTTP_BASE": "http://127.0.0.1:5501" } },
+        { "script": "usr/lib/capsuleos/tools/validate-all.mjs" }
+      ],
+      "target": { "pi_global": 100 },
+      "closure": ["sync-all-views", "commit-push"]
+    }
+  ],
+  "crossRegression": {
+    "label": "Cx — anti-régression cross-toolkit (obligatoire après touch noyau partagé)",
+    "triggerPathPrefixes": [
+      "usr/lib/capsuleos/shells/linux/fileExplorer/",
+      "usr/lib/capsuleos/shells/linux/contentLoader.js",
+      "usr/lib/capsuleos/shells/linux/se-a11y-bus.js",
+      "usr/lib/capsuleos/shells/linux/capsule-theme-storage.js",
+      "usr/lib/capsuleos/shells/linux/mainMenu.js",
+      "usr/lib/capsuleos/shells/common/capsule-window.js"
+    ],
+    "siblingPairs": [
+      { "cinnamon": "linux-mint", "gnome": "linux-rocky" }
+    ],
+    "siblingTriples": [
+      { "cinnamon": "linux-mint", "gnome": "linux-rocky", "kde": "linux-kde-neon" }
+    ],
+    "gates": [
+      { "script": "usr/lib/capsuleos/tools/lab/run-cross-regression-gates.mjs" }
+    ]
+  },
+  "regressionCatalog": [
+    {
+      "id": "REG-CTX-DISPATCH",
+      "pattern": "Nemo vs Nautilus — bind context menu sans garde toolkit",
+      "commits": ["00816fb", "61ed7ae", "74ba268"],
+      "gate": "run-cross-regression-gates.mjs",
+      "doc": "root/docs/processus-branchement-noyau.md"
+    },
+    {
+      "id": "REG-FACADE-DRIFT",
+      "pattern": "home/ modifié sans sync-linux-skin-closure — pick-os obsolète",
+      "gate": "sync-linux-skin-closure.mjs + validate-linux-facades.mjs",
+      "doc": "root/docs/convention-rafraichissement-vues.md"
+    },
+    {
+      "id": "REG-CACHE-CSS",
+      "pattern": "skin.css bump oublié — clone affiche ancien layout",
+      "gate": "bump ?v= dans index.html + hard refresh",
+      "doc": "root/docs/inventaires/linux-mint-pixel-perfect-spec.md"
+    },
+    {
+      "id": "REG-MAN-DRIFT",
+      "pattern": "icônes menu pointent gnome/apps sur skin Cinnamon",
+      "gate": "validate-clone-assets.mjs + generate-mint-drift-refs.mjs",
+      "doc": "root/docs/paradigme-toolkit-cinnamon.md"
+    },
+    {
+      "id": "REG-CTX-DEFAULT-50",
+      "pattern": "dimension ctx absente des checks Playwright → Π_ctx=50 par défaut",
+      "gate": "run-ui-state-effects-pass.mjs — ajouter check ctx par surface",
+      "doc": "usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs"
+    },
+    {
+      "id": "REG-BIND-RACE",
+      "pattern": "bind context menu avant injection gabarit explorateur",
+      "gate": "smoke-mint-nemo.mjs boundDuringRace",
+      "doc": "root/docs/processus-branchement-noyau.md"
+    }
+  ]
+}

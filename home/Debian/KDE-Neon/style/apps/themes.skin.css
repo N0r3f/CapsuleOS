@@ -1,0 +1,1566 @@
+/* KDE Neon — Paramètres système (System Settings) — chrome Breeze + contenu */
+
+body#kde-neon div[data-link="themes"] {
+    --konsole-header-height: var(--kde-neon-konsole-header-height);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    border: 1px solid var(--kde-neon-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 8px 24px rgba(35, 38, 41, 0.16);
+    background: #eff0f1;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body#kde-neon div[data-link="themes"].windowElementActive {
+    border-color: rgba(61, 174, 233, 0.55);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35), 0 12px 28px rgba(35, 38, 41, 0.2);
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: var(--konsole-header-height);
+    min-height: var(--konsole-header-height);
+    margin: 0;
+    padding: 0 0.42rem;
+    border: 0;
+    border-bottom: 1px solid var(--kde-neon-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    color: var(--kde-neon-window-titlebar-fg);
+    background: var(--kde-neon-window-titlebar-bg);
+    box-shadow: none;
+    user-select: none;
+    pointer-events: auto;
+    box-sizing: border-box;
+}
+
+body#kde-neon div[data-link="themes"].windowElementActive #windowHeader {
+    background: var(--kde-neon-window-titlebar-bg-active);
+    border-bottom-color: var(--kde-neon-window-titlebar-border-color-active);
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:first-child {
+    position: absolute;
+    top: 0;
+    left: 0.34rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:first-child::before,
+body#kde-neon div[data-link="themes"] #windowHeader > nav:first-child::after {
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:first-child::before {
+    width: var(--kde-neon-header-icon-size);
+    height: var(--kde-neon-header-icon-size);
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/systemsettings.svg");
+    opacity: 0.94;
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:first-child::after {
+    width: var(--kde-neon-header-pin-size);
+    height: var(--kde-neon-header-pin-size);
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/add-pin.svg");
+    filter: var(--kde-neon-mono-logo-filter);
+    opacity: 0.76;
+}
+
+body#kde-neon div[data-link="themes"] #windowTitle {
+    display: block;
+    width: auto;
+    max-width: calc(100% - 9.5rem);
+    margin: 0 auto;
+    overflow: hidden;
+    color: var(--kde-neon-window-titlebar-fg-muted);
+    font-family: var(--font-ui);
+    font-size: var(--kde-neon-header-title-size);
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    text-shadow: none;
+    filter: none;
+    pointer-events: auto;
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: 0.34rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.18rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:last-child > button {
+    position: relative;
+    width: 1.22rem;
+    height: 1.22rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.18rem;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    transform: none;
+}
+
+body#kde-neon div[data-link="themes"] #minimizeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/go-down.svg");
+    background-size: 0.72rem;
+    filter: var(--kde-neon-header-control-filter);
+}
+
+body#kde-neon div[data-link="themes"] #resizeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-restore.svg");
+    background-size: 0.72rem;
+}
+
+body#kde-neon div[data-link="themes"] #closeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-close.svg");
+    background-size: 0.72rem;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+body#kde-neon div[data-link="themes"] #windowHeader > nav:last-child > button:hover {
+    background-color: rgba(239, 240, 241, 0.12);
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body#kde-neon div[data-link="themes"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.28);
+}
+
+html[data-theme="light"] #kde-neon div[data-link="themes"] #windowHeader > nav:last-child > button,
+html[data-theme="light"] #kde-neon div[data-link="themes"] #minimizeBtn {
+    filter: var(--kde-neon-header-control-filter-light);
+}
+
+html[data-theme="light"] #kde-neon div[data-link="themes"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.2);
+}
+
+body#kde-neon div[data-link="themes"] #windowIframe,
+body#kde-neon div[data-link="themes"] #themesApp,
+body#kde-neon div[data-link="themes"] .themes-app {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="themes"] [data-kde-settings-root],
+body#kde-neon div[data-link="themes"] #kdeSystemSettingsShell {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+body#kde-neon #themes #windowIframe,
+body#kde-neon #themes .windowIframe {
+    padding: 0;
+    background: #eff0f1;
+}
+
+body#kde-neon #themes .kde-systemsettings--hub,
+body#kde-neon #themes .kde-systemsettings--kcm {
+    height: 100%;
+    min-height: 0;
+}
+
+body#kde-neon #themes .kde-systemsettings__sidebar:not(.kde-systemsettings__sidebar--kcm) {
+    flex-basis: 11.6rem;
+    min-width: 11.6rem;
+    padding: 0.08rem 0.22rem 0.28rem;
+    background: #fcfcfc;
+    color: #232629;
+    border-right: 1px solid #bdc3c7;
+}
+
+body#kde-neon #themes .kde-systemsettings__search-input {
+    border-color: #bdc3c7;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-systemsettings__navitem {
+    border-radius: 6px;
+    padding: 0.42rem 0.6rem;
+    font-size: 0.88rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__navitem.is-active {
+    background: #3daee9;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+body#kde-neon #themes .kde-systemsettings--hub {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 0 0.35rem;
+    margin-bottom: 0;
+}
+
+body#kde-neon #themes [data-kde-settings-root] {
+    background: #eff0f1;
+}
+
+body#kde-neon #themes [data-kde-settings-root].kde-settings-view--kcm > .kde-systemsettings--kcm:not([hidden]) {
+    background: #eff0f1;
+}
+
+body#kde-neon #themes .kde-systemsettings__panel-header h1 {
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-systemsettings__help {
+    color: #7a7a7a;
+    font-size: 0.86rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__group {
+    border-color: #c9c9c9;
+    border-radius: 8px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+body#kde-neon #themes .kde-systemsettings__choice {
+    border-radius: 6px;
+    min-width: 6rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__choice.is-active,
+body#kde-neon #themes .kde-systemsettings__choice[aria-checked="true"] {
+    border-color: #2980b9;
+    background: #daeeff;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-systemsettings__select {
+    border-radius: 6px;
+    border-color: #bdc3c7;
+}
+
+html[data-theme="dark"] body#kde-neon #themes [data-kde-settings-root],
+html[data-theme="dark"] body#kde-neon #themes [data-kde-settings-root] > .kde-systemsettings--hub > .kde-systemsettings__sidebar,
+html[data-theme="dark"] body#kde-neon #themes [data-kde-settings-root] > .kde-systemsettings--hub > .kde-systemsettings__content,
+body#kde-neon[data-theme="dark"] #themes [data-kde-settings-root],
+body#kde-neon[data-theme="dark"] #themes [data-kde-settings-root] > .kde-systemsettings--hub > .kde-systemsettings__sidebar,
+body#kde-neon[data-theme="dark"] #themes [data-kde-settings-root] > .kde-systemsettings--hub > .kde-systemsettings__content {
+    background: #31363b;
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__sidebar:not(.kde-systemsettings__sidebar--kcm),
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__sidebar:not(.kde-systemsettings__sidebar--kcm) {
+    background: #232629;
+    border-right-color: #4a4f55;
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__search-input,
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__menu-btn,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__search-input,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__menu-btn {
+    background: #31363b;
+    border-color: #4a4f55;
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__footer--hub,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__footer--hub {
+    background: #232629;
+    border-top-color: #4a4f55;
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__group,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__group {
+    background: #3a3f44;
+    border-color: #4a4f55;
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__group,
+body#kde-neon[data-theme="dark"] #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__group {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__quick-btn,
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__quick-page,
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__panel-header h1,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__quick-btn,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__quick-page,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__panel-header h1 {
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__quick-btn,
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__quick-page,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__quick-btn,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__quick-page {
+    background: #3a3f44;
+    border-color: #4a4f55;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__theme-label,
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__option-sub,
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__nav-heading,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__theme-label,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__option-sub,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__nav-heading {
+    color: #bdc3c7;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__group-title,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__group-title {
+    color: #eff0f1;
+}
+
+html[data-theme="dark"] body#kde-neon #themes .kde-systemsettings__quick-row,
+body#kde-neon[data-theme="dark"] #themes .kde-systemsettings__quick-row {
+    border-bottom-color: #4a4f55;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    background-color: transparent;
+    mask: none;
+    -webkit-mask: none;
+    opacity: 1;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__group {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--landing {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/systemsettings.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--colors {
+    background: conic-gradient(#ff6b9d, #f59f00, #58d68d, #3daee9, #8e44ad, #ff6b9d);
+    border-radius: 50%;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--global {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/subnav/preferences-desktop-theme-global.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--apps {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/subnav/preferences-desktop-theme-applications.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--plasma {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/subnav/preferences-desktop.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--decorations {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/subnav/preferences-desktop-theme-windowdecorations.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--icons {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/subnav/preferences-desktop-icons.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon--cursors {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/subnav/preferences-desktop-cursors.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-sublabel {
+    margin-top: 0.1rem;
+    color: #7a7a7a;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer--lookandfeel {
+    justify-content: space-between;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer--lookandfeel .kde-systemsettings__footer-btn--apply {
+    margin-left: auto;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--appearance {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-theme-global.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--display {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-display-randr.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--desktop {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--workspace {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--accessibility {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-accessibility.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--network {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-system-network.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--notifications {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-notification-bell.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--applications {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-default-applications.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--about {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/ktip.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--mouse {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-mouse.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--touchpad {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-touchpad.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--touchscreen {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-touchscreen.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--keyboard {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-keyboard.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--gamepad {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-gaming.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--sound {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/emblem-music-symbolic.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--bluetooth {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-system-bluetooth.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--disk {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-smart-status.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--printer {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-devices-printer.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--accounts {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-online-accounts.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--remote {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-system-network-remote.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--wallpaper {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-wallpaper.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--datetime {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-locale.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navicon--colors {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/sidebar/hub/preferences-desktop-color.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body#kde-neon #themes .kde-systemsettings__navitem.is-active .kde-systemsettings__navicon {
+    opacity: 1;
+}
+
+body#kde-neon #themes .kde-systemsettings--hub > .kde-systemsettings__content,
+body#kde-neon #themes .kde-systemsettings__content {
+    background: #fcfcfc;
+}
+
+body#kde-neon #themes .kde-kcm-subnav .kde-systemsettings__navitem {
+    gap: 0.55rem;
+}
+
+body#kde-neon #themes .kde-kcm-subnav .kde-systemsettings__navitem.is-active .kde-kcm-subnav__icon {
+    opacity: 1;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer--kcm {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+
+/* KCM — sous-nav + contenu dans la colonne principale (sidebar hub persistante) */
+body#kde-neon #themes [data-kde-settings-root].kde-settings-view--kcm > .kde-systemsettings--kcm:not([hidden]) {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background: #eff0f1;
+}
+
+body#kde-neon #themes [data-kde-sidebar-kcm] .kde-systemsettings__sidebar--kcm {
+    grid-column: auto;
+    grid-row: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+    background: #ffffff;
+    border-right: 0;
+}
+
+body#kde-neon #themes .kde-systemsettings__kcm-header {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.35rem;
+    padding: 0.35rem 0.55rem;
+    border-bottom: 1px solid #eff0f1;
+    background: #dee0e2;
+    color: #232629;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+body#kde-neon #themes .kde-systemsettings__back {
+    width: 1.35rem;
+    height: 1.35rem;
+    border: 0;
+    border-radius: 4px;
+    background: transparent url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/systemsettings/go-previous.svg") center / 14px no-repeat;
+    filter: none;
+    opacity: 0.65;
+}
+
+body#kde-neon #themes .kde-systemsettings__nav--kcm {
+    padding: 0.2rem 0;
+    gap: 0;
+}
+
+body#kde-neon #themes .kde-systemsettings__nav--kcm .kde-systemsettings__navitem {
+    justify-content: flex-start;
+    border-radius: 0;
+    padding: 0.42rem 0.75rem;
+    color: #232629;
+}
+
+body#kde-neon #themes [data-kde-settings-root]:not(.kde-settings-layout--hub-subnav) .kde-systemsettings__content--kcm {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: auto;
+    padding: 1rem 1.25rem 1.25rem;
+    background: #fcfcfc;
+    min-height: 12rem;
+}
+
+body#kde-neon #themes .kde-kscreen__monitors {
+    display: flex;
+    gap: 0.65rem;
+    margin-bottom: 1.1rem;
+}
+
+body#kde-neon #themes .kde-kscreen__monitor {
+    width: 3.25rem;
+    height: 2.35rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background: #f6f7f8 center / 1.6rem no-repeat;
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-system.svg");
+}
+
+body#kde-neon #themes .kde-kscreen__monitor.is-active {
+    border-color: #3daee9;
+    background-color: #e8f4fc;
+    box-shadow: inset 0 0 0 1px rgba(61, 174, 233, 0.35);
+}
+
+body#kde-neon #themes .kde-kscreen__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+body#kde-neon #themes .kde-kscreen__row {
+    display: grid;
+    grid-template-columns: 1fr minmax(10rem, 14rem);
+    align-items: center;
+    gap: 0.75rem;
+}
+
+body#kde-neon #themes .kde-kscreen__label {
+    font-size: 0.88rem;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-kscreen__value-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    justify-content: flex-end;
+}
+
+body#kde-neon #themes .kde-kscreen__select {
+    width: 100%;
+    min-height: 1.85rem;
+    padding: 0 0.45rem;
+    font-size: 0.86rem;
+    background: #ffffff;
+}
+
+body#kde-neon #themes .kde-kscreen__info {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/kickoff/dialog-information.svg") center / contain no-repeat;
+    opacity: 0.55;
+}
+
+body#kde-neon #themes .kde-kscreen__row--slider .kde-kscreen__slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+body#kde-neon #themes .kde-kscreen__slider {
+    flex: 1;
+    accent-color: #3daee9;
+}
+
+body#kde-neon #themes .kde-kscreen__percent {
+    min-width: 2.75rem;
+    font-size: 0.86rem;
+    color: #232629;
+    text-align: right;
+}
+
+body#kde-neon #themes .kde-kscreen__group {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body#kde-neon #themes .kde-kscreen__group-title {
+    margin: 0 0 0.45rem;
+    padding: 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-kscreen__radio {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.25rem 0;
+    font-size: 0.86rem;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-kscreen__row--check {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+}
+
+body#kde-neon #themes .kde-kscreen__check {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #232629;
+}
+
+body#kde-neon #themes .kde-kscreen__sub {
+    margin-left: 1.55rem;
+    font-size: 0.82rem;
+    color: #7a7a7a;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.85rem;
+    border-top: 1px solid #c9c9c9;
+    background: #f6f7f8;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer-btn {
+    min-width: 6.5rem;
+    min-height: 1.85rem;
+    padding: 0 0.85rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #7a7a7a;
+    font-size: 0.86rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer-btn--primary {
+    margin-left: auto;
+}
+
+body#kde-neon #themes .kde-systemsettings__footer-btn:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+body#kde-neon #themes .kde-systemsettings__content--kcm .kde-systemsettings__panel-header {
+    display: none;
+}
+
+body#kde-neon #themes .kde-kcm-subnav {
+    display: flex;
+    flex-direction: column;
+    padding: 0.2rem 0;
+}
+
+body#kde-neon #themes .kde-kcm-subnav .kde-systemsettings__navitem {
+    color: #232629;
+    border-radius: 0;
+}
+
+body#kde-neon #themes [data-kde-settings-root].kde-settings-layout--hub-subnav:not([data-kde-capture-parity="subnav-replace"]) .kde-systemsettings__content--kcm {
+    grid-column: 3;
+    grid-row: 1;
+    overflow: auto;
+    padding: 1rem 1.25rem 1.25rem;
+    background: #fcfcfc;
+    min-height: 12rem;
+}
+
+body#kde-neon #themes [data-kde-settings-root].kde-settings-layout--hub-subnav:not([data-kde-capture-parity="subnav-replace"]) .kde-systemsettings__subnav--kcm {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+body#kde-neon #themes [data-kde-settings-root][data-kde-capture-parity="subnav-replace"].kde-settings-layout--hub-subnav .kde-systemsettings__subnav--kcm {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+body#kde-neon #themes [data-kde-settings-root][data-kde-capture-parity="subnav-replace"].kde-settings-layout--hub-subnav .kde-systemsettings__content--kcm {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0.55rem 1rem 1rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__subnav--kcm .kde-systemsettings__navitem {
+    justify-content: flex-start;
+    border-radius: 0;
+    padding: 0.42rem 0.75rem;
+    color: #232629;
+    width: 100%;
+}
+
+body#kde-neon #themes .kde-systemsettings__subnav--kcm .kde-systemsettings__subnav-header {
+    color: #7a7a7a;
+    font-weight: 600;
+    border-bottom-color: #eff0f1;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-tile {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    gap: 0.2rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-tile.is-active .kde-systemsettings__theme-preview {
+    outline: 2px solid #3daee9;
+    outline-offset: -2px;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+body#kde-neon #themes .kde-systemsettings__nav--native .kde-systemsettings__navitem:not(.is-active)::after {
+    display: none;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-grid--global-themes,
+body#kde-neon #themes .kde-systemsettings__theme-grid--schemes,
+body#kde-neon #themes .kde-systemsettings__theme-grid--plasma {
+    grid-template-columns: repeat(4, 12.5rem);
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+    justify-content: start;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-overlay,
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-grid--plasma .kde-systemsettings__theme-overlay {
+    display: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="plasma-style"] .kde-systemsettings__kcm-toolbar:first-of-type {
+    margin-bottom: 0.45rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="plasma-style"] .kde-systemsettings__kcm-toolbar--search {
+    margin-bottom: 0.65rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="plasma-style"] .kde-systemsettings__theme-grid--plasma {
+    margin-top: 0.25rem;
+}
+
+/* P2 polish Φ — hub quick-settings, accent-row, subnav KCM, toolbar LnF */
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__panel-header {
+    margin-bottom: 0.25rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__panel-header h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-tile {
+    padding: 0;
+    border: none;
+    background: transparent;
+    gap: 0.25rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__group:first-of-type .kde-systemsettings__group-title {
+    margin-bottom: 0.3rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.45rem;
+    row-gap: 0.35rem;
+    margin: 0.35rem 0 0.55rem;
+    padding: 0.35rem 0 0.55rem;
+    border-top: 1px solid #eff0f1;
+    border-bottom: 1px solid #eff0f1;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-row .kde-systemsettings__row-label {
+    flex: 1 1 100%;
+    font-size: 0.84rem;
+    margin: 0;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-row .kde-systemsettings__select {
+    flex: 0 0 auto;
+    min-width: 7rem;
+    max-width: 8.5rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-swatches {
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    gap: 0.28rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-picker {
+    flex-shrink: 0;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-swatch {
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-swatch.is-active {
+    outline: 2px solid #3daee9;
+    outline-offset: 1px;
+}
+
+body#kde-neon #themes .kde-systemsettings__nav--kcm .kde-systemsettings__navitem {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    min-height: 1.8rem;
+}
+
+body#kde-neon #themes .kde-kcm-subnav__icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__content--kcm {
+    padding: 0.7rem 0.95rem 1rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__kcm-toolbar--title {
+    margin-bottom: 0.45rem;
+    align-items: center;
+    min-height: 2.35rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__kcm-toolbar--title h1 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__subnav-header--themes {
+    display: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__kcm-toolbar--title::before {
+    content: "";
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 0.15rem;
+    background: transparent url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/panel/menu-burger.svg") center / 1.1rem no-repeat;
+    opacity: 0.85;
+}
+
+body#kde-neon #themes .kde-systemsettings__breeze-switch {
+    font-size: 0.84rem;
+    gap: 0.45rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__breeze-switch__track {
+    width: 2.35rem;
+    height: 1.2rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__nav--native .kde-systemsettings__navitem {
+    font-size: 0.79rem;
+    padding: 0.28rem 0.4rem;
+    line-height: 1.15;
+}
+
+body#kde-neon #themes .kde-systemsettings__nav-heading {
+    font-size: 0.72rem;
+    margin: 0.16rem 0.28rem 0.06rem;
+}
+
+/* Φ P0 — hub sidebar capture (calibrate-kde-settings-focus-offset dy −48 → ~84.6) */
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] .kde-systemsettings__search {
+    margin-bottom: 0.12rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] .kde-systemsettings__search-input {
+    padding-top: 0.32rem;
+    padding-bottom: 0.32rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] .kde-systemsettings__menu-btn {
+    width: 1.85rem;
+    height: 1.85rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] .kde-systemsettings__nav--native {
+    margin-top: 4.25rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] .kde-systemsettings__navicon-img {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] .kde-systemsettings__navitem.is-active .kde-systemsettings__navicon-img {
+    filter: brightness(0) invert(1);
+}
+
+/* Φ P0 — hub previews capture (crop VM previewH 140 · calibrate 2D dy +46 · grid 2026-06-22) */
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__group:first-of-type .kde-systemsettings__group-title {
+    margin-bottom: 0.15rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-grid--hub {
+    display: block;
+    position: relative;
+    width: 51.25rem;
+    height: 8.75rem;
+    margin-top: 0.85rem;
+    margin-left: 0.125rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-grid--hub .kde-systemsettings__theme-tile {
+    position: absolute;
+    top: 0;
+    transform: none;
+    width: 16.25rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-grid--hub .kde-systemsettings__theme-tile:nth-child(1) {
+    left: 0;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-grid--hub .kde-systemsettings__theme-tile:nth-child(2) {
+    left: 17.5rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-grid--hub .kde-systemsettings__theme-tile:nth-child(3) {
+    left: 35rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-preview {
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-label {
+    display: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="hub-sidebar"] [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-preview .kde-systemsettings__theme-preview-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+/* Hub Paramétrage — previews desktop Capsule (ingest source-previews 2026-06-21) */
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-grid--hub {
+    grid-template-columns: repeat(3, 16.25rem);
+    gap: 0.5rem 1.25rem;
+    width: fit-content;
+    max-width: none;
+    margin-top: -0.15rem;
+    margin-left: 0.375rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-preview {
+    aspect-ratio: auto;
+    height: 8.75rem;
+    min-height: 8.75rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    background-size: 100% 100%;
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-preview--hub-breeze {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/hub-breeze-vm.png?v=20260621capsule");
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-preview--hub-dark {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/hub-dark-vm.png?v=20260621capsule");
+}
+
+body#kde-neon #themes [data-kde-panel-content="quick-settings"] .kde-systemsettings__theme-preview--auto {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/hub-auto-vm.png?v=20260621capsule");
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-preview {
+    aspect-ratio: auto;
+    height: 7.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    background-size: 100% 100%;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-grid--global-themes {
+    margin-top: 0.25rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-preview {
+    height: 8.125rem;
+    min-height: 8.125rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-preview--global-twilight {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/appearance-twilight-vm.png?v=20260623lnf");
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__theme-preview--global-oxygen {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/appearance-oxygen-vm.png?v=20260623lnf");
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-grid--schemes .kde-systemsettings__theme-preview {
+    height: 7.5rem;
+    min-height: 7.5rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-grid--plasma {
+    margin-top: 0.15rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-grid--plasma .kde-systemsettings__theme-preview {
+    height: 7.5rem;
+    min-height: 7.5rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__theme-sublabel {
+    font-size: 0.72rem;
+    color: #7a7a7a;
+    font-weight: 400;
+}
+
+/* Φ P0 — sous-nav Couleurs & Thèmes (icônes VM) */
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__subnav-header--themes {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.55rem;
+    min-height: 2.35rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__back--subnav {
+    display: none;
+    flex-shrink: 0;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__back--subnav {
+    display: inline-flex;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__subnav-title {
+    flex: 1 1 auto;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #232629;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-kcm-subnav .kde-systemsettings__navitem {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.38rem 0.65rem;
+    font-size: 0.82rem;
+    border-radius: 0;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__subnav--kcm {
+    background: #fcfcfc;
+    border-right: 1px solid #bdc3c7;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] .kde-systemsettings__kcm-toolbar--search {
+    margin-top: 0.15rem;
+    margin-bottom: 0.35rem;
+}
+
+body#kde-neon #themes [data-kde-settings-surface="kcm-themes"] [data-kde-panel-content="colors"] .kde-systemsettings__kcm-toolbar:first-of-type {
+    margin-bottom: 0.35rem;
+}
+
+/* Φ P0 — capture KCM : subnav VM ≈122px (kde-settings-visual-focus-regions kcm-sidebar) */
+body#kde-neon #themes [data-kde-settings-root][data-kde-capture-parity="subnav-replace"] {
+    grid-template-columns: 7.625rem minmax(0, 1fr);
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] .kde-systemsettings__content--kcm {
+    padding: 0 0.35rem 1rem 0.15rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__kcm-toolbar--title {
+    margin-bottom: 0.65rem;
+    min-height: 2.35rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes {
+    display: block;
+    position: relative;
+    width: 54rem;
+    height: 8.125rem;
+    margin-top: 8.01rem;
+    margin-left: -0.1875rem;
+}
+
+/* Voie absolue — origines VM theme-grid (focus x=163, colW 216, pad 8) */
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile {
+    position: absolute;
+    top: 0;
+    transform: none;
+    width: 12.5rem;
+    max-width: 12.5rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile:nth-child(1) {
+    left: 0.5rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile:nth-child(2) {
+    left: 14rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile:nth-child(3) {
+    left: 27.5rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile:nth-child(4) {
+    left: 41rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile {
+    width: 12.5rem;
+    max-width: 12.5rem;
+    padding: 0;
+    border: none;
+    background: transparent;
+    gap: 0;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-preview {
+    aspect-ratio: auto;
+    height: 8.125rem;
+    min-height: 8.125rem;
+    width: 12.5rem;
+    max-width: 12.5rem;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    border: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-label {
+    display: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-tile.is-active .kde-systemsettings__theme-preview {
+    outline: 2px solid #3daee9;
+    outline-offset: -2px;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-grid--global-themes .kde-systemsettings__theme-overlay {
+    display: none !important;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-preview .kde-systemsettings__theme-preview-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-preview--global-breeze {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/appearance-breeze-vm.png?v=20260621capsule") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-preview--global-twilight {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/appearance-twilight-vm.png?v=20260623lnf") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-preview--global-dark {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/appearance-dark-vm.png?v=20260621capsule") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="lookandfeel"] .kde-systemsettings__theme-preview--global-oxygen {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/theme-previews/appearance-oxygen-vm.png?v=20260623lnf") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__accent-row {
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.65rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__kcm-toolbar--search {
+    margin-bottom: 0.85rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-grid--schemes {
+    display: grid;
+    grid-template-columns: repeat(4, 12.5rem);
+    gap: 0.5rem 2.85rem;
+    width: fit-content;
+    max-width: none;
+    margin-top: 2.875rem;
+    margin-left: -2.875rem;
+    align-items: start;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-grid--schemes .kde-systemsettings__theme-tile {
+    width: 12.5rem;
+    max-width: 12.5rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-grid--schemes .kde-systemsettings__theme-preview {
+    aspect-ratio: auto;
+    height: 7.5rem;
+    min-height: 7.5rem;
+    width: 12.5rem;
+    max-width: 12.5rem;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    border: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview .kde-systemsettings__theme-preview-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-grid--schemes .kde-systemsettings__theme-tile.is-active .kde-systemsettings__theme-preview {
+    outline: none !important;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-grid--schemes .kde-systemsettings__theme-label {
+    display: none;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview--scheme-breeze-light {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/scheme-previews/scheme-breeze-light-vm.png") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview--scheme-breeze-dark {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/scheme-previews/scheme-breeze-dark-vm.png") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview--scheme-breeze-classic {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/scheme-previews/scheme-breeze-classic-vm.png") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview--scheme-oxygen {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/scheme-previews/scheme-oxygen-vm.png") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview--scheme-oxygen-cold {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/scheme-previews/scheme-oxygen-cold-vm.png") center / 100% 100% no-repeat;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] [data-kde-panel-content="colors"] .kde-systemsettings__theme-preview--scheme-oxygen-dark {
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/scheme-previews/scheme-oxygen-dark-vm.png") center / 100% 100% no-repeat;
+}
+
+/* Φ P0 — hub about (logo Neon VM) */
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__about-logo {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 0.65rem;
+    border-radius: 0;
+    background: url("../../../../../usr/share/capsuleos/assets/images/vendors/neon/systemsettings/about/about-distro-logo-vm.png") center / contain no-repeat;
+}
+
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__panel {
+    padding: 0 1.35rem 1.5rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__panel-header h1 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__about-brand {
+    font-size: 0.98rem;
+    margin-bottom: 0.65rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__about {
+    padding: 0;
+    margin-top: -2.5rem;
+}
+
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__about dt {
+    margin-top: 0.45rem;
+    font-size: 0.83rem;
+    color: #7a7a7a;
+}
+
+body#kde-neon #themes [data-kde-panel-content="about"] .kde-systemsettings__about dd {
+    margin-top: 0.15rem;
+    font-size: 0.88rem;
+}
+
+/* Φ P0 — subnav KCM capture (densité VM · calibrate 2D 2026-06-21) */
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] .kde-systemsettings__subnav--kcm {
+    margin-left: -0.625rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"][data-active-kde-panel="lookandfeel"] .kde-systemsettings__subnav--kcm.kde-kcm-subnav {
+    margin-top: -2rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"][data-active-kde-panel="plasma-style"] .kde-systemsettings__subnav--kcm.kde-kcm-subnav {
+    margin-top: -0.75rem;
+    margin-left: -1rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] .kde-systemsettings__subnav--kcm .kde-systemsettings__navitem {
+    padding: 0.38rem 0.5rem;
+    font-size: 0.795rem;
+    min-height: 1.68rem;
+    line-height: 1.25;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] .kde-systemsettings__subnav--kcm .kde-kcm-subnav__icon {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] .kde-kcm-subnav__icon-img {
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    object-fit: contain;
+}
+
+body#kde-neon #themes [data-kde-capture-parity="subnav-replace"] .kde-systemsettings__navitem.is-active .kde-kcm-subnav__icon-img {
+    filter: brightness(0) invert(1);
+}
+
+body#kde-neon #themes .kde-systemsettings__search {
+    margin: 0 0.28rem 0.28rem;
+    gap: 0.28rem;
+}
+
+body#kde-neon #themes .kde-systemsettings__search-input {
+    padding: 0.36rem 0.55rem 0.36rem 1.85rem;
+    font-size: 0.79rem;
+}
+

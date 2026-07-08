@@ -1,0 +1,14 @@
+/**
+ * openSUSE Plasma — tokens (couleurs à valeurs littérales).
+ * Importé par opensuse-desktop.css.
+ */
+
+html:has(#opensuse) {
+    --opensuse-plasma-accent: #3daee9;
+    --opensuse-plasma-panel-bg: #eff0f1;
+    --opensuse-plasma-panel-border: #d9d9d9;
+    --opensuse-plasma-text: #232629;
+    --opensuse-plasma-text-muted: #7f8c8d;
+    --desktop-shortcut-text: #ffffff;
+    --opensuse-bg-color: #4a9e99;
+}

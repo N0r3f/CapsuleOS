@@ -1,0 +1,45 @@
+<main id="lecteurMultimedia" class="celluloid-app viewer-app" aria-label="Celluloid">
+    <p class="sr-only viewer-app__label">Fichier actif:</p>
+    <p class="sr-only viewer-app__filename" id="mint-media-viewer-filename">Aucun média sélectionné</p>
+
+    <nav class="celluloid-app__menubar viewer-app__toolbar" aria-label="Menu Celluloid">
+        <div class="celluloid-app__menu">
+            <button type="button" class="celluloid-app__menu-btn" aria-haspopup="true">Média</button>
+        </div>
+        <div class="celluloid-app__menu">
+            <button type="button" class="celluloid-app__menu-btn" aria-haspopup="true">Lecture</button>
+        </div>
+        <div class="celluloid-app__menu">
+            <button type="button" class="celluloid-app__menu-btn" aria-haspopup="true">Audio</button>
+        </div>
+        <div class="celluloid-app__menu">
+            <button type="button" class="celluloid-app__menu-btn" aria-haspopup="true">Vidéo</button>
+        </div>
+        <div class="celluloid-app__menu">
+            <button type="button" class="celluloid-app__menu-btn" aria-haspopup="true">Sous-titres</button>
+        </div>
+        <div class="celluloid-app__menu">
+            <button type="button" class="celluloid-app__menu-btn" aria-haspopup="true">Aide</button>
+        </div>
+    </nav>
+
+    <div class="celluloid-app__stage">
+        <section class="celluloid-app__viewport viewer-app__content" id="mint-media-viewer-content" aria-label="Zone de lecture">
+        </section>
+    </div>
+
+    <footer class="celluloid-app__controls" aria-label="Contrôles de lecture">
+        <button type="button" class="celluloid-app__ctl celluloid-app__ctl--open" title="Ouvrir un fichier" aria-label="Ouvrir un fichier" disabled></button>
+        <button type="button" class="celluloid-app__ctl celluloid-app__ctl--play" title="Lecture" aria-label="Lecture" disabled></button>
+        <button type="button" class="celluloid-app__ctl celluloid-app__ctl--seek-back" title="Reculer" aria-label="Reculer" disabled></button>
+        <button type="button" class="celluloid-app__ctl celluloid-app__ctl--seek-fwd" title="Avancer" aria-label="Avancer" disabled></button>
+        <div class="celluloid-app__timeline" aria-hidden="true">
+            <div class="celluloid-app__timeline-track">
+                <div class="celluloid-app__timeline-fill"></div>
+            </div>
+        </div>
+        <span class="celluloid-app__time" aria-live="polite">0:00 / 0:00</span>
+        <button type="button" class="celluloid-app__ctl celluloid-app__ctl--volume" title="Volume" aria-label="Volume" disabled></button>
+        <button type="button" class="celluloid-app__ctl celluloid-app__ctl--fullscreen" title="Plein écran" aria-label="Plein écran" disabled></button>
+    </footer>
+</main>

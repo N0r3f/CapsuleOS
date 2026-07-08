@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jleung_confetti.jpg",
+  "sourceSha256": "608d1490154ed9373856f8ab8331147583b76aac40358cd5bb2085f7f7213112",
+  "output": "images/vendors/mint/wallpaper/jleung_confetti.webp",
+  "outputSha256": "2f3e819bfc246c4dcc5c4381c3f99145677cfbba4b5ffcabda00f2a6188b00d4",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 683,
+  "preparedAt": "2026-06-15T19:41:40.152Z"
+}

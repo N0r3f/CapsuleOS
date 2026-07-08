@@ -1,0 +1,6 @@
+/* Mint — Bulky (renommer fichiers) */
+body#mint div[data-link="bulky"].windowElement {
+    width: calc(var(--head) * 16);
+    min-width: calc(var(--head) * 13);
+    height: calc(var(--head) * 11);
+}

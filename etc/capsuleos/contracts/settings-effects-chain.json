@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "description": "Contrat effets système transversaux (couche Se) — bus sémantique partagé entre toolkits sans fusion des gabarits Paramètres.",
+  "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+  "doc": "root/docs/procedure-replication-formelle.md",
+  "predicates": {
+    "Se": "Effet système documenté dans la matrice parity du registry",
+    "SeΣ": "∀ effet P0 matrice → handler parity ∧ événement capsule:* émis ∧ consommateur documenté ou accepted VM"
+  },
+  "layers": {
+    "Se-Shell": {
+      "label": "Chrome shell (panel, dock, tray, applets)",
+      "unification": "semantic-only"
+    },
+    "Se-WM": {
+      "label": "Comportements fenêtre et espaces",
+      "unification": "partial"
+    },
+    "Se-Desktop": {
+      "label": "Bureau, icônes, thèmes GTK/icon",
+      "unification": "semantic-only"
+    },
+    "Se-A11y": {
+      "label": "Accessibilité (contraste, texte agrandi)",
+      "unification": "full"
+    },
+    "Se-Apps": {
+      "label": "Effets par slot applicatif",
+      "unification": "slot-based"
+    },
+    "Se-System": {
+      "label": "État système (pare-feu, proxy, stubs)",
+      "unification": "dataset-only"
+    }
+  },
+  "sharedHooks": {
+    "dataset": {
+      "fontScale": "html[data-font-scale]",
+      "contrastMode": "html[data-contrast-mode]"
+    },
+    "cssTokens": [
+      "--a11y-font-scale-factor",
+      "--a11y-contrast-text",
+      "--a11y-contrast-surface",
+      "--a11y-contrast-border",
+      "--head"
+    ],
+    "events": {
+      "a11yContrast": "capsule:a11y-contrast-changed",
+      "a11yFontScale": "capsule:a11y-font-scale-changed",
+      "panelHeight": "capsule:panel-height-changed",
+      "dynamicWorkspaces": "capsule:dynamic-workspaces-changed",
+      "appletVisibility": "capsule:applet-visibility-changed",
+      "nightLight": "capsule:nightlight-changed",
+      "dnd": "capsule:dnd-changed",
+      "theme": "capsule:gnome-theme-changed",
+      "wallpaper": "capsule:wallpaper-changed",
+      "notifications": "capsule:notifications-changed",
+      "hotCorners": "capsule:hot-corners-changed",
+      "displayScale": "capsule:display-scale-changed"
+    }
+  },
+  "effects": [
+    {
+      "id": "gnome-appearance-theme",
+      "toolkit": "gnome",
+      "settingsPanel": "appearance",
+      "controlId": "theme",
+      "layer": "Se-Desktop",
+      "event": "capsule:gnome-theme-changed",
+      "pilotRegistryId": "linux-rocky",
+      "priority": "P0",
+      "emitters": ["usr/lib/capsuleos/shells/linux/themes.js"],
+      "consumers": ["usr/lib/capsuleos/shells/linux/capsule-theme-storage.js"]
+    },
+    {
+      "id": "gnome-background-wallpaper",
+      "toolkit": "gnome",
+      "settingsPanel": "background",
+      "controlId": "wallpaper",
+      "layer": "Se-Desktop",
+      "event": "capsule:wallpaper-changed",
+      "pilotRegistryId": "linux-rocky",
+      "priority": "P0",
+      "emitters": ["usr/lib/capsuleos/shells/linux/capsule-theme-storage.js"],
+      "consumers": ["home/RedHat/Rocky/style/gnome-workstation.css"]
+    },
+    {
+      "id": "gnome-notifications-banners",
+      "toolkit": "gnome",
+      "settingsPanel": "notifications",
+      "controlId": "notifications",
+      "layer": "Se-Shell",
+      "event": "capsule:notifications-changed",
+      "pilotRegistryId": "linux-rocky",
+      "priority": "P0",
+      "emitters": ["usr/lib/capsuleos/shells/linux/gnome-settings-parity.js"],
+      "consumers": ["usr/lib/capsuleos/shells/linux/se-shell-bus.js"]
+    },
+    {
+      "id": "gnome-multitasking-workspaces",
+      "toolkit": "gnome",
+      "settingsPanel": "multitasking",
+      "controlId": "dynamic-workspaces",
+      "layer": "Se-WM",
+      "event": "capsule:workspaces-config-changed",
+      "pilotRegistryId": "linux-rocky",
+      "priority": "P0",
+      "emitters": ["usr/lib/capsuleos/shells/linux/gnome-settings-parity.js"],
+      "consumers": ["usr/lib/capsuleos/shells/linux/gnome-window-behaviors.js"]
+    },
+    {
+      "id": "gnome-displays-scale",
+      "toolkit": "gnome",
+      "settingsPanel": "displays",
+      "controlId": "display-scale",
+      "layer": "Se-Desktop",
+      "event": "capsule:display-scale-changed",
+      "pilotRegistryId": "linux-rocky",
+      "priority": "P0",
+      "emitters": ["usr/lib/capsuleos/shells/linux/capsule-theme-storage.js"],
+      "consumers": ["home/RedHat/Rocky/style/gnome-workstation.css"]
+    }
+  ],
+  "toolkitChains": {
+    "cinnamon": {
+      "matrix": "root/tools/lab/cinnamon-settings-parity-matrix.json",
+      "parity": "usr/lib/capsuleos/shells/linux/cinnamon-settings-parity.js",
+      "store": "usr/lib/capsuleos/shells/linux/cinnamon-gsettings-store.js",
+      "bindings": "usr/lib/capsuleos/shells/linux/cinnamon-gsettings-bindings.js",
+      "verifyGate": "usr/lib/capsuleos/tools/lab/verify-cinnamon-settings-parity-chain.mjs",
+      "pilotRegistryId": "linux-mint"
+    },
+    "gnome": {
+      "matrixPattern": "root/tools/lab/gnome-settings-parity-matrix-{vendor}.json",
+      "parity": "usr/lib/capsuleos/shells/linux/gnome-settings-parity.js",
+      "store": "usr/lib/capsuleos/shells/linux/gnome-gsettings-store.js",
+      "bindings": "usr/lib/capsuleos/shells/linux/gnome-gsettings-bindings.js",
+      "verifyGate": "usr/lib/capsuleos/tools/lab/verify-gnome-settings-parity-chain.mjs",
+      "pilotRegistryId": "linux-rocky"
+    },
+    "kde": {
+      "matrix": "root/tools/lab/kde-settings-parity-matrix.json",
+      "parity": "usr/lib/capsuleos/shells/linux/kde-settings-parity.js",
+      "store": "usr/lib/capsuleos/shells/linux/kde-kconfig-store.js",
+      "verifyGate": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs",
+      "pilotRegistryId": "linux-kde-neon",
+      "status": "v15-closed"
+    }
+  },
+  "layerConsumers": {
+    "Se-A11y": {
+      "unification": "full",
+      "storageKeys": {
+        "contrast": "mint-contrast-mode",
+        "fontScale": "mint-font-scale",
+        "reducedMotion": "capsule-reduced-motion",
+        "underlineLinks": "capsule-underline-links"
+      },
+      "emitters": {
+        "cinnamon": ["usr/lib/capsuleos/shells/linux/cinnamon-settings-parity.js", "usr/lib/capsuleos/shells/linux/themes.js"],
+        "gnome": ["usr/lib/capsuleos/shells/linux/capsule-theme-storage.js", "usr/lib/capsuleos/shells/linux/themes.js"],
+        "kde": ["usr/lib/capsuleos/shells/linux/capsule-theme-storage.js"]
+      },
+      "consumers": {
+        "dataset": ["html[data-contrast-mode]", "html[data-font-scale]"],
+        "css": ["style/a11y-overrides.css", "style/gnome-shell/a11y-ubuntu.css", "style/gnome-shell/a11y-fedora.css"],
+        "bus": "usr/lib/capsuleos/shells/linux/se-a11y-bus.js"
+      },
+      "events": ["capsule:a11y-contrast-changed", "capsule:a11y-font-scale-changed"]
+    },
+    "Se-Shell": {
+      "unification": "semantic-only",
+      "guards": "usr/lib/capsuleos/shells/linux/se-toolkit-guards.js",
+      "bus": "usr/lib/capsuleos/shells/linux/se-shell-bus.js",
+      "emitters": {
+        "cinnamon": ["usr/lib/capsuleos/shells/linux/cinnamon-settings-parity.js"],
+        "gnome": ["usr/lib/capsuleos/shells/linux/gnome-settings-parity.js"],
+        "kde": ["usr/lib/capsuleos/shells/linux/kde-settings-parity.js"]
+      },
+      "consumers": {
+        "cinnamon": ["home/Debian/Mint/content/mint-tray-overflow.js", "home/Debian/Mint/content/mint-applet-visibility.js"],
+        "gnome": ["home/Debian/Ubuntu/style/gnome-workstation.css"],
+        "kde": ["home/Debian/KDE-Neon/style/plasma-panel-dock.css"]
+      },
+      "events": ["capsule:panel-height-changed", "capsule:applet-visibility-changed"]
+    },
+    "Se-WM": {
+      "unification": "partial",
+      "guards": "usr/lib/capsuleos/shells/linux/se-toolkit-guards.js",
+      "bus": "usr/lib/capsuleos/shells/linux/se-wm-bus.js",
+      "modules": {
+        "cinnamon": "usr/lib/capsuleos/shells/linux/cinnamon-window-behaviors.js",
+        "gnome": "usr/lib/capsuleos/shells/linux/gnome-window-behaviors.js",
+        "kde": "home/Debian/KDE-Neon/js/mainMenu-plasma.js"
+      },
+      "consumers": {
+        "cinnamon": ["home/Debian/Mint/content/mint-workspace-indicator.js"]
+      },
+      "events": ["capsule:dynamic-workspaces-changed"]
+    }
+  }
+}

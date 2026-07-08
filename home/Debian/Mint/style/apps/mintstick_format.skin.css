@@ -1,0 +1,5 @@
+body#mint div[data-link="mintstick_format"] .mstk-fmt-app__btn--primary {
+    background: #87cf3e;
+    border-color: #87cf3e;
+    color: #1a1f14;
+}

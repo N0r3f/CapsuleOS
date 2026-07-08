@@ -1,0 +1,74 @@
+/**
+ * xed (Éditeur de texte) — Linux Mint 22 · Mint-Y-Blue GTK3 light.
+ * Ground truth VM 192.168.1.70, 2026-06-30.
+ */
+body#mint {
+    --xed-chrome-bg: #ececec;
+    --xed-status-bg: #e0e0e0;
+    --xed-buffer-bg: #ffffff;
+    --xed-buffer-text: #1a1a1a;
+    --xed-text: #1e1e1e;
+    --xed-border: rgba(0, 0, 0, 0.12);
+    --xed-menu-surface-bg: #f8f8f8;
+    --xed-menu-hover-bg: rgba(0, 0, 0, 0.06);
+    --xed-toolbar-hover-bg: rgba(0, 0, 0, 0.06);
+    --xed-toolbar-active-bg: rgba(0, 0, 0, 0.1);
+    --xed-toolbar-icon-filter: brightness(0);
+}
+
+body#mint main#xedApp {
+    color: var(--xed-text);
+    background: var(--xed-chrome-bg);
+}
+
+body#mint .xed-app__menubar,
+body#mint .xed-app__toolbar {
+    background: var(--xed-chrome-bg);
+    border-color: var(--xed-border);
+}
+
+body#mint .xed-app__status {
+    background: var(--xed-status-bg);
+    border-color: var(--xed-border);
+    color: var(--nemo-status-text, #c8c8cc);
+}
+
+body#mint .xed-menu__trigger:hover,
+body#mint .xed-menu__trigger[aria-expanded="true"] {
+    background: var(--xed-menu-hover-bg);
+}
+
+body#mint .xed-menu__dropdown {
+    background: var(--xed-menu-surface-bg);
+    border-color: var(--xed-border);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+body#mint .xed-menu__item {
+    color: var(--xed-text);
+}
+
+body#mint .xed-menu__item {
+    color: #1a1a1a;
+}
+
+body#mint .xed-app__tool:hover {
+    background: var(--xed-toolbar-hover-bg);
+    border-color: var(--menu-accent, #0c75de);
+}
+
+body#mint .xed-app__tool img {
+    filter: var(--xed-toolbar-icon-filter);
+}
+
+body#mint .xed-app__editor-wrap,
+body#mint .xed-app__area {
+    color: var(--xed-buffer-text);
+    background: var(--xed-buffer-bg);
+}
+
+body#mint .xed-app__status-pos,
+body#mint .xed-app__status-chars,
+body#mint .xed-app__status-encoding {
+    color: inherit;
+}

@@ -1,0 +1,52 @@
+/**
+ * Menu contextuel bureau GNOME — Rocky.
+ */
+
+body#rocky .gnome-desktop-context-menu {
+    position: fixed;
+    z-index: 120;
+    min-width: calc(var(--head) * 5.2);
+    margin: 0;
+    padding: calc(var(--head) / 10) 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: calc(var(--head) / 5);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+    background: rgba(48, 48, 52, 0.98);
+    color: #f6f7f9;
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.85);
+}
+
+body#rocky .gnome-desktop-context-menu[hidden] {
+    display: none;
+}
+
+body#rocky .gnome-desktop-context-menu__item {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: calc(var(--head) / 4) calc(var(--head) / 2.2);
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+body#rocky .gnome-desktop-context-menu__item:hover:not(:disabled),
+body#rocky .gnome-desktop-context-menu__item:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+body#rocky .gnome-desktop-context-menu__item:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+body#rocky .gnome-desktop-context-menu__separator {
+    height: 1px;
+    margin: calc(var(--head) / 12) calc(var(--head) / 6);
+    background: rgba(255, 255, 255, 0.1);
+}

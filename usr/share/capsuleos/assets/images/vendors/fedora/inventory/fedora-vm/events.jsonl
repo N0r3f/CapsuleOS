@@ -1,0 +1,10 @@
+{"phase":"vm","method":"ssh-screenshot","step":"dark-desktop","action":"color-scheme prefer-dark; screenshot bureau","file":"fedora-dark-desktop.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:24Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"dark-overview","action":"Main.overview.show(); screenshot","file":"audit/fedora-dark-overview.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:26Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"dark-nautilus","action":"nautilus + focus; screenshot","file":"fedora-dark-nautilus.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:30Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"dark-firefox","action":"firefox + focus; screenshot","file":"fedora-dark-firefox.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:34Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"dark-text-editor","action":"gnome-text-editor; screenshot","file":"fedora-dark-text-editor.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:38Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"dark-calculator","action":"gnome-calculator; screenshot","file":"fedora-dark-calculator.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:41Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"light-desktop","action":"color-scheme prefer-light; screenshot","file":"fedora-light-desktop.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:44Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"light-firefox","action":"firefox focus; screenshot","file":"fedora-light-firefox.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:45Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"light-nautilus","action":"nautilus focus; screenshot","file":"fedora-light-nautilus.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:48Z"}
+{"phase":"vm","method":"ssh-screenshot","step":"light-overview","action":"overview clair; screenshot","file":"audit/fedora-light-overview.png","ok":false,"bytes":0,"timestamp":"2026-06-15T14:33:51Z"}

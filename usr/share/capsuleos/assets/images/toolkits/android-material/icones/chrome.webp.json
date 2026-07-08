@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/toolkits/android-material/icones/chrome.webp",
+  "outputSha256": "172e166d0c23b951ddbfc98211807a8c8f8a4c0f9d6abd71c0b0f7b7618a2583",
+  "role": "unknown",
+  "profile": "unknown",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.602Z",
+  "note": "repair-manifest"
+}

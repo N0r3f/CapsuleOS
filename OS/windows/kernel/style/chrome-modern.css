@@ -1,0 +1,40 @@
+/* Chrome fenêtres — Windows 10 / 11 */
+
+#windowContainer,
+.win-window {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: var(--win-window-radius, 8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+#windowHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--win-window-header-bg, #2d2d2d);
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+#windowHeader > button {
+    width: 36px;
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+#windowHeader > button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#windowHeader > button:nth-child(4):hover {
+    background: #e81123;
+    color: #ffffff;
+}

@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+div[class^='windowElement']:not(#mainMenu) {
+	position: var(--fix);
+	top: calc(var(--z) - 1px);
+	left: calc(var(--z) - 1px);
+	bottom: calc(var(--head) * 1.5);
+	display: var(--f);
+	flex-flow: var(--cnw);
+	align-items: var(--c);
+	justify-content: var(--c);
+	width: calc(var(--full) + 2px);
+	/* min-width: calc(var(--head) * 16); */
+	height: var(--full);
+	min-height: calc(var(--head) * 18);
+	/* border: calc(var(--min-bt) * 4) solid var(--t); */
+	border-radius: calc(var(--head) / 4);
+	box-shadow: var(--frame);
+	background: var(--android);
+	overflow: var(--h);
+	scrollbar-width: var(--z);
+}
+
+.windowElementActive {
+	z-index: 5000;
+}
+
+#windowIframe {
+	display: var(--f);
+	flex-flow: var(--cnw);
+	align-items: var(--c);
+	justify-content: var(--c);
+	width: calc(var(--full) - calc(var(--head) / 20));
+	height: var(--a);
+	min-height: calc(var(--full) - calc(var(--head) / 1.2));
+	border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+	overflow: var(--h);
+}
+
+section.windowElement {
+	display: var(--f);
+	flex-flow: var(--cnw);
+	align-items: var(--c);
+	justify-content: var(--c);
+	width: var(--full);
+	height: var(--full);
+}

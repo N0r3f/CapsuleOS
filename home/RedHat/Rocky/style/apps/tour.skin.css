@@ -1,0 +1,34 @@
+/**
+ * Rocky — Visite guidée (org.gnome.Tour) · CSD libadwaita.
+ */
+body#rocky {
+    --gnome-tour-bg: #303030;
+    --gnome-tour-header-bg: #383838;
+    --gnome-tour-text: #f6f6f6;
+    --gnome-tour-muted: rgba(255, 255, 255, 0.72);
+    --gnome-tour-border: rgba(255, 255, 255, 0.08);
+    --gnome-tour-accent: #3584e4;
+}
+
+html[data-theme="light"]:has(#rocky) {
+    --gnome-tour-bg: #fafafa;
+    --gnome-tour-header-bg: #f6f6f6;
+    --gnome-tour-text: #1e1e1e;
+    --gnome-tour-muted: rgba(0, 0, 0, 0.6);
+    --gnome-tour-border: rgba(0, 0, 0, 0.1);
+}
+
+body#rocky div[data-link="tour"].windowElement {
+    width: min(34rem, calc(100vw - 2rem));
+    height: min(28rem, calc(100vh - var(--fedora-top-bar-height, 2.5rem) - 2rem));
+}
+
+body#rocky div[data-link="tour"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#rocky div[data-link="tour"] main#gnomeTourApp {
+    height: 100%;
+}

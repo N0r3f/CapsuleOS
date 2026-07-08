@@ -1,0 +1,10 @@
+@import url(../../../../../usr/share/capsuleos/themes/global/reset.css);
+@import url(../../../../../usr/share/capsuleos/themes/global/variables.css);
+@import url(../../../kernel/style/variables-windows.css);
+@import url(../../../kernel/style/chrome-luna.css);
+@import url(../../../kernel/style/start-buttons.css);
+@import url(../../../kernel/style/win-start-menu.css);
+@import url(./shell.css);
+@import url(./footer.css);
+@import url(./windows.css);
+@import url(../../../kernel/style/win-window.css);

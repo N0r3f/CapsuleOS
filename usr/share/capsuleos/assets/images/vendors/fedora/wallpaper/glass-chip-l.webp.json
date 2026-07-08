@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/glass-chip-l.jxl",
+  "sourceSha256": "116b7a2d013af25854534e64b444724bfef8bad6b6baaf1b7311b31982bbdbaa",
+  "output": "images/vendors/fedora/wallpaper/glass-chip-l.webp",
+  "outputSha256": "82f6546344caf87bb5b0f47b08f2b9d7efc56f4bcb3cb488f207e17eb6b1d2db",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:25:58.456Z"
+}

@@ -1,0 +1,54 @@
+/**
+ * Calendrier GNOME — Linux Mint 22 · Mint-Y-Blue GTK3 light.
+ */
+body#mint {
+    --gnome-cal-bg: #fafafa;
+    --gnome-cal-surface: #ffffff;
+    --gnome-cal-text: #1e1e1e;
+    --gnome-cal-muted: rgba(0, 0, 0, 0.5);
+    --gnome-cal-border: rgba(0, 0, 0, 0.1);
+    --gnome-cal-today: #0c75de;
+    --gnome-cal-selected: rgba(31, 158, 222, 0.2);
+}
+
+body#mint div[data-link="calendar"].windowElement {
+    width: min(24rem, calc(100vw - 2rem));
+    height: min(30rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+body#mint main#gnomeCalendarApp {
+    background: var(--gnome-cal-bg);
+    color: var(--gnome-cal-text);
+}
+
+body#mint .gnome-calendar-app__arrow {
+    color: var(--gnome-cal-text);
+}
+
+body#mint .gnome-calendar-app__weekday {
+    color: var(--gnome-cal-muted);
+}
+
+body#mint .gnome-calendar-app__day {
+    color: var(--gnome-cal-text);
+    background: transparent;
+}
+
+body#mint .gnome-calendar-app__day--today {
+    background: var(--gnome-cal-today);
+    color: #ffffff;
+}
+
+body#mint .gnome-calendar-app__day--selected:not(.gnome-calendar-app__day--today) {
+    background: var(--gnome-cal-selected);
+    border-color: var(--gnome-cal-today);
+}
+
+body#mint .gnome-calendar-app__today {
+    background: var(--gnome-cal-surface);
+    border-top: 1px solid var(--gnome-cal-border);
+}
+
+body#mint .gnome-calendar-app__today-empty {
+    color: var(--gnome-cal-muted);
+}

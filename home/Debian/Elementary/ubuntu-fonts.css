@@ -1,0 +1,26 @@
+/**
+ * Polices Ubuntu — ground truth VM (manifeste ManΣ).
+ */
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/Ubuntu-R.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/Ubuntu-M.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/ubuntu/UbuntuMono-R.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

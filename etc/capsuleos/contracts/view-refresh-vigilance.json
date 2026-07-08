@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "description": "Contrat vigilance — rafraîchissement des vues pendant et après action utilisateur (réel vs irréel en reproduction OS).",
+  "validated": true,
+  "validatedAt": "2026-06-04",
+  "doc": "root/docs/convention-rafraichissement-vues.md",
+  "playbook": "root/docs/inventaires/view-refresh-vigilance-playbook.json",
+  "predicates": {
+    "Rv1": "Vue cohérente après action — projection DOM ≡ état modèle une fois l'action terminée",
+    "Rv2": "Absence de refresh parasite — pas de re-render hors déclencheur légitime",
+    "Rv": "Rv1 ∧ Rv2 — rafraîchissement des vues admissible pour reproduction fidèle"
+  },
+  "formalModel": {
+    "M": "État modèle (session, manifest VFS, onglets, cwd terminal, sélection, historique runtime)",
+    "V": "État vue (DOM : grille, labels, bandeau, sortie terminal, chrome onglets)",
+    "A_user": "Action utilisateur admissible (navigation, commande shell, menu contextuel, fermeture fenêtre)",
+    "real": "État réel attendu = projection(M) après completion(A_user), validé par VM ou playbook",
+    "unreal": "État irréel = V ≠ projection(M) après stabilisation, ou refresh sans ΔM"
+  },
+  "legitimateTriggers": [
+    {
+      "id": "post-action-sync",
+      "when": "Après succès d'une mutation ou navigation initiée par l'utilisateur",
+      "examples": [
+        "navigateToFileExplorerDirectory → syncNautilusTabs + renderDirectory",
+        "executeCommand (touch/mkdir/mv/rm) → CapsuleUserFs.syncFromTerminal → capsule:fs-changed",
+        "syncTerminalTabs après entrée commande ou changement d'onglet terminal"
+      ]
+    },
+    {
+      "id": "cross-surface-event",
+      "when": "Événement inter-composants quand le modèle a changé hors de la surface active",
+      "examples": [
+        "capsule:fs-changed si currentPath affecté",
+        "capsule:window-closed → purge SESSION + reset surface visuelle"
+      ]
+    },
+    {
+      "id": "window-activation-delta",
+      "when": "Activation d'une autre instance fenêtre Nautilus avec état snapshot différent",
+      "examples": [
+        "fileExplorerWindowState.activateExplorerWindow — refresh uniquement si activeNemoRoot change"
+      ],
+      "antiPattern": "Refresh au simple focus sans changement d'instance (race navigation)"
+    },
+    {
+      "id": "tab-switch",
+      "when": "Changement d'onglet dans la même fenêtre",
+      "examples": [
+        "bindFileExplorerTabs / activateTab → restaure path + label strip",
+        "terminal-tabs activateTab → restaure cwd et surface onglet"
+      ]
+    }
+  ],
+  "forbiddenPatterns": [
+    "Re-render complet au focus/blur sans ΔM ni changement d'instance",
+    "Persister outputHtml/history terminal en localStorage pour réaffichage à réouverture",
+    "Titre onglet Nautilus figé alors que currentPath a changé sans clic onglet",
+    "Grille Nautilus stale après commande terminal réussie sur le même cwd",
+    "Refresh asynchrone qui annule une navigation en cours (focus-refresh-race)"
+  ],
+  "verification": {
+    "manualChecklist": "view-refresh-vigilance-playbook.json → auditChecklist",
+    "automatedSmokes": [
+      "usr/lib/capsuleos/tools/lab/smoke-fs-terminal-explorer-sync.mjs",
+      "root/docs/inventaires/fs-sync-playbook.json"
+    ],
+    "gateNote": "Rv n'est pas un gate global validate-all ; bloquant P0 sur tout slot interactif avant clôture skin"
+  },
+  "scope": {
+    "slots": ["nemo", "terminal", "firefox", "settings"],
+    "prioritySlots": ["nemo", "terminal"]
+  }
+}

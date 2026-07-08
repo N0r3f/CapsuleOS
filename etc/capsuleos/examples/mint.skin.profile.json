@@ -1,0 +1,70 @@
+{
+  "$schema": "./schemas/skin.profile.schema.json",
+  "$comment": "Exemple de profil skin — Linux Mint (référence P0).",
+  "id": "mint",
+  "version": 1,
+  "family": "linux",
+  "vendor": "mint",
+  "displayName": "Linux Mint (Cinnamon)",
+  "bodyId": "mint",
+  "embedKey": "mint",
+  "tier": "P0",
+  "status": "active",
+  "maturity": 0.95,
+  "paths": {
+    "facade": "OS/linux/families/debian/mint/index.html",
+    "skin": "home/Debian/Mint/index.html"
+  },
+  "toolkit": {
+    "id": "cinnamon",
+    "shell": "cinnamon",
+    "themeEngine": "gtk3"
+  },
+  "apps": {
+    "fileManager": { "slot": "nemo", "template": "nemo", "displayName": "Nemo" },
+    "terminal": { "slot": "terminal", "profile": "debian", "class": "terminal-window--gnome" },
+    "browser": { "slot": "firefox", "variant": "firefox-gnome" }
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/cinnamon",
+    "vendorPack": "vendors/mint",
+    "iconPacks": []
+  },
+  "css": {
+    "imports": [
+      "themes/global/reset.css",
+      "themes/global/variables.css",
+      "themes/linux/variables-linux.css",
+      "themes/linux/window-chrome.base.css"
+    ],
+    "skinFiles": ["footer.css", "windows.css"]
+  },
+  "scripts": {
+    "kernel": [
+      "common/capsule-window.js",
+      "common/resizeWindow.js",
+      "common/window-drag.js"
+    ],
+    "shell": [
+      "shells/linux/windowContainer.js",
+      "shells/linux/windowHeaderButton.js",
+      "shells/linux/contentLoader.js"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_EMBED_SKIN_KEY": "mint",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Nemo",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian"
+  },
+  "skills": ["os-linux", "role-integrator"],
+  "sources": [
+    {
+      "type": "hig",
+      "label": "Cinnamon / Linux Mint",
+      "url": "https://projects.linuxmint.com/cinnamon/"
+    }
+  ]
+}

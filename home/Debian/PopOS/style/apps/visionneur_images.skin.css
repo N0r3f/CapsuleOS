@@ -1,0 +1,5 @@
+/** popos — visionneur_images (stub catalogue). */
+body#popos div[data-link="visionneur_images"] {
+    color: var(--popos-app-text);
+    background: var(--popos-app-surface);
+}

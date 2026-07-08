@@ -1,0 +1,36 @@
+<main id="gnomeBaobabApp" class="gnome-baobab" aria-label="Analyseur d'espace disque">
+
+    <header class="gnome-baobab__header">
+        <h2 class="gnome-baobab__title" id="gnome-baobab-title">Analyseur d'espace disque</h2>
+        <button type="button" class="gnome-baobab__scan-btn" id="gnome-baobab-scan" data-baobab-gnome-action="scan" aria-label="Analyser le dossier">Analyser</button>
+    </header>
+
+    <div class="gnome-baobab__body">
+        <aside class="gnome-baobab__sidebar" aria-label="Emplacements">
+            <ul class="gnome-baobab__places" id="gnome-baobab-places" role="list"></ul>
+        </aside>
+        <section class="gnome-baobab__main" aria-label="Répartition">
+            <div class="gnome-baobab__view gnome-baobab__view--overview is-active" id="gnome-baobab-overview" data-baobab-view="overview" data-baobab-gnome-view="overview">
+                <div class="gnome-baobab__ring" id="gnome-baobab-ring" role="img" aria-label="Espace utilisé">
+                    <span class="gnome-baobab__ring-center" id="gnome-baobab-ring-center">62 %</span>
+                </div>
+                <ul class="gnome-baobab__legend" id="gnome-baobab-legend">
+                    <li><span class="gnome-baobab__swatch gnome-baobab__swatch--used"></span> <span id="gnome-baobab-used-label">Utilisé — 26,1 Go</span></li>
+                    <li><span class="gnome-baobab__swatch gnome-baobab__swatch--free"></span> <span id="gnome-baobab-free-label">Disponible — 16,0 Go</span></li>
+                </ul>
+            </div>
+            <div class="gnome-baobab__view gnome-baobab__view--treemap" id="gnome-baobab-treemap" data-baobab-view="treemap" data-baobab-gnome-view="treemap" hidden>
+                <p class="gnome-baobab__path" id="gnome-baobab-path">/home/user</p>
+                <div class="gnome-baobab__treemap-grid" id="gnome-baobab-treemap-grid" role="img" aria-label="Carte des dossiers"></div>
+                <ul class="gnome-baobab__treemap-legend" id="gnome-baobab-treemap-legend"></ul>
+            </div>
+            <div class="gnome-baobab__scan-panel" id="gnome-baobab-scan-panel" hidden>
+                <div class="gnome-baobab__progress" role="progressbar" id="gnome-baobab-progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span class="gnome-baobab__progress-fill" id="gnome-baobab-progress-fill"></span>
+                </div>
+                <p class="gnome-baobab__progress-label" id="gnome-baobab-progress-label">Analyse en cours…</p>
+            </div>
+        </section>
+    </div>
+
+</main>

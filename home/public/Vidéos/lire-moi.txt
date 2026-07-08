@@ -1,0 +1,3 @@
+Dossier Vidéos — placeholder CapsuleOS.
+
+Un fichier vidéo (.mp4) pourra être ajouté ici pour tester le lecteur multimédia.

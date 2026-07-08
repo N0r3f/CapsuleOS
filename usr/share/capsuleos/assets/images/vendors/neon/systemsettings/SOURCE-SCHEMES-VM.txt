@@ -1,0 +1,16 @@
+Scheme / Plasma previews — générés depuis color-schemes & desktoptheme/colors (2026-06-21T00:21:55.122Z).
+VM : <lab-inventory:linux-kde-neon>
+Manifeste : root/tools/lab/kde-neon-color-scheme-previews-manifest.json
+Procédure : bash root/tools/lab/pull-kde-neon-color-scheme-previews.sh
+
+- scheme-breeze-classic-vm.png ← /usr/share/color-schemes/BreezeClassic.colors (scheme)
+- scheme-breeze-dark-vm.png ← /usr/share/color-schemes/BreezeDark.colors (scheme)
+- scheme-breeze-light-vm.png ← /usr/share/color-schemes/BreezeLight.colors (scheme)
+- scheme-oxygen-vm.png ← /usr/share/color-schemes/Oxygen.colors (scheme)
+- scheme-oxygen-cold-vm.png ← /usr/share/color-schemes/OxygenCold.colors (scheme)
+- scheme-oxygen-dark-vm.png ← /usr/share/color-schemes/OxygenDark.colors (scheme)
+- plasma-default-vm.png ← /usr/share/color-schemes/BreezeLight.colors (plasma)
+- plasma-breeze-light-vm.png ← /usr/share/plasma/desktoptheme/breeze-light/colors (plasma)
+- plasma-breeze-dark-vm.png ← /usr/share/plasma/desktoptheme/breeze-dark/colors (plasma)
+- plasma-oxygen-vm.png ← /usr/share/plasma/desktoptheme/oxygen/colors (plasma)
+- plasma-air-vm.png ← /usr/share/plasma/desktoptheme/air/colors (plasma)

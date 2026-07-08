@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/osselo-Ask_a_friend.jpg",
+  "sourceSha256": "e6408c28cb2591535eaf562db8b8432977dce332f9e0a6362fdef19e3975de2d",
+  "output": "images/vendors/ubuntu/wallpaper/osselo-Ask_a_friend.webp",
+  "outputSha256": "80e6d684aa4f05f680ae778ef048e4b97de98549db18fad79a08b59d0a68ab87",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:59.593Z"
+}

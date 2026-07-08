@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Capsule — CapsuleOS</title>
+    <link rel="stylesheet" href="../_shared/site.css">
+    <style>
+        .lacapsule-hero { background: linear-gradient(135deg, #1a2744, #2d4a7a); color: #fff; padding: 2.5rem 2rem; }
+        .lacapsule-hero h1 { margin: 0.25rem 0 0.75rem; font-size: 1.75rem; }
+        .lacapsule-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .lacapsule-card { background: rgba(255,255,255,0.12); border-radius: 0.5rem; padding: 1rem; text-align: center; }
+        .lacapsule-card h2 { margin: 0; font-size: 1rem; font-weight: 600; }
+        .lacapsule-card a { color: inherit; text-decoration: none; }
+    </style>
+</head>
+<body class="capsule-web-page">
+    <header class="lacapsule-hero">
+        <p class="capsule-web-badge" style="color:#c8d6f0">CapsuleOS · internet simulé</p>
+        <h1>La Capsule</h1>
+        <p>Bureaux simulés pour s'approprier Linux, Windows, macOS et autres OS dans le navigateur.</p>
+    </header>
+    <main class="capsule-web-main">
+        <h2>Systèmes disponibles</h2>
+        <div class="lacapsule-grid" aria-label="Familles d'OS">
+            <article class="capsule-web-card lacapsule-card"><a href="../../../../index.html"><h2>Linux</h2></a></article>
+            <article class="capsule-web-card lacapsule-card"><h2>Windows</h2></article>
+            <article class="capsule-web-card lacapsule-card"><h2>macOS</h2></article>
+            <article class="capsule-web-card lacapsule-card"><h2>BSD</h2></article>
+            <article class="capsule-web-card lacapsule-card"><h2>iOS</h2></article>
+            <article class="capsule-web-card lacapsule-card"><h2>Android</h2></article>
+        </div>
+        <p style="margin-top:2rem">
+            <a href="#" data-capsule-web-nav="linuxmint.com">Découvrir Linux Mint (simulé)</a>
+            ·
+            <a href="#" data-capsule-web-nav="fr.wikipedia.org">Lire sur Wikipédia</a>
+        </p>
+        <p><a href="../../../../index.html">Retour au portail CapsuleOS</a></p>
+    </main>
+    <script src="../_shared/site-nav.js"></script>
+</body>
+</html>

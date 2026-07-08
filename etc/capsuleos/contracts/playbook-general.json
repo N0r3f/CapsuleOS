@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "description": "Playbook général multiplateforme — orchestre playbooks universels, toolkit et bout de chaîne (τ) par registryId.",
+  "validated": true,
+  "validatedAt": "2026-06-06",
+  "validatedNote": "Structure + smoke + Rocky référence ; mode auto activable via autoExecution.",
+  "doc": "root/docs/procedure-playbook-general.md",
+  "predicates": {
+    "Pb": "Playbook général défini (ce contrat + procédure)",
+    "PbU": "Couche universelle terminée (H2, M, I, A, T)",
+    "PbT": "Playbook toolkit terminé pour le toolkit du registre",
+    "Pbτ": "Playbook bout de chaîne documenté (spécificités environnement)",
+    "PbΣ": "PbU ∧ PbT ∧ Pbτ — prêt pour patch skin ciblé (H5) ou clôture H6"
+  },
+  "autoExecution": {
+    "enabled": true,
+    "rule": "R-AUTO",
+    "requiresValidation": true,
+    "orchestrator": "usr/lib/capsuleos/tools/lab/run-playbook-general.mjs",
+    "maxStepsPerInvocation": 16,
+    "note": "Actif après validation du contrat ; exécute la prochaine étape admissible sans confirmation humaine."
+  },
+  "layers": {
+    "universal": {
+      "label": "Playbooks universels (tous vendors / branches / versions)",
+      "predicates": ["H2", "M", "I", "A", "T"],
+      "steps": [
+        {
+          "id": "u-validate-all",
+          "negates": ["H2"],
+          "script": "usr/lib/capsuleos/tools/validate-all.mjs",
+          "args": []
+        },
+        {
+          "id": "u-registry-brief",
+          "requires": ["H2"],
+          "optional": true,
+          "script": "usr/lib/capsuleos/tools/print-agent-brief.mjs",
+          "args": ["{id}"]
+        },
+        {
+          "id": "u-vm-inventory",
+          "negates": ["I"],
+          "requires": ["M"],
+          "note": "Collecter inventaires/<id>-vm.json si absent — voir procedure-clonage-os-depuis-vm.md",
+          "manualGate": true
+        },
+        {
+          "id": "u-manifest-chain",
+          "negates": ["ManΣ"],
+          "requires": ["M"],
+          "script": "usr/lib/capsuleos/tools/lab/run-manifest-replication-chain.mjs",
+          "args": ["--id", "{id}", "--auto", "--write"],
+          "note": "Manifeste distribution VM → playbook → staging → import (tous vendors/toolkits)"
+        },
+        {
+          "id": "u-verify-assets",
+          "negates": ["A"],
+          "requires": ["I"],
+          "script": "usr/lib/capsuleos/tools/lab/verify-playbook-assets.mjs",
+          "args": ["--registry", "{id}", "--strict"],
+          "toolkits": ["gnome"]
+        },
+        {
+          "id": "u-collect-assets",
+          "negates": ["S"],
+          "requires": ["M", "A"],
+          "script": "usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs",
+          "args": ["--id", "{id}"],
+          "toolkits": ["gnome"]
+        }
+      ]
+    },
+    "toolkit": {
+      "label": "Playbooks spécifiques toolkit (réutilisables par vendor)",
+      "predicates": ["PbT"],
+      "map": {
+        "gnome": {
+          "domain": "gnome-settings-playbook",
+          "doc": "root/docs/procedure-creation-playbook-gnome-settings.md",
+          "orchestrator": "usr/lib/capsuleos/tools/lab/run-replication-chain.mjs",
+          "completeWhen": ["V", "G", "Vc", "Vp"],
+          "description": "Paramètres GNOME : tour panneaux, interactions, enquête visuelle, gsettings, parité Capsule"
+        },
+        "kde": {
+          "domain": "kde-settings-playbook",
+          "doc": "root/docs/procedure-kde-settings.md",
+          "contract": "etc/capsuleos/contracts/kde-ground-truth-chain.json",
+          "orchestrator": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs",
+          "completeWhen": ["KdSe", "KdΣ"],
+          "description": "Paramètres KDE — systemsettings, kconfig store, bus Se ; pivot linux-kde-neon"
+        },
+        "cinnamon": {
+          "domain": "cinnamon-settings-playbook",
+          "doc": "root/docs/procedure-cinnamon-settings.md",
+          "contract": "etc/capsuleos/contracts/cinnamon-ground-truth-chain.json",
+          "orchestrator": "usr/lib/capsuleos/tools/lab/run-cinnamon-formal-chain.mjs",
+          "completeWhen": ["CinSe", "CinCred"],
+          "description": "Paramètres Cinnamon — matrice 40 panneaux, EFFECT_HANDLERS, bus Se"
+        },
+        "cosmic": {
+          "domain": "cosmic-settings-playbook",
+          "doc": "root/docs/procedure-playbook-general.md",
+          "contract": "etc/capsuleos/contracts/cosmic-ground-truth-chain.json",
+          "orchestrator": "usr/lib/capsuleos/tools/lab/run-cosmic-formal-chain.mjs",
+          "registryIds": ["linux-popos"],
+          "completeWhen": ["CosΣ"],
+          "description": "Paramètres COSMIC — panneaux cosmic-settings (manifeste VM), matrice, gates CosC/CosA/CosP"
+        },
+        "pantheon": {
+          "status": "scaffold",
+          "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+          "registryIds": ["linux-elementary"],
+          "playbookTail": "root/docs/inventaires/linux-elementary-playbook-tail.json",
+          "description": "Squelette elementary — AccΣ ; PbT après inventaire VM (¬I)"
+        },
+        "xfce": {
+          "status": "scaffold",
+          "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+          "registryIds": ["linux-kali"],
+          "playbookTail": "root/docs/inventaires/linux-kali-playbook-tail.json",
+          "description": "Squelette Kali/XFCE — AccΣ ; PbT après inventaire VM (¬I)"
+        },
+        "lxqt": {
+          "status": "scaffold",
+          "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+          "registryIds": ["linux-lxqt"],
+          "playbookTail": "root/docs/inventaires/linux-lxqt-playbook-tail.json",
+          "description": "Squelette LXQt — AccΣ ; PbT après inventaire VM (¬I)"
+        },
+        "windows": {
+          "status": "scaffold",
+          "phase": 7,
+          "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+          "description": "Vague 2 — bootstrap --kernel windows → home/Windows/"
+        },
+        "android": {
+          "status": "stub",
+          "phase": 4,
+          "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+          "description": "Vague 2 — mobile Material"
+        },
+        "bsd": {
+          "status": "stub",
+          "phase": 4,
+          "description": "Vague 2 — freebsd terminal-first"
+        },
+        "unix": {
+          "status": "stub",
+          "phase": 4,
+          "description": "Vague 2 — home/UNIX squelette"
+        }
+      }
+    },
+    "tail": {
+      "label": "Playbook bout de chaîne τ — spécificités environnement",
+      "predicates": ["Pbτ"],
+      "requires": ["PbT"],
+      "steps": [
+        {
+          "id": "tau-collect",
+          "negates": ["Pbτ"],
+          "script": "usr/lib/capsuleos/tools/lab/collect-playbook-tail.mjs",
+          "args": ["--id", "{id}"]
+        },
+        {
+          "id": "tau-review",
+          "requires": ["Pbτ"],
+          "optional": true,
+          "note": "Revue humaine ou agent : écarts P0/P1, doc officielle, interactions VM"
+        }
+      ],
+      "outputs": {
+        "inventory": "root/docs/inventaires/{id}-playbook-tail.json",
+        "markdown": "root/docs/inventaires/{id}-playbook-tail.md"
+      }
+    }
+  },
+  "rules": [
+    "R-PB1  ¬PbU  →  couche universal avant toolkit",
+    "R-PB2  PbU ∧ ¬PbT  →  orchestrateur toolkit (run-replication-chain --auto)",
+    "R-PB3  PbT ∧ ¬Pbτ  →  collect-playbook-tail (doc officielle + VM lab)",
+    "R-PB4  PbΣ  →  H5 patch minimal skin OU extension P1 ; puis H6",
+    "R-PB-AUTO  validated ∧ ∃! step  →  run-playbook-general --auto"
+  ]
+}

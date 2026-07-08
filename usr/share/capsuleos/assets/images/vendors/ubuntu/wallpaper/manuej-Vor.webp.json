@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/manuej-Vor.jpg",
+  "sourceSha256": "f9560c95aba83335bab7676f5e4d704a2a7dddfc7a290fb7c33e50f26d489549",
+  "output": "images/vendors/ubuntu/wallpaper/manuej-Vor.webp",
+  "outputSha256": "52ac8a536419c58fb2d22b010176b22691d088693ff642f304718a07cfd2c108",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:52.577Z"
+}

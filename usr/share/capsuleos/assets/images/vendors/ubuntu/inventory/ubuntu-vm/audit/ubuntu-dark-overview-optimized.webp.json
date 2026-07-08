@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-dark-overview.png",
+  "sourceSha256": "aa8772221f6fafbe953c654392bead5f33e22451af1e3cd3346ac1f1e3ed46c5",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-dark-overview-optimized.webp",
+  "outputSha256": "d7e525dd554baa3ca782672f37fb7f0bb5245951bf85b1dc840d3edcc4e4ff4f",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:20.592Z"
+}

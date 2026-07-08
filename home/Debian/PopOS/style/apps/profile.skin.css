@@ -1,0 +1,5 @@
+/** popos — profile (stub catalogue). */
+body#popos div[data-link="profile"] {
+    color: var(--popos-app-text);
+    background: var(--popos-app-surface);
+}

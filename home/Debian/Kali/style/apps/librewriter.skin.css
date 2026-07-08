@@ -1,0 +1,21 @@
+/**
+ * Rocky — LibreOffice Writer · chrome CSD (menubar intégrée).
+ */
+body#kali div[data-link="librewriter"].gnome-app--csd {
+    width: min(52rem, calc(100vw - var(--fedora-dock-width) - 1.5rem));
+    height: min(36rem, calc(100vh - var(--fedora-top-bar-height) - 1.5rem));
+    min-width: 40rem;
+    min-height: 26rem;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#kali div[data-link="librewriter"] .lw-menubar {
+    background: var(--lw-toolbar-bg);
+    border-bottom: 1px solid var(--lw-toolbar-border);
+}
+
+body#kali div[data-link="librewriter"] #lw-app {
+    border-radius: 0 0 10px 10px;
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_curved.jpg",
+  "sourceSha256": "b4a8ade2300d526123fa33f7e028e1dbb735e6e124f75190b867106f6da53439",
+  "output": "images/vendors/mint/wallpaper/jpanchal_curved.webp",
+  "outputSha256": "449ae4838032f4ca3cdd42b7989df2897c7c11eedc819b2962ab4a4e8e86f855",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 1434,
+  "preparedAt": "2026-06-15T19:41:52.922Z"
+}

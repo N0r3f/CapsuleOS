@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "doc": "root/docs/convention-portail.md",
+    "hero": {
+        "title": "CapsuleOS",
+        "lead": "Un site pour tester des systèmes d'exploitation, les appréhender en jouant et choisir vos préférences entre Linux, Windows, macOS, BSD, iOS et Android. Gratuit, léger et accessible à tous, y compris hors ligne.",
+        "ctaLabel": "Choisir un système",
+        "ctaHref": "#choisir-os",
+        "secondaryLabel": "Voir les offres",
+        "secondaryHref": "#offres"
+    },
+    "about": {
+        "title": "Une nouvelle façon d'appréhender le numérique",
+        "lead": "CapsuleOS propose des bureaux simulés pour s'approprier les interfaces, s'entraîner aux usages courants et gagner en autonomie face aux démarches en ligne, par le jeu et l'expérimentation, sans installation lourde.",
+        "paragraphs": [
+            "CapsuleOS propose des bureaux simulés pour s'approprier les interfaces, s'entraîner aux usages courants et gagner en autonomie face aux démarches en ligne, par le jeu et l'expérimentation, sans installation lourde."
+        ],
+        "features": [
+            {
+                "title": "Jouer pour apprendre",
+                "description": "La gamification vous invite à explorer menus, fenêtres et applications à votre rythme, pour découvrir un OS sans pression.",
+                "icon": "cloud-arrow-up"
+            },
+            {
+                "title": "Choisir son environnement",
+                "description": "Linux, Windows, macOS, BSD, iOS et Android : testez plusieurs bureaux, comparez leurs habitudes et identifiez vos préférences.",
+                "icon": "desktop"
+            },
+            {
+                "title": "Léger et accessible",
+                "description": "HTML, CSS et JavaScript uniquement : le site reste gratuit, peu gourmand en ressources et pensé pour tourner sur la plupart des postes.",
+                "icon": "feather"
+            },
+            {
+                "title": "Hors ligne possible",
+                "description": "Après un premier chargement, un service worker et des gabarits embarqués permettent de continuer à utiliser les environnements sans connexion.",
+                "icon": "wifi"
+            }
+        ]
+    },
+    "parcours": {
+        "eyebrow": "Parcours",
+        "title": "Parcours pédagogiques",
+        "lead": "Quêtes et tutoriels cross-OS montés dans les bureaux simulés. Choisissez un parcours, puis un système compatible."
+    }
+}

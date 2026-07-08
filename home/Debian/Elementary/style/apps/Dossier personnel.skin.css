@@ -1,0 +1,4 @@
+/* Ubuntu - Dossier personnel (hérite files.skin via app partagée) */
+body#elementary {
+    --nemo-accent: #ff7800;
+}

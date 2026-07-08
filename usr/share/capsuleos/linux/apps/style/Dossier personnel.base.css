@@ -1,0 +1,28 @@
+@import url(../imports.css);
+
+#dossierPersonnel.xedElement {
+    display: var(--f);
+    flex-flow: var(--rw);
+    justify-content: var(--fs);
+    align-items: var(--fs);
+    width: var(--full);
+    min-width: calc(var(--head) * 6);
+    height: var(--full);
+    min-height: var(--a);
+    overflow: var(--a);
+}
+
+#dossierPersonnel.xedElement>a {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    justify-content: var(--sa);
+    align-items: var(--c);
+    width: calc(var(--head) * 2);
+    margin: var(--dossier-personnel-margin-y) var(--dossier-personnel-margin-x);
+    color: var(--noir);
+}
+
+#dossierPersonnel.xedElement>a>img {
+    width: var(--dossier-personnel-icon-width);
+    margin: var(--dossier-personnel-margin-y) var(--dossier-personnel-margin-x);
+}

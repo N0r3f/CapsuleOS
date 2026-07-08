@@ -1,0 +1,11 @@
+{
+    "explorer.windowTitle": "Dossier personnel — Fichiers",
+    "themes.windowTitle": "Paramètres",
+    "checklist.description": "Explore AnduinOS en accomplissant ces missions. Ta progression est sauvegardée localement.",
+    "checklist.hint.open-nemo": "Ouvre Fichiers depuis la barre des tâches",
+    "checklist.hint.open-menu": "Ouvre le menu Démarrer (bouton en bas à gauche)",
+    "checklist.hint.open-profile": "Ouvre le profil AnduinOS",
+    "mainMenu.userName": "capsule",
+    "mainMenu.searchPlaceholder": "Rechercher…",
+    "mainMenu.windowTitle": "Menu Démarrer"
+}

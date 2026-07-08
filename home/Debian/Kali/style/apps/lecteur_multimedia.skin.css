@@ -1,0 +1,51 @@
+/**
+ * Rocky — Lecteur multimédia (Totem) · chrome CSD.
+ */
+body#kali {
+    --viewer-bg: #1e1e1e;
+    --viewer-toolbar-bg: #303030;
+    --viewer-text: #ffffff;
+    --viewer-muted: rgba(255, 255, 255, 0.65);
+    --viewer-border: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"]:has(#kali) {
+    --viewer-bg: #f0f0f0;
+    --viewer-toolbar-bg: #f6f6f6;
+    --viewer-text: #1e1e1e;
+    --viewer-muted: rgba(0, 0, 0, 0.55);
+    --viewer-border: rgba(0, 0, 0, 0.1);
+}
+
+body#kali div[data-link="lecteur_multimedia"].gnome-app--csd {
+    width: min(44rem, calc(100vw - var(--fedora-dock-width) - 2rem));
+    height: min(28rem, calc(100vh - var(--fedora-top-bar-height) - 2rem));
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--viewer-bg);
+}
+
+body#kali div[data-link="lecteur_multimedia"] .viewer-app__toolbar {
+    background: var(--viewer-toolbar-bg);
+    border-bottom: 1px solid var(--viewer-border);
+    color: var(--viewer-text);
+}
+
+body#kali div[data-link="lecteur_multimedia"] .viewer-app__label {
+    color: var(--viewer-muted);
+}
+
+body#kali div[data-link="lecteur_multimedia"] main#lecteurMultimedia {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    color: var(--viewer-text);
+    background: var(--viewer-bg);
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="94.849648mm"
+   height="88.912926mm"
+   viewBox="0 0 94.849648 88.912926"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="refresh.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.58261785"
+     inkscape:cx="223.13082"
+     inkscape:cy="205.96691"
+     inkscape:window-width="1600"
+     inkscape:window-height="832"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-46.079591,-93.935735)">
+    <path
+       d="m 89.983191,93.940495 c -3.63537,0.0448 -7.31734,0.53323 -10.95294,1.50559 -19.40417,5.210185 -32.95066,22.854935 -32.95066,42.954095 0,20.09894 13.54649,37.74391 32.95066,42.9308 19.4044,5.21018 39.967119,-3.31118 50.016699,-20.70118 1.6445,-2.8483 0.64749,-6.46037 -2.17773,-8.10464 -2.82499,-1.62209 -6.46014,-0.64749 -8.10441,2.17549 -7.3868,12.80534 -22.391599,19.01075 -36.678789,15.19009 -14.26367,-3.82066 -24.15149,-16.71831 -24.15149,-31.49168 0,-14.79667 9.88782,-27.67147 24.15149,-31.4919 14.28719,-3.82088 29.291989,2.38497 36.678789,15.19009 0.34727,0.50859 0.74159,0.97236 1.20313,1.34428 l -0.11203,0.0896 -0.0448,0.0448 h -8.52136 c -3.2648,0 -5.92781,2.66279 -5.92781,5.92781 v 5.92781 h 35.5673 V 99.864245 h -5.92781 c -3.26502,0 -5.92803,2.663015 -5.92803,5.928035 v 10.00321 l -0.0896,0.0672 -0.0672,0.0672 c -7.57164,-12.92096 -20.93262,-20.863165 -35.289259,-21.882135 -1.20313,-0.0896 -2.40827,-0.11202 -3.6356,-0.11202 z"
+       fill="#2e3436"
+       id="path824"
+       style="fill:#1f1f1f;fill-opacity:1;stroke-width:5.92788" />
+  </g>
+</svg>

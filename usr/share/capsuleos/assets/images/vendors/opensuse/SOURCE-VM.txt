@@ -1,0 +1,5 @@
+# Assets ground truth — dérivé KDE (propagation pivot linux-kde-neon)
+# registryId: linux-opensuse
+# pivot: linux-kde-neon → usr/share/capsuleos/assets/images/vendors/neon/SOURCE-VM.txt
+# toolkit systemsettings: usr/share/capsuleos/assets/images/toolkits/kde/systemsettings/
+# wallpaper: GapΔ — pull VM opensuse quand disponible (optionalOnVm)

@@ -1,0 +1,13 @@
+{
+  "locale": "fr-FR",
+  "sourceInventory": "root/docs/inventaires/linux-mint-firefox-vm-shortcuts.json",
+  "shortcuts": [
+    { "key": "amazon", "labelFr": "Amazon", "siteId": "amazon-fr", "sponsored": true },
+    { "key": "temu", "labelFr": "Temu", "siteId": "temu", "sponsored": true },
+    { "key": "aliexpress", "labelFr": "AliExpress", "siteId": "aliexpress-fr", "sponsored": true },
+    { "key": "wikipedia", "labelFr": "Wikipédia", "siteId": "wikipedia-fr" },
+    { "key": "youtube", "labelFr": "YouTube", "siteId": "youtube" },
+    { "key": "lemonde", "labelFr": "Le Monde", "siteId": "lemonde" },
+    { "key": "reddit", "labelFr": "Reddit", "siteId": "reddit" }
+  ]
+}

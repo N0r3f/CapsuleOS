@@ -1,0 +1,17 @@
+# Icônes apps menu Cinnamon — remplacements vérité VM (campagne Φ shell/menu)
+# Source VM : registryId linux-mint — voir lab-inventory.json (local)
+# Collecte : 2026-06-11 — résolution Gtk.IconTheme.lookup_icon(name, 32)
+#
+# Remplacés par les PNG Mint-Y 32px de la VM (anciens SVG hérités gnome/apps divergents) :
+#   cinnamon-display-panel              ← /usr/share/icons/Mint-Y/categories/32/cs-display.png
+#   cinnamon-settings-actions           ← /usr/share/icons/Mint-Y/apps/32/cs-actions.png
+#   cinnamon-settings-applets           ← /usr/share/icons/Mint-Y/categories/32/cs-applets.png
+#   cinnamon-settings-default           ← /usr/share/icons/Mint-Y/categories/32/cs-default-applications.png
+#   cinnamon-settings-startup           ← /usr/share/icons/Mint-Y/apps/32/cs-startup-programs.png
+#   cinnamon-settings-universal-access  ← /usr/share/icons/Mint-Y/apps/32/cs-universal-access.png
+#   mintsysadm                          ← /usr/share/icons/Mint-Y/apps/32/mintsysadm.png
+#   org.gnome.baobab                    ← /usr/share/icons/Mint-Y/apps/32/org.gnome.baobab.png
+#   webapp-manager                      ← /usr/share/icons/hicolor/scalable/apps/webapp-manager.svg (paquet webapp-manager)
+#   preferences-system.png              ← /usr/share/icons/Mint-Y/apps/32/preferences-system.png (raccourci sidebar « Paramètres du système »)
+#
+# Les autres fichiers de ce dossier : symlinks vers toolkits/gnome/apps (sync-cinnamon-app-icons.mjs).

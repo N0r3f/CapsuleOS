@@ -1,0 +1,434 @@
+{
+  "version": 1,
+  "description": "Alias d'actions agent — décision logique (R-AUTO) et regroupement mot de passe (R-PWD1). Source de vérité pour hooks Cursor et resolve-agent-action.mjs.",
+  "rules": {
+    "R-AUTO": "∃! action admissible → exécuter sans demander confirmation humaine",
+    "R-PWD1": "≥2 actions nécessitant identifiants → utiliser un passwordBundle (une session sudo/SSH)",
+    "R-ASK1": "commit, push, sudo ad hoc, réseau non lab → toujours demander"
+  },
+  "autoAllow": {
+    "description": "Commandes auto-approuvées par hook beforeShellExecution si alignées sur la chaîne formelle",
+    "patterns": [
+      "^node usr/lib/capsuleos/tools/validate-all\\.mjs",
+      "^node usr/lib/capsuleos/tools/lab/run-playbook-general",
+      "^node usr/lib/capsuleos/tools/lab/",
+      "^node usr/lib/capsuleos/tools/linux/",
+      "^node root/tools/lab/",
+      "^bash root/tools/lab/vm-gnome-settings",
+      "^bash root/tools/lab/vm-rocky-lab-bootstrap\\.sh",
+      "^bash root/tools/lab/lab-capture-session\\.sh",
+      "^ssh -o BatchMode=yes",
+      "^virsh -c qemu:///system screenshot",
+      "^git status",
+      "^git diff",
+      "^git log ",
+      "^ls ",
+      "^find ",
+      "^chmod \\+x ",
+      "^bash usr/lib/capsuleos/tools/git-remote-sync\\.sh",
+      "^bash root/tools/install-git-hooks\\.sh"
+    ]
+  },
+  "alwaysAsk": {
+    "description": "Jamais auto-approuver — réservé instruction utilisateur explicite",
+    "patterns": [
+      "^git commit",
+      "^git push",
+      "^sudo ",
+      "ssh-copy-id",
+      "dnf install",
+      "apt install",
+      "rm -rf ",
+      "git reset --hard",
+      "git push --force"
+    ]
+  },
+  "passwordBundles": {
+    "vm-rocky-bootstrap": {
+      "rule": "R-PWD1",
+      "description": "Bootstrap paquets VM Rocky lab — une seule invite sudo",
+      "script": "root/tools/lab/vm-rocky-lab-bootstrap.sh",
+      "replaces": [
+        "sudo dnf install",
+        "sudo systemctl enable",
+        "sudo /usr/bin/crb enable"
+      ],
+      "when": "M ∧ ¬packages_ok"
+    },
+    "vm-ssh-key-setup": {
+      "rule": "R-PWD1",
+      "description": "Copie clé SSH lab — une invite (ssh-copy-id ou mot de passe VM)",
+      "script": "root/tools/lab/setup-lab-ssh-key.sh",
+      "replaces": [
+        "ssh-copy-id"
+      ],
+      "when": "¬M_key_auth"
+    },
+    "vendor-assets-pipeline": {
+      "rule": "R-PWD1",
+      "description": "Pipeline assets VM complet — pull, WebP, miniatures fonds, inventory-optimize, gates (prérequis VΣ)",
+      "script": "usr/lib/capsuleos/tools/lab/run-vendor-assets-pipeline.mjs",
+      "args": [
+        "--id"
+      ],
+      "replaces": [
+        "pull-vm-assets.sh",
+        "prepare-web-media.mjs --vendor",
+        "PREPARE_WEB_MEDIA=1"
+      ],
+      "when": "¬A ∨ ¬Tp",
+      "usage": "node usr/lib/capsuleos/tools/lab/run-vendor-assets-pipeline.mjs --id linux-ubuntu"
+    },
+    "lab-capture-session": {
+      "rule": "R-PWD1",
+      "description": "Session captures lab — une invite sudo/SSH pour toute une passe virsh (VΣ, Vp, vm-*-capture-host)",
+      "script": "root/tools/lab/lab-capture-session.sh",
+      "replaces": [
+        "virsh -c qemu:///system screenshot",
+        "virsh screenshot",
+        "ssh-add"
+      ],
+      "when": "captures_vm ∧ invites_polkit_répétées",
+      "usage": "bash root/tools/lab/lab-capture-session.sh -- node usr/lib/capsuleos/tools/lab/run-ui-state-effects-pass.mjs --id linux-ubuntu"
+    }
+  },
+  "actionAliases": {
+    "H2": {
+      "predicate": "H2",
+      "label": "Gate socle",
+      "command": "node usr/lib/capsuleos/tools/validate-all.mjs",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "collect-vm-assets": {
+      "predicate": "S",
+      "rule": "R-S1",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-assets.mjs --id {id}",
+      "autoExecute": true,
+      "requiresPassword": false,
+      "requires": [
+        "M"
+      ]
+    },
+    "visual-investigation-p0": {
+      "predicate": "V",
+      "rule": "R-PRI1",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-visual-investigation.mjs --id {id} --filter P0",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "visual-investigation-p1": {
+      "predicate": "V",
+      "rule": "R-PRI3",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-visual-investigation.mjs --id {id} --filter P1 --pending",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "capsule-captures-p1": {
+      "predicate": "Vc",
+      "rule": "R-PRI3b",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-capsule-visual-investigation.mjs --id {id} --filter P1",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "visual-investigation-p2": {
+      "predicate": "V",
+      "rule": "R-PRI5",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-vm-gnome-settings-visual-investigation.mjs --id {id} --filter P2 --pending",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "capsule-captures-p2": {
+      "predicate": "Vc",
+      "rule": "R-PRI5b",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-capsule-visual-investigation.mjs --id {id} --filter P2",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "agent-auto": {
+      "predicate": "*",
+      "rule": "R-AUTO",
+      "command": "node usr/lib/capsuleos/tools/lab/run-agent-auto.mjs --id {id}",
+      "autoExecute": true
+    },
+    "capsule-pipeline": {
+      "predicate": "*",
+      "rule": "R-PIPELINE",
+      "command": "node usr/lib/capsuleos/tools/lab/run-capsule-pipeline.mjs --id {id}",
+      "autoExecute": true,
+      "note": "Orchestrateur unifié §5.2 — couches socle → ManΣ → AppΣ → PbΣ → Vp → Tf → H6"
+    },
+    "formal-chain": {
+      "predicate": "*",
+      "rule": "R-FORMAL",
+      "command": "node usr/lib/capsuleos/tools/lab/run-formal-chain.mjs --id {id} --max-steps 12",
+      "autoExecute": true
+    },
+    "manifest-chain": {
+      "predicate": "ManΣ",
+      "rule": "R-MAN-CHAIN",
+      "command": "node usr/lib/capsuleos/tools/lab/run-manifest-replication-chain.mjs --id {id} --auto --write",
+      "autoExecute": true,
+      "requires": [
+        "M"
+      ]
+    },
+    "collect-vm-manifest": {
+      "predicate": "ManV",
+      "rule": "R-MAN1",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-vm-distribution-manifest.mjs --id {id} --write --ssh",
+      "autoExecute": true,
+      "requires": [
+        "M"
+      ]
+    },
+    "approve-vm-manifest": {
+      "predicate": "ManA",
+      "rule": "R-MAN3",
+      "command": "node usr/lib/capsuleos/tools/lab/approve-vm-distribution-manifest.mjs --id {id} --write",
+      "autoExecute": false,
+      "requires": [
+        "ManS"
+      ]
+    },
+    "import-vm-manifest": {
+      "predicate": "ManI",
+      "rule": "R-MAN5",
+      "command": "node usr/lib/capsuleos/tools/lab/import-manifest-staging.mjs --id {id} --write",
+      "autoExecute": true,
+      "requires": [
+        "ManSt"
+      ]
+    },
+    "import-vm-manifest-legacy": {
+      "predicate": "ManI",
+      "rule": "R-MAN5-LEGACY",
+      "command": "node usr/lib/capsuleos/tools/lab/import-vm-manifest-assets.mjs --id {id} --write",
+      "autoExecute": false,
+      "requires": [
+        "ManA"
+      ],
+      "note": "Rsync direct depuis manifest.import.bundles — préférer import-manifest-staging.mjs"
+    },
+    "apps-catalog": {
+      "predicate": "AppV",
+      "rule": "R-APP2",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-vm-apps-inventory.mjs --id {id} --write && node usr/lib/capsuleos/tools/lab/generate-apps-catalog.mjs --id {id} --write && node usr/lib/capsuleos/tools/lab/smoke-apps-catalog.mjs --id {id}",
+      "autoExecute": true
+    },
+    "shell-polish-rocky": {
+      "predicate": "H6",
+      "rule": "R-SHELL-POLISH",
+      "command": "CAPSULE_HTTP_BASE=http://127.0.0.1:5500 node usr/lib/capsuleos/tools/lab/smoke-rocky-shell-polish.mjs --playwright && node usr/lib/capsuleos/tools/linux/sync-linux-skin-closure.mjs",
+      "autoExecute": true
+    },
+    "gsettings-deep-pass": {
+      "predicate": "G",
+      "rule": "R-PRI2",
+      "command": "node usr/lib/capsuleos/tools/lab/enrich-visual-investigation-gsettings-pass.mjs --id {id}",
+      "autoExecute": true
+    },
+    "capsule-captures": {
+      "predicate": "Vc",
+      "rule": "R-PRI2b",
+      "command": "node usr/lib/capsuleos/tools/lab/collect-capsule-visual-investigation.mjs --id {id}",
+      "autoExecute": true
+    },
+    "visual-parity-close": {
+      "predicate": "Vp",
+      "rule": "R-PRI2c",
+      "command": "node usr/lib/capsuleos/tools/lab/enrich-visual-investigation-capsule-parity.mjs --id {id}",
+      "autoExecute": true
+    },
+    "slot-gap-delta": {
+      "predicate": "GapΔ",
+      "rule": "R-SLOTMAP",
+      "command": "node usr/lib/capsuleos/tools/lab/resolve-slot-gap-delta.mjs --id {id} --write",
+      "autoExecute": true,
+      "description": "SlotMap/GapΔ avant campagne — C8/C9, phases CR filtrées"
+    },
+    "store-replication-chain-auto": {
+      "predicate": "StoreG",
+      "rule": "R-STORE-CHAIN",
+      "command": "node usr/lib/capsuleos/tools/lab/run-store-replication-chain.mjs --id {id} --auto",
+      "autoExecute": true,
+      "description": "Chaîne magasin GNOME — campaignPhases filtrées par profil lab-recipe"
+    },
+    "replication-chain-auto": {
+      "predicate": "*",
+      "rule": "R-AUTO",
+      "command": "node usr/lib/capsuleos/tools/lab/run-replication-chain.mjs --id {id} --auto",
+      "autoExecute": true,
+      "description": "Enchaîne les étapes admissibles jusqu'à blocage ou H6"
+    },
+    "resolve-next": {
+      "predicate": "*",
+      "command": "node usr/lib/capsuleos/tools/lab/resolve-agent-action.mjs --id {id}",
+      "autoExecute": true,
+      "description": "Affiche la prochaine action logique (JSON)"
+    },
+    "resolve-general": {
+      "predicate": "Pb",
+      "rule": "R-PB-AUTO",
+      "command": "node usr/lib/capsuleos/tools/lab/resolve-agent-action.mjs --id {id} --scope general",
+      "autoExecute": true
+    },
+    "smoke-h6-ready": {
+      "predicate": "H6",
+      "rule": "R-H6-PRE",
+      "command": "node usr/lib/capsuleos/tools/lab/smoke-h6-gnome-settings-ready.mjs --id {id}",
+      "autoExecute": true
+    },
+    "smoke-h6-kde-ready": {
+      "predicate": "H6",
+      "rule": "R-H6-PRE",
+      "command": "node usr/lib/capsuleos/tools/lab/smoke-h6-kde-settings-ready.mjs --id {id}",
+      "autoExecute": true
+    },
+    "close-h6-gnome-settings": {
+      "predicate": "H6",
+      "rule": "R-H6",
+      "command": "node usr/lib/capsuleos/tools/lab/close-h6-gnome-settings.mjs --id {id}",
+      "autoExecute": true,
+      "requiresH6Ready": "root/docs/inventaires/{id}-gnome-settings-h6-ready.json"
+    },
+    "close-h6-kde-settings": {
+      "predicate": "H6",
+      "rule": "R-H6",
+      "command": "node usr/lib/capsuleos/tools/lab/close-h6-kde-settings.mjs --id {id}",
+      "autoExecute": true,
+      "requiresH6Ready": "root/docs/inventaires/{id}-gnome-settings-h6-ready.json"
+    },
+    "smoke-h6-cinnamon-ready": {
+      "predicate": "H6",
+      "rule": "R-H6-PRE",
+      "command": "node usr/lib/capsuleos/tools/lab/smoke-h6-cinnamon-settings-ready.mjs --id {id}",
+      "autoExecute": true
+    },
+    "close-h6-cinnamon-settings": {
+      "predicate": "H6",
+      "rule": "R-H6",
+      "command": "node usr/lib/capsuleos/tools/lab/close-h6-cinnamon-settings.mjs --id {id}",
+      "autoExecute": true,
+      "requiresH6Ready": "root/docs/inventaires/{id}-gnome-settings-h6-ready.json"
+    },
+    "smoke-h5-p1": {
+      "predicate": "H6",
+      "rule": "R-H6-SMOKE",
+      "command": "node usr/lib/capsuleos/tools/lab/smoke-h5-p1-appearance.mjs",
+      "autoExecute": true
+    },
+    "playbook-general-auto": {
+      "predicate": "PbΣ",
+      "rule": "R-PB-AUTO",
+      "command": "node usr/lib/capsuleos/tools/lab/run-playbook-general.mjs --id {id} --auto",
+      "autoExecute": true,
+      "requiresContract": "etc/capsuleos/contracts/playbook-general.json"
+    },
+    "app-fidelity-formal-chain": {
+      "predicate": "CredΣ",
+      "rule": "R-CRED-CHAIN",
+      "command": "node usr/lib/capsuleos/tools/lab/run-app-fidelity-formal-chain.mjs --id {id} --max-steps 8",
+      "autoExecute": true,
+      "requiresContract": "etc/capsuleos/contracts/app-fidelity-scenarios.json"
+    },
+    "app-fidelity-formal-eval": {
+      "predicate": "*",
+      "rule": "R-CRED-FORMAL",
+      "command": "node usr/lib/capsuleos/tools/lab/run-app-fidelity-campaign.mjs --id {id} --phase formal",
+      "autoExecute": true
+    },
+    "app-fidelity-formal-write": {
+      "predicate": "CredΣ",
+      "rule": "R-CRED-Σ",
+      "command": "node usr/lib/capsuleos/tools/lab/run-app-fidelity-campaign.mjs --id {id} --phase formal-write",
+      "autoExecute": true
+    },
+    "app-fidelity-resolve": {
+      "predicate": "*",
+      "rule": "R-CRED-AUTO",
+      "command": "node usr/lib/capsuleos/tools/lab/resolve-agent-action.mjs --id {id} --scope app-fidelity",
+      "autoExecute": true
+    },
+    "visual-fidelity-capture": {
+      "predicate": "PhiC",
+      "rule": "R-PHI1",
+      "command": "node usr/lib/capsuleos/tools/lab/capture-scene-pair.mjs --id {id} --slot {slot}",
+      "autoExecute": true,
+      "requiresPassword": false,
+      "requires": [
+        "M"
+      ]
+    },
+    "visual-fidelity-pass": {
+      "predicate": "PhiM",
+      "rule": "R-PHI2",
+      "command": "node usr/lib/capsuleos/tools/lab/compare-visual-fidelity.mjs --id {id}",
+      "autoExecute": true,
+      "requiresPassword": false,
+      "requires": [
+        "PhiC"
+      ]
+    },
+    "visual-fidelity-computed": {
+      "predicate": "PhiI",
+      "rule": "R-PHI3",
+      "command": "CAPSULE_HTTP_BASE=http://127.0.0.1:5501 node usr/lib/capsuleos/tools/lab/assert-computed-vs-inventory.mjs --id {id} --slot {slot}",
+      "autoExecute": true,
+      "requiresPassword": false
+    },
+    "welcome-scaffold-bootstrap": {
+      "predicate": "AccΣ",
+      "rule": "R-INV-SCAFFOLD",
+      "command": "node usr/lib/capsuleos/tools/lab/bootstrap-os-welcome-scaffold.mjs --id {id} && node usr/lib/capsuleos/tools/linux/sync-linux-skin-closure.mjs && node usr/lib/capsuleos/tools/lab/validate-welcome-scaffold.mjs --id {id}",
+      "autoExecute": true,
+      "description": "Accueil à froid planned — squelette Z2 AccΣ"
+    },
+    "settings-effects-verify-cinnamon": {
+      "predicate": "SeΣ",
+      "rule": "R-SE-CIN",
+      "command": "node usr/lib/capsuleos/tools/lab/verify-cinnamon-settings-parity-chain.mjs --id linux-mint",
+      "autoExecute": true
+    },
+    "settings-effects-verify-kde": {
+      "predicate": "KdΣ",
+      "rule": "R-SE-KDE",
+      "command": "node usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs --id linux-kde-neon",
+      "autoExecute": true
+    },
+    "kde-coherence-campaign-next": {
+      "predicate": "Gc",
+      "rule": "R-GC-KDE",
+      "command": "node usr/lib/capsuleos/tools/lab/run-kde-coherence-campaign.mjs --run-next --write",
+      "autoExecute": true,
+      "description": "Campagne G-coherence KDE Neon — phase suivante"
+    },
+    "cross-regression-triple": {
+      "predicate": "Cx",
+      "rule": "R-CX-TRIPLE",
+      "command": "node usr/lib/capsuleos/tools/lab/run-cross-regression-gates.mjs",
+      "autoExecute": true,
+      "description": "Cx Mint ↔ Rocky ↔ KDE-neon après touch Z1 Se"
+    }
+  },
+  "appFidelity": {
+    "contract": "etc/capsuleos/contracts/app-fidelity-scenarios.json",
+    "procedure": "root/docs/campagne-credibilite-pedagogique.md",
+    "orchestrator": "usr/lib/capsuleos/tools/lab/run-app-fidelity-campaign.mjs",
+    "formalChain": "usr/lib/capsuleos/tools/lab/run-app-fidelity-formal-chain.mjs",
+    "defaultScope": "app-fidelity",
+    "predicates": [
+      "CredV",
+      "CredC",
+      "CredS",
+      "CredΠ",
+      "CredΣ"
+    ]
+  },
+  "playbookGeneral": {
+    "contract": "etc/capsuleos/contracts/playbook-general.json",
+    "procedure": "root/docs/procedure-playbook-general.md",
+    "smoke": "usr/lib/capsuleos/tools/lab/smoke-playbook-general.mjs",
+    "defaultScope": "general"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "siteId": "lemonde",
+  "titleFr": "Le Monde — simulation CapsuleOS",
+  "hosts": ["lemonde.fr", "www.lemonde.fr"],
+  "lang": "fr",
+  "contentLicense": "LicenseRef-CapsuleOS-OriginalContent",
+  "note": "Contenu pédagogique original — non affilié au Monde."
+}

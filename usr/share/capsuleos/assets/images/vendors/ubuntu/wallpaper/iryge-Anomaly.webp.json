@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/iryge-Anomaly.png",
+  "sourceSha256": "6eeec29d14169fcf7eb1077382d3fa5b19291bf102056e2a854580e4e6fb2031",
+  "output": "images/vendors/ubuntu/wallpaper/iryge-Anomaly.webp",
+  "outputSha256": "1dd92eebb9242e475ff0a171aee8dc004937f5df58aec3dbd4a683b178e69b67",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:49.157Z"
+}

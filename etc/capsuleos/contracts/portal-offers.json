@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "doc": "root/docs/convention-portail.md",
+  "currency": "EUR",
+  "sectionEyebrow": "Nos formules",
+  "sectionTitle": "Commencer gratuitement",
+  "sectionLead": "Essayez tous les systèmes sans engagement, progressez avec Abonné ou déployez CapsuleOS en classe.",
+  "plans": [
+    {
+      "id": "free",
+      "label": "Gratuit",
+      "description": "Découvrez tous les bureaux simulés du catalogue, sans carte bancaire.",
+      "priceMonthly": 0,
+      "priceDisplay": "0 €",
+      "pricePeriod": "/mois",
+      "featured": false,
+      "entitlementLevel": "anonymous",
+      "featuresEyebrow": "Inclus",
+      "features": [
+        "Tous les bureaux simulés du catalogue",
+        "15 minutes par OS et par jour",
+        "Magasins d'applications consultables",
+        "Applications store non installables",
+        "Sans compte requis"
+      ],
+      "cta": {
+        "label": "Essayer un système",
+        "href": "#choisir-os",
+        "requiresAuth": false
+      }
+    },
+    {
+      "id": "subscriber",
+      "label": "Abonné",
+      "description": "Abonné : parcours guidé, progression et modules store pour apprendre sans limite.",
+      "priceMonthly": 15,
+      "priceDisplay": "15 €",
+      "pricePeriod": "/mois",
+      "featured": true,
+      "entitlementLevel": "subscriber",
+      "featuresEyebrow": "Tout le gratuit, plus",
+      "features": [
+        "Sessions OS illimitées",
+        "Parcours pédagogique complet",
+        "Progression, niveaux et badges",
+        "Sauvegarde des skins personnalisés",
+        "Modules store gratuits et achats créateurs"
+      ],
+      "cta": {
+        "label": "S'abonner",
+        "href": "portal/subscribe.php",
+        "requiresAuth": true,
+        "fallbackHref": "portal/register.php"
+      }
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "description": "Salles de classe, élèves et formateurs : l'offre dédiée aux établissements.",
+      "priceMonthly": null,
+      "priceDisplay": "Sur devis",
+      "pricePeriod": "par établissement",
+      "featured": false,
+      "entitlementLevel": "registered",
+      "featuresEyebrow": "Tout l'abonné, plus",
+      "features": [
+        "Classes jusqu'à 32 élèves par enseignant",
+        "OS illimité pour les élèves en classe active",
+        "Parcours pédagogique et progression en classe",
+        "Badges et gamification pour les élèves",
+        "Bénéfices conservés après la classe",
+        "Demande grade Professeur via support"
+      ],
+      "cta": {
+        "label": "Demander Education",
+        "href": "portal/register.php",
+        "requiresAuth": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+/* Squelette Se-A11y — macos-sonoma (bootstrap os-welcome-scaffold) */
+html[data-font-scale="100"] { --a11y-font-scale-factor: 1; }
+html[data-font-scale="110"] { --a11y-font-scale-factor: 1.1; }
+html[data-font-scale="125"] { --a11y-font-scale-factor: 1.25; }
+
+html[data-font-scale="100"] #macos-sonoma,
+html[data-font-scale="110"] #macos-sonoma,
+html[data-font-scale="125"] #macos-sonoma {
+    font-size: calc(1rem * var(--a11y-font-scale-factor));
+}
+
+#macos-sonoma :where(a, button, input, [role="button"], [tabindex="0"]):focus-visible {
+    outline: 2px solid var(--a11y-focus-ring, #3584e4);
+    outline-offset: 1px;
+}

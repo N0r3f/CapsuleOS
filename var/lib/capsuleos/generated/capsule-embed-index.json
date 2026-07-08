@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "description": "Manifeste embeds partitionnés par kernel (cible scalabilité)",
+  "chunks": [
+    {
+      "id": "linux",
+      "kernelId": "linux",
+      "output": "var/lib/capsuleos/generated/capsule-app-embed-linux.js",
+      "legacy": "var/lib/capsuleos/generated/capsule-app-embed.js",
+      "status": "planned"
+    },
+    {
+      "id": "windows-nt",
+      "kernelId": "windows-nt",
+      "output": "var/lib/capsuleos/generated/capsule-app-embed-windows.js",
+      "status": "planned"
+    },
+    {
+      "id": "darwin",
+      "kernelId": "darwin",
+      "output": "var/lib/capsuleos/generated/capsule-app-embed-darwin.js",
+      "status": "planned"
+    }
+  ],
+  "note": "Pendant la migration, capsule-app-embed.js reste le chunk monolithique legacy."
+}

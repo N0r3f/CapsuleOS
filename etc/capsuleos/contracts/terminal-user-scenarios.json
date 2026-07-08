@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Terminal (org.gnome.Ptyxis) — slot CapsuleOS `terminal`, gabarit `terminal.html`. Toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-terminal-vm.json",
+  "slotCapsule": "terminal",
+  "slot": "terminal",
+  "appId": "org.gnome.Ptyxis",
+  "template": "terminal.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/terminal/terminal.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "TΣ": "Contrat valide + kernel syncTerminalGnomeDataset + gabarit data-terminal-gnome-* / data-ptyxis-gnome-*",
+    "Te1": "Te1 ouvrir Terminal → invite Alma/Rocky visible (capsule@host:~)",
+    "Te2": "Te2 exécuter pwd ou ls → sortie simulée crédible",
+    "Te3": "Te3 nouvel onglet terminal Ptyxis",
+    "Te4": "Te4 whoami ou commande registre Capsule (help, clear)"
+  },
+  "scenarios": [
+    {
+      "id": "Te1",
+      "priority": "P0",
+      "title": "Ouvrir Terminal — invite Alma visible",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "rpm": "ptyxis",
+        "version": "47.13",
+        "release": "1.el10",
+        "labelFr": "Terminal",
+        "genericNameFr": "Terminal",
+        "commentFr": "Un terminal orienté conteneur pour GNOME",
+        "locale": "fr_FR.UTF-8",
+        "newTabLabelFr": "Nouvel onglet",
+        "hostnameVm": "localhost-live",
+        "promptVm": "[capsule@localhost-live ~]$",
+        "promptCapsule": "capsule@alma:~$",
+        "onVm": true
+      },
+      "steps": [
+        { "id": "open-terminal", "action": "openWindowByDataLink", "target": "terminal", "label": "Ouvrir Terminal" },
+        { "id": "root", "selector": "[data-terminal-gnome-root]", "label": "Racine terminal GNOME" },
+        { "id": "init", "predicate": "dataset.terminalGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "provider", "predicate": "dataset.ptyxisGnomeProvider", "expectValue": "ptyxis-gnome", "label": "Provider Ptyxis GNOME" },
+        { "id": "prompt", "selector": "[data-terminal-gnome-prompt]", "label": "Invite active" },
+        { "id": "prompt-text", "predicate": "dataset.terminalGnomePrompt", "expectTextContains": "capsule@", "label": "Utilisateur capsule@host" },
+        { "id": "chrome", "selector": ".terminal-window--fedora", "label": "Chrome Ptyxis (fedora-terminal)" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-terminal-scenarios.mjs --scenario Te1",
+        "capture": "alma-capsule-dark-terminal.png"
+      }
+    },
+    {
+      "id": "Te2",
+      "priority": "P0",
+      "title": "Exécuter pwd ou ls — sortie simulée crédible",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "commandsP0": ["pwd", "ls", "whoami"],
+        "pwdOutputVm": "/home/capsule",
+        "whoamiOutputVm": "capsule"
+      },
+      "steps": [
+        { "id": "open-terminal", "action": "openWindowByDataLink", "target": "terminal", "label": "Ouvrir Terminal" },
+        { "id": "command-input", "selector": "[data-terminal-gnome-command]", "label": "Champ commande" },
+        { "id": "run-pwd", "action": "submitCommand", "value": "pwd", "label": "Exécuter pwd" },
+        { "id": "output", "selector": "[data-terminal-gnome-output]", "label": "Zone sortie" },
+        { "id": "cwd-dataset", "predicate": "dataset.terminalGnomeCwd", "expectValue": "/", "label": "Répertoire courant racine logique" },
+        { "id": "last-cmd", "predicate": "dataset.terminalGnomeLastCommand", "expectValue": "pwd", "label": "Dernière commande pwd" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-terminal-scenarios.mjs --scenario Te2",
+        "capture": "alma-capsule-dark-terminal-pwd.png"
+      }
+    },
+    {
+      "id": "Te3",
+      "priority": "P0",
+      "title": "Nouvel onglet terminal Ptyxis",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "newTabShortcut": "Ctrl+Shift+T",
+        "newTabLabelFr": "Nouvel onglet",
+        "tabsSupported": true,
+        "newTabPosition": "last"
+      },
+      "steps": [
+        { "id": "open-terminal", "action": "openWindowByDataLink", "target": "terminal", "label": "Ouvrir Terminal" },
+        { "id": "add-tab", "selector": ".fedora-terminal-header__button--add", "label": "Bouton nouvel onglet" },
+        { "id": "click-new-tab", "action": "openTerminalTab", "label": "Créer second onglet" },
+        { "id": "tab-count", "predicate": "dataset.terminalGnomeTabCount", "expectValue": "2", "label": "Deux onglets ouverts" },
+        { "id": "multitab-class", "selector": ".terminal-window--multitab", "label": "Classe multi-onglets" },
+        { "id": "tabs-strip", "selector": ".fedora-terminal-tabs__tab", "label": "Onglets header Ptyxis" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-terminal-scenarios.mjs --scenario Te3",
+        "capture": "alma-capsule-dark-terminal-tabs.png"
+      }
+    },
+    {
+      "id": "Te4",
+      "priority": "P0",
+      "title": "whoami ou commande registre Capsule (help)",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "whoamiOutputVm": "capsule",
+        "helpCommand": "help",
+        "clearCommand": "clear",
+        "registryRef": "etc/capsuleos/contracts/terminal-commands.json"
+      },
+      "steps": [
+        { "id": "open-terminal", "action": "openWindowByDataLink", "target": "terminal", "label": "Ouvrir Terminal" },
+        { "id": "run-whoami", "action": "submitCommand", "value": "whoami", "label": "Exécuter whoami" },
+        { "id": "last-whoami", "predicate": "dataset.terminalGnomeLastCommand", "expectValue": "whoami", "label": "Commande whoami enregistrée" },
+        { "id": "run-help", "action": "submitCommand", "value": "help", "label": "Exécuter help (registre Capsule)" },
+        { "id": "last-help", "predicate": "dataset.terminalGnomeLastCommand", "expectValue": "help", "label": "Commande help enregistrée" },
+        { "id": "help-output", "selector": "[data-terminal-gnome-output] .capsule-terminal__line", "label": "Sortie help visible" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-terminal-scenarios.mjs --scenario Te4",
+        "capture": "alma-capsule-dark-terminal-whoami.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "TΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-terminal-user-scenarios.mjs"
+    }
+  }
+}

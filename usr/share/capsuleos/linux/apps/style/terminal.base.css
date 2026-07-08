@@ -1,0 +1,442 @@
+.capsule-terminal-toolbar {
+    display: none;
+}
+
+/* Slot terminal : le chrome .windowElement a déjà --win-client-gutter ; le shell remplit la zone cliente. */
+div.windowElement[data-link="terminal"]:not(#mainMenu) {
+    align-items: stretch;
+}
+
+div[data-link="terminal"] > #windowHeader {
+    width: var(--full);
+    align-self: stretch;
+}
+
+div.windowElement[data-link="terminal"]:not(#mainMenu) > #terminalContainer,
+div[data-link="terminal"] > #terminalContainer,
+div[data-link="terminal"] > .capsule-terminal-shell {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+}
+
+#terminalContainer,
+.capsule-terminal-shell {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: stretch;
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--full);
+    margin: var(--z);
+    padding: calc(var(--head) / 4);
+    color: var(--texte);
+    font-size: calc(var(--head) / 2);
+    font-weight: var(--wbr);
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    overflow: var(--h);
+    background: var(--noir);
+    box-sizing: border-box;
+}
+
+.capsule-terminal,
+[data-terminal-app] {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: stretch;
+    justify-content: var(--fs);
+    flex: 1 1 auto;
+    width: var(--full);
+    min-height: var(--z);
+    overflow-y: var(--a);
+    overflow-x: var(--hid);
+}
+
+#input,
+.capsule-terminal__input,
+[data-terminal-form] {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    flex: 0 0 auto;
+    width: var(--full);
+    height: var(--a);
+    margin: var(--z);
+    padding: calc(var(--head) / 20);
+}
+
+#prompt,
+.capsule-terminal__prompt,
+[data-terminal-prompt],
+.capsule-terminal__prompt-copy {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    flex: 0 0 auto;
+    width: var(--a);
+    margin-left: calc(var(--head) / 20);
+    margin-right: calc(var(--head) / 10);
+    color: var(--btn1);
+    font-size: calc(var(--head) / 2);
+    font-weight: var(--wbr);
+    white-space: pre;
+}
+
+#command,
+#command:focus,
+#command:active,
+.capsule-terminal__command,
+.capsule-terminal__command:focus,
+.capsule-terminal__command:active,
+[data-terminal-command],
+[data-terminal-command]:focus,
+[data-terminal-command]:active {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    flex: 1 1 auto;
+    width: var(--a);
+    min-width: var(--z);
+    height: calc(var(--head) / 1.7);
+    padding-left: calc(var(--head) / 40);
+    color: var(--texte);
+    font-size: calc(var(--head) / 2);
+    font-weight: var(--wbr);
+    outline: var(--n);
+    border: var(--z) solid var(--t);
+    box-shadow: var(--n);
+    background: var(--noir);
+}
+
+#command:focus,
+.capsule-terminal__command:focus,
+[data-terminal-command]:focus {
+    box-shadow: var(--z) var(--t);
+}
+
+#output,
+.capsule-terminal__output,
+[data-terminal-output] {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: stretch;
+    justify-content: var(--fs);
+    flex: 0 0 auto;
+    width: var(--full);
+    min-height: var(--z);
+    margin-top: calc(var(--head) / 40);
+    overflow: visible;
+}
+
+#output>div,
+.capsule-terminal__line {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--a);
+}
+
+#output>div:not(.capsule-terminal__line--listing)>code,
+.capsule-terminal__line:not(.capsule-terminal__line--listing)>code {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--fs);
+    justify-content: var(--fs);
+    width: var(--full);
+    height: var(--a);
+    margin-bottom: calc(var(--head) / 10);
+}
+
+.capsule-terminal__line--command {
+    flex-wrap: nowrap;
+}
+
+#output>div>code.capsule-terminal__prompt-copy,
+#output>div>code.capsule-terminal__command-copy,
+.capsule-terminal__command-copy {
+    width: var(--a);
+    white-space: pre-wrap;
+}
+
+.capsule-terminal__line--error code {
+    color: #ff8a8a;
+}
+
+/* GNOME Terminal — prompt actif et historique partagent typo + couleurs (skins mappent les variables). */
+.terminal-window--gnome {
+    --terminal-prompt-user-color: var(--btn1);
+    --terminal-prompt-text-color: var(--texte);
+    --terminal-prompt-path-seg-color: var(--btn1);
+    --terminal-font-family: "Ubuntu Mono", "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    --terminal-font-size: 0.92rem;
+    --terminal-line-height: 1.35;
+}
+
+.terminal-window--gnome .capsule-terminal__output,
+.terminal-window--gnome [data-terminal-output],
+.terminal-window--gnome #input,
+.terminal-window--gnome .capsule-terminal__input,
+.terminal-window--gnome [data-terminal-form],
+.terminal-window--gnome #prompt,
+.terminal-window--gnome .capsule-terminal__prompt,
+.terminal-window--gnome [data-terminal-prompt],
+.terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__command-line,
+.terminal-window--gnome #command,
+.terminal-window--gnome .capsule-terminal__command,
+.terminal-window--gnome [data-terminal-command] {
+    font-family: var(--terminal-font-family);
+    font-size: var(--terminal-font-size);
+    line-height: var(--terminal-line-height);
+}
+
+.terminal-window--gnome #input,
+.terminal-window--gnome .capsule-terminal__input,
+.terminal-window--gnome [data-terminal-form] {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 0;
+    align-items: baseline;
+}
+
+.terminal-window--gnome #prompt,
+.terminal-window--gnome .capsule-terminal__prompt,
+.terminal-window--gnome [data-terminal-prompt] {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    margin: 0 0.2rem 0 0;
+    padding: 0;
+    font-weight: 400;
+    white-space: pre;
+}
+
+.terminal-window--gnome #command,
+.terminal-window--gnome #command:focus,
+.terminal-window--gnome #command:active,
+.terminal-window--gnome .capsule-terminal__command,
+.terminal-window--gnome .capsule-terminal__command:focus,
+.terminal-window--gnome .capsule-terminal__command:active,
+.terminal-window--gnome [data-terminal-command],
+.terminal-window--gnome [data-terminal-command]:focus,
+.terminal-window--gnome [data-terminal-command]:active {
+    display: inline-block;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font: inherit;
+    line-height: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.terminal-window--gnome #output > div.capsule-terminal__line--command,
+.terminal-window--gnome .capsule-terminal__line--command {
+    display: block;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.terminal-window--gnome #output > div.capsule-terminal__line--command > code,
+.terminal-window--gnome .capsule-terminal__line--command > code {
+    display: inline;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.terminal-window--gnome .capsule-terminal__prompt-user {
+    color: var(--terminal-prompt-user-color);
+    font-weight: 700;
+}
+
+.terminal-window--gnome .capsule-terminal__prompt-colon,
+.terminal-window--gnome .capsule-terminal__prompt-dollar {
+    color: var(--terminal-prompt-text-color);
+    font-weight: 400;
+}
+
+.terminal-window--gnome .capsule-terminal__prompt-path-seg {
+    color: var(--terminal-prompt-path-seg-color);
+    font-weight: 400;
+}
+
+.terminal-window--gnome #command,
+.terminal-window--gnome #command:focus,
+.terminal-window--gnome .capsule-terminal__command,
+.terminal-window--gnome [data-terminal-command],
+.terminal-window--gnome [data-terminal-command]:focus {
+    color: var(--terminal-prompt-text-color);
+    caret-color: var(--terminal-prompt-text-color);
+}
+
+.terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__command-line {
+    color: var(--terminal-prompt-text-color);
+}
+
+/* ls listing — éviter display:flex sur <code> (fusion des espaces entre spans). */
+.capsule-terminal__line--listing > code {
+    display: block;
+    width: auto;
+    height: auto;
+    flex-flow: unset;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.capsule-terminal__line--listing .capsule-terminal__dir,
+.capsule-terminal__line--listing .capsule-terminal__file {
+    display: inline-block;
+    vertical-align: baseline;
+    box-sizing: content-box;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+.terminal-window--gnome,
+.terminal-window--fedora,
+.terminal-window--cosmic {
+    --terminal-ls-col-width: 14ch;
+    --terminal-ls-dir-color: var(--terminal-prompt-path-seg-color, var(--btn1));
+}
+
+/* Ptyxis GNOME/RHEL — neutraliser le chrome legacy (#prompt rouge, bande #command)
+ * avant/après chargement de terminal-ptyxis.base.css (race classe ou fetch CSS). */
+body#rocky .windowElement[data-link="terminal"] .capsule-terminal,
+body#fedora .windowElement[data-link="terminal"] .capsule-terminal,
+body#alma .windowElement[data-link="terminal"] .capsule-terminal,
+body#ubuntu .windowElement[data-link="terminal"] .capsule-terminal,
+body#anduinos .windowElement[data-link="terminal"] .capsule-terminal,
+body#rocky .windowElement[data-link="terminal"] [data-terminal-app],
+body#fedora .windowElement[data-link="terminal"] [data-terminal-app],
+body#alma .windowElement[data-link="terminal"] [data-terminal-app],
+body#ubuntu .windowElement[data-link="terminal"] [data-terminal-app],
+body#anduinos .windowElement[data-link="terminal"] [data-terminal-app] {
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+body#rocky .windowElement[data-link="terminal"] .capsule-terminal::after,
+body#fedora .windowElement[data-link="terminal"] .capsule-terminal::after,
+body#alma .windowElement[data-link="terminal"] .capsule-terminal::after,
+body#ubuntu .windowElement[data-link="terminal"] .capsule-terminal::after,
+body#anduinos .windowElement[data-link="terminal"] .capsule-terminal::after,
+body#rocky .windowElement[data-link="terminal"] [data-terminal-app]::after,
+body#fedora .windowElement[data-link="terminal"] [data-terminal-app]::after,
+body#alma .windowElement[data-link="terminal"] [data-terminal-app]::after,
+body#ubuntu .windowElement[data-link="terminal"] [data-terminal-app]::after,
+body#anduinos .windowElement[data-link="terminal"] [data-terminal-app]::after {
+    content: "";
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+body#rocky .windowElement[data-link="terminal"] #output,
+body#fedora .windowElement[data-link="terminal"] #output,
+body#alma .windowElement[data-link="terminal"] #output,
+body#ubuntu .windowElement[data-link="terminal"] #output,
+body#anduinos .windowElement[data-link="terminal"] #output,
+body#rocky .windowElement[data-link="terminal"] .capsule-terminal__output,
+body#fedora .windowElement[data-link="terminal"] .capsule-terminal__output,
+body#alma .windowElement[data-link="terminal"] .capsule-terminal__output,
+body#ubuntu .windowElement[data-link="terminal"] .capsule-terminal__output,
+body#anduinos .windowElement[data-link="terminal"] .capsule-terminal__output,
+body#rocky .windowElement[data-link="terminal"] [data-terminal-output],
+body#fedora .windowElement[data-link="terminal"] [data-terminal-output],
+body#alma .windowElement[data-link="terminal"] [data-terminal-output],
+body#ubuntu .windowElement[data-link="terminal"] [data-terminal-output],
+body#anduinos .windowElement[data-link="terminal"] [data-terminal-output] {
+    flex: 0 0 auto;
+    flex-grow: 0;
+    min-height: 0;
+}
+
+body#rocky .windowElement[data-link="terminal"] #input,
+body#fedora .windowElement[data-link="terminal"] #input,
+body#alma .windowElement[data-link="terminal"] #input,
+body#ubuntu .windowElement[data-link="terminal"] #input,
+body#anduinos .windowElement[data-link="terminal"] #input,
+body#rocky .windowElement[data-link="terminal"] .capsule-terminal__input,
+body#fedora .windowElement[data-link="terminal"] .capsule-terminal__input,
+body#alma .windowElement[data-link="terminal"] .capsule-terminal__input,
+body#ubuntu .windowElement[data-link="terminal"] .capsule-terminal__input,
+body#anduinos .windowElement[data-link="terminal"] .capsule-terminal__input,
+body#rocky .windowElement[data-link="terminal"] [data-terminal-form],
+body#fedora .windowElement[data-link="terminal"] [data-terminal-form],
+body#alma .windowElement[data-link="terminal"] [data-terminal-form],
+body#ubuntu .windowElement[data-link="terminal"] [data-terminal-form],
+body#anduinos .windowElement[data-link="terminal"] [data-terminal-form] {
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    align-items: baseline;
+}
+
+body#rocky .windowElement[data-link="terminal"] #prompt,
+body#fedora .windowElement[data-link="terminal"] #prompt,
+body#alma .windowElement[data-link="terminal"] #prompt,
+body#ubuntu .windowElement[data-link="terminal"] #prompt,
+body#anduinos .windowElement[data-link="terminal"] #prompt,
+body#rocky .windowElement[data-link="terminal"] .capsule-terminal__prompt,
+body#fedora .windowElement[data-link="terminal"] .capsule-terminal__prompt,
+body#alma .windowElement[data-link="terminal"] .capsule-terminal__prompt,
+body#ubuntu .windowElement[data-link="terminal"] .capsule-terminal__prompt,
+body#anduinos .windowElement[data-link="terminal"] .capsule-terminal__prompt,
+body#rocky .windowElement[data-link="terminal"] [data-terminal-prompt],
+body#fedora .windowElement[data-link="terminal"] [data-terminal-prompt],
+body#alma .windowElement[data-link="terminal"] [data-terminal-prompt],
+body#ubuntu .windowElement[data-link="terminal"] [data-terminal-prompt],
+body#anduinos .windowElement[data-link="terminal"] [data-terminal-prompt] {
+    color: inherit;
+    margin-left: 0;
+    margin-right: calc(var(--head, 32px) / 8);
+}
+
+body#rocky .windowElement[data-link="terminal"] #command,
+body#fedora .windowElement[data-link="terminal"] #command,
+body#alma .windowElement[data-link="terminal"] #command,
+body#ubuntu .windowElement[data-link="terminal"] #command,
+body#anduinos .windowElement[data-link="terminal"] #command,
+body#rocky .windowElement[data-link="terminal"] .capsule-terminal__command,
+body#fedora .windowElement[data-link="terminal"] .capsule-terminal__command,
+body#alma .windowElement[data-link="terminal"] .capsule-terminal__command,
+body#ubuntu .windowElement[data-link="terminal"] .capsule-terminal__command,
+body#anduinos .windowElement[data-link="terminal"] .capsule-terminal__command,
+body#rocky .windowElement[data-link="terminal"] [data-terminal-command],
+body#fedora .windowElement[data-link="terminal"] [data-terminal-command],
+body#alma .windowElement[data-link="terminal"] [data-terminal-command],
+body#ubuntu .windowElement[data-link="terminal"] [data-terminal-command],
+body#anduinos .windowElement[data-link="terminal"] [data-terminal-command] {
+    height: auto;
+    min-height: 0;
+    padding-left: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}

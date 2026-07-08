@@ -1,0 +1,207 @@
+{
+  "views": {
+    "home": {
+      "title": "Page d'accueil — Discover",
+      "heading": "Page d'accueil",
+      "searchPlaceholder": "Rechercher…"
+    },
+    "installed": {
+      "title": "Installé(s) — Discover",
+      "heading": "Installé(s)",
+      "searchPlaceholder": "Rechercher dans « Installé(s) »…"
+    },
+    "updates": {
+      "title": "Mises à jour — Discover",
+      "heading": "Mises à jour",
+      "searchPlaceholder": "Rechercher dans « Mises à jour »…"
+    },
+    "config": {
+      "title": "Configuration — Discover",
+      "heading": "Configuration",
+      "searchPlaceholder": "Rechercher…"
+    },
+    "about": {
+      "title": "À propos — Discover",
+      "heading": "À propos",
+      "searchPlaceholder": "Rechercher…"
+    }
+  },
+  "homeSections": [
+    {
+      "id": "popular",
+      "title": "Les plus populaires",
+      "apps": [
+        {
+          "id": "vlc",
+          "name": "VLC",
+          "desc": "VLC media player, the open-source multimedia player",
+          "icon": "vlc.png",
+          "postInstallSlot": "lecteur_multimedia",
+          "storeInstallable": true,
+          "storeEntry": {
+            "id": "vlc",
+            "slot": "lecteur_multimedia",
+            "source": "apt"
+          }
+        },
+        { "id": "gimp", "name": "Éditeur d'image GIMP", "desc": "Créer des images et modifier des photographies", "icon": "gimp.png" },
+        { "id": "wine", "name": "Wine", "desc": "Run Windows applications on Linux, BSD, Solaris and Mac OS X", "icon": "wine.png" },
+        { "id": "steam", "name": "Steam (installer)", "desc": "Launcher for the Steam software distribution service", "icon": "steam.png" },
+        { "id": "kdenlive", "name": "Kdenlive", "desc": "Éditeur vidéo non linéaire par KDE", "icon": "kdenlive.png" }
+      ]
+    },
+    {
+      "id": "editor-pick",
+      "title": "Sélection de l'éditeur",
+      "apps": [
+        { "id": "kolourpaint", "name": "KolourPaint", "desc": "Logiciel de dessin", "icon": "kolourpaint.png" },
+        { "id": "kate", "name": "Kate", "desc": "Éditeur de texte avancé", "icon": "kate.png" },
+        { "id": "krita", "name": "Krita", "desc": "Peinture numérique, liberté créatrice", "icon": "krita.png" },
+        { "id": "kpat", "name": "KPatience", "desc": "Jeu de solitaire", "icon": "kpat.svg" }
+      ]
+    }
+  ],
+  "installed": [
+    { "id": "ark", "name": "Ark", "desc": "Travailler avec des archives", "icon": "ark.png" },
+    { "id": "discover", "name": "Discover", "desc": "Installer et supprimer des applications et modules", "icon": "discover-installed.png" },
+    { "id": "dolphin", "name": "Dolphin", "desc": "Gérer vos fichiers", "icon": "dolphin.png" },
+    { "id": "firefox", "name": "Firefox", "desc": "Navigateur rapide et privé", "icon": "../panel/firefox.png", "iconBase": "panel" },
+    { "id": "gwenview", "name": "Gwenview", "desc": "Visionneuse d'images simple", "icon": "gwenview.png" },
+    { "id": "khelpcenter", "name": "Centre d'aide", "desc": "Parcourir et rechercher de la documentation", "icon": "khelpcenter.svg" },
+    { "id": "kdeconnect", "name": "KDE Connect", "desc": "Faire de tous vos appareils un seul", "icon": "kdeconnect.svg" },
+    { "id": "kate", "name": "Kate", "desc": "Éditeur de texte avancé", "icon": "kate-installed.png" },
+    { "id": "konsole", "name": "Konsole", "desc": "Accès en ligne de commande", "icon": "konsole.svg" },
+    { "id": "okular", "name": "Okular", "desc": "Visionneuse universelle de documents", "icon": "okular.png" },
+    { "id": "systemsettings", "name": "Paramètres système", "desc": "Configurer le comportement et l'apparence du système", "icon": "systemsettings.svg" },
+    { "id": "spectacle", "name": "Spectacle", "desc": "Prendre des captures d'écran et enregistrements", "icon": "spectacle.svg" },
+    { "id": "systemmonitor", "name": "Surveillance du système", "desc": "Surveiller l'utilisation des ressources par les applications", "icon": "systemmonitor.svg" },
+    { "id": "vlc", "name": "Lecteur multimédia VLC", "desc": "Lire, capturer et diffuser vos flux multimédias", "icon": "vlc-installed.png" }
+  ],
+  "updates": [
+    {
+      "id": "nano",
+      "name": "nano",
+      "from": "7.2-2ubuntu0.1",
+      "to": "7.2-2ubuntu0.2",
+      "size": "836 Kio",
+      "icon": "nano.svg",
+      "section": "Logiciels du système"
+    }
+  ],
+  "updatesMeta": {
+    "sectionTitle": "Logiciels du système"
+  },
+  "configSources": [
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "default": true,
+      "sources": [
+        { "id": "ubuntu-main", "label": "archive.ubuntu.com — Ubuntu noble", "checked": true },
+        { "id": "ubuntu-security", "label": "security.ubuntu.com — Ubuntu noble-security", "checked": true },
+        { "id": "ubuntu-updates", "label": "archive.ubuntu.com — Ubuntu noble-updates", "checked": true },
+        { "id": "neon-user", "label": "archive.neon.kde.org — KDE neon noble user", "checked": true }
+      ]
+    },
+    {
+      "id": "flatpak",
+      "name": "Flatpak",
+      "addSource": true,
+      "sources": [
+        { "id": "flathub", "label": "Flathub", "checked": true }
+      ]
+    },
+    {
+      "id": "snap",
+      "name": "Snap Store",
+      "sources": [
+        { "id": "snap-store", "label": "Snap Store", "checked": true }
+      ]
+    }
+  ],
+  "about": {
+    "appName": "Discover",
+    "version": "6.6.5",
+    "tagline": "Installer et supprimer des applications et des modules complémentaires",
+    "copyright": "© 2010-2025 Plasma Development Team",
+    "license": {
+      "name": "Licence publique générale GNU, version 2 ou ultérieure"
+    },
+    "links": [
+      { "id": "donate", "label": "Faire un don", "icon": "donate-symbolic.svg" },
+      { "id": "involved", "label": "Contribuer", "icon": "applications-development-symbolic.svg" },
+      { "id": "bug", "label": "Signaler un bogue", "icon": "tools-report-bug-symbolic.svg" }
+    ],
+    "libraries": [
+      { "name": "Qt", "version": "6.11.1" },
+      { "name": "KDE Frameworks", "version": "6.12.0" },
+      { "name": "Kirigami Addons", "version": "1.6.0" },
+      { "name": "plasma-discover", "version": "6.6.5" }
+    ],
+    "authors": [
+      { "name": "Aleix Pol Gonzalez", "role": "", "email": "aleixpol@kde.org", "web": "https://proli.net" },
+      { "name": "Nate Graham", "role": "Contrôle qualité, conception et ergonomie", "email": "nate@kde.org", "web": "https://pointieststick.com/" },
+      { "name": "Dan Leinir Turthra Jensen", "role": "KNewStuff", "email": "admin@leinir.dk", "web": "https://leinir.dk/" }
+    ]
+  },
+  "appDetails": {
+    "vlc": {
+      "summary": "VLC media player, the open-source multimedia player",
+      "description": "VLC is a free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.",
+      "version": "3.0.20-3build6",
+      "size": "0 o",
+      "license": "GPL-2.0+",
+      "origin": "ubuntu-noble-universe",
+      "developer": "VideoLAN et al.",
+      "verifiedDeveloper": true,
+      "rating": 4,
+      "ratingCount": "1 581 notes",
+      "ageRating": "Tout le monde",
+      "screenshots": [
+        {
+          "id": "win7",
+          "asset": "screenshots/vlc-screenshot-win7.jpg",
+          "sourceUrl": "http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-win7.jpg",
+          "sha256": "17c9b92503b4a9caed72f545aebdfcf5c0aa01677800c285e4535de7921d46dc"
+        },
+        {
+          "id": "lion",
+          "asset": "screenshots/vlc-screenshot-lion.jpg",
+          "sourceUrl": "http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-lion.jpg",
+          "sha256": "4eceb7ec4d33d9b75dc4b4bfcfa51b116f524e579673f56a03e45b1a16085073"
+        },
+        {
+          "id": "poney",
+          "asset": "screenshots/vlc-screenshot-poney.jpg",
+          "sourceUrl": "http://images.videolan.org/vlc/screenshots/2.0.0/vlc-2.0-poney.jpg",
+          "sha256": "cce040bf089591ecf9ed2a112b2850fa94842a7cc2884a7369acdb7b548c02f7"
+        }
+      ]
+    },
+    "gimp": {
+      "summary": "Éditeur d'images GNU avec outils de retouche et composition avancés.",
+      "version": "2.10.36",
+      "size": "98 Mo",
+      "license": "GPL v3",
+      "origin": "Ubuntu"
+    },
+    "firefox": {
+      "summary": "Navigateur web rapide axé sur la vie privée.",
+      "version": "151.0.3",
+      "size": "72 Mo",
+      "license": "MPL 2.0",
+      "origin": "Ubuntu"
+    }
+  },
+  "categoryFilters": {
+    "all": { "label": "Toutes les applications" },
+    "internet": { "label": "Internet", "appIds": ["firefox", "steam", "wine"] },
+    "graphics": { "label": "Graphisme", "appIds": ["gimp", "kolourpaint", "krita"] },
+    "multimedia": { "label": "Multimédia", "appIds": ["vlc", "kdenlive"] },
+    "development": { "label": "Développement", "appIds": ["kate", "kdenlive"] },
+    "office": { "label": "Bureautique", "appIds": ["kolourpaint", "kate"] },
+    "games": { "label": "Jeux", "appIds": ["kpat", "steam"] },
+    "utilities": { "label": "Utilitaires", "appIds": ["wine", "kpat"] },
+    "system": { "label": "Système", "appIds": ["discover", "systemsettings"] }
+  }
+}

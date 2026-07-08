@@ -1,0 +1,81 @@
+main#mintDriversApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--md-text, #2e2e2e);
+    background: var(--md-bg, #ffffff);
+}
+
+.md-stack {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.md-page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.md-page[hidden] {
+    display: none !important;
+}
+
+.md-page__center {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 48px;
+}
+
+.md-page__title {
+    margin: 16px 0 0;
+    font-size: 19.5px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--md-text, #2e2e2e);
+}
+
+.md-page__body {
+    margin: 12px 0 0;
+    max-width: 420px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--md-muted, #555555);
+}
+
+.md-page__hint {
+    margin: 0;
+    padding: 0 12px 8px;
+    font-size: 13px;
+    color: var(--md-muted, #555555);
+    text-align: left;
+}
+
+.md-spinner {
+    width: 96px;
+    height: 96px;
+    border: 4px solid rgba(0, 0, 0, 0.08);
+    border-top-color: var(--md-accent, #1f9ede);
+    border-radius: 50%;
+    animation: md-spin 0.9s linear infinite;
+}
+
+@keyframes md-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

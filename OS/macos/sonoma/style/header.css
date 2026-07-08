@@ -1,0 +1,34 @@
+@import url(./imports.css);
+
+#macosHeader>menu {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sa);
+    width: calc(var(--head) * 12);
+    height: calc(var(--head) / 1.5);
+}
+
+#macosHeader>menu>a>img {
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    margin-top: calc(var(--head) / 10);
+}
+
+#macosHeader>menu>a:nth-child(2) {
+    font-weight: var(--wbr);
+}
+
+#macosHeader>menu:nth-child(2)>a>img {
+    filter: var(--inv);
+}
+
+#macosHeader>menu:nth-child(2)>a:nth-child(6)>img {
+    filter: var(--bright);
+}
+
+#heure-date {
+    text-align: var(--c);
+}
+
+

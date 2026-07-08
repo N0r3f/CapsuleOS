@@ -1,0 +1,98 @@
+/* Boutons Démarrer — inspired-by (CSS pur) */
+
+footer menu i.taskbar-start,
+footer menu .taskbar-start {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) + var(--head) / 3);
+    height: calc(var(--head) + var(--head) / 3);
+    padding: 0;
+    cursor: pointer;
+    list-style: none;
+}
+
+footer menu i.taskbar-start img,
+footer menu .taskbar-start img {
+    display: none;
+}
+
+.taskbar-start--classic {
+    background: linear-gradient(180deg, #5cb85c 0%, #2d8a2d 50%, #1e6b1e 100%);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff #1a4d1a #1a4d1a #ffffff;
+    border-radius: 0 12px 12px 0;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.taskbar-start--classic::after {
+    content: "Démarrer";
+    color: #ffffff;
+    font-weight: 700;
+    font-size: calc(var(--head) / 2.8);
+    text-shadow: 1px 1px 0 #1a4d1a;
+    padding-right: 6px;
+}
+
+.taskbar-start--luna {
+    background: linear-gradient(180deg, #3cb371 0%, #2e8b57 40%, #228b22 100%);
+    border-radius: 0 14px 14px 0;
+    border: 2px solid #1a5c2e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.taskbar-start--luna::after {
+    content: "démarrer";
+    color: #ffffff;
+    font-weight: 700;
+    font-size: calc(var(--head) / 2.8);
+    font-style: italic;
+    padding-right: 8px;
+}
+
+.taskbar-start--orb {
+    width: calc(var(--head) + var(--head) / 2);
+    height: calc(var(--head) + var(--head) / 2);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #6ec6ff, #0078d7 55%, #004578);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 12px rgba(0, 120, 215, 0.6);
+}
+
+.taskbar-start--orb::after {
+    content: "";
+}
+
+.taskbar-start--metro {
+    background: #0078d7;
+    border: none;
+}
+
+.taskbar-start--metro::after {
+    content: "⊞";
+    color: #ffffff;
+    font-size: calc(var(--head) / 1.2);
+    font-weight: 400;
+}
+
+.taskbar-start--modern {
+    background: transparent;
+    border-radius: 6px;
+}
+
+.taskbar-start--modern::after {
+    content: "";
+    width: calc(var(--head) * 0.9);
+    height: calc(var(--head) * 0.9);
+    background: linear-gradient(135deg, #0078d4 0%, #00bcf2 50%, #8661c5 100%);
+    border-radius: 4px;
+    display: block;
+}
+
+footer menu a.taskbar-icon img {
+    width: var(--a);
+    height: var(--head);
+    object-fit: contain;
+}

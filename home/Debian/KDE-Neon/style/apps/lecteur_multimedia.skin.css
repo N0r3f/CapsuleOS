@@ -1,0 +1,110 @@
+/**
+ * VLC — KDE Neon User Edition (VM : Qt Breeze clair, zone lecture noire + cône).
+ */
+body#kde-neon div[data-link="lecteur_multimedia"] {
+    --vlc-chrome-bg: #eff0f1;
+    --vlc-chrome-border: rgba(35, 38, 41, 0.14);
+    --vlc-viewport-bg: #000000;
+    --vlc-text: #232629;
+    --vlc-muted: #7a7a7a;
+    --vlc-ctl-filter: brightness(0.25);
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 560px;
+    min-width: 560px;
+    max-width: 560px;
+    height: 552px;
+    min-height: 552px;
+    max-height: 552px;
+    padding: 0;
+    border: 1px solid var(--kde-neon-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    box-shadow: none;
+    background: var(--vlc-chrome-bg);
+    overflow: hidden;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] #windowHeader {
+    flex-shrink: 0;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: var(--kde-neon-konsole-header-height);
+    margin: 0;
+    padding: 0 0.42rem;
+    border: 0;
+    border-bottom: 1px solid var(--kde-neon-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    color: var(--kde-neon-window-titlebar-fg);
+    background: var(--kde-neon-window-titlebar-bg);
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] #windowTitle {
+    color: var(--kde-neon-window-titlebar-fg-muted);
+    font-size: var(--kde-neon-header-title-size);
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] #windowIframe {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--vlc-chrome-bg);
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app {
+    flex: 1;
+    min-height: 0;
+    color: var(--vlc-text) !important;
+    background: var(--vlc-chrome-bg) !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__menubar {
+    background: var(--vlc-chrome-bg) !important;
+    border-bottom: 1px solid var(--vlc-chrome-border) !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__menu-btn {
+    color: var(--vlc-text) !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__menu-btn:hover {
+    background: rgba(61, 174, 233, 0.12);
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__stage,
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__viewport {
+    background: var(--vlc-viewport-bg) !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__viewport::before {
+    content: "";
+    display: block;
+    width: 96px;
+    height: 96px;
+    background: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/vlc.svg") center / contain no-repeat;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__controls {
+    background: var(--vlc-chrome-bg) !important;
+    border-top: 1px solid var(--vlc-chrome-border) !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__ctl {
+    filter: var(--vlc-ctl-filter);
+    opacity: 0.9;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__timeline-track {
+    background: rgba(35, 38, 41, 0.18) !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__timeline-fill {
+    background: #3daee9 !important;
+}
+
+body#kde-neon div[data-link="lecteur_multimedia"] main#lecteurMultimedia.celluloid-app .celluloid-app__time {
+    color: var(--vlc-muted) !important;
+}

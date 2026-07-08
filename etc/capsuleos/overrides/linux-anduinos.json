@@ -1,0 +1,21 @@
+{
+  "capsuleGlobals": {
+    "CAPSULE_EXPLORER_SKIN_KEY": "nautilus",
+    "CAPSULE_WINDOW_CONTEXT": {
+      "family": "linux",
+      "draggable": true,
+      "resizable": true,
+      "forceOnOpen": true,
+      "requireHeader": false,
+      "headerLayout": "capsule",
+      "edgeTiling": false,
+      "skipSlots": ["mainMenu"],
+      "bounds": {
+        "mainSelector": "main.anduin-workspace",
+        "desktopSelector": "#desktop",
+        "footerSelector": "footer.anduin-taskbar",
+        "subtractFooter": true
+      }
+    }
+  }
+}

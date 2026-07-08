@@ -1,0 +1,26 @@
+/**
+ * Polices AnduinOS — ground truth VM (manifeste ManΣ, bundle fonts).
+ */
+@font-face {
+    font-family: "Noto Sans";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/anduin/AdwaitaSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/anduin/Ubuntu[wdth,wght].ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/anduin/UbuntuMono-Italic[wght].ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

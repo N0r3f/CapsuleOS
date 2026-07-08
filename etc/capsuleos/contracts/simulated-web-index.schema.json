@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://capsuleos.local/contracts/simulated-web-index.schema.json",
+  "title": "CapsuleOS simulated web index",
+  "type": "object",
+  "required": ["version", "hosts", "searchEngines", "shortcuts"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "doc": { "type": "string" },
+    "defaultSearchEngine": { "type": "string" },
+    "webRoot": { "type": "string" },
+    "hosts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "siteId"],
+        "properties": {
+          "type": { "const": "web" },
+          "siteId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "searchEngines": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["siteId", "queryParam"],
+        "properties": {
+          "siteId": { "type": "string" },
+          "queryParam": { "type": "string" },
+          "labelFr": { "type": "string" }
+        }
+      }
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "path"],
+        "properties": {
+          "type": { "const": "mnt" },
+          "path": { "type": "string" },
+          "labelFr": { "type": "string" },
+          "defaultScenario": { "type": "string" }
+        }
+      }
+    },
+    "shortcuts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["siteId"],
+        "properties": {
+          "siteId": { "type": "string" },
+          "host": { "type": "string" }
+        }
+      }
+    },
+    "aliases": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["siteId"],
+        "properties": {
+          "siteId": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

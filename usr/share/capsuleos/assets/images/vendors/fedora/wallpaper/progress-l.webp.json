@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/progress-l.webp",
+  "outputSha256": "0f346ddaeeb3d8f879c4f3ee89bfe9c30f5cf9abf07fc5bcdbddd6b08fbd622a",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.732Z",
+  "note": "repair-manifest"
+}

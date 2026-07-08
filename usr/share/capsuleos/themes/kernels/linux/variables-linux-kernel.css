@@ -1,0 +1,6 @@
+/* Tokens kernel Linux — partagés par toutes branches */
+:root {
+    --kernel-linux-accent: #3584e4;
+    --kernel-linux-surface: #fafafa;
+    --kernel-linux-border: rgba(0, 0, 0, 0.12);
+}

@@ -1,0 +1,32 @@
+<main id="bulkyApp" class="blk-app" aria-label="Renommer fichiers">
+
+    <header class="blk-app__header">
+        <h1 class="blk-app__title">Renommer fichiers</h1>
+        <button type="button" class="blk-app__btn blk-app__btn--primary" data-blk-action="rename">Renommer</button>
+    </header>
+
+    <div class="blk-app__rules">
+        <label class="blk-app__rule">
+            <span>Préfixe</span>
+            <input type="text" class="blk-app__input" id="blk-prefix" value="IMG_">
+        </label>
+        <label class="blk-app__rule">
+            <span>Numérotation</span>
+            <input type="text" class="blk-app__input" id="blk-num" value="001">
+        </label>
+    </div>
+
+    <table class="blk-app__table" aria-label="Aperçu">
+        <thead>
+            <tr>
+                <th>Original</th>
+                <th>Nouveau nom</th>
+            </tr>
+        </thead>
+        <tbody id="blk-body">
+            <tr><td>photo.jpg</td><td class="blk-app__preview">IMG_001.jpg</td></tr>
+            <tr><td>scan.png</td><td class="blk-app__preview">IMG_002.png</td></tr>
+        </tbody>
+    </table>
+
+</main>

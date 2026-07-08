@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/curvy-l.jxl",
+  "sourceSha256": "e4b5d918a86a8f56f4389eab83bff851edd9a2bedd9df8af106b8c896927663a",
+  "output": "images/vendors/fedora/wallpaper/curvy-l.webp",
+  "outputSha256": "5d32ac8e8bb89e048348dfc3a3a1da78d690347161b8f2f22ab5c33ab83e44a3",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:24:36.042Z"
+}

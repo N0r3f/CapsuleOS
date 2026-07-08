@@ -1,0 +1,29 @@
+<main id="warpinatorApp" class="wrp-app" aria-label="Warpinator">
+
+    <header class="wrp-app__header">
+        <img class="wrp-app__logo" src="./assets/images/toolkits/gnome/apps/org.x.Warpinator" alt="">
+        <div class="wrp-app__host">
+            <h1 class="wrp-app__title">Warpinator</h1>
+            <p class="wrp-app__hostname">capsule-mint-lab</p>
+        </div>
+        <button type="button" class="wrp-app__btn" data-wrp-action="prefs">Préférences</button>
+    </header>
+
+    <div class="wrp-app__body">
+        <section class="wrp-app__peers" aria-label="Appareils disponibles">
+            <h2 class="wrp-app__section-title">Appareils disponibles</h2>
+            <ul class="wrp-app__peer-list" id="wrp-peer-list">
+                <li class="wrp-app__peer">
+                    <span class="wrp-app__peer-icon" aria-hidden="true"></span>
+                    <span class="wrp-app__peer-name">mint-vm-146</span>
+                    <span class="wrp-app__peer-status">Disponible</span>
+                </li>
+            </ul>
+        </section>
+        <section class="wrp-app__drop" aria-label="Envoyer des fichiers">
+            <p class="wrp-app__drop-hint">Glissez-déposez des fichiers ici pour les envoyer</p>
+            <button type="button" class="wrp-app__btn wrp-app__btn--primary" data-wrp-action="send">Envoyer des fichiers…</button>
+        </section>
+    </div>
+
+</main>

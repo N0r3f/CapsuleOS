@@ -1,0 +1,20 @@
+Source VM : registryId linux-mint — voir lab-inventory.json (local)
+Date pull : 2026-06-11
+
+PNG places (dossiers / emplacements Nemo, vue icônes zoom « standard » = rendu natif 64 px) :
+  /usr/share/icons/Mint-Y-Sand/places/64/<nom>.png
+  (icon-theme VM : gsettings org.cinnamon.desktop.interface icon-theme = 'Mint-Y-Sand' ;
+   org.nemo.icon-view default-zoom-level = 'standard')
+  → folder.png, folder-documents.png, folder-download.png, folder-drag-accept.png,
+    folder-music.png, folder-pictures.png, folder-publicshare.png, folder-recent.png,
+    folder-saved-search.png, folder-templates.png, folder-videos.png,
+    user-desktop.png, user-home.png, user-bookmarks.png, user-trash.png,
+    user-trash-full.png, gtk-network.png, network-workgroup.png
+
+Thème : Mint-Y-Sand (dossiers jaune sable — défaut VM).
+
+Pathbar (fil d'Ariane) :
+  pan-start-symbolic.svg / pan-end-symbolic.svg ← /usr/share/icons/Adwaita/symbolic/ui/ (boutons défilement pathbar)
+  (crumb home : user-home-symbolic.svg existant, recoloré blanc via filter CSS — vérité VM maison symbolique)
+Les SVG restants du dossier sont des symboliques UI (toolbar/menus) hérités du
+pack Cinnamon — voir SOURCE-VM des assets toolkits cinnamon.

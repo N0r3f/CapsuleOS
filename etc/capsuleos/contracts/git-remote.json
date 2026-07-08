@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "doc": "contrib.md § Synchronisation Git",
+  "server": {
+    "host": "192.168.1.143",
+    "share": "//192.168.1.143/#TEAM",
+    "clientMount": "/mnt/team",
+    "bareOnServer": "/srv/#TEAM/lacapsule-git/lacapsule-git/CapsuleOS.git"
+  },
+  "defaultRemote": "origin",
+  "policy": {
+    "allowedPushRemotes": ["origin", "mirror"],
+    "forbiddenRemoteNames": ["github", "upstream"],
+    "forbiddenHostPatterns": ["github.com", "gitlab.com"]
+  },
+  "remotes": {
+    "origin": {
+      "url": "/mnt/team/#TEAM/lacapsule-git/lacapsule-git/CapsuleOS.git",
+      "role": "primary",
+      "description": "Serveur Git La Capsule (partage #TEAM monté en /mnt/team, voir server.host)"
+    },
+    "mirror": {
+      "url": "/home/capsule/capsuleos-mirror.git",
+      "role": "mirror",
+      "description": "Miroir bare local — résilience git (dette technique #1)"
+    }
+  }
+}

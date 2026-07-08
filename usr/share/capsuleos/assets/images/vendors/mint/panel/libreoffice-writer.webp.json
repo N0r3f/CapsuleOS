@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/libreoffice-writer.png",
+  "sourceSha256": "192232b0f1b954ac8ec787173e79fca913d3b6bc4b0190505ff9fef2fad50b80",
+  "output": "images/vendors/mint/panel/libreoffice-writer.webp",
+  "outputSha256": "b4ec86520ae7a9ce608b7b5d15fd00b4dfd74cf4c7a2ee4a97907a059d978dca",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.602Z"
+}

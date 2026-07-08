@@ -1,0 +1,110 @@
+main#mintwelcomeApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--mwc-text, #2e2e2e);
+    background: var(--mwc-bg, #ffffff);
+}
+
+.mwc-app__hero {
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 24px 16px 16px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(31, 158, 222, 0.12) 0%, transparent 100%);
+}
+
+.mwc-app__logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    object-fit: contain;
+}
+
+.mwc-app__title {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mwc-app__subtitle {
+    margin: 0;
+    font-size: 13px;
+    color: var(--mwc-muted, #666666);
+}
+
+.mwc-app__cards {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 12px;
+    justify-content: center;
+    align-content: flex-start;
+    margin: 0;
+    padding: 16px;
+    list-style: none;
+    overflow: auto;
+}
+
+.mwc-app__card {
+    flex: 1 1 180px;
+    max-width: 220px;
+    padding: 14px;
+    border: 1px solid var(--mwc-border, #d4d4d4);
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.mwc-app__card-title {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mwc-app__card-text {
+    margin: 0 0 12px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--mwc-muted, #555555);
+}
+
+.mwc-app__footer {
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-top: 1px solid var(--mwc-border, #d4d4d4);
+    background: #f4f4f4;
+}
+
+.mwc-app__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.mwc-app__btn {
+    padding: 6px 14px;
+    border: 1px solid var(--mwc-btn-border, #c8c8c8);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 12px;
+    background: var(--mwc-btn-bg, #f6f6f6);
+    cursor: default;
+}
+
+.mwc-app__btn--primary {
+    color: #ffffff;
+    background: var(--mwc-accent, #1f9ede);
+    border-color: var(--mwc-accent, #1f9ede);
+}

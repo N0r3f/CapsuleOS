@@ -1,0 +1,8 @@
+/**
+ * Point d'entrée chrome GNOME / Mutter SSD + CSD libadwaita.
+ * Skins vendor : gnome-shell/windows-chrome.css (surcharges optionnelles).
+ * Providers runtime : window-chrome-contexts.json (nemo-gnome, firefox-gnome, terminal-gnome, libadwaita-gnome).
+ */
+@import url(../../linux/gnome-shell-preferences.base.css);
+@import url(../../linux/window-chrome.gnome.base.css);
+@import url(../../linux/window-chrome.gnome.terminal-exempt.css);

@@ -1,0 +1,80 @@
+main#spectacleApp.kde-spectacle {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-ui, 'Noto Sans', sans-serif);
+    font-size: calc(var(--head, 2rem) / 2.8);
+    color: var(--kde-spectacle-text, #232629);
+    background: var(--kde-spectacle-bg, #eff0f1);
+}
+
+.kde-spectacle__modes {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.35rem;
+    width: 11rem;
+    padding: 0.75rem 0.5rem;
+    border-right: 1px solid var(--kde-spectacle-border, rgba(35, 38, 41, 0.12));
+    background: var(--kde-spectacle-sidebar, #e7e8ea);
+}
+
+.kde-spectacle__mode {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.55rem;
+    border: none;
+    border-radius: 0.35rem;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+    background: transparent;
+}
+
+.kde-spectacle__mode.is-active,
+.kde-spectacle__mode:hover {
+    background: rgba(61, 174, 233, 0.18);
+}
+
+.kde-spectacle__mode-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    background: #3daee9;
+    border-radius: 0.2rem;
+    opacity: 0.85;
+}
+
+.kde-spectacle__main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.kde-spectacle__hint {
+    margin: 0;
+    color: var(--kde-spectacle-muted, rgba(35, 38, 41, 0.72));
+}
+
+.kde-spectacle__capture {
+    padding: 0.55rem 1.25rem;
+    border: none;
+    border-radius: 0.35rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    background: #3daee9;
+}
+
+.kde-spectacle__status {
+    min-height: 1.2em;
+    margin: 0;
+    font-size: 0.92em;
+    color: var(--kde-spectacle-muted, rgba(35, 38, 41, 0.72));
+}

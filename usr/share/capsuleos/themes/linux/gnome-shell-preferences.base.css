@@ -1,0 +1,187 @@
+/**
+ * Effets shell GNOME — préférences persistées (échelle, contraste, éclairage nocturne…).
+ */
+html[data-font-scale="100"] {
+    --a11y-font-scale-factor: 1;
+}
+
+html[data-font-scale="110"] {
+    --a11y-font-scale-factor: 1.1;
+}
+
+html[data-font-scale="125"] {
+    --a11y-font-scale-factor: 1.25;
+}
+
+html[data-display-scale="100"] {
+    --gnome-display-scale: 1;
+}
+
+html[data-display-scale="125"] {
+    --gnome-display-scale: 1.25;
+}
+
+html[data-display-scale="150"] {
+    --gnome-display-scale: 1.5;
+}
+
+html[data-display-scale="200"] {
+    --gnome-display-scale: 2;
+}
+
+html[data-display-resolution="1920x1080"] {
+    --gnome-desktop-width-ratio: 1;
+    --gnome-desktop-height-ratio: 1;
+}
+
+html[data-display-resolution="1680x1050"] {
+    --gnome-desktop-width-ratio: 0.875;
+    --gnome-desktop-height-ratio: 0.972;
+}
+
+html[data-display-resolution="1280x720"] {
+    --gnome-desktop-width-ratio: 0.667;
+    --gnome-desktop-height-ratio: 0.667;
+}
+
+html[data-display-orientation="landscape"] #rocky .gnome-settings-display-arrange__monitor,
+html[data-display-orientation="landscape-reverse"] #rocky .gnome-settings-display-arrange__monitor,
+html:not([data-display-orientation]) #rocky .gnome-settings-display-arrange__monitor {
+    width: 9rem;
+    height: 5.5rem;
+}
+
+html[data-display-orientation="portrait"] #rocky .gnome-settings-display-arrange__monitor,
+html[data-display-orientation="portrait-reverse"] #rocky .gnome-settings-display-arrange__monitor {
+    width: 5.5rem;
+    height: 9rem;
+}
+
+html[data-night-light-transition="on"] #rocky,
+html[data-night-light-transition="on"] #rocky.is-overview .fedora-overview {
+    transition: filter 1000ms ease-in-out;
+}
+
+html[data-night-light="on"] #rocky,
+html[data-night-light="on"] #rocky.is-overview .fedora-overview {
+    filter: sepia(0.12) saturate(0.88) brightness(0.94) hue-rotate(-12deg);
+}
+
+html[data-night-light="on"] #rocky .fedora-top-bar,
+html[data-night-light="on"] #rocky #tableau {
+    filter: none;
+}
+
+html[data-dnd-enabled="on"] .quick-settings__tile-icon--dnd {
+    opacity: 1;
+}
+
+body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) {
+    transition: background 200ms ease, color 300ms ease;
+}
+
+html[data-theme-transition="on"] body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) {
+    transition: background 300ms ease, color 300ms ease;
+}
+
+.fedora-overview-hot-zone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    z-index: 6;
+    pointer-events: auto;
+}
+
+.fedora-overview-hot-zone.is-disabled {
+    pointer-events: none;
+}
+
+html[data-hot-corners="off"] body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .fedora-overview-trigger:hover {
+    cursor: default;
+}
+
+html[data-hot-corners="off"] body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .fedora-overview-hot-zone {
+    pointer-events: none;
+}
+
+html[data-dynamic-workspaces="on"] body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .fedora-overview__mini-workspaces {
+    gap: 0.35rem;
+}
+
+body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .fedora-overview__mini-workspaces.is-spring-update .fedora-overview__mini-workspace {
+    animation: gnome-workspace-spring-in 350ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes gnome-workspace-spring-in {
+    from {
+        transform: scale(0.88);
+        opacity: 0.35;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+html[data-notifications-enabled="off"] .calendar-popover__notif-icon {
+    opacity: 0.2;
+}
+
+html[data-dnd-enabled="on"] .calendar-popover__notif-inner::before {
+    content: "Ne pas déranger";
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--calendar-popover-events-muted, #9a9a9a);
+    margin-bottom: 0.35rem;
+}
+
+html[data-dnd-enabled="on"] .calendar-popover__notif-icon {
+    opacity: 0.55;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-4 0H8V11c0-1.66 1.34-3 3-3s3 1.34 3 3v5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-4 0H8V11c0-1.66 1.34-3 3-3s3 1.34 3 3v5z'/%3E%3C/svg%3E");
+}
+
+.quick-settings__tile-icon--performance {
+    transition: filter 150ms ease, opacity 150ms ease;
+}
+
+html[data-power-mode="Performance"] .quick-settings__tile-icon--performance {
+    filter: saturate(1.35) brightness(1.08);
+}
+
+html[data-power-mode="Économie d'énergie"] .quick-settings__tile-icon--performance {
+    opacity: 0.78;
+}
+
+html[data-privacy-camera="off"] body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) [data-link="screenshot"] .windowElement__title,
+html[data-privacy-microphone="off"] body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .volume-popover__mute-btn {
+    opacity: 0.72;
+}
+
+html[data-wifi-enabled="off"] .quick-settings__tile-icon--network,
+html[data-bluetooth-enabled="off"] .gnome-settings__navicon--bluetooth {
+    opacity: 0.55;
+}
+
+body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .fedora-main-row {
+    zoom: var(--gnome-display-scale, 1);
+}
+
+body:is(#rocky, #fedora, #alma, #ubuntu, #anduinos) .fedora-desktop-area {
+    width: calc(100% * var(--gnome-desktop-width-ratio, 1));
+    max-width: 100%;
+    height: calc(100% * var(--gnome-desktop-height-ratio, 1));
+    max-height: 100%;
+    margin-inline: auto;
+}
+
+html[data-contrast-mode="high"] body:is(#rocky, #fedora, #alma) .fedora-top-bar,
+html[data-contrast-mode="high"] body:is(#rocky, #fedora, #alma) #tableau,
+html[data-contrast-mode="high"] body:is(#rocky, #fedora, #alma) .windowElement,
+html[data-contrast-mode="high"] body:is(#rocky, #fedora, #alma) .volume-popover,
+html[data-contrast-mode="high"] body:is(#rocky, #fedora, #alma) .fedora-overview {
+    border-color: var(--a11y-contrast-border, rgba(255, 255, 255, 0.35));
+}

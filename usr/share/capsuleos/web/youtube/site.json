@@ -1,0 +1,8 @@
+{
+  "siteId": "youtube",
+  "titleFr": "YouTube — simulation CapsuleOS",
+  "hosts": ["youtube.com", "www.youtube.com"],
+  "lang": "fr",
+  "contentLicense": "LicenseRef-CapsuleOS-OriginalContent",
+  "note": "Contenu pédagogique original — non affilié à Google/YouTube."
+}

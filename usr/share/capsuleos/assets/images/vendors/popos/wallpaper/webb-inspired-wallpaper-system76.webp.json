@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/webb-inspired-wallpaper-system76.jpg",
+  "sourceSha256": "5e47b83f67c285e9987355f339b139a98f4c1e8e80b064153e9c1b635f992daf",
+  "output": "images/vendors/popos/wallpaper/webb-inspired-wallpaper-system76.webp",
+  "outputSha256": "f4b6dee2703097970c1814be4680c005c15260946eeff352c53ff4f9f21006b9",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:14.088Z"
+}

@@ -1,0 +1,88 @@
+div#menu {
+    position: absolute;
+    bottom: calc(var(--head) + var(--head) / 3 + 4px);
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: calc(var(--head) * 10);
+    max-width: calc(var(--head) * 14);
+    padding: calc(var(--head) / 4);
+    border-radius: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 15;
+}
+
+div#menu.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.win-start-menu {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+.win-start-menu__programs {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.win-start-menu__programs a {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) / 3);
+    padding: calc(var(--head) / 5) calc(var(--head) / 3);
+    color: inherit;
+    text-decoration: none;
+    font-size: calc(var(--head) / 2.8);
+    font-family: var(--win-font-family, system-ui, sans-serif);
+}
+
+.win-start-menu__programs a:hover {
+    background: var(--win-taskbar-hover, rgba(0, 0, 0, 0.12));
+}
+
+.win-start-menu__programs img {
+    width: calc(var(--head) / 1.2);
+    height: calc(var(--head) / 1.2);
+    object-fit: contain;
+}
+
+.win-start-menu__footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    margin-top: calc(var(--head) / 4);
+    padding-top: calc(var(--head) / 4);
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.win-start-menu__power {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 1.4);
+    height: calc(var(--head) * 1.4);
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.win-start-menu__power img {
+    width: calc(var(--head) / 1.1);
+    height: calc(var(--head) / 1.1);
+    object-fit: contain;
+}
+
+.win-start-menu__power:hover {
+    background: var(--win-taskbar-hover, rgba(0, 0, 0, 0.12));
+}

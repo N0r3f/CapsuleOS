@@ -1,0 +1,56 @@
+footer>menu {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--mid);
+    height: var(--full);
+    z-index: 5;
+}
+
+footer>menu>a,
+footer>menu>i {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) + var(--head) / 3);
+    height: calc(var(--head) + var(--head) / 3);
+    padding: calc(var(--head) / 10);
+    z-index: 6;
+}
+
+footer>menu>a:hover,
+footer>menu>i:hover {
+    background: var(--hovwin);
+}
+
+footer>menu>a>img,
+footer>menu>i>img {
+    width: var(--a);
+    height: var(--head);
+    z-index: 7;
+}
+
+footer>a:last-child {
+    position: var(--abs);
+    right: var(--z);
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    width: calc(var(--head) * 3);
+    height: calc(var(--head) + var(--head) / 3);
+    text-decoration: var(--n);
+    color: var(--texte);
+}
+
+footer>a:last-child>#heure-date {
+    display: var(--f);
+    flex-flow: var(--rw);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    width: calc(var(--head) * 3);
+    height: calc(var(--head) + var(--head) / 3);
+    text-align: var(--c);
+    font-weight: var(--wb);
+}

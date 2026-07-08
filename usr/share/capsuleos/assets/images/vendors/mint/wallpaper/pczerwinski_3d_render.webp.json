@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/pczerwinski_3d_render.jpg",
+  "sourceSha256": "479cd1b4cb719385a37383fc0dd7fd6e3bd07d83a5b757fffbd56af002494ae4",
+  "output": "images/vendors/mint/wallpaper/pczerwinski_3d_render.webp",
+  "outputSha256": "f8510d7a9190503761bb5a18dd1d27958e14386111a97393ff323064b113fc45",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 683,
+  "preparedAt": "2026-06-15T19:42:32.628Z"
+}

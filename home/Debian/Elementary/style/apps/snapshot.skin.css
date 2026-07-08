@@ -1,0 +1,49 @@
+/**
+ * elementary — snapshot (structure Rocky).
+ */
+body#elementary {
+    --gnome-snapshot-bg: #303030;
+    --gnome-snapshot-header-bg: #383838;
+    --gnome-snapshot-stage-bg: #1a1a1a;
+    --gnome-snapshot-text: #f6f6f6;
+    --gnome-snapshot-muted: rgba(255, 255, 255, 0.62);
+    --gnome-snapshot-border: rgba(255, 255, 255, 0.08);
+    --gnome-snapshot-accent: #3584e4;
+}
+
+html[data-theme="light"]:has(#elementary) {
+    --gnome-snapshot-bg: #fafafa;
+    --gnome-snapshot-header-bg: #f6f6f6;
+    --gnome-snapshot-stage-bg: #e8e8e8;
+    --gnome-snapshot-text: #1e1e1e;
+    --gnome-snapshot-muted: rgba(0, 0, 0, 0.55);
+    --gnome-snapshot-border: rgba(0, 0, 0, 0.1);
+}
+
+body#elementary div[data-link="snapshot"].windowElement {
+    width: min(38rem, calc(100vw - var(--elementary-dock-width, 0px) - 2rem));
+    height: min(32rem, calc(100vh - var(--elementary-top-bar-height, 2.75rem) - 2rem));
+    min-width: 20rem;
+    min-height: 24rem;
+}
+
+body#elementary div[data-link="snapshot"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="snapshot"] main#gnomeSnapshotApp {
+    height: 100%;
+}
+
+body#elementary div[data-link="snapshot"] .gnome-snapshot__mode.is-active,
+body#elementary div[data-link="snapshot"] .gnome-snapshot__mode[aria-selected="true"] {
+    background: rgba(53, 132, 228, 0.22);
+    color: #62a0ea;
+}
+
+body#elementary div[data-link="snapshot"] .gnome-snapshot__effect.is-active {
+    border-color: var(--gnome-snapshot-accent);
+    color: #62a0ea;
+}

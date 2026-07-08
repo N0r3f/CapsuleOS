@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/toolkits/windows/11/loupe.webp",
+  "outputSha256": "94d93fb66c91c759c656f0ce7cfe5c66a8bd362b585e8f5c35a6187c9fad825a",
+  "role": "unknown",
+  "profile": "unknown",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.656Z",
+  "note": "repair-manifest"
+}

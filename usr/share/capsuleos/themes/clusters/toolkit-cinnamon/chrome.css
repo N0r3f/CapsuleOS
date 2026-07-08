@@ -1,0 +1,6 @@
+/**
+ * Point d'entrée chrome Cinnamon / Muffin SSD.
+ * Habillage vendor Mint : home/Debian/Mint/style/cinnamon-window-chrome.css (body#mint).
+ * Provider runtime : cinnamon (slots) / nemo (explorateur).
+ */
+@import url(../../linux/window-chrome.base.css);

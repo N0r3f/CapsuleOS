@@ -1,0 +1,263 @@
+/* SPDX-FileCopyrightText: 2020-2026 les contributeurs CapsuleOS */
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
+.capsule-web-brand-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.capsule-web-brand-header--dark {
+    background: #0f0f0f;
+    border-bottom-color: #272727;
+    color: #f1f1f1;
+}
+
+.capsule-web-brand-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.capsule-web-brand-logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.capsule-web-brand-search {
+    display: flex;
+    flex: 1;
+    min-width: 12rem;
+    max-width: 36rem;
+    gap: 0.35rem;
+}
+
+.capsule-web-brand-search input {
+    flex: 1;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    font: inherit;
+}
+
+.capsule-web-brand-search button {
+    padding: 0.45rem 0.9rem;
+    border: none;
+    border-radius: 0.35rem;
+    font: inherit;
+    cursor: pointer;
+}
+
+.capsule-web-brand-main {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.capsule-web-brand-main--dark {
+    background: #0f0f0f;
+    color: #f1f1f1;
+    min-height: 60vh;
+}
+
+.capsule-web-hero {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.capsule-web-hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 1.35rem;
+}
+
+.capsule-web-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 1rem;
+}
+
+.capsule-web-tile {
+    padding: 1rem;
+    border-radius: 0.35rem;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+}
+
+.capsule-web-tile h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+}
+
+.capsule-web-tile p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.capsule-web-video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 1rem;
+}
+
+.capsule-web-video-thumb {
+    aspect-ratio: 16 / 9;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    margin-bottom: 0.5rem;
+}
+
+.capsule-web-video-card h2 {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+}
+
+.capsule-web-video-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.capsule-web-brand-main:has(.capsule-web-feed) {
+    display: grid;
+    grid-template-columns: 1fr 12rem;
+    gap: 1.5rem;
+    max-width: 56rem;
+}
+
+.capsule-web-post {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: #fff;
+    border: 1px solid #edeff1;
+    border-radius: 0.35rem;
+}
+
+.capsule-web-post h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+}
+
+.capsule-web-meta {
+    font-size: 0.8rem;
+    color: #787c7e;
+}
+
+.capsule-web-sidebar {
+    font-size: 0.9rem;
+}
+
+.capsule-web-sidebar ul {
+    padding-left: 1.1rem;
+    margin: 0.5rem 0 0;
+}
+
+.capsule-web-brand--amazon {
+    background: #eaeded;
+}
+
+.capsule-web-brand--amazon .capsule-web-brand-logo {
+    color: #232f3e;
+}
+
+.capsule-web-brand--amazon .capsule-web-brand-search button {
+    background: #febd69;
+    color: #111;
+}
+
+.capsule-web-brand--amazon .capsule-web-hero {
+    background: linear-gradient(90deg, #232f3e, #37475a);
+    color: #fff;
+    border: none;
+}
+
+.capsule-web-brand--temu {
+    background: #fff8f3;
+}
+
+.capsule-web-brand--temu .capsule-web-brand-logo {
+    color: #fb7701;
+}
+
+.capsule-web-brand--temu .capsule-web-brand-search button {
+    background: #fb7701;
+    color: #fff;
+}
+
+.capsule-web-brand--temu .capsule-web-hero--deals {
+    background: linear-gradient(135deg, #fb7701, #ff9a3c);
+    color: #fff;
+    border: none;
+}
+
+.capsule-web-brand--youtube .capsule-web-brand-logo {
+    color: #ff0000;
+}
+
+.capsule-web-brand--youtube .capsule-web-brand-header--dark .capsule-web-brand-search input {
+    background: #121212;
+    border-color: #303030;
+    color: #f1f1f1;
+}
+
+.capsule-web-brand--youtube .capsule-web-brand-header--dark .capsule-web-brand-search button {
+    background: #272727;
+    color: #f1f1f1;
+}
+
+.capsule-web-brand--reddit {
+    background: #dae0e6;
+}
+
+.capsule-web-brand--reddit .capsule-web-brand-logo {
+    color: #ff4500;
+}
+
+.capsule-web-brand--reddit .capsule-web-brand-search button {
+    background: #ff4500;
+    color: #fff;
+}
+
+.capsule-web-brand--wikipedia {
+    background: #f8f9fa;
+}
+
+.capsule-web-brand--wikipedia .capsule-web-brand-logo {
+    font-family: "Linux Libertine", "Times New Roman", serif;
+    font-size: 1.5rem;
+}
+
+.capsule-web-wiki-article {
+    background: #fff;
+    border: 1px solid #a2a9b1;
+    padding: 1.25rem 1.5rem;
+}
+
+.capsule-web-wiki-lead {
+    font-size: 1.05rem;
+    color: #202122;
+}
+
+.capsule-web-wiki-toc {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    margin-bottom: 1rem;
+}
+
+.capsule-web-wiki-toc ol {
+    margin: 0.35rem 0 0;
+    padding-left: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .capsule-web-brand-main:has(.capsule-web-feed) {
+        grid-template-columns: 1fr;
+    }
+}

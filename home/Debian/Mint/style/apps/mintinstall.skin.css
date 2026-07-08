@@ -1,0 +1,132 @@
+/* Mint — Logithèque (mintinstall 8.4) — VM 912×784 */
+body#mint div[data-link="mintinstall"].windowElement {
+    width: var(--win-mintinstall-width);
+    min-width: var(--win-mintinstall-min-width);
+    height: var(--win-mintinstall-height);
+    min-height: var(--win-mintinstall-min-height);
+}
+
+/* Thème Mint-Y-Blue — GTK light (ground truth VM 2026-06-30) */
+body#mint main#mintInstallApp {
+    background: #f8f8f9;
+    color: #222;
+}
+
+body#mint main#mintInstallApp .mi-app__sidebar.mintinstall-sidebar {
+    background: #ececec;
+    border-right: 1px solid #d4d4d4;
+}
+
+body#mint main#mintInstallApp .mi-app__header {
+    background: #fafafa;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+body#mint main#mintInstallApp .mi-app__search {
+    background: #fff;
+    border: 1px solid #c8c8c8;
+}
+
+body#mint main#mintInstallApp .mi-app__spotlight-card,
+body#mint main#mintInstallApp .mi-app__home-cat,
+body#mint main#mintInstallApp .mi-app__top-rated-card,
+body#mint main#mintInstallApp .mi-app__discover-card {
+    background: #fff;
+    border-color: #d0d0d0;
+}
+
+body#mint main#mintInstallApp .mi-app__search-wrap.mintinstall-search {
+    max-width: 100%;
+}
+
+body#mint main#mintInstallApp .mi-app__search {
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+body#mint main#mintInstallApp .mi-app__install.is-open {
+    background: #0c75de;
+    border-color: #1889c4;
+    color: #fff;
+}
+
+body#mint main#mintInstallApp .mi-app__install.is-installing {
+    opacity: 0.75;
+}
+
+/* Barre mintinstall 8.4 VM : retour + recherche à gauche, menu à droite — compacte
+   (la VM fusionne titre+outils en une barre CSD de 46px ; clone = titre Capsule 30px + cette barre) */
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__header {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.1rem 2.5rem 0.1rem 0.55rem;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__search {
+    padding: 0.28rem 0.6rem;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__content {
+    padding-top: 0.35rem;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__search-wrap.mintinstall-search {
+    width: 13rem;
+    flex: 0 0 auto;
+    margin: 0;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__menu-btn {
+    position: absolute;
+    right: 0.65rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-color: transparent;
+    background: transparent;
+    color: inherit;
+    font-size: 1.1rem;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.85rem 0 0.55rem;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__home-cat img {
+    filter: none;
+    opacity: 0.92;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__spotlight-flathub::before,
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__top-rated-flathub::before {
+    content: '⬡';
+    margin-right: 0.15rem;
+    opacity: 0.75;
+}
+
+body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__content {
+    padding: 0.65rem 0.85rem 0.5rem;
+}
+
+/* Règles layout 8.4 (mi-app--mode-home) — doublon défensif si embed sans base.css */
+body#mint main#mintInstallApp.mi-app--mode-home .mi-app__body {
+    grid-template-columns: 1fr;
+}
+
+body#mint main#mintInstallApp.mi-app--mode-home .mi-app__sidebar {
+    display: none !important;
+}
+
+body#mint main#mintInstallApp .mi-app__spotlight {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.55rem;
+}
+
+body#mint main#mintInstallApp .mi-app__home-cats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45rem;
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/mizuno-as-Winter_Grand_Triangle.jpg",
+  "sourceSha256": "e9068f5e34e038dd0f90826370e529dfa08966773e8df7af5aa2d4463c574c4c",
+  "output": "images/vendors/ubuntu/wallpaper/mizuno-as-Winter_Grand_Triangle.webp",
+  "outputSha256": "bcf68666d2214f4f1893160c52660b785da67b3341a8690f9ae2f6e5475a5172",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:57.710Z"
+}

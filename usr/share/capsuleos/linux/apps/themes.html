@@ -1,0 +1,64 @@
+<main id="themesApp" class="themes-app" aria-label="Parametres des themes">
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Style</h2>
+        <div class="themes-app__control">
+            <button type="button" class="themes-app__select" aria-haspopup="listbox" aria-expanded="false">
+                <span>Mint-Y-Dark-Aqua</span>
+                <span class="themes-app__caret" aria-hidden="true">▼</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="themes-app__section themes-app__section--vm-labels">
+        <h2 class="themes-app__label">Thème GTK</h2>
+        <p class="themes-app__vm-value">Mint-Y-Aqua</p>
+    </section>
+
+    <section class="themes-app__section themes-app__section--vm-labels">
+        <h2 class="themes-app__label">Thème des icônes</h2>
+        <p class="themes-app__vm-value">Mint-Y-Sand</p>
+    </section>
+
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Apparence</h2>
+        <div class="themes-app__cards" role="radiogroup" aria-label="Choix du theme">
+            <button type="button" class="themes-card" data-theme-option="dark" role="radio" aria-checked="true">
+                <span class="themes-card__preview themes-card__preview--dark" aria-hidden="true"></span>
+                <span class="themes-card__title">Sombre</span>
+            </button>
+            <button type="button" class="themes-card" data-theme-option="light" role="radio" aria-checked="false">
+                <span class="themes-card__preview themes-card__preview--light" aria-hidden="true"></span>
+                <span class="themes-card__title">Clair</span>
+            </button>
+        </div>
+        <p class="themes-app__help" data-themes-help>
+            Le theme sombre est actif.
+        </p>
+    </section>
+
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Contraste</h2>
+        <div class="themes-app__cards" role="radiogroup" aria-label="Mode contraste">
+            <button type="button" class="themes-contrast-card" data-contrast-option="normal" role="radio" aria-checked="true">
+                <span class="themes-card__title">Standard</span>
+            </button>
+            <button type="button" class="themes-contrast-card" data-contrast-option="high" role="radio" aria-checked="false">
+                <span class="themes-card__title">Renforcé</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="themes-app__section themes-app__section--backgrounds" data-mint-wallpaper-section>
+        <h2 class="themes-app__label">Arrière-plan</h2>
+        <div class="themes-wallpaper-grid" data-wallpaper-grid role="list" aria-label="Fonds d'écran Linux Mint"></div>
+    </section>
+
+    <section class="themes-app__section">
+        <h2 class="themes-app__label">Taille du texte</h2>
+        <div class="themes-app__scale" role="radiogroup" aria-label="Taille du texte">
+            <button type="button" class="themes-scale-button" data-font-scale-option="100" role="radio" aria-checked="true">100%</button>
+            <button type="button" class="themes-scale-button" data-font-scale-option="110" role="radio" aria-checked="false">110%</button>
+            <button type="button" class="themes-scale-button" data-font-scale-option="125" role="radio" aria-checked="false">125%</button>
+        </div>
+    </section>
+</main>

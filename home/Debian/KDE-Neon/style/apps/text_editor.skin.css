@@ -1,0 +1,335 @@
+/**
+ * KDE Neon — Kate (éditeur de texte / Breeze).
+ */
+html[data-theme="light"] body#kde-neon {
+    --xed-chrome-bg: var(--kde-neon-window-titlebar-bg, #eff0f1);
+    --xed-status-bg: #e4e7eb;
+    --xed-buffer-bg: #ffffff;
+    --xed-buffer-text: #232629;
+    --xed-text: #232629;
+    --xed-border: rgba(35, 38, 41, 0.12);
+    --xed-menu-surface-bg: #fcfcfc;
+    --xed-menu-hover-bg: rgba(61, 174, 233, 0.12);
+    --xed-toolbar-hover-bg: rgba(35, 38, 41, 0.06);
+    --xed-toolbar-active-bg: rgba(61, 174, 233, 0.18);
+    --xed-toolbar-icon-filter: brightness(0);
+}
+
+html:not([data-theme="light"]) body#kde-neon {
+    --xed-chrome-bg: #31363b;
+    --xed-status-bg: #2a2e33;
+    --xed-buffer-bg: #232629;
+    --xed-buffer-text: #eff0f1;
+    --xed-text: #eff0f1;
+    --xed-border: #2a2e33;
+    --xed-menu-surface-bg: #31363b;
+    --xed-menu-hover-bg: rgba(61, 174, 233, 0.15);
+    --xed-toolbar-hover-bg: rgba(255, 255, 255, 0.08);
+    --xed-toolbar-active-bg: rgba(61, 174, 233, 0.22);
+    --xed-toolbar-icon-filter: brightness(0) invert(1);
+}
+
+body#kde-neon div[data-link="text_editor"] #windowHeader {
+    background: var(--xed-chrome-bg);
+    border-bottom: 1px solid var(--xed-border);
+}
+
+body#kde-neon div[data-link="text_editor"] #windowTitle {
+    color: var(--xed-text);
+}
+
+body#kde-neon main#xedApp {
+    color: var(--xed-text);
+    background: var(--xed-chrome-bg);
+}
+
+body#kde-neon .xed-app__menubar,
+body#kde-neon .xed-app__toolbar {
+    background: var(--xed-chrome-bg);
+    border-color: var(--xed-border);
+}
+
+body#kde-neon .xed-app__status {
+    background: var(--xed-status-bg);
+    border-color: var(--xed-border);
+    color: color-mix(in srgb, var(--xed-text) 72%, transparent);
+}
+
+body#kde-neon .xed-menu__trigger:hover,
+body#kde-neon .xed-menu__trigger[aria-expanded="true"] {
+    background: var(--xed-menu-hover-bg);
+}
+
+body#kde-neon .xed-menu__dropdown {
+    background: var(--xed-menu-surface-bg);
+    border-color: var(--xed-border);
+    box-shadow: 0 8px 24px rgba(35, 38, 41, 0.18);
+}
+
+body#kde-neon .xed-menu__item {
+    color: var(--xed-text);
+}
+
+body#kde-neon .xed-app__tool:hover {
+    background: var(--xed-toolbar-hover-bg);
+    border-color: #3daee9;
+}
+
+body#kde-neon .xed-app__tool img {
+    filter: var(--xed-toolbar-icon-filter);
+}
+
+body#kde-neon .xed-app__editor-wrap,
+body#kde-neon .xed-app__status {
+    color: var(--xed-buffer-text);
+    background: var(--xed-buffer-bg);
+}
+
+/* Kate — page Bienvenue (chrome KDE distinct du slot text_editor / XED) */
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__toolbar .xed-app__tool:nth-child(n+4),
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__toolbar .xed-app__toolbar-sep {
+    display: none !important;
+}
+
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__toolbar .xed-app__tool-label {
+    display: inline;
+    font-size: calc(var(--head) / 2.75);
+}
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__menubar,
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__tabs,
+body#kde-neon main#xedApp.kde-kate--welcome .xed-searchbar,
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__editor-wrap,
+body#kde-neon main#xedApp.kde-kate--welcome .xed-app__status {
+    display: none !important;
+}
+
+body#kde-neon main#xedApp.kde-kate--welcome {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    background: #fcfcfc;
+}
+
+body#kde-neon .kde-kate__menubar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+    min-height: calc(var(--head) / 1.55);
+    padding: 0 0.35rem;
+    border-bottom: 1px solid var(--xed-border);
+    background: var(--xed-chrome-bg);
+    overflow-x: auto;
+}
+
+body#kde-neon .kde-kate__menu-item {
+    border: 0;
+    background: transparent;
+    color: var(--xed-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.65);
+    padding: 0.28rem 0.45rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: default;
+}
+
+body#kde-neon .kde-kate__menu-item:hover {
+    background: var(--xed-menu-hover-bg);
+}
+
+body#kde-neon .kde-kate__welcome {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#kde-neon .kde-kate__rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    width: 2.1rem;
+    padding: 0.35rem 0.15rem;
+    border-right: 1px solid rgba(35, 38, 41, 0.1);
+    background: #f0f0f0;
+}
+
+body#kde-neon .kde-kate__rail-btn {
+    width: 1.35rem;
+    height: 1.35rem;
+    border: 0;
+    border-radius: 3px;
+    background: rgba(35, 38, 41, 0.08) center / 0.9rem no-repeat;
+    cursor: default;
+}
+
+body#kde-neon .kde-kate__rail-btn--active {
+    background-color: rgba(61, 174, 233, 0.22);
+}
+
+body#kde-neon .kde-kate__rail-btn:nth-child(1) {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/document-open-recent.svg");
+}
+
+body#kde-neon .kde-kate__rail-btn:nth-child(2) {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/sidebar-places-symbolic.svg");
+}
+
+body#kde-neon .kde-kate__rail-btn:nth-child(3) {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/network-workgroup-symbolic.svg");
+}
+
+body#kde-neon .kde-kate__rail-btn:nth-child(4) {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/applications-system.svg");
+}
+
+body#kde-neon .kde-kate__workspace {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+body#kde-neon .kde-kate__tabbar {
+    padding: 0.35rem 0.55rem 0;
+    border-bottom: 1px solid rgba(35, 38, 41, 0.1);
+    background: #f6f7f8;
+}
+
+body#kde-neon .kde-kate__tab {
+    display: inline-block;
+    padding: 0.28rem 0.65rem;
+    border: 1px solid rgba(35, 38, 41, 0.14);
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    background: #fff;
+    color: var(--xed-text);
+    font-size: calc(var(--head) / 2.7);
+}
+
+body#kde-neon .kde-kate__welcome-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 0.85rem 1rem 0.5rem;
+    overflow: auto;
+}
+
+body#kde-neon .kde-kate__panel {
+    margin-bottom: 1.1rem;
+}
+
+body#kde-neon .kde-kate__panel-title {
+    margin: 0 0 0.55rem;
+    font-size: calc(var(--head) / 2.35);
+    font-weight: 600;
+    color: var(--xed-text);
+}
+
+body#kde-neon .kde-kate__panel-grid {
+    display: grid;
+    grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+body#kde-neon .kde-kate__panel-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+body#kde-neon .kde-kate__action {
+    display: block;
+    width: 100%;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid rgba(35, 38, 41, 0.16);
+    border-radius: 3px;
+    background: #fff;
+    color: var(--xed-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.75);
+    text-align: left;
+    cursor: default;
+}
+
+body#kde-neon .kde-kate__recent-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body#kde-neon .kde-kate__recent-item {
+    display: grid;
+    grid-template-columns: 1.1rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.05rem 0.45rem;
+    padding: 0.35rem 0.45rem;
+    border-radius: 3px;
+}
+
+body#kde-neon .kde-kate__recent-item:hover {
+    background: rgba(61, 174, 233, 0.1);
+}
+
+body#kde-neon .kde-kate__recent-icon {
+    grid-row: 1 / span 2;
+    width: 1rem;
+    height: 1rem;
+    background: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/add-new-file.svg") center / contain no-repeat;
+}
+
+body#kde-neon .kde-kate__recent-name {
+    font-size: calc(var(--head) / 2.65);
+    font-weight: 600;
+}
+
+body#kde-neon .kde-kate__recent-path {
+    grid-column: 2;
+    color: #7f8c8d;
+    font-size: calc(var(--head) / 2.85);
+}
+
+body#kde-neon .kde-kate__empty {
+    margin: 0.2rem 0 0;
+    color: #7f8c8d;
+    font-size: calc(var(--head) / 2.75);
+}
+
+body#kde-neon .kde-kate__welcome-check {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.35rem 0 0;
+    color: var(--xed-text);
+    font-size: calc(var(--head) / 2.75);
+}
+
+body#kde-neon .kde-kate__bottom-tabs {
+    display: flex;
+    gap: 0.15rem;
+    min-height: 1.55rem;
+    padding: 0.15rem 0.35rem 0;
+    border-top: 1px solid rgba(35, 38, 41, 0.12);
+    background: #eff0f1;
+}
+
+body#kde-neon .kde-kate__bottom-tab {
+    border: 0;
+    border-radius: 3px 3px 0 0;
+    background: transparent;
+    color: var(--xed-text);
+    font: inherit;
+    font-size: calc(var(--head) / 2.85);
+    padding: 0.22rem 0.55rem;
+    cursor: default;
+}
+
+body#kde-neon .kde-kate__bottom-tab:first-child {
+    background: #fff;
+    border: 1px solid rgba(35, 38, 41, 0.12);
+    border-bottom-color: #fff;
+}

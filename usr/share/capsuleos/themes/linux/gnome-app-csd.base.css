@@ -1,0 +1,183 @@
+/**
+ * Chrome CSD libadwaita — apps GTK4/GNOME (Calculatrice, Text Editor, …).
+ * Masque le rail SSD Capsule (#windowHeader) ; contrôles déplacés dans la headerbar app.
+ * Provider runtime : libadwaita-gnome (chrome.js).
+ */
+:root {
+    --gnome-adw-headerbar-h: 2.875rem;
+    --gnome-adw-headerbar-pad-x: 0.5rem;
+    --gnome-adw-headerbar-gap: 0.375rem;
+    --gnome-adw-winbtn-size: 1.75rem;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"].gnome-app--csd:not(#mainMenu) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    border-color: var(--capsule-chrome-window-border, var(--fedora-window-border, var(--ubuntu-window-border, rgba(0, 0, 0, 0.45))));
+    background: var(--fedora-window-surface, var(--ubuntu-window-surface, var(--anduin-window-surface, #303030)));
+    box-shadow: var(--fedora-window-shadow, var(--ubuntu-window-shadow, var(--anduin-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42))));
+    transition: border-color var(--eas2), box-shadow var(--eas2), background-color var(--eas2);
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"].gnome-app--csd.windowElementActive:not(#mainMenu) {
+    border-color: var(--menu-accent);
+    box-shadow: var(--capsule-chrome-window-active-ring, 0 0 0 2px color-mix(in srgb, var(--menu-accent, #3584e4) 55%, transparent)), var(--fedora-window-shadow, var(--ubuntu-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42)));
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"].gnome-app--csd:not(#mainMenu) > #windowHeader {
+    display: none !important;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"].gnome-app--csd:not(#mainMenu) > main,
+.windowElement[data-window-chrome-toolkit="gnome"].gnome-app--csd:not(#mainMenu) > section,
+.windowElement[data-window-chrome-toolkit="gnome"].gnome-app--csd:not(#mainMenu) > #windowIframe {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: inherit;
+}
+
+.gnome-app--csd .gnome-app__window-chrome,
+.gnome-app--csd .gnome-calc__header,
+.gnome-app--csd .gnome-calendar-app__header,
+.gnome-app--csd .gnome-clocks__header,
+.gnome-app--csd .gnome-software__titlebar,
+.gnome-app--csd .gnome-software__headerbar,
+.gnome-app--csd .gnome-baobab__header,
+.gnome-app--csd .gnome-characters__header,
+.gnome-app--csd .gnome-sysmon__header,
+.gnome-app--csd .gnome-tour__header,
+.gnome-app--csd .gnome-snapshot__header,
+.gnome-app--csd .gnome-shot__headerbar,
+.gnome-app--csd .checklist-app__header,
+.gnome-app--csd .gnome-settings__headerbar,
+.gnome-app--csd .lw-menubar,
+.gnome-app--csd .lc-menubar,
+.gnome-app--csd .mint-app__header,
+.gnome-app--csd .lim-app__toolbar,
+.gnome-app--csd .ldr-app__toolbar,
+.gnome-app--csd .tbd-app__menubar,
+.gnome-app--csd .trm-app__toolbar,
+.gnome-app--csd .rb-app__header,
+.gnome-app--csd .drawing-app__menubar,
+.gnome-app--csd .scn-app__header,
+.gnome-app--csd .wrp-app__header,
+.gnome-app--csd .tsh-app__header,
+.gnome-app--csd .viewer-app__toolbar,
+.gnome-app--csd .xed-app__menubar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--gnome-adw-headerbar-gap);
+    height: var(--gnome-adw-headerbar-h);
+    min-height: var(--gnome-adw-headerbar-h);
+    min-width: 0;
+    padding: 0 var(--gnome-adw-headerbar-pad-x);
+    flex-shrink: 0;
+    overflow: visible;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.gnome-app--csd .gnome-characters__header .gnome-characters__search {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+}
+
+.gnome-app--csd .gnome-baobab__header .gnome-baobab__scan-btn {
+    flex-shrink: 0;
+}
+
+.gnome-app--csd .gnome-app__header-fill {
+    flex: 1 1 auto;
+    min-width: 2rem;
+    min-height: 1px;
+    align-self: stretch;
+}
+
+.gnome-app--csd .gnome-app__header-end {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.gnome-app--csd .gnome-app__window-controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.2rem;
+}
+
+.gnome-app--csd .gnome-app__window-controls > button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--gnome-adw-winbtn-size);
+    height: var(--gnome-adw-winbtn-size);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: var(--fedora-window-control-color, #f6f7f9);
+    background: var(--fedora-window-control-bg, transparent);
+    background-image: none;
+    cursor: pointer;
+    transition: background-color var(--eas2), color var(--eas2);
+}
+
+.gnome-app--csd .gnome-app__window-controls > button:hover {
+    background-color: var(--fedora-window-control-hover-bg, rgba(255, 255, 255, 0.14));
+}
+
+.gnome-app--csd .gnome-app__window-controls > button::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.gnome-app--csd .gnome-app__window-controls > #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+}
+
+.gnome-app--csd .gnome-app__window-controls > #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+}
+
+.gnome-app--csd .gnome-app__window-controls > #closeBtn {
+    background-color: var(--fedora-window-control-close-bg, transparent);
+}
+
+.gnome-app--csd .gnome-app__window-controls > #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+}
+
+.gnome-app--csd .gnome-app__window-controls > #closeBtn:hover {
+    color: var(--fedora-window-control-close-hover-color, #ffffff);
+    background-color: var(--fedora-window-control-close-hover-bg, #c01c28);
+}

@@ -1,0 +1,462 @@
+/* Debian KDE - Terminal Konsole (aligné openSUSE / Breeze) */
+
+body#lxqt div[data-link="terminal"] {
+    --konsole-chrome: #31363b;
+    --konsole-chrome-border: #2a2e33;
+    --konsole-chrome-text: #eff0f1;
+    --konsole-chrome-muted: #bdc3c7;
+    --konsole-toolbar-height: 1.72rem;
+    --konsole-header-height: var(--lxqt-konsole-header-height);
+    --konsole-workspace: #232629;
+    --konsole-prompt-user: #c678dd;
+    --konsole-prompt-host: #56b6c2;
+    --konsole-prompt-path: #61afef;
+    --konsole-prompt-dollar: #98c379;
+    --konsole-cursor: #eff0f1;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: min(46rem, calc(100vw - 2.5rem));
+    height: min(30rem, calc(100vh - calc(var(--head) * 2.2)));
+    min-width: calc(var(--head) * 14);
+    min-height: calc(var(--head) * 9);
+    padding: 0;
+    border: 1px solid var(--konsole-chrome-border);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 8px 24px rgba(35, 38, 41, 0.18);
+    background: var(--konsole-workspace);
+    overflow: hidden;
+}
+
+body#lxqt div[data-link="terminal"].windowElementActive {
+    border-color: rgba(61, 174, 233, 0.55);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35), 0 12px 28px rgba(0, 0, 0, 0.52);
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: var(--konsole-header-height);
+    margin: 0;
+    padding: 0 0.42rem;
+    border: 0;
+    border-bottom: 1px solid var(--lxqt-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    color: var(--lxqt-window-titlebar-fg);
+    background: var(--lxqt-window-titlebar-bg);
+    box-shadow: none;
+    user-select: none;
+    pointer-events: auto;
+}
+
+body#lxqt div[data-link="terminal"].windowElementActive #windowHeader {
+    background: var(--lxqt-window-titlebar-bg-active);
+    border-bottom-color: var(--lxqt-window-titlebar-border-color-active);
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:first-child {
+    position: absolute;
+    top: 0;
+    left: 0.34rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:first-child::before,
+body#lxqt div[data-link="terminal"] #windowHeader > nav:first-child::after {
+    content: "";
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:first-child::before {
+    width: var(--lxqt-header-icon-size);
+    height: var(--lxqt-header-icon-size);
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/terminal.svg");
+    opacity: 0.94;
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:first-child::after {
+    width: var(--lxqt-header-pin-size);
+    height: var(--lxqt-header-pin-size);
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/add-pin.svg");
+    filter: var(--lxqt-mono-logo-filter);
+    opacity: 0.76;
+}
+
+body#lxqt div[data-link="terminal"] #windowTitle {
+    display: block;
+    width: auto;
+    max-width: calc(100% - 9.5rem);
+    margin: 0 auto;
+    overflow: hidden;
+    color: var(--lxqt-window-titlebar-fg-muted);
+    font-family: "Cantarell", var(--font-ui);
+    font-size: var(--lxqt-header-title-size);
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    text-shadow: none;
+    filter: none;
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: 0.34rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.18rem;
+    width: auto;
+    min-width: 0;
+    height: 100%;
+    pointer-events: auto;
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:last-child > button {
+    position: relative;
+    width: 1.22rem;
+    height: 1.22rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.18rem;
+    color: var(--konsole-chrome-text);
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: none;
+    transform: none;
+}
+
+body#lxqt div[data-link="terminal"] #minimizeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/go-down.svg");
+    background-size: 0.72rem;
+    filter: var(--lxqt-header-control-filter);
+}
+
+body#lxqt div[data-link="terminal"] #resizeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-restore.svg");
+    background-size: 0.72rem;
+}
+
+body#lxqt div[data-link="terminal"] #closeBtn {
+    background-image: url("../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-close.svg");
+    background-size: 0.72rem;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+body#lxqt div[data-link="terminal"] #windowHeader > nav:last-child > button:hover {
+    background-color: rgba(239, 240, 241, 0.12);
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+body#lxqt div[data-link="terminal"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.28);
+}
+
+html[data-theme="light"] #opensuse div[data-link="terminal"] #windowHeader > nav:last-child > button,
+html[data-theme="light"] #opensuse div[data-link="terminal"] #minimizeBtn {
+    filter: var(--lxqt-header-control-filter-light);
+}
+
+html[data-theme="light"] #opensuse div[data-link="terminal"] #closeBtn:hover {
+    background-color: rgba(218, 68, 83, 0.2);
+}
+
+body#lxqt div[data-link="terminal"] #terminalContainer,
+body#lxqt div[data-link="terminal"] .capsule-terminal-shell {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: calc(100% - var(--konsole-header-height));
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    color: var(--konsole-chrome-text);
+    background: var(--konsole-workspace);
+    overflow: hidden;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    min-height: var(--konsole-toolbar-height);
+    padding: 0 0.34rem;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+    background: var(--konsole-chrome);
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__group {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.12rem;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__group--right {
+    margin-left: auto;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__separator {
+    display: none;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.28rem;
+    height: 1.34rem;
+    margin: 0;
+    padding: 0 0.34rem;
+    border: 0;
+    border-radius: 0.18rem;
+    color: var(--konsole-chrome-text);
+    font-family: "Cantarell", var(--font-ui);
+    font-size: 0.74rem;
+    font-weight: 500;
+    line-height: 1;
+    background: transparent;
+    cursor: default;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn:not(.capsule-terminal-toolbar__btn--disabled):hover {
+    background: rgba(239, 240, 241, 0.08);
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn--disabled,
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn--disabled:hover {
+    opacity: 0.42;
+    pointer-events: none;
+    background: transparent;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn--menu-only {
+    min-width: 1.34rem;
+    padding: 0 0.2rem;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon {
+    display: block;
+    width: 0.92rem;
+    height: 0.92rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon--tab-new {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/tab-new.svg");
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon--split {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/view-split-left-right.svg");
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon--copy {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/copy.svg");
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon--paste {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/paste.svg");
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon--search {
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/search-symbolic.svg");
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__icon--menu {
+    width: 0.72rem;
+    height: 0.72rem;
+    background-image: url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/open-menu-symbolic.svg");
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__chevron {
+    width: 0.42rem;
+    height: 0.42rem;
+    margin-left: -0.08rem;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%23eff0f1' d='M1 1.2 5 4.8 9 1.2'/%3E%3C/svg%3E") center / contain no-repeat;
+    opacity: 0.82;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal,
+body#lxqt div[data-link="terminal"] [data-terminal-app] {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 0.34rem 0 0.2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #4d5359 #232629;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal::-webkit-scrollbar,
+body#lxqt div[data-link="terminal"] [data-terminal-app]::-webkit-scrollbar {
+    width: 0.42rem;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal::-webkit-scrollbar-track,
+body#lxqt div[data-link="terminal"] [data-terminal-app]::-webkit-scrollbar-track {
+    background: #232629;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal::-webkit-scrollbar-thumb,
+body#lxqt div[data-link="terminal"] [data-terminal-app]::-webkit-scrollbar-thumb {
+    border-radius: 0.2rem;
+    background: #4d5359;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__output,
+body#lxqt div[data-link="terminal"] [data-terminal-output] {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0 0.42rem;
+    overflow: visible;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__input,
+body#lxqt div[data-link="terminal"] [data-terminal-form] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0 0.42rem 0.42rem;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__prompt,
+body#lxqt div[data-link="terminal"] [data-terminal-prompt] {
+    display: contents;
+    margin: 0;
+    color: var(--konsole-chrome-text);
+    font-family: "Hack", "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.35;
+    white-space: pre-wrap;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__prompt-copy {
+    margin: 0 0.2rem 0 0;
+    color: var(--konsole-chrome-text);
+    font-family: "Hack", "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.35;
+    white-space: pre-wrap;
+}
+
+body#lxqt div[data-link="terminal"] .konsole-prompt__line {
+    display: inline;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__line--command > code {
+    display: block;
+    white-space: pre-wrap;
+}
+
+body#lxqt div[data-link="terminal"] .konsole-prompt__user {
+    color: var(--konsole-prompt-user);
+}
+
+body#lxqt div[data-link="terminal"] .konsole-prompt__at,
+body#lxqt div[data-link="terminal"] .konsole-prompt__colon {
+    color: var(--konsole-chrome-text);
+}
+
+body#lxqt div[data-link="terminal"] .konsole-prompt__host {
+    color: var(--konsole-prompt-host);
+}
+
+body#lxqt div[data-link="terminal"] .konsole-prompt__path {
+    color: var(--konsole-prompt-path);
+}
+
+body#lxqt div[data-link="terminal"] .konsole-prompt__dollar {
+    color: var(--konsole-prompt-dollar);
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__command,
+body#lxqt div[data-link="terminal"] [data-terminal-command],
+body#lxqt div[data-link="terminal"] .capsule-terminal__command-copy {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 1.1rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    color: var(--konsole-chrome-text);
+    font-family: "Hack", "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.35;
+    caret-color: var(--konsole-cursor);
+    background: transparent;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__line,
+body#lxqt div[data-link="terminal"] .capsule-terminal__line > code {
+    color: var(--konsole-chrome-text);
+    font-family: "Hack", "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal__line--error code {
+    color: #e06c75;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn[data-konsole-action] {
+    pointer-events: auto;
+}
+
+body#lxqt div[data-link="terminal"] .capsule-terminal-toolbar__btn[data-konsole-action]:active {
+    background: rgba(239, 240, 241, 0.12);
+}

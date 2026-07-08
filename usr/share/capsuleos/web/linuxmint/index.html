@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Mint — CapsuleOS (simulé)</title>
+    <link rel="stylesheet" href="../_shared/site.css">
+    <style>
+        .mint-hero { background: #87cf3e; color: #fff; padding: 2rem; }
+        .mint-hero h1 { margin: 0; font-size: 1.75rem; }
+        .mint-tagline { font-style: italic; opacity: 0.95; }
+        .mint-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+        .mint-actions a, .mint-actions button {
+            display: inline-block;
+            padding: 0.55rem 1rem;
+            border-radius: 0.35rem;
+            background: #fff;
+            color: #2d5016;
+            text-decoration: none;
+            font-weight: 600;
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="capsule-web-page">
+    <header class="mint-hero">
+        <h1>Linux Mint</h1>
+        <p class="mint-tagline">From freedom came elegance</p>
+    </header>
+    <main class="capsule-web-main">
+        <section id="page-home">
+            <p>Page pédagogique CapsuleOS inspirée de l'identité Linux Mint. Ce n'est pas le site officiel linuxmint.com.</p>
+            <p>Linux Mint est une distribution basée sur Ubuntu/Debian, orientée simplicité et bureau Cinnamon.</p>
+            <div class="mint-actions">
+                <a href="?page=download">Téléchargements</a>
+                <a href="?page=doc">Documentation</a>
+                <a href="#" data-capsule-web-nav="fr.wikipedia.org">Wikipédia</a>
+            </div>
+        </section>
+        <section id="page-download" hidden>
+            <h2>Téléchargements (simulé)</h2>
+            <p>Choisissez une édition fictive pour pratiquer la navigation :</p>
+            <ul>
+                <li><a href="?page=download&amp;edition=cinnamon">Linux Mint Cinnamon 22 (simulé)</a></li>
+                <li><a href="?page=download&amp;edition=mate">Linux Mint MATE 22 (simulé)</a></li>
+            </ul>
+            <p><a href="?page=home">← Accueil Mint</a></p>
+        </section>
+        <section id="page-doc" hidden>
+            <h2>Documentation (simulé)</h2>
+            <p>Guides pédagogiques CapsuleOS pour découvrir le bureau Cinnamon simulé.</p>
+            <p><a href="#" data-capsule-web-nav="lacapsule.org">Portail La Capsule</a></p>
+            <p><a href="?page=home">← Accueil Mint</a></p>
+        </section>
+        <p style="margin-top:2rem"><a href="#" data-capsule-web-nav="lacapsule.org">Retour à La Capsule</a></p>
+    </main>
+    <script src="../_shared/site-nav.js"></script>
+    <script>
+        (function mintPages() {
+            var params = new URLSearchParams(window.location.search);
+            var page = params.get('page') || 'home';
+            var edition = params.get('edition');
+            ['home', 'download', 'doc'].forEach(function (id) {
+                var el = document.getElementById('page-' + id);
+                if (el) el.hidden = page !== id;
+            });
+            if (page === 'download' && edition) {
+                var dl = document.getElementById('page-download');
+                if (dl) {
+                    var note = document.createElement('p');
+                    note.textContent = 'Édition sélectionnée : ' + edition + ' — fichier ISO simulé (non téléchargeable).';
+                    dl.appendChild(note);
+                }
+            }
+        }());
+    </script>
+</body>
+</html>

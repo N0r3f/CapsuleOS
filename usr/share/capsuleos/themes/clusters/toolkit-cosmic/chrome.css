@@ -1,0 +1,6 @@
+/**
+ * Point d'entrée chrome COSMIC — interactions noyau uniquement.
+ * Visuel fenêtre : cosmic-shell/windows-chrome.css dans chaque skin Pop!_OS.
+ * Provider runtime : nemo-gnome (explorateur), terminal-cosmic.
+ */
+@import url(../../linux/window-chrome.interactions.css);

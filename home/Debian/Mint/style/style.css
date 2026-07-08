@@ -1,0 +1,115 @@
+@import url(imports.css);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--texte);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#mint {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background-image: var(--mint);
+    background-size: var(--scov);
+    background-repeat: var(--nr);
+    background-position: var(--c);
+    overflow: hidden;
+}
+
+#desktop {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    position: var(--rel);
+    width: 100%;
+    height: calc(100% - var(--taskbar-height));
+    max-width: 100%;
+    max-height: calc(100% - var(--taskbar-height));
+    overflow: hidden;
+}
+
+/* Ground truth VM (gsettings org.nemo.desktop) : home/trash/computer-icon-visible = false
+   → bureau nu ; DOM conservé pour les scénarios contextuels (dispatch JS). */
+body#mint #desktop > .desktop-shortcuts {
+    position: var(--abs);
+    top: calc(var(--head) / 2);
+    left: calc(var(--head) / 2);
+    display: none;
+    flex-flow: var(--cnw);
+    align-items: var(--fs);
+    gap: calc(var(--head) / 10);
+    z-index: 10;
+}
+
+body#mint #desktop > .desktop-shortcuts > .desktop-shortcut {
+    position: var(--rel);
+    top: auto;
+    left: auto;
+}
+
+/* Fenêtres dans #desktop : absolute (pas fixed viewport — évite la chute dans overflow). */
+body#mint #desktop {
+    pointer-events: auto;
+}
+
+body#mint #desktop > .windowElement:not(#mainMenu) {
+    position: absolute;
+    pointer-events: auto;
+    max-width: calc(100% - 16px);
+    max-height: calc(100% - 16px);
+}
+
+.desktop-shortcut {
+    position: var(--abs);
+    top: calc(var(--head) / 2);
+    left: calc(var(--head) / 2);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 3.4);
+    padding: calc(var(--head) / 6);
+    gap: calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 8);
+    color: var(--desktop-shortcut-text);
+    text-decoration: var(--n);
+    text-shadow: var(--desktop-shortcut-shadow);
+    border: 1px solid var(--t);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+    z-index: 10;
+}
+
+body#mint .desktop-shortcut:hover,
+body#mint .desktop-shortcut:focus-visible {
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: transparent;
+    border-radius: 6px;
+    transform: none;
+}
+
+.desktop-shortcut > img {
+    width: calc(var(--head) * 1.3);
+    height: calc(var(--head) * 1.3);
+    object-fit: contain;
+}
+
+.desktop-shortcut > span {
+    max-width: var(--full);
+    text-align: var(--c);
+    line-height: 1.2;
+    font-size: calc(var(--head) / 3.2);
+}

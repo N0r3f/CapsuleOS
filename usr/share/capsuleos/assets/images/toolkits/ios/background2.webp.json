@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/toolkits/ios/background2.webp",
+  "outputSha256": "45a5674fb74e24aa76aade24fed43b9b48bfefc967fb01d123ef132ed84f57a3",
+  "role": "unknown",
+  "profile": "unknown",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.638Z",
+  "note": "repair-manifest"
+}

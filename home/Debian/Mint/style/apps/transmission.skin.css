@@ -1,0 +1,9 @@
+body#mint {
+    --trm-bg: #ffffff;
+    --trm-text: #2e2e2e;
+    --trm-muted: #5c5c5c;
+    --trm-toolbar: #ebebeb;
+    --trm-border: #d4d4d4;
+    --trm-btn-bg: #f6f6f6;
+    --trm-btn-border: #c8c8c8;
+}

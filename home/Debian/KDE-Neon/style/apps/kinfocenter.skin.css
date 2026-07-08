@@ -1,0 +1,16 @@
+body#kde-neon div[data-link="kinfocenter"].windowElement {
+    width: min(34rem, calc(100vw - 2rem));
+    height: min(20rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+body#kde-neon div[data-link="kinfocenter"] main#kinfocenterApp {
+    height: 100%;
+}
+
+html:not([data-theme="light"]) body#kde-neon main#kinfocenterApp.kde-kinfocenter {
+    --kinfo-bg: #31363b;
+    --kinfo-sidebar: #2a2e32;
+    --kinfo-text: #eff0f1;
+    --kinfo-border: rgba(239, 240, 241, 0.12);
+    --kinfo-muted: rgba(239, 240, 241, 0.65);
+}

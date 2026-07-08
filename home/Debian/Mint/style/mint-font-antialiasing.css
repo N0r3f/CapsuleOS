@@ -1,0 +1,15 @@
+html[data-capsule-antialiasing="rgba"] #mint {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-capsule-antialiasing="grayscale"] #mint {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html[data-capsule-antialiasing="none"] #mint {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}

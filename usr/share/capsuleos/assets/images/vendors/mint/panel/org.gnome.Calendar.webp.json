@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/org.gnome.Calendar.png",
+  "sourceSha256": "7433cea82fcbd4aca02639380ccab50e05f56c29bc5c293aca31a7c5ef7d0501",
+  "output": "images/vendors/mint/panel/org.gnome.Calendar.webp",
+  "outputSha256": "dbbbeb25cb8eb9efbf424454448e29be21b9d96cb31641c67c58e3c28569d537",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.803Z"
+}

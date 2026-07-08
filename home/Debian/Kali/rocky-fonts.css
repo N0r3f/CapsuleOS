@@ -1,0 +1,19 @@
+/**
+ * Polices Rocky Linux — ground truth VM (/usr/share/fonts/redhat-vf/).
+ * Source : pull-vm-assets.sh · inventaire *-visual-fidelity.json → typography.fontEmbedding
+ */
+@font-face {
+    font-family: "Red Hat Text";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/redhat/RedHatText[wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Red Hat Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/redhat/RedHatMono[wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}

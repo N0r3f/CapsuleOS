@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/org.gnome.Terminal.png",
+  "sourceSha256": "cc65d7783eaf4d457bffc4be208e473f329085cbede5f876373d659964dbd0e1",
+  "output": "images/vendors/mint/panel/org.gnome.Terminal.webp",
+  "outputSha256": "b138488d88cf896757456104eab9a2d9c09755033470b26a0a910097fb5a0fd7",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.844Z"
+}

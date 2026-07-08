@@ -1,0 +1,12 @@
+registryId=linux-mint
+ssh=lacapsule@<lab-ip>
+collectedAt=2026-06-22T14:34:30Z
+firefoxPackage=Mozilla Firefox 146.0.1
+sources:
+  chrome/*.svg → /usr/lib/firefox/browser/omni.ja (Mozilla Firefox, MPL-2.0)
+  brand/firefox-wordmark.svg → /usr/lib/firefox/browser/omni.ja newtab extension
+  brand/firefox-app-48.png → /usr/share/icons/hicolor/48x48/apps/firefox.png
+  newtab/google-g.png → /usr/lib/firefox/browser/omni.ja activity-stream tippytop
+  newtab/{amazon,temu,aliexpress}.jpg → contile.services.mozilla.com (tuiles sponsorisées FR)
+  newtab/{wikipedia,youtube,lemonde,reddit}.ico → favicons sites (fetch VM)
+inventory: root/docs/inventaires/linux-mint-firefox-vm-shortcuts.json

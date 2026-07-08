@@ -1,0 +1,136 @@
+main#stickyApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--stk-text, #2e2e2e);
+    background: var(--stk-bg, #fff9c4);
+}
+
+.stk-app__toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    min-height: 36px;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--stk-border, rgba(0, 0, 0, 0.12));
+    background: var(--stk-toolbar, #fff59d);
+}
+
+.stk-app__toolbar-title {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.stk-app__btn {
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    border: 1px solid var(--stk-btn-border, rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    font: inherit;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: default;
+}
+
+.stk-app__body {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.stk-app__list {
+    flex: 0 0 140px;
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    overflow: auto;
+    border-right: 1px solid var(--stk-border, rgba(0, 0, 0, 0.12));
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.stk-app__item {
+    padding: 8px 10px;
+    cursor: default;
+    font-size: 12px;
+}
+
+.stk-app__item.is-active {
+    background: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+}
+
+.stk-app__editor {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+    padding: 12px;
+    border: 0;
+    resize: none;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.45;
+    color: inherit;
+    background: transparent;
+}
+
+.stk-app__editor:focus {
+    outline: none;
+}
+
+.stk-app__colors {
+    display: flex;
+    gap: 4px;
+}
+
+.stk-app__color {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 1px solid var(--stk-btn-border, rgba(0, 0, 0, 0.15));
+    border-radius: 999px;
+    cursor: default;
+}
+
+.stk-app__color[data-stk-color="yellow"] {
+    background: #fff176;
+}
+
+.stk-app__color[data-stk-color="green"] {
+    background: #a5d6a7;
+}
+
+.stk-app__color[data-stk-color="pink"] {
+    background: #f48fb1;
+}
+
+.stk-app__editor--yellow {
+    background: #fff9c4;
+}
+
+.stk-app__editor--green {
+    background: #e8f5e9;
+}
+
+.stk-app__editor--pink {
+    background: #fce4ec;
+}
+
+.stk-app__delete-confirm {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    font-size: 12px;
+}

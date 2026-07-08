@@ -1,0 +1,22 @@
+body#kde-neon div[data-link="spectacle"].windowElement {
+    width: min(28rem, calc(100vw - 2rem));
+    height: min(16rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+body#kde-neon div[data-link="spectacle"] main#spectacleApp {
+    height: 100%;
+}
+
+html[data-theme="light"] body#kde-neon main#spectacleApp.kde-spectacle {
+    --kde-spectacle-bg: #eff0f1;
+    --kde-spectacle-sidebar: #e7e8ea;
+    --kde-spectacle-text: #232629;
+}
+
+html:not([data-theme="light"]) body#kde-neon main#spectacleApp.kde-spectacle {
+    --kde-spectacle-bg: #31363b;
+    --kde-spectacle-sidebar: #2a2e32;
+    --kde-spectacle-text: #eff0f1;
+    --kde-spectacle-border: rgba(239, 240, 241, 0.12);
+    --kde-spectacle-muted: rgba(239, 240, 241, 0.72);
+}

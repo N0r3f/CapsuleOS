@@ -1,0 +1,121 @@
+main#transmissionApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--trm-text, #2e2e2e);
+    background: var(--trm-bg, #ffffff);
+}
+
+.trm-app__toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    min-height: 36px;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--trm-border, #d4d4d4);
+    background: var(--trm-toolbar, #ebebeb);
+}
+
+.trm-app__toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.trm-app__btn {
+    padding: 4px 10px;
+    border: 1px solid var(--trm-btn-border, #c8c8c8);
+    border-radius: 3px;
+    font: inherit;
+    font-size: 12px;
+    background: var(--trm-btn-bg, #f6f6f6);
+    cursor: default;
+}
+
+.trm-app__btn:disabled {
+    opacity: 0.5;
+}
+
+.trm-app__filters {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 2px;
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--trm-border, #e8e8e8);
+    background: #f8f8f8;
+}
+
+.trm-app__filter {
+    padding: 4px 10px;
+    border: 0;
+    border-radius: 3px;
+    font: inherit;
+    font-size: 11px;
+    background: transparent;
+    cursor: default;
+}
+
+.trm-app__filter.is-active {
+    background: rgba(31, 158, 222, 0.18);
+    font-weight: 600;
+}
+
+.trm-app__empty {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+}
+
+.trm-app__empty[hidden],
+.trm-app__table[hidden] {
+    display: none !important;
+}
+
+.trm-app__empty-title {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.trm-app__empty-hint {
+    margin: 0;
+    color: var(--trm-muted, #666666);
+}
+
+.trm-app__table {
+    flex: 1 1 auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.trm-app__table th,
+.trm-app__table td {
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--trm-border, #ececec);
+    text-align: left;
+}
+
+.trm-app__table th {
+    background: #fafafa;
+    font-weight: 600;
+}
+
+.trm-app__statusbar {
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-top: 1px solid var(--trm-border, #d4d4d4);
+    font-size: 11px;
+    color: var(--trm-muted, #666666);
+    background: #f4f4f4;
+}

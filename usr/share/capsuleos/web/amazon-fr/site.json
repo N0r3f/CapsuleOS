@@ -1,0 +1,8 @@
+{
+  "siteId": "amazon-fr",
+  "titleFr": "Amazon — simulation CapsuleOS",
+  "hosts": ["amazon.fr", "www.amazon.fr"],
+  "lang": "fr",
+  "contentLicense": "LicenseRef-CapsuleOS-OriginalContent",
+  "note": "Contenu pédagogique original — non affilié à Amazon."
+}

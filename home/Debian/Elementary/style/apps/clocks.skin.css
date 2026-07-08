@@ -1,0 +1,85 @@
+/**
+ * elementary — clocks (structure Rocky).
+ */
+body#elementary {
+    --gnome-clocks-bg: #303030;
+    --gnome-clocks-card: #383838;
+    --gnome-clocks-nav: #2a2a2a;
+    --gnome-clocks-text: #ffffff;
+    --gnome-clocks-muted: rgba(255, 255, 255, 0.65);
+    --gnome-clocks-border: rgba(255, 255, 255, 0.08);
+    --gnome-clocks-accent: #3584e4;
+    --gnome-clocks-nav-active: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="light"]:has(#elementary) {
+    --gnome-clocks-bg: #fafafa;
+    --gnome-clocks-card: #ffffff;
+    --gnome-clocks-nav: #f3f3f3;
+    --gnome-clocks-text: #1e1e1e;
+    --gnome-clocks-muted: rgba(0, 0, 0, 0.55);
+    --gnome-clocks-border: rgba(0, 0, 0, 0.1);
+    --gnome-clocks-nav-active: rgba(0, 0, 0, 0.06);
+}
+
+body#elementary div[data-link="clocks"].windowElement {
+    width: min(24rem, calc(100vw - var(--elementary-dock-width, 0px) - 2rem));
+    height: min(30rem, calc(100vh - var(--elementary-top-bar-height, 2.75rem) - 2rem));
+    min-width: 18rem;
+    min-height: 22rem;
+}
+
+body#elementary div[data-link="clocks"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="clocks"] .gnome-clocks__header {
+    background: var(--gnome-clocks-bg);
+    border-bottom: 1px solid var(--gnome-clocks-border);
+}
+
+body#elementary main#gnomeClocksApp {
+    color: var(--gnome-clocks-text);
+    background: var(--gnome-clocks-bg);
+}
+
+body#elementary .gnome-clocks__nav {
+    background: var(--gnome-clocks-nav);
+    border-right-color: var(--gnome-clocks-border);
+}
+
+body#elementary .gnome-clocks__nav-btn:hover {
+    background: var(--gnome-clocks-nav-active);
+}
+
+body#elementary .gnome-clocks__nav-btn.is-active,
+body#elementary .gnome-clocks__nav-btn[aria-selected="true"] {
+    background: var(--gnome-clocks-nav-active);
+    color: var(--gnome-clocks-accent);
+}
+
+body#elementary .gnome-clocks__add:hover {
+    background: var(--gnome-clocks-nav-active);
+}
+
+body#elementary .gnome-clocks__card {
+    background: var(--gnome-clocks-card);
+    border-color: var(--gnome-clocks-border);
+}
+
+body#elementary .gnome-clocks__city,
+body#elementary .gnome-clocks__date {
+    color: var(--gnome-clocks-muted);
+}
+
+body#elementary .gnome-clocks__time,
+body#elementary .gnome-clocks__timer-face,
+body#elementary .gnome-clocks__stopwatch-face {
+    color: var(--gnome-clocks-text);
+}
+
+body#elementary .gnome-clocks__empty {
+    color: var(--gnome-clocks-muted);
+}

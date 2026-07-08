@@ -1,0 +1,127 @@
+/**
+ * Tray + horloge top bar Ubuntu (GNOME Shell).
+ * Horloge au centre (.fedora-top-bar__center), tray à droite.
+ */
+
+body#elementary .taskbar-tray {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    color: var(--gnome-shell-tray-color);
+}
+
+body#elementary .taskbar-tray__cluster {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 7);
+    margin: 0;
+    padding: calc(var(--head) / 9) calc(var(--head) / 4.2);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--gnome-shell-tray-color);
+    cursor: pointer;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#elementary .taskbar-tray__cluster:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--elementary-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+body#elementary .taskbar-tray__cluster[aria-expanded="true"] {
+    background: rgba(72, 72, 74, 0.96);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body#elementary .taskbar-tray__icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.42);
+    height: calc(var(--head) * 0.42);
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    flex-shrink: 0;
+    opacity: 0.92;
+}
+
+body#elementary .taskbar-tray__icon--network {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.87 2.13 7.13 2.13 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.87 2.13 7.13 2.13 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z'/%3E%3C/svg%3E");
+}
+
+body#elementary .taskbar-tray__icon--power {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z'/%3E%3C/svg%3E");
+}
+
+/* Horloge + date - centrée dans .fedora-top-bar__center */
+body#elementary .taskbar-clock-trigger {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    gap: calc(var(--head) / 5);
+    padding: calc(var(--head) / 12) calc(var(--head) / 3);
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 6);
+    background: transparent;
+    color: var(--elementary-shell-text, #f2f4f8);
+    font-family: var(--font-ui), ui-sans-serif, system-ui, sans-serif;
+    font-size: calc(var(--head) / 2.55);
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#elementary .taskbar-clock-trigger:hover {
+    background: var(--gnome-shell-clock-hover-bg);
+    border-color: var(--elementary-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+/* Date courte (ex: "24 avril") */
+body#elementary .fedora-clock-date {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    pointer-events: none;
+    opacity: 1;
+}
+
+/* Heure (ex: "15:39") */
+body#elementary .taskbar__clock {
+    color: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .taskbar-tray__cluster {
+    background: transparent;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .taskbar-tray__cluster:hover,
+html[data-theme="light"]:has(#elementary) body#elementary .taskbar-tray__cluster[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--elementary-shell-border-soft, rgba(255, 255, 255, 0.1));
+}
+
+@media (max-width: 900px) {
+    body#elementary .taskbar-tray__icon {
+        width: calc(var(--head) * 0.4);
+        height: calc(var(--head) * 0.4);
+    }
+    body#elementary .fedora-clock-date {
+        display: none;
+    }
+}

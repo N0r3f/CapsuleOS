@@ -1,0 +1,20 @@
+<main id="gnomeLogsApp" class="gnome-logs" aria-label="Journaux">
+    <header class="gnome-logs__header">
+        <nav class="gnome-logs__tabs" role="tablist">
+            <button type="button" class="gnome-logs__tab is-active" role="tab" aria-selected="true">Tout</button>
+            <button type="button" class="gnome-logs__tab" role="tab">Important</button>
+            <button type="button" class="gnome-logs__tab" role="tab">Applications</button>
+            <button type="button" class="gnome-logs__tab" role="tab">Système</button>
+            <button type="button" class="gnome-logs__tab" role="tab">Sécurité</button>
+            <button type="button" class="gnome-logs__tab" role="tab">Matériel</button>
+        </nav>
+    </header>
+    <section class="gnome-logs__body">
+        <ul class="gnome-logs__list" aria-label="Entrées du journal">
+            <li class="gnome-logs__entry"><time>22:00:01</time><span class="gnome-logs__source">systemd</span><span class="gnome-logs__msg">Started GNOME Display Manager.</span></li>
+            <li class="gnome-logs__entry"><time>22:00:02</time><span class="gnome-logs__source">NetworkManager</span><span class="gnome-logs__msg">Connectivity is FULL.</span></li>
+            <li class="gnome-logs__entry"><time>22:00:03</time><span class="gnome-logs__source">gnome-shell</span><span class="gnome-logs__msg">GNOME Shell started.</span></li>
+            <li class="gnome-logs__entry"><time>22:00:04</time><span class="gnome-logs__source">kernel</span><span class="gnome-logs__msg">EXT4-fs: mounted filesystem with ordered data mode.</span></li>
+        </ul>
+    </section>
+</main>

@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Paramètres (Apparence / fonds / accent) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-themes-vm-inventory.json",
+  "slot": "themes",
+  "template": "themes_gnome.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/themes.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "ThΣ": "Contrat valide + kernel themes.js (buildWallpaperGrid, bindAccentChips, data-theme-option)",
+    "Th1": "Th1 basculer mode sombre",
+    "Th2": "Th2 sélectionner fond AlmaLinux",
+    "Th3": "Th3 changer couleur d'accent",
+    "Th4": "Th4 naviguer vers panneau Écrans"
+  },
+  "scenarios": [
+    {
+      "id": "Th1",
+      "priority": "P0",
+      "title": "Basculer le mode sombre",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "gsettingsSchema": "org.gnome.desktop.interface",
+        "colorSchemeKey": "color-scheme",
+        "defaultVm": "default",
+        "capsuleDarkValue": "dark"
+      },
+      "steps": [
+        { "id": "open-themes", "action": "openWindowByDataLink", "target": "themes", "label": "Ouvrir Paramètres" },
+        { "id": "panel-appearance", "selector": "[data-gnome-settings-panel=\"appearance\"].is-active, #gnomeSettingsAppearance:not([hidden])", "label": "Panneau Apparence actif" },
+        { "id": "pick-dark", "selector": "[data-theme-option=\"dark\"]", "label": "Choisir mode sombre" },
+        { "id": "theme-dataset", "predicate": "document.documentElement.dataset.theme", "expectValue": "dark", "label": "Thème Capsule sombre" },
+        { "id": "help-text", "selector": "[data-themes-help]", "expectTextContains": "sombre", "label": "Libellé aide FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-themes-scenarios.mjs --scenario Th1",
+        "capture": "rocky-capsule-dark-themes-dark-mode.png"
+      }
+    },
+    {
+      "id": "Th2",
+      "priority": "P0",
+      "title": "Changer le fond d'écran AlmaLinux",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "pictureUri": "file:///usr/share/backgrounds/almalinux-day.jpg",
+        "pictureUriDark": "file:///usr/share/backgrounds/almalinux-night.jpg",
+        "catalogId": "almalinux"
+      },
+      "steps": [
+        { "id": "open-background", "action": "setCapsuleSettingsPanel", "target": "background", "label": "Ouvrir Arrière-plan" },
+        { "id": "wallpaper-tile", "selector": "[data-wallpaper-id=\"almalinux\"]", "label": "Tuile AlmaLinux" },
+        { "id": "wallpaper-active", "selector": "[data-wallpaper-id=\"almalinux\"].is-active", "label": "Tuile active" },
+        { "id": "wallpaper-dataset", "predicate": "document.documentElement.dataset.gnomeWallpaper", "expectValue": "almalinux", "label": "Fond persisté" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-themes-scenarios.mjs --scenario Th2",
+        "capture": "rocky-capsule-dark-themes-wallpaper-alma.png"
+      }
+    },
+    {
+      "id": "Th3",
+      "priority": "P0",
+      "title": "Changer la couleur d'accent",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "gsettingsKey": "accent-color",
+        "defaultVm": "blue",
+        "capsulePick": "teal"
+      },
+      "steps": [
+        { "id": "open-appearance", "action": "setCapsuleSettingsPanel", "target": "appearance", "label": "Panneau Apparence" },
+        { "id": "pick-teal", "selector": "[data-accent-chip=\"teal\"]", "label": "Accent sarcelle" },
+        { "id": "chip-active", "selector": "[data-accent-chip=\"teal\"].is-active", "label": "Pastille active" },
+        { "id": "accent-storage", "predicate": "CapsuleThemeStorage.readSavedAccent()", "expectValue": "teal", "label": "Accent persisté" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-themes-scenarios.mjs --scenario Th3",
+        "capture": "rocky-capsule-dark-themes-accent-teal.png"
+      }
+    },
+    {
+      "id": "Th4",
+      "priority": "P0",
+      "title": "Naviguer vers le panneau Écrans",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "panelId": "displays",
+        "labelFr": "Écrans"
+      },
+      "steps": [
+        { "id": "open-themes", "action": "openWindowByDataLink", "target": "themes", "label": "Ouvrir Paramètres" },
+        { "id": "nav-displays", "selector": ".gnome-settings__navitem[data-gnome-settings-panel=\"displays\"]", "label": "Cliquer Écrans" },
+        { "id": "panel-displays", "selector": "[data-gnome-settings-panel=\"displays\"].is-active", "label": "Panneau Écrans actif" },
+        { "id": "title-displays", "selector": "#gnomeSettingsDisplays [data-gnome-settings-title], [data-gnome-settings-panel=\"displays\"] .gnome-settings__panel-title", "expectTextContains": "cran", "label": "Titre panneau FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-themes-scenarios.mjs --scenario Th4",
+        "capture": "rocky-capsule-dark-themes-displays.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "ThΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-themes-user-scenarios.mjs"
+    }
+  }
+}

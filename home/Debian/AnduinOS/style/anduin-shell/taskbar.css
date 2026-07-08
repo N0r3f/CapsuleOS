@@ -1,0 +1,179 @@
+body#anduinos .anduin-taskbar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    height: var(--anduin-taskbar-height);
+    padding: 0 calc(var(--head) * 0.35);
+    border-top: var(--anduin-taskbar-border);
+    color: var(--anduin-shell-text);
+    background: var(--anduin-taskbar-bg);
+    -webkit-backdrop-filter: var(--anduin-taskbar-blur);
+    backdrop-filter: var(--anduin-taskbar-blur);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    body#anduinos .anduin-taskbar {
+        background: var(--anduin-taskbar-bg-fallback);
+    }
+}
+
+body#anduinos .anduin-taskbar__center {
+    grid-column: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--head) * 0.22);
+}
+
+body#anduinos .anduin-taskbar__center > a,
+body#anduinos .anduin-taskbar__center > button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 1.05);
+    height: calc(var(--head) * 1.05);
+    padding: 0;
+    border: 0;
+    border-radius: 0.45rem;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color var(--eas2), transform var(--eas2);
+}
+
+body#anduinos .anduin-taskbar__center > a:hover,
+body#anduinos .anduin-taskbar__center > button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#anduinos .anduin-taskbar__center > a img,
+body#anduinos .anduin-taskbar__center > button img {
+    display: block;
+    width: calc(var(--head) * 0.82);
+    height: calc(var(--head) * 0.82);
+    object-fit: contain;
+}
+
+body#anduinos .anduin-taskbar__center > a.active-link::after,
+body#anduinos .anduin-taskbar__center > button.active-link::after {
+    content: "";
+    position: absolute;
+    bottom: -0.18rem;
+    left: 50%;
+    width: 1.15rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: var(--anduin-taskbar-indicator);
+    transform: translateX(-50%);
+}
+
+body#anduinos .anduin-taskbar__start {
+    position: relative;
+    opacity: 0.92;
+    cursor: pointer;
+}
+
+body#anduinos .anduin-taskbar__start[aria-disabled="true"] {
+    cursor: default;
+    opacity: 0.65;
+}
+
+body#anduinos .anduin-taskbar__tray {
+    grid-column: 3;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(var(--head) * 0.2);
+    justify-self: end;
+}
+
+body#anduinos .anduin-taskbar__lang {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--anduin-shell-muted);
+    letter-spacing: 0.02em;
+}
+
+body#anduinos .taskbar-tray {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: calc(var(--head) * 0.14);
+    padding: 0 calc(var(--head) * 0.12);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.22);
+}
+
+body#anduinos .taskbar-tray__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 0.72);
+    height: calc(var(--head) * 0.72);
+    padding: 0;
+    border: 0;
+    border-radius: 0.35rem;
+    color: var(--anduin-shell-text);
+    background: transparent;
+    cursor: pointer;
+}
+
+body#anduinos .taskbar-tray__btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#anduinos .taskbar-tray__icon {
+    display: block;
+    width: calc(var(--head) * 0.48);
+    height: calc(var(--head) * 0.48);
+    background: currentColor;
+    opacity: 0.92;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+body#anduinos .taskbar-tray__icon--network {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M2 11h2v3H2v-3zm4-3h2v6H6V8zm4-3h2v9h-2V5zm4-3h2v12h-2V2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M2 11h2v3H2v-3zm4-3h2v6H6V8zm4-3h2v9h-2V5zm4-3h2v12h-2V2z'/%3E%3C/svg%3E");
+}
+
+body#anduinos #tray-sound-icon {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M8 2 4 6H1v4h3l4 4V2zm4.5 2.5a5 5 0 0 1 0 7 1 1 0 1 1-1.4-1.4 3 3 0 0 0 0-4.2 1 1 0 0 1 1.4-1.4zm2.1 2.1a8 8 0 0 1 0 5.8 1 1 0 1 1-1.6-1.2 6 6 0 0 0 0-3.4 1 1 0 0 1 1.6-1.2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M8 2 4 6H1v4h3l4 4V2zm4.5 2.5a5 5 0 0 1 0 7 1 1 0 1 1-1.4-1.4 3 3 0 0 0 0-4.2 1 1 0 0 1 1.4-1.4zm2.1 2.1a8 8 0 0 1 0 5.8 1 1 0 1 1-1.6-1.2 6 6 0 0 0 0-3.4 1 1 0 0 1 1.6-1.2z'/%3E%3C/svg%3E");
+}
+
+body#anduinos .taskbar-clock-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: calc(var(--head) * 1.1);
+    height: calc(var(--head) * 0.85);
+    padding: 0 calc(var(--head) * 0.2);
+    border: 0;
+    border-radius: 0.4rem;
+    color: var(--anduin-shell-text);
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+}
+
+body#anduinos .taskbar-clock-trigger:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#anduinos .taskbar__clock {
+    font-variant-numeric: tabular-nums;
+}

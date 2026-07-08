@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/bookwood_linuxmint.jpg",
+  "role": "wallpaper-thumb",
+  "profile": "wallpaper-thumb",
+  "encoder": "sharp",
+  "options": {
+    "maxWidth": 512,
+    "quality": 78
+  },
+  "width": 512,
+  "height": 288,
+  "preparedAt": "2026-06-17T22:44:37.201Z"
+}

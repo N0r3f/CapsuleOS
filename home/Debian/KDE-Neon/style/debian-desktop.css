@@ -1,0 +1,195 @@
+/**
+ * KDE Neon — bureau + panel Plasma (clair / sombre via html[data-theme]).
+ * Clair : réf. openSUSE / panel VM KDE neon (Breeze clair).
+ * Sombre : panel translucide Plasma 6.
+ */
+
+html:has(#kde-neon) {
+    --kde-neon-plasma-accent: #3daee9;
+    --kde-neon-taskbar-edge-gap: calc(var(--head) / 5);
+    --menu-accent: var(--kde-neon-plasma-accent);
+    --mint-taskbar-item-bg-hover: rgba(61, 174, 233, 0.14);
+    --mint-taskbar-item-bg-active: rgba(61, 174, 233, 0.18);
+    --mint-taskbar-item-border-hover: rgba(61, 174, 233, 0.45);
+    --mint-taskbar-item-shadow-active: inset 0 0 0 1px rgba(61, 174, 233, 0.28);
+    --mint-taskbar-right-bg: transparent;
+    --mint-taskbar-right-separator: transparent;
+    --mint-clock-hover-bg: rgba(61, 174, 233, 0.1);
+    --desktop-shortcut-text: #ffffff;
+    --desktop-shortcut-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+    --desktop-shortcut-hover-bg: rgba(61, 174, 233, 0.12);
+}
+
+html[data-theme="light"] body#kde-neon {
+    color-scheme: light;
+    /* Kickoff Breeze clair — transparence VM (wallpaper visible sous le menu) */
+    --kde-neon-menu-bg: rgba(239, 240, 241, 0.58);
+    --kde-neon-menu-border: rgba(0, 0, 0, 0.07);
+    --kde-neon-menu-text: #232629;
+    --kde-neon-menu-text-muted: #7f8c8d;
+    --kde-neon-menu-hover: rgba(61, 174, 233, 0.14);
+    --kde-neon-menu-active: rgba(61, 174, 233, 0.26);
+    --kde-neon-menu-search-focus: var(--kde-neon-plasma-accent);
+    --kde-neon-menu-header-bg: rgba(255, 255, 255, 0.22);
+    --kde-neon-menu-sidebar-bg: rgba(255, 255, 255, 0.12);
+    --kde-neon-menu-apps-bg: rgba(255, 255, 255, 0.38);
+    --kde-neon-menu-footer-bg: rgba(239, 240, 241, 0.65);
+    --kde-neon-menu-icon-filter: brightness(0) saturate(100%);
+    --kde-neon-menu-cat-icon-filter: none;
+    --kde-neon-menu-shadow: 0 0.5rem 1.35rem rgba(35, 38, 41, 0.16);
+    --kde-neon-menu-search-bg: #ffffff;
+    --kde-neon-menu-search-border: rgba(0, 0, 0, 0.12);
+    --kde-neon-menu-search-placeholder: rgba(35, 38, 41, 0.45);
+    --kde-neon-menu-divider: rgba(0, 0, 0, 0.08);
+    --kde-neon-menu-search-highlight-bg: #cce8ff;
+    --kde-neon-menu-search-hover-bg: #e3f3fc;
+    --kde-neon-menu-search-clear-bg: rgba(35, 38, 41, 0.58);
+    --kde-neon-menu-search-clear-bg-hover: rgba(35, 38, 41, 0.72);
+    --kde-neon-menu-scrollbar-thumb: rgba(35, 38, 41, 0.22);
+    --kde-neon-plasma-panel-bg: #eff0f1;
+    --kde-neon-plasma-panel-border: #d9d9d9;
+    --kde-neon-plasma-text: #232629;
+    --kde-neon-plasma-text-muted: #7f8c8d;
+    --kde-neon-mono-logo-filter: brightness(0) saturate(100%);
+    --kde-neon-taskbar-notch: #eff0f1;
+    --kde-neon-tray-icon-filter: brightness(0) saturate(100%);
+    --kde-plasma-tray-item-hover-bg: rgba(0, 0, 0, 0.08);
+    --kde-neon-show-desktop-hover-bg: rgba(0, 0, 0, 0.06);
+    --kde-neon-clock-expanded-bg: rgba(61, 174, 233, 0.1);
+    --calendar-popover-chrome-bg: #eff0f1;
+    --calendar-popover-grid-bg: #eff0f1;
+    --calendar-popover-grid-overlay: rgba(239, 240, 241, 0.82);
+    --calendar-popover-bg: #eff0f1;
+    --calendar-popover-border: 1px solid rgba(35, 38, 41, 0.11);
+    --calendar-popover-shadow: 0 0.25rem 1rem rgba(35, 38, 41, 0.14);
+    --calendar-popover-text: #232629;
+    --calendar-popover-week-label: #7a8b9a;
+    --calendar-popover-divider: 1px solid rgba(35, 38, 41, 0.1);
+    --calendar-popover-events-muted: #8e99a3;
+    --calendar-popover-day-text: #232629;
+    --calendar-popover-tab-active: #3daee9;
+    --calendar-popover-today-bg: rgba(61, 174, 233, 0.28);
+    --calendar-popover-today-text: #232629;
+    --calendar-popover-today-ring: #3daee9;
+    --calendar-popover-today-hover-bg: rgba(61, 174, 233, 0.38);
+    --calendar-popover-day-hover-bg: rgba(61, 174, 233, 0.14);
+    --calendar-popover-arrow-text: #232629;
+    --calendar-popover-arrow-bg: rgba(35, 38, 41, 0.06);
+    --calendar-popover-arrow-hover-bg: rgba(35, 38, 41, 0.11);
+}
+
+html:not([data-theme="light"]) body#kde-neon {
+    color-scheme: dark;
+    --kde-neon-menu-bg: rgba(32, 40, 54, 0.96);
+    --kde-neon-menu-border: rgba(255, 255, 255, 0.08);
+    --kde-neon-menu-text: rgba(255, 255, 255, 0.92);
+    --kde-neon-menu-text-muted: rgba(255, 255, 255, 0.55);
+    --kde-neon-menu-hover: rgba(255, 255, 255, 0.1);
+    --kde-neon-menu-active: rgba(61, 174, 233, 0.22);
+    --kde-neon-menu-header-bg: rgba(0, 0, 0, 0.16);
+    --kde-neon-menu-sidebar-bg: rgba(0, 0, 0, 0.1);
+    --kde-neon-menu-apps-bg: transparent;
+    --kde-neon-menu-footer-bg: rgba(0, 0, 0, 0.18);
+    --kde-neon-menu-icon-filter: brightness(0) invert(1);
+    --kde-neon-menu-cat-icon-filter: none;
+    --kde-neon-menu-search-bg: rgba(255, 255, 255, 0.07);
+    --kde-neon-menu-search-border: rgba(255, 255, 255, 0.1);
+    --kde-neon-menu-search-placeholder: rgba(255, 255, 255, 0.55);
+    --kde-neon-menu-divider: rgba(255, 255, 255, 0.08);
+    --kde-neon-menu-search-highlight-bg: rgba(61, 174, 233, 0.28);
+    --kde-neon-menu-search-hover-bg: rgba(61, 174, 233, 0.18);
+    --kde-neon-menu-search-clear-bg: rgba(255, 255, 255, 0.22);
+    --kde-neon-menu-search-clear-bg-hover: rgba(255, 255, 255, 0.32);
+    --kde-neon-menu-scrollbar-thumb: rgba(255, 255, 255, 0.22);
+    --kde-neon-plasma-panel-bg: rgba(30, 33, 38, 0.92);
+    --kde-neon-plasma-panel-border: rgba(255, 255, 255, 0.08);
+    --kde-neon-plasma-text: rgba(245, 246, 247, 0.95);
+    --kde-neon-plasma-text-muted: rgba(245, 246, 247, 0.75);
+    --kde-neon-mono-logo-filter: none;
+    --kde-neon-taskbar-notch: rgba(245, 246, 247, 0.88);
+    --kde-neon-tray-icon-filter: none;
+    --kde-neon-show-desktop-hover-bg: rgba(255, 255, 255, 0.08);
+    --kde-neon-clock-expanded-bg: rgba(61, 174, 233, 0.1);
+    --calendar-popover-chrome-bg: rgba(49, 54, 59, 0.96);
+    --calendar-popover-grid-bg: #31363b;
+    --calendar-popover-grid-overlay: rgba(40, 44, 49, 0.78);
+    --calendar-popover-bg: rgba(49, 54, 59, 0.96);
+    --calendar-popover-border: 1px solid rgba(255, 255, 255, 0.08);
+    --calendar-popover-shadow: 0 0.35rem 1.2rem rgba(0, 0, 0, 0.45);
+    --calendar-popover-text: rgba(239, 240, 241, 0.95);
+    --calendar-popover-week-label: rgba(239, 240, 241, 0.55);
+    --calendar-popover-divider: 1px solid rgba(255, 255, 255, 0.08);
+    --calendar-popover-events-muted: rgba(239, 240, 241, 0.45);
+    --calendar-popover-day-text: rgba(239, 240, 241, 0.92);
+    --calendar-popover-tab-active: #3daee9;
+    --calendar-popover-today-bg: rgba(61, 174, 233, 0.35);
+    --calendar-popover-today-text: #232629;
+    --calendar-popover-today-ring: #3daee9;
+    --calendar-popover-today-hover-bg: rgba(61, 174, 233, 0.48);
+    --calendar-popover-day-hover-bg: rgba(255, 255, 255, 0.08);
+    --calendar-popover-arrow-text: rgba(239, 240, 241, 0.9);
+    --calendar-popover-arrow-bg: rgba(255, 255, 255, 0.08);
+    --calendar-popover-arrow-hover-bg: rgba(255, 255, 255, 0.14);
+}
+
+html:has(#kde-neon) {
+    --mint-taskbar-bg: var(--kde-neon-plasma-panel-bg);
+    --mint-taskbar-top-border: 1px solid var(--kde-neon-plasma-panel-border);
+    --kde-plasma-tray-color: var(--kde-neon-plasma-text);
+    --kde-plasma-tray-item-size: calc(var(--head) * 0.72);
+    --kde-plasma-tray-item-hover-bg: rgba(255, 255, 255, 0.06);
+    --mint-clock-date-color: var(--kde-neon-plasma-text-muted);
+}
+
+#kde-neon {
+    background-image: url("../../../../usr/share/capsuleos/assets/images/vendors/neon/wallpaper/neon-default.png");
+    background-color: #243042;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#kde-neon #desktop {
+    position: relative;
+}
+
+#kde-neon footer .taskbar-right {
+    gap: 0;
+}
+
+#kde-neon footer .taskbar-tray {
+    color: var(--kde-neon-plasma-text);
+    padding-right: 0;
+}
+
+#kde-neon footer .taskbar-tray__link > img,
+#kde-neon footer .taskbar-tray__item > img,
+#kde-neon footer .taskbar-tray__btn > img {
+    opacity: 0.9;
+    filter: var(--kde-neon-tray-icon-filter);
+}
+
+#kde-neon footer .taskbar-tray__btn--expand > img {
+    width: calc(var(--head) * 0.36);
+    height: calc(var(--head) * 0.36);
+    opacity: 0.75;
+}
+
+#kde-neon footer .taskbar-clock-trigger {
+    color: var(--kde-neon-plasma-text);
+    background: transparent;
+    margin-left: calc(var(--head) / -10);
+    margin-right: var(--kde-neon-taskbar-edge-gap);
+    padding-left: calc(var(--head) / 18);
+    padding-right: calc(var(--head) / 18);
+}
+
+#kde-neon footer .taskbar-clock-trigger[aria-expanded="true"] {
+    border-top-color: var(--kde-neon-plasma-accent);
+    background: var(--kde-neon-clock-expanded-bg);
+}
+
+html[data-theme="light"] body#kde-neon footer .taskbar-show-desktop > img,
+html:not([data-theme="light"]) body#kde-neon footer .taskbar-show-desktop > img {
+    filter: var(--kde-neon-tray-icon-filter);
+}

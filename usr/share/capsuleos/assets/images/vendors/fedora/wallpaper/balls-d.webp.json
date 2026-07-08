@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/balls-d.jxl",
+  "sourceSha256": "6c70e239a2911881cacc691709f9b9d18f2bdf15926d92f06e5eea335369916c",
+  "output": "images/vendors/fedora/wallpaper/balls-d.webp",
+  "outputSha256": "e058b2137e578fb2f8099cd57aaf6083ceada79a23cfda0c9a63d8de9329dca6",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:23:26.173Z"
+}

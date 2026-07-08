@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-desktop.png",
+  "sourceSha256": "ae8f4e2d4a6d7d6b2ea0c7a33ba2dee0d0830b75c7e6c66a0e8dfdd17edfda92",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-desktop-optimized.webp",
+  "outputSha256": "ef0d343d2bb92dca3a50ebc4610f4670adbd00f2cf456fd87382fa58aef27530",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:04.722Z"
+}

@@ -1,0 +1,117 @@
+/**
+ * elementary — text_editor (structure Rocky).
+ */
+body#elementary {
+    --xed-chrome-bg: #303030;
+    --xed-status-bg: #262626;
+    --xed-buffer-bg: #ffffff;
+    --xed-buffer-text: #1e1e1e;
+    --xed-text: #ffffff;
+    --xed-border: rgba(255, 255, 255, 0.08);
+    --xed-menu-surface-bg: #383838;
+    --xed-menu-hover-bg: rgba(255, 255, 255, 0.08);
+    --xed-toolbar-hover-bg: rgba(255, 255, 255, 0.1);
+    --xed-toolbar-active-bg: rgba(53, 132, 228, 0.22);
+    --xed-toolbar-icon-filter: brightness(0) invert(1);
+    --xed-mono-font: "Adwaita Mono", "Source Code Pro", "Liberation Mono", ui-monospace, monospace;
+}
+
+html[data-theme="light"]:has(#elementary) {
+    --xed-chrome-bg: #f6f6f6;
+    --xed-status-bg: #ebebeb;
+    --xed-buffer-bg: #ffffff;
+    --xed-buffer-text: #1e1e1e;
+    --xed-text: #1e1e1e;
+    --xed-border: rgba(0, 0, 0, 0.1);
+    --xed-menu-surface-bg: #ffffff;
+    --xed-menu-hover-bg: rgba(0, 0, 0, 0.06);
+    --xed-toolbar-hover-bg: rgba(0, 0, 0, 0.06);
+    --xed-toolbar-active-bg: rgba(53, 132, 228, 0.14);
+    --xed-toolbar-icon-filter: brightness(0);
+}
+
+body#elementary div[data-link="text_editor"].gnome-app--csd {
+    width: min(52rem, calc(100vw - var(--elementary-dock-width, 0px) - 2rem));
+    height: min(34rem, calc(100vh - var(--elementary-top-bar-height, 2.75rem) - 2rem));
+    min-width: 36rem;
+    min-height: 24rem;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="text_editor"] .xed-app__menubar {
+    border-bottom: 1px solid var(--xed-border);
+}
+
+body#elementary main#xedApp {
+    color: var(--xed-text);
+    background: var(--xed-chrome-bg);
+}
+
+body#elementary .xed-app__menubar,
+body#elementary .xed-app__toolbar {
+    background: var(--xed-chrome-bg);
+    border-color: var(--xed-border);
+}
+
+body#elementary .xed-app__status {
+    background: var(--xed-status-bg);
+    border-color: var(--xed-border);
+    color: rgba(255, 255, 255, 0.72);
+}
+
+html[data-theme="light"]:has(#elementary) .xed-app__status {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+body#elementary .xed-menu__trigger:hover,
+body#elementary .xed-menu__trigger[aria-expanded="true"] {
+    background: var(--xed-menu-hover-bg);
+}
+
+body#elementary .xed-menu__dropdown {
+    background: var(--xed-menu-surface-bg);
+    border-color: var(--xed-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body#elementary .xed-menu__item {
+    color: var(--xed-text);
+}
+
+body#elementary .xed-app__tool:hover {
+    background: var(--xed-toolbar-hover-bg);
+    border-color: var(--menu-accent, #3584e4);
+}
+
+body#elementary .xed-app__tool img,
+body#elementary .xed-app__tool-glyph {
+    filter: var(--xed-toolbar-icon-filter);
+}
+
+body#elementary .xed-app__editor-wrap,
+body#elementary .xed-app__area {
+    color: var(--xed-buffer-text);
+    background: var(--xed-buffer-bg);
+    font-family: var(--xed-mono-font);
+    font-size: 11pt;
+    line-height: 1.5;
+}
+
+body#elementary .xed-app__area {
+    padding: 1rem 1.25rem;
+}
+
+body#elementary .xed-app__status-pos::before {
+    content: "";
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 0.35rem;
+    vertical-align: -0.1em;
+    background: currentColor;
+    opacity: 0.55;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M3 3.5h10v1H3v-1zm0 3h10v1H3v-1zm0 3h7v1H3v-1z'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M3 3.5h10v1H3v-1zm0 3h10v1H3v-1zm0 3h7v1H3v-1z'/%3E%3C/svg%3E") center/contain no-repeat;
+}

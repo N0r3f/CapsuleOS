@@ -1,0 +1,441 @@
+/**
+ * Terminal Ptyxis / RHEL (classe terminal-window--fedora).
+ * Layout + typo historique : les skins vendor posent taille fenêtre et tokens.
+ */
+.terminal-window--fedora {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    --terminal-font-family: var(--font-mono, "Red Hat Mono", "Ubuntu Mono", monospace);
+    --terminal-font-size: calc(var(--head, 32px) / 2.35);
+    --terminal-line-height: 1.38;
+    --terminal-prompt-user-color: var(--fedora-terminal-prompt-user, var(--fedora-terminal-prompt, #33d17a));
+    --terminal-prompt-text-color: var(--fedora-terminal-prompt-text, var(--fedora-app-text, #f1f1f3));
+    --terminal-prompt-path-seg-color: var(--fedora-terminal-prompt-path-seg, var(--fedora-app-text, #f1f1f3));
+    --terminal-success-color: var(--fedora-terminal-success, var(--terminal-prompt-user-color));
+    --terminal-history-weight: var(--fedora-terminal-history-weight, 400);
+}
+
+.terminal-window--fedora > #terminalContainer,
+.terminal-window--fedora > .capsule-terminal-shell {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0 0 var(--terminal-window-radius, 0.8rem) var(--terminal-window-radius, 0.8rem);
+    overflow: hidden;
+    box-sizing: border-box;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background: transparent;
+    box-shadow: none;
+}
+
+.terminal-window--fedora .capsule-terminal-toolbar {
+    display: none !important;
+}
+
+.terminal-window--fedora .capsule-terminal,
+.terminal-window--fedora [data-terminal-app] {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    margin: 0;
+    padding: var(--terminal-body-padding, 0.5rem 0.65rem);
+    color: var(--fedora-app-text, inherit);
+    background: var(--fedora-app-terminal-surface, transparent);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Ptyxis VM : invite sous l'historique en haut — pas de barre de saisie collée au bas. */
+.terminal-window--fedora .capsule-terminal::after,
+.terminal-window--fedora [data-terminal-app]::after {
+    content: "";
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.terminal-window--fedora .capsule-terminal__output,
+.terminal-window--fedora [data-terminal-output] {
+    display: block;
+    flex: 0 0 auto;
+    flex-grow: 0;
+    min-height: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    font-family: var(--terminal-font-family);
+    font-size: var(--terminal-font-size);
+    font-weight: var(--terminal-history-weight);
+    line-height: var(--terminal-line-height);
+}
+
+.terminal-window--fedora #output > div,
+.terminal-window--fedora #output > div.capsule-terminal__line,
+.terminal-window--fedora .capsule-terminal__output > div,
+.terminal-window--fedora .capsule-terminal__line {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.terminal-window--fedora #output > div:not(.capsule-terminal__line--listing) > code,
+.terminal-window--fedora .capsule-terminal__line:not(.capsule-terminal__line--listing) > code {
+    display: inline;
+    width: auto;
+    height: auto;
+    margin: 0 0 0.12em 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: var(--terminal-prompt-text-color);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.terminal-window--fedora #output > div.capsule-terminal__line--command,
+.terminal-window--fedora .capsule-terminal__line--command {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-weight: var(--terminal-history-weight);
+    line-height: var(--terminal-line-height);
+}
+
+.terminal-window--fedora #output > div.capsule-terminal__line--command > code,
+.terminal-window--fedora .capsule-terminal__line--command > code,
+.terminal-window--fedora .capsule-terminal__line--command .capsule-terminal__command-line {
+    display: inline;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: var(--terminal-prompt-text-color);
+    font-weight: var(--terminal-history-weight);
+    white-space: pre-wrap;
+}
+
+.terminal-window--fedora .capsule-terminal__prompt-user,
+.terminal-window--fedora .capsule-terminal__line--command .capsule-terminal__prompt-user {
+    color: var(--terminal-prompt-user-color);
+    font-weight: 600;
+}
+
+.terminal-window--fedora .capsule-terminal__prompt-colon,
+.terminal-window--fedora .capsule-terminal__prompt-dollar,
+.terminal-window--fedora .capsule-terminal__line--command .capsule-terminal__prompt-colon,
+.terminal-window--fedora .capsule-terminal__line--command .capsule-terminal__prompt-dollar {
+    color: var(--terminal-prompt-text-color);
+    font-weight: var(--terminal-history-weight);
+}
+
+.terminal-window--fedora .capsule-terminal__prompt-path-seg,
+.terminal-window--fedora .capsule-terminal__line--command .capsule-terminal__prompt-path-seg {
+    color: var(--terminal-prompt-path-seg-color);
+    font-weight: var(--terminal-history-weight);
+}
+
+.terminal-window--fedora #input,
+.terminal-window--fedora .capsule-terminal__input,
+.terminal-window--fedora [data-terminal-form] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    flex: 0 0 auto;
+    flex-grow: 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    line-height: var(--terminal-line-height);
+}
+
+.terminal-window--fedora #output:has(.capsule-terminal__line) + #input,
+.terminal-window--fedora [data-terminal-output]:has(.capsule-terminal__line) + [data-terminal-form] {
+    margin-top: 0.12em;
+}
+
+.terminal-window--fedora #prompt,
+.terminal-window--fedora .capsule-terminal__prompt,
+.terminal-window--fedora [data-terminal-prompt] {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    margin: 0 calc(var(--head, 32px) / 8) 0 0;
+    padding: 0;
+    white-space: pre;
+    font-family: var(--terminal-font-family);
+    font-size: var(--terminal-font-size);
+    line-height: var(--terminal-line-height);
+    font-weight: var(--terminal-history-weight);
+    color: inherit;
+}
+
+.terminal-window--fedora #command,
+.terminal-window--fedora #command:focus,
+.terminal-window--fedora #command:focus-visible,
+.terminal-window--fedora #command:active,
+.terminal-window--fedora .capsule-terminal__command,
+.terminal-window--fedora .capsule-terminal__command:focus,
+.terminal-window--fedora .capsule-terminal__command:focus-visible,
+.terminal-window--fedora .capsule-terminal__command:active,
+.terminal-window--fedora [data-terminal-command],
+.terminal-window--fedora [data-terminal-command]:focus,
+.terminal-window--fedora [data-terminal-command]:focus-visible,
+.terminal-window--fedora [data-terminal-command]:active {
+    display: inline-block;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    box-shadow: none;
+    color: var(--terminal-prompt-text-color);
+    caret-color: var(--terminal-prompt-text-color);
+    font-family: var(--terminal-font-family);
+    font-size: var(--terminal-font-size);
+    line-height: var(--terminal-line-height);
+    font-weight: 500;
+    vertical-align: baseline;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.terminal-window--fedora .capsule-terminal__line--error > code {
+    color: var(--fedora-terminal-error, #ff7b72);
+    font-weight: 500;
+}
+
+.terminal-window--fedora .capsule-terminal__line--success > code {
+    color: var(--terminal-success-color, #33d17a);
+    font-weight: 600;
+}
+
+.terminal-window--fedora .capsule-terminal__line--listing > code {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.terminal-window--fedora .capsule-terminal__line--listing .capsule-terminal__dir,
+.terminal-window--fedora .capsule-terminal__line--listing .capsule-terminal__file {
+    display: inline-block;
+    vertical-align: baseline;
+    box-sizing: content-box;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+.terminal-window--fedora .capsule-terminal__line--listing .capsule-terminal__dir {
+    color: var(--terminal-ls-dir-color, #2ec27e);
+    font-weight: 500;
+}
+
+.terminal-window--fedora .capsule-terminal__line--listing .capsule-terminal__file {
+    color: inherit;
+    font-weight: inherit;
+}
+
+.terminal-window--fedora #windowHeader,
+.terminal-window--fedora .fedora-terminal-header {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.terminal-window--fedora #windowHeader > nav:last-child,
+.terminal-window--fedora .fedora-terminal-header > nav:last-child {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.terminal-window--fedora .fedora-terminal-header__tabs {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.terminal-window--fedora .fedora-terminal-header__window-controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.2rem;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: var(--terminal-tab-gap, 0.35rem);
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    box-sizing: border-box;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__tab {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    min-width: var(--terminal-tab-min-width, 0);
+    max-width: none;
+    height: auto;
+    align-self: stretch;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__tab--active {
+    flex: 1 1 0;
+    max-width: none;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__label {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__close {
+    flex: 0 0 auto;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__tab:not(.fedora-terminal-tabs__tab--active):hover {
+    background: color-mix(in srgb, var(--fedora-app-header-active-bg, #3d3d3d) 55%, transparent);
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__close {
+    cursor: pointer;
+    padding: 0 0.1rem;
+}
+
+.terminal-window--fedora .fedora-terminal-tabs__close:hover {
+    opacity: 1;
+}
+
+.terminal-window--fedora .fedora-terminal-header__button--menu::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 4h10v1.2H3V4zm0 3.4h10v1.2H3V7.4zm0 3.4h10V12H3v-1.2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 4h10v1.2H3V4zm0 3.4h10v1.2H3V7.4zm0 3.4h10V12H3v-1.2z'/%3E%3C/svg%3E");
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.terminal-window--fedora .fedora-terminal-popover,
+.terminal-window--gnome .fedora-terminal-popover {
+    position: fixed;
+    z-index: 1200;
+    min-width: 14.5rem;
+    padding: 0.35rem 0;
+    border: 1px solid var(--fedora-app-header-border, rgba(255, 255, 255, 0.1));
+    border-radius: 0.65rem;
+    color: var(--fedora-app-text, #f1f1f3);
+    background: var(--fedora-app-header-alt-bg, #383838);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+}
+
+.terminal-window--fedora .fedora-terminal-popover__item,
+.terminal-window--gnome .fedora-terminal-popover__item {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0.45rem 0.85rem;
+    border: 0;
+    border-radius: 0;
+    color: inherit;
+    background: transparent;
+    font-family: var(--font-ui, sans-serif);
+    font-size: 0.86rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.terminal-window--fedora .fedora-terminal-popover__item:hover,
+.terminal-window--fedora .fedora-terminal-popover__item:focus-visible,
+.terminal-window--gnome .fedora-terminal-popover__item:hover,
+.terminal-window--gnome .fedora-terminal-popover__item:focus-visible {
+    background: var(--fedora-app-header-active-bg, #3d3d3d);
+    outline: none;
+}
+
+.terminal-window--fedora .fedora-terminal-popover__separator,
+.terminal-window--gnome .fedora-terminal-popover__separator {
+    height: 1px;
+    margin: 0.35rem 0.5rem;
+    background: var(--fedora-app-header-border, rgba(255, 255, 255, 0.12));
+}

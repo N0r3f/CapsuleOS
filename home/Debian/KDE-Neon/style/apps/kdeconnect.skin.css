@@ -1,0 +1,24 @@
+body#kde-neon div[data-link="kdeconnect"].windowElement {
+    width: min(28rem, calc(100vw - 2rem));
+    height: min(22rem, calc(100vh - var(--taskbar-height) - 2rem));
+}
+
+body#kde-neon div[data-link="kdeconnect"] main#kdeconnectApp {
+    height: 100%;
+}
+
+html[data-theme="light"] body#kde-neon main#kdeconnectApp.kde-kdeconnect {
+    --kdeconnect-bg: #fcfcfc;
+    --kdeconnect-panel: #eff0f1;
+    --kdeconnect-text: #232629;
+    --kdeconnect-border: rgba(35, 38, 41, 0.12);
+    --kdeconnect-muted: #7f8c8d;
+}
+
+html:not([data-theme="light"]) body#kde-neon main#kdeconnectApp.kde-kdeconnect {
+    --kdeconnect-bg: #31363b;
+    --kdeconnect-panel: #2a2e32;
+    --kdeconnect-text: #eff0f1;
+    --kdeconnect-border: rgba(239, 240, 241, 0.12);
+    --kdeconnect-muted: rgba(239, 240, 241, 0.65);
+}

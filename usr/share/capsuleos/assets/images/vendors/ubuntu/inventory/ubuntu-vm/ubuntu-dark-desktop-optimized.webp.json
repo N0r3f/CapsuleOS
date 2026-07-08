@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-desktop.png",
+  "sourceSha256": "94a51801548603a5f45d1cf0461b80cf85d2bbe71bed95dc80042b339c17a4a9",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-dark-desktop-optimized.webp",
+  "outputSha256": "b82dc848fd83bc9547ff38dae08c2583a9d3e7f277c39cc5e95509af99ef0067",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:30.005Z"
+}

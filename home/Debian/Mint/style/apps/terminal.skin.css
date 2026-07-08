@@ -1,0 +1,442 @@
+/**
+ * Linux Mint Cinnamon — Terminal GNOME (réf. gnome-terminal sur Mint).
+ */
+body#mint {
+    --mint-terminal-surface: #2e2e2e;
+    --mint-terminal-header-bg: #363636;
+    --mint-terminal-prompt-user: #0c75de;
+    --mint-terminal-prompt-path: #f6f5f4;
+    --mint-terminal-prompt-path-seg: #f6f5f4;
+    --mint-terminal-dir-color: #0c75de;
+    --mint-terminal-error: #f66151;
+    --mint-terminal-history-weight: 400;
+}
+
+html[data-theme="light"]:has(#mint) body#mint {
+    --mint-terminal-surface: #fafafa;
+    --mint-terminal-header-bg: #ebebeb;
+    --mint-terminal-prompt-user: #2ec27e;
+    --mint-terminal-prompt-path: #1e1e1e;
+    --mint-terminal-prompt-path-seg: #1c71d8;
+    --mint-terminal-dir-color: #1c71d8;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    color: var(--mint-terminal-prompt-path);
+    background: var(--mint-terminal-surface);
+    overflow: hidden;
+    --terminal-prompt-user-color: var(--mint-terminal-prompt-user);
+    --terminal-prompt-text-color: var(--mint-terminal-prompt-path);
+    --terminal-prompt-path-seg-color: var(--mint-terminal-prompt-path-seg);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome.windowElementActive {
+    border-color: var(--menu-accent);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowHeader {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    overflow: hidden;
+    height: calc(var(--head) / 1.3);
+    margin: 0;
+    padding: 0 calc(var(--head) / 5);
+    border: 0;
+    border-radius: calc(var(--head) / 4) calc(var(--head) / 4) 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+    color: var(--mint-terminal-prompt-path);
+    background: var(--mint-terminal-header-bg);
+    user-select: none;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome.windowElementActive #windowHeader {
+    background: var(--mint-terminal-header-bg);
+    border-bottom-color: rgba(0, 0, 0, 0.32);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowHeader > nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    min-width: 0;
+    height: 100%;
+    gap: calc(var(--head) / 12);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowHeader > nav:first-child {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowHeader > nav:last-child {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    justify-content: flex-end;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowTitle {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    margin: 0 calc(var(--head) / 8);
+    padding: 0 calc(var(--head) / 10);
+    color: var(--mint-terminal-prompt-path);
+    font-family: "DejaVu Sans Mono", "Ubuntu Mono", "Noto Sans Mono", monospace;
+    font-size: calc(var(--head) / 2.4);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #minimizeBtn,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #resizeBtn,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #closeBtn,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) / 1.5);
+    height: calc(var(--head) / 1.5);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: calc(var(--head) / 8);
+    color: var(--mint-terminal-prompt-path);
+    background: transparent;
+    cursor: default;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #minimizeBtn:hover,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #resizeBtn:hover,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #closeBtn:hover,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button--new-tab::before {
+    content: "+";
+    font-size: calc(var(--head) / 2.2);
+    font-weight: 600;
+    line-height: 1;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button--search::before,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button--menu::before,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #minimizeBtn::before,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #resizeBtn::before,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #closeBtn::before {
+    content: "";
+    display: block;
+    width: calc(var(--head) / 3.2);
+    height: calc(var(--head) / 3.2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.88;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button--search::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f6f5f4'%3E%3Cpath d='M10.7 11.4 14 14.7 13.3 15.4 10 12.1C9.1 12.7 8.1 13 7 13 4.2 13 2 10.8 2 8S4.2 3 7 3s5 2.2 5 5c0 1.1-.3 2.1-.9 3l3.6 3.6-.7.8zM7 12c2.2 0 4-1.8 4-4S9.2 4 7 4 3 5.8 3 8s1.8 4 4 4z'/%3E%3C/svg%3E");
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .gnome-terminal-header__button--menu::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f6f5f4'%3E%3Cpath d='M3 4h10v1.2H3V4zm0 3.4h10v1.2H3V7.4zm0 3.4h10V12H3v-1.2z'/%3E%3C/svg%3E");
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #minimizeBtn::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f6f5f4'%3E%3Cpath d='M3 12h10v1H3z'/%3E%3C/svg%3E");
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #resizeBtn::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f6f5f4'%3E%3Cpath d='M5 3v2H3v8h8v-2h2V3H5zm7 9H5V5h7v7z'/%3E%3C/svg%3E");
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #closeBtn::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f6f5f4'%3E%3Cpath d='M4.2 3.2 8 7l3.8-3.8 1 1L9 8l3.8 3.8-1 1L8 9l-3.8 3.8-1-1L7 8 3.2 4.2l1-1z'/%3E%3C/svg%3E");
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #closeBtn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome > #terminalContainer {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #terminalContainer,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal-shell {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0.55rem 0.7rem 0.75rem;
+    border: 0;
+    border-radius: 0 0 calc(var(--head) / 4) calc(var(--head) / 4);
+    color: var(--mint-terminal-prompt-path);
+    background: var(--mint-terminal-surface);
+    overflow: hidden;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal-toolbar {
+    display: none;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-terminal-app] {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background: var(--mint-terminal-surface);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__output,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-terminal-output] {
+    flex: 0 0 auto;
+    width: 100%;
+    margin: 0;
+    font-weight: 400;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line > code {
+    color: var(--mint-terminal-prompt-path);
+    font-weight: 400;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowTitle .capsule-terminal__title-user {
+    color: var(--mint-terminal-prompt-user);
+    font-weight: 700;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowTitle .capsule-terminal__title-rest {
+    color: var(--mint-terminal-prompt-path);
+    font-weight: 500;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--listing > code {
+    display: block;
+    font-weight: 400;
+    line-height: 1.45;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--listing .capsule-terminal__dir {
+    color: var(--mint-terminal-dir-color);
+    font-weight: 400;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--listing .capsule-terminal__file {
+    color: var(--mint-terminal-prompt-path);
+    font-weight: 400;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #input,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__input,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-terminal-form] {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    line-height: var(--terminal-line-height, 1.35);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #prompt,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__prompt,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-terminal-prompt] {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    margin: 0 0.2rem 0 0;
+    padding: 0;
+    font-family: var(--terminal-font-family, "DejaVu Sans Mono", "Ubuntu Mono", "Noto Sans Mono", monospace);
+    font-size: var(--terminal-font-size, 0.92rem);
+    line-height: var(--terminal-line-height, 1.35);
+    font-weight: 400;
+    white-space: pre;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #command,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #command:focus,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__command,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-terminal-command],
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-terminal-command]:focus {
+    display: inline-block;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 400;
+    line-height: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--error code {
+    color: var(--mint-terminal-error);
+    font-weight: 400;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #output > div.capsule-terminal__line--command,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    line-height: var(--terminal-line-height, 1.35);
+    font-weight: var(--mint-terminal-history-weight);
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #output > div.capsule-terminal__line--command > code,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command > code {
+    display: inline;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__command-line {
+    display: inline;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    font-weight: var(--mint-terminal-history-weight);
+    line-height: inherit;
+    white-space: pre-wrap;
+}
+
+body#mint .windowElement[data-link="terminal"] .terminal-prefs {
+    position: absolute;
+    z-index: 30;
+    min-width: 320px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #3d3d3d;
+    color: #f6f5f4;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body#mint .windowElement[data-link="terminal"] .terminal-prefs__tabs {
+    display: flex;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+}
+
+body#mint .windowElement[data-link="terminal"] .terminal-prefs__tab.is-active {
+    font-weight: 600;
+}
+
+/* Onglets gnome-terminal — le libellé remplace #windowTitle, sans débordement sur la zone cliente. */
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowHeader:has(.terminal-tabs__tab) #windowTitle {
+    display: none;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .fedora-terminal-header__tabs {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body#mint .windowElement[data-link="terminal"] .terminal-tabs {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 0.35rem;
+    box-sizing: border-box;
+}
+
+body#mint .windowElement[data-link="terminal"] .terminal-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    max-height: calc(100% - 4px);
+    border: 0;
+    border-radius: 0;
+    padding: 0.15rem 0.65rem;
+    background: transparent;
+    color: var(--mint-terminal-prompt-path);
+    font: inherit;
+    cursor: pointer;
+}
+
+body#mint .windowElement[data-link="terminal"] .terminal-tabs__tab--active {
+    background: transparent;
+    box-shadow: inset 0 -2px 0 var(--mint-terminal-prompt-user, #0c75de);
+}
+
+body#mint .windowElement[data-link="terminal"] .fedora-terminal-tabs__label {
+    color: inherit;
+    font-family: var(--terminal-font-family, "DejaVu Sans Mono", "Ubuntu Mono", "Noto Sans Mono", monospace);
+    font-size: var(--terminal-font-size, 0.92rem);
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__prompt-user {
+    color: var(--terminal-prompt-user-color);
+    font-weight: 700;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__prompt-path-seg {
+    color: var(--terminal-prompt-path-seg-color);
+    font-weight: 400;
+}
+
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__prompt-colon,
+body#mint .windowElement[data-link="terminal"].terminal-window--gnome .capsule-terminal__line--command .capsule-terminal__prompt-dollar {
+    color: var(--terminal-prompt-text-color);
+    font-weight: 400;
+}

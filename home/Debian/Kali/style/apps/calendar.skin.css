@@ -1,0 +1,81 @@
+/**
+ * Rocky — Calendrier GNOME (org.gnome.Calendar).
+ */
+body#kali {
+    --gnome-cal-bg: #303030;
+    --gnome-cal-surface: #383838;
+    --gnome-cal-text: #ffffff;
+    --gnome-cal-muted: rgba(255, 255, 255, 0.6);
+    --gnome-cal-border: rgba(255, 255, 255, 0.08);
+    --gnome-cal-today: #3584e4;
+    --gnome-cal-selected: rgba(53, 132, 228, 0.25);
+}
+
+html[data-theme="light"]:has(#kali) {
+    --gnome-cal-bg: #fafafa;
+    --gnome-cal-surface: #ffffff;
+    --gnome-cal-text: #1e1e1e;
+    --gnome-cal-muted: rgba(0, 0, 0, 0.5);
+    --gnome-cal-border: rgba(0, 0, 0, 0.1);
+}
+
+body#kali div[data-link="calendar"].windowElement {
+    width: min(36rem, calc(100vw - 2rem));
+    height: min(34rem, calc(100vh - var(--fedora-top-bar-height, 2.5rem) - 2rem));
+}
+
+body#kali div[data-link="calendar"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#kali div[data-link="calendar"] .gnome-calendar-app__header {
+    background: var(--gnome-cal-bg);
+    border-bottom: 1px solid var(--gnome-cal-border);
+}
+
+body#kali main#gnomeCalendarApp {
+    color: var(--gnome-cal-text);
+    background: var(--gnome-cal-bg);
+}
+
+body#kali .gnome-calendar-app__nav button {
+    color: var(--gnome-cal-text);
+}
+
+body#kali .gnome-calendar-app__weekday {
+    color: var(--gnome-cal-muted);
+}
+
+body#kali .gnome-calendar-app__day {
+    background: var(--gnome-cal-surface);
+    border-color: var(--gnome-cal-border);
+}
+
+body#kali .gnome-calendar-app__day--today {
+    background: var(--gnome-cal-selected);
+    color: var(--gnome-cal-today);
+    font-weight: 700;
+}
+
+body#kali .gnome-calendar-app__view-btn,
+body#kali .gnome-calendar-app__new {
+    color: var(--gnome-cal-text);
+}
+
+body#kali .gnome-calendar-app__sidebar {
+    border-color: var(--gnome-cal-border);
+}
+
+body#kali .gnome-calendar-app__editor {
+    color: var(--gnome-cal-text);
+    background: var(--gnome-cal-surface);
+    border: 1px solid var(--gnome-cal-border);
+}
+
+body#kali .gnome-calendar-app__editor-input {
+    color: var(--gnome-cal-text);
+    background: var(--gnome-cal-bg);
+    border-color: var(--gnome-cal-border);
+}

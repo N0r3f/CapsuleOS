@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "description": "Contrat fidélité visuelle — typographie, contextes de vue, MIME, accessibilité.",
+  "predicates": {
+    "Tp": "Typographie VM inventoriée et tokens skin alignés",
+    "Tv": "Contextes de vue (résolution, échelle, orientation) inventoriés",
+    "Tm": "Types MIME / associations apps documentés",
+    "Ta": "Hooks accessibilité VM ↔ Capsule documentés et vérifiables",
+    "Tf": "Tp ∧ Tv ∧ Tm ∧ Ta — fidélité visuelle prête pour reproduction"
+  },
+  "typography": {
+    "requiredTokens": ["--font-ui", "--font-mono", "--head"],
+    "forbiddenPatterns": [
+      "font-family:\\s*[^v][^a][^r].*sans-serif(?!.*var\\(--font-ui\\))",
+      "font-family:\\s*\"Inter\"",
+      "font-family:\\s*system-ui(?!.*var\\(--font)"
+    ],
+    "allowedExceptions": [
+      "usr/share/capsuleos/linux/apps/style/",
+      "node_modules/"
+    ],
+    "rules": [
+      "Une seule pile --font-ui et --font-mono par skin (surcharge html:has(#bodyId))",
+      "Interdit font-family en dur dans style/ du skin sauf via var(--font-ui) ou var(--font-mono)",
+      "Tailles relatives : calc(var(--head) / n) ou calc(1rem * var(--a11y-font-scale-factor))",
+      "Polices VM : familles + tailles pt documentées dans inventaire avant H5"
+    ]
+  },
+  "viewContexts": {
+    "requiredFields": ["viewportLab", "displayScales", "resolutions", "orientations"],
+    "labDefaults": {
+      "viewport": { "width": 1920, "height": 1080, "deviceScaleFactor": 1 },
+      "playwright": { "width": 1280, "height": 800 }
+    },
+    "gnomeDisplayDataset": [
+      "data-display-scale",
+      "data-display-resolution",
+      "data-display-orientation"
+    ],
+    "rules": [
+      "Inventorier chaque combinaison VM testée avant captures comparatives",
+      "Capsule : effets via gnome-shell-preferences.base.css + datasets html[data-*]",
+      "Smokes Playwright : déclarer viewport dans visual-fidelity.json"
+    ]
+  },
+  "mimeAndTypes": {
+    "probeTypes": [
+      "inode/directory",
+      "text/plain",
+      "application/pdf",
+      "image/jpeg",
+      "image/png",
+      "application/x-shellscript",
+      "x-scheme-handler/http",
+      "x-scheme-handler/https",
+      "audio/mpeg",
+      "video/mp4",
+      "application/zip"
+    ],
+    "minVmHandlers": 4,
+    "standards": [
+      "freedesktop.org shared-mime-info",
+      "RFC 6838 media types",
+      "globs + default applications (.desktop MimeType=)"
+    ],
+    "requiredFields": ["defaultHandlers", "iconTheme", "explorerAssociations"],
+    "rules": [
+      "Inventorier depuis VM : gsettings apps/mimetypes, /usr/share/mime, icônes hicolor",
+      "Capsule : icônes MIME sous usr/share/capsuleos/ (pas d'invention de type)",
+      "Extensions fichier explorateur = copie globs VM ou statut P2 documenté"
+    ]
+  },
+  "accessibility": {
+    "requiredHooks": [
+      "data-font-scale",
+      "data-contrast-mode",
+      "data-display-scale",
+      "data-night-light"
+    ],
+    "cssFiles": {
+      "gnome": ["gnome-shell/a11y-fedora.css", "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"]
+    },
+    "gsettingsKeys": [
+      "org.gnome.desktop.a11y.applications",
+      "org.gnome.desktop.interface text-scaling-factor",
+      "org.gnome.desktop.a11y.interface high-contrast"
+    ],
+    "rules": [
+      "Activation utilisateur = effet visible (pas de no-op)",
+      "Captures VM + Capsule pour chaque réglage a11y P0/P1",
+      "Focus visible : :focus-visible + --a11y-focus-ring"
+    ]
+  },
+  "osFacade": {
+    "canonicalUrlPattern": "OS/linux/families/<vendor>/<distro>/index.html",
+    "rules": [
+      "Source éditable : home/<Vendor>/<Distro>/index.html — jamais de <base> dans le skin",
+      "Façade générée : build-linux-facades.mjs injecte <base href> vers le skin",
+      "Smokes Playwright et lab : resolveCapsuleOsUrl(registryId) — pas home/ direct",
+      "Gate : validate-os-facade-fidelity.mjs (intégré validate-capsule pour linux-rocky)"
+    ]
+  },
+  "registryDefaults": {
+    "linux-ubuntu": {
+      "typography": {
+        "uiStack": ["Ubuntu", "Noto Sans", "Cantarell"],
+        "monoStack": ["Ubuntu Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 11,
+        "monoSizePt": 11,
+        "tokenFile": "home/Debian/Ubuntu/ubuntu-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "mime": {
+        "iconTheme": "Yaru",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh"
+      },
+      "accessibility": {
+        "cssImports": [
+          "home/Debian/Ubuntu/style/gnome-shell/a11y-ubuntu.css",
+          "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+        ]
+      }
+    },
+    "linux-popos": {
+      "typography": {
+        "uiStack": ["Open Sans", "Ubuntu Sans", "Cantarell"],
+        "monoStack": ["Ubuntu Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 11,
+        "monoSizePt": 11,
+        "tokenFile": "home/Debian/PopOS/popos-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "mime": {
+        "iconTheme": "Pop",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh — COSMIC"
+      },
+      "accessibility": {
+        "cssImports": [
+          "home/Debian/PopOS/style/cosmic-shell/a11y-popos.css",
+          "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+        ]
+      }
+    },
+    "linux-rocky": {
+      "typography": {
+        "uiStack": ["Red Hat Text", "Cantarell"],
+        "monoStack": ["Red Hat Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 11,
+        "monoSizePt": 10,
+        "tokenFile": "home/RedHat/Rocky/rocky-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "mime": {
+        "iconTheme": "Adwaita",
+        "notes": "Collecte complète via collect-visual-fidelity-inventory.mjs --ssh"
+      }
+    },
+    "linux-fedora": {
+      "typography": {
+        "uiStack": ["Adwaita Sans", "Cantarell", "Noto Sans"],
+        "monoStack": ["Adwaita Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 11,
+        "monoSizePt": 11,
+        "tokenFile": "home/RedHat/Fedora/fedora-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "mime": {
+        "iconTheme": "Adwaita",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh"
+      }
+    },
+    "linux-alma": {
+      "typography": {
+        "uiStack": ["Red Hat Text", "Cantarell"],
+        "monoStack": ["Red Hat Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 11,
+        "monoSizePt": 10,
+        "tokenFile": "home/RedHat/Alma/alma-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "accessibility": {
+        "cssImports": [
+          "home/RedHat/Alma/style/gnome-shell/a11y-fedora.css",
+          "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+        ]
+      },
+      "mime": {
+        "iconTheme": "Adwaita",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh — dérivé Rocky"
+      }
+    },
+    "linux-kde-neon": {
+      "typography": {
+        "uiStack": ["Noto Sans", "Ubuntu", "Cantarell"],
+        "monoStack": ["Ubuntu Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 10,
+        "monoSizePt": 10,
+        "tokenFile": "home/Debian/KDE-Neon/neon-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "accessibility": {
+        "cssImports": [
+          "home/Debian/KDE-Neon/style/a11y-overrides.css",
+          "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+        ]
+      },
+      "mime": {
+        "iconTheme": "breeze",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh"
+      }
+    },
+    "linux-anduinos": {
+      "typography": {
+        "uiStack": ["Noto Sans", "Ubuntu", "Cantarell"],
+        "monoStack": ["Cascadia Code", "Ubuntu Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 11,
+        "monoSizePt": 11,
+        "tokenFile": "home/Debian/AnduinOS/anduin-overrides.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1920, "height": 1080 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "mime": {
+        "iconTheme": "Fluent-dark",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh"
+      },
+      "accessibility": {
+        "cssImports": [
+          "home/Debian/AnduinOS/style/anduin-shell/a11y-anduin.css",
+          "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+        ]
+      }
+    },
+    "linux-mint": {
+      "typography": {
+        "uiStack": ["Ubuntu", "Noto Sans", "Cantarell"],
+        "monoStack": ["Ubuntu Mono", "DejaVu Sans Mono"],
+        "uiSizePt": 10,
+        "monoSizePt": 10,
+        "tokenFile": "home/Debian/Mint/style/mint-y-dark-aqua-tokens.css"
+      },
+      "viewContexts": {
+        "viewportLab": { "width": 1280, "height": 800 },
+        "playwright": { "width": 1280, "height": 800 }
+      },
+      "mime": {
+        "iconTheme": "Mint-Y",
+        "notes": "Collecte via collect-visual-fidelity-inventory.mjs --ssh"
+      },
+      "accessibility": {
+        "cssImports": [
+          "home/Debian/Mint/style/a11y-overrides.css",
+          "home/Debian/Mint/style/a11y-apps.css"
+        ]
+      }
+    }
+  }
+}

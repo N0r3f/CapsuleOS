@@ -1,0 +1,19 @@
+/**
+ * Polices AlmaLinux — Red Hat Text/Mono (ground truth VM RHEL 10).
+ * Source : pull-vm-assets.sh · vendors/redhat · linux-alma-visual-fidelity.json
+ */
+@font-face {
+    font-family: "Red Hat Text";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/redhat/RedHatText[wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Red Hat Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/redhat/RedHatMono[wght].ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}

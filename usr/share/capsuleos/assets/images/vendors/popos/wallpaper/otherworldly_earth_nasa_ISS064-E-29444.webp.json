@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/otherworldly_earth_nasa_ISS064-E-29444.jpg",
+  "sourceSha256": "6d6c3590b7365c8c5c754edd4a336ab38c8eedc3ba6cc9139572bb11aac059ae",
+  "output": "images/vendors/popos/wallpaper/otherworldly_earth_nasa_ISS064-E-29444.webp",
+  "outputSha256": "453d4c3dc514a50cf8ba99eb85e23a965b6a9bd6253c81e64d5b1bd29ec5f4da",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:09.177Z"
+}

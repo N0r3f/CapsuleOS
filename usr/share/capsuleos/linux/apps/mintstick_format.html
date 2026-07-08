@@ -1,0 +1,27 @@
+<main id="mintstickFormatApp" class="mstk-fmt-app" aria-label="Formateur de clé USB">
+
+    <header class="mstk-fmt-app__header">
+        <h1 class="mstk-fmt-app__title">Formateur de clé USB</h1>
+    </header>
+
+    <div class="mstk-fmt-app__body">
+        <p class="mstk-fmt-app__warn">Toutes les données du périphérique seront effacées.</p>
+        <label class="mstk-fmt-app__field">
+            <span class="mstk-fmt-app__label">Périphérique</span>
+            <select class="mstk-fmt-app__select" id="mstk-fmt-device">
+                <option value="">— Sélectionner —</option>
+                <option value="sdb">SanDisk 16 Go (/dev/sdb)</option>
+            </select>
+        </label>
+        <label class="mstk-fmt-app__field">
+            <span class="mstk-fmt-app__label">Système de fichiers</span>
+            <select class="mstk-fmt-app__select" id="mstk-fmt-fs">
+                <option value="fat32">FAT32</option>
+                <option value="ext4">ext4</option>
+                <option value="ntfs">NTFS</option>
+            </select>
+        </label>
+        <button type="button" class="mstk-fmt-app__btn mstk-fmt-app__btn--primary" data-mstk-fmt-action="format" disabled>Formater</button>
+    </div>
+
+</main>

@@ -1,0 +1,8 @@
+{
+  "siteId": "temu",
+  "titleFr": "Temu — simulation CapsuleOS",
+  "hosts": ["temu.com", "www.temu.com"],
+  "lang": "fr",
+  "contentLicense": "LicenseRef-CapsuleOS-OriginalContent",
+  "note": "Contenu pédagogique original — non affilié à Temu."
+}

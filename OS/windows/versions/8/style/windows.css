@@ -1,0 +1,71 @@
+#windowContainer,
+.win-window {
+    position: var(--fix);
+    top: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: calc(var(--mid) + var(--mid) / 1.5);
+    min-height: calc(var(--head) * 12);
+    margin-top: var(--z);
+    background-color: var(--noir);
+    border-radius: calc(var(--head) / 2);
+    box-shadow: var(--frame);
+    resize: both;
+    overflow: auto;
+    overflow-y: hidden;
+    z-index: 5;
+}
+
+#windowHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--fe);
+    width: var(--full);
+    padding: calc(var(--head) / 4);
+    background: var(--noir);
+}
+
+#windowHeader>span:nth-child(1) {
+    width: calc(var(--head) + var(--head) / 8);
+}
+
+#windowTitle {
+    width: calc(var(--full) - var(--head) * 2);
+    text-align: var(--c);
+}
+
+#windowHeader>button {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) / 2);
+    height: calc(var(--head) / 2);
+    margin-left: calc(var(--head) / 8);
+    outline: var(--n);
+    color: var(--texte);
+    font-weight: var(--wb);
+    font-size: calc(var(--head) / 2.5);
+    border: var(--min-bb);
+    background: var(--noir);
+}
+
+#windowHeader>button:nth-child(2) {
+    font-size: calc(var(--head) / 1.5);
+    font-weight: var(--wbr);
+}
+
+#windowHeader>button:nth-child(3) {
+    font-size: calc(var(--head) / 1.5);
+}
+
+#windowIframe {
+    width: var(--full);
+    height: calc(var(--full) - var(--head));
+}

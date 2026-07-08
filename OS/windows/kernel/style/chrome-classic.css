@@ -1,0 +1,43 @@
+/* Chrome fenêtres — époque 9x / classic */
+
+#windowContainer,
+.win-window {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    box-shadow: 1px 1px 0 #000000;
+}
+
+#windowHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 4px;
+    background: linear-gradient(90deg, #000080, #1084d0);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+#windowHeader > button {
+    width: 16px;
+    height: 14px;
+    min-width: 16px;
+    padding: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+    background: #c0c0c0;
+    color: #000000;
+    font-size: 10px;
+    line-height: 1;
+}
+
+#windowHeader > button:active {
+    border-color: #404040 #ffffff #ffffff #404040;
+}
+
+#windowTitle {
+    color: #ffffff;
+}

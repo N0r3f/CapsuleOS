@@ -1,0 +1,10 @@
+/* Debian KDE — Paramètres système (System Settings) */
+
+body#debian-kde #themes [data-kde-settings-root],
+body#debian-kde #themes #kdeSystemSettingsShell {
+    min-height: 100%;
+}
+
+body#debian-kde #themes .kde-systemsettings__sidebar:not(.kde-systemsettings__sidebar--kcm) {
+    background: linear-gradient(180deg, #31363b 0%, #2a2e32 100%);
+}

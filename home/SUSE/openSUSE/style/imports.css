@@ -1,0 +1,15 @@
+@import url(../../../../usr/share/capsuleos/themes/global/reset.css);
+@import url(../../../../usr/share/capsuleos/themes/global/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/clusters/toolkit-kde/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/linux/variables-linux.css);
+@import url(../../../../usr/share/capsuleos/themes/linux/variables-linux-computed.css);
+@import url(../../../../usr/share/capsuleos/themes/clusters/toolkit-kde/chrome.css);
+@import url(./footer.css?v=20260512f);
+@import url(./windows.css?v=20260610);
+@import url(./calendar-popover.css?v=20260528d);
+@import url(./a11y-overrides.css?v=20260513e);
+@import url(./volume-popover.css?v=20260430f);
+@import url(../../../../usr/share/capsuleos/linux/apps/style/tray-popover-kde.base.css?v=20260608p4);
+@import url(./opensuse-breeze.css?v=20260610);
+@import url(./opensuse-desktop.css?v=20260610);
+@import url(./plasma-panel-dock.css?v=20260610);

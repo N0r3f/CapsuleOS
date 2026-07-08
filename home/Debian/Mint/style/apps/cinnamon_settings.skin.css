@@ -1,0 +1,90 @@
+/* Mint — Paramètres système (cinnamon-settings 6.6) — VM wmctrl 800×600 client */
+body#mint div[data-link="themes"].windowElement {
+    width: 800px;
+    min-width: 800px;
+    height: 632px;
+    min-height: 632px;
+}
+
+body#mint div[data-link="themes"] button.cs-home__tile,
+body#mint div[data-link="themes"] button.cs-home__tile:hover,
+body#mint div[data-link="themes"] button.cs-home__tile:focus,
+body#mint div[data-link="themes"] button.cs-home__tile:active {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: none;
+}
+
+body#mint div[data-link="themes"] input.cs-home__search,
+body#mint div[data-link="themes"] input.cs-home__search:focus {
+    background-color: #222226 !important;
+    color: #e1e1e1 !important;
+    border: 1px solid #404046 !important;
+    outline: 2px solid #0c75de;
+    outline-offset: 0;
+}
+
+/* Thème clair — surfaces Mint-Y-Aqua (suit html[data-theme="light"]) */
+html[data-theme="light"] body#mint div[data-link="themes"] main#cinnamonSettingsApp {
+    color: #1e1e1e;
+    background: #f6f6f8;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-app__top,
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-panel-view__header {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] input.cs-home__search,
+html[data-theme="light"] body#mint div[data-link="themes"] input.cs-home__search:focus {
+    background-color: #ffffff !important;
+    color: #1e1e1e !important;
+    border: 1px solid #c0c0c8 !important;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-home__category-head {
+    color: #5a5a62;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-home__tile-label {
+    color: #2e2e33;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-home__tile:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-panel-view__back {
+    border-color: rgba(0, 0, 0, 0.14);
+    background: #ececee;
+    color: #1e1e1e;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-panel-view__back:hover {
+    background: #e0e0e4;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-row {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-select {
+    border-color: rgba(0, 0, 0, 0.14);
+    background: #ffffff;
+    color: #1e1e1e;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-panel--themes #themesApp {
+    color: #1e1e1e;
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .themes-style-popover {
+    border-color: rgba(0, 0, 0, 0.14);
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+html[data-theme="light"] body#mint div[data-link="themes"] .cs-bg-panel__title {
+    color: #5a5a62;
+}

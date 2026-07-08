@@ -1,0 +1,65 @@
+{
+    "version": 2,
+    "doc": "root/docs/convention-portail.md",
+    "contractOffers": "etc/capsuleos/contracts/portal-offers.json",
+    "contractGrades": "etc/capsuleos/contracts/portal-grades.json",
+    "levels": [
+        {
+            "id": "anonymous",
+            "label": "Visiteur",
+            "order": 0,
+            "planId": "free"
+        },
+        {
+            "id": "registered",
+            "label": "Compte créé",
+            "order": 1,
+            "planId": "free"
+        },
+        {
+            "id": "subscriber",
+            "label": "Abonné",
+            "order": 2,
+            "planId": "subscriber"
+        }
+    ],
+    "osSession": {
+        "anonymous": {
+            "maxMinutesPerOsPerDay": 15,
+            "maxMinutes": 15,
+            "allCatalogOs": true,
+            "pedagogicalModules": false,
+            "storeBrowse": true,
+            "storeAppLaunch": false
+        },
+        "registered": {
+            "maxMinutesPerOsPerDay": 15,
+            "maxMinutes": 15,
+            "allCatalogOs": true,
+            "pedagogicalModules": false,
+            "storeBrowse": true,
+            "storeAppLaunch": false
+        },
+        "subscriber": {
+            "maxMinutesPerOsPerDay": null,
+            "maxMinutes": null,
+            "allCatalogOs": true,
+            "pedagogicalModules": true,
+            "storeBrowse": true,
+            "storeAppLaunch": true
+        }
+    },
+    "moduleAccess": {
+        "subscriber": [
+            "subscriber"
+        ],
+        "free_store": [
+            "registered",
+            "subscriber"
+        ],
+        "class": [
+            "subscriber",
+            "registered"
+        ]
+    }
+}

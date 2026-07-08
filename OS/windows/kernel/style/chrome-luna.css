@@ -1,0 +1,35 @@
+/* Chrome fenêtres — Windows XP Luna */
+
+#windowContainer,
+.win-window {
+    border: 2px solid #0054e3;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+#windowHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 6px;
+    background: linear-gradient(180deg, #3d8cff 0%, #0054e3 8%, #0054e3 92%, #0039a6 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 6px 6px 0 0;
+}
+
+#windowHeader > button {
+    width: 21px;
+    height: 21px;
+    border: 1px solid #0039a6;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #6cb4ff, #3d8cff);
+    color: #ffffff;
+    font-size: 11px;
+}
+
+#windowHeader > button:nth-child(4) {
+    background: linear-gradient(180deg, #ff6b6b, #e81123);
+}

@@ -1,0 +1,1432 @@
+{
+  "version": 1,
+  "toolkit": "gnome",
+  "scope": "default-apps",
+  "description": "Catalogue composants UI GNOME (libadwaita/GTK4) — apps par défaut du toolkit. Source normative : HIG + Components GNOME. Projection CapsuleOS : gabarits usr/share + tokens CSS.",
+  "status": "model",
+  "extendsLater": [
+    "cinnamon",
+    "kde",
+    "cosmic"
+  ],
+  "sources": {
+    "higRoot": "https://developer.gnome.org/hig/",
+    "higResources": "https://developer.gnome.org/hig/resources.html",
+    "gnomeComponents": "https://developer.gnome.org/components/",
+    "libadwaitaCssVars": "https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1-latest/css-variables.html",
+    "libadwaitaStyleClasses": "https://gnome.pages.gitlab.gnome.org/libadwaita/doc/1-latest/style-classes.html",
+    "appsGnome": "https://apps.gnome.org/fr/",
+    "capsuleHigInventory": "root/docs/inventaires/gnome-hig-resources.json",
+    "capsuleDoc": "root/docs/convention-composants-gnome.md"
+  },
+  "levels": {
+    "N0": {
+      "label": "Primitives design (tokens)",
+      "paths": [
+        "usr/share/capsuleos/themes/clusters/toolkit-gnome/variables.css",
+        "usr/share/capsuleos/themes/linux/gnome-app-csd.base.css",
+        "usr/share/capsuleos/themes/linux/window-chrome.gnome.base.css",
+        "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+      ]
+    },
+    "N1": {
+      "label": "Composants plateforme documentés",
+      "contractKey": "components"
+    },
+    "N2": {
+      "label": "Compositions applicatives (slots catalogue)",
+      "contractKey": "appCompositions"
+    }
+  },
+  "components": {
+    "gnome.adw-application-window": {
+      "labelFr": "Fenêtre application (CSD)",
+      "gnomeWidget": "AdwApplicationWindow",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/windows.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/themes/linux/gnome-app-csd.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-app--csd",
+        ".windowElement[data-window-chrome-toolkit=\"gnome\"]"
+      ],
+      "cssTokens": [
+        "--gnome-adw-headerbar-h",
+        "--gnome-adw-headerbar-pad-x",
+        "--gnome-adw-headerbar-gap"
+      ],
+      "states": [
+        "default",
+        "maximized",
+        "fullscreen"
+      ],
+      "acquisitionVm": [
+        "capture fenêtre entière CSD",
+        "mesurer hauteur headerbar",
+        "vérifier masquage rail Capsule #windowHeader"
+      ]
+    },
+    "gnome.adw-header-bar": {
+      "labelFr": "Barre d'en-tête",
+      "gnomeWidget": "AdwHeaderBar",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/header-bars.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/themes/linux/gnome-app-csd.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-calc__header",
+        ".gnome-settings__headerbar",
+        ".gnome-software__titlebar",
+        ".gnome-shot__headerbar"
+      ],
+      "cssTokens": [
+        "--gnome-adw-headerbar-h",
+        "--gnome-adw-headerbar-gap"
+      ],
+      "states": [
+        "default",
+        "backdrop"
+      ],
+      "acquisitionVm": [
+        "boutons start/center/end",
+        "titre centré ou vide",
+        "icônes symboliques 16px"
+      ]
+    },
+    "gnome.adw-navigation-split": {
+      "labelFr": "Navigation split (sidebar + contenu)",
+      "gnomeWidget": "AdwNavigationSplitView",
+      "higUrl": "https://developer.gnome.org/hig/patterns/nav/sidebars.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/nemo.base.css"
+      ],
+      "capsuleSelectors": [
+        ".nautilus-app",
+        ".nemo-app"
+      ],
+      "states": [
+        "sidebar-visible",
+        "sidebar-collapsed",
+        "narrow"
+      ],
+      "acquisitionVm": [
+        "largeur sidebar",
+        "bouton replier",
+        "fil d'Ariane"
+      ]
+    },
+    "gnome.gtk-column-view": {
+      "labelFr": "Vue colonnes (fichiers)",
+      "gnomeWidget": "GtkColumnView",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/list-column-views.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/nemo.base.css"
+      ],
+      "states": [
+        "selection-single",
+        "selection-multiple",
+        "sort-column"
+      ],
+      "acquisitionVm": [
+        "en-têtes colonnes",
+        "ligne sélectionnée",
+        "zone liste vide"
+      ]
+    },
+    "gnome.gtk-search-entry": {
+      "labelFr": "Champ de recherche",
+      "gnomeWidget": "GtkSearchEntry",
+      "higUrl": "https://developer.gnome.org/hig/patterns/nav/search.html",
+      "capsuleSelectors": [
+        ".gnome-search-entry",
+        "[data-gnome-search]"
+      ],
+      "states": [
+        "empty",
+        "focused",
+        "with-results"
+      ],
+      "acquisitionVm": [
+        "placeholder FR",
+        "icône loupe",
+        "effacement"
+      ]
+    },
+    "gnome.adw-preferences-page": {
+      "labelFr": "Page Paramètres",
+      "gnomeWidget": "AdwPreferencesPage",
+      "higUrl": "https://developer.gnome.org/hig/patterns/nav/settings.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/themes_gnome.base.css",
+        "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-settings__page",
+        ".gnome-settings__sidebar"
+      ],
+      "states": [
+        "sidebar-nav",
+        "content-scroll"
+      ],
+      "acquisitionVm": [
+        "liste panneaux gauche",
+        "titre panneau actif",
+        "groupe boxed-list"
+      ]
+    },
+    "gnome.adw-preferences-group": {
+      "labelFr": "Groupe préférences (boxed list)",
+      "gnomeWidget": "AdwPreferencesGroup",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/boxed-lists.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/themes/linux/gnome-shell-preferences.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-settings__group",
+        ".gnome-settings__row"
+      ],
+      "states": [
+        "default",
+        "interactive-row",
+        "switch-row",
+        "combo-row"
+      ],
+      "acquisitionVm": [
+        "séparateurs",
+        "sous-titre row",
+        "switch on/off"
+      ]
+    },
+    "gnome.gtk-grid-view": {
+      "labelFr": "Grille / pavé",
+      "gnomeWidget": "GtkGrid",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/grid-views.html",
+      "capsuleSelectors": [
+        ".gnome-calc__keypad",
+        ".math-buttons"
+      ],
+      "states": [
+        "default",
+        "pressed-key"
+      ],
+      "acquisitionVm": [
+        "espacement cellules",
+        "coins arrondis boutons",
+        "couleur opérateurs"
+      ]
+    },
+    "gnome.popover": {
+      "labelFr": "Popover",
+      "gnomeWidget": "GtkPopover",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/popovers.html",
+      "capsuleSelectors": [
+        ".gnome-calc__mode-popover",
+        "[role=\"dialog\"][data-gnome-popover]"
+      ],
+      "states": [
+        "open",
+        "closed"
+      ],
+      "acquisitionVm": [
+        "ancrage bouton",
+        "ombre portée",
+        "liste options"
+      ]
+    },
+    "gnome.adw-toolbar-view": {
+      "labelFr": "Vue avec barre d'outils",
+      "gnomeWidget": "AdwToolbarView",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/header-bars.html",
+      "capsuleSelectors": [
+        ".viewer-app__toolbar",
+        ".gnome-baobab__header"
+      ],
+      "states": [
+        "default"
+      ],
+      "acquisitionVm": [
+        "barre sous header ou intégrée",
+        "actions primaires"
+      ]
+    },
+    "gnome.placeholder-page": {
+      "labelFr": "Page vide / placeholder",
+      "gnomeWidget": "AdwStatusPage",
+      "higUrl": "https://developer.gnome.org/hig/patterns/feedback/placeholders.html",
+      "states": [
+        "empty-state"
+      ],
+      "acquisitionVm": [
+        "illustration",
+        "titre",
+        "bouton action"
+      ]
+    },
+    "gnome.browser-chrome": {
+      "labelFr": "Chrome navigateur (Firefox)",
+      "higUrl": "https://developer.gnome.org/hig/patterns/nav/tabs.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/firefox.base.css"
+      ],
+      "chromeProvider": "firefox-gnome",
+      "states": [
+        "tab-bar",
+        "url-bar",
+        "private-browsing"
+      ],
+      "acquisitionVm": [
+        "onglets",
+        "barre URL",
+        "boutons navigation"
+      ]
+    },
+    "gnome.terminal-chrome": {
+      "labelFr": "Chrome terminal (Ptyxis)",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/terminal-ptyxis.base.css"
+      ],
+      "chromeProvider": "terminal-gnome",
+      "states": [
+        "default",
+        "preferences-dialog"
+      ],
+      "acquisitionVm": [
+        "headerbar CSD",
+        "palette couleurs",
+        "onglets"
+      ]
+    },
+    "gnome.software-grid": {
+      "labelFr": "Grille logiciels / catégories",
+      "higUrl": "https://developer.gnome.org/hig/patterns/containers/grid-views.html",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/update_manager_gnome.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-software__grid",
+        ".gnome-software__card"
+      ],
+      "states": [
+        "explore",
+        "installed",
+        "updates"
+      ],
+      "acquisitionVm": [
+        "tuiles app",
+        "badge mise à jour",
+        "barre recherche"
+      ]
+    },
+    "gnome.software-hero": {
+      "labelFr": "Bannière À la une (GNOME Software)",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/update_manager_gnome.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-software__hero",
+        ".gnome-software__hero-card"
+      ],
+      "states": [
+        "featured-app"
+      ],
+      "acquisitionVm": [
+        "carte mise en avant",
+        "carousel"
+      ]
+    },
+    "gnome.software-search-toggle": {
+      "labelFr": "Recherche repliable (GS50)",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/update_manager_gnome.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-software__titlebar",
+        ".gnome-software__search-toggle"
+      ],
+      "states": [
+        "collapsed",
+        "expanded"
+      ],
+      "acquisitionVm": [
+        "bouton loupe",
+        "champ recherche"
+      ]
+    },
+    "gnome.software-detail-pane": {
+      "labelFr": "Fiche application Logiciels",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/update_manager_gnome.base.css"
+      ],
+      "capsuleSelectors": [
+        ".gnome-software__detail",
+        ".gnome-software__detail-meta"
+      ],
+      "states": [
+        "install",
+        "installed",
+        "rpm",
+        "flatpak"
+      ],
+      "acquisitionVm": [
+        "description longue",
+        "licence",
+        "origine",
+        "captures"
+      ]
+    },
+    "gnome.media-viewer": {
+      "labelFr": "Visionneuse document / image",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/visionneur_images.base.css",
+        "usr/share/capsuleos/linux/apps/style/visionneur_pdf.base.css"
+      ],
+      "capsuleSelectors": [
+        ".viewer-app__toolbar",
+        ".viewer-app__canvas"
+      ],
+      "states": [
+        "zoom-fit",
+        "sidebar-thumbnails"
+      ],
+      "acquisitionVm": [
+        "barre zoom",
+        "miniatures",
+        "mode sombre"
+      ]
+    },
+    "gnome.calendar-grid": {
+      "labelFr": "Grille calendrier",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/calendar.base.css"
+      ],
+      "states": [
+        "month-view",
+        "week-view",
+        "event-popover"
+      ],
+      "acquisitionVm": [
+        "cellules jour",
+        "événement",
+        "navigation mois"
+      ]
+    },
+    "gnome.clocks-face": {
+      "labelFr": "Cadran / minuterie",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/clocks.base.css"
+      ],
+      "states": [
+        "world-clock",
+        "alarm",
+        "timer",
+        "stopwatch"
+      ],
+      "acquisitionVm": [
+        "onglets type horloge",
+        "cadran",
+        "liste fuseaux"
+      ]
+    },
+    "gnome.monospace-editor": {
+      "labelFr": "Éditeur texte (Text Editor)",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/text_editor.base.css"
+      ],
+      "capsuleSelectors": [
+        ".xed-app__menubar",
+        ".xed-app__editor"
+      ],
+      "states": [
+        "empty-doc",
+        "with-content",
+        "find-replace"
+      ],
+      "acquisitionVm": [
+        "barre menu CSD",
+        "numéros ligne",
+        "onglets fichiers"
+      ]
+    },
+    "gnome.welcome-flow": {
+      "labelFr": "Parcours accueil (Tour)",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/tour.base.css"
+      ],
+      "states": [
+        "step-cards",
+        "pagination"
+      ],
+      "acquisitionVm": [
+        "cartes illustrées",
+        "boutons Suivant/Ignorer"
+      ]
+    },
+    "gnome.chart-disk-usage": {
+      "labelFr": "Visualisation usage disque",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/baobab.base.css"
+      ],
+      "states": [
+        "treemap",
+        "list-mounts"
+      ],
+      "acquisitionVm": [
+        "treemap couleurs",
+        "liste volumes gauche"
+      ]
+    },
+    "gnome.system-metrics": {
+      "labelFr": "Graphiques système",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/system_monitor.base.css"
+      ],
+      "states": [
+        "cpu-tab",
+        "memory-tab",
+        "process-list"
+      ],
+      "acquisitionVm": [
+        "onglets ressources",
+        "courbes",
+        "liste processus"
+      ]
+    },
+    "gnome.character-grid": {
+      "labelFr": "Grille caractères Unicode",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/characters.base.css"
+      ],
+      "states": [
+        "grid",
+        "detail-pane"
+      ],
+      "acquisitionVm": [
+        "grille glyphes",
+        "détail droite",
+        "recherche"
+      ]
+    },
+    "gnome.camera-preview": {
+      "labelFr": "Aperçu caméra",
+      "capsuleCss": [
+        "usr/share/capsuleos/linux/apps/style/snapshot.base.css"
+      ],
+      "states": [
+        "preview",
+        "countdown",
+        "gallery"
+      ],
+      "acquisitionVm": [
+        "flux vidéo simulé",
+        "bouton capture",
+        "miniatures"
+      ]
+    }
+  },
+  "appCompositions": {
+    "nemo": {
+      "labelFr": "Fichiers (Nautilus)",
+      "vmDesktopIds": [
+        "org.gnome.Nautilus"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.adw-navigation-split",
+        "gnome.gtk-column-view",
+        "gnome.gtk-search-entry"
+      ],
+      "template": "usr/share/capsuleos/linux/explorers/nautilus/shell-gnome.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/nemo.base.css",
+      "skinCss": "nautilus.skin.css",
+      "chromeProvider": "nemo-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "sidebar",
+        "column-headers",
+        "pathbar",
+        "context-menu-item",
+        "context-menu-background",
+        "trash"
+      ]
+    },
+    "firefox": {
+      "labelFr": "Firefox",
+      "vmDesktopIds": [
+        "firefox",
+        "firefox-esr"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.browser-chrome"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/firefox.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/firefox.base.css",
+      "skinCss": "firefox.skin.css",
+      "chromeProvider": "firefox-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "tab-bar",
+        "url-bar",
+        "bookmarks",
+        "menu-hamburger"
+      ]
+    },
+    "terminal": {
+      "labelFr": "Terminal (Ptyxis)",
+      "vmDesktopIds": [
+        "org.gnome.Ptyxis"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.terminal-chrome"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/terminal.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/terminal-ptyxis.base.css",
+      "skinCss": "terminal.skin.css",
+      "chromeProvider": "terminal-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "headerbar",
+        "tab-strip",
+        "prompt-colors",
+        "preferences"
+      ]
+    },
+    "update_manager": {
+      "labelFr": "Logiciels (GNOME Software)",
+      "vmDesktopIds": [
+        "org.gnome.Software"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.software-search-toggle",
+        "gnome.software-hero",
+        "gnome.software-grid",
+        "gnome.software-detail-pane",
+        "gnome.gtk-search-entry"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/update_manager_gnome.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/update_manager_gnome.base.css",
+      "skinCss": "update_manager.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "groundKernel": "usr/lib/capsuleos/shells/linux/gnome-software-ground.js",
+      "groundContentContract": "etc/capsuleos/contracts/gnome-software-store-content.json",
+      "referenceRegistryId": "linux-fedora",
+      "acquisitionOrder": [
+        "explore-grid",
+        "featured-hero",
+        "category-heroes",
+        "updates-banner",
+        "app-detail",
+        "categories"
+      ]
+    },
+    "text_editor": {
+      "labelFr": "Éditeur de texte",
+      "vmDesktopIds": [
+        "org.gnome.TextEditor"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.monospace-editor"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/text_editor.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/text_editor.base.css",
+      "skinCss": "text_editor.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "menubar",
+        "editor-area",
+        "status-line",
+        "open-dialog"
+      ]
+    },
+    "calculator": {
+      "labelFr": "Calculatrice",
+      "vmDesktopIds": [
+        "org.gnome.Calculator"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.popover",
+        "gnome.gtk-grid-view"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/calculator.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/calculator.base.css",
+      "skinCss": "calculator.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "mode-selector",
+        "display",
+        "keypad-basic",
+        "keypad-advanced",
+        "history-panel"
+      ]
+    },
+    "themes": {
+      "labelFr": "Paramètres",
+      "vmDesktopIds": [
+        "org.gnome.Settings"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.adw-preferences-page",
+        "gnome.adw-preferences-group"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/themes_gnome.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/themes_gnome.base.css",
+      "skinCss": "themes.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "sidebar-panels",
+        "wifi-row",
+        "display-panel",
+        "about-panel"
+      ],
+      "note": "Matrices Paramètres : lab-recipe-profiles + playbook GNOME"
+    },
+    "clocks": {
+      "labelFr": "Horloges",
+      "vmDesktopIds": [
+        "org.gnome.clocks"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.clocks-face"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/clocks.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/clocks.base.css",
+      "skinCss": "clocks.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "world-tab",
+        "alarm-tab",
+        "timer-tab",
+        "stopwatch-tab"
+      ]
+    },
+    "visionneur_pdf": {
+      "labelFr": "Papers (PDF)",
+      "vmDesktopIds": [
+        "org.gnome.Papers",
+        "org.gnome.Evince"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-toolbar-view",
+        "gnome.media-viewer"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/visionneur_pdf.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/visionneur_pdf.base.css",
+      "skinCss": "visionneur_pdf.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "toolbar",
+        "page-canvas",
+        "sidebar-thumbs",
+        "zoom-controls"
+      ]
+    },
+    "visionneur_images": {
+      "labelFr": "Loupe (images)",
+      "vmDesktopIds": [
+        "org.gnome.Loupe",
+        "org.gnome.eog"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-toolbar-view",
+        "gnome.media-viewer"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/visionneur_images.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/visionneur_images.base.css",
+      "skinCss": "visionneur_images.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "toolbar",
+        "image-canvas",
+        "metadata-pane"
+      ]
+    },
+    "snapshot": {
+      "labelFr": "Snapshot (caméra)",
+      "vmDesktopIds": [
+        "org.gnome.Snapshot"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.camera-preview"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/snapshot.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/snapshot.base.css",
+      "skinCss": "snapshot.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "preview",
+        "shutter-button",
+        "effects-strip"
+      ]
+    },
+    "calendar": {
+      "labelFr": "Calendrier",
+      "vmDesktopIds": [
+        "org.gnome.Calendar"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.calendar-grid"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/calendar.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/calendar.base.css",
+      "skinCss": "calendar.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "month-grid",
+        "week-view",
+        "event-editor"
+      ]
+    },
+    "file_roller": {
+      "labelFr": "Gestionnaire d'archives",
+      "vmDesktopIds": [
+        "org.gnome.FileRoller"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.gtk-column-view",
+        "gnome.popover"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/file_roller.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/file_roller.base.css",
+      "skinCss": "file_roller.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "toolbar",
+        "file-list",
+        "menu",
+        "extract-flow"
+      ],
+      "note": "Slot GNOME mutualisé ; peut être absent des VM lab selon distro."
+    },
+    "baobab": {
+      "labelFr": "Utilisation des disques",
+      "vmDesktopIds": [
+        "org.gnome.baobab"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-toolbar-view",
+        "gnome.chart-disk-usage"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/baobab.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/baobab.base.css",
+      "skinCss": "baobab.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "volume-list",
+        "treemap",
+        "scan-progress"
+      ]
+    },
+    "system_monitor": {
+      "labelFr": "Moniteur système",
+      "vmDesktopIds": [
+        "org.gnome.SystemMonitor"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.system-metrics"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/system_monitor.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/system_monitor.base.css",
+      "skinCss": "system_monitor.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "cpu-chart",
+        "memory-chart",
+        "process-table"
+      ]
+    },
+    "tour": {
+      "labelFr": "Visite guidée",
+      "vmDesktopIds": [
+        "org.gnome.Tour"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.welcome-flow"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/tour.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/tour.base.css",
+      "skinCss": "tour.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "welcome-card",
+        "step-navigation"
+      ]
+    },
+    "characters": {
+      "labelFr": "Caractères",
+      "vmDesktopIds": [
+        "org.gnome.Characters"
+      ],
+      "gnomeCore": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.character-grid"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/characters.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/characters.base.css",
+      "skinCss": "characters.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "character-grid",
+        "detail-pane",
+        "search"
+      ]
+    },
+    "screenshot": {
+      "labelFr": "Capture d'écran",
+      "vmDesktopIds": [],
+      "gnomeCore": false,
+      "capsuleOnly": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/screenshot.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/screenshot.base.css",
+      "skinCss": "screenshot.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "area-selector",
+        "delay-options"
+      ],
+      "note": "Présent Quick Settings Rocky — simulé CapsuleOS"
+    },
+    "profile": {
+      "labelFr": "À propos (profil distro)",
+      "vmDesktopIds": [],
+      "gnomeCore": false,
+      "capsuleOnly": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.placeholder-page"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/profile.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/profile.base.css",
+      "skinCss": "profile.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": [
+        "vendor-logo",
+        "version-string",
+        "support-links"
+      ]
+    },
+    "checklist": {
+      "labelFr": "Missions CapsuleOS",
+      "vmDesktopIds": [],
+      "gnomeCore": false,
+      "capsuleOnly": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.adw-preferences-group"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/checklist.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/checklist.base.css",
+      "skinCss": "checklist.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-rocky",
+      "acquisitionOrder": []
+    },
+    "librewriter": {
+      "labelFr": "LibreOffice Writer",
+      "vmDesktopIds": [
+        "libreoffice-writer"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/librewriter.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/librewriter.base.css",
+      "skinCss": "librewriter.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-ubuntu",
+      "acquisitionOrder": [
+        "menubar",
+        "toolbar",
+        "ruler",
+        "page-canvas"
+      ],
+      "note": "Hors Core GNOME — chrome CSD simulé ; priorité retail Ubuntu"
+    },
+    "libreoffice_startcenter": {
+      "labelFr": "LibreOffice",
+      "vmDesktopIds": [
+        "org.libreoffice.LibreOffice"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/libreoffice_startcenter.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/libreoffice_startcenter.base.css",
+      "skinCss": "libreoffice_startcenter.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "startcenter-grid"
+      ],
+      "note": "Suite LO — hub modules Writer/Calc/Impress/Draw"
+    },
+    "librecalc": {
+      "labelFr": "LibreOffice Calc",
+      "vmDesktopIds": [
+        "libreoffice-calc"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/librecalc.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/librecalc.base.css",
+      "skinCss": "librecalc.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "menubar",
+        "toolbar",
+        "grid-canvas"
+      ],
+      "note": "Module Calc — gabarit partagé cross-toolkit"
+    },
+    "libreoffice_impress": {
+      "labelFr": "LibreOffice Impress",
+      "vmDesktopIds": [
+        "libreoffice-impress"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/libreoffice_impress.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/libreoffice_impress.base.css",
+      "skinCss": "libreoffice_impress.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "menubar",
+        "toolbar",
+        "slide-canvas"
+      ],
+      "note": "Module Impress — gabarit partagé cross-toolkit"
+    },
+    "libreoffice_draw": {
+      "labelFr": "LibreOffice Draw",
+      "vmDesktopIds": [
+        "libreoffice-draw"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/libreoffice_draw.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/libreoffice_draw.base.css",
+      "skinCss": "libreoffice_draw.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "menubar",
+        "toolbar",
+        "draw-canvas"
+      ],
+      "note": "Module Draw — gabarit partagé cross-toolkit"
+    },
+    "lecteur_multimedia": {
+      "labelFr": "Lecteur multimédia",
+      "vmDesktopIds": [
+        "org.gnome.Rhythmbox3",
+        "org.gnome.Totem"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-toolbar-view",
+        "gnome.media-viewer"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/lecteur_multimedia.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/lecteur_multimedia.base.css",
+      "skinCss": "lecteur_multimedia.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-ubuntu",
+      "acquisitionOrder": [
+        "transport-controls",
+        "playlist",
+        "album-art"
+      ],
+      "note": "Référence Ubuntu retail — absent VM Rocky lab"
+    },
+    "thunderbird": {
+      "labelFr": "Thunderbird",
+      "vmDesktopIds": [
+        "org.mozilla.Thunderbird"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/thunderbird.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/thunderbird.base.css",
+      "skinCss": "thunderbird.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-ubuntu",
+      "acquisitionOrder": [
+        "folder-pane",
+        "message-list",
+        "compose"
+      ]
+    },
+    "transmission": {
+      "labelFr": "Transmission",
+      "vmDesktopIds": [
+        "com.transmissionbt.Transmission"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.gtk-column-view"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/transmission.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/transmission.base.css",
+      "skinCss": "transmission.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "toolbar",
+        "torrent-list",
+        "status-bar"
+      ]
+    },
+    "rhythmbox": {
+      "labelFr": "Rhythmbox",
+      "vmDesktopIds": [
+        "org.gnome.Rhythmbox3",
+        "rhythmbox"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.media-viewer"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/rhythmbox.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/rhythmbox.base.css",
+      "skinCss": "rhythmbox.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-ubuntu",
+      "acquisitionOrder": [
+        "library-sidebar",
+        "track-list",
+        "now-playing"
+      ],
+      "note": "decorative — lecteur minimal"
+    },
+    "drawing": {
+      "labelFr": "Dessin",
+      "vmDesktopIds": [
+        "com.github.maoschanz.drawing"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/drawing.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/drawing.base.css",
+      "skinCss": "drawing.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "canvas",
+        "tool-palette",
+        "color-picker"
+      ]
+    },
+    "simple_scan": {
+      "labelFr": "Numérisation simple",
+      "vmDesktopIds": [
+        "org.gnome.SimpleScan"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/simple_scan.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/simple_scan.base.css",
+      "skinCss": "simple_scan.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "device-list",
+        "preview-pane",
+        "scan-controls"
+      ]
+    },
+    "warpinator": {
+      "labelFr": "Warpinator",
+      "vmDesktopIds": [
+        "warpinator"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/warpinator.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/warpinator.base.css",
+      "skinCss": "warpinator.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "peer-list",
+        "transfer-queue",
+        "preferences"
+      ]
+    },
+    "timeshift": {
+      "labelFr": "Timeshift",
+      "vmDesktopIds": [
+        "timeshift-gtk"
+      ],
+      "gnomeCore": false,
+      "distroOptional": true,
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/timeshift.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/timeshift.base.css",
+      "skinCss": "timeshift.skin.css",
+      "chromeProvider": "libadwaita-gnome",
+      "referenceRegistryId": "linux-mint",
+      "acquisitionOrder": [
+        "snapshot-list",
+        "schedule-panel",
+        "restore-wizard"
+      ]
+    },
+    "gnome_disks": {
+      "label": "Disques",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "font_viewer": {
+      "label": "Polices",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "gnome_logs": {
+      "label": "Journaux",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "gnome_maps": {
+      "label": "Cartes",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.gtk-search-entry"
+      ]
+    },
+    "gnome_weather": {
+      "label": "Météo",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "gnome_connections": {
+      "label": "Connexions",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "gnome_contacts": {
+      "label": "Contacts",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.gtk-search-entry"
+      ]
+    },
+    "gnome_boxes": {
+      "label": "Machines",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "firmware_updater": {
+      "label": "Firmware Updater",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "security_center": {
+      "label": "Security Center",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "language_support": {
+      "label": "Language Support",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "seahorse": {
+      "label": "Seahorse",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "software_updater": {
+      "label": "Software Updater",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "sysprof": {
+      "label": "Sysprof",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "malcontent": {
+      "label": "Malcontent",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "fedora_media_writer": {
+      "label": "Fedora Media Writer",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar"
+      ]
+    },
+    "yelp": {
+      "label": "Aide",
+      "level": "N1",
+      "components": [
+        "gnome.adw-application-window",
+        "gnome.adw-header-bar",
+        "gnome.gtk-search-entry"
+      ]
+    }
+  },
+  "distroExtension": {
+    "description": "Chaque registryId GNOME réutilise les compositions ci-dessus ; les écarts apps par défaut sont dans apps-catalog.json registryOverrides uniquement.",
+    "syncPack": "usr/share/capsuleos/themes/clusters/toolkit-gnome/pack.json",
+    "futureContracts": {
+      "cinnamon": "etc/capsuleos/contracts/ui-components-cinnamon.json",
+      "cinnamonStatus": "skeleton",
+      "kde": "etc/capsuleos/contracts/ui-components-kde.json",
+      "cosmic": "etc/capsuleos/contracts/ui-components-cosmic.json"
+    }
+  }
+}

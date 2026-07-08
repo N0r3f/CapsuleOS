@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/mfakurian_silver.jpg",
+  "sourceSha256": "2a7eff6f4221c38ceaff70cb69361d3e5215e23a3e765ef093b8cda2d985f7bb",
+  "output": "images/vendors/mint/wallpaper/mfakurian_silver.webp",
+  "outputSha256": "80b79616a591d3c8b951e985a3d145236f98c6787f47d70ffabe1c42473bf4b7",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 768,
+  "preparedAt": "2026-06-15T19:42:25.740Z"
+}

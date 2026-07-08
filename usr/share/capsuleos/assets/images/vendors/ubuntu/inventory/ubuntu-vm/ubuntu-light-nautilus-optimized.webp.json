@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-nautilus.png",
+  "sourceSha256": "a094d76fa3bfa57b2bc17fedaf676add21d2ec7a2606bd3790e8761ec3dab72e",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/ubuntu-light-nautilus-optimized.webp",
+  "outputSha256": "5382931a11aceead9e894efdb7d245a691b4c176ad4f315cf008bd1d566c4b6c",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:52.170Z"
+}

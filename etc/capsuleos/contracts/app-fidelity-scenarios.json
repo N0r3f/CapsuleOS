@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "description": "Campagne crédibilité pédagogique — scénarios utilisateur VM → clone (au-delà de Π structurel C0–C10).",
+  "referenceDomain": "apps-replication-chain",
+  "campaignId": "v3-credibility-pass",
+  "principles": [
+    "VM prime — steps documentés depuis observation Mint Cinnamon réelle",
+    "Boucle récursive — shell → menus → sous-écrans → états UI",
+    "Triple couche — inventaire texte → captures VM/Capsule → smoke Playwright",
+    "Prédicats séquentiels — CredV documente, CredC implémente, CredS smoke, CredΠ mesure",
+    "Façade OS canonique — resolveCapsuleOsUrl(registryId), jamais home/ direct",
+    "Extension ciblée P-F v2 — cartographie gaps (P-F1) puis tiers B par slot, pas 101 apps linéaires"
+  ],
+  "domains": {
+    "app-fidelity": {
+      "label": "Crédibilité pédagogique applications",
+      "predicates": ["CredV", "CredC", "CredS", "CredΠ"],
+      "doc": "root/docs/campagne-credibilite-pedagogique.md"
+    }
+  },
+  "predicateChecks": {
+    "CredV": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.documented",
+      "min": 1
+    },
+    "CredC": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.implemented",
+      "min": 1
+    },
+    "CredS": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.smokeOk",
+      "min": 1
+    },
+    "CredΠ": {
+      "inventory": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+      "field": "summary.appsAtPi100",
+      "expr": "all priority apps pi_credibility >= 100"
+    }
+  },
+  "phases": [
+    { "id": "P-A", "label": "Inventaire scénarios VM", "predicate": "CredV" },
+    { "id": "P-B", "label": "Captures ground truth VM", "requires": ["CredV"] },
+    { "id": "P-C", "label": "Implémentation clone", "predicate": "CredC", "requires": ["CredV"] },
+    { "id": "P-D", "label": "Smoke scénario", "predicate": "CredS", "requires": ["CredC"] },
+    { "id": "P-E", "label": "Parité classée pi_credibility", "predicate": "CredΠ", "requires": ["CredS"] },
+    { "id": "P-F1", "label": "Cartographie menu→slots→gaps", "artifact": "root/docs/inventaires/{id}-app-fidelity-gaps.json" },
+    { "id": "P-F2", "label": "Alignement taxonomie slot/variant", "requires": ["P-F1"] },
+    { "id": "P-F3", "label": "Crédibilité tier B par slot gap", "requires": ["P-F1"], "predicate": "CredΠ" },
+    { "id": "P-F4", "label": "ManΣ Mint proc/", "requires": ["P-F1"] },
+    { "id": "P-F5", "label": "Captures VM burst", "requires": ["CredV"] }
+  ],
+  "steps": [
+    {
+      "id": "fidelity-inventory",
+      "requires": [],
+      "negates": ["CredV"],
+      "script": "usr/lib/capsuleos/tools/lab/collect-app-interaction-inventory.mjs",
+      "args": ["--id", "--app"]
+    },
+    {
+      "id": "fidelity-vm-capture",
+      "requires": ["CredV"],
+      "negates": ["CredC"],
+      "script": "usr/lib/capsuleos/tools/lab/collect-app-interaction-inventory.mjs",
+      "args": ["--id", "--app", "--capture-vm"]
+    },
+    {
+      "id": "fidelity-smoke",
+      "requires": ["CredC"],
+      "negates": ["CredS"],
+      "script": "usr/lib/capsuleos/tools/lab/smoke-app-fidelity-scenario.mjs",
+      "args": ["--id", "--scenario"]
+    },
+    {
+      "id": "fidelity-parity",
+      "requires": ["CredS"],
+      "negates": ["CredΠ"],
+      "script": "usr/lib/capsuleos/tools/lab/run-app-parity-pass.mjs",
+      "args": ["--id", "--app"]
+    }
+  ],
+  "orchestrator": {
+    "script": "usr/lib/capsuleos/tools/lab/run-app-fidelity-campaign.mjs",
+    "inventoryPattern": "root/docs/inventaires/{id}-app-fidelity-scenarios.json",
+    "replicationState": "root/docs/inventaires/{id}-replication-state.json"
+  },
+  "registryDefaults": {
+    "linux-mint": {
+      "toolkit": "cinnamon",
+      "facadeUrl": "OS/linux/families/debian/mint/index.html",
+      "capturePrefix": "mint-fidelity",
+      "priorityQueueField": "priorityQueue",
+      "vmHost": "<lab-inventory:linux-lab>"
+    }
+  },
+  "integration": {
+    "cloneEngine": "etc/capsuleos/contracts/clone-cycle-engine.json",
+    "appsChain": "etc/capsuleos/contracts/apps-replication-chain.json",
+    "predicatesStructural": ["AppVv", "AppVc", "AppVp"],
+    "predicatesCredibility": ["CredV", "CredC", "CredS", "CredΠ"]
+  }
+}

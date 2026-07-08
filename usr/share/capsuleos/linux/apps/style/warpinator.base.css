@@ -1,0 +1,129 @@
+main#warpinatorApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--wrp-text, #2e2e2e);
+    background: var(--wrp-bg, #ffffff);
+}
+
+.wrp-app__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    min-height: 56px;
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--wrp-border, #d4d4d4);
+    background: var(--wrp-header-bg, #ebebeb);
+}
+
+.wrp-app__logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.wrp-app__host {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.wrp-app__title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wrp-app__hostname {
+    margin: 2px 0 0;
+    font-size: 11px;
+    color: var(--wrp-muted, #666666);
+}
+
+.wrp-app__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 16px;
+    overflow: auto;
+}
+
+.wrp-app__section-title {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.wrp-app__peer-list {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.wrp-app__peer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--wrp-border, #d4d4d4);
+    border-radius: 6px;
+    background: var(--wrp-peer-bg, #fafafa);
+}
+
+.wrp-app__peer-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--wrp-accent, #1f9ede);
+}
+
+.wrp-app__peer-name {
+    flex: 1 1 auto;
+    font-weight: 600;
+}
+
+.wrp-app__peer-status {
+    font-size: 11px;
+    color: var(--wrp-ok, #27ae60);
+}
+
+.wrp-app__drop {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 120px;
+    padding: 20px;
+    border: 2px dashed var(--wrp-border, #cccccc);
+    border-radius: 8px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.wrp-app__drop-hint {
+    margin: 0;
+    color: var(--wrp-muted, #666666);
+}
+
+.wrp-app__btn {
+    padding: 6px 14px;
+    border: 1px solid var(--wrp-btn-border, #c8c8c8);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 13px;
+    background: var(--wrp-btn-bg, #f6f6f6);
+    cursor: default;
+}
+
+.wrp-app__btn--primary {
+    color: #ffffff;
+    background: var(--wrp-accent, #1f9ede);
+    border-color: var(--wrp-accent, #1f9ede);
+}

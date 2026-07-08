@@ -1,0 +1,20 @@
+{
+  "capsuleGlobals": {
+    "CAPSULE_WINDOW_CONTEXT": {
+      "family": "linux",
+      "draggable": true,
+      "resizable": true,
+      "forceOnOpen": true,
+      "requireHeader": true,
+      "headerLayout": "capsule",
+      "edgeTiling": true,
+      "skipSlots": ["mainMenu"],
+      "bounds": {
+        "mainSelector": "object#desktop, #desktop",
+        "desktopSelector": "object#desktop, #desktop",
+        "footerSelector": "footer, #tableau",
+        "subtractFooter": false
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "explorer.windowTitle": "Dossier personnel - Dolphin",
+    "mainMenu.windowTitle": "Menu des applications",
+    "mainMenu.searchPlaceholder": "Rechercher...",
+    "terminal.windowTitle": "~ : bash - Konsole",
+    "themes.windowTitle": "Paramètres système",
+    "checklist.windowTitle": "Missions MX",
+    "checklist.description": "Explore MX Linux KDE en accomplissant ces missions. Ta progression est sauvegardée.",
+    "checklist.hint.open-nemo": "Ouvre Dolphin depuis le panneau",
+    "checklist.hint.open-menu": "Ouvre le menu principal (logo MX en bas à gauche)",
+    "checklist.hint.open-profile": "Ouvre le profil MX Linux KDE",
+    "profile.windowTitle": "À propos - MX Linux KDE"
+}

@@ -1,0 +1,341 @@
+div[class^="windowElement"]:not(#mainMenu) {
+    position: var(--fix);
+    top: var(--head);
+    bottom: calc(var(--head) * 1.5);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: calc(var(--head) * 10);
+    min-height: calc(var(--head) * 12);
+    padding: calc(var(--head) / 20);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: calc(var(--head) / 3.2);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+    background: #1f2530;
+    overflow: var(--h);
+    scrollbar-width: var(--z);
+    transition: border-color var(--eas2), box-shadow var(--ease), transform var(--eas2);
+}
+
+body#kde-neon div.windowElement[data-link="themes"]:not(#mainMenu) {
+    width: var(--win-themes-width);
+    min-width: var(--win-themes-min-width);
+    height: var(--win-themes-height);
+    min-height: var(--win-themes-min-height);
+    bottom: auto;
+}
+
+/* KDE Neon — chrome Breeze par défaut (évite héritage Cinnamon/Mint du gabarit générique) */
+body#kde-neon div[class^="windowElement"]:not(#mainMenu) {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    bottom: auto;
+    border: 1px solid var(--kde-neon-window-titlebar-border-color);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 8px 24px rgba(35, 38, 41, 0.16);
+    background: var(--kde-neon-window-titlebar-bg);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+body#kde-neon div[class^="windowElement"]:not(#mainMenu) #windowHeader {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+}
+
+body#kde-neon .windowElementActive {
+    border-color: rgba(61, 174, 233, 0.55);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.35), 0 12px 28px rgba(35, 38, 41, 0.2);
+}
+
+body#kde-neon #windowHeader {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto);
+    grid-template-rows: auto;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: var(--kde-neon-konsole-header-height);
+    min-height: var(--kde-neon-konsole-header-height);
+    padding: 0 calc(var(--head) / 4);
+    border-radius: 5px 5px 0 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body#kde-neon #windowHeader > nav:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    min-width: 0;
+    height: 100%;
+    max-height: 100%;
+}
+
+body#kde-neon #windowHeader > nav:last-of-type {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    min-width: 0;
+    height: 100%;
+    max-height: 100%;
+}
+
+body#kde-neon #windowTitle {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--kde-neon-header-title-size);
+    font-weight: 500;
+    color: var(--kde-neon-window-titlebar-fg-muted);
+    text-shadow: none;
+    filter: none;
+    pointer-events: none;
+}
+
+body#kde-neon #windowTitle[data-window-drag-region] {
+    pointer-events: auto;
+}
+
+body#kde-neon #windowIframe {
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    align-items: stretch;
+    justify-content: stretch;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.windowElementActive {
+    z-index: 500;
+    border-color: var(--menu-accent);
+    box-shadow: 0 0 0 2px rgba(130, 180, 255, 0.72), 0 16px 34px rgba(0, 0, 0, 0.5);
+}
+
+#windowHeader {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    min-width: calc(var(--a) - calc(var(--head) / 20));
+    max-width: calc(var(--max-w) - calc(var(--head) / 20));
+    height: calc(var(--head) / 1.3);
+    padding: calc(var(--head) / 4);
+    border-radius: calc(var(--head) / 3.2) calc(var(--head) / 3.2) var(--z) var(--z);
+    color: var(--kde-neon-window-titlebar-fg);
+    background: var(--kde-neon-window-titlebar-bg);
+    user-select: none;
+    border-bottom: 1px solid var(--kde-neon-window-titlebar-border-color);
+    transition: background-color var(--eas2), border-color var(--eas2);
+    pointer-events: auto;
+}
+
+body#kde-neon div.windowElement:not([data-link="nemo"]):not(#mainMenu) #windowHeader {
+    height: var(--kde-neon-konsole-header-height);
+    min-height: var(--kde-neon-konsole-header-height);
+}
+
+body#kde-neon div.windowElement:not([data-link="nemo"]):not(#mainMenu) #windowIframe {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+}
+
+.windowElementActive #windowHeader {
+    background: var(--kde-neon-window-titlebar-bg-active);
+    border-bottom: 1px solid var(--kde-neon-window-titlebar-border-color-active);
+}
+
+#windowHeader>nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    min-width: calc(var(--head) * 2.2);
+    height: var(--head);
+}
+
+body#kde-neon #windowHeader > nav {
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+}
+
+html[data-theme="light"] #kde-neon #windowTitle {
+    color: var(--kde-neon-window-titlebar-fg);
+    filter: none;
+    text-shadow: none;
+}
+
+/* En thème sombre KDE, le titre doit rester lisible (blanc) */
+body#kde-neon #windowTitle {
+    color: var(--kde-neon-window-titlebar-fg);
+    filter: none;
+    text-shadow: none;
+}
+
+#windowTitle {
+    width: calc(var(--head) * 20);
+    text-align: var(--c);
+    text-shadow: var(--bs);
+    filter: var(--inv);
+}
+
+#windowHeader>nav>button {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) / 2.15);
+    height: calc(var(--head) / 2.15);
+    padding: var(--z);
+    outline: var(--n);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: calc(var(--head) / 2.95);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2), box-shadow var(--eas2);
+}
+
+#windowHeader>nav>button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(155, 188, 235, 0.58);
+    background-color: rgba(181, 204, 236, 0.16);
+    box-shadow: inset 0 0 0 1px rgba(26, 34, 44, 0.24);
+}
+
+#windowHeader>nav>button:focus-visible {
+    outline: 2px solid rgba(151, 196, 255, 0.76);
+    outline-offset: 1px;
+}
+
+/* Contrôles fenêtre KDE — icônes robustes (éviter override apps) */
+body#kde-neon div.windowElement #windowHeader > nav:last-child > button#minimizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/go-down.svg) !important;
+    background-size: 0.72rem !important;
+}
+
+body#kde-neon div.windowElement #windowHeader > nav:last-child > button#resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-restore.svg) !important;
+    background-size: calc(var(--head) / 2.55) !important;
+}
+
+body#kde-neon div.windowElement[data-maximized="true"] #windowHeader > nav:last-child > button#resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-restore.svg) !important;
+    background-size: calc(var(--head) / 2.55) !important;
+}
+
+body#kde-neon div.windowElement #windowHeader > nav:last-child > button#closeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-close.svg) !important;
+    background-color: rgba(194, 72, 86, 0.14);
+    border-color: rgba(255, 126, 138, 0.15);
+}
+
+#closeBtn:hover {
+    border-color: rgba(255, 153, 164, 0.62);
+    background-color: rgba(221, 77, 96, 0.34);
+    box-shadow: inset 0 0 0 1px rgba(112, 22, 34, 0.33);
+}
+
+html[data-theme="light"] #kde-neon #windowHeader>nav>button:hover {
+    border-color: rgba(81, 118, 167, 0.55);
+    background-color: rgba(80, 123, 183, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+}
+
+html[data-theme="light"] #kde-neon div.windowElement:not([data-link="nemo"]):not([data-link="terminal"]):not([data-link="themes"]):not([data-link="update_manager"]) #windowHeader > nav > button {
+    filter: var(--kde-neon-header-control-filter-light);
+}
+
+html[data-theme="light"] #kde-neon #closeBtn {
+    border-color: rgba(180, 79, 92, 0.14);
+    background-color: rgba(209, 88, 103, 0.11);
+}
+
+html[data-theme="light"] #kde-neon #closeBtn:hover {
+    border-color: rgba(176, 67, 82, 0.46);
+    background-color: rgba(216, 78, 95, 0.22);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46);
+}
+
+#windowIframe { 
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--full) - calc(var(--head) / 20));
+    height: var(--a);
+    min-height: calc(var(--full) - calc(var(--head) / 1.2));
+    border-radius: var(--z) var(--z) calc(var(--head) / 4) calc(var(--head) / 4);
+    overflow: var(--h);
+}
+
+body#kde-neon div.windowElement:not(#mainMenu) > #windowIframe {
+    width: 100%;
+    min-height: 0;
+    border-radius: 0;
+}
+
+section.windowElement {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--full);
+    height: var(--full);
+}
+
+/* Fenêtres dans object#desktop : absolute (évite conflit fixed + overflow panel dock). */
+body#kde-neon object#desktop .windowElement:not(#mainMenu),
+body#kde-neon #desktop > .windowElement:not(#mainMenu) {
+    position: absolute;
+    pointer-events: auto;
+}
+
+body#kde-neon object#desktop #mainMenu,
+body#kde-neon #desktop > #mainMenu {
+    pointer-events: auto;
+}
+
+body#kde-neon object#desktop,
+body#kde-neon #desktop {
+    pointer-events: none;
+}
+
+/* KDE Neon — icônes maximize/restore (hors skins app dédiés) */
+body#kde-neon #resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/maximize.svg);
+    background-size: calc(var(--head) / 2.55);
+}
+
+body#kde-neon .windowElement[data-maximized="true"] #resizeBtn {
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/restore.svg);
+    background-size: calc(var(--head) / 2.55);
+}
+
+html:not([data-theme="light"]) #kde-neon #windowTitle {
+    color: rgba(255, 255, 255, 0.92);
+    filter: none;
+    text-shadow: none;
+}
+
+html:not([data-theme="light"]) #kde-neon #windowHeader > nav > button {
+    filter: none;
+}

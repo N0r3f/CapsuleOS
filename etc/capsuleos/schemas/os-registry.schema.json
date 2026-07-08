@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://capsuleos.local/schemas/os-registry.schema.json",
+  "title": "CapsuleOS OS Registry",
+  "type": "object",
+  "required": ["version", "entries", "stats"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "kernelSpecVersion": { "type": "integer" },
+    "kernels": { "type": "array" },
+    "linuxBranches": { "type": "array" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    },
+    "stats": {
+      "type": "object",
+      "required": ["total", "active", "planned", "stub"],
+      "properties": {
+        "total": { "type": "integer" },
+        "active": { "type": "integer" },
+        "planned": { "type": "integer" },
+        "stub": { "type": "integer" },
+        "frozen": { "type": "boolean" }
+      }
+    }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "family", "kernelId", "displayName", "tier", "status", "fidelityLevel", "toolkit"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "family": { "type": "string" },
+        "kernelId": { "type": "string" },
+        "branchId": { "type": ["string", "null"] },
+        "vendor": { "type": "string" },
+        "displayName": { "type": "string" },
+        "tier": { "enum": ["P0", "P1", "P2", "P3", "P4"] },
+        "status": { "enum": ["active", "planned", "stub", "beta", "deprecated", "archived"] },
+        "fidelityLevel": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "kernelSpecVersion": { "type": "integer" },
+        "upstreamId": { "type": ["string", "null"] },
+        "extends": { "type": "string" },
+        "clusterIds": { "type": "array", "items": { "type": "string" } },
+        "toolkit": {
+          "type": "object",
+          "required": ["id", "shellId"],
+          "properties": {
+            "id": { "type": "string" },
+            "shellId": { "type": "string" },
+            "clusterId": { "type": ["string", "null"] }
+          }
+        },
+        "apps": { "type": "object" },
+        "referencePaths": {
+          "type": "object",
+          "properties": {
+            "facade": { "type": "string" },
+            "skin": { "type": "string" },
+            "embedKey": { "type": "string" },
+            "bodyId": { "type": "string" },
+            "frozenAt": { "type": "string" }
+          }
+        },
+        "assets": {
+          "type": "object",
+          "properties": {
+            "pickIcon": { "type": "string" }
+          }
+        },
+        "browserMinCapabilities": { "type": "object" },
+        "skills": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

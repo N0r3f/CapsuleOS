@@ -1,0 +1,120 @@
+main#kdeconnectApp.kde-kdeconnect {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1.1rem;
+    font-family: var(--font-ui, 'Noto Sans', sans-serif);
+    font-size: calc(var(--head, 2rem) / 2.8);
+    color: var(--kdeconnect-text, #232629);
+    background: var(--kdeconnect-bg, #fcfcfc);
+    box-sizing: border-box;
+}
+
+.kde-kdeconnect__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.kde-kdeconnect__title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.kde-kdeconnect__tagline {
+    margin: 0.15rem 0 0;
+    color: var(--kdeconnect-muted, #7f8c8d);
+    font-size: 0.92em;
+}
+
+.kde-kdeconnect__devices {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.65rem;
+    padding: 0.75rem;
+    border: 1px solid var(--kdeconnect-border, rgba(35, 38, 41, 0.12));
+    border-radius: 0.35rem;
+    background: var(--kdeconnect-panel, #eff0f1);
+}
+
+.kde-kdeconnect__hint {
+    margin: 0;
+    color: var(--kdeconnect-muted, #7f8c8d);
+}
+
+.kde-kdeconnect__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.kde-kdeconnect__device {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.35rem;
+    border-radius: 0.3rem;
+}
+
+.kde-kdeconnect__device.is-active {
+    background: rgba(61, 174, 233, 0.14);
+}
+
+.kde-kdeconnect__device-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url('../../../../../../usr/share/capsuleos/assets/images/vendors/neon/kickoff/kdeconnect.svg') center / contain no-repeat;
+}
+
+.kde-kdeconnect__device-status {
+    font-size: 0.85em;
+    color: #27ae60;
+}
+
+.kde-kdeconnect__pair {
+    align-self: flex-start;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--kdeconnect-border, rgba(35, 38, 41, 0.15));
+    border-radius: 0.3rem;
+    background: #fff;
+    color: inherit;
+    cursor: pointer;
+}
+
+.kde-kdeconnect__pair:hover {
+    background: rgba(61, 174, 233, 0.1);
+}
+
+.kde-kdeconnect__actions {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.45rem;
+}
+
+.kde-kdeconnect__action {
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--kdeconnect-border, rgba(35, 38, 41, 0.12));
+    border-radius: 0.3rem;
+    background: transparent;
+    color: inherit;
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.kde-kdeconnect__action:not(:disabled) {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.kde-kdeconnect__status {
+    margin: 0;
+    min-height: 1.2em;
+    font-size: 0.88em;
+    color: var(--kdeconnect-muted, #7f8c8d);
+}

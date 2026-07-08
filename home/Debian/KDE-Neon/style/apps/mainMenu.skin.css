@@ -1,0 +1,637 @@
+/* KDE Neon (Plasma) — menu Kickoff (réf. openSUSE Breeze clair + VM popup 677×509). */
+
+body#kde-neon div[data-link="mainMenu"],
+body#kde-neon #mainMenu {
+    position: fixed;
+    left: var(--kde-neon-menu-anchor-left, var(--kde-neon-panel-dock-inset, 0));
+    right: auto;
+    top: auto;
+    bottom: var(--kde-neon-panel-anchor-bottom, var(--taskbar-height));
+    width: var(--kde-neon-menu-width);
+    height: var(--kde-neon-menu-height);
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--kde-neon-menu-border);
+    border-radius: var(--kde-neon-menu-radius);
+    background: var(--kde-neon-menu-bg);
+    box-shadow: var(--kde-neon-menu-shadow);
+    overflow: hidden;
+    backdrop-filter: blur(20px) saturate(1.15);
+    -webkit-backdrop-filter: blur(20px) saturate(1.15);
+    z-index: 9999;
+}
+
+body#kde-neon div[data-link="mainMenu"] > #windowHeader,
+body#kde-neon #mainMenu > #windowHeader {
+    display: none;
+    height: 0;
+}
+
+body#kde-neon #mainMenu .menu-cat__icon {
+    display: none !important;
+}
+
+body#kde-neon #mainMenu .menu-root.menu-root--plasma {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    color: var(--kde-neon-menu-text);
+    font-family: var(--font-ui);
+}
+
+/* ── En-tête Kickoff VM : utilisateur (col. catégories) | recherche (col. apps) ── */
+body#kde-neon #mainMenu .menu-plasma-header {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(8.75rem, 31%) minmax(0, 1fr);
+    align-items: center;
+    min-width: 0;
+    border-bottom: 1px solid var(--kde-neon-menu-divider);
+    background: var(--kde-neon-menu-header-bg);
+}
+
+body#kde-neon #mainMenu .menu-plasma-header__sidebar {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: 0.5rem 0.55rem 0.48rem;
+    border-right: 1px solid var(--kde-neon-menu-divider);
+}
+
+body#kde-neon #mainMenu .menu-plasma-header__main {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.55rem;
+    min-width: 0;
+    padding: 0.5rem 0.72rem 0.48rem 0.72rem;
+}
+
+body#kde-neon #mainMenu .menu-user {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    flex-shrink: 0;
+}
+
+body#kde-neon #mainMenu .menu-user__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: #da4453;
+    flex-shrink: 0;
+}
+
+body#kde-neon #mainMenu .menu-user__avatar::before {
+    content: "c";
+}
+
+body#kde-neon #mainMenu .menu-user__name {
+    color: var(--kde-neon-menu-text);
+    font-size: 0.86rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: lowercase;
+}
+
+body#kde-neon #mainMenu .menu-search-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+body#kde-neon #mainMenu .menu-search {
+    width: 100%;
+    min-height: var(--kde-neon-menu-search-min-height);
+    height: var(--kde-neon-menu-search-min-height);
+    margin: 0;
+    padding: 0 0.55rem 0 calc(var(--kde-neon-menu-search-icon-left) + var(--kde-neon-menu-search-icon-size) + 0.38rem);
+    border: 1px solid var(--kde-neon-menu-search-border);
+    border-radius: var(--kde-neon-menu-btn-radius);
+    color: var(--kde-neon-menu-text);
+    font-family: inherit;
+    font-size: 0.8rem;
+    appearance: none;
+    -webkit-appearance: none;
+    background:
+        url("../../../../../usr/share/capsuleos/assets/icons/kde/nemo/search-symbolic.svg") no-repeat var(--kde-neon-menu-search-icon-left) center / var(--kde-neon-menu-search-icon-size),
+        var(--kde-neon-menu-search-bg);
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+body#kde-neon #mainMenu .menu-search::-webkit-search-cancel-button,
+body#kde-neon #mainMenu .menu-search::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+body#kde-neon #mainMenu .menu-search::placeholder {
+    color: var(--kde-neon-menu-search-placeholder);
+}
+
+body#kde-neon #mainMenu .menu-search:focus {
+    border-color: var(--kde-neon-menu-search-focus);
+    box-shadow: 0 0 0 1px rgba(61, 174, 233, 0.4);
+}
+
+body#kde-neon #mainMenu .menu-search-clear {
+    position: absolute;
+    top: 50%;
+    right: 0.38rem;
+    width: 1.12rem;
+    height: 1.12rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: var(--kde-neon-menu-search-clear-bg, rgba(35, 38, 41, 0.58));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.62rem;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+body#kde-neon #mainMenu .menu-search-clear:hover {
+    background-color: var(--kde-neon-menu-search-clear-bg-hover, rgba(35, 38, 41, 0.72));
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-search {
+    padding-right: 2.05rem;
+}
+
+body#kde-neon #mainMenu .menu-plasma-chrome {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.2rem;
+    flex-shrink: 0;
+}
+
+body#kde-neon #mainMenu .menu-plasma-chrome__btn {
+    width: 1.65rem;
+    height: 1.65rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--kde-neon-menu-btn-radius);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.05rem;
+    filter: var(--kde-neon-menu-icon-filter);
+    opacity: 0.82;
+    cursor: pointer;
+}
+
+body#kde-neon #mainMenu .menu-plasma-chrome__btn--close {
+    opacity: 0.95;
+    background-image:
+        linear-gradient(var(--kde-neon-menu-text), var(--kde-neon-menu-text));
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.29-6.3z'/%3E%3C/svg%3E") no-repeat center / 1.05rem;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.29 19.71 2.88 18.29 9.17 12 2.88 5.71 4.29 4.29l6.3 6.3 6.29-6.3z'/%3E%3C/svg%3E") no-repeat center / 1.05rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.05rem;
+    filter: none;
+}
+
+body#kde-neon #mainMenu .menu-plasma-chrome__btn--close:hover,
+body#kde-neon #mainMenu .menu-plasma-chrome__btn:hover {
+    background-color: var(--kde-neon-menu-hover);
+    opacity: 1;
+}
+
+/* ── Corps : catégories + grille ── */
+body#kde-neon #mainMenu .menu-plasma-body {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: minmax(8.75rem, 31%) minmax(0, 1fr);
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+body#kde-neon #mainMenu .menu-plasma-sidebar {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    padding: 0;
+    border-right: 1px solid var(--kde-neon-menu-divider);
+    background: var(--kde-neon-menu-sidebar-bg);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--kde-neon-menu-scrollbar-thumb, rgba(35, 38, 41, 0.28)) transparent;
+}
+
+body#kde-neon #mainMenu .menu-plasma-sidebar::-webkit-scrollbar,
+body#kde-neon #mainMenu .menu-app-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+body#kde-neon #mainMenu .menu-plasma-sidebar::-webkit-scrollbar-thumb,
+body#kde-neon #mainMenu .menu-app-list::-webkit-scrollbar-thumb {
+    background: var(--kde-neon-menu-scrollbar-thumb, rgba(35, 38, 41, 0.22));
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+body#kde-neon #mainMenu .menu-cats,
+body#kde-neon #mainMenu .menu-places {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0.12rem 0;
+    list-style: none;
+}
+
+body#kde-neon #mainMenu .menu-cat,
+body#kde-neon #mainMenu .menu-places > li > .menu-shortcut {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.48rem;
+    width: 100%;
+    min-height: var(--kde-neon-menu-body-row-min-h);
+    margin: 0;
+    padding: 0.28rem 0.7rem 0.28rem 0.55rem;
+    border: 0;
+    border-left: 3px solid transparent;
+    border-radius: 0;
+    color: var(--kde-neon-menu-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: left;
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Noyau partagé (Mint) injecte <img.menu-cat__icon> — Plasma Neon garde ::before */
+body#kde-neon #mainMenu .menu-cat__icon {
+    display: none;
+}
+
+body#kde-neon #mainMenu .menu-cat__label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body#kde-neon #mainMenu .menu-cat::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: var(--kde-neon-menu-cat-icon-size);
+    height: var(--kde-neon-menu-cat-icon-size);
+    background-image: var(--menu-cat-icon, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: var(--kde-neon-menu-cat-icon-filter, none);
+    opacity: 1;
+}
+
+body#kde-neon #mainMenu .menu-places > li > .menu-shortcut::before {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: var(--kde-neon-menu-cat-icon-size);
+    height: var(--kde-neon-menu-cat-icon-size);
+    background-image: var(--menu-shortcut-icon, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: var(--kde-neon-menu-icon-filter);
+    opacity: 0.9;
+}
+
+body#kde-neon #mainMenu .menu-cat:hover:not(.menu-cat--disabled):not(.menu-cat--decorative),
+body#kde-neon #mainMenu .menu-places > li > .menu-shortcut:hover:not(.is-unavailable) {
+    background: var(--kde-neon-menu-hover);
+}
+
+body#kde-neon #mainMenu .menu-cat.is-active {
+    background: var(--kde-neon-menu-active);
+    border-left-color: var(--kde-neon-breeze-accent, #3daee9);
+}
+
+body#kde-neon #mainMenu .menu-cat.menu-cat--decorative,
+body#kde-neon #mainMenu .menu-cat.menu-cat--disabled,
+body#kde-neon #mainMenu .menu-shortcut.is-unavailable {
+    color: var(--kde-neon-menu-text-muted);
+    opacity: 0.65;
+    cursor: default;
+}
+
+body#kde-neon #mainMenu .menu-apps {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    background: var(--kde-neon-menu-apps-bg);
+}
+
+body#kde-neon #mainMenu .menu-plasma-results-heading {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0.5rem 0.72rem 0.18rem;
+    color: var(--kde-neon-menu-text);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+body#kde-neon #mainMenu .menu-app-list {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0.45rem 0.38rem;
+    list-style: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: min-content;
+    align-content: start;
+    gap: 0.55rem 0.42rem;
+    padding: 0.65rem 0.72rem;
+}
+
+body#kde-neon #mainMenu .menu-app-item {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.32rem;
+    width: 5.35rem;
+    min-height: 5.35rem;
+    margin: 0 auto;
+    padding: 0.42rem 0.2rem 0.35rem;
+    border-radius: 0.55rem;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+body#kde-neon #mainMenu .menu-app-item:hover:not(.is-unavailable),
+body#kde-neon #mainMenu .menu-app-item.is-active:not(.is-unavailable) {
+    background: var(--kde-neon-menu-hover);
+    border-color: rgba(61, 174, 233, 0.35);
+}
+
+body#kde-neon #mainMenu .menu-app-item.is-active:not(.is-unavailable) {
+    background: var(--kde-neon-menu-active);
+    border-color: var(--kde-neon-breeze-accent, #3daee9);
+}
+
+body#kde-neon #mainMenu .menu-app-item.is-unavailable {
+    opacity: 0.55;
+    cursor: default;
+}
+
+body#kde-neon #mainMenu .menu-app-item__icon {
+    width: 3.1rem;
+    height: 3.1rem;
+    object-fit: contain;
+}
+
+body#kde-neon #mainMenu .menu-app-item__info {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 0;
+    align-items: center;
+    width: 100%;
+}
+
+body#kde-neon #mainMenu .menu-app-item__name {
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.12;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 100%;
+    color: var(--kde-neon-menu-text);
+    word-break: break-word;
+    width: 100%;
+    padding: 0 0.1rem;
+}
+
+body#kde-neon #mainMenu .menu-app-item__desc {
+    display: none;
+}
+
+body#kde-neon #mainMenu .menu-app-list.is-empty::after {
+    content: "Aucune application";
+    display: block;
+    padding: 1rem;
+    color: var(--kde-neon-menu-text-muted);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+/* ── Mode recherche (sidebar + footer masqués, liste) ── */
+body#kde-neon #mainMenu .menu-root--search .menu-plasma-sidebar,
+body#kde-neon #mainMenu .menu-root--search .menu-plasma-footer {
+    display: none;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-plasma-body {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0;
+    padding: 0 0.38rem 0.42rem;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item {
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 2.62rem;
+    max-height: none;
+    margin: 0;
+    padding: 0.34rem 0.48rem;
+    border-radius: 0.24rem;
+    text-align: left;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item__icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item__info {
+    align-items: flex-start;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item__name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: left;
+    -webkit-line-clamp: 1;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item__desc {
+    display: block;
+    margin-top: 0.06rem;
+    color: var(--kde-neon-menu-text-muted);
+    font-size: 0.72rem;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item.is-active:not(.is-unavailable) {
+    background: var(--kde-neon-menu-search-highlight-bg);
+    border-color: rgba(61, 174, 233, 0.5);
+}
+
+body#kde-neon #mainMenu .menu-root--search .menu-app-item:hover:not(.is-unavailable) {
+    background: var(--kde-neon-menu-search-hover-bg);
+}
+
+/* ── Pied : onglets + alimentation ── */
+body#kde-neon #mainMenu .menu-plasma-footer {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.3rem 0.55rem 0.34rem;
+    border-top: 1px solid var(--kde-neon-menu-divider);
+    background: var(--kde-neon-menu-footer-bg, rgba(252, 252, 252, 0.98));
+    flex-wrap: nowrap;
+}
+
+body#kde-neon #mainMenu .menu-plasma-tabs {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.85rem;
+    flex: 0 0 auto;
+}
+
+body#kde-neon #mainMenu .menu-plasma-tab {
+    position: relative;
+    margin: 0;
+    padding: 0.12rem 0.05rem 0.38rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--kde-neon-menu-text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+}
+
+body#kde-neon #mainMenu .menu-plasma-tab--active {
+    color: var(--kde-neon-menu-text);
+}
+
+body#kde-neon #mainMenu .menu-plasma-tab--active::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0.12rem;
+    left: 0;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--kde-neon-breeze-accent, #3daee9);
+}
+
+body#kde-neon #mainMenu .menu-plasma-power {
+    display: flex;
+    gap: 0.18rem;
+    flex-wrap: nowrap;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+body#kde-neon #mainMenu .menu-plasma-power__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.22rem;
+    padding: 0.12rem 0.18rem;
+    border: 0;
+    border-radius: var(--kde-neon-menu-btn-radius);
+    background: transparent;
+    color: var(--kde-neon-menu-text);
+    font-size: 0.72rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+body#kde-neon #mainMenu .menu-plasma-power__btn span {
+    white-space: nowrap;
+    line-height: 1.05;
+}
+
+body#kde-neon #mainMenu .menu-plasma-power__btn img {
+    width: 0.95rem;
+    height: 0.95rem;
+    object-fit: contain;
+    filter: var(--kde-neon-menu-icon-filter);
+}
+
+body#kde-neon #mainMenu .menu-plasma-power__btn:hover {
+    background: var(--kde-neon-menu-hover);
+}
+
+body#kde-neon #mainMenu .menu-plasma-power__btn--session::after {
+    content: "";
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-left: -0.05rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    opacity: 0.65;
+}
+
+body#kde-neon #mainMenu .menu-root--places .menu-app-list {
+    display: none;
+}

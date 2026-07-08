@@ -1,0 +1,135 @@
+/**
+ * Tokens Mint-Y-Blue (VM 22.3 Zena) — ground truth 2026-06-30.
+ * Thème : Mint-Y-Blue (GTK clair + panel sombre) ; accent #0c75de.
+ */
+body#mint {
+    /* VM Cinnamon panel1 = 40 px (= --head à 100 %) — suit texte agrandi via a11y-overrides */
+    --mint-panel-height: var(--head);
+    --taskbar-height: var(--mint-panel-height);
+    --mint: url(../../../../usr/share/capsuleos/assets/images/vendors/mint/wallpaper/default_background.webp);
+    /* VM : gsettings font-name = 'Ubuntu 10' (13.3px) */
+    --font-ui: 'Ubuntu', 'Noto Sans', Cantarell, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'DejaVu Sans Mono', 'Ubuntu Mono', monospace;
+    /* La règle portail universelle `* { font-family: var(--font) }` court-circuite
+       l'héritage — rebrancher --font sur la pile Ubuntu pour tout le bureau Mint (vérité VM) */
+    --font: var(--font-ui);
+    --texte: #e1e1e1;
+    /* html{color:var(--texte)} portail — réappliquer teinte VM #e1e1e1 + stack Ubuntu */
+    color: var(--texte);
+    font-family: var(--font-ui);
+    /* Accent VM Mint-Y-Blue : #0c75de (remplace #1f9ede Mint-Y-Dark-Aqua) */
+    --menu-accent: #0c75de;
+    --mint-launcher-running-accent: #0c75de;
+    /* Panel Cinnamon — reste sombre (indépendant du thème GTK) */
+    /* VM panel1 (gsettings + capture Φ) : #2f2e33 */
+    --mint-taskbar-bg: #2f2e33;
+    --mint-clock-hover-bg: #303035;
+    --mint-taskbar-item-border-hover: #3f3f46;
+    --mint-tray-separator: rgba(255, 255, 255, 0.14);
+    --mint-tray-item-size: 24px;
+    --mint-tray-icon-size: 24px;
+    --mint-favorites-icon-size: 22px;
+    /* grouped-window-list VM (capture + spec) : icône 24 px, slot ~32 px, gap ~4 px */
+    --mint-panel-launcher-icon-size: 24px;
+    --mint-panel-launcher-hit-size: 32px;
+    --mint-panel-launcher-gap: 4px;
+    --mint-panel-menu-icon-size: 32px;
+    --mint-panel-menu-ring: rgba(255, 255, 255, 0.16);
+    --mint-tray-color: #e1e1e1;
+    --mint-tray-item-hover-bg: rgba(255, 255, 255, 0.08);
+    /* Menu Cinnamon — reste sombre (mesure pixel VM scène Φ shell/menu) */
+    --menu-sidebar-bg: #303036;
+    --menu-cats-bg: #222226;
+    --menu-apps-bg: #222226;
+    --menu-shell-border: #1a1a1b;
+    --menu-sidebar-separator: #1a1a1b;
+    --menu-item-active-bg: #3d3d47;
+    --menu-app-desc-color: #a0a0a0;
+    --menu-power-bg: #d94141;
+    --menu-power-bg-hover: #e05050;
+    --menu-shortcut-hover: #303036;
+    --menu-action-hover: #3c3c44;
+    --menu-search-border: #303036;
+    --menu-search-border-focus: #0c75de;
+    --menuHover: #3c3c44;
+    --menuInput: #303036;
+    --genMenu: #222226;
+    --menuDefaultCcol: #303036;
+    /* Chrome fenêtres GTK — Mint-Y-Blue = thème CLAIR (wm_bg=#EBEBED, wm_title=dark) */
+    --nemoHC: #ebebed;
+    --nemoHCB: #e0e0e2;
+    --nemoMCSF: #e4e4e6;
+    --mint-window-header-border: rgba(0, 0, 0, 0.09);
+    --mint-window-header-border-active: #0c75de;
+    --mint-window-control-border-hover: #0c75de;
+    --mint-window-control-bg-hover: rgba(0, 0, 0, 0.08);
+    /* Muffin SSD — titlebar 32 px ; icônes Mint-Y-Blue : dark sur fond clair */
+    --mint-muffin-titlebar-height: 32px;
+    --mint-muffin-control-size: 22px;
+    --mint-muffin-control-icon-size: 18px;
+    --mint-window-frame-radius: 10px;
+    --mint-muffin-control-icon-filter: brightness(0) opacity(0.58);
+    --mint-muffin-control-icon-filter-hover: brightness(0) opacity(0.92);
+    --mint-muffin-control-hover-disc: rgba(0, 0, 0, 0.12);
+    --mint-muffin-control-active-disc: rgba(0, 0, 0, 0.22);
+    /* Titre fenêtre — Mint-Y-Blue : texte sombre (wm_title) sur fond clair */
+    --mint-wm-title: rgba(0, 0, 0, 0.87);
+    --mint-wm-title-unfocused: #9d9d9f;
+    /* Couleurs GTK app (base theme_bg_color / base_color / borders) */
+    --mint-app-bg: #f8f8f9;
+    --mint-app-base: #ffffff;
+    --mint-app-text: #303030;
+    --mint-app-border: #c8c8ce;
+    --desktop-shortcut-text: #e1e1e1;
+    --desktop-shortcut-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+    --desktop-shortcut-hover-bg: rgba(48, 48, 54, 0.55);
+    --volume-popover-thumb-bg: #0c75de;
+    --a11y-focus-ring: #0c75de;
+}
+
+html[data-theme="light"] body#mint {
+    --texte: #1e1e1e;
+    --menu-accent: #0c75de;
+    --mint-launcher-running-accent: #0c75de;
+    --mint-taskbar-bg: #ececee;
+    --mint-clock-hover-bg: rgba(0, 0, 0, 0.08);
+    --mint-taskbar-item-border-hover: #a8a8b0;
+    --mint-tray-separator: rgba(0, 0, 0, 0.14);
+    --mint-tray-color: #2e2e33;
+    --mint-tray-item-hover-bg: rgba(0, 0, 0, 0.08);
+    --menu-sidebar-bg: #e8e8ec;
+    --menu-cats-bg: #f4f4f6;
+    --menu-apps-bg: #fafafa;
+    --menu-shell-border: #c8c8d0;
+    --menu-sidebar-separator: #d0d0d6;
+    --menu-item-active-bg: #dceaf4;
+    --menu-app-desc-color: #666670;
+    --menu-power-bg: #d94141;
+    --menu-power-bg-hover: #e05050;
+    --menu-shortcut-hover: rgba(0, 0, 0, 0.06);
+    --menu-action-hover: rgba(0, 0, 0, 0.08);
+    --menu-search-border: #c0c0c8;
+    --menu-search-border-focus: #0c75de;
+    --menuHover: #e0e4ea;
+    --menuInput: #ffffff;
+    --genMenu: #f4f4f6;
+    --menuDefaultCcol: #f0f0f2;
+    --mint-window-header-border: rgba(0, 0, 0, 0.14);
+    --mint-window-header-border-active: #0c75de;
+    --mint-window-control-border-hover: rgba(0, 0, 0, 0.2);
+    --mint-window-control-bg-hover: rgba(0, 0, 0, 0.06);
+    --desktop-shortcut-text: #ffffff;
+    --desktop-shortcut-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+    --desktop-shortcut-hover-bg: rgba(0, 0, 0, 0.08);
+    --volume-popover-thumb-bg: #0c75de;
+    --mint-muffin-control-icon-filter: brightness(0) opacity(0.58);
+    --mint-muffin-control-icon-filter-hover: brightness(0) opacity(0.92);
+    --mint-muffin-control-hover-disc: rgba(0, 0, 0, 0.14);
+    --mint-muffin-control-active-disc: rgba(0, 0, 0, 0.22);
+}
+
+/* VM nemo.desktop : home-icon-visible=false, trash-icon-visible=false */
+body#mint .desktop-shortcut[data-desktop-icon="home"],
+body#mint .desktop-shortcut[data-desktop-icon="trash"] {
+    display: none;
+}

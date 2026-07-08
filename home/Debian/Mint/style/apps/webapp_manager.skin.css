@@ -1,0 +1,13 @@
+/* Web App Manager — Linux Mint Cinnamon */
+body#mint {
+    --wam-bg: #ffffff;
+    --wam-text: #2e2e2e;
+    --wam-muted: #5c5c5c;
+    --wam-header-bg: #ebebeb;
+    --wam-list-bg: #f4f4f4;
+    --wam-border: #d4d4d4;
+    --wam-selected: rgba(31, 158, 222, 0.16);
+    --wam-accent: #0c75de;
+    --wam-btn-bg: #f6f6f6;
+    --wam-btn-border: #c8c8c8;
+}

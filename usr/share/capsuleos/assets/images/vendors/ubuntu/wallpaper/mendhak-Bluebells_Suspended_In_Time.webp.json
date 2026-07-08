@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/mendhak-Bluebells_Suspended_In_Time.jpg",
+  "sourceSha256": "b686eda5bd1278bca3f9f8e6acfcf79492107c2f5655e13d071c78435f1ebff4",
+  "output": "images/vendors/ubuntu/wallpaper/mendhak-Bluebells_Suspended_In_Time.webp",
+  "outputSha256": "004aac504f79d1f9d70c113c5d16d238f642e375905f7e1b16a22ca48ee0e048",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:54.225Z"
+}

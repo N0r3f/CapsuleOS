@@ -1,0 +1,27 @@
+/**
+ * Surcharges AlmaLinux — dernier lien CSS du skin.
+ * Shell GNOME partagé avec Fedora (classes fedora-*, tokens html:has(#alma)).
+ * Fichiers : Nautilus sur la VM, slot gabarit nemo dans CapsuleOS (voir linux-gnome-capsule-slots.md).
+ * Thèmes : sombre = défaut ; clair = html[data-theme="light"]:has(#alma).
+ * Accent VM : blue (#3584e4).
+ */
+html:has(#alma) {
+    --menu-accent: #3584e4;
+    --font-ui: "Red Hat Text", "Cantarell", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Red Hat Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+    --fedora-bg: url("../../../usr/share/capsuleos/assets/images/vendors/alma/wallpaper/almalinux-night.jpg");
+}
+
+html[data-theme="light"]:has(#alma) {
+    --fedora-bg: url("../../../usr/share/capsuleos/assets/images/vendors/alma/wallpaper/almalinux-day.jpg");
+}
+
+html[data-theme="light"]:has(#alma) {
+    --menu-accent: #3584e4;
+}
+
+/* VM button-layout: appmenu:close — close seulement, pas de min/max */
+body#alma #minimizeBtn,
+body#alma #resizeBtn {
+    display: none;
+}

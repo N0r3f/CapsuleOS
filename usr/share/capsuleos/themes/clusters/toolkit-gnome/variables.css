@@ -1,0 +1,12 @@
+/**
+ * Cluster toolkit GNOME — variables shell partagées (Adwaita / Mutter).
+ * Les skins vendor surchargent via html:has(#bodyId) dans *-tokens.css.
+ */
+:root {
+    --cluster-gnome-menu-accent: #3584e4;
+    --gnome-shell-tray-color: rgba(255, 255, 255, 0.92);
+    --gnome-shell-tray-separator: rgba(255, 255, 255, 0.1);
+    --gnome-shell-tray-item-hover-bg: rgba(255, 255, 255, 0.12);
+    --gnome-shell-taskbar-item-border-hover: rgba(255, 255, 255, 0.3);
+    --gnome-shell-clock-hover-bg: rgba(255, 255, 255, 0.12);
+}

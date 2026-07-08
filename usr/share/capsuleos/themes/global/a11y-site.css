@@ -1,0 +1,24 @@
+/* SPDX-FileCopyrightText: 2020-2026 les contributeurs CapsuleOS */
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+
+/**
+ * Couche accessibilité site-wide (P10) — hooks html[data-*] partagés portail + skins.
+ */
+
+html[data-reduced-motion="on"] *,
+html[data-reduced-motion="on"] *::before,
+html[data-reduced-motion="on"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+html[data-underline-links="on"] :where(a[href]:not([role="button"])) {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+html[data-underline-links="on"] :where(a[href]:not([role="button"])):hover {
+    text-decoration-thickness: 2px;
+}

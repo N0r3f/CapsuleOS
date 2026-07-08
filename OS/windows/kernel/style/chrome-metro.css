@@ -1,0 +1,44 @@
+/* Chrome fenêtres — Windows 8 / 8.1 Metro */
+
+#windowContainer,
+.win-window {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#windowHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 8px;
+    height: 32px;
+    background: #0078d7;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+#windowHeader > button {
+    width: 46px;
+    height: 32px;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#windowHeader > button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#windowHeader > button:nth-child(4) {
+    background: #e81123;
+}
+
+#windowHeader > button:nth-child(4):hover {
+    background: #f1707a;
+}

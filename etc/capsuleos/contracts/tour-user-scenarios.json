@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Tour (org.gnome.Tour) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-tour-vm-inventory.json",
+  "slot": "tour",
+  "template": "tour.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/tour.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "TΣ": "Contrat valide + kernel tour.js (data-tour-gnome-action, data-tour-gnome-illus, dataset.tourStep)",
+    "T1": "T1 lancer la visite guidée",
+    "T2": "T2 avancer d'une étape",
+    "T3": "T3 terminer la visite",
+    "T4": "T4 revenir à l'étape précédente"
+  },
+  "scenarios": [
+    {
+      "id": "T1",
+      "priority": "P0",
+      "title": "Lancer la visite guidée",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Tour",
+        "rpm": "gnome-tour",
+        "version": "46.0-4.el10.alma.1",
+        "labelFr": "Visite guidée",
+        "startLabelFr": "Commencer",
+        "welcomeFr": "Découvrez les principales fonctionnalités"
+      },
+      "steps": [
+        { "id": "open-tour", "action": "openWindowByDataLink", "target": "tour", "label": "Ouvrir Visite guidée" },
+        { "id": "step-1", "predicate": "dataset.tourStep", "expectValue": "1", "label": "Étape 1" },
+        { "id": "welcome-illus", "selector": "[data-tour-gnome-illus=\"welcome\"]", "label": "Illustration accueil" },
+        { "id": "next-btn", "selector": "[data-tour-gnome-action=\"next\"]", "label": "Bouton Commencer" },
+        { "id": "title", "selector": "#gnome-tour-title", "expectTextContains": "Visite", "label": "Titre FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-tour-scenarios.mjs --scenario T1",
+        "capture": "rocky-capsule-dark-tour-welcome.png"
+      }
+    },
+    {
+      "id": "T2",
+      "priority": "P0",
+      "title": "Avancer d'une étape",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "nextLabelFr": "Suivant",
+        "overviewTitleFr": "Ayez une vue d'ensemble"
+      },
+      "steps": [
+        { "id": "open-tour", "action": "openWindowByDataLink", "target": "tour", "label": "Ouvrir Visite guidée" },
+        { "id": "next", "selector": "[data-tour-gnome-action=\"next\"]", "label": "Commencer puis Suivant" },
+        { "id": "step-2", "predicate": "dataset.tourStep", "expectValue": "2", "label": "Étape 2" },
+        { "id": "overview-illus", "selector": "[data-tour-gnome-illus=\"overview\"]", "label": "Illustration Aperçu" },
+        { "id": "prev-visible", "selector": "[data-tour-gnome-action=\"prev\"]:not([hidden])", "label": "Bouton Précédent visible" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-tour-scenarios.mjs --scenario T2",
+        "capture": "rocky-capsule-dark-tour-overview.png"
+      }
+    },
+    {
+      "id": "T3",
+      "priority": "P0",
+      "title": "Terminer la visite",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "finishTitleFr": "C'est fini !",
+        "finishLabelFr": "Terminer"
+      },
+      "steps": [
+        { "id": "open-tour", "action": "openWindowByDataLink", "target": "tour", "label": "Ouvrir Visite guidée" },
+        { "id": "advance", "selector": "[data-tour-gnome-action=\"next\"]", "label": "Avancer jusqu'à la fin" },
+        { "id": "finish-btn", "selector": "[data-tour-gnome-action=\"finish\"]", "label": "Bouton Terminer" },
+        { "id": "finished", "predicate": "dataset.tourFinished", "expectValue": "true", "label": "Visite terminée" },
+        { "id": "finish-illus", "selector": "[data-tour-gnome-illus=\"finish\"]", "label": "Illustration finale" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-tour-scenarios.mjs --scenario T3",
+        "capture": "rocky-capsule-dark-tour-finish.png"
+      }
+    },
+    {
+      "id": "T4",
+      "priority": "P0",
+      "title": "Revenir à l'étape précédente",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "prevLabelFr": "Précédent",
+        "workspacesTitleFr": "Restez organisé avec les espaces de travail"
+      },
+      "steps": [
+        { "id": "open-tour", "action": "openWindowByDataLink", "target": "tour", "label": "Ouvrir Visite guidée" },
+        { "id": "to-step-3", "selector": "[data-tour-gnome-action=\"next\"]", "label": "Avancer à l'étape 3" },
+        { "id": "prev", "selector": "[data-tour-gnome-action=\"prev\"]", "label": "Précédent" },
+        { "id": "step-2", "predicate": "dataset.tourStep", "expectValue": "2", "label": "Retour étape 2" },
+        { "id": "overview-title", "predicate": "dataset.tourStepTitle", "expectTextContains": "vue", "label": "Titre Aperçu" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-tour-scenarios.mjs --scenario T4",
+        "capture": "rocky-capsule-dark-tour-workspaces.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "TΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-tour-user-scenarios.mjs"
+    }
+  }
+}

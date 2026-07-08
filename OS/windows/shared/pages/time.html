@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../apps/style/pages.base.css">
+    <script src="../apps/js/pages-shell.js"></script>
+    <title>Date et heure</title>
+</head>
+<body>
+    <header class="win-page__header">
+        <h1>Date / Heure — Propriétés</h1>
+    </header>
+    <main class="win-page__body">
+        <p class="win95-dialog__text">Date et heure actuelles :</p>
+        <p id="win-time-display" class="win-page__hint"></p>
+        <p class="win-page__hint">Simulation CapsuleOS — fuseau horaire du navigateur.</p>
+    </main>
+    <script>
+        function refresh() {
+            const el = document.getElementById('win-time-display');
+            if (!el) {
+                return;
+            }
+            const d = new Date();
+            const isWin95 = document.documentElement.classList.contains('win95-page');
+            if (isWin95) {
+                el.textContent = d.toLocaleString('fr-FR', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                return;
+            }
+            el.textContent = d.toLocaleString('fr-FR', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+        }
+        refresh();
+        setInterval(refresh, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "description": "Modules pédagogiques montables sous mnt/ — métaphore FHS /mnt, projection statique par profil skin.",
+  "doc": "root/docs/convention-modules-mnt.md",
+  "predicates": {
+    "Pm": "Arborescence module présente sous mnt/<niveau>/<id>/",
+    "Pm_Σ": "module.json valide + scénarios référencés existants",
+    "Pm_mount": "Module déclaré monté (CAPSULE_MNT_MODULES ou registre)",
+    "Pm_umount": "Module absent du boot actif",
+    "PΣ": "Parcours actif = skin ∧ ⋀ Pm_mount (noyau inchangé)"
+  },
+  "levels": [
+    {
+      "id": "debutant",
+      "label": "Débutant",
+      "order": 1
+    },
+    {
+      "id": "intermediaire",
+      "label": "Intermédiaire",
+      "order": 2
+    },
+    {
+      "id": "confirme",
+      "label": "Confirmé",
+      "order": 3
+    },
+    {
+      "id": "expert",
+      "label": "Expert",
+      "order": 4
+    },
+    {
+      "id": "cybertech",
+      "label": "Cybertech",
+      "order": 5
+    }
+  ],
+  "paths": {
+    "root": "mnt",
+    "manifest": "module.json",
+    "scenarios": "scenarios",
+    "catalog": "mnt/catalog.json"
+  },
+  "globals": {
+    "base": "CAPSULE_MNT_BASE",
+    "mounted": "CAPSULE_MNT_MODULES",
+    "defaultBase": "../../../mnt"
+  },
+  "moduleSchema": {
+    "required": ["id", "level", "version", "title", "locale", "scenarios"],
+    "optional": ["description", "prerequisites", "slots", "predicates", "registryIds"]
+  },
+  "loader": {
+    "module": "usr/lib/capsuleos/shells/common/capsule-mnt-modules.js",
+    "loadAfter": ["capsule-strings.js"]
+  },
+  "rules": [
+    "mnt/ = contenu pédagogique montable ; home/public/ = FS utilisateur simulé (rôles distincts)",
+    "Montage = déclaration statique CAPSULE_MNT_MODULES, pas de fork noyau par module",
+    "Un module ne remplace pas executeCommand — il orchestre missions et scénarios",
+    "Locale défaut fr-FR (Lj_fr) ; module peut déclarer locale propre"
+  ],
+  "predicateChecks": {
+    "Pm_Σ": {
+      "script": "usr/lib/capsuleos/tools/validate-pedagogical-modules.mjs"
+    }
+  }
+}

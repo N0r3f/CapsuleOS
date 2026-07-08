@@ -1,0 +1,9 @@
+/**
+ * Cluster toolkit KDE — variables shell partagées Plasma / Breeze.
+ */
+:root {
+    --cluster-kde-menu-accent: #3daee9;
+    --kde-shell-tray-color: rgba(255, 255, 255, 0.92);
+    --kde-shell-tray-separator: rgba(255, 255, 255, 0.12);
+    --kde-shell-tray-item-hover-bg: rgba(255, 255, 255, 0.1);
+}

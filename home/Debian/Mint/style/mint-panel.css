@@ -1,0 +1,568 @@
+/**
+ * Panel Cinnamon Mint — source unique (menu, fenêtres, tray, favoris, horloge).
+ * Tokens : mint-y-dark-aqua-tokens.css (--mint-panel-height, --taskbar-height).
+ */
+
+#tableau.mint-panel,
+#tableau {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: var(--mint-panel-height);
+    min-height: var(--mint-panel-height);
+    max-height: var(--mint-panel-height);
+    padding: var(--z) calc(var(--head) / 4);
+    border: var(--n);
+    background: var(--mint-taskbar-bg);
+    box-sizing: border-box;
+    color: var(--texte);
+    font-family: var(--font-ui);
+    font-weight: bold;
+}
+
+.mint-panel__left,
+html > body > footer > nav {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.mint-panel__pinned,
+#mint-panel-pinned {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: flex-start;
+    flex-shrink: 0;
+    gap: var(--mint-panel-launcher-gap);
+    margin: 0;
+    padding: 0 calc(var(--head) / 10) 0 calc(var(--head) / 8);
+}
+
+.mint-panel__launcher,
+html > body > footer > nav > a.mint-panel__launcher {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: var(--mint-panel-launcher-hit-size);
+    height: var(--head);
+    margin: 0;
+    padding: 0;
+    background: var(--t);
+    border-radius: calc(var(--head) / 10);
+    border: 1px solid var(--t);
+    transition: background-color var(--eas2), border-color var(--eas2), box-shadow var(--eas2);
+}
+
+.mint-panel__launcher > img,
+html > body > footer > nav > a.mint-panel__launcher > img {
+    display: var(--bl);
+    width: var(--mint-panel-launcher-icon-size);
+    height: var(--mint-panel-launcher-icon-size);
+    object-fit: contain;
+    image-rendering: var(--a);
+    pointer-events: none;
+}
+
+.taskbar-tray__btn--keyboard-label {
+    min-width: calc(var(--head) * 0.85);
+    padding: 0 calc(var(--head) / 10);
+}
+
+.taskbar-tray__kbd-label {
+    display: var(--bl);
+    color: var(--mint-tray-color);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.4);
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    pointer-events: none;
+}
+
+body#mint .mint-tray--vm-collapsed,
+body#mint .mint-tray--overflow-hidden,
+body#mint .mint-tray--idle-hidden {
+    display: none !important;
+}
+
+/* Bureau nu VM — masquage CSS immédiat (avant JS) ; levé via data-panel-busy sur body. */
+body#mint:not([data-panel-busy="true"]) .sticky-applet-trigger,
+body#mint:not([data-panel-busy="true"]) #tray-btn-xapp,
+body#mint:not([data-panel-busy="true"]) #tray-btn-notifications,
+body#mint:not([data-panel-busy="true"]) #tray-btn-printers,
+body#mint:not([data-panel-busy="true"]) #tray-btn-removable,
+body#mint:not([data-panel-busy="true"]) #tray-btn-keyboard,
+body#mint:not([data-panel-busy="true"]) #mint-tray-favorites {
+    display: none !important;
+}
+
+.taskbar-tray--systray {
+    border-left: none;
+    padding-left: 0;
+}
+
+.mint-panel__applet {
+    flex-shrink: 0;
+}
+
+.mint-cornerbar-strip {
+    width: 6px;
+    min-width: 6px;
+    height: var(--head);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    flex-shrink: 0;
+    align-self: stretch;
+    cursor: default;
+}
+
+.mint-cornerbar-strip .taskbar-tray__icon--cornerbar {
+    display: none;
+}
+
+.mint-cornerbar-strip::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: calc(var(--head) * 0.62);
+    margin: auto;
+    background: var(--mint-tray-separator);
+}
+
+.mint-cornerbar-strip:hover {
+    background: var(--mint-clock-hover-bg);
+}
+
+.mint-panel__menu-btn,
+html > body > footer > nav > a {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: calc(var(--head) * 1.2);
+    height: var(--head);
+    margin: 0 calc(var(--head) / 14);
+    background: var(--t);
+    border-radius: calc(var(--head) / 10);
+    border: 1px solid var(--t);
+    transition: transform var(--eas2), background-color var(--eas2), border-color var(--eas2), box-shadow var(--eas2);
+    z-index: 0;
+}
+
+html > body > footer > nav > a:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+    transform: translateY(-1px);
+}
+
+html > body#mint > footer > nav > a.mint-panel__launcher.running-link:not(.active-link) {
+    box-shadow: inset 0 -2px 0 var(--mint-launcher-running-accent);
+}
+
+html > body > footer > nav > a.active-link {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--menu-accent);
+    box-shadow: inset 0 -3px 0 var(--menu-accent);
+}
+
+html > body#mint > footer > nav > a.mint-panel__launcher.active-link {
+    background: var(--mint-clock-hover-bg);
+    border-color: transparent;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+html > body#mint > footer > nav > a.mint-panel__launcher:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+    transform: none;
+}
+
+html > body > footer > nav > a:not(.mint-panel__launcher) > img {
+    display: var(--bl);
+    width: calc(var(--head) * 0.9);
+    height: calc(var(--head) * 0.9);
+    object-fit: contain;
+    image-rendering: var(--a);
+}
+
+html > body#mint > footer > nav > a[data-link="mainMenu"] {
+    width: var(--head);
+    height: var(--head);
+    margin: 0 calc(var(--head) / 8);
+    border-radius: 50%;
+    border: 1px solid var(--mint-panel-menu-ring);
+}
+
+html > body#mint > footer > nav > a[data-link="mainMenu"] > img {
+    /* VM : logo sombre filtré en blanc sur panel sombre (#2f2e33) */
+    width: var(--mint-panel-menu-icon-size);
+    height: var(--mint-panel-menu-icon-size);
+    filter: brightness(0) invert(0.88);
+    opacity: 1;
+}
+
+/* Thème clair — panel #ececee → icône sombre */
+html[data-theme="light"] > body#mint > footer > nav > a[data-link="mainMenu"] > img {
+    filter: brightness(0) opacity(0.7);
+}
+
+html > body#mint > footer > nav > a[data-link="mainMenu"].active-link {
+    background: transparent;
+    border: 2px solid var(--menu-accent);
+    border-radius: 50%;
+    box-shadow: none;
+}
+
+html > body#mint > footer > nav > a[data-link="mainMenu"].running-link {
+    box-shadow: none;
+}
+
+body#mint .mint-panel__separator,
+body#mint .taskbar-separator {
+    display: var(--bl);
+    width: 1px;
+    height: calc(var(--head) * 0.62);
+    margin: 0 calc(var(--head) / 10) 0 calc(var(--head) / 12);
+    background: var(--mint-tray-separator);
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.mint-workspace-indicator {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 16);
+    margin: 0 calc(var(--head) / 12);
+    padding: 0 calc(var(--head) / 14);
+    flex-shrink: 0;
+}
+
+.mint-workspace-indicator__dot {
+    display: var(--bl);
+    width: calc(var(--head) / 3.2);
+    height: calc(var(--head) / 3.2);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-sizing: border-box;
+}
+
+.mint-workspace-indicator__dot.is-active {
+    background: var(--menu-accent);
+    border-color: var(--menu-accent);
+}
+
+.mint-panel__grouped-list,
+.mint-panel__window-list,
+.taskbar-window-list {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: flex-start;
+    flex: 0 1 auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0 calc(var(--head) / 10) 0 calc(var(--head) / 8);
+    list-style: none;
+    gap: var(--mint-panel-launcher-gap);
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.taskbar-window-list[hidden] {
+    display: none;
+}
+
+.taskbar-window-list__btn {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    width: var(--mint-panel-launcher-hit-size);
+    height: var(--head);
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 10);
+    background: var(--t);
+    color: var(--texte);
+    cursor: default;
+    transition: background-color var(--eas2), border-color var(--eas2), box-shadow var(--eas2);
+}
+
+.taskbar-window-list__icon {
+    width: var(--mint-panel-launcher-icon-size);
+    height: var(--mint-panel-launcher-icon-size);
+    flex-shrink: 0;
+    object-fit: contain;
+    image-rendering: var(--a);
+    pointer-events: none;
+}
+
+.taskbar-window-list__label {
+    display: none;
+}
+
+.taskbar-window-list__btn.is-minimized {
+    opacity: 0.72;
+}
+
+.taskbar-window-list__btn:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+.taskbar-window-list__btn.is-running:not(.is-active) {
+    box-shadow: inset 0 -2px 0 var(--mint-launcher-running-accent);
+}
+
+.taskbar-window-list__btn.is-active {
+    background: var(--t);
+    border-color: transparent;
+    box-shadow: inset 0 -2px 0 var(--menu-accent);
+}
+
+html[data-theme="light"] .taskbar-window-list__btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.mint-panel__right,
+.taskbar-right {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: flex-end;
+    gap: calc(var(--head) / 12);
+    min-width: 0;
+    flex-shrink: 1;
+}
+
+.mint-panel__tray,
+.taskbar-tray {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: flex-end;
+    gap: calc(var(--head) / 8);
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
+    color: var(--mint-tray-color);
+    padding-right: calc(var(--head) / 9);
+    border-left: 1px solid var(--mint-tray-separator);
+    padding-left: calc(var(--head) / 6);
+}
+
+.taskbar-tray__icon {
+    display: var(--bl);
+    flex-shrink: 0;
+    width: var(--mint-tray-icon-size);
+    height: var(--mint-tray-icon-size);
+    min-width: var(--mint-tray-icon-size);
+    min-height: var(--mint-tray-icon-size);
+    opacity: 0.9;
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.taskbar-tray__icon--notifications {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--xapp {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--cornerbar {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h5v8H3v-8zm7 3h11v5H10v-5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 3h8v8H3V3zm10 0h8v5h-8V3zM3 13h5v8H3v-8zm7 3h11v5H10v-5z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--shield {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--screensaver {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v1h12v-1l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11zM9 16h6v-2H9v2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v1h12v-1l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11zM9 16h6v-2H9v2z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--network {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='m 6 0 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 1 v 2 h -7 v 2 h 2 v 2 h -1 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 4 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 h -1 v -2 h 8 v 2 h -1 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 4 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 h -1 v -2 h 2 v -2 h -7 v -2 h 1 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 z m 0 0'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='m 6 0 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 1 v 2 h -7 v 2 h 2 v 2 h -1 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 4 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 h -1 v -2 h 8 v 2 h -1 c -0.554688 0 -1 0.445312 -1 1 v 3 c 0 0.554688 0.445312 1 1 1 h 4 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 h -1 v -2 h 2 v -2 h -7 v -2 h 1 c 0.554688 0 1 -0.445312 1 -1 v -3 c 0 -0.554688 -0.445312 -1 -1 -1 z m 0 0'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--wifi {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='m 8 1.992188 c -2.617188 0 -5.238281 0.933593 -7.195312 2.808593 l -0.496094 0.480469 c -0.3984378 0.378906 -0.410156 1.011719 -0.03125 1.410156 c 0.382812 0.398438 1.015625 0.410156 1.414062 0.03125 l 0.5 -0.476562 c 3.085938 -2.957032 8.53125 -2.957032 11.617188 0 l 0.5 0.476562 c 0.398437 0.378906 1.03125 0.367188 1.414062 -0.03125 c 0.378906 -0.398437 0.367188 -1.03125 -0.03125 -1.410156 l -0.496094 -0.484375 c -1.957031 -1.871094 -4.578124 -2.804687 -7.195312 -2.804687 z m -0.03125 4.007812 c -1.570312 0.011719 -3.128906 0.628906 -4.207031 1.8125 l -0.5 0.550781 c -0.179688 0.195313 -0.277344 0.453125 -0.261719 0.71875 c 0.011719 0.265625 0.128906 0.515625 0.328125 0.695313 c 0.195313 0.179687 0.453125 0.273437 0.71875 0.257812 c 0.265625 -0.011718 0.515625 -0.128906 0.695313 -0.328125 l 0.496093 -0.546875 c 1.277344 -1.402344 4.160157 -1.496094 5.523438 0.003906 l 0.5 0.542969 c 0.175781 0.199219 0.425781 0.316407 0.691406 0.328125 c 0.265625 0.015625 0.523437 -0.078125 0.722656 -0.257812 c 0.195313 -0.179688 0.3125 -0.429688 0.324219 -0.695313 c 0.011719 -0.261719 -0.082031 -0.523437 -0.261719 -0.71875 l -0.5 -0.546875 c -1.121093 -1.234375 -2.703125 -1.828125 -4.269531 -1.816406 z m 0.03125 4 c -0.511719 0 -1.023438 0.195312 -1.414062 0.585938 c -0.78125 0.78125 -0.78125 2.046874 0 2.828124 s 2.046874 0.78125 2.828124 0 s 0.78125 -2.046874 0 -2.828124 c -0.390624 -0.390626 -0.902343 -0.585938 -1.414062 -0.585938 z m 0 0'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='m 8 1.992188 c -2.617188 0 -5.238281 0.933593 -7.195312 2.808593 l -0.496094 0.480469 c -0.3984378 0.378906 -0.410156 1.011719 -0.03125 1.410156 c 0.382812 0.398438 1.015625 0.410156 1.414062 0.03125 l 0.5 -0.476562 c 3.085938 -2.957032 8.53125 -2.957032 11.617188 0 l 0.5 0.476562 c 0.398437 0.378906 1.03125 0.367188 1.414062 -0.03125 c 0.378906 -0.398437 0.367188 -1.03125 -0.03125 -1.410156 l -0.496094 -0.484375 c -1.957031 -1.871094 -4.578124 -2.804687 -7.195312 -2.804687 z m -0.03125 4.007812 c -1.570312 0.011719 -3.128906 0.628906 -4.207031 1.8125 l -0.5 0.550781 c -0.179688 0.195313 -0.277344 0.453125 -0.261719 0.71875 c 0.011719 0.265625 0.128906 0.515625 0.328125 0.695313 c 0.195313 0.179687 0.453125 0.273437 0.71875 0.257812 c 0.265625 -0.011718 0.515625 -0.128906 0.695313 -0.328125 l 0.496093 -0.546875 c 1.277344 -1.402344 4.160157 -1.496094 5.523438 0.003906 l 0.5 0.542969 c 0.175781 0.199219 0.425781 0.316407 0.691406 0.328125 c 0.265625 0.015625 0.523437 -0.078125 0.722656 -0.257812 c 0.195313 -0.179688 0.3125 -0.429688 0.324219 -0.695313 c 0.011719 -0.261719 -0.082031 -0.523437 -0.261719 -0.71875 l -0.5 -0.546875 c -1.121093 -1.234375 -2.703125 -1.828125 -4.269531 -1.816406 z m 0.03125 4 c -0.511719 0 -1.023438 0.195312 -1.414062 0.585938 c -0.78125 0.78125 -0.78125 2.046874 0 2.828124 s 2.046874 0.78125 2.828124 0 s 0.78125 -2.046874 0 -2.828124 c -0.390624 -0.390626 -0.902343 -0.585938 -1.414062 -0.585938 z m 0 0'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--sound {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 10v4h4l5 5V5L7 10H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--printers {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--removable {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15 7H9V5h6v2zm-2 12h2v-2h-2v2zm-2 0v-2H9v2h2zm8-8v8c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V11c0-1.1.9-2 2-2h1V7c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2h1c1.1 0 2 .9 2 2zm-4-4H7v10h10V7z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M15 7H9V5h6v2zm-2 12h2v-2h-2v2zm-2 0v-2H9v2h2zm8-8v8c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V11c0-1.1.9-2 2-2h1V7c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2h1c1.1 0 2 .9 2 2zm-4-4H7v10h10V7z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--keyboard {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-5H5V8h2v2zm5 5H8v-2h2v2zm4 0h-2v-2h2v2zm0-3h-2v-2h2v2zm4 3h-2v-2h2v2zm0-3h-2v-2h2v2zm4 3h-2v-2h2v2zm0-3h-2v-2h2v2z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-5H5V8h2v2zm5 5H8v-2h2v2zm4 0h-2v-2h2v2zm0-3h-2v-2h2v2zm4 3h-2v-2h2v2zm0-3h-2v-2h2v2zm4 3h-2v-2h2v2zm0-3h-2v-2h2v2z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__icon--power {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z'/%3E%3C/svg%3E");
+}
+
+.taskbar-tray__btn--cornerbar,
+.taskbar-tray__btn--power {
+    cursor: var(--p);
+}
+
+.taskbar-tray__btn--updates {
+    position: relative;
+}
+
+.taskbar-tray__btn--updates[data-has-updates="true"]::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff8a00;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.mint-panel__favorites,
+.taskbar-favorites {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    flex-shrink: 0;
+    gap: 2.86px;
+    margin: 0 calc(var(--head) / 12);
+}
+
+.taskbar-favorites__btn {
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: var(--mint-favorites-icon-size);
+    height: var(--mint-favorites-icon-size);
+    min-width: var(--mint-favorites-icon-size);
+    min-height: var(--mint-favorites-icon-size);
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 12);
+    background: transparent;
+    cursor: default;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+.taskbar-favorites__btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.taskbar-favorites__btn:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+}
+
+.taskbar-clock-trigger {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    flex-shrink: 0;
+    min-width: calc(var(--head) * 1.7);
+    height: var(--head);
+    margin: var(--z);
+    margin-left: calc(var(--head) / 14);
+    padding: var(--z) calc(var(--head) / 10);
+    border: var(--n);
+    border-radius: calc(var(--head) / 8);
+    background: var(--t);
+    color: var(--texte);
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.2);
+    cursor: default;
+    white-space: nowrap;
+    transition: background-color var(--eas2), border-color var(--eas2), transform var(--eas2);
+    border: 1px solid var(--t);
+}
+
+.taskbar-clock-trigger:hover {
+    background: var(--mint-clock-hover-bg);
+    border-color: var(--mint-taskbar-item-border-hover);
+    transform: translateY(-1px);
+}
+
+.taskbar-clock-trigger > .taskbar__clock {
+    color: inherit;
+    font-family: inherit;
+    font-size: calc(var(--head) / 2.2);
+    font-weight: inherit;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+}
+
+body#mint > footer.mint-panel--autohide {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+    transform: translateY(calc(100% - 3px));
+    transition: transform 0.22s ease;
+    pointer-events: none;
+}
+
+body#mint > footer.mint-panel--autohide:hover,
+body#mint > footer.mint-panel--autohide:focus-within {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+    .taskbar-tray__icon {
+        width: calc(var(--head) * 0.44);
+        height: calc(var(--head) * 0.44);
+    }
+}

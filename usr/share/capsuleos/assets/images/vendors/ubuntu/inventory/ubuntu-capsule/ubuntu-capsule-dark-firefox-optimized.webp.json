@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-firefox.png",
+  "sourceSha256": "f458f7992133d58338e1555e0636800f4820d29657931c76e69daf5c39fef232",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-capsule/ubuntu-capsule-dark-firefox-optimized.webp",
+  "outputSha256": "5a4a8b431daa46b73a17ab2d7e53f5794e9b7b9267cc8670f5d3d7a7fce12ba1",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1280,
+  "height": 800,
+  "preparedAt": "2026-06-07T22:13:05.605Z"
+}

@@ -1,0 +1,6 @@
+/** popos — Drawing (slot store P1). */
+body#popos main#drawingApp {
+    --drawing-bg: #242424;
+    --drawing-text: #ffffff;
+    --drawing-border: rgba(255, 255, 255, 0.08);
+}

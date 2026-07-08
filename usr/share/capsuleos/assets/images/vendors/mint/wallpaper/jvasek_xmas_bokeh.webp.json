@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jvasek_xmas_bokeh.jpg",
+  "sourceSha256": "6bb6752d9481b42a58f6bf98b36ce85c5251c623d62ff847698fdff696650ed3",
+  "output": "images/vendors/mint/wallpaper/jvasek_xmas_bokeh.webp",
+  "outputSha256": "b419fafa5edae8bfc4c27117e6aec7270b59171237c0ec33342bb249e491a982",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:18.473Z"
+}

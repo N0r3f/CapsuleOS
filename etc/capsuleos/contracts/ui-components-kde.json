@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "description": "Compositions visuelles KDE Plasma — System Settings, Discover, Dolphin (pilote linux-kde-neon).",
+  "appCompositions": {
+    "themes": {
+      "labelFr": "Paramètres système",
+      "vmDesktopIds": ["org.kde.systemsettings", "systemsettings"],
+      "kdeCore": true,
+      "components": [
+        "kde.systemsettings-hub",
+        "kde.systemsettings-kcm",
+        "kde.kscreen-display",
+        "kde.systemsettings-panel"
+      ],
+      "template": "usr/share/capsuleos/linux/apps/systemsettings_kde_neon.html",
+      "baseCss": "usr/share/capsuleos/linux/apps/style/systemsettings_kde.base.css",
+      "skinCss": "themes.skin.css",
+      "chromeProvider": "breeze-plasma",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": [
+        "kcm-display-config",
+        "hub-sidebar",
+        "appearance-panel",
+        "accessibility-panel",
+        "desktop-panel",
+        "workspace-panel",
+        "notifications-panel",
+        "applications-panel",
+        "colors-panel",
+        "about-panel"
+      ],
+      "vmLaunch": "systemsettings kcm_kscreen",
+      "note": "v15 — front intégral systemsettings_kde_neon.html ; seuil Φ_norm 90"
+    },
+    "update_manager": {
+      "labelFr": "Discover",
+      "vmDesktopIds": ["org.kde.discover"],
+      "components": [
+        "kde.discover-kirigami",
+        "kde.discover-grid",
+        "kde.discover-hero"
+      ],
+      "chromeProvider": "breeze-plasma",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": [
+        "explore-grid",
+        "featured-hero",
+        "category-heroes",
+        "updates-banner",
+        "app-detail",
+        "categories"
+      ]
+    },
+    "nemo": {
+      "labelFr": "Dolphin",
+      "vmDesktopIds": ["org.kde.dolphin"],
+      "components": ["kde.dolphin-window", "kde.dolphin-sidebar", "kde.dolphin-pathbar"],
+      "chromeProvider": "breeze-plasma",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": [
+        "sidebar",
+        "column-headers",
+        "pathbar",
+        "context-menu-item",
+        "context-menu-background",
+        "trash"
+      ]
+    },
+    "firefox": {
+      "labelFr": "Firefox",
+      "vmDesktopIds": ["firefox"],
+      "components": ["mozilla.firefox-chrome"],
+      "chromeProvider": "default",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": ["tab-bar", "url-bar", "bookmarks", "menu-hamburger"]
+    },
+    "text_editor": {
+      "labelFr": "Kate",
+      "vmDesktopIds": ["org.kde.kate"],
+      "components": ["kde.kate-window"],
+      "chromeProvider": "breeze-plasma",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": ["menubar", "editor-area", "status-line", "open-dialog"]
+    },
+    "terminal": {
+      "labelFr": "Konsole",
+      "vmDesktopIds": ["org.kde.konsole"],
+      "components": ["kde.konsole-window"],
+      "chromeProvider": "breeze-plasma",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": ["headerbar", "tab-strip", "prompt-colors", "preferences"]
+    },
+    "lecteur_multimedia": {
+      "labelFr": "Lecteur vidéo",
+      "vmDesktopIds": ["vlc"],
+      "components": ["vlc.player-chrome"],
+      "chromeProvider": "default",
+      "referenceRegistryId": "linux-kde-neon",
+      "acquisitionOrder": ["transport-controls", "playlist", "album-art"]
+    }
+  }
+}

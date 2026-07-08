@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Agenda (org.gnome.Calendar) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-calendar-vm-inventory.json",
+  "slot": "calendar",
+  "template": "calendar.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/calendar-app.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "CalΣ": "Contrat valide + kernel calendar-app.js (data-cal-gnome-view, data-cal-gnome-action, data-cal-gnome-event)",
+    "Cal1": "Cal1 consulter la vue mois",
+    "Cal2": "Cal2 créer un évènement aujourd'hui",
+    "Cal3": "Cal3 naviguer en vue semaine",
+    "Cal4": "Cal4 naviguer vers le mois suivant"
+  },
+  "scenarios": [
+    {
+      "id": "Cal1",
+      "priority": "P0",
+      "title": "Consulter la vue mois",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Calendar",
+        "flatpak": "org.gnome.Calendar",
+        "version": "50.0",
+        "viewFr": "Vue mensuelle",
+        "onVm": true,
+        "installNote": "flatpak flathub — rpm gnome-calendar absent el10"
+      },
+      "steps": [
+        { "id": "open-calendar", "action": "openWindowByDataLink", "target": "calendar", "label": "Ouvrir Agenda" },
+        { "id": "month-view", "selector": "[data-cal-gnome-view=\"month\"].is-active", "label": "Onglet Mois actif" },
+        { "id": "month-panel", "selector": "[data-cal-gnome-panel=\"month\"]:not([hidden])", "label": "Grille mensuelle visible" },
+        { "id": "grid", "selector": "#gnome-cal-grid [data-cal-gnome-day]", "label": "Jours du mois" },
+        { "id": "period", "predicate": "dataset.calendarPeriodLabel", "expectNonEmpty": true, "label": "Libellé période fr_FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calendar-scenarios.mjs --scenario Cal1",
+        "capture": "rocky-capsule-dark-calendar-month.png"
+      }
+    },
+    {
+      "id": "Cal2",
+      "priority": "P0",
+      "title": "Créer un évènement aujourd'hui",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "newEventFr": "Nouvel évènement",
+        "noEventsFr": "Aucun évènement",
+        "todayFr": "Aujourd'hui"
+      },
+      "steps": [
+        { "id": "new-event", "selector": "[data-cal-gnome-action=\"new-event\"]", "label": "Nouvel évènement" },
+        { "id": "editor", "selector": "[data-cal-gnome-editor]:not([hidden])", "label": "Éditeur ouvert" },
+        { "id": "title", "selector": "[data-cal-gnome-event-title]", "label": "Saisie titre" },
+        { "id": "save", "selector": "[data-cal-gnome-action=\"save-event\"]", "label": "Enregistrer" },
+        { "id": "event-card", "selector": "[data-cal-gnome-event=\"evt-1\"]", "label": "Évènement dans la barre latérale" },
+        { "id": "event-count", "predicate": "dataset.calendarTodayCount", "expectValue": "1", "label": "Un évènement aujourd'hui" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calendar-scenarios.mjs --scenario Cal2",
+        "capture": "rocky-capsule-dark-calendar-event-added.png"
+      }
+    },
+    {
+      "id": "Cal3",
+      "priority": "P0",
+      "title": "Naviguer en vue semaine",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "viewFr": "Vue hebdomadaire",
+        "weekLabelFr": "Semaine"
+      },
+      "steps": [
+        { "id": "week-tab", "selector": "[data-cal-gnome-view=\"week\"]", "label": "Onglet Semaine" },
+        { "id": "week-active", "selector": "[data-cal-gnome-view=\"week\"].is-active", "label": "Vue semaine active" },
+        { "id": "week-panel", "selector": "[data-cal-gnome-panel=\"week\"]:not([hidden])", "label": "Grille hebdomadaire visible" },
+        { "id": "week-cols", "selector": "[data-cal-gnome-weekday]", "expectCount": 7, "label": "Sept colonnes" },
+        { "id": "view-dataset", "predicate": "dataset.calendarView", "expectValue": "week", "label": "État vue semaine" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calendar-scenarios.mjs --scenario Cal3",
+        "capture": "rocky-capsule-dark-calendar-week.png"
+      }
+    },
+    {
+      "id": "Cal4",
+      "priority": "P0",
+      "title": "Naviguer vers le mois suivant",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "monthLabelFr": "Mois",
+        "navHint": "Flèches en-tête vue mois"
+      },
+      "steps": [
+        { "id": "month-view", "selector": "[data-cal-gnome-view=\"month\"]", "label": "Retour vue mois" },
+        { "id": "initial-label", "predicate": "dataset.calendarPeriodLabel", "expectNonEmpty": true, "label": "Libellé initial" },
+        { "id": "next", "selector": "[data-cal-gnome-action=\"next\"]", "label": "Mois suivant" },
+        { "id": "label-changed", "note": "smoke compare calendarPeriodLabel avant/après", "label": "Libellé période mis à jour" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-calendar-scenarios.mjs --scenario Cal4",
+        "capture": "rocky-capsule-dark-calendar-next-month.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "CalΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-calendar-user-scenarios.mjs"
+    }
+  }
+}

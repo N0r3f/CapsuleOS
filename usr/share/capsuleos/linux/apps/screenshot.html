@@ -1,0 +1,58 @@
+<main id="gnomeScreenshotApp" class="gnome-shot" aria-label="Capture d'écran">
+
+    <header class="gnome-shot__headerbar">
+        <span class="gnome-shot__title">Capture d'écran</span>
+    </header>
+
+    <section class="gnome-shot__panel gnome-shot__panel--config" id="gnome-shot-config">
+        <fieldset class="gnome-shot__fieldset">
+            <legend class="gnome-shot__legend">Zone de capture</legend>
+            <label class="gnome-shot__option">
+                <input type="radio" name="gnome-shot-area" value="screen" checked>
+                <span>Écran entier</span>
+            </label>
+            <label class="gnome-shot__option">
+                <input type="radio" name="gnome-shot-area" value="window">
+                <span>Fenêtre</span>
+            </label>
+            <label class="gnome-shot__option">
+                <input type="radio" name="gnome-shot-area" value="selection">
+                <span>Sélectionner une zone à la souris</span>
+            </label>
+        </fieldset>
+
+        <label class="gnome-shot__row" for="gnome-shot-delay">
+            <span class="gnome-shot__row-label">Délai</span>
+            <select class="gnome-shot__select" id="gnome-shot-delay">
+                <option value="0" selected>Aucun</option>
+                <option value="3">3 secondes</option>
+                <option value="5">5 secondes</option>
+                <option value="10">10 secondes</option>
+            </select>
+        </label>
+
+        <label class="gnome-shot__option gnome-shot__option--check">
+            <input type="checkbox" id="gnome-shot-pointer">
+            <span>Inclure le pointeur de la souris</span>
+        </label>
+
+        <p class="gnome-shot__hint" id="gnome-shot-hint" role="status" aria-live="polite"></p>
+
+        <button type="button" class="gnome-shot__primary" id="gnome-shot-capture" data-shot-gnome-action="capture">
+            Prendre une capture
+        </button>
+    </section>
+
+    <section class="gnome-shot__panel gnome-shot__panel--result" id="gnome-shot-result" hidden>
+        <div class="gnome-shot__preview-wrap">
+            <img class="gnome-shot__preview" id="gnome-shot-preview" alt="Aperçu de la capture">
+        </div>
+        <div class="gnome-shot__actions" role="group" aria-label="Actions">
+            <button type="button" class="gnome-shot__action" data-shot-gnome-action="save">Enregistrer sous…</button>
+            <button type="button" class="gnome-shot__action" data-shot-gnome-action="copy">Copier dans le presse-papiers</button>
+            <button type="button" class="gnome-shot__action" data-shot-gnome-action="new">Nouvelle capture</button>
+        </div>
+        <p class="gnome-shot__status" id="gnome-shot-status" role="status" aria-live="polite"></p>
+    </section>
+
+</main>

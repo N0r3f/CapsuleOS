@@ -1,0 +1,169 @@
+/**
+ * elementary — themes (structure Rocky).
+ */
+body#elementary {
+    --gcc-bg: #303030;
+    --gcc-sidebar-bg: #262626;
+    --gcc-surface: #383838;
+    --gcc-text: #ffffff;
+    --gcc-muted: rgba(255, 255, 255, 0.62);
+    --gcc-border: rgba(255, 255, 255, 0.08);
+    --gcc-row-divider: rgba(255, 255, 255, 0.06);
+    --gcc-search-bg: rgba(255, 255, 255, 0.08);
+    --gcc-search-bg-focus: rgba(255, 255, 255, 0.14);
+    --gcc-accent: var(--menu-accent, #3584e4);
+    --gcc-nav-active: rgba(255, 255, 255, 0.1);
+    --gcc-preview-border: rgba(255, 255, 255, 0.12);
+    --gcc-sidebar-w: 16.25rem;
+}
+
+html:has(#elementary) {
+    --win-themes-width: 50rem;
+    --win-themes-height: 38rem;
+    --win-themes-min-width: 44rem;
+    --win-themes-min-height: 30rem;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary {
+    --gcc-bg: #fafafa;
+    --gcc-sidebar-bg: #f3f3f5;
+    --gcc-surface: #ffffff;
+    --gcc-text: #1e1e1e;
+    --gcc-muted: rgba(0, 0, 0, 0.52);
+    --gcc-border: rgba(0, 0, 0, 0.1);
+    --gcc-row-divider: rgba(0, 0, 0, 0.08);
+    --gcc-search-bg: rgba(0, 0, 0, 0.06);
+    --gcc-search-bg-focus: rgba(0, 0, 0, 0.09);
+    --gcc-nav-active: rgba(53, 132, 228, 0.12);
+    --gcc-preview-border: rgba(0, 0, 0, 0.12);
+}
+
+body#elementary div[data-link="themes"].gnome-app--csd {
+    width: min(50rem, calc(100vw - var(--elementary-dock-width) - 1.5rem));
+    height: min(38rem, calc(100vh - var(--elementary-top-bar-height) - 1.5rem));
+    min-width: 44rem;
+    min-height: 30rem;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border-color: var(--capsule-chrome-window-border, var(--fedora-window-border));
+    background: var(--gcc-bg);
+    box-shadow: var(--fedora-window-shadow);
+}
+
+body#elementary div[data-link="themes"] main#themesApp.gnome-settings {
+    color: var(--gcc-text);
+    background: var(--gcc-bg);
+    font-family: var(--font-ui);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__sidebar {
+    background: var(--gcc-sidebar-bg);
+    border-right: 1px solid var(--gcc-border);
+}
+
+body#elementary div[data-link="themes"] main#themesApp.gnome-settings .gnome-settings__search {
+    color: var(--gcc-muted);
+    background-color: var(--gcc-search-bg);
+}
+
+body#elementary div[data-link="themes"] main#themesApp.gnome-settings .gnome-settings__search:focus-within {
+    color: var(--gcc-text);
+    background-color: var(--gcc-search-bg-focus);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__navitem {
+    color: var(--gcc-muted);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__navitem.is-active {
+    color: var(--gcc-text);
+    background: var(--gcc-nav-active);
+    font-weight: 600;
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__navitem.is-active .gnome-settings__navicon {
+    opacity: 1;
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__headerbar {
+    background: var(--gcc-bg);
+    border-bottom: 1px solid var(--gcc-border);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__panel-title {
+    color: var(--gcc-text);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings__section-label,
+body#elementary div[data-link="themes"] .gnome-settings__caption {
+    color: var(--gcc-muted);
+}
+
+body#elementary div[data-link="themes"] .adw-group {
+    background: var(--gcc-surface);
+}
+
+body#elementary div[data-link="themes"] .adw-row__title {
+    color: var(--gcc-text);
+}
+
+body#elementary div[data-link="themes"] .adw-row__value {
+    color: var(--gcc-muted);
+}
+
+body#elementary div[data-link="themes"] .adw-switch:not([aria-checked="true"]):not(.is-on) {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary div[data-link="themes"] .adw-switch:not([aria-checked="true"]):not(.is-on) {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+body#elementary div[data-link="themes"] .adw-switch[aria-checked="true"],
+body#elementary div[data-link="themes"] .adw-switch.is-on {
+    background: var(--gcc-accent);
+}
+
+body#elementary div[data-link="themes"] .themes-scheme-card {
+    color: var(--gcc-text);
+}
+
+body#elementary div[data-link="themes"] .themes-scheme-card.is-active,
+body#elementary div[data-link="themes"] .themes-scale-btn.is-active {
+    border-color: var(--gcc-accent);
+    box-shadow: 0 0 0 1px var(--gcc-accent);
+    background: var(--gcc-surface);
+}
+
+body#elementary div[data-link="themes"] .themes-scheme-card--compact {
+    background: var(--gcc-surface);
+}
+
+body#elementary div[data-link="themes"] .themes-scale-btn {
+    color: var(--gcc-text);
+    background: var(--gcc-surface);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings-wallpaper--add {
+    color: var(--gcc-muted);
+    background: var(--gcc-surface);
+    border: 1px dashed var(--gcc-border);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings-wallpaper.is-active {
+    border-color: var(--gcc-accent);
+    box-shadow: 0 0 0 1px var(--gcc-accent);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings-about__os {
+    color: var(--gcc-text);
+}
+
+body#elementary div[data-link="themes"] .gnome-settings-about__detail {
+    color: var(--gcc-muted);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary div[data-link="themes"] .themes-accent-chip.is-active {
+    border-color: #ffffff;
+}

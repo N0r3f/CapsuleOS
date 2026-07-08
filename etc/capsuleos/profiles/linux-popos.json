@@ -1,0 +1,58 @@
+{
+  "id": "linux-popos",
+  "version": 2,
+  "family": "linux",
+  "kernelId": "linux",
+  "branchId": "ubuntu",
+  "vendor": "popos",
+  "displayName": "Pop!_OS",
+  "bodyId": "popos",
+  "embedKey": "popos",
+  "tier": "P2",
+  "status": "active",
+  "fidelityLevel": 2,
+  "upstreamId": "linux-ubuntu",
+  "clusterIds": [
+    "explorer.nemo.cosmic",
+    "toolkit.cosmic"
+  ],
+  "extends": "kernel:linux/branch:ubuntu/toolkit:cosmic",
+  "paths": {
+    "facade": "OS/linux/families/debian/popos/index.html",
+    "skin": "home/Debian/PopOS/index.html"
+  },
+  "toolkit": {
+    "id": "cosmic",
+    "shell": "cosmic"
+  },
+  "assets": {
+    "assetsBase": "../../../usr/share/capsuleos/assets",
+    "toolkitPack": "toolkits/cosmic",
+    "vendorPack": "vendors/popos",
+    "iconPacks": [
+      "icons/gnome"
+    ]
+  },
+  "capsuleGlobals": {
+    "CAPSULE_APPS_BASE": "../../../usr/share/capsuleos/linux/apps",
+    "CAPSULE_SKIN_BASE": ".",
+    "CAPSULE_STRINGS_URL": "./content/strings.json",
+    "CAPSULE_EXPLORER_DISPLAY_NAME": "Fichiers",
+    "CAPSULE_EXPLORER_TEMPLATE": "nemo-cosmic",
+    "CAPSULE_EMBED_SKIN_KEY": "popos",
+    "CAPSULE_SITE_HOME": "../../../index.html",
+    "CAPSULE_LINUX_HUB": "../../../OS/linux/families/debian/popos/index.html",
+    "CAPSULE_TERMINAL_OS_FAMILY": "linux",
+    "CAPSULE_TERMINAL_PROFILE": "debian",
+    "CAPSULE_WINDOW_CHROME_CONTEXT": {
+      "toolkitId": "cosmic",
+      "explorerTemplate": "nemo-cosmic",
+      "dragMode": "app-headerbar-passthrough"
+    },
+    "CAPSULE_TEMPLATE_OVERRIDES": {
+      "themes": "../../../usr/share/capsuleos/linux/apps/themes_cosmic.html",
+      "update_manager": "../../../usr/share/capsuleos/linux/apps/update_manager_cosmic.html",
+      "lecteur_multimedia": "../../../usr/share/capsuleos/linux/apps/rhythmbox.html"
+    }
+  }
+}

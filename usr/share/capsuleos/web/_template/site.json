@@ -1,0 +1,8 @@
+{
+  "siteId": "example",
+  "title": "Exemple de site CapsuleOS",
+  "hosts": ["example.capsuleos.local"],
+  "locale": "fr-FR",
+  "contentLicense": "GPL-3.0-or-later",
+  "author": "Contributeur CapsuleOS"
+}

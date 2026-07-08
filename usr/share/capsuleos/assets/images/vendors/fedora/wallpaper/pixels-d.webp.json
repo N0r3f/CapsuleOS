@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/pixels-d.webp",
+  "outputSha256": "df98685ce06895af8d31c8b845325d1a788312d8bad07545685759b6d0925bd0",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.728Z",
+  "note": "repair-manifest"
+}

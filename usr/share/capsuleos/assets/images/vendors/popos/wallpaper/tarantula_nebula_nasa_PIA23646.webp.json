@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/tarantula_nebula_nasa_PIA23646.jpg",
+  "sourceSha256": "4f8b878fc2b653e230cf0a45530433a9aaf5cf5e71d0ede02a566e808137a597",
+  "output": "images/vendors/popos/wallpaper/tarantula_nebula_nasa_PIA23646.webp",
+  "outputSha256": "3a9468604c5a2698b38bf4518b3e546f0d5ba9d2dc4b2f081d53bba118daf6cd",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:13.112Z"
+}

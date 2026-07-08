@@ -1,0 +1,289 @@
+{
+  "version": 2,
+  "description": "Scénarios utilisateur pédagogiques GNOME Software — patterns réutilisables toolkit gnome (Rocky, Fedora, Alma, Ubuntu, AnduinOS).",
+  "doc": "root/docs/inventaires/linux-alma-software-vm-inventory.json",
+  "slot": "update_manager",
+  "template": "update_manager_gnome.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/update-manager.js",
+  "storeKernel": "usr/lib/capsuleos/shells/linux/gnome-store-catalog.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+  "predicates": {
+    "ScΣ": "Contrat valide + kernel implémente handlers data-um-gnome-*",
+    "Sc1": "S1 install simulé LibreOffice Writer → Ouvrir",
+    "Sc2": "S2 recherche → fiche → install",
+    "Sc3": "S3 mises à jour → tout mettre à jour → état vide",
+    "Sc4": "S4 onglet Installées → lancer application",
+    "Sc5": "S5 store file_roller → Installées",
+    "Sc6": "S6 store LibreOffice flatpak → librewriter",
+    "Sc7": "S7 store Agenda flatpak → calendar",
+    "Sc8": "S9 thunderbird flatpak → thunderbird",
+    "Sc9": "S10 transmission flatpak → Installées",
+    "Sc10": "S11 warpinator flatpak communautaire → warpinator",
+    "Sc11": "S12 simple_scan rpm → Installées"
+  },
+  "scenarios": [
+    {
+      "id": "S1",
+      "priority": "P0",
+      "title": "Découvrir et installer une application",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "libreoffice-writer",
+        "rpm": "libreoffice-writer",
+        "onVm": false,
+        "buttonFlow": ["Installer", "Installation…", "Ouvrir"]
+      },
+      "steps": [
+        { "id": "open-software", "action": "openWindowByDataLink", "target": "update_manager", "label": "Ouvrir Logiciels" },
+        { "id": "explore-card", "selector": "[data-um-gnome-app=\"libreoffice-writer\"]", "label": "Sélectionner LibreOffice Writer à la une" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "expectTextBefore": "Installer", "label": "Cliquer Installer" },
+        { "id": "install-progress", "predicate": "dataset.umGnomeInstalling", "label": "Progression simulée" },
+        { "id": "install-open", "selector": "[data-um-gnome-action=\"install\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir disponible" },
+        { "id": "launch-app", "selector": "[data-um-gnome-action=\"install\"]", "expectWindow": "librewriter", "label": "Ouvrir l'application installée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S1",
+        "capture": "rocky-capsule-dark-software-install-open.png"
+      }
+    },
+    {
+      "id": "S2",
+      "priority": "P0",
+      "title": "Rechercher et installer",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "search", "selector": "[data-um-gnome-search]", "value": "writer", "label": "Rechercher writer" },
+        { "id": "search-result", "selector": "[data-um-gnome-search-grid] [data-um-gnome-app=\"libreoffice-writer\"]", "label": "Ouvrir fiche depuis résultats" },
+        { "id": "install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer depuis fiche recherche" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S2",
+        "capture": "rocky-capsule-dark-software-search-install.png"
+      }
+    },
+    {
+      "id": "S3",
+      "priority": "P0",
+      "title": "Appliquer toutes les mises à jour",
+      "locale": "fr-FR",
+      "vmNote": "dnf check-update — scénario pédagogique simule 4 MAJ applicatives",
+      "steps": [
+        { "id": "nav-updates", "selector": "[data-um-gnome-nav=\"updates\"]", "label": "Onglet Mises à jour" },
+        { "id": "update-all", "selector": "[data-um-gnome-action=\"updateAll\"]", "label": "Tout mettre à jour" },
+        { "id": "empty-state", "selector": "[data-um-gnome-updates-empty]:not([hidden])", "label": "État système à jour" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S3",
+        "capture": "rocky-capsule-dark-software-updates-empty.png"
+      }
+    },
+    {
+      "id": "S4",
+      "priority": "P0",
+      "title": "Lancer depuis Installées",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "nav-installed", "selector": "[data-um-gnome-nav=\"installed\"]", "label": "Onglet Installées" },
+        { "id": "open-firefox", "selector": "[data-um-gnome-installed-list] [data-um-gnome-action=\"open\"][data-um-gnome-app=\"firefox\"]", "label": "Ouvrir Firefox" },
+        { "id": "firefox-window", "expectWindow": "firefox", "label": "Fenêtre Firefox visible" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S4",
+        "capture": "rocky-capsule-dark-software-installed-open.png"
+      }
+    },
+    {
+      "id": "S5",
+      "priority": "P0",
+      "title": "Magasin — installer Gestionnaire d'archives",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "file-roller",
+        "rpm": "file-roller",
+        "deb": "file-roller",
+        "onVm": false,
+        "storeInstallable": true
+      },
+      "steps": [
+        { "id": "open-software", "action": "openWindowByDataLink", "target": "update_manager", "label": "Ouvrir Logiciels" },
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"file-roller\"]", "label": "Sélectionner Gestionnaire d'archives (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "expectTextBefore": "Installer", "label": "Cliquer Installer" },
+        { "id": "install-complete", "predicate": "dataset.umGnomeScenario", "expectValue": "S5-complete", "label": "Installation terminée" },
+        { "id": "nav-installed", "selector": "[data-um-gnome-nav=\"installed\"]", "label": "Onglet Installées" },
+        { "id": "listed", "selector": "[data-um-gnome-installed-list] [data-um-gnome-app=\"file-roller\"]", "label": "Apparaît dans Installées" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S5",
+        "capture": "alma-capsule-store-file-roller-installed.png"
+      }
+    },
+    {
+      "id": "S6",
+      "priority": "P0",
+      "title": "Magasin — installer LibreOffice (Flatpak)",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "libreoffice",
+        "flatpak": "org.libreoffice.LibreOffice",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "librewriter"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"libreoffice\"]", "label": "Sélectionner LibreOffice (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-um-gnome-action=\"install\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-um-gnome-action=\"install\"]", "expectWindow": "librewriter", "label": "Ouvre LibreOffice Writer" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S6",
+        "capture": "alma-capsule-store-libreoffice-open.png"
+      }
+    },
+    {
+      "id": "S7",
+      "priority": "P0",
+      "title": "Magasin — installer Agenda (Flatpak)",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "calendar",
+        "flatpak": "org.gnome.Calendar",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "calendar"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"calendar\"]", "label": "Sélectionner Agenda (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-um-gnome-action=\"install\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-um-gnome-action=\"install\"]", "expectWindow": "calendar", "label": "Ouvre Agenda" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S7",
+        "capture": "alma-capsule-store-calendar-open.png"
+      }
+    },
+    {
+      "id": "S8",
+      "priority": "P2",
+      "title": "Erreur réseau (optionnel)",
+      "locale": "fr-FR",
+      "optional": true,
+      "steps": [
+        { "id": "trigger-network-error", "selector": "[data-um-gnome-action=\"simulateNetworkError\"]", "label": "Simuler indisponibilité réseau" },
+        { "id": "error-banner", "selector": "[data-um-gnome-network-error]:not([hidden])", "label": "Bandeau erreur affiché" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S8 --optional"
+      }
+    },
+    {
+      "id": "S9",
+      "priority": "P1",
+      "title": "Magasin — installer Thunderbird (Flatpak)",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "thunderbird",
+        "flatpak": "org.mozilla.Thunderbird",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "thunderbird"
+      },
+      "steps": [
+        { "id": "open-software", "action": "openWindowByDataLink", "target": "update_manager", "label": "Ouvrir Logiciels" },
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"thunderbird\"]", "label": "Sélectionner Thunderbird (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-um-gnome-action=\"install\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-um-gnome-action=\"install\"]", "expectWindow": "thunderbird", "label": "Ouvre Thunderbird" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S9",
+        "capture": "alma-capsule-store-thunderbird-open.png"
+      }
+    },
+    {
+      "id": "S10",
+      "priority": "P1",
+      "title": "Magasin — installer Transmission (Flatpak)",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "transmission",
+        "flatpak": "com.transmissionbt.Transmission",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "transmission"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"transmission\"]", "label": "Sélectionner Transmission (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer" },
+        { "id": "install-complete", "predicate": "dataset.umGnomeScenario", "expectValue": "S10-complete", "label": "Installation terminée" },
+        { "id": "nav-installed", "selector": "[data-um-gnome-nav=\"installed\"]", "label": "Onglet Installées" },
+        { "id": "listed", "selector": "[data-um-gnome-installed-list] [data-um-gnome-app=\"transmission\"]", "label": "Apparaît dans Installées" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S10",
+        "capture": "alma-capsule-store-transmission-installed.png"
+      }
+    },
+    {
+      "id": "S11",
+      "priority": "P1",
+      "title": "Magasin — installer Warpinator (Flatpak communautaire)",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "warpinator",
+        "flatpak": "org.x.Warpinator",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "warpinator"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"warpinator\"]", "label": "Sélectionner Warpinator (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-um-gnome-action=\"install\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-um-gnome-action=\"install\"]", "expectWindow": "warpinator", "label": "Ouvre Warpinator" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S11",
+        "capture": "alma-capsule-store-warpinator-open.png"
+      }
+    },
+    {
+      "id": "S12",
+      "priority": "P1",
+      "title": "Magasin — installer Numériseur simple (RPM)",
+      "locale": "fr-FR",
+      "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu", "linux-anduinos"],
+      "vmGroundTruth": {
+        "appId": "simple-scan",
+        "rpm": "simple-scan",
+        "deb": "simple-scan",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "simple_scan"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-um-gnome-discover-grid] [data-um-gnome-app=\"simple-scan\"]", "label": "Sélectionner Numériseur simple (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-um-gnome-action=\"install\"]", "label": "Installer" },
+        { "id": "install-complete", "predicate": "dataset.umGnomeScenario", "expectValue": "S12-complete", "label": "Installation terminée" },
+        { "id": "nav-installed", "selector": "[data-um-gnome-nav=\"installed\"]", "label": "Onglet Installées" },
+        { "id": "listed", "selector": "[data-um-gnome-installed-list] [data-um-gnome-app=\"simple-scan\"]", "label": "Apparaît dans Installées" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-software-scenarios.mjs --scenario S12",
+        "capture": "alma-capsule-store-simple-scan-installed.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "ScΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-software-user-scenarios.mjs"
+    }
+  }
+}

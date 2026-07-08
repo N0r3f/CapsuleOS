@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/popos/wallpaper/A_stormy_stellar_nursery_esa_379309.jpg",
+  "sourceSha256": "a76cfb42a0b33e4dee7e977ea97ab892bc0d10e03bc5a7261a5570928cd014aa",
+  "output": "images/vendors/popos/wallpaper/A_stormy_stellar_nursery_esa_379309.webp",
+  "outputSha256": "5ee73030384f27b69af41807512d2ae3919744b91c48e819eeb3892b9b83828c",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-19T13:33:06.404Z"
+}

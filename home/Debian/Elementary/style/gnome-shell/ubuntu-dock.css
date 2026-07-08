@@ -1,0 +1,127 @@
+/**
+ * Dock elementary OS - réf. visuel/screenshot/screen_idle.png, app_bouton_bas.png
+ */
+
+#elementary #tableau.fedora-dock {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(var(--head) * 1.15);
+    min-height: 0;
+    height: 100%;
+    padding: calc(var(--head) / 3.5) calc(var(--head) / 14) calc(var(--head) / 4);
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(28, 28, 30, 0.72);
+    box-sizing: border-box;
+    z-index: 55;
+}
+
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    #elementary #tableau.fedora-dock {
+        -webkit-backdrop-filter: blur(18px) saturate(1.15);
+        backdrop-filter: blur(18px) saturate(1.15);
+    }
+}
+
+#elementary #tableau.fedora-dock .fedora-dock__nav {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(var(--head) / 5);
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#elementary #tableau.fedora-dock .fedora-dock__nav a,
+#elementary #tableau.fedora-dock .fedora-dock__nav button,
+#elementary #tableau.fedora-dock .fedora-dock__nav .elementary-dock__trash {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 0.92);
+    height: calc(var(--head) * 0.92);
+    margin: 0;
+    padding: calc(var(--head) / 10);
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 4.5);
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+#elementary #tableau.fedora-dock .fedora-dock__nav a:hover,
+#elementary #tableau.fedora-dock .fedora-dock__nav button:hover,
+#elementary #tableau.fedora-dock .fedora-dock__nav .elementary-dock__trash:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#elementary #tableau.fedora-dock .fedora-dock__nav a.active-link::before {
+    display: none;
+}
+
+#elementary #tableau.fedora-dock .elementary-dock__unavailable {
+    opacity: 0.38;
+    cursor: default;
+    pointer-events: none;
+}
+
+#elementary #tableau.fedora-dock .fedora-dock__nav a > img,
+#elementary #tableau.fedora-dock .fedora-dock__nav button > img,
+#elementary #tableau.fedora-dock .fedora-dock__nav .elementary-dock__trash > img,
+#elementary #tableau.fedora-dock .elementary-dock__unavailable > img {
+    display: block;
+    width: calc(var(--head) * 0.72);
+    height: calc(var(--head) * 0.72);
+    object-fit: contain;
+    filter: none;
+}
+
+#elementary .elementary-dock__show-apps {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) * 0.92);
+    height: calc(var(--head) * 0.92);
+    margin: calc(var(--head) / 2.8) 0 0;
+    padding: calc(var(--head) / 9);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: calc(var(--head) / 4.2);
+    background: rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#elementary .elementary-dock__show-apps:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+#elementary .elementary-dock__show-apps[aria-pressed="true"] {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(233, 84, 32, 0.55);
+    box-shadow: 0 0 0 1px rgba(233, 84, 32, 0.35);
+}
+
+#elementary .elementary-dock__show-apps img {
+    display: block;
+    width: calc(var(--head) * 0.62);
+    height: calc(var(--head) * 0.62);
+    object-fit: contain;
+}
+
+#elementary.is-overview-apps .elementary-dock__show-apps {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(233, 84, 32, 0.65);
+}

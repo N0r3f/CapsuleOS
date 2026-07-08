@@ -1,0 +1,22 @@
+/**
+ * GNOME System Monitor 46 — Linux Mint Cinnamon (VM 822×622).
+ */
+body#mint {
+    --gsm-bg: #fafafa;
+    --gsm-text: #2e2e2e;
+    --gsm-muted: #666666;
+    --gsm-menubar-bg: #ebebeb;
+    --gsm-border: #d4d4d4;
+    --gsm-icon: #3d3d3d;
+    --gsm-accent: #0c75de;
+    --gsm-table-head: #f0f0f0;
+    --gsm-row-border: #ececec;
+    --gsm-row-hover: #edf5ff;
+    --gsm-row-selected: #d8eaf6;
+    --gsm-chart-bg: #ffffff;
+    --gsm-chart-fill: #62a0ea;
+}
+
+body#mint main#systemMonitorApp {
+    font-size: 13px;
+}

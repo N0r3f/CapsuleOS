@@ -1,0 +1,39 @@
+{
+  "version": 3,
+  "description": "Chaîne ground truth KDE Plasma — pilote linux-kde-neon (v15 full front).",
+  "doc": "root/docs/ground-truth-kde.md",
+  "registryId": "linux-kde-neon",
+  "pilotRegistryId": "linux-kde-neon",
+  "toolkit": "kde",
+  "upstreamId": "linux-debian-kde",
+  "campaign": "v15-kde-settings-full-front",
+  "predicates": {
+    "KdI": "Inventaire VM ou stub proc/",
+    "KdF": "Inventaire front complet kde-settings-front-inventory.json",
+    "KdM": "ManΣ assets KDE",
+    "KdC": "Cloisonnement validate-toolkit-paradigm",
+    "KdS": "Shell Plasma panel/kickoff/tray — run-kde-ui-state-effects-pass",
+    "KdSe": "SeΣ settings-effects kde (hub↔KCM + handlers)",
+    "KdV": "Parité visuelle Φ_norm ≥ 90 shots P0",
+    "KdCred": "Scénarios pédagogiques P0 documentés + smoke",
+    "KdΠ": "Parité globale registry KDE",
+    "KdP4": "Propagation dérivés debian-kde / mx-kde / opensuse",
+    "KdΣ": "KdF ∧ KdC ∧ KdS ∧ KdSe ∧ KdV ∧ KdCred"
+  },
+  "chains": {
+    "settingsEffects": "etc/capsuleos/contracts/settings-effects-chain.json",
+    "welcomeScaffold": "etc/capsuleos/contracts/os-welcome-scaffold.json",
+    "controlsRegistry": "root/tools/lab/kde-settings-controls-registry.json",
+    "userScenarios": "etc/capsuleos/contracts/kde-settings-user-scenarios.json"
+  },
+  "gates": [
+    { "predicate": "KdC", "script": "usr/lib/capsuleos/tools/validate-toolkit-paradigm.mjs", "args": ["--id", "linux-kde-neon"] },
+    { "predicate": "KdSe", "script": "usr/lib/capsuleos/tools/lab/verify-kde-settings-parity-chain.mjs", "args": ["--id", "linux-kde-neon"] },
+    { "predicate": "KdS", "script": "usr/lib/capsuleos/tools/lab/run-kde-ui-state-effects-pass.mjs", "args": ["--id", "linux-kde-neon"] },
+    { "predicate": "KdF", "script": "usr/lib/capsuleos/tools/lab/smoke-kde-settings-front-inventory.mjs", "args": ["--id", "linux-kde-neon"] },
+    { "predicate": "KdCred", "script": "usr/lib/capsuleos/tools/validate-kde-settings-user-scenarios.mjs", "args": [] },
+    { "predicate": "KdV", "script": "usr/lib/capsuleos/tools/lab/smoke-kde-settings-visual-parity.mjs", "args": ["--id", "linux-kde-neon"], "optional": true }
+  ],
+  "orchestrator": "usr/lib/capsuleos/tools/lab/map-kde-ground-truth-gaps.mjs",
+  "gapMap": "usr/lib/capsuleos/tools/lab/map-kde-ground-truth-gaps.mjs"
+}

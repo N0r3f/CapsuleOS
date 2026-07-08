@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impossible de se connecter</title>
+    <link rel="stylesheet" href="../_shared/site.css">
+</head>
+<body class="capsule-web-page capsule-web-error">
+    <main>
+        <h1>Impossible de se connecter</h1>
+        <p id="neterror-host">Firefox ne parvient pas à établir une connexion avec le serveur.</p>
+        <p>Ce site n'est pas référencé dans l'internet simulé CapsuleOS.</p>
+    </main>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var host = params.get('host');
+            if (host) {
+                document.getElementById('neterror-host').textContent =
+                    'Firefox ne parvient pas à établir une connexion avec ' + host + '.';
+            }
+        }());
+    </script>
+</body>
+</html>

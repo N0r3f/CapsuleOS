@@ -1,0 +1,38 @@
+<main id="transmissionApp" class="trm-app" aria-label="Transmission">
+
+    <header class="trm-app__toolbar">
+        <button type="button" class="trm-app__btn" data-trm-action="open" aria-label="Ouvrir">Ouvrir</button>
+        <button type="button" class="trm-app__btn" data-trm-action="add" aria-label="Ajouter">Ajouter</button>
+        <button type="button" class="trm-app__btn" data-trm-action="remove" aria-label="Supprimer" disabled>Supprimer</button>
+        <span class="trm-app__toolbar-spacer"></span>
+        <button type="button" class="trm-app__btn" data-trm-action="prefs">Préférences</button>
+    </header>
+
+    <div class="trm-app__filters">
+        <button type="button" class="trm-app__filter is-active" data-trm-filter="all">Tous</button>
+        <button type="button" class="trm-app__filter" data-trm-filter="active">Actifs</button>
+        <button type="button" class="trm-app__filter" data-trm-filter="done">Terminés</button>
+    </div>
+
+    <div class="trm-app__empty" id="trm-empty">
+        <p class="trm-app__empty-title">Aucun torrent</p>
+        <p class="trm-app__empty-hint">Cliquez sur « Ajouter » pour ouvrir un fichier .torrent</p>
+    </div>
+
+    <table class="trm-app__table" id="trm-table" hidden>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Progression</th>
+                <th>État</th>
+            </tr>
+        </thead>
+        <tbody id="trm-body"></tbody>
+    </table>
+
+    <footer class="trm-app__statusbar">
+        <span id="trm-status-text">0 torrents</span>
+    </footer>
+
+</main>

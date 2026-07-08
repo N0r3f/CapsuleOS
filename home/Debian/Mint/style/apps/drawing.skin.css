@@ -1,0 +1,25 @@
+/**
+ * Drawing (Dessin) — Linux Mint Cinnamon.
+ */
+body#mint {
+    --drawing-chrome-bg: #f0f0f0;
+    --drawing-canvas-bg: #d6d6d6;
+    --drawing-text: #1e1e1e;
+}
+
+body#mint div[data-link="drawing"].windowElement {
+    width: min(calc(var(--head) * 18), 92vw);
+    min-width: calc(var(--head) * 12);
+    height: min(calc(var(--head) * 12), calc(100% - var(--taskbar-height) - calc(var(--head) / 2)));
+    min-height: calc(var(--head) * 9);
+}
+
+body#mint main#drawingApp {
+    color: var(--drawing-text);
+    background: var(--drawing-chrome-bg);
+}
+
+body#mint .drawing-app__menubar {
+    background: var(--drawing-chrome-bg);
+    border-bottom-color: var(--menu-shell-border);
+}

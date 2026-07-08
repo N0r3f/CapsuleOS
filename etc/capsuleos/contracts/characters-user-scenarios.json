@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Characters (org.gnome.Characters) — toolkit gnome (Rocky, Fedora, Alma, Ubuntu).",
+  "doc": "root/docs/inventaires/linux-alma-characters-vm-inventory.json",
+  "slot": "characters",
+  "template": "characters.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/characters.js",
+  "registryIds": ["linux-alma", "linux-rocky", "linux-fedora", "linux-ubuntu"],
+  "predicates": {
+    "ChΣ": "Contrat valide + kernel characters.js (data-characters-gnome-action, dataset.charactersSelected)",
+    "Ch1": "Ch1 ouvrir et voir le caractère par défaut",
+    "Ch2": "Ch2 rechercher un caractère (euro)",
+    "Ch3": "Ch3 sélectionner un caractère dans la grille",
+    "Ch4": "Ch4 copier le caractère sélectionné"
+  },
+  "scenarios": [
+    {
+      "id": "Ch1",
+      "priority": "P0",
+      "title": "Ouvrir et voir le caractère par défaut",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Characters",
+        "rpm": "gnome-characters",
+        "version": "46.0-3.el10",
+        "labelFr": "Caractères",
+        "defaultGlyph": "é"
+      },
+      "steps": [
+        { "id": "open-characters", "action": "openWindowByDataLink", "target": "characters", "label": "Ouvrir Caractères" },
+        { "id": "init", "predicate": "dataset.charactersInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "default-glyph", "selector": "#gnome-characters-glyph", "expectTextContains": "é", "label": "Caractère é par défaut" },
+        { "id": "recent-title", "selector": ".gnome-characters__section-title", "expectTextContains": "Récents", "label": "Section Récents FR" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-characters-scenarios.mjs --scenario Ch1",
+        "capture": "rocky-capsule-dark-characters-default.png"
+      }
+    },
+    {
+      "id": "Ch2",
+      "priority": "P0",
+      "title": "Rechercher un caractère (euro)",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "searchPlaceholderFr": "Rechercher…"
+      },
+      "steps": [
+        { "id": "open-characters", "action": "openWindowByDataLink", "target": "characters", "label": "Ouvrir Caractères" },
+        { "id": "search", "selector": "[data-characters-gnome-action=\"search\"]", "action": "fill", "value": "euro", "label": "Rechercher euro" },
+        { "id": "selected", "predicate": "dataset.charactersSelected", "expectTextContains": "€", "label": "Symbole € sélectionné" },
+        { "id": "name", "selector": "#gnome-characters-name", "expectTextContains": "euro", "label": "Nom FR symbole euro" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-characters-scenarios.mjs --scenario Ch2",
+        "capture": "rocky-capsule-dark-characters-search.png"
+      }
+    },
+    {
+      "id": "Ch3",
+      "priority": "P0",
+      "title": "Sélectionner un caractère dans la grille",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-characters", "action": "openWindowByDataLink", "target": "characters", "label": "Ouvrir Caractères" },
+        { "id": "click-glyph", "selector": "[data-characters-gnome-glyph=\"©\"]", "label": "Cliquer copyright" },
+        { "id": "selected", "predicate": "dataset.charactersSelected", "expectValue": "©", "label": "© sélectionné" },
+        { "id": "code", "selector": "#gnome-characters-code", "expectTextContains": "U+00A9", "label": "Code Unicode affiché" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-characters-scenarios.mjs --scenario Ch3",
+        "capture": "rocky-capsule-dark-characters-select.png"
+      }
+    },
+    {
+      "id": "Ch4",
+      "priority": "P0",
+      "title": "Copier le caractère sélectionné",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "copyLabelFr": "Copier"
+      },
+      "steps": [
+        { "id": "open-characters", "action": "openWindowByDataLink", "target": "characters", "label": "Ouvrir Caractères" },
+        { "id": "copy-btn", "selector": "[data-characters-gnome-action=\"copy\"]", "label": "Bouton Copier actif" },
+        { "id": "copy-click", "selector": "[data-characters-gnome-action=\"copy\"]", "action": "click", "label": "Cliquer Copier" },
+        { "id": "copied", "predicate": "dataset.charactersCopied", "expectTextContains": "é", "label": "Copie simulée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-characters-scenarios.mjs --scenario Ch4",
+        "capture": "rocky-capsule-dark-characters-copy.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "ChΣ": { "script": "usr/lib/capsuleos/tools/validate-characters-user-scenarios.mjs" }
+  }
+}

@@ -1,0 +1,278 @@
+main#gnomeCalendarApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui, Cantarell, sans-serif);
+}
+
+.gnome-calendar-app__header {
+    flex-shrink: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: calc(var(--head) / 6);
+    padding: calc(var(--head) / 3) calc(var(--head) / 3);
+}
+
+.gnome-calendar-app__views {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: calc(var(--head) / 8);
+}
+
+.gnome-calendar-app__view-btn {
+    flex: 1;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 8);
+    padding: calc(var(--head) / 8) calc(var(--head) / 5);
+    background: transparent;
+    font-size: calc(var(--head) / 3.2);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.gnome-calendar-app__view-btn.is-active {
+    background: rgba(53, 132, 228, 0.22);
+    border-color: rgba(53, 132, 228, 0.45);
+}
+
+.gnome-calendar-app__nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--head) / 4);
+}
+
+.gnome-calendar-app__month {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    font-size: calc(var(--head) / 2.5);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.gnome-calendar-app__new {
+    align-self: flex-start;
+    border: 0;
+    border-radius: calc(var(--head) / 8);
+    padding: calc(var(--head) / 8) calc(var(--head) / 4);
+    background: rgba(53, 132, 228, 0.85);
+    color: #fff;
+    font-size: calc(var(--head) / 3.2);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.gnome-calendar-app__body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(7rem, 9rem);
+    gap: calc(var(--head) / 6);
+    min-height: 0;
+    padding: 0 calc(var(--head) / 4) calc(var(--head) / 4);
+}
+
+.gnome-calendar-app__panel {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 0;
+}
+
+.gnome-calendar-app__sidebar {
+    border-left: 1px solid rgba(127, 127, 127, 0.2);
+    padding-left: calc(var(--head) / 5);
+    overflow: auto;
+}
+
+.gnome-calendar-app__events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gnome-calendar-app__event-item {
+    margin-bottom: calc(var(--head) / 8);
+    padding: calc(var(--head) / 10) calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 10);
+    background: rgba(53, 132, 228, 0.18);
+    font-size: calc(var(--head) / 3.4);
+}
+
+.gnome-calendar-app__week-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: calc(var(--head) / 16);
+    min-height: 0;
+    overflow: auto;
+}
+
+.gnome-calendar-app__week-col {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 8rem;
+    border: 1px solid rgba(127, 127, 127, 0.18);
+    border-radius: calc(var(--head) / 10);
+    overflow: hidden;
+}
+
+.gnome-calendar-app__week-col-head {
+    padding: calc(var(--head) / 10);
+    text-align: center;
+    font-size: calc(var(--head) / 3.6);
+    font-weight: 600;
+    background: rgba(127, 127, 127, 0.08);
+}
+
+.gnome-calendar-app__week-col-body {
+    flex: 1;
+    padding: calc(var(--head) / 12);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: calc(var(--head) / 14);
+}
+
+.gnome-calendar-app__event-chip {
+    display: block;
+    padding: calc(var(--head) / 14);
+    border-radius: calc(var(--head) / 12);
+    background: rgba(53, 132, 228, 0.2);
+    font-size: calc(var(--head) / 3.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gnome-calendar-app__editor {
+    position: absolute;
+    left: calc(var(--head) / 3);
+    right: calc(var(--head) / 3);
+    bottom: calc(var(--head) / 3);
+    padding: calc(var(--head) / 3);
+    border-radius: calc(var(--head) / 6);
+    background: rgba(30, 30, 30, 0.96);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
+}
+
+.gnome-calendar-app__editor-label {
+    display: block;
+    margin-bottom: calc(var(--head) / 10);
+    font-size: calc(var(--head) / 3.2);
+}
+
+.gnome-calendar-app__editor-input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: calc(var(--head) / 5);
+    padding: calc(var(--head) / 8);
+    border: 1px solid rgba(127, 127, 127, 0.35);
+    border-radius: calc(var(--head) / 10);
+    font-size: calc(var(--head) / 3);
+}
+
+.gnome-calendar-app__editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: calc(var(--head) / 6);
+}
+
+.gnome-calendar-app__editor-cancel,
+.gnome-calendar-app__editor-save {
+    border: 0;
+    border-radius: calc(var(--head) / 10);
+    padding: calc(var(--head) / 10) calc(var(--head) / 4);
+    font-size: calc(var(--head) / 3.2);
+    cursor: pointer;
+}
+
+.gnome-calendar-app__editor-save {
+    background: rgba(53, 132, 228, 0.9);
+    color: #fff;
+}
+
+.gnome-calendar-app__arrow {
+    width: calc(var(--head) / 1.4);
+    height: calc(var(--head) / 1.4);
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    font-size: calc(var(--head) / 1.6);
+    cursor: pointer;
+}
+
+.gnome-calendar-app__arrow:hover {
+    background: rgba(127, 127, 127, 0.15);
+}
+
+.gnome-calendar-app__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: calc(var(--head) / 16);
+    padding: 0 calc(var(--head) / 4);
+    margin-bottom: calc(var(--head) / 8);
+}
+
+.gnome-calendar-app__weekday {
+    text-align: center;
+    font-size: calc(var(--head) / 3.4);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.gnome-calendar-app__grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: calc(var(--head) / 16);
+    padding: 0 calc(var(--head) / 4) calc(var(--head) / 3);
+    overflow: auto;
+}
+
+.gnome-calendar-app__day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: calc(var(--head) / 8);
+    font-size: calc(var(--head) / 3);
+    font-variant-numeric: tabular-nums;
+}
+
+.gnome-calendar-app__day--outside {
+    opacity: 0.35;
+}
+
+.gnome-calendar-app__day--empty {
+    visibility: hidden;
+}
+
+.gnome-calendar-app__day--selected:not(.gnome-calendar-app__day--today) {
+    border-color: rgba(53, 132, 228, 0.55);
+    background: rgba(53, 132, 228, 0.2);
+}
+
+.gnome-calendar-app__today {
+    flex-shrink: 0;
+    margin: calc(var(--head) / 4) calc(var(--head) / 3) calc(var(--head) / 3);
+    padding: calc(var(--head) / 3);
+    border-radius: calc(var(--head) / 6);
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.gnome-calendar-app__today-title {
+    margin: 0 0 calc(var(--head) / 6);
+    font-size: calc(var(--head) / 2.9);
+    font-weight: 600;
+}
+
+.gnome-calendar-app__today-empty {
+    margin: 0;
+    font-size: calc(var(--head) / 3);
+    font-style: italic;
+    opacity: 0.72;
+}

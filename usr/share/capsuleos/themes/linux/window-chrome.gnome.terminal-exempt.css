@@ -1,0 +1,91 @@
+/**
+ * Le slot terminal GNOME utilise un chrome dédié (Ptyxis / Cosmic / GNOME Terminal).
+ * Neutralise le SSD Mutter générique importé via window-chrome.gnome.base.css.
+ */
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: auto;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    overflow: visible;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"].windowElementActive {
+    border: 0;
+    box-shadow: none;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] > #windowHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] #windowHeader > nav {
+    min-width: 0;
+    flex-shrink: 0;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] #windowHeader > nav:last-of-type {
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] .fedora-terminal-header__tabs {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] .fedora-terminal-header__window-controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.2rem;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] #windowTitle {
+    display: none;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] > #terminalContainer,
+.windowElement[data-window-chrome-toolkit="gnome"][data-link="terminal"] > .capsule-terminal-shell {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}

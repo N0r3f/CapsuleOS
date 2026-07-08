@@ -1,0 +1,29 @@
+/**
+ * ubuntu — libreoffice_impress (structure Rocky).
+ */
+body#ubuntu div[data-link="libreoffice_impress"].gnome-app--csd {
+    width: min(52rem, calc(100vw - var(--ubuntu-dock-width) - 1.5rem));
+    height: min(36rem, calc(100vh - var(--ubuntu-top-bar-height) - 1.5rem));
+    min-width: 40rem;
+    min-height: 26rem;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#ubuntu div[data-link="libreoffice_impress"] .lim-app {
+    --ma-bg: var(--fedora-window-surface, #303030);
+    --ma-text: rgba(255, 255, 255, 0.92);
+    --ma-header: rgba(255, 255, 255, 0.06);
+    --ma-border: rgba(255, 255, 255, 0.12);
+    --ma-accent: var(--gnome-software-accent, #3584e4);
+    border-radius: 0 0 10px 10px;
+}
+
+body#ubuntu div[data-link="libreoffice_impress"] .lim-app__stage {
+    background: rgba(0, 0, 0, 0.28);
+}
+
+body#ubuntu div[data-link="libreoffice_impress"] .lim-app__slides {
+    background: rgba(255, 255, 255, 0.04);
+}

@@ -1,0 +1,265 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "CapsuleOS",
+      "url": "https://os.lacapsule.org/",
+      "description": "Bureaux simulés pour s'approprier Linux, Windows, macOS et autres OS dans le navigateur : pédagogie, gratuit, hors ligne possible.",
+      "inLanguage": "fr-FR",
+      "publisher": {
+        "@type": "Organization",
+        "name": "La Capsule",
+        "url": "https://lacapsule.org"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Catalogue OS CapsuleOS (/OS)",
+      "numberOfItems": 13,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Linux Mint (Cinnamon)",
+            "identifier": "linux-mint",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/mint/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Ubuntu 26.04 LTS",
+            "identifier": "linux-ubuntu",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/ubuntu/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Fedora Workstation",
+            "identifier": "linux-fedora",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/redhat/fedora/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "KDE neon User Edition",
+            "identifier": "linux-kde-neon",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/kde-neon/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "openSUSE Tumbleweed",
+            "identifier": "linux-opensuse",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/suse/opensuse/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Pop!_OS",
+            "identifier": "linux-popos",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/popos/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "AnduinOS",
+            "identifier": "linux-anduinos",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/debian/anduinos/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Rocky Linux (GNOME)",
+            "identifier": "linux-rocky",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/redhat/rocky/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "AlmaLinux (GNOME)",
+            "identifier": "linux-alma",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/linux/families/redhat/alma/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Windows 10",
+            "identifier": "windows-10",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/windows/versions/10/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Windows 11",
+            "identifier": "windows-11",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/windows/versions/11/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "macOS Sonoma",
+            "identifier": "macos-sonoma",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/macos/sonoma/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "iOS 15",
+            "identifier": "ios-15",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Web browser",
+            "url": "https://os.lacapsule.org/OS/ios/15/index.html",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Modules pédagogiques CapsuleOS (/mnt)",
+      "numberOfItems": 1,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LearningResource",
+            "name": "Les bases Linux",
+            "description": "Découverte du bureau simulé : explorateur, terminal, premières commandes. Module pilote montable sous /mnt.",
+            "identifier": "linux-bases",
+            "inLanguage": "fr-FR",
+            "learningResourceType": "module",
+            "url": "https://os.lacapsule.org/mnt/debutant/linux-bases"
+          }
+        }
+      ]
+    }
+  ]
+}

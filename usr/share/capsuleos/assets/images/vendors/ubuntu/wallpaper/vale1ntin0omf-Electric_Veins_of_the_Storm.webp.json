@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/vale1ntin0omf-Electric_Veins_of_the_Storm.jpg",
+  "sourceSha256": "97d70432e4ab47cbce8f1c74f33fc90410fb6e36e14b13c91a7f73517fe47617",
+  "output": "images/vendors/ubuntu/wallpaper/vale1ntin0omf-Electric_Veins_of_the_Storm.webp",
+  "outputSha256": "f923b160fa2dd07541f012eb67a3fa1e789b72b4574493598138ad9424f058f3",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:47:02.583Z"
+}

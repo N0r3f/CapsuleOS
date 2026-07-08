@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/panel/org.gnome.Calculator.png",
+  "sourceSha256": "490de5cc6b594f726da667df93adcc333b9c472c9193cd24db34db3e1f3a176f",
+  "output": "images/vendors/mint/panel/org.gnome.Calculator.webp",
+  "outputSha256": "3991bec00435d8dfdedf98c8bfa6170c0699dba88073259e0b7668dfa68d343c",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T22:17:40.760Z"
+}

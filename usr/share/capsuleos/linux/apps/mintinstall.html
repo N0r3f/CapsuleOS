@@ -1,0 +1,74 @@
+<main id="mintInstallApp" class="mi-app mi-app--layout-vm84" aria-label="Logithèque">
+
+    <header class="mi-app__header">
+        <button type="button" class="mi-app__back-btn" data-mi-back aria-label="Retour" title="Retour">‹</button>
+        <div class="mi-app__search-wrap mintinstall-search">
+            <input type="search" class="mi-app__search" id="mi-search" placeholder="Rechercher des applications…" autocomplete="off" aria-label="Rechercher">
+        </div>
+        <button type="button" class="mi-app__menu-btn" data-mi-action="menu" aria-haspopup="true" aria-expanded="false" title="Menu">☰</button>
+        <nav class="mi-app__menu" id="mi-menu" hidden aria-label="Menu application">
+            <button type="button" class="mi-app__menu-item" data-mi-menu="refresh">Actualiser le cache</button>
+            <button type="button" class="mi-app__menu-item" data-mi-menu="sources">Modifier les sources de logiciels</button>
+            <button type="button" class="mi-app__menu-item" data-mi-menu="about">À propos</button>
+        </nav>
+    </header>
+
+    <div class="mi-app__body">
+        <aside class="mi-app__sidebar mintinstall-sidebar" aria-label="Catégories">
+            <button type="button" class="mi-app__cat mintinstall-category is-active" data-mi-cat="home">Accueil</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="all">Tous les logiciels</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="flatpak">Flatpak</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="internet">Internet</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="office">Bureautique</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="graphics">Graphisme</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="games">Jeux</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="accessories">Accessoires</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="multimedia">Multimédia</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="development">Développement</button>
+            <button type="button" class="mi-app__cat mintinstall-category" data-mi-cat="installed">Installés</button>
+        </aside>
+
+        <section class="mi-app__content">
+            <section class="mi-app__page mi-app__page--home" data-mi-page="home" aria-label="Accueil">
+                <div class="mi-app__hero" data-mi-hero-mount aria-label="Mise en avant"></div>
+                <h2 class="mi-app__section-title">Logiciels phares</h2>
+                <ul class="mi-app__spotlight" data-mi-spotlight aria-label="Logiciels phares"></ul>
+                <h2 class="mi-app__section-title">Catégories</h2>
+                <ul class="mi-app__home-cats" data-mi-home-cats aria-label="Catégories"></ul>
+                <h2 class="mi-app__section-title">Les mieux notés</h2>
+                <ul class="mi-app__top-rated" data-mi-top-rated aria-label="Les mieux notés"></ul>
+            </section>
+
+            <section class="mi-app__page" data-mi-page="list" hidden aria-label="Liste">
+                <div class="mi-app__discover-wrap" data-mi-discover-section hidden>
+                    <h2 class="mi-app__section-title mi-app__discover-title">À découvrir</h2>
+                    <ul class="mi-app__discover" id="mi-discover-grid" data-mi-discover-grid aria-label="Applications à installer"></ul>
+                </div>
+                <h2 class="mi-app__page-title" id="mi-list-title">Tous les logiciels</h2>
+                <ul class="mi-app__list" id="mi-app-list"></ul>
+            </section>
+
+            <section class="mi-app__page" data-mi-page="search" hidden aria-label="Résultats de recherche">
+                <h2 class="mi-app__page-title" id="mi-search-title">Résultats</h2>
+                <ul class="mi-app__list mintinstall-results" id="mi-search-list"></ul>
+                <p class="mi-app__empty" id="mi-search-empty" hidden>Aucun logiciel trouvé.</p>
+            </section>
+
+            <section class="mi-app__page mintinstall-detail" data-mi-page="detail" hidden aria-label="Fiche application">
+                <button type="button" class="mi-app__back" data-mi-back aria-label="Retour à la liste">← Retour</button>
+                <div class="mi-app__detail-head">
+                    <img class="mi-app__detail-icon" id="mi-detail-icon" src="" alt="" width="64" height="64">
+                    <div>
+                        <h2 class="mi-app__page-title" id="mi-detail-name"></h2>
+                        <p class="mi-app__detail-desc" id="mi-detail-desc"></p>
+                    </div>
+                </div>
+                <p class="mi-app__detail-blurb" id="mi-detail-blurb"></p>
+                <button type="button" class="mi-app__install mintinstall-install-btn" data-mi-detail-install>Installer</button>
+            </section>
+        </section>
+    </div>
+
+    <footer class="mi-app__status" id="mi-status" aria-live="polite"></footer>
+
+</main>

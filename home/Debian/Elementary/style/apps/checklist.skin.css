@@ -1,0 +1,18 @@
+/**
+ * elementary — checklist (structure Rocky).
+ */
+body#elementary div[data-link="checklist"].gnome-app--csd {
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="checklist"] .checklist-app__header {
+    background: var(--fedora-window-header-bg, #383838);
+    border-bottom: 1px solid var(--fedora-window-header-border, rgba(255, 255, 255, 0.08));
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary div[data-link="checklist"] .checklist-app__header {
+    background: #f6f6f6;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}

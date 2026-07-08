@@ -1,0 +1,126 @@
+main#timeshiftApp {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--tsh-text, #2e2e2e);
+    background: var(--tsh-bg, #ffffff);
+}
+
+.tsh-app__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    min-height: 48px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--tsh-border, #d4d4d4);
+    background: var(--tsh-header, #ebebeb);
+}
+
+.tsh-app__logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.tsh-app__title {
+    margin: 0;
+    flex: 1 1 auto;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.tsh-app__body {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.tsh-app__sidebar {
+    flex: 0 0 120px;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 8px 0;
+    border-right: 1px solid var(--tsh-border, #d4d4d4);
+    background: #f6f6f6;
+}
+
+.tsh-app__nav {
+    padding: 10px 12px;
+    border: 0;
+    text-align: left;
+    font: inherit;
+    font-size: 12px;
+    background: transparent;
+    cursor: default;
+}
+
+.tsh-app__nav.is-active {
+    background: rgba(31, 158, 222, 0.15);
+    font-weight: 600;
+}
+
+.tsh-app__main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 0;
+}
+
+.tsh-app__toolbar {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 6px;
+    flex-shrink: 0;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--tsh-border, #e8e8e8);
+}
+
+.tsh-app__list {
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+}
+
+.tsh-app__snap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--tsh-border, #ececec);
+    cursor: default;
+}
+
+.tsh-app__snap.is-selected {
+    background: rgba(31, 158, 222, 0.12);
+}
+
+.tsh-app__snap-type {
+    font-size: 11px;
+    color: var(--tsh-muted, #666666);
+}
+
+.tsh-app__btn {
+    padding: 5px 12px;
+    border: 1px solid var(--tsh-btn-border, #c8c8c8);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 12px;
+    background: var(--tsh-btn-bg, #f6f6f6);
+    cursor: default;
+}
+
+.tsh-app__btn--primary {
+    color: #ffffff;
+    background: var(--tsh-accent, #1f9ede);
+    border-color: var(--tsh-accent, #1f9ede);
+}

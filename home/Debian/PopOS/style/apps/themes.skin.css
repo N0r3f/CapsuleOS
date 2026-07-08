@@ -1,0 +1,71 @@
+/**
+ * Pop!_OS - app Thèmes (Apparence clair / sombre).
+ */
+body#popos {
+    --themes-preview-dark: #2a2a2e;
+    --themes-preview-dark-inner: #48b9c7;
+    --themes-preview-light: #f0f0f2;
+    --themes-preview-light-inner: #2a9aad;
+    --nemo-text-muted: var(--popos-app-muted-text);
+    --nemo-toolbar-bg: var(--popos-window-header-bg);
+    --nemo-toolbar-button-border: var(--popos-shell-border-soft);
+}
+
+html[data-theme="light"]:has(#popos) body#popos {
+    --themes-preview-dark: #3a3a3e;
+    --themes-preview-dark-inner: #48b9c7;
+    --themes-preview-light: #ffffff;
+    --themes-preview-light-inner: #2a9aad;
+}
+
+body#popos div[data-link="themes"] #windowHeader {
+    background: var(--popos-window-header-bg);
+    color: var(--popos-window-title-color);
+}
+
+body#popos div[data-link="themes"] #windowTitle {
+    color: var(--popos-window-title-color);
+}
+
+body#popos div[data-link="themes"] #themesApp {
+    color: var(--popos-app-text);
+    background: var(--popos-app-surface);
+    border-top: 1px solid var(--popos-shell-border-soft);
+}
+
+body#popos div[data-link="themes"] .themes-app__section {
+    border-bottom-color: var(--popos-shell-border-soft);
+}
+
+body#popos div[data-link="themes"] .themes-app__label,
+body#popos div[data-link="themes"] .themes-card__title {
+    color: var(--popos-app-text);
+}
+
+body#popos div[data-link="themes"] .themes-app__select,
+body#popos div[data-link="themes"] .themes-app__help {
+    color: var(--popos-app-text);
+    background: var(--menuInput);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos div[data-link="themes"] .themes-card,
+body#popos div[data-link="themes"] .themes-contrast-card,
+body#popos div[data-link="themes"] .themes-scale-button {
+    color: var(--popos-app-text);
+    background: var(--popos-search-bar-bg);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos div[data-link="themes"] .themes-card:hover,
+body#popos div[data-link="themes"] .themes-contrast-card:hover,
+body#popos div[data-link="themes"] .themes-scale-button:hover {
+    border-color: var(--popos-accent);
+}
+
+body#popos div[data-link="themes"] .themes-card.is-active,
+body#popos div[data-link="themes"] .themes-contrast-card.is-active,
+body#popos div[data-link="themes"] .themes-scale-button.is-active {
+    border-color: var(--popos-accent);
+    background: var(--popos-surface-hover);
+}

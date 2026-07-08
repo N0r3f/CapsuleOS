@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques Logithèque (mintinstall) — toolkit Cinnamon linux-mint.",
+  "doc": "root/docs/inventaires/linux-mint-mintinstall-vm.json",
+  "slot": "mintinstall",
+  "template": "mintinstall.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/mintinstall.js",
+  "storeKernel": "usr/lib/capsuleos/shells/linux/mint-store-catalog.js",
+  "registryIds": ["linux-mint"],
+  "predicates": {
+    "ScΣ": "Contrat valide + kernel implémente handlers data-mi-*",
+    "Sc1": "Mi1 install simulé LibreOffice Writer → Ouvrir",
+    "Sc2": "Mi2 recherche → fiche → install",
+    "Sc3": "Mi3 mises à jour (update_manager lié)",
+    "Sc4": "Mi4 onglet Installés → lancer application",
+    "Sc5": "Mi5 store file_roller → Installés",
+    "Sc6": "Mi6 store LibreOffice → librewriter",
+    "Sc7": "Mi7 store Agenda → calendar",
+    "Sc8": "Mi8 thunderbird → thunderbird",
+    "Sc9": "Mi9 transmission → Installés",
+    "Sc10": "Mi10 warpinator → warpinator",
+    "Sc11": "Mi11 rhythmbox → rhythmbox",
+    "Sc12": "Mi12 simple_scan → simple_scan"
+  },
+  "scenarios": [
+    {
+      "id": "Mi1",
+      "priority": "P0",
+      "title": "Découvrir et installer une application",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "librewriter",
+        "apt": "libreoffice-writer",
+        "onVm": true,
+        "buttonFlow": ["Installer", "Installation…", "Ouvrir"]
+      },
+      "steps": [
+        { "id": "open-mintinstall", "action": "openWindowByDataLink", "target": "mintinstall", "label": "Ouvrir Logithèque" },
+        { "id": "nav-office", "selector": "[data-mi-cat=\"office\"]", "label": "Catégorie Bureautique" },
+        { "id": "detail-writer", "selector": "[data-mi-pkg=\"librewriter\"]", "label": "Sélectionner LibreOffice Writer" },
+        { "id": "detail-install", "selector": "[data-mi-detail-install]", "expectTextBefore": "Installer", "label": "Cliquer Installer" },
+        { "id": "install-progress", "predicate": "dataset.miInstalling", "label": "Progression simulée" },
+        { "id": "install-open", "selector": "[data-mi-open=\"librewriter\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir disponible" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"librewriter\"]", "expectWindow": "librewriter", "label": "Ouvrir l'application installée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi1",
+        "capture": "mint-capsule-mintinstall-install-open.png"
+      }
+    },
+    {
+      "id": "Mi2",
+      "priority": "P0",
+      "title": "Rechercher et installer",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-mintinstall", "action": "openWindowByDataLink", "target": "mintinstall", "label": "Ouvrir Logithèque" },
+        { "id": "search", "selector": "#mi-search", "value": "writer", "label": "Rechercher writer" },
+        { "id": "search-result", "selector": "#mi-search-list [data-mi-pkg=\"librewriter\"]", "label": "Ouvrir fiche depuis résultats" },
+        { "id": "install", "selector": "[data-mi-detail-install]", "label": "Installer depuis fiche recherche" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi2",
+        "capture": "mint-capsule-mintinstall-search-install.png"
+      }
+    },
+    {
+      "id": "Mi3",
+      "priority": "P0",
+      "title": "Appliquer toutes les mises à jour",
+      "locale": "fr-FR",
+      "vmNote": "mintupdate — scénario pédagogique via Gestionnaire de mise à jour",
+      "steps": [
+        { "id": "open-mintinstall", "action": "openWindowByDataLink", "target": "mintinstall", "label": "Ouvrir Logithèque" },
+        { "id": "open-updates", "action": "openWindowByDataLink", "target": "update_manager", "label": "Ouvrir Gestionnaire de mise à jour" },
+        { "id": "refresh-updates", "selector": "[data-um-action=\"refresh\"]", "label": "Actualiser les mises à jour" },
+        { "id": "select-all", "selector": "[data-um-action=\"selectAll\"]", "label": "Tout sélectionner" },
+        { "id": "update-all", "selector": "[data-um-action=\"install\"]", "label": "Installer les mises à jour" },
+        { "id": "empty-state", "selector": "#um-empty:not([hidden])", "label": "État système à jour" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi3",
+        "capture": "mint-capsule-mintinstall-updates-empty.png"
+      }
+    },
+    {
+      "id": "Mi4",
+      "priority": "P0",
+      "title": "Lancer depuis Installés",
+      "locale": "fr-FR",
+      "steps": [
+        { "id": "open-mintinstall", "action": "openWindowByDataLink", "target": "mintinstall", "label": "Ouvrir Logithèque" },
+        { "id": "nav-installed", "selector": "[data-mi-cat=\"installed\"]", "label": "Catégorie Installés" },
+        { "id": "open-firefox", "selector": "#mi-app-list [data-mi-open=\"firefox\"]", "label": "Ouvrir Firefox" },
+        { "id": "firefox-window", "expectWindow": "firefox", "label": "Fenêtre Firefox visible" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi4",
+        "capture": "mint-capsule-mintinstall-installed-open.png"
+      }
+    },
+    {
+      "id": "Mi5",
+      "priority": "P0",
+      "title": "Magasin — installer Gestionnaire d'archives",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "file-roller",
+        "apt": "file-roller",
+        "onVm": true,
+        "storeInstallable": false,
+        "note": "Pré-installé VM — flux pédagogique via catégorie Accessoires"
+      },
+      "steps": [
+        { "id": "open-mintinstall", "action": "openWindowByDataLink", "target": "mintinstall", "label": "Ouvrir Logithèque" },
+        { "id": "nav-accessories", "selector": "[data-mi-cat=\"accessories\"]", "label": "Catégorie Accessoires" },
+        { "id": "open-archives", "selector": "[data-mi-open=\"file_roller\"]", "label": "Ouvrir Gestionnaire d'archives" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"file_roller\"]", "expectWindow": "file_roller", "label": "Ouvre Gestionnaire d'archives" },
+        { "id": "nav-installed", "selector": "[data-mi-cat=\"installed\"]", "label": "Catégorie Installés" },
+        { "id": "listed", "selector": "#mi-app-list [data-mi-pkg=\"file-roller\"]", "label": "Apparaît dans Installés" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi5",
+        "capture": "mint-capsule-store-file-roller-installed.png"
+      }
+    },
+    {
+      "id": "Mi6",
+      "priority": "P0",
+      "title": "Magasin — installer LibreOffice",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "libreoffice",
+        "apt": "libreoffice",
+        "onVm": true,
+        "storeInstallable": false,
+        "opensSlot": "librewriter"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-mi-discover-grid] [data-mi-pkg=\"libreoffice\"]", "optional": true, "label": "Sélectionner LibreOffice (À découvrir si présent)" },
+        { "id": "nav-office", "selector": "[data-mi-cat=\"office\"]", "label": "Catégorie Bureautique" },
+        { "id": "detail-install", "selector": "[data-mi-open=\"librewriter\"]", "label": "Ouvrir LibreOffice Writer" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"librewriter\"]", "expectWindow": "librewriter", "label": "Ouvre LibreOffice Writer" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi6",
+        "capture": "mint-capsule-store-libreoffice-open.png"
+      }
+    },
+    {
+      "id": "Mi7",
+      "priority": "P0",
+      "title": "Magasin — installer Agenda",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "calendar",
+        "apt": "gnome-calendar",
+        "onVm": true,
+        "opensSlot": "calendar"
+      },
+      "steps": [
+        { "id": "nav-accessories", "selector": "[data-mi-cat=\"accessories\"]", "label": "Catégorie Accessoires" },
+        { "id": "open-calendar", "selector": "[data-mi-open=\"calendar\"]", "label": "Ouvrir Agenda" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"calendar\"]", "expectWindow": "calendar", "label": "Ouvre Agenda" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi7",
+        "capture": "mint-capsule-store-calendar-open.png"
+      }
+    },
+    {
+      "id": "Mi8",
+      "priority": "P1",
+      "title": "Magasin — installer Thunderbird",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "thunderbird",
+        "flatpak": "org.mozilla.Thunderbird",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "thunderbird"
+      },
+      "steps": [
+        { "id": "open-mintinstall", "action": "openWindowByDataLink", "target": "mintinstall", "label": "Ouvrir Logithèque" },
+        { "id": "discover-card", "selector": "[data-mi-discover-grid] [data-mi-pkg=\"thunderbird\"]", "label": "Sélectionner Thunderbird (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-mi-install=\"thunderbird\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-mi-open=\"thunderbird\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"thunderbird\"]", "expectWindow": "thunderbird", "label": "Ouvre Thunderbird" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi8",
+        "capture": "mint-capsule-store-thunderbird-open.png"
+      }
+    },
+    {
+      "id": "Mi9",
+      "priority": "P1",
+      "title": "Magasin — installer Transmission",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "transmission",
+        "flatpak": "com.transmissionbt.Transmission",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "transmission"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-mi-discover-grid] [data-mi-pkg=\"transmission\"]", "label": "Sélectionner Transmission (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-mi-install=\"transmission\"]", "label": "Installer" },
+        { "id": "install-complete", "predicate": "dataset.miScenario", "expectValue": "Mi9-complete", "label": "Installation terminée" },
+        { "id": "nav-installed", "selector": "[data-mi-cat=\"installed\"]", "label": "Catégorie Installés" },
+        { "id": "listed", "selector": "#mi-app-list [data-mi-pkg=\"transmission\"]", "label": "Apparaît dans Installés" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi9",
+        "capture": "mint-capsule-store-transmission-installed.png"
+      }
+    },
+    {
+      "id": "Mi10",
+      "priority": "P1",
+      "title": "Magasin — installer Warpinator",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "warpinator",
+        "flatpak": "org.x.Warpinator",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "warpinator"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-mi-discover-grid] [data-mi-pkg=\"warpinator\"]", "label": "Sélectionner Warpinator (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-mi-install=\"warpinator\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-mi-open=\"warpinator\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"warpinator\"]", "expectWindow": "warpinator", "label": "Ouvre Warpinator" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi10",
+        "capture": "mint-capsule-store-warpinator-open.png"
+      }
+    },
+    {
+      "id": "Mi11",
+      "priority": "P1",
+      "title": "Magasin — installer Rhythmbox",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "rhythmbox",
+        "apt": "rhythmbox",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "rhythmbox"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-mi-discover-grid] [data-mi-pkg=\"rhythmbox\"]", "label": "Sélectionner Rhythmbox (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-mi-install=\"rhythmbox\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-mi-open=\"rhythmbox\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"rhythmbox\"]", "expectWindow": "rhythmbox", "label": "Ouvre Rhythmbox" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi11",
+        "capture": "mint-capsule-store-rhythmbox-open.png"
+      }
+    },
+    {
+      "id": "Mi12",
+      "priority": "P1",
+      "title": "Magasin — installer Numérisation",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "simple-scan",
+        "apt": "simple-scan",
+        "onVm": false,
+        "storeInstallable": true,
+        "opensSlot": "simple_scan"
+      },
+      "steps": [
+        { "id": "discover-card", "selector": "[data-mi-discover-grid] [data-mi-pkg=\"simple-scan\"]", "label": "Sélectionner Numérisation (À découvrir)" },
+        { "id": "detail-install", "selector": "[data-mi-install=\"simple-scan\"]", "label": "Installer" },
+        { "id": "install-open", "selector": "[data-mi-open=\"simple_scan\"]", "expectTextAfter": "Ouvrir", "label": "Bouton Ouvrir" },
+        { "id": "launch-app", "selector": "[data-mi-open=\"simple_scan\"]", "expectWindow": "simple_scan", "label": "Ouvre Numérisation" }
+      ],
+      "proofs": {
+        "smoke": "smoke-mint-store-scenarios.mjs --scenario Mi12",
+        "capture": "mint-capsule-store-simple-scan-open.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "ScΣ": {
+      "script": "usr/lib/capsuleos/tools/validate-mintinstall-user-scenarios.mjs"
+    }
+  }
+}

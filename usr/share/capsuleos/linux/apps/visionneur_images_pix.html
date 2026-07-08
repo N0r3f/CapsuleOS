@@ -1,0 +1,50 @@
+<main id="visionneurImages" class="xviewer-app pix-viewer" aria-label="Visionneur d'images">
+
+    <nav class="xviewer-app__menubar" aria-label="Menu">
+        <div class="xviewer-app__menu-wrap">
+            <button type="button" class="xviewer-app__menu" data-xv-menu="file">Fichier</button>
+            <div class="xviewer-app__menu-dropdown" id="xviewer-menu-file" hidden>
+                <button type="button" class="xviewer-app__menu-item" data-xv-menu-action="open">Ouvrir…</button>
+                <button type="button" class="xviewer-app__menu-item" data-xv-menu-action="save-as">Enregistrer sous…</button>
+            </div>
+        </div>
+        <button type="button" class="xviewer-app__menu">Édition</button>
+        <button type="button" class="xviewer-app__menu">Affichage</button>
+        <button type="button" class="xviewer-app__menu">Aide</button>
+    </nav>
+
+    <div class="xviewer-app__toolbar pix-toolbar" aria-label="Outils">
+        <button type="button" class="xviewer-app__tool" data-xv-action="prev" title="Image précédente" aria-label="Image précédente" disabled></button>
+        <button type="button" class="xviewer-app__tool xviewer-app__tool--next" data-xv-action="next" title="Image suivante" aria-label="Image suivante" disabled></button>
+        <span class="xviewer-app__sep" role="separator"></span>
+        <button type="button" class="xviewer-app__tool xviewer-app__tool--zoom-out" data-xv-action="zoom-out" title="Zoom arrière" aria-label="Zoom arrière"></button>
+        <button type="button" class="xviewer-app__tool xviewer-app__tool--zoom-fit" data-xv-action="zoom-fit" title="Ajuster à la fenêtre" aria-label="Ajuster à la fenêtre"></button>
+        <button type="button" class="xviewer-app__tool xviewer-app__tool--zoom-in" data-xv-action="zoom-in" title="Zoom avant" aria-label="Zoom avant"></button>
+        <span class="xviewer-app__sep" role="separator"></span>
+        <button type="button" class="xviewer-app__tool xviewer-app__tool--rotate" data-xv-action="rotate" title="Pivoter" aria-label="Pivoter"></button>
+        <button type="button" class="xviewer-app__tool xviewer-app__tool--slideshow" data-xv-action="slideshow" title="Diaporama" aria-label="Diaporama"></button>
+    </div>
+
+    <section class="xviewer-app__viewport" id="mint-image-viewer-content" aria-label="Image">
+        <p class="xviewer-app__empty">Ouvrez une image depuis Nemo pour l'afficher ici.</p>
+    </section>
+
+    <div class="xviewer-app__slideshow pix-slideshow" id="xviewer-slideshow" hidden aria-label="Diaporama"></div>
+
+    <div class="xviewer-app__export pix-export-dialog" id="xviewer-export-dialog" hidden aria-label="Exporter l'image">
+        <p class="xviewer-app__export-title">Enregistrer sous</p>
+        <label for="xviewer-export-path">Destination</label>
+        <input type="text" id="xviewer-export-path" value="~/Images/demo.png">
+        <div class="xviewer-app__export-actions">
+            <button type="button" data-xv-export="cancel">Annuler</button>
+            <button type="button" data-xv-export="apply">Enregistrer</button>
+        </div>
+    </div>
+
+    <footer class="xviewer-app__status" aria-label="État">
+        <span class="xviewer-app__status-zoom" id="xviewer-zoom">100 %</span>
+        <span class="xviewer-app__status-dims" id="xviewer-dims"></span>
+        <span class="xviewer-app__status-name" id="mint-image-viewer-filename">Aucune image sélectionnée</span>
+    </footer>
+
+</main>

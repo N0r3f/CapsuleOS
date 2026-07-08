@@ -1,0 +1,137 @@
+/**
+ * elementary — profile (structure Rocky).
+ */
+body#elementary div[data-link="profile"].gnome-app--csd {
+    width: min(34rem, calc(100vw - var(--elementary-dock-width) - 2rem));
+    height: min(38rem, calc(100vh - var(--elementary-top-bar-height) - 2rem));
+    padding: 0;
+    border-color: var(--capsule-chrome-window-border, var(--fedora-window-border));
+    border-radius: 0.9rem;
+    color: #f6f6f7;
+    background: #242428;
+    overflow: hidden;
+}
+
+body#elementary div[data-link="profile"] .profile-app__header {
+    background: #303034;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary div[data-link="profile"] {
+    color: #1f1f22;
+    background: #ffffff;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary div[data-link="profile"] .profile-app__header {
+    background: #f3f3f3;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+body#elementary main#profileApp {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+    padding: 1.35rem;
+    border-radius: 0 0 0.9rem 0.9rem;
+    color: #f6f6f7;
+    background:
+        radial-gradient(circle at top right, rgba(53, 132, 228, 0.26), transparent 18rem),
+        #242428;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary main#profileApp {
+    color: #1f1f22;
+    background:
+        radial-gradient(circle at top right, rgba(53, 132, 228, 0.12), transparent 18rem),
+        #ffffff;
+}
+
+body#elementary .profile-app__header,
+body#elementary .profile-app__stats,
+body#elementary .profile-highlight {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__header,
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__stats,
+html[data-theme="light"]:has(#elementary) body#elementary .profile-highlight {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.035);
+}
+
+body#elementary .profile-app__logo {
+    width: 4.25rem;
+    height: 4.25rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    background: #ffffff;
+}
+
+body#elementary .profile-app__name {
+    font-size: 1.35rem;
+    color: #ffffff;
+}
+
+body#elementary .profile-app__version,
+body#elementary .profile-app__description,
+body#elementary .profile-app__section-title {
+    color: #c8c8cc;
+}
+
+body#elementary .profile-app__tagline {
+    color: #ffffff;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__name,
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__tagline {
+    color: #1f1f22;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__version,
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__description,
+html[data-theme="light"]:has(#elementary) body#elementary .profile-app__section-title {
+    color: #5f5f66;
+}
+
+body#elementary .profile-app__stats {
+    gap: 0.45rem;
+    padding: 0.85rem;
+}
+
+body#elementary .profile-stat__label,
+body#elementary .profile-highlight {
+    color: #f1f1f3;
+}
+
+html[data-theme="light"]:has(#elementary) body#elementary .profile-stat__label,
+html[data-theme="light"]:has(#elementary) body#elementary .profile-highlight {
+    color: #1f1f22;
+}
+
+body#elementary .profile-stat__stars,
+body#elementary .profile-app__link {
+    color: #62a0ea;
+}
+
+body#elementary .profile-highlight__icon {
+    min-width: 3.25rem;
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #3584e4;
+    text-align: center;
+}
+
+body#elementary .profile-app__link {
+    border: 1px solid rgba(98, 160, 234, 0.62);
+    border-radius: 999px;
+}
+
+body#elementary .profile-app__link:hover,
+body#elementary .profile-app__button:hover {
+    background: rgba(98, 160, 234, 0.16);
+}

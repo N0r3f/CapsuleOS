@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_waves.jpg",
+  "sourceSha256": "94c8f2a244793ece2d59a3158eac7059290c59a471746466d2fb49a8e6faf875",
+  "output": "images/vendors/mint/wallpaper/jpanchal_waves.webp",
+  "outputSha256": "314eba515c7de8765b0d3d6bb1d27eedb537fa3c1db051ef0bd91d596f2984bf",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:14.602Z"
+}

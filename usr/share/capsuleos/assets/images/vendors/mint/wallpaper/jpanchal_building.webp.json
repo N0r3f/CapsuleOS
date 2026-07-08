@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_building.jpg",
+  "sourceSha256": "1b738d1afc1c0631e04c0bcdc9425d23d30d8c21819d8203c7d6d0a5d4a31384",
+  "output": "images/vendors/mint/wallpaper/jpanchal_building.webp",
+  "outputSha256": "0afba5752fbf215b9ba50647b9c01143655ab5e4707a049afbd6ae0d5a973df9",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:41:43.164Z"
+}

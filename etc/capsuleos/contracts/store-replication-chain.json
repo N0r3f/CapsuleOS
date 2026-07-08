@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "description": "Chaîne fidélité magasin GNOME Software — ground truth Fedora, branchement triplet GNOME.",
+  "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+  "referenceDomain": "apps-playbook",
+  "groundReferenceRegistryId": "linux-fedora",
+  "principles": [
+    "Ground Fedora — chrome GS50, contenu et campagne VM comme référence slot update_manager",
+    "Branchement triplet — Alma/Rocky/Fedora/AnduinOS via gnome-software-store-content.json byRegistry + pack slotOverlays",
+    "Cohérence déductive — StoreG avant patch template ; StoreVc avant StoreVp (C3)",
+    "Grille argumentation — 5 dimensions (chrome, content, catalog, interaction, detail) dans contentGaps",
+    "Catalogue store — StoreΣ structurel ≠ StoreVp parité parfaite"
+  ],
+  "predicates": {
+    "StoreG": {
+      "label": "Ground magasin branché",
+      "checks": [
+        "gnome-software-ground.js présent et référencé index.html GNOME actifs",
+        "gnome-software-store-content.json byRegistry[registryId]",
+        "slots-manifest update_manager.groundReferenceRegistryId"
+      ]
+    },
+    "StoreΣ": {
+      "label": "Catalogue magasin structurel",
+      "gate": "validate-store-installable-apps.mjs",
+      "expr": "11 apps × triplet Alma/Rocky/Fedora"
+    },
+    "StoreVc": {
+      "label": "Captures Capsule multi-vues store",
+      "inventory": "root/docs/inventaires/{id}-apps-visual-investigation.json",
+      "field": "summary.softwareViewsCapsule",
+      "min": 4
+    },
+    "StoreVp": {
+      "label": "Parité store classée",
+      "inventory": "root/docs/inventaires/{id}-apps-visual-investigation.json",
+      "slot": "update_manager",
+      "field": "capsuleParity.visualMatch",
+      "allowed": ["ok", "partial"],
+      "target": "ok"
+    }
+  },
+  "steps": [
+    {
+      "id": "store-vm-inventory",
+      "requires": ["M"],
+      "negates": ["StoreG"],
+      "script": "usr/lib/capsuleos/tools/lab/collect-vm-apps-visual-investigation.mjs",
+      "args": ["--id", "linux-fedora", "--filter", "P0", "--write"],
+      "note": "Inventaire VM store Fedora — ground truth"
+    },
+    {
+      "id": "store-content-contract",
+      "requires": ["StoreG"],
+      "negates": ["StoreΣ"],
+      "script": "usr/lib/capsuleos/tools/generate-store-catalog.mjs",
+      "args": [],
+      "note": "Régénère catalogue + capsule-gnome-software-content.js"
+    },
+    {
+      "id": "store-capsule-captures",
+      "requires": ["StoreG"],
+      "negates": ["StoreVc"],
+      "script": "usr/lib/capsuleos/tools/lab/capture-capsule-software-views.mjs",
+      "args": ["--id"],
+      "env": ["CAPSULE_HTTP_BASE"]
+    },
+    {
+      "id": "store-parity-enrich",
+      "requires": ["StoreVc"],
+      "negates": ["StoreVp"],
+      "script": "usr/lib/capsuleos/tools/lab/enrich-apps-visual-investigation-parity.mjs",
+      "args": ["--id"]
+    }
+  ],
+  "formalRules": [
+    {
+      "id": "R-STORE-G",
+      "antecedents": ["H2", "¬StoreG"],
+      "action": "brancher ground kernel + content contract + sync toolkit pack"
+    },
+    {
+      "id": "R-STORE-VC",
+      "antecedents": ["StoreG", "¬StoreVc"],
+      "action": "capture-capsule-software-views.mjs"
+    },
+    {
+      "id": "R-STORE-VP",
+      "antecedents": ["StoreVc", "¬StoreVp"],
+      "action": "enrich parity + fermer contentGaps chrome/content"
+    },
+    {
+      "id": "R-STORE-CONTINUE",
+      "antecedents": ["StoreG", "StoreΣ", "argumentationGrid documented"],
+      "action": "poursuite implémentation store autorisée"
+    }
+  ],
+  "doc": "root/docs/procedure-store-replication-formelle.md"
+}

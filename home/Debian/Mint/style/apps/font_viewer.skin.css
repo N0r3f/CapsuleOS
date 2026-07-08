@@ -1,0 +1,3 @@
+body#mint div[data-link="font_viewer"] .fnv-app__font.is-selected {
+    background: rgba(135, 207, 62, 0.15);
+}

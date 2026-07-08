@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/cnusr25-Simple_Raccoon_Dark.png",
+  "sourceSha256": "51c07cc6a77807a4aae9d074fa5cab1e183eef682662c5b7c79c1a4968373fa4",
+  "output": "images/vendors/ubuntu/wallpaper/cnusr25-Simple_Raccoon_Dark.webp",
+  "outputSha256": "a79dd580b7d081c142db2aa91138c3e1ea49bb4d58d1d1a7316638762164c8fc",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3840,
+  "height": 2160,
+  "preparedAt": "2026-06-07T21:12:29.808Z"
+}

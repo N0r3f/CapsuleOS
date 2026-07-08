@@ -1,0 +1,6 @@
+/** ubuntu — Timeshift (slot store P1). */
+body#ubuntu main#timeshiftApp {
+    --tsh-bg: #242424;
+    --tsh-text: #ffffff;
+    --tsh-border: rgba(255, 255, 255, 0.08);
+}

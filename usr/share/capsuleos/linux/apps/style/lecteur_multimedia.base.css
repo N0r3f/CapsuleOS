@@ -1,0 +1,181 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+main#lecteurMultimedia.celluloid-app {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: #e8e8e8;
+    background: #1a1a1a;
+}
+
+.celluloid-app__menubar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 2px;
+    flex: 0 0 auto;
+    padding: 4px 8px;
+    border-bottom: 1px solid #2e2e2e;
+    background: #2b2b2b;
+}
+
+.celluloid-app__menu-btn {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 3px;
+    font: inherit;
+    color: #e8e8e8;
+    background: transparent;
+    cursor: default;
+}
+
+.celluloid-app__menu-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.celluloid-app__stage {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-flow: column;
+    background: #000000;
+}
+
+.celluloid-app__viewport {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
+
+.celluloid-app__viewport .viewer-app__media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    object-fit: contain;
+    background: #000000;
+}
+
+.celluloid-app__viewport .viewer-app__message {
+    margin: 0;
+    padding: 16px;
+    color: #9a9a9a;
+    text-align: center;
+}
+
+.celluloid-app__controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    padding: 6px 8px;
+    border-top: 1px solid #2e2e2e;
+    background: #2b2b2b;
+}
+
+.celluloid-app__ctl {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 3px;
+    background: transparent center / 18px 18px no-repeat;
+    opacity: 0.85;
+    cursor: default;
+}
+
+.celluloid-app__ctl:disabled {
+    opacity: 0.45;
+}
+
+.celluloid-app__ctl--open {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8e8e8'%3E%3Cpath d='M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z'/%3E%3C/svg%3E");
+}
+
+.celluloid-app__ctl--play {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8e8e8'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+}
+
+.celluloid-app__ctl--seek-back,
+.celluloid-app__ctl--seek-fwd {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8e8e8'%3E%3Cpath d='M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z'/%3E%3C/svg%3E");
+}
+
+.celluloid-app__ctl--seek-fwd {
+    transform: scaleX(-1);
+}
+
+.celluloid-app__ctl--volume {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8e8e8'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z'/%3E%3C/svg%3E");
+}
+
+.celluloid-app__ctl--fullscreen {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8e8e8'%3E%3Cpath d='M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z'/%3E%3C/svg%3E");
+}
+
+.celluloid-app__timeline {
+    flex: 1 1 auto;
+    min-width: 80px;
+    padding: 0 4px;
+}
+
+.celluloid-app__timeline-track {
+    height: 4px;
+    border-radius: 2px;
+    background: #4a4a4a;
+    overflow: hidden;
+}
+
+.celluloid-app__timeline-fill {
+    width: 0;
+    height: 100%;
+    background: #1f9ede;
+}
+
+.celluloid-app--playing .celluloid-app__ctl:not(:disabled),
+.celluloid-app--playing .celluloid-app__ctl {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.celluloid-app--playing .celluloid-app__ctl:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.celluloid-app--playing .celluloid-app__timeline-fill {
+    width: 18%;
+}
+
+.celluloid-app__time {
+    flex: 0 0 auto;
+    min-width: 72px;
+    font-size: 12px;
+    color: #c8c8c8;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}

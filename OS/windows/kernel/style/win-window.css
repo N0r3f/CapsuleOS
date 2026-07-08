@@ -1,0 +1,5 @@
+/* Fenêtres ouvertes (clones sans id #windowContainer) */
+
+.win-window {
+    box-sizing: border-box;
+}

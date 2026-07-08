@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "description": "Contrat normalisation médias web — prepare-web-media.mjs",
+  "predicates": {
+    "Tw": "Raster consommable navigateur (WebP ou PNG autorisé par profil inventory)",
+    "Tr": "Références alignées — pas de PNG/JPEG stale si WebP jumeau existe",
+    "Tm": "Sidecar ou index web-media à jour pour chaque sortie produite",
+    "Tp": "Tw ∧ Tr ∧ Tm — prêt consommation web"
+  },
+  "tool": {
+    "prepare": "usr/lib/capsuleos/tools/prepare-web-media.mjs",
+    "validate": "usr/lib/capsuleos/tools/validate-web-media-prepare.mjs",
+    "sidecarSuffix": ".webp.json",
+    "indexPath": "usr/share/capsuleos/assets/web-media-index.json"
+  },
+  "zones": {
+    "allowedRoots": [
+      "usr/share/capsuleos/assets/",
+      "home/public/Images/"
+    ],
+    "scanRootsForRewrite": [
+      "home/",
+      "OS/linux/families/",
+      "usr/lib/capsuleos/shells/",
+      "usr/share/capsuleos/themes/",
+      "usr/share/capsuleos/linux/apps/"
+    ]
+  },
+  "roles": {
+    "wallpaper": {
+      "pathPatterns": [
+        "images/vendors/*/wallpaper/**"
+      ],
+      "defaultProfile": "wallpaper",
+      "excludePatterns": [
+        "images/vendors/*/wallpaper/thumbnails/**"
+      ]
+    },
+    "wallpaper-thumb": {
+      "pathPatterns": [
+        "images/vendors/*/wallpaper/thumbnails/**"
+      ],
+      "defaultProfile": "wallpaper-thumb"
+    },
+    "icon-raster": {
+      "pathPatterns": [
+        "images/vendors/*/panel/**",
+        "images/toolkits/**/apps/**"
+      ],
+      "defaultProfile": "icon-raster"
+    },
+    "icon-vector": {
+      "pathPatterns": [
+        "icons/**/*.svg",
+        "**/*.svg"
+      ],
+      "defaultProfile": "preserve"
+    },
+    "inventory": {
+      "pathPatterns": [
+        "images/vendors/*/inventory/**"
+      ],
+      "defaultProfile": "inventory"
+    },
+    "photo": {
+      "pathPatterns": [
+        "home/public/Images/**"
+      ],
+      "defaultProfile": "photo"
+    },
+    "branding": {
+      "pathPatterns": [
+        "images/platforms/**",
+        "images/common/**"
+      ],
+      "defaultProfile": "branding"
+    },
+    "font": {
+      "pathPatterns": [
+        "fonts/vendors/**"
+      ],
+      "defaultProfile": "preserve"
+    }
+  },
+  "profiles": {
+    "preserve": {
+      "action": "preserve",
+      "inputFormats": ["svg", "ttf", "otf", "woff", "woff2"],
+      "outputFormat": null,
+      "deleteSource": false
+    },
+    "wallpaper": {
+      "action": "transcode",
+      "inputFormats": ["jxl", "png", "jpeg", "jpg", "tiff", "bmp"],
+      "outputFormat": "webp",
+      "lossless": false,
+      "quality": 85,
+      "effort": 4,
+      "deleteSource": true,
+      "maxSizeRatioVsSource": 1.05
+    },
+    "wallpaper-capsule": {
+      "action": "transcode",
+      "inputFormats": ["webp", "jxl", "png", "jpeg", "jpg", "tiff", "bmp"],
+      "outputFormat": "webp",
+      "lossless": false,
+      "quality": 85,
+      "effort": 4,
+      "maxWidth": 1024,
+      "deleteSource": false,
+      "maxSizeRatioVsSource": 1.05,
+      "note": "Fonds navigateur CapsuleOS — largeur max 1024 px (sans agrandissement)"
+    },
+    "icon-raster": {
+      "action": "transcode",
+      "inputFormats": ["png", "ico", "gif"],
+      "outputFormat": "webp",
+      "lossless": true,
+      "deleteSource": true,
+      "maxSizeRatioVsSource": 1.05
+    },
+    "inventory": {
+      "action": "preserve",
+      "inputFormats": ["png"],
+      "outputFormat": "png",
+      "deleteSource": false,
+      "note": "Captures lab — diff pixel-perfect"
+    },
+    "inventory-optimize": {
+      "action": "transcode",
+      "inputFormats": ["png"],
+      "outputFormat": "webp",
+      "lossless": true,
+      "deleteSource": false,
+      "suffix": "-optimized"
+    },
+    "wallpaper-thumb": {
+      "action": "transcode",
+      "inputFormats": ["webp", "png", "jpeg", "jpg", "jxl"],
+      "outputFormat": "webp",
+      "lossless": false,
+      "quality": 78,
+      "maxWidth": 512,
+      "deleteSource": false,
+      "suffix": "-thumb"
+    },
+    "photo": {
+      "action": "transcode",
+      "inputFormats": ["png", "jpeg", "jpg"],
+      "outputFormat": "webp",
+      "lossless": false,
+      "quality": 82,
+      "deleteSource": true
+    },
+    "branding": {
+      "action": "transcode",
+      "inputFormats": ["png", "jpeg", "jpg"],
+      "outputFormat": "webp",
+      "lossless": false,
+      "quality": 90,
+      "deleteSource": true
+    }
+  },
+  "vendorProfileOverrides": {
+    "mint": {
+      "wallpaper": "wallpaper-capsule"
+    }
+  },
+  "forbiddenOutputFormats": ["jxl"],
+  "backends": {
+    "preferred": ["sharp", "cwebp", "djxl"],
+    "jxlPipeline": ["djxl", "cwebp"],
+    "installHint": "dnf install libwebp-tools libjxl  # ou npm i sharp (dev)"
+  },
+  "gates": {
+    "jxlRequiresWebpSibling": true,
+    "panelRasterRequiresWebpSibling": {
+      "vendors": ["fedora", "rocky", "alma", "ubuntu"]
+    },
+    "sidecarRequiredForTranscoded": true,
+    "staleRasterRefGate": "validate-vendor-image-extensions.mjs"
+  },
+  "pipelineHooks": {
+    "afterPullVm": "prepare-web-media.mjs --vendor <vendor> --rewrite-refs --wallpaper-thumbnails",
+    "pullVmEnvFlag": "PREPARE_WEB_MEDIA=0 pour désactiver",
+    "beforeValidateAssetsAll": "validate-web-media-prepare.mjs",
+    "vendorAssetsPipeline": "usr/lib/capsuleos/tools/lab/run-vendor-assets-pipeline.mjs --id <registryId>"
+  },
+  "implementationPhases": [
+    "phase0-spec",
+    "phase1-jxl-wallpaper-fedora",
+    "phase2-icon-raster-vendors",
+    "phase3-inventory-optimize",
+    "phase4-fonts-woff2",
+    "phase5-png-legacy-migration"
+  ]
+}

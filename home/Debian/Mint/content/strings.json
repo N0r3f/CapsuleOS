@@ -1,0 +1,18 @@
+{
+    "firefox.windowTitle": "Mozilla Firefox",
+    "explorer.windowTitle": "Dossier personnel",
+    "calculator.windowTitle": "Calculatrice",
+    "screenshot.windowTitle": "Capture d'écran",
+    "drawing.windowTitle": "Sans titre — Dessin",
+    "file_roller.windowTitle": "Gestionnaire d'archives",
+    "mintdrivers.windowTitle": "Gestionnaire de pilotes",
+    "mintdrivers.lookingTitle": "Recherche de pilotes",
+    "mintdrivers.waitHint": "Veuillez patienter…",
+    "mintdrivers.noDriversTitle": "Aucun pilote nécessaire",
+    "mintdrivers.noDriversBody": "Votre ordinateur n'a besoin d'aucun pilote supplémentaire.",
+    "lecteur_multimedia.windowTitle": "Celluloid",
+    "librecalc.windowTitle": "Sans nom 1 - LibreOffice Calc",
+    "librewriter.windowTitle": "Sans nom 1 - LibreOffice Writer",
+    "text_editor.windowTitle": "Sans titre",
+    "text_editor.placeholder": "Saisissez votre texte…"
+}

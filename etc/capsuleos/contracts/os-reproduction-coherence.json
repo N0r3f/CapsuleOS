@@ -1,0 +1,431 @@
+{
+  "version": 1,
+  "status": "active",
+  "description": "Cadre formel — cohérence, déduction, grille d'argumentation et critères de reproduction parfaite OS.",
+  "doc": "root/docs/convention-reproduction-parfaite.md",
+  "formalRef": "root/docs/logique-formelle.md",
+  "boundContracts": [
+    "etc/capsuleos/contracts/capsule-pipeline-layers.json",
+    "etc/capsuleos/contracts/apps-replication-chain.json",
+    "etc/capsuleos/contracts/store-replication-chain.json",
+    "etc/capsuleos/contracts/lab-recipe-profiles.json",
+    "etc/capsuleos/contracts/slots-manifest.json",
+    "etc/capsuleos/contracts/gnome-software-store-content.json"
+  ],
+  "coherencePrinciples": [
+    {
+      "id": "C1-vm-prime",
+      "label": "VM prime",
+      "rule": "Toute baseline chrome, contenu ou catalogue provient de l'inventaire VM ou d'un contrat ground explicite — jamais d'un autre vendor (P11 / R-LOC1)."
+    },
+    {
+      "id": "C2-zone-flow",
+      "label": "Flux Z0→Z1→Z2→Z3",
+      "rule": "Contrat (Z0) → noyau/gabarit (Z1) → skin (Z2) → façade OS (Z3). Le skin ne définit pas la vérité machine."
+    },
+    {
+      "id": "C3-predicate-sequence",
+      "label": "Prédicats séquentiels",
+      "rule": "Aucun prédicat aval (Vc, Vp, StoreVp) sans prédicat amont documenté (V, Vv, StoreG). Pas de saut dans la chaîne déductive."
+    },
+    {
+      "id": "C4-ground-before-skin",
+      "label": "Ground avant skin",
+      "rule": "¬I → pas de patch skin (R-INV1). Ground truth (inventaire, contentSpec, contentGaps) avant implémentation template/CSS."
+    },
+    {
+      "id": "C5-facade-canonical",
+      "label": "Façade canonique",
+      "rule": "Campagnes Playwright et captures Capsule via resolveCapsuleOsUrl / CAPSULE_HTTP_BASE — jamais home/ direct."
+    },
+    {
+      "id": "C6-gap-explicit",
+      "label": "Écart explicite",
+      "rule": "Tout écart VM↔Capsule est classé (ok | partial | gap | accepted) avec preuve dans contentGaps[] — pas de partial silencieux sur P0."
+    },
+    {
+      "id": "C7-deductive-closure",
+      "label": "Clôture déductive",
+      "rule": "Une reproduction « parfaite » exige OsΣ slot : toutes dimensions P0 de la grille à ok ou accepted documenté avec vmReference."
+    },
+    {
+      "id": "C8-slot-compose",
+      "label": "Composition par slots",
+      "rule": "Créer ou brancher un OS = assembler des slots existants (slots-manifest, toolkitVariants, ground kernel) — ne pas reproduire intégralement un OS déjà couvert."
+    },
+    {
+      "id": "C9-differential-vm",
+      "label": "Delta VM seulement",
+      "rule": "Comparer inventaire VM au référentiel slots/contrats du dépôt ; extraction contenu, analyse fonctionnelle et campagne visuelle ciblées uniquement sur les écarts explicites (contentGaps ouverts, p0Gaps, slot absent)."
+    }
+  ],
+  "osAnticipationPrinciples": [
+    {
+      "id": "P-OS1",
+      "label": "Pilote unique, dérivés explicites",
+      "rule": "Un registry pilote par famille toolkit (ground + inventaire VM) ; dérivés via byRegistry, upstreamId, slotOverlays, campaignPhases réduites."
+    },
+    {
+      "id": "P-OS2",
+      "label": "Structurel avant parfait",
+      "rule": "Séparer prédicats Σ (structure, câblage) et Vp (parité) ; un slot partial n'est pas « absent »."
+    },
+    {
+      "id": "P-OS3",
+      "label": "Contrat exécutable",
+      "rule": "Todo manifeste Z0 de campagne = prédicat + script + règle R-* ou couche pipeline + gate cohérence."
+    },
+    {
+      "id": "P-OS4",
+      "label": "Induction puis déduction",
+      "rule": "Inventaire VM et comparaison différentielle avant H5 ; resolve-agent-action choisit parmi actions dont les prémices sont vraies."
+    },
+    {
+      "id": "P-OS5",
+      "label": "Grille cinq dimensions",
+      "rule": "Tout écart P0 classé dans contentGaps[] — pas de partial silencieux."
+    },
+    {
+      "id": "P-OS6",
+      "label": "Spine unique",
+      "rule": "Entrée agent : run-capsule-pipeline / resolve-agent-action --scope pipeline ; chaînes = bibliothèques d'étapes."
+    },
+    {
+      "id": "P-OS7",
+      "label": "Recette économe",
+      "rule": "lab-recipe-profiles définit campaignPhases proportionnelles au rôle pilote vs dérivé."
+    },
+    {
+      "id": "P-OS8",
+      "label": "Façade et état agrégés",
+      "rule": "Playwright via resolveCapsuleOsUrl ; avancement via generate-formal-advancement-report — pas de resolve.json versionnés."
+    },
+    {
+      "id": "P-OS9",
+      "label": "Réutiliser avant recréer",
+      "rule": "Avant tout nouveau gabarit ou extracteur : SlotMap(VM, dépôt) ; implémenter seulement GapΔ ; interdit refonte slot si Σ satisfait et ¬GapΔ."
+    }
+  ],
+  "differentialCampaign": {
+    "description": "Comparer VM à l'existant du dépôt — ne pas tout refaire ; campagnes ciblées sur manques explicites.",
+    "resolverTool": "usr/lib/capsuleos/tools/lab/resolve-slot-gap-delta.mjs",
+    "reportArtifact": "root/docs/inventaires/{registryId}-slot-gap-delta.json",
+    "workflow": ["VmInventory", "SlotMap", "GapDelta", "SelectiveCR", "PatchGapOnly"],
+    "slotMapSources": [
+      "etc/capsuleos/contracts/slots-manifest.json",
+      "etc/capsuleos/contracts/apps-catalog.json",
+      "root/docs/inventaires/{registryId}-apps-catalog.json",
+      "root/docs/inventaires/{registryId}-apps-visual-investigation.json"
+    ],
+    "gapTriggers": {
+      "extractContent": "contentGaps[].status=open ∧ dimension ∈ {content, catalog, detail}",
+      "analyzeFunction": "contentGaps[].status=open ∧ dimension=interaction ∨ p0Gaps > 0",
+      "visualInvestigation": "contentGaps[].status=open ∧ dimension ∈ {chrome, Vc} ∨ slot absent de SlotMap",
+      "newSlot": "app VM présente ∧ aucun slotId mappé dans apps-catalog",
+      "materializeParityDebt": "realSigmaDebt ∧ ¬contentGaps ouverts sur slot → resolve-slot-gap-delta --write"
+    },
+    "skipWhen": {
+      "CR-1": "AppV documenté ∧ inventaire VM récent (< 30j) ∧ checksum aligné",
+      "CR-2": "AppVv documenté ∧ ∀ slot P0 mappé : investigations[].status=documented ∧ contentGaps ouverts = 0",
+      "CR-4": "StoreG ∧ byRegistry[registryId] ∧ ¬contentGaps catalog/content ouverts",
+      "fullSlotRedo": "slot Σ satisfait (kernel + variant + scenarios) ∧ contentGaps ouverts = 0 pour ce slot"
+    },
+    "forbiddenPatterns": [
+      "réextraire tout le store alors que update_manager est branché et seuls des gaps chrome sont ouverts",
+      "dupliquer gabarit HTML pour distro dérivée sans slotOverlays ou byRegistry",
+      "campagne CR complète sur dérivé alors que campaignPhases réduit suffit",
+      "nouveau fichier par app quand extension slots-manifest + contrat contenu suffit"
+    ]
+  },
+  "deductiveLogic": {
+    "premises": [
+      { "id": "P-M", "symbol": "M", "meaning": "VM lab accessible" },
+      { "id": "P-I", "symbol": "I", "meaning": "Inventaire VM documenté" },
+      { "id": "P-H2", "symbol": "H2", "meaning": "Socle dépôt validate-all" },
+      { "id": "P-V", "symbol": "V", "meaning": "Enquête visuelle documentée" }
+    ],
+    "inferenceRules": [
+      {
+        "id": "D-STRUCT",
+        "antecedents": ["H2", "AppV", "AppC", "AppP0", "AppL"],
+        "conclusion": "AppΣ",
+        "meaning": "Structure catalogue apps admissible"
+      },
+      {
+        "id": "D-VISUAL",
+        "antecedents": ["AppΣ", "AppVv", "AppVc", "AppVp"],
+        "conclusion": "AppVp-classified",
+        "meaning": "Parité visuelle apps classée (objectif merge)"
+      },
+      {
+        "id": "D-STORE-GROUND",
+        "antecedents": ["StoreG", "StoreΣ", "H2"],
+        "conclusion": "StoreG-ready",
+        "meaning": "Magasin structurellement branché"
+      },
+      {
+        "id": "D-STORE-PERFECT",
+        "antecedents": ["StoreG-ready", "StoreVc", "StoreVp"],
+        "conclusion": "StoreΣ-perfect",
+        "meaning": "Magasin GNOME reproduction parfaite slot"
+      },
+      {
+        "id": "D-OS-PERFECT",
+        "antecedents": ["ManΣ", "AppΣ", "PbΣ", "Tf", "H6"],
+        "conclusion": "OsΣ-registry",
+        "meaning": "Registre OS reproduction parfaite globale"
+      },
+      {
+        "id": "D-REAL",
+        "antecedents": ["AppVp", "VΣ", "SlotF-full"],
+        "conclusion": "RealΣ",
+        "meaning": "Réalisme vécu slot P0 — parité visuelle ∧ effets UI ∧ profondeur ≠ partial"
+      },
+      {
+        "id": "D-REAL-REGISTRY",
+        "antecedents": ["RealΣ", "∀ slot P0"],
+        "conclusion": "RealΣ-registry",
+        "meaning": "Réalisme vécu registre — tous slots P0 RealΣ et VΣ clôturé"
+      }
+    ],
+    "forbiddenInferences": [
+      {
+        "id": "F-SKIP-VC",
+        "pattern": "AppVp sans AppVc",
+        "severity": "blocking",
+        "remedy": "collect-capsule-apps-visual-investigation ou capture slot ciblée"
+      },
+      {
+        "id": "F-SKIP-GROUND",
+        "pattern": "patch skin sans contentSpec",
+        "severity": "blocking",
+        "remedy": "documenter contentGaps dans *-apps-visual-investigation.json"
+      },
+      {
+        "id": "F-CROSS-VENDOR",
+        "pattern": "ground truth vendor A appliqué sur registry B sans slotOverlays",
+        "severity": "blocking",
+        "remedy": "pack.json slotOverlays ou content byRegistry dédié"
+      },
+      {
+        "id": "F-IMPL-NO-PRED",
+        "pattern": "¬H2 ∧ implémentation hors fix CI",
+        "severity": "blocking",
+        "remedy": "R-IMP1 — validate-all d'abord"
+      },
+      {
+        "id": "F-FULL-REPRO",
+        "pattern": "campagne complète VM alors que SlotMap couvre P0 et GapΔ vide",
+        "severity": "blocking",
+        "remedy": "C9 — campaignPhases réduit ; corriger uniquement contentGaps ouverts"
+      },
+      {
+        "id": "F-CLONE-SLOT",
+        "pattern": "nouveau gabarit/noyau pour slot déjà dans slots-manifest avec Σ satisfait",
+        "severity": "blocking",
+        "remedy": "C8 — byRegistry, slotOverlays ou content contract ; pas de fork home/"
+      },
+      {
+        "id": "F-SILENT-PARTIAL",
+        "pattern": "visualMatch partial ou functionalDepth partial sur P0 sans contentGaps ouverts",
+        "severity": "blocking",
+        "remedy": "RealΣ — resolve-slot-gap-delta --write matérialise parityDebt/realSigmaDebt en gaps"
+      }
+    ]
+  },
+  "realismPredicates": {
+    "RealΣ": {
+      "symbol": "RealΣ",
+      "labelFr": "Réalisme vécu",
+      "formula": "Vp ∧ VΣ ∧ functionalDepth ∉ {partial}",
+      "scope": "slots P0",
+      "registryFormula": "∀ slot P0 : RealΣ ∧ VΣ-registry",
+      "evaluator": "usr/lib/capsuleos/tools/lab/resolve-slot-gap-delta.mjs",
+      "materializeOnWrite": true,
+      "gapIdPrefix": "real-sigma-",
+      "dimensions": {
+        "vp": "chrome",
+        "depth": "interaction",
+        "vSigma": "Vc"
+      }
+    }
+  },
+  "argumentationGrid": {
+    "description": "Chaque slot P0 est évalué sur cinq dimensions ; verdict global = min dimension (gap < partial < ok).",
+    "dimensions": [
+      {
+        "id": "chrome",
+        "labelFr": "Chrome / CSD / layout",
+        "evidenceTypes": ["vmCapture", "capsuleCapture", "cssAnchor", "windowDragRegion"],
+        "verdicts": ["ok", "partial", "gap", "accepted"]
+      },
+      {
+        "id": "content",
+        "labelFr": "Contenu N2 (textes, versions, compteurs)",
+        "evidenceTypes": ["vmInventory", "contentContract", "contentGaps"],
+        "verdicts": ["ok", "partial", "gap", "accepted"]
+      },
+      {
+        "id": "catalog",
+        "labelFr": "Catalogue / apps visibles",
+        "evidenceTypes": ["appsCatalog", "storeCatalog", "vmAppsInstalled"],
+        "verdicts": ["ok", "partial", "gap", "accepted"]
+      },
+      {
+        "id": "interaction",
+        "labelFr": "Interactions / scénarios",
+        "evidenceTypes": ["userScenarios", "smokePlaywright", "datasetMarkers"],
+        "verdicts": ["ok", "partial", "gap", "accepted"]
+      },
+      {
+        "id": "detail",
+        "labelFr": "Fiche / profondeur informationnelle",
+        "evidenceTypes": ["appDetailPane", "vmDetailCapture", "metaFields"],
+        "verdicts": ["ok", "partial", "gap", "accepted"]
+      }
+    ],
+    "verdictPromotion": {
+      "perfect": "∀ dim P0 : verdict ∈ {ok, accepted} ∧ accepted.note référence VM ou pédagogique documenté",
+      "mergeReady": "∀ dim P0 : verdict ≠ gap",
+      "blocked": "∃ dim P0 : verdict = gap"
+    },
+    "inventoryShape": {
+      "contentGapsItem": {
+        "required": ["id", "dimension", "severity", "status"],
+        "statusValues": ["open", "closed", "accepted"],
+        "dimensionValues": ["chrome", "content", "catalog", "interaction", "detail", "Vc", "contenu"]
+      }
+    }
+  },
+  "perfectionCriteria": {
+    "registryLayers": [
+      {
+        "id": "socle",
+        "predicates": ["H2"],
+        "criteria": [
+          "validate-all exit 0",
+          "aucun gate rouge sur zone touchée"
+        ]
+      },
+      {
+        "id": "manifeste",
+        "predicates": ["ManΣ"],
+        "criteria": [
+          "vm-distribution-manifest approuvé (ManA si requis)",
+          "proc/ aligné playbook"
+        ]
+      },
+      {
+        "id": "apps",
+        "predicates": ["AppΣ", "AppVp", "RealΣ"],
+        "criteria": [
+          "p0Gaps = 0",
+          "visualMatchClassifiedP0 = documented P0",
+          "contentSpec par slot P0",
+          "∀ slot P0 : RealΣ ou contentGaps ouverts documentés"
+        ]
+      },
+      {
+        "id": "store",
+        "predicates": ["StoreΣ", "StoreG", "StoreVp"],
+        "criteria": [
+          "groundReferenceRegistryId documenté",
+          "ground kernel + content contract chargés",
+          "multi-vues VM + Capsule distinctes",
+          "grille argumentation 5 dimensions renseignée"
+        ]
+      },
+      {
+        "id": "release",
+        "predicates": ["H6", "Tf"],
+        "criteria": [
+          "validate-all post-patch",
+          "sync-linux-skin-closure si skin touché"
+        ]
+      }
+    ],
+    "slotProfiles": {
+      "update_manager": {
+        "referenceRegistryId": "linux-fedora",
+        "priority": "P0",
+        "requiredDimensions": ["chrome", "content", "catalog", "interaction", "detail"],
+        "minimumVmShots": ["explore-grid", "featured-hero", "category-heroes", "updates-banner", "app-detail"],
+        "minimumCapsuleShots": ["explore-grid", "updates-banner", "app-detail", "categories"],
+        "groundContracts": [
+          "etc/capsuleos/contracts/gnome-software-store-content.json",
+          "etc/capsuleos/contracts/store-installable-apps.json"
+        ],
+        "groundModules": [
+          "usr/lib/capsuleos/shells/linux/gnome-software-ground.js",
+          "usr/lib/capsuleos/shells/linux/gnome-store-catalog.js"
+        ]
+      }
+    }
+  },
+  "campaignRecipe": {
+    "description": "Phases obligatoires pour toute campagne de reproduction — appliquer avant continuation store ou apps.",
+    "phases": [
+      {
+        "id": "CR-0",
+        "label": "Socle",
+        "requires": [],
+        "produces": ["H2"],
+        "command": "node usr/lib/capsuleos/tools/validate-all.mjs"
+      },
+      {
+        "id": "CR-1",
+        "label": "Inventaire VM",
+        "requires": ["H2", "M"],
+        "produces": ["I", "AppV"],
+        "command": "node usr/lib/capsuleos/tools/lab/collect-vm-apps-inventory.mjs --id {registryId} --write --ssh"
+      },
+      {
+        "id": "CR-2",
+        "label": "Enquête visuelle VM",
+        "requires": ["I", "AppL"],
+        "produces": ["AppVv"],
+        "command": "node usr/lib/capsuleos/tools/lab/collect-vm-apps-visual-investigation.mjs --id {registryId} --filter P0"
+      },
+      {
+        "id": "CR-3",
+        "label": "Grille argumentation + contentGaps",
+        "requires": ["AppVv"],
+        "produces": ["contentSpec"],
+        "command": "node usr/lib/capsuleos/tools/lab/enrich-apps-visual-investigation-parity.mjs --id {registryId}",
+        "mandatoryArtifacts": ["contentGaps[]", "contentSpec.resolved[]"]
+      },
+      {
+        "id": "CR-4",
+        "label": "Ground contrat + noyau",
+        "requires": ["contentSpec"],
+        "produces": ["StoreG"],
+        "command": "node usr/lib/capsuleos/tools/generate-store-catalog.mjs",
+        "note": "Étendre gnome-software-store-content.json byRegistry depuis VM"
+      },
+      {
+        "id": "CR-5",
+        "label": "Captures Capsule miroir",
+        "requires": ["StoreG"],
+        "produces": ["AppVc", "StoreVc"],
+        "command": "CAPSULE_HTTP_BASE={httpBase} node usr/lib/capsuleos/tools/lab/capture-capsule-software-views.mjs --id {registryId}"
+      },
+      {
+        "id": "CR-6",
+        "label": "Clôture parité",
+        "requires": ["StoreVc"],
+        "produces": ["StoreVp"],
+        "command": "node usr/lib/capsuleos/tools/lab/enrich-apps-visual-investigation-parity.mjs --id {registryId}",
+        "targetVerdict": "perfect ou accepted documenté"
+      }
+    ],
+    "mandatoryBeforeImplementation": [
+      "C1-vm-prime",
+      "C3-predicate-sequence",
+      "C4-ground-before-skin",
+      "C8-slot-compose",
+      "C9-differential-vm",
+      "argumentationGrid.contentGaps renseigné pour écarts P0"
+    ],
+    "phaseSkipPolicy": "Lire differentialCampaign.skipWhen avant d'exécuter une phase CR ; sauter si condition vraie et GapΔ vide pour le périmètre."
+  }
+}

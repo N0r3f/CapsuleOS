@@ -1,0 +1,12 @@
+/* Tokens communs Windows — surchargés par versions/<id>/style/shell.css */
+
+:root {
+    --win-taskbar-height: 48px;
+    --win-taskbar-bg: #1a1a1a;
+    --win-taskbar-hover: rgba(255, 255, 255, 0.08);
+    --win-window-radius: 8px;
+    --win-window-header-bg: #1a1a1a;
+    --win-start-menu-bg: rgba(32, 32, 32, 0.95);
+    --win-font-family: "Segoe UI", system-ui, Tahoma, sans-serif;
+    --win-desktop-bg: #0078d4;
+}

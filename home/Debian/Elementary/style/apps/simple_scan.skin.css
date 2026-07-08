@@ -1,0 +1,6 @@
+/** elementary — Numériseur simple (slot store P1). */
+body#elementary main#simpleScanApp {
+    --scn-bg: #242424;
+    --scn-text: #ffffff;
+    --scn-border: rgba(255, 255, 255, 0.08);
+}

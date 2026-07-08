@@ -1,0 +1,6 @@
+/* Cluster toolkit Cinnamon — défauts partagés Mint et dérivés */
+:root {
+    --cluster-cinnamon-menu-accent: #87cf3e;
+    --menu-accent: var(--cluster-cinnamon-menu-accent);
+    --nemoHC: var(--win-header-height);
+}

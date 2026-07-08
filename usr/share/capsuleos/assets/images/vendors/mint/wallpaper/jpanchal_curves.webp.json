@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_curves.jpg",
+  "sourceSha256": "08f08b1104d8b514edbeb164c8f81599f15ec4da472d2f36fe4b7c7f5361e163",
+  "output": "images/vendors/mint/wallpaper/jpanchal_curves.webp",
+  "outputSha256": "38cd452fcb57b451bc7863bbe07db555373f42596d06f27e25189899e8bf8a6d",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:41:53.900Z"
+}

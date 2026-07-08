@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "description": "Scénarios utilisateur pédagogiques GNOME Rhythmbox (org.gnome.Rhythmbox3) — slot CapsuleOS `lecteur_multimedia` sur Ubuntu, gabarit `rhythmbox.html`.",
+  "doc": "root/docs/inventaires/linux-ubuntu-rhythmbox-vm-inventory.json",
+  "slot": "lecteur_multimedia",
+  "template": "rhythmbox.html",
+  "kernel": "usr/lib/capsuleos/shells/linux/rhythmbox.js",
+  "functionalDepth": "partial",
+  "registryIds": ["linux-ubuntu"],
+  "predicates": {
+    "RbΣ": "Contrat valide + kernel syncRhythmboxGnomeDataset + gabarit data-rb-gnome-*",
+    "Rb1": "Rb1 ouvrir Rhythmbox → bibliothèque musicale",
+    "Rb2": "Rb2 sélectionner une piste",
+    "Rb3": "Rb3 lecture / pause",
+    "Rb4": "Rb4 bascule vue Podcasts"
+  },
+  "scenarios": [
+    {
+      "id": "Rb1",
+      "priority": "P0",
+      "title": "Ouvrir Rhythmbox — bibliothèque",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "appId": "org.gnome.Rhythmbox3",
+        "deb": "rhythmbox",
+        "labelFr": "Rhythmbox",
+        "libraryFr": "Bibliothèque musicale",
+        "onVm": false
+      },
+      "steps": [
+        { "id": "open-rb", "action": "openWindowByDataLink", "target": "lecteur_multimedia", "label": "Ouvrir Rhythmbox" },
+        { "id": "root", "selector": "[data-rb-gnome-root]", "label": "Racine Rhythmbox GNOME" },
+        { "id": "init", "predicate": "dataset.rbGnomeInit", "expectValue": "true", "label": "Kernel initialisé" },
+        { "id": "library-nav", "selector": "[data-rb-gnome-nav=\"library\"].is-active", "label": "Bibliothèque active" },
+        { "id": "view", "predicate": "dataset.rbGnomeView", "expectValue": "library", "label": "Vue bibliothèque" },
+        { "id": "tracks", "selector": "[data-rb-gnome-tracks] .rb-app__track", "label": "Liste de pistes" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-rhythmbox-scenarios.mjs --scenario Rb1",
+        "capture": "ubuntu-capsule-dark-rhythmbox-library.png"
+      }
+    },
+    {
+      "id": "Rb2",
+      "priority": "P0",
+      "title": "Sélectionner une piste",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "defaultTrackFr": "Linux Mint Theme",
+        "alternateTrackFr": "Capsule Lab Mix"
+      },
+      "steps": [
+        { "id": "open-rb", "action": "openWindowByDataLink", "target": "lecteur_multimedia", "label": "Ouvrir Rhythmbox" },
+        { "id": "select-track", "selector": "[data-rb-gnome-track=\"capsule-lab-mix\"]", "label": "Sélectionner Capsule Lab Mix" },
+        { "id": "track-id", "predicate": "dataset.rbGnomeTrack", "expectValue": "capsule-lab-mix", "label": "Piste sélectionnée" },
+        { "id": "now-playing", "selector": "[data-rb-gnome-now]", "expectTextContains": "Capsule Lab Mix", "label": "Ligne lecture mise à jour" },
+        { "id": "paused", "predicate": "dataset.rbGnomePlaying", "expectValue": "false", "label": "État pause après sélection" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-rhythmbox-scenarios.mjs --scenario Rb2",
+        "capture": "ubuntu-capsule-dark-rhythmbox-track.png"
+      }
+    },
+    {
+      "id": "Rb3",
+      "priority": "P0",
+      "title": "Lecture et pause",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "playLabelFr": "Lecture",
+        "pauseLabelFr": "En pause"
+      },
+      "steps": [
+        { "id": "open-rb", "action": "openWindowByDataLink", "target": "lecteur_multimedia", "label": "Ouvrir Rhythmbox" },
+        { "id": "play", "selector": "[data-rb-gnome-action=\"play-pause\"]", "label": "Démarrer lecture" },
+        { "id": "playing", "predicate": "dataset.rbGnomePlaying", "expectValue": "true", "label": "Lecture active" },
+        { "id": "now-play", "selector": "[data-rb-gnome-now]", "expectTextContains": "Lecture", "label": "Libellé Lecture" },
+        { "id": "pause", "selector": "[data-rb-gnome-action=\"play-pause\"]", "label": "Mettre en pause" },
+        { "id": "paused", "predicate": "dataset.rbGnomePlaying", "expectValue": "false", "label": "Pause active" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-rhythmbox-scenarios.mjs --scenario Rb3",
+        "capture": "ubuntu-capsule-dark-rhythmbox-play.png"
+      }
+    },
+    {
+      "id": "Rb4",
+      "priority": "P0",
+      "title": "Basculer vers Podcasts",
+      "locale": "fr-FR",
+      "vmGroundTruth": {
+        "podcastsFr": "Podcasts"
+      },
+      "steps": [
+        { "id": "open-rb", "action": "openWindowByDataLink", "target": "lecteur_multimedia", "label": "Ouvrir Rhythmbox" },
+        { "id": "podcasts-nav", "selector": "[data-rb-gnome-nav=\"podcasts\"]", "label": "Onglet Podcasts" },
+        { "id": "view", "predicate": "dataset.rbGnomeView", "expectValue": "podcasts", "label": "Vue podcasts" },
+        { "id": "active-nav", "selector": "[data-rb-gnome-nav=\"podcasts\"].is-active", "label": "Podcasts actif" },
+        { "id": "back-library", "selector": "[data-rb-gnome-nav=\"library\"]", "label": "Retour bibliothèque" },
+        { "id": "library-view", "predicate": "dataset.rbGnomeView", "expectValue": "library", "label": "Bibliothèque restaurée" }
+      ],
+      "proofs": {
+        "smoke": "smoke-gnome-rhythmbox-scenarios.mjs --scenario Rb4",
+        "capture": "ubuntu-capsule-dark-rhythmbox-podcasts.png"
+      }
+    }
+  ],
+  "predicateChecks": {
+    "RbΣ": { "script": "usr/lib/capsuleos/tools/validate-rhythmbox-user-scenarios.mjs" }
+  }
+}

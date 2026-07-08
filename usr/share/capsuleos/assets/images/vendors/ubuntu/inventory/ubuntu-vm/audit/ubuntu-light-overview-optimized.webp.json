@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-light-overview.png",
+  "sourceSha256": "745e00d63f534a4ab078b70754aa9a419acfe9ea469c475777f59c204af3e216",
+  "output": "images/vendors/ubuntu/inventory/ubuntu-vm/audit/ubuntu-light-overview-optimized.webp",
+  "outputSha256": "fe67e9b6b685522f52711be898dff4cc1b49a503b87a290446c1d8f7b1ad19eb",
+  "role": "inventory",
+  "profile": "inventory",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 1920,
+  "height": 1080,
+  "preparedAt": "2026-06-07T22:13:24.106Z"
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/jpanchal_cpu.jpg",
+  "sourceSha256": "ab21263551cec05531f98a3e5876453bb6b3139e67d528e823e41679baf928e9",
+  "output": "images/vendors/mint/wallpaper/jpanchal_cpu.webp",
+  "outputSha256": "241f1d68cca9d4faf2f4385b8f77704385a3775bd629bb56f22bef5884326785",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:41:48.963Z"
+}

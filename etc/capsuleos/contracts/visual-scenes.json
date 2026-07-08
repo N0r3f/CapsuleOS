@@ -1,0 +1,1041 @@
+{
+  "version": 1,
+  "description": "Contrat scènes fidélité visuelle Φ — paires de captures VM réelle ↔ clone Capsule comparées pixel à pixel. Référence : root/docs/logique-formelle.md §Φ.",
+  "predicates": {
+    "PhiC": "Paire de captures (VM + clone) présente pour chaque scène P0 du slot",
+    "PhiM": "Φ_scene mesuré (diff pixel) pour chaque scène P0",
+    "Phi": "PhiC ∧ PhiM ∧ classification ≥ partial sur toutes les scènes P0 ; clôture H₆ visuelle exige match"
+  },
+  "defaults": {
+    "thresholds": { "match": 88, "partial": 55 },
+    "pixelmatchThreshold": 0.25,
+    "capturesDir": "root/docs/inventaires/captures/<registryId>/visual-fidelity",
+    "reportPath": "root/docs/inventaires/<registryId>-visual-fidelity.json"
+  },
+  "rules": [
+    "Φ_scene = 100 × (1 − pixels divergents / pixels comparés) après masques, sur zone commune centrée",
+    "Écart géométrique fenêtre > 8 px (largeur ou hauteur) → classification plafonnée à partial",
+    "match : Φ ≥ thresholds.match ET géométrie alignée ; partial : Φ ≥ thresholds.partial ; sinon mismatch",
+    "Scène vm.mode=live-window : la VM doit afficher l'application dans l'état décrit (setup décrit les étapes opérateur)",
+    "Scène vm.mode=manual : capture VM déposée manuellement sous vm/<scene>.png — jamais inventée",
+    "Aucune scène P0 mesurée → le slot est pending-phi : la dimension vis de Π ne peut pas atteindre 100",
+    "Les seuils par scène tiennent compte de l'anti-aliasing fontes GTK vs navigateur ; resserrer au fil des campagnes"
+  ],
+  "registries": {
+    "linux-mint": {
+      "facadeUrl": "OS/linux/families/debian/mint/index.html",
+      "vm": {
+        "sshHostEnv": "CAPSULE_MINT_VM_SSH",
+        "sshHostDefault": "<lab-inventory:linux-lab>",
+        "display": ":0",
+        "screenshotCommand": "gnome-screenshot",
+        "theme": "Mint-Y-Dark-Aqua",
+        "screen": { "width": 1280, "height": 800 },
+        "prepScript": "root/tools/lab/vm-mint-scene-prep.sh"
+      },
+      "slots": {
+        "shell": {
+          "windowTitle": null,
+          "wmctrlMatch": "^$",
+          "geometry": { "width": 1280, "height": 800, "note": "écran VM complet — panel Cinnamon 40px en bas" },
+          "scenes": [
+            {
+              "id": "desktop",
+              "priority": "P0",
+              "label": "Bureau Cinnamon nu — fond Mint, icônes bureau, panel bas",
+              "clone": {
+                "open": "none",
+                "waitSelector": "footer nav a[data-link=\"mainMenu\"]",
+                "settleMs": 900,
+                "fullPage": true,
+                "actions": []
+              },
+              "vm": {
+                "mode": "fullscreen",
+                "settleSec": 1,
+                "setup": ["Fermer toutes les fenêtres applicatives (vm-mint-scene-prep.sh --close-windows)"],
+                "setupCommands": [
+                  "wmctrl -l | grep -v ' Bureau$' | awk '{print $1}' | while read -r w; do wmctrl -i -c \"$w\"; done",
+                  "sleep 1.5"
+                ]
+              },
+              "masks": [
+                { "x": 1050, "y": 758, "w": 230, "h": 42, "note": "tray + horloge panel — heure/état réseau non déterministes" }
+              ],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "menu",
+              "priority": "P0",
+              "label": "Menu principal Cinnamon ouvert — favoris, catégories, recherche",
+              "clone": {
+                "open": "none",
+                "waitSelector": "footer nav a[data-link=\"mainMenu\"]",
+                "settleMs": 700,
+                "fullPage": true,
+                "actions": [
+                  { "type": "click", "selector": "footer nav a[data-link=\"mainMenu\"]" },
+                  { "type": "wait", "ms": 500 }
+                ]
+              },
+              "vm": {
+                "mode": "fullscreen",
+                "settleSec": 1,
+                "setup": ["Fermer les fenêtres puis ouvrir le menu (touche Super)"],
+                "setupCommands": [
+                  "wmctrl -l | grep -v ' Bureau$' | awk '{print $1}' | while read -r w; do wmctrl -i -c \"$w\"; done",
+                  "sleep 1.2",
+                  "xdotool key super",
+                  "sleep 1.2"
+                ],
+                "teardownCommands": ["xdotool key Escape"]
+              },
+              "masks": [
+                { "x": 1050, "y": 758, "w": 230, "h": 42, "note": "tray + horloge panel" }
+              ],
+              "thresholds": { "match": 85, "partial": 50 }
+            }
+          ]
+        },
+        "nemo": {
+          "windowTitle": "Dossier personnel",
+          "wmctrlMatch": "dossier personnel|nemo",
+          "geometry": { "width": 1280, "height": 760, "note": "nemo maximisé sur la VM — écran moins panel 40px" },
+          "cloneWindowSelector": "div[data-link=\"nemo\"]",
+          "scenes": [
+            {
+              "id": "home",
+              "priority": "P0",
+              "label": "Dossier personnel — vue icônes, volet latéral Mon ordinateur, fenêtre maximisée",
+              "clone": {
+                "open": "nemo",
+                "waitSelector": "div[data-link=\"nemo\"]",
+                "settleMs": 700,
+                "viewport": "vm",
+                "actions": [
+                  { "type": "dblclick", "selector": "div[data-link=\"nemo\"] > #windowHeader", "note": "maximiser — parité fenêtre VM 1280×760" },
+                  { "type": "wait", "ms": 500 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "nemo",
+                "setup": ["nemo maximisé, dossier personnel, fichiers cachés masqués (défaut Mint rétabli)"]
+              },
+              "masks": [
+                { "x": 0, "y": 728, "w": 1280, "h": 32, "note": "barre d'état — espace libre disque non déterministe" }
+              ],
+              "thresholds": { "match": 85, "partial": 50 }
+            }
+          ]
+        },
+        "themes": {
+          "windowTitle": "Paramètres du système",
+          "wmctrlMatch": "param.tres du syst.me|cinnamon-settings",
+          "geometry": { "width": 800, "height": 632, "note": "fenêtre visible gnome-screenshot -w (wmctrl 800×600 hors barre titre)" },
+          "cloneWindowSelector": "div[data-link=\"themes\"]",
+          "scenes": [
+            {
+              "id": "home",
+              "priority": "P0",
+              "label": "Paramètres du système — accueil, sections Apparence + Préférences",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 700,
+                "actions": []
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings",
+                "setup": ["cinnamon-settings ouvert sur l'accueil (taille par défaut 800×632)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "desktop",
+              "priority": "P1",
+              "label": "Paramètres — panneau Bureau (icônes bureau, switches parity)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.getElementById('cinnamonSettingsApp') && document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"desktop\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"desktop\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings desktop",
+                "setup": ["cinnamon-settings ouvert sur le panneau Bureau (cs_desktop.py)"],
+                "setupCommands": []
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "effects",
+              "priority": "P1",
+              "label": "Paramètres — panneau Effets (animations)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"effects\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"effects\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings effects",
+                "setup": ["cinnamon-settings panneau Effets"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "windows",
+              "priority": "P1",
+              "label": "Paramètres — panneau Fenêtres (WM Muffin)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"windows\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"windows\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings windows",
+                "setup": ["cinnamon-settings panneau Fenêtres"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "panel",
+              "priority": "P1",
+              "label": "Paramètres — panneau Barre des tâches",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"panel\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"panel\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings panel",
+                "setup": ["cinnamon-settings panneau Barre des tâches"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "accessibility",
+              "priority": "P1",
+              "label": "Paramètres — panneau Accessibilité (contraste, texte agrandi)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"accessibility\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"accessibility\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings accessibility",
+                "setup": ["cinnamon-settings panneau Accessibilité (cs_accessibility.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "hotcorner",
+              "priority": "P1",
+              "label": "Paramètres — panneau Coins intelligents (hotcorner-layout)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"hotcorner\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"hotcorner\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings hotcorner",
+                "setup": ["cinnamon-settings panneau Coins intelligents (cs_hotcorner.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "applets",
+              "priority": "P1",
+              "label": "Paramètres — panneau Applets (enabled-applets parity)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"applets\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"applets\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings applets",
+                "setup": ["cinnamon-settings panneau Applets installées (cs_applets.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "keyboard",
+              "priority": "P1",
+              "label": "Paramètres — panneau Clavier (répétition, verrou num)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"keyboard\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"keyboard\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings keyboard",
+                "setup": ["cinnamon-settings panneau Clavier (cs_keyboard.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "mouse",
+              "priority": "P1",
+              "label": "Paramètres — panneau Souris (gaucher, défilement)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"mouse\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"mouse\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings mouse",
+                "setup": ["cinnamon-settings panneau Souris et pavé tactile (cs_mouse.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "power",
+              "priority": "P1",
+              "label": "Paramètres — panneau Alimentation (veille écran, bouton power)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"power\"]')?.click();" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"power\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings power",
+                "setup": ["cinnamon-settings panneau Gestion de l'alimentation (cs_power.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "privacy",
+              "priority": "P1",
+              "label": "Paramètres — panneau Confidentialité (fichiers récents)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"privacy\"]')?.click() || window.activateCinnamonSettingsPanel?.('privacy');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"privacy\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings privacy",
+                "setup": ["cinnamon-settings panneau Confidentialité (cs_privacy.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "fonts",
+              "priority": "P1",
+              "label": "Paramètres — panneau Choix des polices",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"fonts\"]')?.click() || window.activateCinnamonSettingsPanel?.('fonts');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"fonts\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings fonts",
+                "setup": ["cinnamon-settings panneau Choix des polices (cs_fonts.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "display",
+              "priority": "P1",
+              "label": "Paramètres — panneau Affichage (échelle fractionnée)",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"display\"]')?.click() || window.activateCinnamonSettingsPanel?.('display');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"display\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings display",
+                "setup": ["cinnamon-settings panneau Affichage (cs_display.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "calendar",
+              "priority": "P1",
+              "label": "Paramètres — panneau Date et heure",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"calendar\"]')?.click() || window.activateCinnamonSettingsPanel?.('calendar');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"calendar\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings calendar",
+                "setup": ["cinnamon-settings panneau Date et heure (cs_calendar.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "startup",
+              "priority": "P1",
+              "label": "Paramètres — panneau Applications au démarrage",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"startup\"]')?.click() || window.activateCinnamonSettingsPanel?.('startup');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"startup\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings startup",
+                "setup": ["cinnamon-settings panneau Applications lancées au démarrage (cs_startup.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "extensions",
+              "priority": "P1",
+              "label": "Paramètres — panneau Extensions",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"extensions\"]')?.click() || window.activateCinnamonSettingsPanel?.('extensions');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"extensions\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings extensions",
+                "setup": ["cinnamon-settings panneau Extensions (cs_extensions.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "default",
+              "priority": "P1",
+              "label": "Paramètres — panneau Applications par défaut",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"default\"]')?.click() || window.activateCinnamonSettingsPanel?.('default');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"default\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings default",
+                "setup": ["cinnamon-settings panneau Applications par défaut (cs_default.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "desklets",
+              "priority": "P1",
+              "label": "Paramètres — panneau Desklets",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"desklets\"]')?.click() || window.activateCinnamonSettingsPanel?.('desklets');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"desklets\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings desklets",
+                "setup": ["cinnamon-settings panneau Desklets (cs_desklets.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "gestures",
+              "priority": "P1",
+              "label": "Paramètres — panneau Gestes",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"gestures\"]')?.click() || window.activateCinnamonSettingsPanel?.('gestures');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"gestures\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings gestures",
+                "setup": ["cinnamon-settings panneau Gestes (cs_gestures.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "languages",
+              "priority": "P1",
+              "label": "Paramètres — panneau Langues",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"languages\"]')?.click() || window.activateCinnamonSettingsPanel?.('languages');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"languages\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mintlocale",
+                "setup": ["mintlocale — langue système (/etc/default/locale)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "online-accounts",
+              "priority": "P1",
+              "label": "Paramètres — panneau Comptes en ligne",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"online-accounts\"]')?.click() || window.activateCinnamonSettingsPanel?.('online-accounts');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"online-accounts\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "gnome-control-center online-accounts",
+                "setup": ["org.gnome.online-accounts whitelisted-providers"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "user",
+              "priority": "P1",
+              "label": "Paramètres — panneau Détails du compte",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"user\"]')?.click() || window.activateCinnamonSettingsPanel?.('user');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"user\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings user",
+                "setup": ["cinnamon-settings panneau Détails du compte (cs_user.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "actions",
+              "priority": "P1",
+              "label": "Paramètres — panneau Actions",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"actions\"]')?.click() || window.activateCinnamonSettingsPanel?.('actions');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"actions\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings actions",
+                "setup": ["cinnamon-settings panneau Actions (cs_actions.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "themes",
+              "priority": "P1",
+              "label": "Paramètres — panneau Thèmes GTK",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"themes\"]')?.click() || window.activateCinnamonSettingsPanel?.('themes');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"themes\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings themes",
+                "setup": ["cinnamon-settings panneau Thèmes (cs_themes.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "backgrounds",
+              "priority": "P1",
+              "label": "Paramètres — panneau Fonds d'écran",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"backgrounds\"]')?.click() || window.activateCinnamonSettingsPanel?.('backgrounds');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"backgrounds\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings backgrounds",
+                "setup": ["cinnamon-settings panneau Fonds d'écran (cs_backgrounds.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "nightlight",
+              "priority": "P1",
+              "label": "Paramètres — panneau Éclairage nocturne",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"nightlight\"]')?.click() || window.activateCinnamonSettingsPanel?.('nightlight');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"nightlight\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings nightlight",
+                "setup": ["cinnamon-settings panneau Éclairage nocturne (cs_nightlight.py)"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "input-method",
+              "priority": "P1",
+              "label": "Paramètres — panneau Méthode de saisie",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"input-method\"]')?.click() || window.activateCinnamonSettingsPanel?.('input-method');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"input-method\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mintlocale-im",
+                "setup": ["org.cinnamon.desktop.input-sources per-window show-all-sources"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "software-sources",
+              "priority": "P1",
+              "label": "Paramètres — panneau Sources de logiciels",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"software-sources\"]')?.click() || window.activateCinnamonSettingsPanel?.('software-sources');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"software-sources\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mintsources",
+                "setup": ["com.linuxmint.install search-in-category allow-unverified-flatpaks"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "system-info",
+              "priority": "P1",
+              "label": "Paramètres — panneau Informations système",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"system-info\"]')?.click() || window.activateCinnamonSettingsPanel?.('system-info');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"system-info\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mintreport",
+                "setup": ["com.linuxmint.report automonitor autorefresh"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "bluetooth",
+              "priority": "P1",
+              "label": "Paramètres — panneau Bluetooth",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"bluetooth\"]')?.click() || window.activateCinnamonSettingsPanel?.('bluetooth');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"bluetooth\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "blueman-manager",
+                "setup": ["org.blueman.network nap-enable"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "color",
+              "priority": "P1",
+              "label": "Paramètres — panneau Couleur",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"color\"]')?.click() || window.activateCinnamonSettingsPanel?.('color');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"color\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mate-color-select",
+                "setup": ["org.cinnamon.settings-daemon.plugins.color recalibrate thresholds"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "network",
+              "priority": "P1",
+              "label": "Paramètres — panneau Réseau",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"network\"]')?.click() || window.activateCinnamonSettingsPanel?.('network');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"network\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings network",
+                "setup": ["org.gnome.system.proxy mode org.gnome.nm-applet show-applet"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "printers",
+              "priority": "P1",
+              "label": "Paramètres — panneau Imprimantes",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"printers\"]')?.click() || window.activateCinnamonSettingsPanel?.('printers');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"printers\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "system-config-printer",
+                "setup": ["printers@cinnamon.org org.cinnamon.desktop.lockdown disable-printing"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "firewall",
+              "priority": "P1",
+              "label": "Paramètres — panneau Pare-feu",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"firewall\"]')?.click() || window.activateCinnamonSettingsPanel?.('firewall');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"firewall\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "gufw",
+                "setup": ["/etc/ufw/ufw.conf ENABLED=no LOGLEVEL=low"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "thunderbolt",
+              "priority": "P1",
+              "label": "Paramètres — panneau Thunderbolt",
+              "clone": {
+                "open": "themes",
+                "waitSelector": "div[data-link=\"themes\"]",
+                "settleMs": 500,
+                "actions": [
+                  { "type": "evaluate", "script": "document.querySelector('#cinnamonSettingsApp [data-cs-nav=\"thunderbolt\"]')?.click() || window.activateCinnamonSettingsPanel?.('thunderbolt');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"themes\"] [data-cs-panel=\"thunderbolt\"].is-active" },
+                  { "type": "wait", "ms": 350 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "cinnamon-settings thunderbolt",
+                "setup": ["cs_thunderbolt.py dbus AuthMode=enabled"]
+              },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            }
+          ]
+        },
+        "update_manager": {
+          "windowTitle": "Gestionnaire de mise à jour",
+          "wmctrlMatch": "gestionnaire de mise|mintupdate",
+          "geometry": { "width": 790, "height": 570, "note": "fenêtre visible gnome-screenshot -w (wmctrl -l -G)" },
+          "cloneWindowSelector": "div[data-link=\"update_manager\"]",
+          "scenes": [
+            {
+              "id": "main",
+              "priority": "P0",
+              "label": "Gestionnaire de mise à jour — toolbar, liste mises à jour, Renseignements",
+              "clone": {
+                "open": "none",
+                "waitSelector": "body#mint",
+                "settleMs": 400,
+                "actions": [
+                  { "type": "evaluate", "script": "localStorage.setItem('capsule-mintupdate-welcome-dismissed','1'); localStorage.setItem('capsule-mintupdate-mirror-dismissed','1');" },
+                  { "type": "evaluate", "script": "window.openWindowByDataLink('update_manager');" },
+                  { "type": "waitSelector", "selector": "div[data-link=\"update_manager\"]:visible" },
+                  { "type": "click", "selector": "div[data-link=\"update_manager\"] [data-um-action=\"refresh\"]" },
+                  { "type": "wait", "ms": 1200 }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mintupdate",
+                "setup": ["mintupdate ouvert, liste chargée (18 mises à jour constatées sur la VM)"],
+                "setupCommands": ["wmctrl -a \"Gestionnaire de mise à jour\"", "sleep 0.5"]
+              },
+              "masks": [
+                { "x": 0, "y": 560, "w": 790, "h": 42, "note": "barre d'état — nombre/Mo de mises à jour sélectionnées dépend du dépôt au jour J" }
+              ],
+              "thresholds": { "match": 80, "partial": 45 }
+            }
+          ]
+        },
+        "mintinstall": {
+          "windowTitle": "Logithèque",
+          "wmctrlMatch": "logith|software manager|mintinstall",
+          "geometry": { "width": 808, "height": 680, "note": "gnome-screenshot -w VM (wmctrl extérieur 860×732)" },
+          "cloneWindowSelector": "div[data-link=\"mintinstall\"]",
+          "scenes": [
+            {
+              "id": "home",
+              "priority": "P0",
+              "label": "Accueil mintinstall 8.4 — hero VLC, Logiciels phares, Catégories, Les mieux notés",
+              "clone": {
+                "open": "mintinstall",
+                "waitSelector": "#mintInstallApp[data-mint-install-init=\"true\"]",
+                "settleMs": 800,
+                "actions": [
+                  { "type": "waitSelector", "selector": "[data-mi-hero-mount] .mi-app__hero-slide--banner, [data-mi-hero-mount] .mi-app__hero-slide--promo" }
+                ]
+              },
+              "vm": {
+                "mode": "live-window",
+                "appCommand": "mintinstall",
+                "setup": [
+                  "Lancer la Logithèque sur la VM (état accueil par défaut)",
+                  "Thème sombre Mint-Y-Dark-Aqua actif"
+                ],
+                "setupCommands": [
+                  "wmctrl -a \"Logithèque\"",
+                  "wmctrl -r \"Logithèque\" -e 0,10,10,860,732",
+                  "sleep 0.6"
+                ]
+              },
+              "masks": [
+                { "x": 10, "y": 58, "w": 840, "h": 178, "note": "bannière carousel — contenu réseau non déterministe (Telegram/VLC/…)" }
+              ],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "browse-all",
+              "priority": "P1",
+              "label": "Catégorie Tous les logiciels — sidebar + liste + À découvrir",
+              "clone": {
+                "open": "mintinstall",
+                "waitSelector": "#mintInstallApp[data-mint-install-init=\"true\"]",
+                "settleMs": 400,
+                "actions": [
+                  { "type": "click", "selector": "[data-mi-home-cat=\"all\"]" },
+                  { "type": "waitSelector", "selector": "[data-mi-page=\"list\"]:not([hidden])" }
+                ]
+              },
+              "vm": { "mode": "manual" },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            },
+            {
+              "id": "detail",
+              "priority": "P1",
+              "label": "Fiche application — détail VLC/LibreOffice",
+              "clone": {
+                "open": "mintinstall",
+                "waitSelector": "#mintInstallApp[data-mint-install-init=\"true\"]",
+                "settleMs": 400,
+                "actions": [
+                  { "type": "click", "selector": "[data-mi-home-cat=\"office\"]" },
+                  { "type": "waitSelector", "selector": "[data-mi-page=\"list\"]:not([hidden])" },
+                  { "type": "click", "selector": "[data-mi-pkg=\"librewriter\"]" },
+                  { "type": "waitSelector", "selector": "[data-mi-page=\"detail\"]:not([hidden])" }
+                ]
+              },
+              "vm": { "mode": "manual" },
+              "masks": [],
+              "thresholds": { "match": 85, "partial": 50 }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

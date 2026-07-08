@@ -1,0 +1,150 @@
+@import url(imports.css?v=20260528);
+
+html {
+    scrollbar-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--texte);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#lxqt {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--max-w);
+    height: var(--max-h);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+#desktop {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--fs);
+    position: var(--rel);
+    width: var(--max-w);
+    height: calc(var(--max-h) - var(--taskbar-height));
+    max-height: calc(var(--max-h) - var(--taskbar-height));
+}
+
+.desktop-shortcut {
+    position: var(--abs);
+    top: calc(var(--head) / 2);
+    left: calc(var(--head) / 2);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 3.4);
+    padding: calc(var(--head) / 6);
+    gap: calc(var(--head) / 8);
+    border-radius: calc(var(--head) / 8);
+    color: var(--desktop-shortcut-text);
+    text-decoration: var(--n);
+    text-shadow: var(--desktop-shortcut-shadow);
+    border: 1px solid var(--t);
+    transition: transform var(--eas2), border-color var(--eas2), background-color var(--eas2);
+    z-index: 10;
+}
+
+.desktop-shortcut:hover,
+.desktop-shortcut.active-link {
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: var(--menu-accent);
+    transform: translateY(-1px);
+}
+
+.desktop-shortcut > img {
+    width: calc(var(--head) * 1.3);
+    height: calc(var(--head) * 1.3);
+    object-fit: contain;
+}
+
+.desktop-shortcut > span {
+    max-width: var(--full);
+    text-align: var(--c);
+    line-height: 1.2;
+    font-size: calc(var(--head) / 3.2);
+}
+
+#tableau {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    justify-content: var(--sb);
+    width: var(--full);
+    height: var(--taskbar-height);
+    padding: var(--z) calc(var(--head) / 4) var(--z) calc(var(--head) / 4);
+    border: var(--n);
+    background: var(--mint-taskbar-bg);
+    border-top: 1px solid var(--mint-taskbar-top-border);
+}
+
+#lxqt {
+    /* Réf. calendar.png @ 1211 px : popover ~535×267 px → ~13.4×6.7 × --head */
+    --calendar-popover-width: min(calc(var(--head) * 13.375), calc(100vw - 1rem));
+    --calendar-popover-max-height: min(calc(var(--head) * 9.5), calc(100vh - var(--taskbar-height) - 1rem));
+    --calendar-popover-offset: var(--lxqt-taskbar-edge-gap, calc(var(--head) / 5));
+    --calendar-popover-font-size: calc(var(--head) * 0.35);
+    --calendar-popover-month-size: calc(var(--head) * 0.55);
+    --calendar-popover-tab-size: calc(var(--head) * 0.325);
+    --calendar-popover-nav-size: calc(var(--head) * 0.325);
+    --calendar-popover-radius: 6px;
+    --calendar-popover-day-radius: 4px;
+    --calendar-popover-day-size: calc(var(--head) * 0.325);
+    --calendar-popover-day-cell: calc(var(--head) * 1);
+    --calendar-popover-week-label-size: calc(var(--head) * 0.2875);
+    --calendar-popover-week-cell-padding: calc(var(--head) * 0.05) 0;
+    --calendar-popover-week-row-gap: 0;
+    --calendar-popover-days-gap: 2px;
+    --calendar-popover-arrow-size: calc(var(--head) * 0.7);
+    --calendar-popover-arrow-font-size: calc(var(--head) * 0.45);
+    --calendar-popover-arrow-radius: 4px;
+    --lxqt-konsole-header-height: 2.05rem;
+    --lxqt-header-icon-size: 0.96rem;
+    --lxqt-header-pin-size: 0.78rem;
+    --lxqt-header-title-size: 0.84rem;
+    --lxqt-header-control-filter: brightness(0) saturate(100%);
+    --lxqt-menu-width: min(40.5rem, calc(100vw - 1.25rem));
+    --lxqt-menu-height: min(26.5rem, calc(100vh - var(--taskbar-height) - 1.25rem));
+    --lxqt-menu-radius: 0.45rem;
+    --lxqt-menu-rail-width: 4.2rem;
+    --lxqt-menu-rail-shortcut-min-h: 2.48rem;
+    --lxqt-menu-rail-icon-size: 1.54rem;
+    --lxqt-menu-rail-action-size: 2.22rem;
+    --lxqt-menu-rail-action-icon: 1.54rem;
+    --lxqt-menu-body-row-min-h: 2.42rem;
+    --lxqt-menu-cat-icon-size: 1.22rem;
+    --lxqt-menu-app-icon-size: 1.55rem;
+    --lxqt-menu-app-tile: 4.75rem;
+    --lxqt-menu-footer-height: 2.15rem;
+    --lxqt-menu-footer-bg: rgba(252, 252, 252, 0.98);
+    --lxqt-menu-search-min-height: 2.16rem;
+    --lxqt-menu-search-icon-size: 1.02rem;
+    --lxqt-menu-search-icon-left: 0.62rem;
+    --lxqt-menu-btn-radius: 0.34rem;
+    --lxqt-menu-apps-flyout-width: min(22rem, calc(100vw - 2rem));
+    --lxqt-menu-apps-flyout-gap: 0.22rem;
+    --lxqt-menu-apps-flyout-min-height: 5.25rem;
+    --lxqt-menu-apps-flyout-z: 520;
+}
+
+/* Alignement pixel-perfect sur la capture ref. (1211×756) */
+@media (min-width: 1180px) {
+    #lxqt {
+        --calendar-popover-width: 535px;
+        --calendar-popover-day-cell: 40px;
+        --calendar-popover-days-gap: 3px;
+    }
+}
+

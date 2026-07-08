@@ -1,0 +1,191 @@
+main#drawingApp {
+    position: var(--rel);
+    top: var(--z);
+    right: var(--z);
+    bottom: var(--z);
+    left: var(--z);
+    display: var(--f);
+    flex-flow: var(--cnw);
+    width: var(--full);
+    height: var(--full);
+    overflow: hidden;
+    font-family: var(--font-ui);
+    font-size: calc(var(--head) / 2.7);
+}
+
+.drawing-app__menubar {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 8);
+    padding: calc(var(--head) / 6) calc(var(--head) / 4);
+    border-bottom: 1px solid var(--menu-shell-border, #1a1a1b);
+    flex-shrink: 0;
+}
+
+.drawing-app__menu-btn {
+    padding: calc(var(--head) / 10) calc(var(--head) / 3);
+    border: 1px solid var(--t);
+    border-radius: 6px;
+    background: var(--t);
+    color: inherit;
+    font: inherit;
+    cursor: var(--p);
+}
+
+.drawing-app__menu-btn:hover {
+    background: var(--menu-item-active-bg, #303036);
+}
+
+.drawing-app__menubar-sep {
+    width: 1px;
+    height: calc(var(--head) / 2);
+    margin: 0 calc(var(--head) / 10);
+    background: var(--menu-shell-border, #1a1a1b);
+}
+
+.drawing-app__workspace {
+    display: var(--f);
+    flex-flow: var(--rnw);
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+}
+
+.drawing-app__tools {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    align-items: var(--c);
+    gap: calc(var(--head) / 10);
+    padding: calc(var(--head) / 5);
+    border-right: 1px solid var(--menu-shell-border, #1a1a1b);
+    flex-shrink: 0;
+}
+
+.drawing-app__tool {
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    width: calc(var(--head) * 1.05);
+    height: calc(var(--head) * 1.05);
+    padding: 0;
+    border: 1px solid var(--t);
+    border-radius: 8px;
+    background: var(--t);
+    cursor: var(--p);
+}
+
+.drawing-app__tool:hover {
+    background: var(--menu-item-active-bg, #303036);
+}
+
+.drawing-app__tool.is-active {
+    background: var(--menu-item-active-bg, #303036);
+    border-color: var(--menu-accent, #1f9ede);
+}
+
+.drawing-app__tool-icon {
+    display: var(--bl);
+    width: calc(var(--head) * 0.52);
+    height: calc(var(--head) * 0.52);
+    background: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.drawing-app__tool-icon--pencil {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E");
+}
+
+.drawing-app__tool-icon--eraser {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M16.24 3.56l4.95 4.94c.78.79.78 2.05 0 2.84L12 20.53a4.008 4.008 0 0 1-5.66 0L2.81 17.03a4.008 4.008 0 0 1 0-5.66l9.19-9.19a2 2 0 0 1 2.83 0l1.41 1.38z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M16.24 3.56l4.95 4.94c.78.79.78 2.05 0 2.84L12 20.53a4.008 4.008 0 0 1-5.66 0L2.81 17.03a4.008 4.008 0 0 1 0-5.66l9.19-9.19a2 2 0 0 1 2.83 0l1.41 1.38z'/%3E%3C/svg%3E");
+}
+
+.drawing-app__tool-icon--line {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 20h2v-2H5v2zm4 0h2v-6H7v6zm4 0h2v-4h-2v4zm4 0h2V8h-2v12z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 20h2v-2H5v2zm4 0h2v-6H7v6zm4 0h2v-4h-2v4zm4 0h2V8h-2v12z'/%3E%3C/svg%3E");
+}
+
+.drawing-app__tool-icon--rect {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4 6h16v12H4V6zm2 2v8h12V8H6z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4 6h16v12H4V6zm2 2v8h12V8H6z'/%3E%3C/svg%3E");
+}
+
+.drawing-app__tool-icon--ellipse {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z'/%3E%3C/svg%3E");
+}
+
+.drawing-app__canvas-wrap {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: var(--f);
+    align-items: var(--c);
+    justify-content: var(--c);
+    padding: calc(var(--head) / 5);
+    background: var(--drawing-canvas-bg, #3c3c44);
+}
+
+.drawing-app__canvas {
+    display: var(--bl);
+    max-width: var(--full);
+    max-height: var(--full);
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.drawing-app__sidebar {
+    display: var(--f);
+    flex-flow: var(--cnw);
+    width: calc(var(--head) * 2.4);
+    padding: calc(var(--head) / 4);
+    border-left: 1px solid var(--menu-shell-border, #1a1a1b);
+    flex-shrink: 0;
+    gap: calc(var(--head) / 6);
+}
+
+.drawing-app__sidebar-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: calc(var(--head) / 2.9);
+}
+
+.drawing-app__palette {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--head) / 10);
+}
+
+.drawing-app__swatch {
+    width: var(--full);
+    aspect-ratio: 1;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: var(--p);
+}
+
+.drawing-app__swatch.is-active {
+    border-color: var(--menu-accent, #1f9ede);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.drawing-app__size-label {
+    margin-top: calc(var(--head) / 8);
+    font-size: calc(var(--head) / 2.9);
+}
+
+.drawing-app__size {
+    width: var(--full);
+    accent-color: var(--menu-accent, #1f9ede);
+}

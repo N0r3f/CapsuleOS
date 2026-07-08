@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-1-night.png",
+  "sourceSha256": "75b387592ba9e538e6db289fe1c632c3255200143d623f98cdfbd81e0c72eb61",
+  "output": "images/vendors/rocky/wallpaper/rocky-default-10-abstract-1-night.webp",
+  "outputSha256": "f8bfc08b9817cdc16a8c66e80713da589abc254a7775aa7b00ed88249899e9b5",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4000,
+  "height": 2250,
+  "preparedAt": "2026-06-07T09:28:47.996Z"
+}

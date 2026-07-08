@@ -1,0 +1,204 @@
+/**
+ * Barre de titre Muffin (Cinnamon) — toutes les fenêtres SSD Mint.
+ * S’applique via data-window-chrome-toolkit="cinnamon" (posé par chrome.js).
+ * Ground truth : gtk-3 Mint-Y-Dark-Aqua titlebutton (18 px icône, barre 32 px).
+ */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"]:not(#mainMenu) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--mint-window-header-border);
+    border-radius: var(--mint-window-frame-radius);
+    box-sizing: border-box;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"].windowElementActive:not(#mainMenu) {
+    border-color: var(--menu-accent);
+    box-shadow: 0 0 0 1px var(--menu-accent), var(--frame);
+}
+
+/* Vérité VM : fenêtre maximisée Muffin sans liseré accent ni rayon (bord à bord) */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"][data-maximized="true"]:not(#mainMenu),
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"].windowElementActive[data-maximized="true"]:not(#mainMenu) {
+    border-color: var(--mint-window-header-border);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"]:not(#mainMenu) > #windowHeader {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    height: var(--mint-muffin-titlebar-height);
+    min-height: var(--mint-muffin-titlebar-height);
+    padding: 0 calc(var(--head) / 20);
+    box-sizing: border-box;
+    border-radius: calc(var(--mint-window-frame-radius) - 1px) calc(var(--mint-window-frame-radius) - 1px) 0 0;
+    background: var(--nemoHC);
+    border-bottom: 1px solid var(--mint-window-header-border);
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"].windowElementActive > #windowHeader {
+    background: var(--nemoMCSF);
+    border-bottom-color: var(--mint-window-header-border-active);
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowHeader > nav {
+    height: 100%;
+    min-height: 0;
+    gap: 0;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowHeader > nav > button {
+    position: relative;
+    width: var(--mint-muffin-control-size);
+    height: var(--mint-muffin-control-size);
+    min-width: var(--mint-muffin-control-size);
+    min-height: var(--mint-muffin-control-size);
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: var(--mint-muffin-control-icon-size) var(--mint-muffin-control-icon-size);
+    transform: none;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowHeader > nav > button:hover,
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowHeader > nav > button:active {
+    transform: none;
+    border: none;
+    background-color: transparent;
+}
+
+/* VM : titlebar-font Muffin = Ubuntu Medium 10 (≈13.3px, graisse 500) — Mint-Y-Blue : texte sombre */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowTitle {
+    color: var(--mint-wm-title, rgba(0, 0, 0, 0.87));
+    font-family: var(--font-ui, 'Ubuntu', sans-serif);
+    font-size: 13.3px;
+    font-weight: 500;
+    text-shadow: none;
+    filter: none;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] > #windowHeader[data-window-drag-handle] {
+    cursor: grab;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] > #windowHeader[data-window-drag-handle]:active {
+    cursor: grabbing;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"]:not(#mainMenu) > *:not(#windowHeader) {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    position: relative;
+    top: auto;
+    margin: 0;
+    border-radius: 0 0 calc(var(--mint-window-frame-radius) - 1px) calc(var(--mint-window-frame-radius) - 1px);
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] > #windowIframe {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: stretch;
+    min-height: 0;
+}
+
+/* Min / max — glyphes symboliques 16 px, rendus à 18 px (Mint-Y gtk-3) */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #minimizeBtn,
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #resizeBtn {
+    filter: var(--mint-muffin-control-icon-filter, brightness(0) invert(0.72));
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #minimizeBtn:hover {
+    background-image: radial-gradient(
+            circle at 50%,
+            var(--mint-muffin-control-hover-disc, #4c4c50) 0,
+            var(--mint-muffin-control-hover-disc, #4c4c50) 65%,
+            transparent 65%
+        ),
+        var(--mint-muffin-min-bg);
+    filter: var(--mint-muffin-control-icon-filter-hover, brightness(0) invert(1));
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #resizeBtn:hover {
+    background-image: radial-gradient(
+            circle at 50%,
+            var(--mint-muffin-control-hover-disc, #4c4c50) 0,
+            var(--mint-muffin-control-hover-disc, #4c4c50) 65%,
+            transparent 65%
+        ),
+        var(--mint-muffin-max-bg);
+    filter: var(--mint-muffin-control-icon-filter-hover, brightness(0) invert(1));
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #minimizeBtn:active {
+    background-image: radial-gradient(
+            circle at 50%,
+            var(--mint-muffin-control-active-disc, #949498) 0,
+            var(--mint-muffin-control-active-disc, #949498) 65%,
+            transparent 65%
+        ),
+        var(--mint-muffin-min-bg);
+    filter: var(--mint-muffin-control-icon-filter-hover, brightness(0) invert(1));
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #resizeBtn:active {
+    background-image: radial-gradient(
+            circle at 50%,
+            var(--mint-muffin-control-active-disc, #949498) 0,
+            var(--mint-muffin-control-active-disc, #949498) 65%,
+            transparent 65%
+        ),
+        var(--mint-muffin-max-bg);
+    filter: var(--mint-muffin-control-icon-filter-hover, brightness(0) invert(1));
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #minimizeBtn {
+    --mint-muffin-min-bg: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/minimize.svg);
+    background-image: var(--mint-muffin-min-bg);
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #resizeBtn {
+    --mint-muffin-max-bg: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/maximize.svg);
+    background-image: var(--mint-muffin-max-bg);
+}
+
+/* Fermer — pastille bleue Mint-Y-Blue #0c75de + croix blanche (gtk-3 titlebutton.close) */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn {
+    background-image: radial-gradient(circle at 50%, #0c75de 0, #0c75de 65%, transparent 65%);
+    filter: none;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn:hover {
+    background-image: radial-gradient(circle at 50%, #3090e8 0, #3090e8 65%, transparent 65%);
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn:active {
+    background-image: radial-gradient(circle at 50%, #0b68c6 0, #0b68c6 65%, transparent 65%);
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn::after {
+    content: "\00d7";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    color: #ffffff;
+    pointer-events: none;
+}

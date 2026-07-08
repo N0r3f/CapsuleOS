@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "updated": "2026-06-09",
+  "description": "Contrat taxonomique et sémantique CapsuleOS — résolution des identités, zones, collisions interdites.",
+  "conventionDoc": "root/docs/convention-taxonomie-semantique.md",
+  "validator": "usr/lib/capsuleos/tools/validate-taxonomy.mjs",
+  "zones": {
+    "Z0": {
+      "label": "Contrats & vérité proc",
+      "paths": ["etc/capsuleos/", "proc/"],
+      "writers": ["pipeline-lab", "integrateur-kernel"],
+      "rule": "Jamais de vérité VM inventée ici depuis un skin"
+    },
+    "Z1": {
+      "label": "Noyau partagé",
+      "paths": ["usr/lib/capsuleos/", "usr/share/capsuleos/"],
+      "writers": ["integrateur-kernel"],
+      "rule": "Scripts agnostiques vendor ; variants multi-toolkit nommés explicitement"
+    },
+    "Z2": {
+      "label": "Skin vendor",
+      "paths": ["home/"],
+      "writers": ["clone-vm", "contributeur-vendor"],
+      "rule": "Tokens + chrome vendor ; pas de structure d'un autre toolkit"
+    },
+    "Z3": {
+      "label": "Façade pick-os",
+      "paths": ["OS/"],
+      "writers": ["build-linux-facades"],
+      "rule": "Généré — ne pas éditer à la main"
+    },
+    "Z4": {
+      "label": "Vues dérivées",
+      "paths": ["var/lib/capsuleos/generated/"],
+      "writers": ["build-embed", "build-skin-profiles"],
+      "rule": "Régénérer après changement Z1/Z2"
+    }
+  },
+  "hierarchy": {
+    "resolutionOrder": ["kernelId", "branchId", "toolkitId", "registryId"],
+    "extendsPattern": "^kernel:([^/]+)/branch:([^/]+)/toolkit:([^/]+)$",
+    "registryIdPattern": "^linux-[a-z0-9-]+$",
+    "leafKey": "registryId"
+  },
+  "dimensions": {
+    "kernelId": {
+      "description": "Famille OS simulée (linux, windows, …)",
+      "source": "etc/capsuleos/os-registry.json → families"
+    },
+    "branchId": {
+      "description": "Lignée packaging / écosystème (rhel, debian, ubuntu, mint, fedora, opensuse, arch)",
+      "allowed": ["rhel", "debian", "ubuntu", "mint", "fedora", "opensuse", "arch", "suse"],
+      "note": "branch ≠ vendor : plusieurs vendors partagent une branch (rocky/alma → rhel)"
+    },
+    "toolkitId": {
+      "description": "Paradigme DE (environnement graphique)",
+      "allowed": ["gnome", "cinnamon", "kde", "cosmic", "pantheon", "xfce", "lxqt", "minimal"],
+      "chromeCluster": "usr/share/capsuleos/themes/clusters/toolkit-{toolkitId}/chrome.css"
+    },
+    "registryId": {
+      "description": "Instance feuille simulée (linux-rocky, linux-mint)",
+      "pattern": "{kernelId}-{vendorSlug}"
+    },
+    "vendor": {
+      "description": "Marque distro (rocky, mint, ubuntu) — scelle assets vendors/"
+    },
+    "embedKey": {
+      "description": "Clé embed offline (peut différer de bodyId : mx-kde → mxkde)"
+    },
+    "bodyId": {
+      "description": "Scope CSS DOM (body#) — doit être unique par skin actif"
+    }
+  },
+  "semanticLayers": {
+    "slot": {
+      "description": "Ancre logique DOM stable (data-link)",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "examples": ["nemo", "update_manager", "themes", "firefox"],
+      "rule": "Identique cross-vendor du même rôle fonctionnel"
+    },
+    "variant": {
+      "description": "Gabarit HTML+CSS base d'un slot pour un toolkit",
+      "patterns": [
+        "{slot}.html",
+        "{slot}_{toolkit}.html",
+        "{slot}_{flavor}.html"
+      ],
+      "catalog": "etc/capsuleos/contracts/apps-catalog.json → toolkits.*.slotSpecs",
+      "rule": "Un variant ne doit pas être chargé par un profil d'un autre toolkit"
+    },
+    "cluster": {
+      "description": "Enregistrement gabarit+chemins dans cluster-registry",
+      "idPattern": "^(toolkit|explorer|cluster)\\.([a-z0-9-]+)(\\.[a-z]+)?$",
+      "source": "etc/capsuleos/cluster-registry.json"
+    },
+    "chromeProvider": {
+      "description": "Comportement chrome fenêtre (drag, headerbar)",
+      "source": "etc/capsuleos/contracts/window-chrome-contexts.json"
+    },
+    "skinCss": {
+      "description": "Tokens vendor par slot (home/.../style/apps/*.skin.css)",
+      "rule": "Structure N2 dans *.base.css du variant, pas dans le skin"
+    },
+    "component": {
+      "description": "Composant UI documenté N1",
+      "idPattern": "^[a-z]+\\.[a-z0-9-]+$",
+      "source": "etc/capsuleos/contracts/ui-components-*.json"
+    }
+  },
+  "collisions": {
+    "forbidden": [
+      {
+        "id": "cross-toolkit-chrome",
+        "rule": "imports.css d'un skin actif ne doit importer qu'un cluster toolkit-{toolkitId}/chrome.css",
+        "gate": "validate-toolkit-chrome-isolation.mjs"
+      },
+      {
+        "id": "cross-toolkit-variant",
+        "rule": "CAPSULE_TEMPLATE_OVERRIDES doit pointer vers le variant du toolkit du profil",
+        "gate": "validate-slot-variant-wiring.mjs"
+      },
+      {
+        "id": "cross-vendor-assets",
+        "rule": "Pas de chemins vendors/{autre} dans home/{vendor}/",
+        "gate": "validate-skin-vendor-isolation.mjs"
+      },
+      {
+        "id": "slot-default-assumption",
+        "rule": "Ne jamais supposer que {slot}.html est le gabarit du profil — résoudre via catalog",
+        "gate": "validate-taxonomy.mjs"
+      },
+      {
+        "id": "embed-css-mismatch",
+        "rule": "skinTemplates[embedKey][slot] doit fournir html et cssBase du même variant",
+        "gate": "validate-taxonomy.mjs"
+      }
+    ]
+  },
+  "catalogs": {
+    "registry": "etc/capsuleos/os-registry.json",
+    "profiles": "etc/capsuleos/profiles/*.json",
+    "apps": "etc/capsuleos/contracts/apps-catalog.json",
+    "clusters": "etc/capsuleos/cluster-registry.json",
+    "chrome": "etc/capsuleos/contracts/window-chrome-contexts.json",
+    "recipe": "etc/capsuleos/contracts/skin-toolkit-recipe.json"
+  },
+  "predicates": {
+    "Tax": "Profils actifs cohérents avec extends, clusterIds, toolkitPack",
+    "TaxV": "Variants résolus sans collision toolkit (subset de Tax ∧ slot-variant)",
+    "TaxΣ": "Tax ∧ TaxV ∧ validate-toolkit-chrome-isolation"
+  }
+}

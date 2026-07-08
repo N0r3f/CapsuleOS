@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "description": "Scalabilité locale et clavier — FR par défaut, portage international en couche additive (sans inversion de priorité).",
+  "doc": "root/docs/scalabilite-noyau.md",
+  "default": {
+    "locale": "fr-FR",
+    "keyboard": "fr-FR-azerty",
+    "uiLanguage": "fr",
+    "terminalOutputLocale": "fr-FR"
+  },
+  "predicates": {
+    "Lj_fr": "Locale projet fr-FR — docs, strings UI, pédagogie par défaut",
+    "Lj_en": "Projection en-US disponible (strings + sorties terminal + clavier QWERTY)",
+    "Lk_azerty": "Disposition clavier AZERTY (défaut FR)",
+    "Lk_qwerty": "Disposition clavier QWERTY US (international)",
+    "Lj": "Lj_fr — tant que le registre ne déclare pas de variante en-US active"
+  },
+  "principles": [
+    "FR reste le défaut : aucune règle d'inférence ne priorise en-US sur fr-FR",
+    "L'international est une projection (fichiers, providers), pas un fork noyau par langue",
+    "Parité VM : la locale de l'inventaire prime sur le défaut projet pour la reproduction (R-INV1)",
+    "Un skin peut rester fr-FR uniquement ; en-US est opt-in via registre / profil"
+  ],
+  "layers": {
+    "ui": {
+      "default": "usr/lib/capsuleos/shells/linux/strings-default.js",
+      "skinOverride": "home/<Vendor>/<Distro>/content/strings.json",
+      "future": "home/<Vendor>/<Distro>/content/strings.<locale>.json",
+      "global": "CAPSULE_LOCALE",
+      "merge": "CAPSULE_STRINGS_URL → fetch puis CAPSULE_STRINGS_MERGED"
+    },
+    "terminal": {
+      "module": "usr/lib/capsuleos/shells/linux/terminal/terminal-package-managers.js",
+      "pattern": "providers[family][locale] — ex. redhat.fr-FR, redhat.en-US",
+      "inventoryField": "outputSamples[].locale",
+      "doc": "root/docs/convention-terminal-rendu-sortie.md"
+    },
+    "keyboard": {
+      "status": "planned",
+      "scope": "raccourcis clavier UI, layouts saisie terminal (AZERTY vs QWERTY)",
+      "global": "CAPSULE_KEYBOARD_LAYOUT"
+    },
+    "explorer": {
+      "note": "Noms dossiers XDG FR (Bureau, Documents) vs EN (Desktop) — liés à locale VM inventaire, pas au défaut Capsule seul"
+    }
+  },
+  "registryExtension": {
+    "optionalFields": ["locale", "keyboardLayout", "localesSupported"],
+    "example": {
+      "id": "linux-rocky",
+      "locale": "fr-FR",
+      "localesSupported": ["fr-FR", "en-US"],
+      "keyboardLayout": "fr-FR-azerty"
+    }
+  },
+  "milestones": [
+    {
+      "id": "I1",
+      "label": "Contrat + prédicats Lj documentés",
+      "status": "done"
+    },
+    {
+      "id": "I2",
+      "label": "Providers sorties terminal par locale (dnf/apt)",
+      "status": "partial",
+      "detail": "dnf fr-FR / en-US dans terminal-package-managers.js (CAPSULE_LOCALE)"
+    },
+    {
+      "id": "I3",
+      "label": "strings.<locale>.json + CAPSULE_LOCALE boot",
+      "status": "planned"
+    },
+    {
+      "id": "I4",
+      "label": "Skin dérivé en-US (Qwerty) sans fork noyau",
+      "status": "planned"
+    }
+  ]
+}

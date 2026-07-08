@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": null,
+  "sourceSha256": null,
+  "output": "images/vendors/fedora/wallpaper/fold-d.webp",
+  "outputSha256": "8a2753a1db6ffdaa3426e4b910c3e6c43735f741b5d3588ead3b8630505de5ed",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "repair",
+  "options": {},
+  "width": 0,
+  "height": 0,
+  "preparedAt": "2026-06-08T23:30:54.684Z",
+  "note": "repair-manifest"
+}

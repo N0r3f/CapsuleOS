@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "description": "Contrat squelette d'accueil OS — arborescence Z2, profil recette stub, bus Se-A11y. Vague 1 : bootstrap Linux actif ; vague 2 : familles non-Linux décrites mais bootstrapEnabled=false.",
+  "doc": "root/docs/procedure-accueil-os-scaffold.md",
+  "coherenceContract": "etc/capsuleos/contracts/os-reproduction-coherence.json",
+  "bootstrapTool": "usr/lib/capsuleos/tools/lab/bootstrap-os-welcome-scaffold.mjs",
+  "validateTool": "usr/lib/capsuleos/tools/lab/validate-welcome-scaffold.mjs",
+  "predicates": {
+    "AccΣ": "Arborescence Z2 complète ∧ profil valide ∧ slots P0 data-link câblés ∧ recette lab sans gap bloquant R-LOC1 — sans exiger SeΣ ni H₆"
+  },
+  "requiredFiles": [
+    "index.html",
+    "skin.profile.json",
+    "style/imports.css",
+    "style/style.css",
+    "style/a11y-overrides.css",
+    "content/strings.json"
+  ],
+  "p0Slots": ["mainMenu", "nemo", "firefox", "terminal", "themes"],
+  "seLayers": ["Se-A11y"],
+  "entries": {
+    "linux-elementary": {
+      "bootstrapEnabled": true,
+      "kernelId": "linux",
+      "toolkit": "pantheon",
+      "pilotRegistryId": "linux-ubuntu",
+      "upstreamId": "linux-ubuntu",
+      "homeLayout": "home/Debian/Elementary",
+      "facadePath": "families/debian/elementary",
+      "bodyId": "elementary",
+      "embedKey": "elementary",
+      "vendor": "elementary",
+      "displayName": "elementary OS",
+      "welcomeTier": "P4",
+      "status": "planned"
+    },
+    "linux-kali": {
+      "bootstrapEnabled": true,
+      "kernelId": "linux",
+      "toolkit": "xfce",
+      "pilotRegistryId": "linux-rocky",
+      "upstreamId": "linux-rocky",
+      "homeLayout": "home/Debian/Kali",
+      "facadePath": "families/debian/kali",
+      "bodyId": "kali",
+      "embedKey": "kali",
+      "vendor": "kali",
+      "displayName": "Kali Linux",
+      "welcomeTier": "P4",
+      "status": "planned"
+    },
+    "linux-lxqt": {
+      "bootstrapEnabled": true,
+      "kernelId": "linux",
+      "toolkit": "lxqt",
+      "pilotRegistryId": "linux-debian-kde",
+      "upstreamId": "linux-debian-kde",
+      "homeLayout": "home/Debian/LXQt",
+      "facadePath": "families/debian/lxqt",
+      "bodyId": "lxqt",
+      "embedKey": "lxqt",
+      "vendor": "generic",
+      "displayName": "LXQt (générique)",
+      "welcomeTier": "P4",
+      "status": "planned"
+    },
+    "windows-11": {
+      "bootstrapEnabled": true,
+      "nonLinux": true,
+      "kernelId": "windows",
+      "toolkit": "windows-shell",
+      "pilotRegistryId": "windows-11",
+      "upstreamId": null,
+      "sourceOsPath": "OS/windows/versions/11",
+      "homeLayout": "home/Windows/11",
+      "facadePath": "windows/versions/11",
+      "bodyId": "windows-11",
+      "embedKey": "windows-11",
+      "vendor": "microsoft",
+      "displayName": "Windows 11",
+      "welcomeTier": "P4",
+      "status": "scaffold"
+    },
+    "macos-sonoma": {
+      "bootstrapEnabled": true,
+      "nonLinux": true,
+      "kernelId": "darwin",
+      "toolkit": "macos-aqua",
+      "pilotRegistryId": "macos-sonoma",
+      "upstreamId": null,
+      "sourceOsPath": "OS/macos/sonoma",
+      "homeLayout": "home/macOS/Sonoma",
+      "facadePath": "macos/sonoma",
+      "bodyId": "macos-sonoma",
+      "embedKey": "macos-sonoma",
+      "vendor": "apple",
+      "displayName": "macOS Sonoma",
+      "welcomeTier": "P4",
+      "status": "scaffold"
+    }
+  },
+  "kernels": {
+    "linux": {
+      "label": "Linux — vague 1",
+      "bootstrapEnabled": true,
+      "entryIds": ["linux-elementary", "linux-kali", "linux-lxqt"]
+    },
+    "windows": {
+      "label": "Windows — vague 2",
+      "bootstrapEnabled": true,
+      "entryIds": ["windows-11"],
+      "pilotRegistryId": "windows-11",
+      "note": "Phase 7 — bootstrap --kernel windows"
+    },
+    "darwin": {
+      "label": "macOS — vague 2",
+      "bootstrapEnabled": true,
+      "entryIds": ["macos-sonoma"],
+      "pilotRegistryId": "macos-sonoma",
+      "note": "Phase 7 — bootstrap --kernel darwin"
+    },
+    "android": {
+      "label": "Android — vague 2",
+      "bootstrapEnabled": false,
+      "pilotRegistryId": "android-lineage"
+    },
+    "ios": {
+      "label": "iOS — vague 2",
+      "bootstrapEnabled": false,
+      "pilotRegistryId": "ios-15"
+    },
+    "bsd": {
+      "label": "BSD — vague 2",
+      "bootstrapEnabled": false,
+      "pilotRegistryId": "freebsd"
+    },
+    "unix": {
+      "label": "UNIX terminal-first — vague 2",
+      "bootstrapEnabled": false,
+      "pilotRegistryId": null
+    }
+  }
+}

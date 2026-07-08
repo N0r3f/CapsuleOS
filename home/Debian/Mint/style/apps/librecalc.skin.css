@@ -1,0 +1,21 @@
+/* LibreOffice Calc — skin Mint (accent vert Calc) */
+.lc-app {
+    --lc-accent: #18a303;
+    --lc-toolbar-bg: #f5f5f5;
+    --lc-toolbar-border: #c8c8c8;
+    --lc-toolbar-separator: #b0b0b0;
+    --lc-grid-header-bg: #f0f0f0;
+    --lc-grid-header-text: #333333;
+    --lc-grid-border: #d4d4d4;
+    --lc-grid-cell-bg: #ffffff;
+    --lc-formula-bg: #ffffff;
+    --lc-statusbar-bg: #ebebeb;
+    --lc-statusbar-text: #333333;
+    --lc-sheet-tab-bg: #e8e8e8;
+    --lc-sheet-tab-active: #ffffff;
+    --lc-menu-hover: #e0f4dc;
+}
+
+.lc-app .lc-sheets__tab.is-active {
+    border-top: 2px solid var(--lc-accent);
+}

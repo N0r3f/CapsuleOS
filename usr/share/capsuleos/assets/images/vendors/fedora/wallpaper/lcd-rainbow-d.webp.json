@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/fedora/wallpaper/lcd-rainbow-d.jxl",
+  "sourceSha256": "e553fb8df26cbef02702c9f05c7ec302825cb4e9eebb90e3e52096dfc3a01d0c",
+  "output": "images/vendors/fedora/wallpaper/lcd-rainbow-d.webp",
+  "outputSha256": "fae67c03c53c95ab7eaacfa22034258136c62f2c79e09bffe7ce3da70f45182b",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 4096,
+  "height": 4096,
+  "preparedAt": "2026-06-08T23:26:07.229Z"
+}

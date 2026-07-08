@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "images/vendors/mint/wallpaper/ktee_linuxmint.png",
+  "sourceSha256": "a4870d383b456cd859e7551cd67ce8bdb4be354d271bd64941e95cb82bd1e452",
+  "output": "images/vendors/mint/wallpaper/ktee_linuxmint.webp",
+  "outputSha256": "e95ea65656a159dc89ba17c8091f4f1f36f08d0e00205a58bff5620aa50851d3",
+  "role": "wallpaper",
+  "profile": "wallpaper-capsule",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "quality": 85,
+    "lossless": false,
+    "maxWidth": 1024
+  },
+  "width": 1024,
+  "height": 576,
+  "preparedAt": "2026-06-15T19:42:18.914Z"
+}

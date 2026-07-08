@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "source": "images/toolkits/gnome/apps/dash/libreoffice-writer.png",
+  "sourceSha256": "3155a1194e07a4621cfabee359a299b2ec983fa845fec267e6555ac102890b95",
+  "output": "images/toolkits/gnome/apps/dash/libreoffice-writer.webp",
+  "outputSha256": "c49e240d6a682586bd820e0b88ee08020b618d62ca7f7b0b060940ce9463828d",
+  "role": "icon-raster",
+  "profile": "icon-raster",
+  "encoder": "ffmpeg+convert",
+  "options": {
+    "lossless": true
+  },
+  "width": 48,
+  "height": 48,
+  "preparedAt": "2026-06-07T21:19:04.477Z"
+}

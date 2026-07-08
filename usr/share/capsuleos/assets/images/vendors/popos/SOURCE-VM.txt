@@ -1,0 +1,10 @@
+Assets copiés depuis la VM lab (registryId: linux-popos) le 2026-06-19T13:33:03Z.
+Vendor : popos · toolkit : gnome
+Thème icônes VM : Pop (gsettings org.gnome.desktop.interface icon-theme).
+Polices VM : /usr/share/fonts/redhat-vf/ → assets/fonts/vendors/popos/
+MIME Adwaita : scalable/mimetypes/ → icons/gnome/adwaita/mimetypes/
+Yaru (ubuntu) : icons/gnome/yaru/{mimetypes,places,emblems,symbolic}/ — PNG/SVG depuis VM
+Fonds d'écran : wallpaper/ (+ thumbnails/) — WebP via prepare-web-media.mjs (défaut après pull)
+Explorateur VM : Nautilus (org.gnome.Nautilus) — gabarit Capsule slot nemo.
+Ne pas réinventer les chemins : relancer ce script après changement de VM ou de thème.
+Connexion SSH : etc/capsuleos/lab-inventory.json (local, gitignoré).

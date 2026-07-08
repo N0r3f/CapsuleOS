@@ -1,0 +1,11 @@
+@import url(../../../SUSE/openSUSE/style/a11y-overrides.css?v=20260513e);
+
+html[data-font-scale="100"] #debian-kde,
+html[data-font-scale="110"] #debian-kde,
+html[data-font-scale="125"] #debian-kde {
+    font-size: calc(1rem * var(--a11y-font-scale-factor, 1));
+}
+
+html[data-contrast-mode="high"] #debian-kde {
+    filter: contrast(1.12);
+}

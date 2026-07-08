@@ -1,0 +1,31 @@
+{
+  "reportPath": "var/lib/capsuleos/generated/a11y-report.json",
+  "serverHost": "127.0.0.1",
+  "serverPort": 9876,
+  "axeTags": ["wcag2a", "wcag2aa", "wcag22aa"],
+  "failImpact": ["serious", "critical"],
+  "warnImpact": ["moderate", "minor"],
+  "optInLocalStorage": {
+    "mint-contrast-mode": "high",
+    "mint-font-scale": "125",
+    "capsule-reduced-motion": "on",
+    "capsule-underline-links": "on"
+  },
+  "targets": [
+    {
+      "id": "portal",
+      "label": "Portail CapsuleOS",
+      "path": "/index.html",
+      "registryId": null,
+      "waitForSelector": "#header-a11y-toggle"
+    },
+    {
+      "id": "linux-mint-p0",
+      "label": "Linux Mint (façade P0)",
+      "path": null,
+      "registryId": "linux-mint",
+      "waitForSelector": "body",
+      "waitTimeoutMs": 60000
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+/**
+ * Accessibilité shell AnduinOS — focus clavier et contrastes (#anduinos).
+ */
+
+html[data-font-scale="100"] #anduinos,
+html[data-font-scale="110"] #anduinos,
+html[data-font-scale="125"] #anduinos {
+    font-size: calc(1rem * var(--a11y-font-scale-factor));
+}
+
+#anduinos :where(a, button, input, [role="button"], [role="radio"], [tabindex="0"]):focus-visible {
+    outline: 2px solid var(--a11y-focus-ring);
+    outline-offset: 1px;
+    box-shadow: var(--a11y-focus-shadow);
+}
+
+#anduinos .menu-shortcut,
+#anduinos .menu-cat,
+#anduinos .menu-app-item,
+#anduinos .themes-card,
+#anduinos .themes-app__select,
+#anduinos .themes-scale-button,
+#anduinos .themes-contrast-card {
+    font-size: calc(var(--head) / 3 * var(--a11y-font-scale-factor));
+}
+
+#anduinos #windowTitle,
+#anduinos .taskbar__clock,
+#anduinos .desktop-shortcut > span,
+#anduinos .themes-app__help,
+#anduinos .menu-app-item__desc,
+#anduinos .menu-app-item__name {
+    font-size: calc((var(--head) / 3) * var(--a11y-font-scale-factor));
+}
+
+html[data-contrast-mode="high"] #anduinos {
+    color: var(--a11y-contrast-text);
+}
+
+html[data-contrast-mode="high"] #anduinos .windowElement,
+html[data-contrast-mode="high"] #anduinos #windowHeader,
+html[data-contrast-mode="high"] #anduinos #tableau,
+html[data-contrast-mode="high"] #anduinos .calendar-popover {
+    background: var(--a11y-contrast-surface);
+    color: var(--a11y-contrast-text);
+    border-color: var(--a11y-contrast-border);
+}

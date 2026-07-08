@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "source": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Light_3840x2160.png",
+  "sourceSha256": "a6b88fdecf2b777bdcd8a11188f332e502106229e746ccbefda67c38dfe0dd97",
+  "output": "images/vendors/ubuntu/wallpaper/Resolute_Raccoon_Wallpaper_Light_3840x2160.webp",
+  "outputSha256": "591ba87588dabbbfa3a117309a4de0465eb823625c6da3ff9f6c5aeb356f1a3b",
+  "role": "wallpaper",
+  "profile": "wallpaper",
+  "encoder": "sharp",
+  "options": {
+    "quality": 85,
+    "lossless": false
+  },
+  "width": 3841,
+  "height": 2160,
+  "preparedAt": "2026-06-16T09:46:43.217Z"
+}

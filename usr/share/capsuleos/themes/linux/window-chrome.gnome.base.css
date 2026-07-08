@@ -1,0 +1,227 @@
+/**
+ * Chrome fenêtre GNOME / Mutter SSD — toolkit data-window-chrome-toolkit="gnome".
+ * Ne pas importer window-chrome.base.css (pilote Cinnamon/Muffin) dans les skins GNOME.
+ * Tokens : préfixes --fedora-* (RHEL) ou --ubuntu-* (Ubuntu) avec repli croisé.
+ */
+@import url(../global/interactions-window.base.css);
+@import url(../global/window-drag-regions.css);
+@import url(../global/window-context-menu.css);
+@import url(./gnome-scrollbar.base.css);
+@import url(./gnome-app-csd.base.css);
+
+html {
+    --gnome-chrome-top-inset: var(--fedora-top-bar-height, var(--ubuntu-top-bar-height, var(--head)));
+    --capsule-chrome-window-border: var(--fedora-window-border, var(--ubuntu-window-border, rgba(0, 0, 0, 0.45)));
+    --capsule-chrome-window-header-border: var(--fedora-window-header-border, var(--ubuntu-window-header-border, var(--anduin-window-header-border, rgba(0, 0, 0, 0.45))));
+    --capsule-chrome-window-active-ring: var(--fedora-window-active-ring, var(--ubuntu-window-active-ring, 0 0 0 2px color-mix(in srgb, var(--menu-accent, #3584e4) 55%, transparent)));
+}
+
+html[data-theme="light"] {
+    --capsule-chrome-window-border: var(--fedora-window-border, var(--ubuntu-window-border, rgba(0, 0, 0, 0.15)));
+    --capsule-chrome-window-header-border: var(--fedora-window-header-border, var(--ubuntu-window-header-border, var(--anduin-window-header-border, rgba(0, 0, 0, 0.12))));
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"]:not(#mainMenu) {
+    position: fixed;
+    top: calc(var(--gnome-chrome-top-inset, var(--fedora-top-bar-height, var(--ubuntu-top-bar-height, var(--head)))) + var(--head));
+    left: calc(var(--head) * 0.75);
+    bottom: calc(var(--head) * 0.65);
+    right: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: calc(var(--mid) + var(--mid) / 4);
+    min-width: calc(var(--head) * 16);
+    height: calc(var(--head) * 10);
+    min-height: calc(var(--head) * 12);
+    padding: calc(var(--head) / 20);
+    border: 1px solid var(--capsule-chrome-window-border);
+    border-radius: var(--fedora-window-radius, var(--ubuntu-window-radius, var(--anduin-window-radius, 11px)));
+    box-shadow: var(--fedora-window-shadow, var(--ubuntu-window-shadow, var(--anduin-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42))));
+    background: var(--fedora-window-surface, var(--ubuntu-window-surface, var(--anduin-window-surface, #303030)));
+    overflow: hidden;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    transition: border-color var(--eas2), box-shadow var(--ease), transform var(--eas2);
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"].windowElementActive:not(#mainMenu) {
+    z-index: 500;
+    border-color: var(--menu-accent);
+    box-shadow: var(--capsule-chrome-window-active-ring), var(--fedora-window-shadow, var(--ubuntu-window-shadow, var(--anduin-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42))));
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"]:not(#mainMenu) > #windowHeader {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, auto);
+    grid-template-rows: auto;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: var(--gnome-adw-headerbar-h, 2.875rem);
+    min-height: var(--gnome-adw-headerbar-h, 2.875rem);
+    padding: 0 calc(var(--head) / 4);
+    border-radius: var(--fedora-window-radius, var(--ubuntu-window-radius, 11px)) var(--fedora-window-radius, var(--ubuntu-window-radius, 11px)) 0 0;
+    background: var(--fedora-window-header-bg, var(--ubuntu-window-header-bg, var(--anduin-window-header-bg, #383838)));
+    user-select: none;
+    border-bottom: 1px solid var(--capsule-chrome-window-header-border);
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"].windowElementActive > #windowHeader {
+    background: var(--fedora-window-header-active, var(--ubuntu-window-header-active, var(--anduin-window-header-active, #3d3d3d)));
+    border-bottom-color: var(--capsule-chrome-window-header-border);
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowHeader > nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    min-width: calc(var(--head) * 2.2);
+    height: 100%;
+    min-height: 0;
+    flex-shrink: 0;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowHeader > nav:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowTitle {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    text-align: center;
+    text-shadow: none;
+    filter: none;
+    color: var(--fedora-window-title-color, var(--ubuntu-window-title-color, var(--anduin-window-title-color, #f6f7f9)));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowTitle[data-window-drag-region] {
+    pointer-events: auto;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowHeader > nav:last-of-type {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowHeader > nav > button {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--head) / 1.85);
+    height: calc(var(--head) / 1.85);
+    padding: 0;
+    outline: none;
+    border-radius: var(--mid);
+    border: 1px solid transparent;
+    color: var(--fedora-window-control-color, var(--ubuntu-window-control-color, var(--anduin-window-control-color, #f6f7f9)));
+    background-color: var(--fedora-window-control-bg, var(--ubuntu-window-control-bg, var(--anduin-window-control-bg, transparent)));
+    background-image: none;
+    transform: none;
+    transition: border-color var(--eas2), background-color var(--eas2), color var(--eas2);
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #windowHeader > nav > button:hover,
+.windowElement[data-window-chrome-toolkit="gnome"] #windowHeader > nav > button:active {
+    transform: none;
+    border-color: transparent;
+    background-color: var(--fedora-window-control-hover-bg, var(--ubuntu-window-control-hover-bg, var(--anduin-window-control-hover-bg, rgba(255, 255, 255, 0.14))));
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #minimizeBtn::before,
+.windowElement[data-window-chrome-toolkit="gnome"] #resizeBtn::before,
+.windowElement[data-window-chrome-toolkit="gnome"] #closeBtn::before {
+    content: "";
+    display: block;
+    width: calc(var(--head) / 2.2);
+    height: calc(var(--head) / 2.2);
+    background: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #minimizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M3 8h10v1.7H3V8z'/%3E%3C/svg%3E");
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #resizeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4 4h8v8H4V4zm1.6 1.6v4.8h4.8V5.6H5.6z'/%3E%3C/svg%3E");
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #closeBtn {
+    background-color: var(--fedora-window-control-close-bg, var(--ubuntu-window-control-close-bg, var(--anduin-window-control-close-bg, transparent)));
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #closeBtn::before {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3E%3Cpath d='M4.2 3.1 8 6.9l3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2l1.1-1.1z'/%3E%3C/svg%3E");
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] #closeBtn:hover,
+.windowElement[data-window-chrome-toolkit="gnome"] #closeBtn:active {
+    color: var(--fedora-window-control-close-hover-color, var(--ubuntu-window-control-close-hover-color, #ffffff));
+    background-color: var(--fedora-window-control-close-hover-bg, var(--ubuntu-window-control-close-hover-bg, #c01c28));
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"]:not(#mainMenu) > #windowIframe,
+.windowElement[data-window-chrome-toolkit="gnome"]:not(#mainMenu) > section.windowElement {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] > #windowIframe {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: stretch;
+    height: auto;
+    min-height: calc(var(--full) - calc(var(--head) / 1.2));
+    border-radius: 0 0 var(--fedora-window-radius, var(--ubuntu-window-radius, 11px)) var(--fedora-window-radius, var(--ubuntu-window-radius, 11px));
+    overflow: hidden;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] > section.windowElement {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] > #windowHeader[data-window-drag-handle] {
+    cursor: grab;
+}
+
+.windowElement[data-window-chrome-toolkit="gnome"] > #windowHeader[data-window-drag-handle]:active {
+    cursor: grabbing;
+}

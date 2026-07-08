@@ -1,0 +1,49 @@
+:root {
+    --win-taskbar-bg: rgba(0, 0, 0, 0.85);
+    --win-taskbar-hover: rgba(255,255,255,0.12);
+    --win-window-radius: 6px;
+    --win-window-header-bg: rgba(0, 0, 0, 0.85);
+    --win-start-menu-bg: rgba(0, 0, 0, 0.85);
+    --win-font-family: "Segoe UI", Tahoma, sans-serif;
+    --win-desktop-bg: #1a5c8a;
+    --win-desktop-bg-gradient: linear-gradient(160deg, #1a3a5c 0%, #2989d8 60%, #6eb5ff 100%);
+}
+
+body {
+    font-family: var(--win-font-family);
+}
+
+main {
+    background-color: var(--win-desktop-bg);
+    background-image: var(--win-desktop-bg-gradient, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    background: var(--win-taskbar-bg);
+    color: #ffffff;
+}
+
+footer>menu>a:hover,
+footer>menu>i:hover {
+    background: var(--win-taskbar-hover);
+}
+
+#windowContainer,
+.win-window {
+    border-radius: var(--win-window-radius);
+}
+
+#windowHeader {
+    background: var(--win-window-header-bg);
+    border-radius: var(--win-window-radius) var(--win-window-radius) 0 0;
+}
+
+div#menu {
+    background: var(--win-start-menu-bg);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ffffff #404040 #404040 #ffffff;
+}

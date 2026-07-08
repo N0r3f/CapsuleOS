@@ -1,0 +1,17 @@
+@import url(../../../../usr/share/capsuleos/themes/global/reset.css);
+@import url(../../../../usr/share/capsuleos/themes/global/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/clusters/toolkit-gnome/variables.css);
+@import url(../../../../usr/share/capsuleos/themes/linux/variables-linux.css);
+@import url(../../../../usr/share/capsuleos/themes/linux/variables-linux-computed.css);
+@import url(../../../../usr/share/capsuleos/themes/clusters/toolkit-gnome/chrome.css);
+@import url(gnome-shell/tokens.css);
+@import url(gnome-shell/windows-chrome.css);
+@import url(gnome-shell/tray.css);
+@import url(gnome-shell/calendar-popover.css);
+@import url(gnome-shell/volume-popover.css);
+@import url(gnome-shell/a11y-fedora.css);
+@import url(gnome-workstation.css);
+@import url(gnome-shell/overview.css?v=20260607);
+@import url(gnome-shell/workspaces.css);
+@import url(gnome-shell/desktop-context-menu.css);
+@import url(./a11y-overrides.css?v=scaffold);

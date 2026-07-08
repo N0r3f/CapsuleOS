@@ -1,0 +1,106 @@
+/**
+ * Layout global Pop!_OS - fond nébuleuse, stage plein écran, raccourcis bureau.
+ */
+body#popos {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--popos-shell-text);
+    background: var(--popos-desktop-bg);
+}
+
+body#popos.cosmic-launcher-open,
+body#popos.cosmic-apps-open {
+    overflow: hidden;
+}
+
+body#popos .cosmic-stage {
+    position: fixed;
+    inset: var(--popos-top-bar-height) 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+body#popos #desktop {
+    position: relative;
+    flex: 1;
+    display: block;
+    width: 100%;
+    min-height: 0;
+    border: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+body#popos #desktop .desktop-shortcut,
+body#popos #desktop .windowElement {
+    pointer-events: auto;
+}
+
+body#popos .desktop-shortcut {
+    position: absolute;
+    top: calc(var(--head) * 0.5);
+    left: calc(var(--head) * 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--head) / 6);
+    width: calc(var(--head) * 4.2);
+    padding: calc(var(--head) / 5);
+    border: 1px solid transparent;
+    border-radius: var(--popos-panel-radius);
+    color: var(--desktop-shortcut-text);
+    text-decoration: none;
+    text-align: center;
+    font-size: calc(var(--head) / 2.8);
+    line-height: 1.25;
+    text-shadow: var(--desktop-shortcut-shadow);
+    transition: background-color var(--eas2), border-color var(--eas2);
+}
+
+body#popos .desktop-shortcut:hover {
+    background: var(--desktop-shortcut-hover-bg);
+    border-color: var(--popos-shell-border-soft);
+}
+
+body#popos .desktop-shortcut img {
+    width: calc(var(--head) * 1.5);
+    height: calc(var(--head) * 1.5);
+    object-fit: contain;
+}
+
+/* Launcher / Applications : bloquer clics bureau, barre, dock (sans voile visuel) */
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .cosmic-top-bar,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .cosmic-dock,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .windowElement,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) .desktop-shortcut,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .cosmic-top-bar,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .cosmic-dock,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .windowElement,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) .desktop-shortcut {
+    pointer-events: none;
+}
+
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) #cosmic-dock-launcher,
+body#popos.cosmic-launcher-open:not(.cosmic-workspaces-open) #cosmic-dock-applications,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) #cosmic-dock-launcher,
+body#popos.cosmic-apps-open:not(.cosmic-workspaces-open) #cosmic-dock-applications {
+    pointer-events: auto;
+    position: relative;
+    z-index: 225;
+}
+
+body#popos .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
