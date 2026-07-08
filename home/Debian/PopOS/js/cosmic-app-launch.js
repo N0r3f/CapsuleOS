@@ -1,6 +1,7 @@
 /**
  * Lancement d’apps Pop!_OS - partagé launcher / Applications.
  */
+'use strict';
 (function (global) {
     function open(link) {
         if (!link) {

@@ -1,63 +1,213 @@
 /**
- * Calculatrice GNOME — Linux Mint Cinnamon (Mint-Y-Dark-Aqua).
+ * Calculatrice GNOME — Linux Mint Cinnamon.
+ * Sources primaires (extraction GTK CSS via SSH VM 192.168.1.70, 2026-07-01) :
+ *   /usr/share/themes/Mint-Y-Blue/gtk-3.0/gtk.css          → thème clair
+ *   /usr/share/themes/Mint-Y-Dark-Aqua/gtk-3.0/gtk.css     → thème sombre
+ *   gresource /usr/bin/gnome-calculator calculator.css      → CSS embarqué app
+ * gnome-calculator 1:41.1+mint1+wilma — boutons = styles GTK natifs, pas de CSS propre.
+ * suggested-action (=) : #6DB442 · destructive-action (←) : #F04A50.
+ * 5 modes réels (popover) : Basique, Avancé, Financier, Programmation, Clavier.
+ * Dimensions visibles mesurées (capture VM light, hors marge CSD X11) :
+ *   Basique 360×486 · Avancé 680×539 · Financier 680×539 · Programmation 680×659.
  */
+
+/* Thème sombre (Mint-Y-Dark-Aqua) — défaut CapsuleOS Mint (themes.js : bodyId==='mint' → 'dark')
+   Valeurs sources : button.bg=#333338 · button:hover.bg=#3f3f46 · button.border=#202023
+   headerbar.bg=#222226 · headerbar.border=#18181b · headerbar.shadow=#373737
+   theme_bg_color=#2e2e33 · accent_color=#1f9ede */
 body#mint {
-    --gnome-calc-bg: #1e1e1e;
-    --gnome-calc-fn-bg: #3d3d3d;
-    --gnome-calc-key-bg: #303030;
-    --gnome-calc-op-bg: #ff7800;
-    --gnome-calc-text: #ffffff;
-    --gnome-calc-expr: rgba(255, 255, 255, 0.55);
+    --gnome-calc-bg:             #2e2e33;
+    --gnome-calc-header-bg:      #222226;
+    --gnome-calc-header-border:  #18181b;
+    --gnome-calc-header-shadow:  #373737;
+    --gnome-calc-fn-bg:          #333338;
+    --gnome-calc-key-bg:         #333338;
+    --gnome-calc-key-hover-bg:   #3f3f46;
+    --gnome-calc-key-border:     #202023;
+    --gnome-calc-op-bg:          #333338;
+    --gnome-calc-op-active-bg:   #1f9ede;
+    --gnome-calc-eq-bg:          #6DB442;
+    --gnome-calc-text:           rgba(255, 255, 255, 0.87);
+    --gnome-calc-expr:           rgba(255, 255, 255, 0.55);
+    --gnome-calc-accent:         #1f9ede;
 }
 
+/* Thème clair (Mint-Y-Blue) — ground truth VM
+   Valeurs sources : button.bg=#fefefe · button:hover.bg=#ffffff · button.border=#c8c8ce
+   headerbar.bg=#ebebed · headerbar.border=#bdbdbd · headerbar.shadow=#eeeeee
+   theme_bg_color=#f8f8f9 · accent_color=#0c75de
+   Nota : toutes les touches (digit, opérateur, fx) ont le même bg dans GTK Mint-Y (#fefefe). */
 html[data-theme="light"] body#mint {
-    --gnome-calc-bg: #fafafa;
-    --gnome-calc-fn-bg: #e8e8e8;
-    --gnome-calc-key-bg: #ffffff;
-    --gnome-calc-op-bg: #ff7800;
-    --gnome-calc-text: #1e1e1e;
-    --gnome-calc-expr: rgba(0, 0, 0, 0.45);
+    --gnome-calc-bg:             #f8f8f9;
+    --gnome-calc-header-bg:      #ebebed;
+    --gnome-calc-header-border:  #bdbdbd;
+    --gnome-calc-header-shadow:  #eeeeee;
+    --gnome-calc-fn-bg:          #fefefe;
+    --gnome-calc-key-bg:         #fefefe;
+    --gnome-calc-key-hover-bg:   #ffffff;
+    --gnome-calc-key-border:     #c8c8ce;
+    --gnome-calc-op-bg:          #fefefe;
+    --gnome-calc-op-active-bg:   #0c75de;
+    --gnome-calc-eq-bg:          #6DB442;
+    --gnome-calc-text:           rgba(0, 0, 0, 0.87);
+    --gnome-calc-expr:           rgba(0, 0, 0, 0.45);
+    --gnome-calc-accent:         #0c75de;
 }
 
-body#mint div[data-link="calculator"].windowElement {
-    width: calc(var(--head) * 7.8);
-    min-width: calc(var(--head) * 7.2);
-    max-width: calc(var(--head) * 8.5);
-    height: calc(var(--head) * 12.5);
-    min-height: calc(var(--head) * 11);
-}
-
-body#mint div[data-link="calculator"] #windowHeader {
-    background: var(--gnome-calc-bg);
-    border-bottom: 1px solid var(--menu-shell-border);
-}
-
-body#mint div[data-link="calculator"] #windowTitle {
-    color: var(--gnome-calc-text);
-}
+/* Dimensions par mode : --win-calculator-* (variables-linux.css, ouverture) + calculator.js
+   (applyMintWindowSize, changement de mode) — l'inline style posé par windowContainer.js
+   prime toujours sur une règle CSS externe, la taille ne peut donc pas être pilotée ici. */
 
 body#mint main#gnomeCalculatorApp {
     color: var(--gnome-calc-text);
     background: var(--gnome-calc-bg);
 }
 
-body#mint .gnome-calc__mode:hover {
-    background: var(--menu-item-active-bg);
+/* Bouton Annuler (flat button accent GTK3) */
+body#mint .gnome-calc__cancel {
+    color: var(--gnome-calc-accent);
 }
 
-body#mint .gnome-calc__expr {
-    color: var(--gnome-calc-expr);
+/* Headerbar GTK3 CSD — fond, séparateur et reflet intérieur (inset shadow)
+   Source : headerbar { background-color / border-color / box-shadow } dans gtk.css */
+body#mint .windowElement[data-link="calculator"] .gnome-calc__header {
+    background: var(--gnome-calc-header-bg);
+    border-bottom: 1px solid var(--gnome-calc-header-border);
+    box-shadow: inset 0 1px var(--gnome-calc-header-shadow);
 }
 
+/* Hover boutons headerbar (mode + hamburger) */
+body#mint .gnome-calc__mode:hover,
+body#mint .gnome-calc__icon-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] body#mint .gnome-calc__mode:hover,
+html[data-theme="light"] body#mint .gnome-calc__icon-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* Popovers mode et menu hamburger */
+body#mint .gnome-calc__mode-popover,
+body#mint .gnome-calc__menu-popover {
+    border-color: var(--gnome-calc-key-border);
+    background: var(--gnome-calc-key-bg);
+    color: var(--gnome-calc-text);
+}
+
+/* Hover options dans les popovers */
+body#mint .gnome-calc__mode-option:hover,
+body#mint .gnome-calc__menu-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] body#mint .gnome-calc__mode-option:hover,
+html[data-theme="light"] body#mint .gnome-calc__menu-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* Radio sélecteur de mode */
+body#mint .gnome-calc__mode-radio {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+html[data-theme="light"] body#mint .gnome-calc__mode-radio {
+    border-color: rgba(0, 0, 0, 0.35);
+}
+
+/* Touches du pavé — même bg pour digit, fx, opérateur (parité GTK Mint-Y)
+   Source : button { background-color } — aucune distinction de classe dans gtk.css */
 body#mint .gnome-calc__key {
-    border-color: transparent;
+    border-color: var(--gnome-calc-key-border);
     color: var(--gnome-calc-text);
 }
 
-body#mint .gnome-calc__key--fn {
+body#mint .gnome-calc__key:hover {
+    background: var(--gnome-calc-key-hover-bg);
+}
+
+body#mint .gnome-calc__key--fn,
+body#mint .gnome-calc__key--hex {
     color: var(--gnome-calc-text);
 }
 
-html[data-theme="light"] body#mint .gnome-calc__key {
-    border-color: rgba(0, 0, 0, 0.06);
+/* Sélecteurs d'unités et grille bits */
+body#mint .gnome-calc__unit-select,
+body#mint .gnome-calc__unit-swap,
+body#mint .gnome-calc__bit-grid {
+    border-color: var(--gnome-calc-key-border);
+}
+
+/* Bouton backspace — destructive-action GTK, identique sombre/clair
+   Source : button.destructive-action { background-color: #F04A50 / hover: #f4797e } */
+body#mint .gnome-calc__key--clear {
+    background: #F04A50;
+    border-color: #F04A50;
+    color: #ffffff;
+}
+
+body#mint .gnome-calc__key--clear:hover {
+    background: #f4797e;
+    border-color: #f4797e;
+}
+
+/* CSD — fusion chrome Muffin + headerbar GTK (ligne unique, calculatrice Mint uniquement)
+   Le #windowHeader Cinnamon (32 px) est collapsé ; ses boutons WM flottent
+   par-dessus .gnome-calc__header via position absolute, reproduisant la barre
+   CSD unique de gnome-calculator GTK3 en VM (Annuler · Basique · ≡ · −□×).
+   Spécificité délibérément majorée ([data-window-chrome-toolkit] + :not(#mainMenu))
+   pour primer sur cinnamon-window-chrome.css (0,3,2,1 → 0,3,3,1). */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"][data-link="calculator"]:not(#mainMenu) > #windowHeader {
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    border-bottom: none;
+    background: transparent;
+    overflow: visible;
+}
+
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"][data-link="calculator"]:not(#mainMenu) > #windowHeader > nav:first-child,
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"][data-link="calculator"]:not(#mainMenu) > #windowHeader > #windowTitle {
+    display: none;
+}
+
+/* Boutons WM (−□×) flottent à droite dans la hauteur du headerbar GTK */
+body#mint .windowElement[data-window-chrome-toolkit="cinnamon"][data-link="calculator"]:not(#mainMenu) > #windowHeader > nav:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: var(--gnome-adw-headerbar-h, 2.875rem);
+    padding-right: calc(var(--head) / 20);
+    overflow: visible;
+    z-index: 10;
+}
+
+/* Réserve l'espace à droite du header pour les boutons WM flottants ;
+   position: relative permet au mode-wrap de se centrer sur toute la largeur.
+   Le background/border du header est géré par la règle .gnome-calc__header ci-dessus. */
+body#mint .windowElement[data-link="calculator"] .gnome-calc__header {
+    position: relative;
+    padding-right: calc(3 * var(--mint-muffin-control-size) + var(--head) / 2);
+}
+
+/* Titre/mode centré sur la largeur totale du chrome (parité GtkHeaderBar).
+   grid-column: auto est nécessaire : avec grid-column: 2 explicite (base CSS),
+   CSS Grid utilise la zone de la colonne 2 comme containing block pour left%,
+   pas la largeur totale du header — grid-column: auto rétablit le padding-box. */
+body#mint .windowElement[data-link="calculator"] .gnome-calc__mode-wrap {
+    position: absolute;
+    grid-column: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Curseur glisser sur la zone non-bouton du headerbar GTK */
+body#mint .windowElement[data-link="calculator"] .gnome-calc__header[data-window-drag-handle] {
+    cursor: grab;
+}
+
+body#mint .windowElement[data-link="calculator"] .gnome-calc__header[data-window-drag-handle]:active {
+    cursor: grabbing;
 }

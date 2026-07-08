@@ -2,6 +2,7 @@
  * Dolphin : recherche, aperçu (toggle), vue scindée.
  * S’appuie sur fileExplorerState / fileExplorerCore.js (template `dolphin`).
  */
+'use strict';
 (function initFileExplorerDolphin() {
     const getState = () => window.fileExplorerState || null;
 

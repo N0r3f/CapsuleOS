@@ -1,3 +1,4 @@
+'use strict';
 window.CAPSULE_DISTRO_PROFILE = {
     name: 'Rocky Linux',
     version: '10 — GNOME',

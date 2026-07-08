@@ -1,6 +1,7 @@
 /**
  * État overlays shell Cosmic - mutual exclusion launcher / apps / workspaces rail.
  */
+'use strict';
 (function (global) {
     var body = document.body;
     var BUILD_REV = '20260622';

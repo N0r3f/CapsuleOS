@@ -3,15 +3,15 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:155ffd36-eb4c-4b30-a56f-2140cecbcb1a",
+  "serialNumber": "urn:uuid:c759d7f8-4249-4648-bb2a-c6744c54d90a",
   "metadata": {
-    "timestamp": "2026-06-21T11:26:48.958Z",
+    "timestamp": "2026-06-23T14:29:02.543Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "name": "npm",
-          "version": "10.8.2"
+          "version": "10.9.8"
         },
         {
           "type": "application",
@@ -106,19 +106,19 @@
       "externalReferences": [
         {
           "type": "website",
-          "url": "https://github.com/N0r3f/CapsuleOS"
+          "url": "https://os.lacapsule.org"
         },
         {
           "type": "vcs",
-          "url": "https://github.com/N0r3f/CapsuleOS.git"
+          "url": "file:///srv/#TEAM/lacapsule-git/lacapsule-git/CapsuleOS.git"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/N0r3f/CapsuleOS/issues"
+          "url": "https://os.lacapsule.org"
         },
         {
           "type": "documentation",
-          "url": "https://github.com/N0r3f/CapsuleOS/blob/main/SECURITY.md"
+          "url": "https://os.lacapsule.org/SECURITY.md"
         }
       ]
     },
@@ -217,6 +217,43 @@
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@cyclonedx/cyclonedx-npm"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fontawesome-free",
+      "group": "@fortawesome",
+      "version": "6.7.2",
+      "bom-ref": "capsuleos|@fortawesome/fontawesome-free@6.7.2",
+      "licenses": [
+        {
+          "expression": "(CC-BY-4.0 AND OFL-1.1 AND MIT)",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/%40fortawesome/fontawesome-free@6.7.2",
+      "externalReferences": [
+        {
+          "url": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.7.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2543ad8055ba93dbb863ec5e21a1222ebdfe723a143e202e2d7a3228e25289ae83bb36fba6af80efa3fd65d3c3a00a311dd1f3aba804f7f8ca0465e5653f056c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@fortawesome/fontawesome-free"
         }
       ]
     },
@@ -8399,6 +8436,7 @@
       "dependsOn": [
         "capsuleos|@axe-core/playwright@4.11.3",
         "capsuleos|@cyclonedx/cyclonedx-npm@5.0.0",
+        "capsuleos|@fortawesome/fontawesome-free@6.7.2",
         "capsuleos|pixelmatch@7.2.0",
         "capsuleos|playwright@1.60.0",
         "capsuleos|pngjs@7.0.0",
@@ -8426,6 +8464,9 @@
         "capsuleos|spdx-expression-parse@4.0.0",
         "capsuleos|xmlbuilder2@4.0.3"
       ]
+    },
+    {
+      "ref": "capsuleos|@fortawesome/fontawesome-free@6.7.2"
     },
     {
       "ref": "capsuleos|pixelmatch@7.2.0",

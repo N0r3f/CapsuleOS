@@ -56,6 +56,11 @@ html:has(#fedora) {
     --fedora-window-control-close-hover-bg: rgba(255, 255, 255, 0.2);
     --fedora-app-surface: #202024;
     --fedora-app-terminal-surface: #1d1d20;
+    --fedora-terminal-dark-surface: #241f31;
+    --fedora-terminal-dark-header: #2b2b30;
+    --fedora-terminal-dark-border: #1f1f24;
+    --fedora-terminal-dark-text: #f1f1f3;
+    --fedora-terminal-dark-control: #f6f7f9;
     --fedora-app-header-bg: #34343a;
     --fedora-app-header-alt-bg: #2b2b30;
     --fedora-app-header-active-bg: #46464d;

@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par generate-anduin-menu-data.mjs — ne pas éditer à la main */
 /**
  * AnduinOS — favoris menu Démarrer (grille 6×4, ordre VM).

@@ -2,6 +2,7 @@
  * Registre central des commandes terminal.
  * La disponibilité finale est filtrée par profil actif (OS + distro).
  */
+'use strict';
 (function initTerminalCommandRegistry() {
     const registry = {
         help: {

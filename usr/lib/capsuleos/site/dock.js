@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajouter un écouteur d'événements pour chaque image
     images.forEach(function (img) {
+        'use strict';
+
         img.addEventListener('mouseover', function () {
             // Trouver les images adjacentes
             const prevImg = img.previousElementSibling;

@@ -1,3 +1,4 @@
+'use strict';
 function updateWin95Clock() {
     const el = document.getElementById('heure-date');
     if (!el) {

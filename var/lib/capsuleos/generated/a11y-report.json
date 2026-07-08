@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-22T15:00:05.075Z",
+  "generatedAt": "2026-07-03T08:41:29.210Z",
   "contract": "etc/capsuleos/contracts/a11y-scan-targets.json",
   "p10OptIn": true,
   "targets": [
@@ -9,7 +9,7 @@
       "url": "http://127.0.0.1:9876/index.html",
       "violations": [],
       "warnings": [],
-      "passes": 22
+      "passes": 24
     },
     {
       "id": "linux-mint-p0",

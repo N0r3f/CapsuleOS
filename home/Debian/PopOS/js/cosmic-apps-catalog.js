@@ -1,6 +1,7 @@
 /**
  * Catalogue apps Pop!_OS - lu depuis #cosmic-applications-grid (icônes overview/).
  */
+'use strict';
 (function (global) {
     var entries = [];
     var ready = false;

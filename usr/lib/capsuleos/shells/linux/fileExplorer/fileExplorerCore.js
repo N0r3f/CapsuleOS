@@ -3061,6 +3061,8 @@ window.refreshFileExplorerDirectory = function refreshFileExplorerDirectory() {
 };
 
 (function bindCapsuleFsChangedListener() {
+    'use strict';
+
     if (typeof window === 'undefined' || window.__capsuleFsChangedBound) {
         return;
     }

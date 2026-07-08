@@ -1,6 +1,7 @@
 /**
  * Rail workspaces + bouton barre « Workspaces » (workspace.png - sans blur bureau).
  */
+'use strict';
 (function () {
     var btnWorkspaces = document.getElementById('cosmic-btn-workspaces');
     var dockWorkspaces = document.getElementById('cosmic-dock-workspaces');

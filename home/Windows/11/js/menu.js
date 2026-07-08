@@ -1,3 +1,4 @@
+'use strict';
 const menu = document.querySelector('i img');
 const display = document.getElementById('menu');
 

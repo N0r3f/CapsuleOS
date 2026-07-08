@@ -42,47 +42,15 @@
         }
     }
 
-    function hasOpenWindows() {
-        var list = global.document.querySelectorAll('#desktop > .windowElement[data-link]');
-        var i;
-        for (i = 0; i < list.length; i += 1) {
-            var w = list[i];
-            if (w.id === 'mainMenu' || w.dataset.link === 'mainMenu') {
-                continue;
-            }
-            if (w.style.display !== 'none') {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    function hasPendingNotifications() {
-        var list = global.document.getElementById('mint-notifications-list');
-        if (!list) {
-            return false;
-        }
-        return list.querySelector('.mint-notification-item') !== null;
-    }
-
     function applyIdleTray() {
         if (!isMint()) {
             return;
         }
-        var busyDesktop = hasOpenWindows();
-        if (busyDesktop) {
-            global.document.body.setAttribute('data-panel-busy', 'true');
-        } else {
-            global.document.body.removeAttribute('data-panel-busy');
-        }
+        /* VM ground truth : ces applets n'ont pas de service actif dans le clone —
+           rester masqués en permanence, indépendamment des fenêtres ouvertes. */
         IDLE_HIDDEN.forEach(function hide(sel) {
-            setIdleHidden(sel, !busyDesktop);
+            setIdleHidden(sel, true);
         });
-        if (!busyDesktop && !hasPendingNotifications()) {
-            setIdleHidden('#tray-btn-notifications', true);
-        } else if (hasPendingNotifications()) {
-            setIdleHidden('#tray-btn-notifications', false);
-        }
         global.document.dispatchEvent(new CustomEvent('capsule:mint-tray-idle-applied'));
     }
 
@@ -91,16 +59,6 @@
             return;
         }
         applyIdleTray();
-        [
-            'capsule:window-opened',
-            'capsule:window-closed',
-            'capsule:window-hidden',
-            'capsule:applet-visibility-changed',
-            'capsule:cinnamon-gsettings-changed',
-        ].forEach(function (eventName) {
-            global.document.addEventListener(eventName, applyIdleTray);
-        });
-        global.addEventListener('resize', applyIdleTray);
     }
 
     if (global.document) {

@@ -6,85 +6,33 @@ body#mint div[data-link="mintinstall"].windowElement {
     min-height: var(--win-mintinstall-min-height);
 }
 
-/* Thème clair explicite */
-html[data-theme="light"] body#mint main#mintInstallApp {
-    background: #f6f6f6;
+/* Thème Mint-Y-Blue — GTK light (ground truth VM 2026-06-30) */
+body#mint main#mintInstallApp {
+    background: #f8f8f9;
     color: #222;
 }
 
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__sidebar.mintinstall-sidebar {
+body#mint main#mintInstallApp .mi-app__sidebar.mintinstall-sidebar {
     background: #ececec;
     border-right: 1px solid #d4d4d4;
 }
 
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__header {
+body#mint main#mintInstallApp .mi-app__header {
     background: #fafafa;
     border-bottom: 1px solid #d8d8d8;
 }
 
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__search {
+body#mint main#mintInstallApp .mi-app__search {
     background: #fff;
     border: 1px solid #c8c8c8;
 }
 
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__spotlight-card,
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__home-cat,
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__top-rated-card,
-html[data-theme="light"] body#mint main#mintInstallApp .mi-app__discover-card {
+body#mint main#mintInstallApp .mi-app__spotlight-card,
+body#mint main#mintInstallApp .mi-app__home-cat,
+body#mint main#mintInstallApp .mi-app__top-rated-card,
+body#mint main#mintInstallApp .mi-app__discover-card {
     background: #fff;
     border-color: #d0d0d0;
-}
-
-/* Thème sombre Mint-Y-Dark (défaut desktop Mint) */
-html:not([data-theme="light"]) body#mint main#mintInstallApp {
-    background: #2f2f2f;
-    color: #e8e8e8;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__header {
-    background: #383838;
-    border-bottom: 1px solid #454545;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__search {
-    background: #2a2a2a;
-    border: 1px solid #555;
-    color: #eee;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__sidebar.mintinstall-sidebar {
-    background: #333;
-    border-right: 1px solid #454545;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__cat:hover,
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__cat.is-active {
-    background: rgba(31, 158, 222, 0.22);
-    color: #7ec8f0;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__spotlight-card,
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__home-cat,
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__top-rated-card,
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__discover-card {
-    background: #3a3a3a;
-    border-color: #4a4a4a;
-    color: #e8e8e8;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__list-item {
-    border-bottom-color: #454545;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__status {
-    background: #333;
-    border-top-color: #454545;
-}
-
-html:not([data-theme="light"]) body#mint main#mintInstallApp .mi-app__menu {
-    background: #3a3a3a;
-    border-color: #555;
-    color: #eee;
 }
 
 body#mint main#mintInstallApp .mi-app__search-wrap.mintinstall-search {
@@ -97,7 +45,7 @@ body#mint main#mintInstallApp .mi-app__search {
 }
 
 body#mint main#mintInstallApp .mi-app__install.is-open {
-    background: #1f9ede;
+    background: #0c75de;
     border-color: #1889c4;
     color: #fff;
 }
@@ -147,7 +95,7 @@ body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__section-title {
 }
 
 body#mint main#mintInstallApp.mi-app--layout-vm84 .mi-app__home-cat img {
-    filter: brightness(0) invert(1);
+    filter: none;
     opacity: 0.92;
 }
 

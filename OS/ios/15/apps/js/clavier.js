@@ -1,3 +1,4 @@
+'use strict';
 // Sélectionnez tous les éléments <a> qui contiennent des éléments <p> avec la classe.number
 var anchorElements = document.querySelectorAll('a');
 

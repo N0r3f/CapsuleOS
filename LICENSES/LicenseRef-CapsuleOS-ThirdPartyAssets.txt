@@ -1,8 +1,0 @@
-Third-party assets — CapsuleOS
-
-Files under usr/share/capsuleos/assets/ are ground-truth media cloned from reference
-VMs or supplied by upstream vendors (logos, icons, fonts, wallpapers).
-
-They are NOT authored by the CapsuleOS contributors and are NOT licensed under
-GPL-3.0-or-later as project code. See LICENSE.md § « Assets tiers » and
-root/docs/politique-assets.md for traceability (SOURCE-VM.txt, vendor paths).

@@ -2,6 +2,7 @@
  * Pop!_OS - dock pilule → barre quand une fenêtre est maximisée.
  * Fenêtres dans #desktop : absolute inset 0 (pas fixed + rect #desktop viewport).
  */
+'use strict';
 (function (global) {
     var body = document.body;
     if (!body || body.id !== 'popos') {

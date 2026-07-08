@@ -1,6 +1,7 @@
 /**
  * openSUSE Tumbleweed - thème Plasma clair unique (réf. desk.png).
  */
+'use strict';
 (function lockOpensuseLightTheme() {
     if (!document.body || document.body.id !== 'opensuse') {
         return;

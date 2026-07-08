@@ -1,3 +1,4 @@
+'use strict';
 function splitCommand(command) {
     return String(command || '').trim().split(/\s+/).filter(Boolean);
 }

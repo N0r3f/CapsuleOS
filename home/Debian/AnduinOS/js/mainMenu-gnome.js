@@ -1,6 +1,7 @@
 /**
  * AnduinOS — Menu Démarrer GNOME (favoris + recherche).
  */
+'use strict';
 function initMainMenuGnome() {
     if (!document.body || document.body.id !== 'anduinos') {
         return;

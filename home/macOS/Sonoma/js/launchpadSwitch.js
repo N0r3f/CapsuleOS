@@ -1,3 +1,4 @@
+'use strict';
 // Sélectionner les éléments
 const padContainer = document.querySelector('.padContainer');
 const pad1 = document.querySelector('.pad_1');

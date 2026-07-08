@@ -1,6 +1,7 @@
 /**
  * Menu Démarrer — toggle visibilité #menu.
  */
+'use strict';
 (function () {
     const menuTrigger = document.querySelector('footer menu .taskbar-start, footer menu i.taskbar-start');
     const display = document.getElementById('menu');

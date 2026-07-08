@@ -1,3 +1,4 @@
+'use strict';
 (() => {
     if (!document.body || document.body.id !== 'debian-kde') {
         return;

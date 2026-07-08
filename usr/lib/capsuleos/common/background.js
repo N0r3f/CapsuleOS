@@ -2,6 +2,7 @@
  * Animation de fond portail CapsuleOS (homepage).
  * Couleurs alignées sur --bleu / --violet (themes/global).
  */
+'use strict';
 const colorStart = { r: 17, g: 17, b: 45 };
 const colorEnd = { r: 10, g: 10, b: 48 };
 

@@ -745,5 +745,11 @@
         DISPLAY_SCALE_KEYS: DISPLAY_SCALE_KEYS,
         GNOME_BODY_IDS: GNOME_BODY_IDS,
         COSMIC_BODY_IDS: COSMIC_BODY_IDS,
+        getProfileDefaultTheme: function getProfileDefaultTheme(bid) {
+            var profiles = global.CAPSULE_SKIN_PROFILES || {};
+            var id = global.CAPSULE_SKIN_PROFILE_ID || '';
+            var p = profiles[id] || profiles[bid] || null;
+            return p && p.defaultTheme ? p.defaultTheme : null;
+        },
     };
 }(typeof window !== 'undefined' ? window : globalThis));

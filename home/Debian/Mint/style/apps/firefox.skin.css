@@ -1,84 +1,103 @@
 /**
- * Firefox — Linux Mint Cinnamon (VM 151, browser.tabs.inTitlebar=0).
- * Barre de titre Muffin (#windowHeader) séparée, chrome Proton en dessous.
+ * Firefox — Linux Mint 22 Cinnamon · Mint-Y-Blue GTK3.
+ * Ground truth VM 192.168.1.70, 2026-07-06 (Pillow pixel sampling F02-baseline-normal.png).
+ * browser.tabs.inTitlebar=0. Clair = valeurs mesurées VM ; sombre = palette
+ * Proton officielle Firefox (VM non capturée en dark). Bascule via html[data-theme].
  */
 body#mint {
     --firefox-bg-main: #1c1b22;
-    --firefox-bg-accent-1: rgba(31, 158, 222, 0.08);
-    --firefox-bg-accent-2: rgba(255, 125, 67, 0.06);
-    --firefox-text-main: var(--texte);
-    --firefox-chrome-border: 1px solid var(--menu-shell-border);
-    --firefox-chrome-bg: #2b2a33;
+    --firefox-bg-accent-1: rgba(31, 158, 222, 0.06);
+    --firefox-bg-accent-2: rgba(255, 125, 67, 0.04);
+    --firefox-text-main: #fbfbfe;
+    --firefox-chrome-border: 1px solid #34343e;
+    --firefox-chrome-bg: #1c1b22;
     --firefox-tabs-bg: #1c1b22;
-    --firefox-tabs-border: 1px solid var(--menu-shell-border);
+    --firefox-tabs-border: 1px solid #34343e;
     --firefox-tab-border: 1px solid transparent;
-    --firefox-tab-bg: #2b2a33;
-    --firefox-tab-text: #b1b1b3;
-    --firefox-tab-hover-bg: #35363c;
-    --firefox-tab-active-text: var(--texte);
+    --firefox-tab-bg: transparent;
+    --firefox-tab-text: rgba(251, 251, 254, 0.65);
+    --firefox-tab-hover-bg: rgba(255, 255, 255, 0.04);
+    --firefox-tab-active-text: #fbfbfe;
     --firefox-tab-active-bg: #42414d;
-    --firefox-tab-close: rgba(225, 225, 225, 0.55);
+    --firefox-tab-close: rgba(251, 251, 254, 0.65);
     --firefox-toolbar-bg: #2b2a33;
-    --firefox-toolbar-border: 1px solid var(--menu-shell-border);
-    --firefox-toolbar-top-border: var(--menu-shell-border);
-    --firefox-btn-text: var(--texte);
-    --firefox-hover-soft: var(--mint-window-control-bg-hover);
-    --firefox-address-border: 1px solid #5e5c64;
+    --firefox-toolbar-border: 1px solid #34343e;
+    --firefox-toolbar-top-border: #34343e;
+    --firefox-menu-bg: #2b2a33;
+    --firefox-menu-text-muted: rgba(251, 251, 254, 0.5);
+    --firefox-menu-separator: #34343e;
+    --firefox-menu-header-btn-bg: rgba(255, 255, 255, 0.06);
+    --firefox-btn-text: #fbfbfe;
+    --firefox-hover-soft: rgba(255, 255, 255, 0.08);
+    --firefox-address-border: 1px solid #434250;
     --firefox-address-bg: #42414d;
-    --firefox-address-text: var(--texte);
-    --firefox-address-placeholder: rgba(225, 225, 225, 0.45);
+    --firefox-address-text: #fbfbfe;
+    --firefox-address-placeholder: rgba(251, 251, 254, 0.55);
     --firefox-bookmarks-bg: #2b2a33;
-    --firefox-bookmark-text: var(--texte);
-    --firefox-bookmark-primary-bg: rgba(31, 158, 222, 0.22);
-    --firefox-bookmark-primary-text: var(--texte);
+    --firefox-bookmark-text: #fbfbfe;
+    --firefox-bookmark-primary-bg: rgba(12, 117, 222, 0.24);
+    --firefox-bookmark-primary-text: #fbfbfe;
     --firefox-frame-bg: #1c1b22;
-    --firefox-home-card-bg: #2e2e33;
-    --firefox-home-card-border: 1px solid var(--menu-shell-border);
+    --firefox-home-card-bg: #2b2a33;
+    --firefox-home-card-border: 1px solid rgba(255, 255, 255, 0.06);
     --firefox-home-label: var(--menu-accent);
-    --firefox-home-title: var(--texte);
-    --firefox-home-lead: #b1b1b3;
-    --firefox-home-panel-bg: rgba(39, 39, 43, 0.92);
-    --firefox-home-panel-border: 1px solid var(--menu-shell-border);
-    --firefox-home-shortcut-bg: #303036;
-    --firefox-home-shortcut-title: var(--texte);
-    --firefox-home-shortcut-text: #b1b1b3;
+    --firefox-home-title: #fbfbfe;
+    --firefox-home-lead: rgba(251, 251, 254, 0.7);
+    --firefox-home-panel-bg: rgba(30, 29, 36, 0.96);
+    --firefox-home-panel-border: 1px solid #34343e;
+    --firefox-home-shortcut-bg: #2b2a33;
+    --firefox-home-shortcut-title: #fbfbfe;
+    --firefox-home-shortcut-text: rgba(251, 251, 254, 0.7);
     --firefox-newtab-bg: #1c1b22;
     --firefox-newtab-search-bg: #42414d;
-    --firefox-newtab-search-border: 1px solid #5e5c64;
-    --firefox-newtab-shortcut-bg: #303036;
-    --firefox-newtab-shortcut-text: var(--texte);
+    --firefox-newtab-search-border: 1px solid #434250;
+    --firefox-newtab-shortcut-bg: #2b2a33;
+    --firefox-newtab-shortcut-text: #fbfbfe;
     --firefox-newtab-logo-color: #ff7139;
 }
 
 html[data-theme="light"] body#mint {
     --firefox-bg-main: #f9f9fb;
-    --firefox-bg-accent-1: rgba(31, 158, 222, 0.06);
-    --firefox-bg-accent-2: rgba(255, 125, 67, 0.04);
+    --firefox-text-main: #15141a;
+    --firefox-chrome-border: 1px solid rgba(0, 0, 0, 0.12);
     --firefox-chrome-bg: #f0f0f4;
     --firefox-tabs-bg: #f0f0f4;
-    --firefox-tab-bg: transparent;
+    --firefox-tabs-border: 1px solid rgba(0, 0, 0, 0.12);
     --firefox-tab-text: #5b5b66;
     --firefox-tab-hover-bg: rgba(0, 0, 0, 0.04);
     --firefox-tab-active-text: #15141a;
     --firefox-tab-active-bg: #ffffff;
     --firefox-tab-close: #5b5b66;
-    --firefox-toolbar-bg: #f9f9fb;
+    --firefox-toolbar-bg: #f0f0f4;
+    --firefox-toolbar-border: 1px solid #c8c8ce;
+    --firefox-toolbar-top-border: #c8c8ce;
+    --firefox-menu-bg: #ffffff;
+    --firefox-menu-text-muted: #6d6d77;
+    --firefox-menu-separator: rgba(0, 0, 0, 0.1);
+    --firefox-menu-header-btn-bg: #f0f0f4;
     --firefox-btn-text: #15141a;
-    --firefox-hover-soft: var(--mint-window-control-bg-hover);
-    --firefox-address-border: 1px solid var(--menu-shell-border);
+    --firefox-hover-soft: rgba(0, 0, 0, 0.06);
+    --firefox-address-border: 1px solid rgba(0, 0, 0, 0.16);
     --firefox-address-bg: #ffffff;
     --firefox-address-text: #15141a;
     --firefox-address-placeholder: rgba(21, 20, 26, 0.55);
     --firefox-bookmarks-bg: #f9f9fb;
     --firefox-bookmark-text: #15141a;
+    --firefox-bookmark-primary-bg: rgba(12, 117, 222, 0.12);
+    --firefox-bookmark-primary-text: #15141a;
     --firefox-frame-bg: #f9f9fb;
+    --firefox-home-card-bg: #ffffff;
+    --firefox-home-card-border: 1px solid rgba(0, 0, 0, 0.1);
+    --firefox-home-title: #15141a;
+    --firefox-home-lead: #5b5b66;
     --firefox-home-panel-bg: rgba(255, 255, 255, 0.94);
-    --firefox-home-panel-border: 1px solid var(--menu-shell-border);
+    --firefox-home-panel-border: 1px solid rgba(0, 0, 0, 0.12);
     --firefox-home-shortcut-bg: #ffffff;
-    --firefox-home-shortcut-text: #15141a;
+    --firefox-home-shortcut-title: #15141a;
+    --firefox-home-shortcut-text: #5b5b66;
     --firefox-newtab-bg: #f9f9fb;
     --firefox-newtab-search-bg: #ffffff;
-    --firefox-newtab-search-border: 1px solid var(--menu-shell-border);
+    --firefox-newtab-search-border: 1px solid rgba(0, 0, 0, 0.16);
     --firefox-newtab-shortcut-bg: #ffffff;
     --firefox-newtab-shortcut-text: #15141a;
 }
@@ -87,13 +106,18 @@ body#mint div[data-link="firefox"] .capsule-browser--proton .capsule-browser__ta
     color: var(--firefox-tab-active-text);
     background: var(--firefox-tab-active-bg);
     box-shadow: none;
-    border: 1px solid var(--menu-shell-border);
+    border: 1px solid #34343e;
     border-bottom-color: var(--firefox-toolbar-bg);
     margin-bottom: -1px;
 }
 
+html[data-theme="light"] body#mint div[data-link="firefox"] .capsule-browser--proton .capsule-browser__tab--active {
+    border-color: rgba(0, 0, 0, 0.12);
+    border-bottom-color: var(--firefox-toolbar-bg);
+}
+
 body#mint div[data-link="firefox"] {
-    --firefox-proton-brand-logo: url(../assets/images/vendors/mint/panel/firefox.webp);
+    --firefox-proton-brand-logo: url(../../../../../usr/share/capsuleos/assets/images/vendors/mint/panel/firefox.webp);
     min-width: calc(var(--head) * 24);
     background: var(--firefox-bg-main);
 }
@@ -129,7 +153,7 @@ body#mint div[data-link="firefox"] #windowHeader > nav:first-child::before {
     display: block;
     width: var(--mint-muffin-control-icon-size, 18px);
     height: var(--mint-muffin-control-icon-size, 18px);
-    background: url(../assets/images/vendors/mint/panel/firefox.webp) center / contain no-repeat;
+    background: url(../../../../../usr/share/capsuleos/assets/images/vendors/mint/panel/firefox.webp) center / contain no-repeat;
 }
 
 body#mint div[data-link="firefox"] #windowIframe {
@@ -184,7 +208,7 @@ body#mint div[data-link="firefox"] .capsule-browser__tab:hover {
 
 body#mint div[data-link="firefox"] .capsule-browser__tab-icon--firefox {
     font-size: 0;
-    background: url(../assets/images/vendors/mint/panel/firefox.webp) center / contain no-repeat;
+    background: url(../../../../../usr/share/capsuleos/assets/images/vendors/mint/panel/firefox.webp) center / contain no-repeat;
 }
 
 body#mint div[data-link="firefox"] .capsule-browser__tab-close {
@@ -196,7 +220,7 @@ body#mint div[data-link="firefox"] .capsule-browser__tab-add {
     height: 1.35rem;
     margin-left: 0.15rem;
     border-radius: 0.3rem;
-    color: var(--texte);
+    color: var(--firefox-btn-text);
     font-size: 0.98rem;
 }
 
@@ -217,7 +241,11 @@ body#mint div[data-link="firefox"] .capsule-browser__nav-actions {
     gap: 0.12rem;
     padding-right: 0.28rem;
     margin-right: 0.12rem;
-    border-right: 1px solid var(--menu-shell-border);
+    border-right: 1px solid #34343e;
+}
+
+html[data-theme="light"] body#mint div[data-link="firefox"] .capsule-browser__nav-actions {
+    border-right-color: rgba(0, 0, 0, 0.12);
 }
 
 body#mint div[data-link="firefox"] .capsule-browser__tabs-list {
@@ -245,7 +273,7 @@ body#mint div[data-link="firefox"] .capsule-browser__btn:disabled {
 }
 
 body#mint div[data-link="firefox"] .capsule-browser__btn--active {
-    background: rgba(31, 158, 222, 0.18);
+    background: rgba(12, 117, 222, 0.24);
     border-color: var(--menu-accent);
 }
 
@@ -321,7 +349,7 @@ body#mint div[data-link="firefox"] .capsule-browser__status {
 
 body#mint div[data-link="firefox"] .capsule-browser-newtab__search:focus-within {
     border-color: var(--menu-accent);
-    box-shadow: 0 0 0 1px rgba(31, 158, 222, 0.35);
+    box-shadow: 0 0 0 1px rgba(12, 117, 222, 0.35);
 }
 
 body#mint div[data-link="firefox"] .capsule-browser__btn--icon-back::before,

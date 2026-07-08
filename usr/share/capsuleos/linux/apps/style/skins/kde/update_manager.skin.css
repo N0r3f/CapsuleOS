@@ -114,19 +114,19 @@ main#updateManagerApp.update-manager--kde {
     mask-image: none;
 }
 
-.kde-updates__caticon--all { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-all.svg"); }
-.kde-updates__caticon--accessibility { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/preferences-desktop-accessibility.svg"); }
-.kde-updates__caticon--office { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-office.svg"); }
-.kde-updates__caticon--development { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-development.svg"); }
-.kde-updates__caticon--education { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-education.svg"); }
-.kde-updates__caticon--graphics { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-graphics.svg"); }
-.kde-updates__caticon--internet { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-internet.svg"); }
-.kde-updates__caticon--games { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-games.svg"); }
-.kde-updates__caticon--multimedia { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-multimedia.svg"); }
-.kde-updates__caticon--science { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-science.svg"); }
-.kde-updates__caticon--system { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-system.svg"); }
-.kde-updates__caticon--utilities { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/applications-utilities.svg"); }
-.kde-updates__caticon--addons { background-image: url("../../../../../assets/images/toolkits/kde/discover/categories/preferences-plugin.svg"); }
+.kde-updates__caticon--all { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-all.svg"); }
+.kde-updates__caticon--accessibility { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/preferences-desktop-accessibility.svg"); }
+.kde-updates__caticon--office { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-office.svg"); }
+.kde-updates__caticon--development { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-development.svg"); }
+.kde-updates__caticon--education { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-education.svg"); }
+.kde-updates__caticon--graphics { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-graphics.svg"); }
+.kde-updates__caticon--internet { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-internet.svg"); }
+.kde-updates__caticon--games { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-games.svg"); }
+.kde-updates__caticon--multimedia { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-multimedia.svg"); }
+.kde-updates__caticon--science { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-science.svg"); }
+.kde-updates__caticon--system { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-system.svg"); }
+.kde-updates__caticon--utilities { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-utilities.svg"); }
+.kde-updates__caticon--addons { background-image: url("../../../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/preferences-plugin.svg"); }
 
 .kde-updates__badge {
     display: inline-flex;

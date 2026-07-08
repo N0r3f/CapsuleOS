@@ -1,0 +1,25 @@
+/**
+ * MX-KDE — tokens (couleurs à valeurs littérales).
+ * Importé par style.css.
+ */
+
+html:has(#mx-kde) {
+    --mx-kde-gradient-start: #0f172a;
+    --mx-kde-gradient-mid: #1f3b5d;
+    --mx-kde-gradient-end: #2b5a8e;
+    --desktop-shortcut-text: #eef4ff;
+    --calendar-popover-today-bg: #3daee9;
+    --calendar-popover-today-hover-bg: #4ebaf0;
+    --mx-kde-menu-text: #eff0f1;
+    --mx-kde-menu-search-focus: #3daee9;
+    --mx-kde-window-titlebar-bg: #293446;
+    --mx-kde-window-titlebar-bg-active: #32425b;
+    --mx-kde-window-titlebar-fg: #eff0f1;
+}
+
+html[data-theme="light"] body#mx-kde {
+    --mx-kde-menu-text: #1f2328;
+    --mx-kde-window-titlebar-bg: #f0f4f8;
+    --mx-kde-window-titlebar-bg-active: #e3eaf2;
+    --mx-kde-window-titlebar-fg: #1c2430;
+}

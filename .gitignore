@@ -1,0 +1,14 @@
+# Dépendances locales (optionnel)
+node_modules/
+
+# Portail SQLite (généré en dev)
+var/lib/capsuleos/portal/
+
+# OS / éditeur
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+etc/capsuleos/git-push-token

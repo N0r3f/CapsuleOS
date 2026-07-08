@@ -3,6 +3,7 @@
  * @param {HTMLElement} element
  * @param {{ requireHeader?: boolean }} [options]
  */
+'use strict';
 const makeDraggable = (element, options = {}) => {
     if (typeof CapsuleWindow !== 'undefined' && CapsuleWindow.enableDrag) {
         CapsuleWindow.enableDrag(element, options);

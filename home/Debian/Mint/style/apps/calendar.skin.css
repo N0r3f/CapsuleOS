@@ -1,38 +1,19 @@
 /**
- * Calendrier GNOME — Linux Mint Cinnamon (Mint-Y-Dark-Aqua).
+ * Calendrier GNOME — Linux Mint 22 · Mint-Y-Blue GTK3 light.
  */
 body#mint {
-    --gnome-cal-bg: #1e1e1e;
-    --gnome-cal-surface: #2a2a2e;
-    --gnome-cal-text: #ffffff;
-    --gnome-cal-muted: rgba(255, 255, 255, 0.55);
-    --gnome-cal-border: rgba(255, 255, 255, 0.08);
-    --gnome-cal-today: #1f9ede;
-    --gnome-cal-selected: rgba(31, 158, 222, 0.28);
-}
-
-html[data-theme="light"] body#mint {
     --gnome-cal-bg: #fafafa;
     --gnome-cal-surface: #ffffff;
     --gnome-cal-text: #1e1e1e;
     --gnome-cal-muted: rgba(0, 0, 0, 0.5);
     --gnome-cal-border: rgba(0, 0, 0, 0.1);
-    --gnome-cal-today: #1f9ede;
+    --gnome-cal-today: #0c75de;
     --gnome-cal-selected: rgba(31, 158, 222, 0.2);
 }
 
 body#mint div[data-link="calendar"].windowElement {
     width: min(24rem, calc(100vw - 2rem));
     height: min(30rem, calc(100vh - var(--taskbar-height) - 2rem));
-}
-
-body#mint div[data-link="calendar"] #windowHeader {
-    background: var(--gnome-cal-bg);
-    border-bottom: 1px solid var(--menu-shell-border);
-}
-
-body#mint div[data-link="calendar"] #windowTitle {
-    color: var(--gnome-cal-text);
 }
 
 body#mint main#gnomeCalendarApp {

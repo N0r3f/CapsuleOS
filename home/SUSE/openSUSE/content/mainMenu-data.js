@@ -1,3 +1,4 @@
+'use strict';
 const MENU_CATS = [
     { id: 'favorites', label: 'Favoris', icon: './assets/images/toolkits/kde/category/favorites.svg' },
     { id: 'all', label: 'Toutes les applications', icon: './assets/images/toolkits/kde/category/applications-all.svg' },

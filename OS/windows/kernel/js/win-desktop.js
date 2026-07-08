@@ -3,6 +3,7 @@
  * ../../../../usr/share/capsuleos/assets/images/toolkits/windows/ (wallpaper.*, fond.jpg).
  * Sinon conserve le dégradé / couleur de shell.css.
  */
+'use strict';
 (function () {
     const main = document.querySelector('main');
     if (!main) {

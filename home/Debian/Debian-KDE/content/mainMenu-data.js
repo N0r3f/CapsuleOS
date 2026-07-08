@@ -1,3 +1,4 @@
+'use strict';
 const MENU_CATS = [
     // Icônes monochromes cohérentes (pas de dossiers, pas de dégradés).
     { id: 'favorites', label: 'Favoris', icon: './assets/images/toolkits/kde/category/favorites.svg' },

@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par generate-gsettings-bindings.mjs — ne pas éditer à la main */
 window.CAPSULE_GSETTINGS_BINDINGS = {
     "mint-theme": {

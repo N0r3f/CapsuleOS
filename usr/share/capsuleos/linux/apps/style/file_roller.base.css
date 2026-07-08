@@ -328,7 +328,7 @@ main#fileRollerApp {
     width: calc(var(--head) / 2);
     height: calc(var(--head) / 2);
     flex-shrink: 0;
-    background: url('../../../assets/images/toolkits/cinnamon/apps/accessories-text-editor.png') center/contain no-repeat;
+    background: url('../../../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/apps/accessories-text-editor.png') center/contain no-repeat;
 }
 
 .fr-app__menu {

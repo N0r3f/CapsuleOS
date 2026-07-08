@@ -19,3 +19,9 @@ html[data-theme="light"]:has(#alma) {
 html[data-theme="light"]:has(#alma) {
     --menu-accent: #3584e4;
 }
+
+/* VM button-layout: appmenu:close — close seulement, pas de min/max */
+body#alma #minimizeBtn,
+body#alma #resizeBtn {
+    display: none;
+}

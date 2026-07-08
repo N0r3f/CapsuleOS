@@ -5,7 +5,7 @@
       "@type": "WebSite",
       "name": "CapsuleOS",
       "url": "https://os.lacapsule.org/",
-      "description": "Bureaux simulés pour s'approprier Linux, Windows, macOS et autres OS dans le navigateur — pédagogie, gratuit, hors ligne possible.",
+      "description": "Bureaux simulés pour s'approprier Linux, Windows, macOS et autres OS dans le navigateur : pédagogie, gratuit, hors ligne possible.",
       "inLanguage": "fr-FR",
       "publisher": {
         "@type": "Organization",
@@ -40,7 +40,7 @@
           "position": 2,
           "item": {
             "@type": "SoftwareApplication",
-            "name": "Ubuntu 25.10",
+            "name": "Ubuntu 26.04 LTS",
             "identifier": "linux-ubuntu",
             "applicationCategory": "EducationalApplication",
             "operatingSystem": "Web browser",

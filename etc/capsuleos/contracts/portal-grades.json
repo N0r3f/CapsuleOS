@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "doc": "root/docs/convention-portail.md",
+  "contractEntitlements": "etc/capsuleos/contracts/portal-entitlements.json",
+  "classBenefitsSticky": false,
+  "classInviteDays": 7,
+  "classMaxSlots": 32,
+  "classMinSlots": 2,
+  "classMaxPerTeacher": 1,
+  "grades": [
+    {
+      "id": "utilisateur",
+      "label": "Utilisateur",
+      "requiresSubscription": false,
+      "manualGrant": false,
+      "profileSections": ["usage", "subscription", "tickets", "settings", "student"]
+    },
+    {
+      "id": "abonne",
+      "label": "Abonné",
+      "requiresSubscription": true,
+      "manualGrant": false,
+      "profileSections": ["usage", "subscription", "gamification", "badges", "progress", "skins", "purchases", "tickets", "settings", "student", "teacher", "creator"]
+    },
+    {
+      "id": "createur",
+      "label": "Créateur",
+      "requiresSubscription": true,
+      "manualGrant": true,
+      "roleKey": "createur",
+      "profileSections": ["creator"]
+    },
+    {
+      "id": "professeur",
+      "label": "Professeur",
+      "requiresSubscription": true,
+      "manualGrant": true,
+      "roleKey": "professeur",
+      "profileSections": ["teacher"]
+    },
+    {
+      "id": "eleve",
+      "label": "Élève",
+      "requiresSubscription": false,
+      "manualGrant": false,
+      "profileSections": ["student"]
+    }
+  ],
+  "permissions": {
+    "utilisateur": {
+      "osQuotaUnlimited": false,
+      "storeBrowse": true,
+      "storeAppLaunch": false,
+      "storeModules": false,
+      "pedagogicalModules": false,
+      "showGamification": false,
+      "persistSkinSaves": false,
+      "canPurchaseModules": false
+    },
+    "abonne": {
+      "osQuotaUnlimited": true,
+      "storeBrowse": true,
+      "storeAppLaunch": true,
+      "storeModules": true,
+      "pedagogicalModules": true,
+      "showGamification": true,
+      "persistSkinSaves": true,
+      "canPurchaseModules": true
+    },
+    "eleve_active": {
+      "osQuotaUnlimited": true,
+      "storeBrowse": true,
+      "storeAppLaunch": false,
+      "storeModules": false,
+      "pedagogicalModules": true,
+      "showGamification": true,
+      "persistSkinSaves": false,
+      "canPurchaseModules": false
+    }
+  },
+  "ticketTypes": [
+    {
+      "id": "support",
+      "label": "Support",
+      "group": "Aide",
+      "hint": "Assistance technique, accès au compte ou facturation."
+    },
+    {
+      "id": "demande_createur",
+      "label": "Demande du rôle Créateur",
+      "defaultSubject": "Demande du rôle Créateur",
+      "group": "Évolution du compte",
+      "hint": "Demander l'attribution du grade Créateur sur votre compte.",
+      "excludeRoles": ["createur"]
+    },
+    {
+      "id": "demande_module",
+      "label": "Demande d'ajout de module",
+      "defaultSubject": "Demande d'ajout de module",
+      "group": "Espace créateur",
+      "hint": "Soumettez un module via dépôt Git public (HTTPS). Champs requis : titre, pitch, URL Git, niveau, modèle commercial. L'identifiant du module est attribué par l'équipe lors de la revue. Voir convention-modules-mnt.md.",
+      "requiresRoles": ["createur"]
+    }
+  ],
+  "rules": [
+    "abonne dérivé de subscriptions.status active, pas stocké dans user_roles",
+    "createur et professeur attribués manuellement via user_roles après ticket",
+    "eleve actif via classroom_members uniquement ; fin de classe = retour utilisateur",
+    "Décision effective côté serveur PHP uniquement (R-SEC1)"
+  ]
+}

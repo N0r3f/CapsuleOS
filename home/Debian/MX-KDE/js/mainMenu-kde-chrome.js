@@ -1,4 +1,6 @@
 (function attachMainMenuKdeChrome() {
+    'use strict';
+
     if (!document.body || document.body.id !== 'mx-kde') {
         return;
     }

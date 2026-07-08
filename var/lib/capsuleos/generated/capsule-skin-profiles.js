@@ -290,6 +290,7 @@ window.CAPSULE_SKIN_PROFILES = {
       "facade": "OS/linux/families/redhat/fedora/index.html",
       "skin": "home/RedHat/Fedora/index.html"
     },
+    "defaultTheme": "light",
     "toolkit": {
       "id": "gnome",
       "shell": "gnome"
@@ -903,7 +904,7 @@ window.CAPSULE_SKIN_PROFILES = {
     "kernelId": "linux",
     "branchId": "ubuntu",
     "vendor": "ubuntu",
-    "displayName": "Ubuntu 25.10",
+    "displayName": "Ubuntu 26.04 LTS",
     "bodyId": "ubuntu",
     "embedKey": "ubuntu",
     "tier": "P0",
@@ -1261,6 +1262,7 @@ window.CAPSULE_SKIN_PROFILES_BY_ID = {
       "facade": "OS/linux/families/redhat/fedora/index.html",
       "skin": "home/RedHat/Fedora/index.html"
     },
+    "defaultTheme": "light",
     "toolkit": {
       "id": "gnome",
       "shell": "gnome"
@@ -1874,7 +1876,7 @@ window.CAPSULE_SKIN_PROFILES_BY_ID = {
     "kernelId": "linux",
     "branchId": "ubuntu",
     "vendor": "ubuntu",
-    "displayName": "Ubuntu 25.10",
+    "displayName": "Ubuntu 26.04 LTS",
     "bodyId": "ubuntu",
     "embedKey": "ubuntu",
     "tier": "P0",

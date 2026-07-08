@@ -1,6 +1,7 @@
 /**
  * @deprecated Charger shells/common/capsule-window-context.js (alias CapsuleLinuxWindowContext conservé).
  */
+'use strict';
 (function loadLinuxWindowContextShim() {
     if (typeof CapsuleWindowContext !== 'undefined') {
         return;

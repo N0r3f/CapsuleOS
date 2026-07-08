@@ -1,3 +1,4 @@
+'use strict';
 window.CAPSULE_DISTRO_PROFILE = {
     name: 'Fedora Workstation',
     version: 'Édition GNOME',

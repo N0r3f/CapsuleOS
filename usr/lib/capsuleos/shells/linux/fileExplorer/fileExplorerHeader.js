@@ -2,6 +2,7 @@
  * Menubar explorateur (.menuHeader / .listeSousMenu).
  * Appeler bindFileExplorerMenubar(slot explorateur) après injection du gabarit (contentLoader).
  */
+'use strict';
 (function initFileExplorerMenubar() {
     const EXPLORER_WINDOW_SLOT_SELECTOR = 'div.windowElement[data-link="nemo"]';
     const EXPLORER_WINDOW_SLOT_QUERIES = [

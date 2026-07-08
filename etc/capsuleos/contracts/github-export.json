@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "doc": "Export applicatif CapsuleOS (HTML/CSS/JS/JSON + assets runtime) vers un dépôt GitHub distinct du monorepo #TEAM.",
+  "outputDir": "../CapsuleOS-app",
+  "suggestedRemote": {
+    "name": "origin",
+    "url": "https://github.com/N0r3f/CapsuleOS-app.git"
+  },
+  "includeRoots": [
+    "index.html",
+    "index.php",
+    "router.php",
+    "portal",
+    "home",
+    "OS",
+    "etc/capsuleos",
+    "usr/lib/capsuleos/common",
+    "usr/lib/capsuleos/core",
+    "usr/lib/capsuleos/engines",
+    "usr/lib/capsuleos/kernels",
+    "usr/lib/capsuleos/shells",
+    "usr/lib/capsuleos/site",
+    "usr/share/capsuleos",
+    "var/lib/capsuleos/generated"
+  ],
+  "includeToolFiles": [
+    "usr/lib/capsuleos/tools/serve-capsuleos.mjs",
+    "usr/lib/capsuleos/tools/dev-static-server.mjs",
+    "usr/lib/capsuleos/tools/portal-sqlite-path.mjs"
+  ],
+  "excludeGlobs": [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/__pycache__/**",
+    "etc/capsuleos/lab-inventory.json",
+    "var/lib/capsuleos/portal/**"
+  ],
+  "generatedFiles": {
+    "package.json": true,
+    "README.md": true,
+    ".gitignore": true
+  }
+}

@@ -1,3 +1,4 @@
+'use strict';
 const defaultRoot = {
     '/bin': {},
     '/home': {},

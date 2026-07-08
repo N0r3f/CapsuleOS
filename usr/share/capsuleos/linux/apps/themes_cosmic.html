@@ -1,1 +1,546 @@
-themes_gnome.html
+<main id="themesApp" class="gnome-settings" aria-label="Paramètres">
+    <aside class="gnome-settings__sidebar" aria-label="Sections">
+        <div class="gnome-settings__search" role="search">
+            <span class="gnome-settings__search-icon" aria-hidden="true"></span>
+            <input type="search" class="gnome-settings__search-input" placeholder="Rechercher" aria-label="Rechercher">
+        </div>
+
+        <nav class="gnome-settings__nav" aria-label="Catégories">
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="wifi">
+                <span class="gnome-settings__navicon gnome-settings__navicon--wifi" aria-hidden="true"></span>
+                <span>Wi-Fi</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="network">
+                <span class="gnome-settings__navicon gnome-settings__navicon--network" aria-hidden="true"></span>
+                <span>Réseau</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="bluetooth">
+                <span class="gnome-settings__navicon gnome-settings__navicon--bluetooth" aria-hidden="true"></span>
+                <span>Bluetooth</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="appearance">
+                <span class="gnome-settings__navicon gnome-settings__navicon--appearance" aria-hidden="true"></span>
+                <span>Apparence</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="background">
+                <span class="gnome-settings__navicon gnome-settings__navicon--background" aria-hidden="true"></span>
+                <span>Arrière-plan</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="notifications">
+                <span class="gnome-settings__navicon gnome-settings__navicon--notifications" aria-hidden="true"></span>
+                <span>Notifications</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="search">
+                <span class="gnome-settings__navicon gnome-settings__navicon--search" aria-hidden="true"></span>
+                <span>Recherche</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="multitasking">
+                <span class="gnome-settings__navicon gnome-settings__navicon--multitasking" aria-hidden="true"></span>
+                <span>Multitâche</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="sound">
+                <span class="gnome-settings__navicon gnome-settings__navicon--sound" aria-hidden="true"></span>
+                <span>Son</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="power">
+                <span class="gnome-settings__navicon gnome-settings__navicon--power" aria-hidden="true"></span>
+                <span>Alimentation</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="displays">
+                <span class="gnome-settings__navicon gnome-settings__navicon--displays" aria-hidden="true"></span>
+                <span>Écrans</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="mouse">
+                <span class="gnome-settings__navicon gnome-settings__navicon--mouse" aria-hidden="true"></span>
+                <span>Souris et pavé tactile</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="keyboard">
+                <span class="gnome-settings__navicon gnome-settings__navicon--keyboard" aria-hidden="true"></span>
+                <span>Clavier</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="printers">
+                <span class="gnome-settings__navicon gnome-settings__navicon--printers" aria-hidden="true"></span>
+                <span>Imprimantes</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="accessibility">
+                <span class="gnome-settings__navicon gnome-settings__navicon--accessibility" aria-hidden="true"></span>
+                <span>Accessibilité</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="privacy">
+                <span class="gnome-settings__navicon gnome-settings__navicon--privacy" aria-hidden="true"></span>
+                <span>Confidentialité</span>
+            </button>
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="sharing">
+                <span class="gnome-settings__navicon gnome-settings__navicon--sharing" aria-hidden="true"></span>
+                <span>Partage</span>
+            </button>
+        </nav>
+
+        <div class="gnome-settings__spacer" aria-hidden="true"></div>
+
+        <nav class="gnome-settings__nav gnome-settings__nav--bottom" aria-label="Informations">
+            <button type="button" class="gnome-settings__navitem" data-gnome-settings-panel="about">
+                <span class="gnome-settings__navicon gnome-settings__navicon--about" aria-hidden="true"></span>
+                <span>À propos de</span>
+            </button>
+        </nav>
+    </aside>
+
+    <section class="gnome-settings__main" aria-label="Panneau actif">
+        <header class="gnome-settings__headerbar" aria-label="En-tête fenêtre"></header>
+
+        <div class="gnome-settings__panels">
+            <div class="gnome-settings__panel" data-gnome-settings-panel="wifi" id="gnomeSettingsWifi" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Wi-Fi</h1>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Wi-Fi</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="wifi" role="switch" aria-checked="true" aria-label="Wi-Fi"></button>
+                        </div>
+                    </div>
+                    <div class="adw-group" data-wifi-networks>
+                        <button type="button" class="adw-row adw-row--device">
+                            <span class="adw-row__icon adw-row__icon--wifi-strong" aria-hidden="true"></span>
+                            <span class="adw-row__title">CapsuleOS-Lab</span>
+                            <span class="adw-row__value">Connecté</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--device">
+                            <span class="adw-row__icon adw-row__icon--wifi-medium" aria-hidden="true"></span>
+                            <span class="adw-row__title">Bureau-RL10</span>
+                            <span class="adw-row__value adw-row__value--lock" aria-hidden="true"></span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--device">
+                            <span class="adw-row__icon adw-row__icon--wifi-weak" aria-hidden="true"></span>
+                            <span class="adw-row__title">Guest-WiFi</span>
+                            <span class="adw-row__value adw-row__value--lock" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="gnome-settings__status" data-wifi-status hidden>
+                        <span class="gnome-settings__status-icon gnome-settings__status-icon--wifi" aria-hidden="true"></span>
+                        <p class="gnome-settings__status-title">Aucun réseau</p>
+                        <p class="gnome-settings__status-text">Activez le Wi-Fi pour voir les réseaux disponibles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="network" id="gnomeSettingsNetwork" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Réseau</h1>
+                    <h2 class="gnome-settings__section-label">Filaire</h2>
+                    <div class="adw-group">
+                        <div class="adw-row">
+                            <span class="adw-row__title">Connexion filaire</span>
+                            <span class="adw-row__value">Déconnecté</span>
+                        </div>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Automatique (DHCP)|Manuel (statique)" data-settings-apply="network-identity">
+                            <span class="adw-row__title">Identifiant</span>
+                            <span class="adw-row__value" data-settings-value="network-identity">Automatique (DHCP)</span>
+                        </button>
+                    </div>
+                    <h2 class="gnome-settings__section-label">VPN</h2>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action">
+                            <span class="adw-row__title">Ajouter un VPN</span>
+                            <span class="adw-row__value adw-row__value--chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="bluetooth" id="gnomeSettingsBluetooth" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Bluetooth</h1>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Bluetooth</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="bluetooth" role="switch" aria-checked="true" aria-label="Bluetooth"></button>
+                        </div>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Appareils</h2>
+                    <div class="adw-group" data-bluetooth-devices>
+                        <button type="button" class="adw-row adw-row--device">
+                            <span class="adw-row__icon adw-row__icon--headphones" aria-hidden="true"></span>
+                            <span class="adw-row__title">Écouteurs sans fil</span>
+                            <span class="adw-row__value">Connecté</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--device">
+                            <span class="adw-row__icon adw-row__icon--mouse" aria-hidden="true"></span>
+                            <span class="adw-row__title">MX Master 3</span>
+                            <span class="adw-row__value">Appairé</span>
+                        </button>
+                    </div>
+                    <p class="gnome-settings__caption" data-bluetooth-empty hidden>Aucun appareil trouvé</p>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="appearance" id="gnomeSettingsAppearance" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Apparence</h1>
+
+                    <div class="adw-group">
+                        <div class="adw-row">
+                            <span class="adw-row__title">Style</span>
+                            <span class="adw-row__value">Adwaita</span>
+                        </div>
+                        <div class="adw-row adw-row--accent">
+                            <span class="adw-row__title">Couleur d'accentuation</span>
+                            <div class="themes-accent-chips" role="radiogroup" aria-label="Couleur d'accentuation">
+                                <button type="button" class="themes-accent-chip themes-accent-chip--blue is-active" data-accent-chip="blue" role="radio" aria-checked="true" title="Bleu"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--teal" data-accent-chip="teal" role="radio" aria-checked="false" title="Sarcelle"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--green" data-accent-chip="green" role="radio" aria-checked="false" title="Vert"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--yellow" data-accent-chip="yellow" role="radio" aria-checked="false" title="Jaune"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--orange" data-accent-chip="orange" role="radio" aria-checked="false" title="Orange"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--red" data-accent-chip="red" role="radio" aria-checked="false" title="Rouge"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--pink" data-accent-chip="pink" role="radio" aria-checked="false" title="Rose"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--purple" data-accent-chip="purple" role="radio" aria-checked="false" title="Violet"></button>
+                                <button type="button" class="themes-accent-chip themes-accent-chip--slate" data-accent-chip="slate" role="radio" aria-checked="false" title="Ardoise"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="gnome-settings__section-label">Schéma de couleurs</h2>
+                    <div class="themes-scheme-grid" role="radiogroup" aria-label="Schéma de couleurs">
+                        <button type="button" class="themes-scheme-card is-active" data-theme-option="dark" role="radio" aria-checked="true">
+                            <span class="themes-scheme-card__preview themes-scheme-card__preview--dark" aria-hidden="true"></span>
+                            <span class="themes-scheme-card__label">Sombre</span>
+                        </button>
+                        <button type="button" class="themes-scheme-card" data-theme-option="light" role="radio" aria-checked="false">
+                            <span class="themes-scheme-card__preview themes-scheme-card__preview--light" aria-hidden="true"></span>
+                            <span class="themes-scheme-card__label">Clair</span>
+                        </button>
+                    </div>
+                    <p class="gnome-settings__caption" data-themes-help>Le thème sombre est actif.</p>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="background" id="gnomeSettingsBackground" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Arrière-plan</h1>
+                    <div class="gnome-settings-wallpapers" data-wallpaper-grid role="list" aria-label="Fonds d'écran">
+                        <button type="button" class="gnome-settings-wallpaper gnome-settings-wallpaper--add" aria-label="Ajouter une image">
+                            <span class="gnome-settings-wallpaper__add-icon" aria-hidden="true">+</span>
+                            <span>Ajouter une image</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="notifications" id="gnomeSettingsNotifications" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Notifications</h1>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Notifications</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="notifications" role="switch" aria-checked="true" aria-label="Notifications"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Ne pas déranger</span>
+                            <button type="button" class="adw-switch" data-settings-switch="dnd" role="switch" aria-checked="false" aria-label="Ne pas déranger"></button>
+                        </div>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Écran de verrouillage</h2>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Afficher les notifications</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="lock-notifications" role="switch" aria-checked="true" aria-label="Notifications écran verrouillé"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="search" id="gnomeSettingsSearch" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Recherche</h1>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Historique de recherche</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="search-history" role="switch" aria-checked="true" aria-label="Historique"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Fichiers</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="search-files" role="switch" aria-checked="true" aria-label="Recherche fichiers"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Applications</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="search-apps" role="switch" aria-checked="true" aria-label="Recherche applications"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Calculatrice</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="search-calculator" role="switch" aria-checked="true" aria-label="Calculatrice"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="multitasking" id="gnomeSettingsMultitasking" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Multitâche</h1>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Désactivé|Activé" data-settings-apply="dynamic-workspaces">
+                            <span class="adw-row__title">Bureaux dynamiques</span>
+                            <span class="adw-row__value" data-settings-value="dynamic-workspaces">Activé</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Toujours|Sur demande|Jamais" data-settings-apply="workspace-indicator">
+                            <span class="adw-row__title">Afficher les bureaux</span>
+                            <span class="adw-row__value" data-settings-value="workspace-indicator">Toujours</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Activé|Désactivé" data-settings-apply="hot-corner">
+                            <span class="adw-row__title">Coin actif</span>
+                            <span class="adw-row__value" data-settings-value="hot-corner">Activé</span>
+                        </button>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Général</h2>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Activé|Désactivé" data-settings-apply="apps-all-workspaces">
+                            <span class="adw-row__title">Afficher les applications de tous les bureaux</span>
+                            <span class="adw-row__value" data-settings-value="apps-all-workspaces">Activé</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="sound" id="gnomeSettingsSound" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Son</h1>
+                    <div class="adw-group adw-group--volume">
+                        <div class="adw-row adw-row--slider">
+                            <span class="adw-row__icon adw-row__icon--speaker" aria-hidden="true"></span>
+                            <input type="range" class="adw-slider" data-settings-slider="volume" min="0" max="100" value="72" aria-label="Volume">
+                            <span class="adw-row__value" data-sound-volume>72%</span>
+                        </div>
+                    </div>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Haut-parleurs intégrés|HDMI|Casque" data-settings-apply="sound-output">
+                            <span class="adw-row__title">Sortie</span>
+                            <span class="adw-row__value" data-settings-value="sound-output">Haut-parleurs intégrés</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Micro intégré|Micro externe" data-settings-apply="sound-input">
+                            <span class="adw-row__title">Entrée</span>
+                            <span class="adw-row__value" data-settings-value="sound-input">Micro intégré</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Ding|Sonnerie|Aucun" data-settings-apply="sound-alert">
+                            <span class="adw-row__title">Son d'alerte</span>
+                            <span class="adw-row__value" data-settings-value="sound-alert">Ding</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="power" id="gnomeSettingsPower" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Alimentation</h1>
+                    <div class="adw-group">
+                        <div class="adw-row">
+                            <span class="adw-row__title">Niveau de batterie</span>
+                            <span class="adw-row__value">87 %</span>
+                        </div>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Équilibré|Économie d'énergie|Performance" data-settings-apply="power-mode">
+                            <span class="adw-row__title">Mode d'alimentation</span>
+                            <span class="adw-row__value" data-settings-value="power-mode">Équilibré</span>
+                        </button>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Sur secteur</h2>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="5 minutes|10 minutes|15 minutes|1 heure|Jamais" data-settings-apply="power-dim">
+                            <span class="adw-row__title">Éteindre l'écran</span>
+                            <span class="adw-row__value" data-settings-value="power-dim">1 heure</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Jamais|30 minutes|1 heure" data-settings-apply="power-sleep">
+                            <span class="adw-row__title">Mise en veille</span>
+                            <span class="adw-row__value" data-settings-value="power-sleep">Jamais</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="displays" id="gnomeSettingsDisplays" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Écrans</h1>
+                    <div class="gnome-settings-display-arrange" aria-hidden="true">
+                        <span class="gnome-settings-display-arrange__monitor"></span>
+                    </div>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="1920 × 1080|1680 × 1050|1280 × 720" data-settings-apply="display-resolution">
+                            <span class="adw-row__title">Résolution</span>
+                            <span class="adw-row__value" data-settings-value="display-resolution">1920 × 1080</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="100 %|125 %|150 %|200 %" data-settings-apply="display-scale">
+                            <span class="adw-row__title">Échelle</span>
+                            <span class="adw-row__value" data-settings-value="display-scale">100 %</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="60,00 Hz|59,94 Hz" data-settings-apply="display-refresh">
+                            <span class="adw-row__title">Fréquence de rafraîchissement</span>
+                            <span class="adw-row__value" data-settings-value="display-refresh">60,00 Hz</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Paysage|Paysage (inversé)|Portrait" data-settings-apply="display-orientation">
+                            <span class="adw-row__title">Orientation</span>
+                            <span class="adw-row__value" data-settings-value="display-orientation">Paysage</span>
+                        </button>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Éclairage nocturne</span>
+                            <button type="button" class="adw-switch" data-settings-switch="night-light" role="switch" aria-checked="false" aria-label="Éclairage nocturne"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="mouse" id="gnomeSettingsMouse" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Souris et pavé tactile</h1>
+                    <h2 class="gnome-settings__section-label">Souris</h2>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Gauche|Droit" data-settings-apply="mouse-handedness">
+                            <span class="adw-row__title">Bouton principal</span>
+                            <span class="adw-row__value" data-settings-value="mouse-handedness">Gauche</span>
+                        </button>
+                        <div class="adw-row adw-row--slider">
+                            <span class="adw-row__title">Vitesse du pointeur</span>
+                            <input type="range" class="adw-slider" data-settings-slider="pointer-speed" min="0" max="100" value="50" aria-label="Vitesse du pointeur">
+                        </div>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Pavé tactile</h2>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Pavé tactile</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="touchpad" role="switch" aria-checked="true" aria-label="Pavé tactile"></button>
+                        </div>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Naturel|Standard" data-settings-apply="scroll-direction">
+                            <span class="adw-row__title">Sens de défilement</span>
+                            <span class="adw-row__value" data-settings-value="scroll-direction">Naturel</span>
+                        </button>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Toucher pour cliquer</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="tap-to-click" role="switch" aria-checked="true" aria-label="Toucher pour cliquer"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="keyboard" id="gnomeSettingsKeyboard" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Clavier</h1>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Français|Français (BÉPO)|English (US)" data-settings-apply="keyboard-layout">
+                            <span class="adw-row__title">Disposition</span>
+                            <span class="adw-row__value" data-settings-value="keyboard-layout">Français</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="500 ms|250 ms|750 ms" data-settings-apply="keyboard-repeat">
+                            <span class="adw-row__title">Délai de répétition</span>
+                            <span class="adw-row__value" data-settings-value="keyboard-repeat">500 ms</span>
+                        </button>
+                        <button type="button" class="adw-row adw-row--action">
+                            <span class="adw-row__title">Raccourcis clavier</span>
+                            <span class="adw-row__value adw-row__value--chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="printers" id="gnomeSettingsPrinters" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Imprimantes</h1>
+                    <div class="adw-group">
+                        <button type="button" class="adw-row adw-row--action">
+                            <span class="adw-row__title">Ajouter une imprimante</span>
+                            <span class="adw-row__value adw-row__value--chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <p class="gnome-settings__caption">Aucune imprimante ajoutée</p>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="accessibility" id="gnomeSettingsAccessibility" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Accessibilité</h1>
+                    <h2 class="gnome-settings__section-label">Vision</h2>
+                    <div class="themes-scheme-grid themes-scheme-grid--compact" role="radiogroup" aria-label="Contraste">
+                        <button type="button" class="themes-scheme-card themes-scheme-card--compact is-active" data-contrast-option="normal" role="radio" aria-checked="true">
+                            <span class="themes-scheme-card__label">Standard</span>
+                        </button>
+                        <button type="button" class="themes-scheme-card themes-scheme-card--compact" data-contrast-option="high" role="radio" aria-checked="false">
+                            <span class="themes-scheme-card__label">Renforcé</span>
+                        </button>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Taille du texte</h2>
+                    <div class="themes-scale-row" role="radiogroup" aria-label="Taille du texte">
+                        <button type="button" class="themes-scale-btn is-active" data-font-scale-option="100" role="radio" aria-checked="true">100 %</button>
+                        <button type="button" class="themes-scale-btn" data-font-scale-option="110" role="radio" aria-checked="false">110 %</button>
+                        <button type="button" class="themes-scale-btn" data-font-scale-option="125" role="radio" aria-checked="false">125 %</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="privacy" id="gnomeSettingsPrivacy" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Confidentialité</h1>
+                    <h2 class="gnome-settings__section-label">Services</h2>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Services de localisation</span>
+                            <button type="button" class="adw-switch" data-settings-switch="location" role="switch" aria-checked="false" aria-label="Localisation"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Caméra</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="camera" role="switch" aria-checked="true" aria-label="Caméra"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Microphone</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="microphone" role="switch" aria-checked="true" aria-label="Microphone"></button>
+                        </div>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Sécurité</h2>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Verrouillage automatique</span>
+                            <button type="button" class="adw-switch is-on" data-settings-switch="auto-lock" role="switch" aria-checked="true" aria-label="Verrouillage"></button>
+                        </div>
+                        <button type="button" class="adw-row adw-row--action" data-settings-select="Immédiatement|1 minute|5 minutes" data-settings-apply="lock-delay">
+                            <span class="adw-row__title">Délai de verrouillage</span>
+                            <span class="adw-row__value" data-settings-value="lock-delay">Immédiatement</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="sharing" id="gnomeSettingsSharing" hidden>
+                <div class="gnome-settings__content">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>Partage</h1>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Partage</span>
+                            <button type="button" class="adw-switch" data-settings-switch="sharing" role="switch" aria-checked="false" aria-label="Partage"></button>
+                        </div>
+                        <div class="adw-row">
+                            <span class="adw-row__title">Nom de l'ordinateur</span>
+                            <span class="adw-row__value">rocky-lab</span>
+                        </div>
+                    </div>
+                    <h2 class="gnome-settings__section-label">Services</h2>
+                    <div class="adw-group">
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Partage de fichiers</span>
+                            <button type="button" class="adw-switch" data-settings-switch="file-sharing" role="switch" aria-checked="false" aria-label="Partage de fichiers"></button>
+                        </div>
+                        <div class="adw-row adw-row--switch">
+                            <span class="adw-row__title">Partage d'écran</span>
+                            <button type="button" class="adw-switch" data-settings-switch="screen-sharing" role="switch" aria-checked="false" aria-label="Partage d'écran"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gnome-settings__panel" data-gnome-settings-panel="about" id="gnomeSettingsAbout" hidden>
+                <div class="gnome-settings__content gnome-settings__content--about">
+                    <h1 class="gnome-settings__panel-title" data-gnome-settings-title>À propos de</h1>
+                    <div class="gnome-settings-about">
+                        <span class="gnome-settings-about__logo" aria-hidden="true"></span>
+                        <p class="gnome-settings-about__os">Rocky Linux 10.2</p>
+                        <p class="gnome-settings-about__detail">GNOME 47 · Wayland</p>
+                        <p class="gnome-settings-about__detail">CapsuleOS — simulation pédagogique</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

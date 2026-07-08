@@ -1,6 +1,7 @@
 /**
  * Grille Applications - Apps.png (barre « Applications », fenêtre flottante).
  */
+'use strict';
 (function () {
     var panel = document.getElementById('cosmic-applications');
     var btnApps = document.getElementById('cosmic-btn-applications');

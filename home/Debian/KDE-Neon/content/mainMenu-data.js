@@ -1,3 +1,4 @@
+'use strict';
 // Généré depuis root/docs/inventaires/linux-kde-neon-kickoff-apps.json (VM lab)
 // Regénérer : node root/tools/lab/generate-kde-neon-kickoff-data.mjs
 
@@ -198,6 +199,14 @@ const MENU_APPS = [
     },
     {
         catId: "system",
+        desktop: "org.kde.plasma-welcome.desktop",
+        icon: "./assets/images/vendors/neon/neon-logo.svg",
+        name: "Centre d'accueil",
+        desc: "Bienvenue dans KDE Neon",
+        dataLink: "plasma_welcome"
+    },
+    {
+        catId: "system",
         desktop: "org.kde.drkonqi.coredump.gui.desktop",
         icon: "./assets/images/vendors/neon/kickoff/tools-report-bug.svg",
         name: "Afficheur de processus plantés",
@@ -234,7 +243,7 @@ const MENU_APPS = [
         icon: "./assets/images/vendors/neon/kickoff/partitionmanager.svg",
         name: "Gestionnaire de partitions de KDE",
         desc: "Gérer les disques, les partitions et les systèmes de fichiers",
-        dataLink: "nemo"
+        dataLink: "partition_manager"
     },
     {
         catId: "system",
@@ -242,7 +251,7 @@ const MENU_APPS = [
         icon: "./assets/images/vendors/neon/kickoff/kwalletmanager.png",
         name: "KeepSecret",
         desc: "Gérer des mots de passe",
-        dataLink: "themes"
+        dataLink: "kwallet"
     },
     {
         catId: "system",
@@ -258,7 +267,7 @@ const MENU_APPS = [
         icon: "./assets/images/vendors/neon/kickoff/kwalletmanager.png",
         name: "KWalletManager",
         desc: "Enregistrez et gérez vos mots de passe",
-        dataLink: "themes"
+        dataLink: "kwallet"
     },
     {
         catId: "system",
@@ -282,7 +291,7 @@ const MENU_APPS = [
         icon: "./assets/images/vendors/neon/kickoff/kmenuedit.png",
         name: "Éditeur de menus",
         desc: "Modifier la présentation des applications dans les lanceurs d\'applications",
-        dataLink: "themes"
+        dataLink: "kmenuedit"
     },
     {
         catId: "utilities",
@@ -290,7 +299,7 @@ const MENU_APPS = [
         icon: "./assets/images/vendors/neon/kickoff/ark.png",
         name: "Ark",
         desc: "Travailler avec des archives de fichiers",
-        dataLink: "nemo"
+        dataLink: "ark"
     },
     {
         catId: "utilities",

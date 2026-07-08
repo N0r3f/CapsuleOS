@@ -1,9 +1,10 @@
 /**
  * Portail pick-os (généré depuis etc/capsuleos/os-registry.json).
- * Gel noyau : catalogue public vide ; devSkin via ?devSkin=<registryId>.
+ * Catalogue : « à venir » grisé en prod, lançable si CAPSULE_PORTAL_MODE=dev ; devSkin via ?devSkin=<registryId>.
  * Regénérer : node usr/lib/capsuleos/tools/build-pick-os.mjs
  */
 (function () {
+    'use strict';
     const KERNEL_REBUILD = false;
     const REBUILD_MESSAGE = 'Le noyau CapsuleOS est en reconstruction. Les bureaux seront réactivés progressivement après validation du noyau central.';
     const ICON =     {
@@ -20,49 +21,130 @@
             "label": "Linux",
             "distros": [
                 {
+                    "registryId": "linux-mint",
                     "name": "Linux Mint (Cinnamon)",
                     "href": "./OS/linux/families/debian/mint/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/mint.png"
+                    "skinHref": "./home/Debian/Mint/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/mint.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
-                    "name": "Ubuntu 25.10",
+                    "registryId": "linux-ubuntu",
+                    "name": "Ubuntu 26.04 LTS",
                     "href": "./OS/linux/families/debian/ubuntu/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/ubuntu.png"
+                    "skinHref": "./home/Debian/Ubuntu/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/ubuntu.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-fedora",
                     "name": "Fedora Workstation",
                     "href": "./OS/linux/families/redhat/fedora/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/fedora.png"
+                    "skinHref": "./home/RedHat/Fedora/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/fedora.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-kde-neon",
                     "name": "KDE neon User Edition",
                     "href": "./OS/linux/families/debian/kde-neon/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/vendors/neon/neon-logo.svg"
+                    "skinHref": "./home/Debian/KDE-Neon/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/vendors/neon/neon-logo.svg",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-mx-kde",
+                    "name": "MX Linux KDE",
+                    "href": "./OS/linux/families/debian/mx-kde/index.html",
+                    "skinHref": "./home/Debian/MX-KDE/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/mx.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "linux-opensuse",
                     "name": "openSUSE Tumbleweed",
                     "href": "./OS/linux/families/suse/opensuse/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/opensuse.png"
+                    "skinHref": "./home/SUSE/openSUSE/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/opensuse.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-rocky",
                     "name": "Rocky Linux (GNOME)",
                     "href": "./OS/linux/families/redhat/rocky/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/rocky.png"
+                    "skinHref": "./home/RedHat/Rocky/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/rocky.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-debian-kde",
+                    "name": "Debian KDE (Plasma)",
+                    "href": "./OS/linux/families/debian/debian-kde/index.html",
+                    "skinHref": "./home/Debian/Debian-KDE/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/debian.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "linux-popos",
                     "name": "Pop!_OS",
                     "href": "./OS/linux/families/debian/popos/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/popos.png"
+                    "skinHref": "./home/Debian/PopOS/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/popos.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-alma",
                     "name": "AlmaLinux (GNOME)",
                     "href": "./OS/linux/families/redhat/alma/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/vendors/alma/alma-logo.svg"
+                    "skinHref": "./home/RedHat/Alma/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/vendors/alma/alma-logo.svg",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "linux-anduinos",
                     "name": "AnduinOS",
                     "href": "./OS/linux/families/debian/anduinos/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/anduin.png"
+                    "skinHref": "./home/Debian/AnduinOS/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/anduin.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "linux-elementary",
+                    "name": "elementary OS",
+                    "href": "./OS/linux/families/debian/elementary/index.html",
+                    "skinHref": "./home/Debian/Elementary/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/elementary.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "linux-kali",
+                    "name": "Kali Linux",
+                    "href": "./OS/linux/families/debian/kali/index.html",
+                    "skinHref": "./home/Debian/Kali/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/debian.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "linux-lxqt",
+                    "name": "LXQt (générique)",
+                    "href": "./OS/linux/families/debian/lxqt/index.html",
+                    "skinHref": "./home/Debian/LXQt/index.html",
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/debian.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
                 }
             ]
         },
@@ -70,14 +152,103 @@
             "label": "Windows",
             "distros": [
                 {
+                    "registryId": "windows-10",
                     "name": "Windows 10",
                     "href": "./OS/windows/versions/10/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win10.png"
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win10.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 },
                 {
+                    "registryId": "windows-11",
                     "name": "Windows 11",
                     "href": "./OS/windows/versions/11/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win11.png"
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win11.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-7",
+                    "name": "Windows 7",
+                    "href": "./OS/windows/versions/7/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win7.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-xp",
+                    "name": "Windows XP",
+                    "href": "./OS/windows/versions/xp/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/winxp.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-2000",
+                    "name": "Windows 2000",
+                    "href": "./OS/windows/versions/2000/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win2000.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-8",
+                    "name": "Windows 8",
+                    "href": "./OS/windows/versions/8/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win8.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-8.1",
+                    "name": "Windows 8.1",
+                    "href": "./OS/windows/versions/8.1/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win8.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-95",
+                    "name": "Windows 95",
+                    "href": "./OS/windows/versions/95/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win95.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-98",
+                    "name": "Windows 98",
+                    "href": "./OS/windows/versions/98/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win98.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-me",
+                    "name": "Windows ME",
+                    "href": "./OS/windows/versions/me/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/winme.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                },
+                {
+                    "registryId": "windows-vista",
+                    "name": "Windows Vista",
+                    "href": "./OS/windows/versions/vista/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/vista.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
                 }
             ]
         },
@@ -85,9 +256,13 @@
             "label": "Macos",
             "distros": [
                 {
+                    "registryId": "macos-sonoma",
                     "name": "macOS Sonoma",
                     "href": "./OS/macos/sonoma/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/macos/sonoma.png"
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/macos/sonoma.png",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 }
             ]
         },
@@ -99,15 +274,29 @@
             "label": "iOS",
             "distros": [
                 {
+                    "registryId": "ios-15",
                     "name": "iOS 15",
                     "href": "./OS/ios/15/index.html",
-                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/ios/apple.svg"
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/ios/apple.svg",
+                    "portalStatus": "active",
+                    "portalFeatured": false
                 }
             ]
         },
         "android": {
             "label": "Android",
-            "distros": []
+            "distros": [
+                {
+                    "registryId": "android-vanilla",
+                    "name": "Android (Vanilla Ice Cream)",
+                    "href": "./OS/android/index.html",
+                    "skinHref": null,
+                    "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/android/vanillaicecream.png",
+                    "portalStatus": "planned",
+                    "portalFeatured": false
+                }
+            ]
         }
     };
 
@@ -116,14 +305,16 @@
             "id": "linux-mint",
             "displayName": "Linux Mint (Cinnamon)",
             "href": "./OS/linux/families/debian/mint/index.html",
+            "skinHref": "./home/Debian/Mint/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/mint.png",
             "status": "active",
             "tier": "P0"
         },
         "linux-ubuntu": {
             "id": "linux-ubuntu",
-            "displayName": "Ubuntu 25.10",
+            "displayName": "Ubuntu 26.04 LTS",
             "href": "./OS/linux/families/debian/ubuntu/index.html",
+            "skinHref": "./home/Debian/Ubuntu/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/ubuntu.png",
             "status": "active",
             "tier": "P0"
@@ -132,6 +323,7 @@
             "id": "linux-fedora",
             "displayName": "Fedora Workstation",
             "href": "./OS/linux/families/redhat/fedora/index.html",
+            "skinHref": "./home/RedHat/Fedora/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/fedora.png",
             "status": "active",
             "tier": "P1"
@@ -140,6 +332,7 @@
             "id": "linux-mx-kde",
             "displayName": "MX Linux KDE",
             "href": "./OS/linux/families/debian/mx-kde/index.html",
+            "skinHref": "./home/Debian/MX-KDE/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/mx.png",
             "status": "planned",
             "tier": "P1"
@@ -148,6 +341,7 @@
             "id": "linux-debian-kde",
             "displayName": "Debian KDE (Plasma)",
             "href": "./OS/linux/families/debian/debian-kde/index.html",
+            "skinHref": "./home/Debian/Debian-KDE/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/debian.png",
             "status": "planned",
             "tier": "P2"
@@ -156,6 +350,7 @@
             "id": "linux-kde-neon",
             "displayName": "KDE neon User Edition",
             "href": "./OS/linux/families/debian/kde-neon/index.html",
+            "skinHref": "./home/Debian/KDE-Neon/index.html",
             "icon": "./usr/share/capsuleos/assets/images/vendors/neon/neon-logo.svg",
             "status": "active",
             "tier": "P1"
@@ -164,6 +359,7 @@
             "id": "linux-opensuse",
             "displayName": "openSUSE Tumbleweed",
             "href": "./OS/linux/families/suse/opensuse/index.html",
+            "skinHref": "./home/SUSE/openSUSE/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/opensuse.png",
             "status": "active",
             "tier": "P1"
@@ -172,6 +368,7 @@
             "id": "linux-popos",
             "displayName": "Pop!_OS",
             "href": "./OS/linux/families/debian/popos/index.html",
+            "skinHref": "./home/Debian/PopOS/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/popos.png",
             "status": "active",
             "tier": "P2"
@@ -180,6 +377,7 @@
             "id": "linux-anduinos",
             "displayName": "AnduinOS",
             "href": "./OS/linux/families/debian/anduinos/index.html",
+            "skinHref": "./home/Debian/AnduinOS/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/anduin.png",
             "status": "active",
             "tier": "P3"
@@ -188,22 +386,52 @@
             "id": "linux-rocky",
             "displayName": "Rocky Linux (GNOME)",
             "href": "./OS/linux/families/redhat/rocky/index.html",
+            "skinHref": "./home/RedHat/Rocky/index.html",
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/rocky.png",
             "status": "active",
             "tier": "P1"
+        },
+        "linux-elementary": {
+            "id": "linux-elementary",
+            "displayName": "elementary OS",
+            "href": "./OS/linux/families/debian/elementary/index.html",
+            "skinHref": "./home/Debian/Elementary/index.html",
+            "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/elementary.png",
+            "status": "planned",
+            "tier": "P4"
         },
         "linux-alma": {
             "id": "linux-alma",
             "displayName": "AlmaLinux (GNOME)",
             "href": "./OS/linux/families/redhat/alma/index.html",
+            "skinHref": "./home/RedHat/Alma/index.html",
             "icon": "./usr/share/capsuleos/assets/images/vendors/alma/alma-logo.svg",
             "status": "active",
             "tier": "P3"
+        },
+        "linux-kali": {
+            "id": "linux-kali",
+            "displayName": "Kali Linux",
+            "href": "./OS/linux/families/debian/kali/index.html",
+            "skinHref": "./home/Debian/Kali/index.html",
+            "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/debian.png",
+            "status": "planned",
+            "tier": "P4"
+        },
+        "linux-lxqt": {
+            "id": "linux-lxqt",
+            "displayName": "LXQt (générique)",
+            "href": "./OS/linux/families/debian/lxqt/index.html",
+            "skinHref": "./home/Debian/LXQt/index.html",
+            "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/linux/debian.png",
+            "status": "planned",
+            "tier": "P4"
         },
         "windows-95": {
             "id": "windows-95",
             "displayName": "Windows 95",
             "href": "./OS/windows/versions/95/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win95.png",
             "status": "planned",
             "tier": "P2"
@@ -212,6 +440,7 @@
             "id": "windows-98",
             "displayName": "Windows 98",
             "href": "./OS/windows/versions/98/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win98.png",
             "status": "planned",
             "tier": "P2"
@@ -220,6 +449,7 @@
             "id": "windows-me",
             "displayName": "Windows ME",
             "href": "./OS/windows/versions/me/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/winme.png",
             "status": "planned",
             "tier": "P2"
@@ -228,6 +458,7 @@
             "id": "windows-2000",
             "displayName": "Windows 2000",
             "href": "./OS/windows/versions/2000/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win2000.png",
             "status": "planned",
             "tier": "P2"
@@ -236,6 +467,7 @@
             "id": "windows-xp",
             "displayName": "Windows XP",
             "href": "./OS/windows/versions/xp/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/winxp.png",
             "status": "planned",
             "tier": "P1"
@@ -244,6 +476,7 @@
             "id": "windows-vista",
             "displayName": "Windows Vista",
             "href": "./OS/windows/versions/vista/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/vista.png",
             "status": "planned",
             "tier": "P2"
@@ -252,6 +485,7 @@
             "id": "windows-7",
             "displayName": "Windows 7",
             "href": "./OS/windows/versions/7/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win7.png",
             "status": "planned",
             "tier": "P1"
@@ -260,6 +494,7 @@
             "id": "windows-8",
             "displayName": "Windows 8",
             "href": "./OS/windows/versions/8/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win8.png",
             "status": "planned",
             "tier": "P2"
@@ -268,6 +503,7 @@
             "id": "windows-8.1",
             "displayName": "Windows 8.1",
             "href": "./OS/windows/versions/8.1/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win8.png",
             "status": "planned",
             "tier": "P2"
@@ -276,6 +512,7 @@
             "id": "windows-10",
             "displayName": "Windows 10",
             "href": "./OS/windows/versions/10/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win10.png",
             "status": "active",
             "tier": "P0"
@@ -284,6 +521,7 @@
             "id": "windows-11",
             "displayName": "Windows 11",
             "href": "./OS/windows/versions/11/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/windows/win11.png",
             "status": "active",
             "tier": "P0"
@@ -292,6 +530,7 @@
             "id": "macos-sonoma",
             "displayName": "macOS Sonoma",
             "href": "./OS/macos/sonoma/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/macos/sonoma.png",
             "status": "active",
             "tier": "P1"
@@ -300,6 +539,7 @@
             "id": "ios-15",
             "displayName": "iOS 15",
             "href": "./OS/ios/15/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/ios/apple.svg",
             "status": "active",
             "tier": "P2"
@@ -308,6 +548,7 @@
             "id": "android-vanilla",
             "displayName": "Android (Vanilla Ice Cream)",
             "href": "./OS/android/index.html",
+            "skinHref": null,
             "icon": "./usr/share/capsuleos/assets/images/platforms/pick-os/android/vanillaicecream.png",
             "status": "planned",
             "tier": "P1"
@@ -329,6 +570,28 @@
 
     let activeCard = null;
 
+    const isPortalDev = () => (
+        typeof window !== 'undefined' && window.CAPSULE_PORTAL_MODE === 'dev'
+    );
+
+    const canLaunchRegistryStatus = (status) => (
+        status !== 'planned' || isPortalDev()
+    );
+
+    const resolveLaunchHref = (distro) => {
+        if (!distro) return '#';
+        if (isPortalDev() && distro.portalStatus === 'planned' && distro.skinHref) {
+            return distro.skinHref;
+        }
+        return distro.href;
+    };
+
+    const navigateToDistro = (distro) => {
+        const href = resolveLaunchHref(distro);
+        if (!href || href === '#') return;
+        window.location.assign(href);
+    };
+
     const resolveDevSkin = () => {
         const params = new URLSearchParams(location.search);
         const fromUrl = params.get('devSkin');
@@ -338,6 +601,19 @@
             if (fromStorage && devSkinIndex[fromStorage]) return fromStorage;
         } catch (_) { /* file:// */ }
         return null;
+    };
+
+    const clearDevSkinPersistence = () => {
+        try {
+            localStorage.removeItem('CAPSULE_DEV_SKIN');
+        } catch (_) { /* file:// */ }
+        const params = new URLSearchParams(location.search);
+        if (!params.has('devSkin')) {
+            return;
+        }
+        params.delete('devSkin');
+        const next = params.toString();
+        history.replaceState(null, '', next ? (location.pathname + '?' + next + location.hash) : (location.pathname + location.hash));
     };
 
     const openModalForOs = (osKey, card) => {
@@ -397,10 +673,33 @@
             const item = document.createElement('li');
             item.className = 'pick-modal-item';
 
-            const link = document.createElement('a');
-            link.className = 'pick-modal-card';
-            link.href = distro.href;
-            link.title = distro.name;
+            const portalDev = isPortalDev();
+            const isPlanned = distro.portalStatus === 'planned';
+            const isLaunchable = !isPlanned || portalDev;
+            const isFeatured = distro.portalFeatured === true;
+            const card = document.createElement(isLaunchable ? 'a' : 'div');
+            card.className = 'pick-modal-card'
+                + (isPlanned ? (portalDev ? ' pick-modal-card--planned-dev' : ' pick-modal-card--planned') : '')
+                + (isFeatured ? ' pick-modal-card--featured' : '');
+            if (isLaunchable) {
+                const launchHref = resolveLaunchHref(distro);
+                card.href = launchHref;
+                card.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    navigateToDistro(distro);
+                });
+            } else {
+                card.setAttribute('aria-disabled', 'true');
+                card.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                });
+            }
+            card.title = distro.name;
+
+            const statusTag = document.createElement('span');
+            statusTag.className = 'pick-modal-card-status';
+            statusTag.textContent = isPlanned ? (portalDev ? 'À venir · dev' : 'À venir') : 'Disponible';
 
             const icon = document.createElement('img');
             icon.className = 'pick-modal-card-icon';
@@ -412,9 +711,16 @@
             label.className = 'pick-modal-card-label';
             label.textContent = distro.name;
 
-            link.appendChild(icon);
-            link.appendChild(label);
-            item.appendChild(link);
+            card.appendChild(statusTag);
+            if (isFeatured) {
+                const featuredTag = document.createElement('span');
+                featuredTag.className = 'pick-modal-card-featured';
+                featuredTag.textContent = 'Vedette';
+                card.appendChild(featuredTag);
+            }
+            card.appendChild(icon);
+            card.appendChild(label);
+            item.appendChild(card);
             modalList.appendChild(item);
         });
     };
@@ -429,9 +735,15 @@
     const devSkinId = resolveDevSkin();
     if (devSkinId) {
         const target = devSkinIndex[devSkinId];
-        if (target && confirm('Mode lab : charger « ' + target.displayName + ' » (statut ' + target.status + ') ?')) {
-            location.replace(target.href);
+        if (target && canLaunchRegistryStatus(target.status)
+            && confirm('Mode lab : charger « ' + target.displayName + ' » (statut ' + target.status + ') ?')) {
+            const labHref = (isPortalDev() && target.status === 'planned' && target.skinHref)
+                ? target.skinHref : target.href;
+            location.replace(labHref);
             return;
+        }
+        if (!isPortalDev() || (target && !canLaunchRegistryStatus(target.status))) {
+            clearDevSkinPersistence();
         }
     }
 

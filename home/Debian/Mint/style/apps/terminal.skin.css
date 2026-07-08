@@ -4,10 +4,10 @@
 body#mint {
     --mint-terminal-surface: #2e2e2e;
     --mint-terminal-header-bg: #363636;
-    --mint-terminal-prompt-user: #1f9ede;
+    --mint-terminal-prompt-user: #0c75de;
     --mint-terminal-prompt-path: #f6f5f4;
     --mint-terminal-prompt-path-seg: #f6f5f4;
-    --mint-terminal-dir-color: #1f9ede;
+    --mint-terminal-dir-color: #0c75de;
     --mint-terminal-error: #f66151;
     --mint-terminal-history-weight: 400;
 }
@@ -92,7 +92,7 @@ body#mint .windowElement[data-link="terminal"].terminal-window--gnome #windowTit
     margin: 0 calc(var(--head) / 8);
     padding: 0 calc(var(--head) / 10);
     color: var(--mint-terminal-prompt-path);
-    font-family: "Ubuntu Mono", "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+    font-family: "DejaVu Sans Mono", "Ubuntu Mono", "Noto Sans Mono", monospace;
     font-size: calc(var(--head) / 2.4);
     font-weight: 500;
     line-height: 1.2;
@@ -277,7 +277,7 @@ body#mint .windowElement[data-link="terminal"].terminal-window--gnome [data-term
     align-items: baseline;
     margin: 0 0.2rem 0 0;
     padding: 0;
-    font-family: var(--terminal-font-family, "Ubuntu Mono", "Noto Sans Mono", "DejaVu Sans Mono", monospace);
+    font-family: var(--terminal-font-family, "DejaVu Sans Mono", "Ubuntu Mono", "Noto Sans Mono", monospace);
     font-size: var(--terminal-font-size, 0.92rem);
     line-height: var(--terminal-line-height, 1.35);
     font-weight: 400;
@@ -413,12 +413,12 @@ body#mint .windowElement[data-link="terminal"] .terminal-tabs__tab {
 
 body#mint .windowElement[data-link="terminal"] .terminal-tabs__tab--active {
     background: transparent;
-    box-shadow: inset 0 -2px 0 var(--mint-terminal-prompt-user, #1f9ede);
+    box-shadow: inset 0 -2px 0 var(--mint-terminal-prompt-user, #0c75de);
 }
 
 body#mint .windowElement[data-link="terminal"] .fedora-terminal-tabs__label {
     color: inherit;
-    font-family: var(--terminal-font-family, "Ubuntu Mono", "Noto Sans Mono", "DejaVu Sans Mono", monospace);
+    font-family: var(--terminal-font-family, "DejaVu Sans Mono", "Ubuntu Mono", "Noto Sans Mono", monospace);
     font-size: var(--terminal-font-size, 0.92rem);
     font-weight: 500;
     line-height: 1.2;

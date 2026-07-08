@@ -1,3 +1,4 @@
+'use strict';
 window.CAPSULE_DISTRO_PROFILE = {
     name: 'MX Linux KDE',
     version: '23.x "Libretto"',

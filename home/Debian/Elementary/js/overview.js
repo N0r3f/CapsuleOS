@@ -2,6 +2,7 @@
  * Ubuntu : Activités (barre du haut) = espaces de travail.
  * Grille applications = bouton dock bas #elementary-dock-show-apps.
  */
+'use strict';
 (function initUbuntuOverview() {
     const shell = document.getElementById('elementary');
     const trigger = document.querySelector('.fedora-overview-trigger');

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "doc": "root/docs/convention-portail.md",
+  "allowedGitHosts": [
+    "github.com",
+    "www.github.com",
+    "gitlab.com",
+    "www.gitlab.com",
+    "codeberg.org",
+    "www.codeberg.org"
+  ],
+  "levels": ["debutant", "intermediaire", "confirme", "expert", "cybertech"],
+  "billingTypes": [
+    { "id": "free", "label": "Gratuit", "access": "free" },
+    { "id": "subscriber", "label": "Inclus abonnement", "access": "subscriber" },
+    { "id": "purchase", "label": "Achat unitaire", "access": "free_store" }
+  ],
+  "autoStatuses": ["pending", "running", "passed", "failed"],
+  "adminStatuses": ["awaiting_review", "in_dev", "approved", "rejected", "published"],
+  "validation": {
+    "cloneTimeoutSeconds": 90,
+    "maxRepoSizeBytes": 52428800,
+    "workdir": "var/lib/capsuleos/creator-checks"
+  },
+  "mountIdPattern": "^[a-z0-9_-]+/[a-z0-9_-]+$",
+  "moduleIdPattern": "^[a-z0-9_-]+$"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "capsuleos-app",
+  "private": false,
+  "description": "CapsuleOS — bureaux simulés (HTML, CSS, JavaScript) — export applicatif",
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "dev": "node usr/lib/capsuleos/tools/serve-capsuleos.mjs dev --port 2929",
+    "start": "npm run dev"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,3 +1,4 @@
+'use strict';
 const home = document.querySelector('.home')
 const back = document.querySelector('.back')
 const apps = document.querySelector('.apps')

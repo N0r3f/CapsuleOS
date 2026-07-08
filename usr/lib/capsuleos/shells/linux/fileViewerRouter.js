@@ -1,23 +1,49 @@
+'use strict';
 const TEXT_EDITOR_EXTENSIONS = [
-    'txt', 'md', 'log', 'sh', 'json', 'csv', 'xml', 'css', 'js', 'html'
+    'txt', 'md', 'log', 'sh', 'json', 'csv', 'xml', 'css', 'js', 'html',
+    'py', 'conf', 'ini', 'yaml', 'yml', 'toml', 'env', 'gitignore'
 ];
 
 const FILE_VIEWER_BY_EXTENSION = {
     png: 'visionneur_images',
     jpg: 'visionneur_images',
     jpeg: 'visionneur_images',
-    docx: 'text_editor',
-    doc: 'text_editor',
     gif: 'visionneur_images',
     webp: 'visionneur_images',
     svg: 'visionneur_images',
+    bmp: 'visionneur_images',
+    tiff: 'visionneur_images',
+    ico: 'visionneur_images',
+    jxl: 'visionneur_images',
     pdf: 'visionneur_pdf',
+    doc: 'librewriter',
+    docx: 'librewriter',
+    odt: 'librewriter',
+    rtf: 'librewriter',
+    xls: 'librecalc',
+    xlsx: 'librecalc',
+    ods: 'librecalc',
+    ppt: 'libreoffice_impress',
+    pptx: 'libreoffice_impress',
+    odp: 'libreoffice_impress',
     mp3: 'lecteur_multimedia',
     ogg: 'lecteur_multimedia',
     wav: 'lecteur_multimedia',
+    flac: 'lecteur_multimedia',
+    aac: 'lecteur_multimedia',
+    m4a: 'lecteur_multimedia',
     mp4: 'lecteur_multimedia',
     webm: 'lecteur_multimedia',
-    avi: 'lecteur_multimedia'
+    avi: 'lecteur_multimedia',
+    mkv: 'lecteur_multimedia',
+    mov: 'lecteur_multimedia',
+    zip: 'file_roller',
+    tar: 'file_roller',
+    gz: 'file_roller',
+    bz2: 'file_roller',
+    xz: 'file_roller',
+    '7z': 'file_roller',
+    rar: 'file_roller'
 };
 
 TEXT_EDITOR_EXTENSIONS.forEach((ext) => {
@@ -28,7 +54,11 @@ const fileViewerState = {
     visionneur_images: null,
     visionneur_pdf: null,
     lecteur_multimedia: null,
-    text_editor: null
+    text_editor: null,
+    librewriter: null,
+    librecalc: null,
+    libreoffice_impress: null,
+    file_roller: null
 };
 
 let activeMediaElement = null;
@@ -366,7 +396,7 @@ const openFileInViewer = (href, extension, name) => {
 };
 
 const bindViewerLaunchers = () => {
-    const viewerIds = ['visionneur_images', 'visionneur_pdf', 'lecteur_multimedia', 'text_editor'];
+    const viewerIds = ['visionneur_images', 'visionneur_pdf', 'lecteur_multimedia', 'text_editor', 'librewriter', 'librecalc', 'libreoffice_impress', 'file_roller'];
 
     viewerIds.forEach((appId) => {
         const link = document.querySelector(`a[target="windowElement"][data-link="${appId}"]`);

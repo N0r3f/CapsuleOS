@@ -114,16 +114,16 @@ div.windowElement[data-link="lecteur_multimedia"]:not(#mainMenu) {
 }
 
 #minimizeBtn {
-    background-image: url(./assets/images/toolkits/cinnamon/header/minimize.svg);
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/minimize.svg);
     background-size: cover;
 }
 
 #resizeBtn {
-    background-image: url(./assets/images/toolkits/cinnamon/header/maximize.svg);
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/maximize.svg);
     background-size: cover;
 }
 
 #closeBtn {
-    background-image: url(./assets/images/toolkits/cinnamon/header/close.svg);
+    background-image: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/close.svg);
     background-size: cover;
 }

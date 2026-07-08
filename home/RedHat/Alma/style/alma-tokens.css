@@ -1,0 +1,6 @@
+/**
+ * AlmaLinux — tokens couleurs (VM GNOME, fond dégradé bleu marine).
+ */
+#alma {
+    --fedora-bg: linear-gradient(155deg, #1a4d6e 0%, #0f3d52 32%, #0a2a3a 58%, #051820 100%);
+}

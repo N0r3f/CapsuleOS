@@ -1,6 +1,7 @@
 /**
  * Launcher Cosmic - barre recherche + liste (launcher.png / launcher_search.png).
  */
+'use strict';
 (function () {
     var launcher = document.getElementById('cosmic-launcher');
     var dockBtn = document.getElementById('cosmic-dock-launcher');

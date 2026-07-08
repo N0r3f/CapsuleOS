@@ -1,3 +1,4 @@
+'use strict';
 function createMessage(expediteur, message) {
     const messagesList = document.querySelector('.messages-list');
     if (!messagesList) {

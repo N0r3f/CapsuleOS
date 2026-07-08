@@ -118,6 +118,8 @@
 
       <section class="capsule-browser-site" data-browser-site hidden></section>
 
+      <section class="capsule-browser-preferences" data-browser-preferences hidden></section>
+
       <aside class="capsule-browser-panel" data-browser-panel="history" hidden aria-labelledby="capsule-firefox-history-heading">
         <header class="capsule-browser-panel__header">
           <h2 id="capsule-firefox-history-heading" class="capsule-browser-panel__title" data-capsule-text="firefox.panelHistoryTitle">Historique</h2>
@@ -139,4 +141,38 @@
         </ul>
       </aside>
     </main>
+
+    <footer class="capsule-browser-findbar" data-browser-findbar hidden>
+      <input
+        type="text"
+        class="capsule-browser-findbar__input"
+        data-browser-findbar-input
+        data-capsule-attr="placeholder:firefox.findbarPlaceholder"
+        placeholder="Saisir..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <button type="button" class="capsule-browser-findbar__nav capsule-browser-findbar__nav--prev" data-browser-findbar-prev data-capsule-attr="aria-label:firefox.findbarPrevAria" aria-label="Précédent">◀</button>
+      <button type="button" class="capsule-browser-findbar__nav capsule-browser-findbar__nav--next" data-browser-findbar-next data-capsule-attr="aria-label:firefox.findbarNextAria" aria-label="Suivant">▶</button>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-highlight-all checked>
+        <span data-capsule-text="firefox.findbarHighlightAll">Tout surligner</span>
+      </label>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-case>
+        <span data-capsule-text="firefox.findbarMatchCase">Respecter la casse</span>
+      </label>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-diacritics>
+        <span data-capsule-text="firefox.findbarMatchDiacritics">Respecter les diacritiques</span>
+      </label>
+      <label class="capsule-browser-findbar__toggle">
+        <input type="checkbox" data-browser-findbar-whole-word>
+        <span data-capsule-text="firefox.findbarWholeWord">Mots entiers</span>
+      </label>
+      <span class="capsule-browser-findbar__count" data-browser-findbar-count></span>
+      <button type="button" class="capsule-browser-findbar__close" data-browser-findbar-close data-capsule-attr="aria-label:firefox.findbarCloseAria" aria-label="Fermer">×</button>
+    </footer>
+
+    <section class="capsule-browser-devtools" data-browser-devtools hidden></section>
   </section>

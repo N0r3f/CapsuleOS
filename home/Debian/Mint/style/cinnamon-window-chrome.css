@@ -80,9 +80,9 @@ body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowHeader > 
     background-color: transparent;
 }
 
-/* VM : titlebar-font Muffin = Ubuntu Medium 10 (≈13.3px, graisse 500) */
+/* VM : titlebar-font Muffin = Ubuntu Medium 10 (≈13.3px, graisse 500) — Mint-Y-Blue : texte sombre */
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #windowTitle {
-    color: var(--texte);
+    color: var(--mint-wm-title, rgba(0, 0, 0, 0.87));
     font-family: var(--font-ui, 'Ubuntu', sans-serif);
     font-size: 13.3px;
     font-weight: 500;
@@ -167,27 +167,27 @@ body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #resizeBtn:activ
 }
 
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #minimizeBtn {
-    --mint-muffin-min-bg: url(./assets/images/toolkits/cinnamon/header/minimize.svg);
+    --mint-muffin-min-bg: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/minimize.svg);
     background-image: var(--mint-muffin-min-bg);
 }
 
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #resizeBtn {
-    --mint-muffin-max-bg: url(./assets/images/toolkits/cinnamon/header/maximize.svg);
+    --mint-muffin-max-bg: url(../../../../usr/share/capsuleos/assets/images/toolkits/cinnamon/header/maximize.svg);
     background-image: var(--mint-muffin-max-bg);
 }
 
-/* Fermer — pastille aqua Mint-Y + croix blanche (gtk-3 titlebutton.close) */
+/* Fermer — pastille bleue Mint-Y-Blue #0c75de + croix blanche (gtk-3 titlebutton.close) */
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn {
-    background-image: radial-gradient(circle at 50%, #1f9ede 0, #1f9ede 65%, transparent 65%);
+    background-image: radial-gradient(circle at 50%, #0c75de 0, #0c75de 65%, transparent 65%);
     filter: none;
 }
 
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn:hover {
-    background-image: radial-gradient(circle at 50%, #34a8e3 0, #34a8e3 65%, transparent 65%);
+    background-image: radial-gradient(circle at 50%, #3090e8 0, #3090e8 65%, transparent 65%);
 }
 
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn:active {
-    background-image: radial-gradient(circle at 50%, #1c8ec8 0, #1c8ec8 65%, transparent 65%);
+    background-image: radial-gradient(circle at 50%, #0b68c6 0, #0b68c6 65%, transparent 65%);
 }
 
 body#mint .windowElement[data-window-chrome-toolkit="cinnamon"] #closeBtn::after {

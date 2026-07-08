@@ -1,4 +1,6 @@
 (function initFedoraOverview() {
+    'use strict';
+
     const shell = document.getElementById('fedora');
     const trigger = document.querySelector('.fedora-overview-trigger');
     const overview = document.querySelector('.fedora-overview');

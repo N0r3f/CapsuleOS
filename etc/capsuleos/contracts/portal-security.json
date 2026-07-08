@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "doc": "root/docs/convention-portail.md",
+  "php": {
+    "minVersion": "8.2.0",
+    "minVersionId": 80200
+  },
+  "session": {
+    "ttlInactiveSeconds": 86400,
+    "ttlAbsoluteSeconds": 604800,
+    "cookieHttpOnly": true,
+    "cookieSameSite": "Lax",
+    "cookieSecureProduction": true
+  },
+  "password": {
+    "hashAlgorithm": "argon2id",
+    "minLength": 10
+  },
+  "csrf": {
+    "sessionKey": "capsule_portal_csrf",
+    "fieldName": "_csrf"
+  },
+  "rateLimit": {
+    "login": { "maxAttempts": 5, "windowSeconds": 900 },
+    "register": { "maxAttempts": 5, "windowSeconds": 900 },
+    "verify_email": { "maxAttempts": 10, "windowSeconds": 900 },
+    "verify_resend": { "maxAttempts": 5, "windowSeconds": 900 },
+    "admin": { "maxAttempts": 60, "windowSeconds": 60 }
+  },
+  "launchToken": {
+    "ttlSeconds": 900,
+    "algorithm": "hmac-sha256"
+  },
+  "headers": {
+    "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "frameOptions": "DENY"
+  },
+  "paths": {
+    "sqlite": "var/lib/capsuleos/portal/users.sqlite",
+    "rateLimit": "var/lib/capsuleos/portal/rate-limit.json"
+  },
+  "messages": {
+    "loginFailure": "Connexion impossible. Vérifiez vos identifiants et réessayez.",
+    "emailNotVerified": "Vérifiez votre adresse e-mail avant de vous connecter. Saisissez le code reçu par e-mail ou demandez-en un nouveau.",
+    "verificationSent": "Un code à 6 chiffres a été envoyé à votre adresse e-mail.",
+    "verificationSuccess": "Adresse e-mail vérifiée. Vous êtes connecté."
+  },
+  "emailVerification": {
+    "codeTtlMinutes": 30,
+    "codeLength": 6
+  },
+  "prodSeed": {
+    "enabled": true,
+    "domain": "lacapsule.org",
+    "sharedPassword": "L4C4P5UL3!",
+    "note": "Provisionnement auto des comptes prod (un par grade) à la 1re requête web si la base est vide. Mettre enabled=false pour désactiver."
+  },
+  "dev": {
+    "defaultPassword": "test123456789",
+    "profiles": {
+      "eleve": {
+        "email": "eleve@capsuleos.local",
+        "displayName": "Élève démo"
+      },
+      "abonne": {
+        "email": "abonne@capsuleos.local",
+        "displayName": "Abonné"
+      },
+      "professeur": {
+        "email": "prof@capsuleos.local",
+        "displayName": "Professeur démo"
+      },
+      "createur": {
+        "email": "createur@capsuleos.local",
+        "displayName": "Créateur démo"
+      },
+      "admin": {
+        "email": "admin@capsuleos.local",
+        "displayName": "Administrateur"
+      }
+    },
+    "defaultEmail": "abonne@capsuleos.local",
+    "defaultDisplayName": "Abonné"
+  },
+  "phpRoutesNetworkOnly": [
+    "/portal/index.php",
+    "/portal/login.php",
+    "/portal/register.php",
+    "/portal/verify-email.php",
+    "/portal/account.php",
+    "/portal/logout.php",
+    "/portal/subscribe.php",
+    "/portal/legal.php",
+    "/portal/accessibilite.php",
+    "/portal/api/auth.php",
+    "/portal/api/progress.php",
+    "/portal/api/account.php",
+    "/portal/api/os-usage.php",
+    "/portal/api/tickets.php",
+    "/portal/api/creator-submissions.php",
+    "/portal/api/ticket-media.php",
+    "/portal/api/classroom.php",
+    "/portal/api/classroom-join.php",
+    "/portal/api/skins.php",
+    "/portal/api/gamification.php",
+    "/portal/join-class.php",
+    "/portal/admin.php",
+    "/portal/admin-login.php",
+    "/portal/admin-logout.php",
+    "/portal/api/admin/dashboard.php",
+    "/portal/api/admin/users.php",
+    "/portal/api/admin/tickets.php",
+    "/portal/api/admin/module-submissions.php",
+    "/portal/api/admin/subscriptions.php",
+    "/portal/api/admin/classrooms.php",
+    "/portal/api/admin/catalog-os.php",
+    "/portal/api/admin/catalog-modules.php",
+    "/portal/api/admin/offers.php",
+    "/portal/api/admin/content.php",
+    "/portal/api/admin/audit.php",
+    "/portal/api/admin/runtime.php",
+    "/portal/api/admin/usage.php",
+    "/portal/api/admin/progress.php",
+    "/portal/api/admin/gamification.php",
+    "/portal/api/admin/entitlements.php",
+    "/portal/api/admin/grades.php",
+    "/portal/api/admin/legal.php",
+    "/portal/api/admin/accessibility.php",
+    "/index.php"
+  ]
+}

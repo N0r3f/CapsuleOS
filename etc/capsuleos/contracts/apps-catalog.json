@@ -223,6 +223,108 @@
           "template": "timeshift.html",
           "skinCss": "timeshift.skin.css",
           "functionalDepth": "partial"
+        },
+        "gnome_disks": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_disks.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "font_viewer": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "font_viewer.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "gnome_logs": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_logs.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "gnome_maps": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_maps.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "gnome_weather": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_weather.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "gnome_connections": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_connections.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "gnome_contacts": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_contacts.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "gnome_boxes": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "gnome_boxes.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "firmware_updater": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "firmware_updater.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "security_center": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "security_center.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "language_support": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "language_support.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "seahorse": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "seahorse.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "software_updater": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "software_updater.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "sysprof": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "sysprof.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "malcontent": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "malcontent.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "fedora_media_writer": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "fedora_media_writer.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
+        },
+        "yelp": {
+          "chromeProvider": "libadwaita-gnome",
+          "template": "yelp.html",
+          "skinCss": null,
+          "functionalDepth": "decorative"
         }
       }
     },
@@ -1429,13 +1531,11 @@
         },
         "org.gnome.Yelp": {
           "labelFr": "Aide Ubuntu",
-          "priorite": "P1",
-          "slot": null,
-          "statut": "partiel",
-          "requiresSlot": false,
-          "placement": {
-            "dash": true
-          }
+          "priorite": "P2",
+          "slot": "yelp",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
         },
         "org.gnome.Ptyxis": {
           "labelFr": "Terminal",
@@ -1599,6 +1699,94 @@
           },
           "onVm": false,
           "note": "Absent VM lab — slot GNOME mutualisé"
+        },
+        "org.gnome.DiskUtility": {
+          "labelFr": "Disques",
+          "priorite": "P2",
+          "slot": "gnome_disks",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.font-viewer": {
+          "labelFr": "Polices",
+          "priorite": "P2",
+          "slot": "font_viewer",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Logs": {
+          "labelFr": "Journaux",
+          "priorite": "P2",
+          "slot": "gnome_logs",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Screenshot": {
+          "labelFr": "Capture d'écran",
+          "priorite": "P2",
+          "slot": "screenshot",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "net.nokyan.Resources": {
+          "labelFr": "Resources",
+          "priorite": "P2",
+          "slot": "system_monitor",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "firmware-updater_firmware-updater": {
+          "labelFr": "Actualiseur de micrologiciel",
+          "priorite": "P2",
+          "slot": "firmware_updater",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "desktop-security-center_desktop-security-center": {
+          "labelFr": "Centre de sécurité",
+          "priorite": "P2",
+          "slot": "security_center",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "gnome-language-selector": {
+          "labelFr": "Prise en charge des langues",
+          "priorite": "P2",
+          "slot": "language_support",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.seahorse.Application": {
+          "labelFr": "Mots de passe et clés",
+          "priorite": "P2",
+          "slot": "seahorse",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "update-manager": {
+          "labelFr": "Gestionnaire de mises à jour",
+          "priorite": "P2",
+          "slot": "software_updater",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Sysprof": {
+          "labelFr": "Sysprof",
+          "priorite": "P2",
+          "slot": "sysprof",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
         }
       },
       "capsuleOnly": [
@@ -1701,8 +1889,8 @@
         "org.gnome.Yelp": {
           "labelFr": "Aide",
           "priorite": "P1",
-          "slot": null,
-          "statut": "partiel",
+          "slot": "yelp",
+          "statut": "ok",
           "requiresSlot": false,
           "placement": {
             "overview": true
@@ -1802,7 +1990,7 @@
           "labelFr": "LibreOffice Writer",
           "priorite": "P2",
           "slot": "librewriter",
-          "statut": "partiel",
+          "statut": "ok",
           "requiresSlot": true,
           "placement": {
             "overview": true
@@ -1857,6 +2045,110 @@
           },
           "onVm": false,
           "note": "Module suite LO — épinglage post-install"
+        },
+        "org.gnome.DiskUtility": {
+          "labelFr": "Disques",
+          "priorite": "P2",
+          "slot": "gnome_disks",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.font-viewer": {
+          "labelFr": "Polices",
+          "priorite": "P2",
+          "slot": "font_viewer",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Logs": {
+          "labelFr": "Journaux",
+          "priorite": "P2",
+          "slot": "gnome_logs",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Maps": {
+          "labelFr": "Cartes",
+          "priorite": "P2",
+          "slot": "gnome_maps",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Weather": {
+          "labelFr": "Météo",
+          "priorite": "P2",
+          "slot": "gnome_weather",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Connections": {
+          "labelFr": "Connexions",
+          "priorite": "P2",
+          "slot": "gnome_connections",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Contacts": {
+          "labelFr": "Contacts",
+          "priorite": "P2",
+          "slot": "gnome_contacts",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Boxes": {
+          "labelFr": "Machines",
+          "priorite": "P2",
+          "slot": "gnome_boxes",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.SimpleScan": {
+          "labelFr": "Numériseur de documents",
+          "priorite": "P2",
+          "slot": "simple_scan",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Decibels": {
+          "labelFr": "Lecteur audio",
+          "priorite": "P2",
+          "slot": "lecteur_multimedia",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.gnome.Showtime": {
+          "labelFr": "Lecteur vidéo",
+          "priorite": "P2",
+          "slot": "lecteur_multimedia",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.freedesktop.MalcontentControl": {
+          "labelFr": "Contrôles parentaux",
+          "priorite": "P2",
+          "slot": "malcontent",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.fedoraproject.MediaWriter": {
+          "labelFr": "Fedora Media Writer",
+          "priorite": "P2",
+          "slot": "fedora_media_writer",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
         }
       },
       "capsuleOnly": [
@@ -3106,7 +3398,9 @@
           "slot": "update_manager",
           "statut": "ok",
           "requiresSlot": true,
-          "vmManifestIds": ["com.system76.CosmicStore"],
+          "vmManifestIds": [
+            "com.system76.CosmicStore"
+          ],
           "note": "Pop!_OS 24 COSMIC — Cosmic Store remplace pop-shop.desktop",
           "placement": {
             "dash": true,
@@ -3744,7 +4038,10 @@
           "slot": "themes",
           "statut": "ok",
           "requiresSlot": true,
-          "vmManifestIds": ["systemsettings", "kdesystemsettings"],
+          "vmManifestIds": [
+            "systemsettings",
+            "kdesystemsettings"
+          ],
           "placement": {
             "dash": false,
             "overview": false,
@@ -3769,7 +4066,7 @@
           "labelFr": "visionneur_images",
           "priorite": "P1",
           "slot": "visionneur_images",
-          "statut": "partiel",
+          "statut": "ok",
           "requiresSlot": true,
           "placement": {
             "dash": false,
@@ -3782,7 +4079,7 @@
           "labelFr": "visionneur_pdf",
           "priorite": "P1",
           "slot": "visionneur_pdf",
-          "statut": "partiel",
+          "statut": "ok",
           "requiresSlot": true,
           "placement": {
             "dash": false,
@@ -3797,7 +4094,9 @@
           "slot": "lecteur_multimedia",
           "statut": "ok",
           "requiresSlot": true,
-          "vmManifestIds": ["vlc"],
+          "vmManifestIds": [
+            "vlc"
+          ],
           "placement": {
             "dash": false,
             "overview": false,
@@ -3869,6 +4168,160 @@
             "dock": false,
             "desktop": false
           }
+        },
+        "org.kde.ark": {
+          "labelFr": "Ark",
+          "priorite": "P2",
+          "slot": "ark",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.plasma-welcome": {
+          "labelFr": "Centre d'accueil",
+          "priorite": "P2",
+          "slot": "plasma_welcome",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.partitionmanager": {
+          "labelFr": "Gestionnaire de partitions",
+          "priorite": "P2",
+          "slot": "partition_manager",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.kwalletmanager": {
+          "labelFr": "KWalletManager",
+          "priorite": "P2",
+          "slot": "kwallet",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.kmenuedit": {
+          "labelFr": "Éditeur de menus",
+          "priorite": "P2",
+          "slot": "kmenuedit",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.gwenview": {
+          "labelFr": "Gwenview",
+          "priorite": "P2",
+          "slot": "visionneur_images",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.okular": {
+          "labelFr": "Okular",
+          "priorite": "P2",
+          "slot": "visionneur_pdf",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.spectacle": {
+          "labelFr": "Spectacle",
+          "priorite": "P2",
+          "slot": "spectacle",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.kdeconnect.app": {
+          "labelFr": "KDE Connect",
+          "priorite": "P2",
+          "slot": "kdeconnect",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.plasma-systemmonitor": {
+          "labelFr": "Surveillance du système",
+          "priorite": "P2",
+          "slot": "system_monitor",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.kinfocenter": {
+          "labelFr": "Centre d'informations",
+          "priorite": "P2",
+          "slot": "kinfocenter",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.drkonqi.coredump.gui": {
+          "labelFr": "Rapport de plantage",
+          "priorite": "P2",
+          "slot": "kde_crash_reporter",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.khelpcenter": {
+          "labelFr": "Centre d'aide",
+          "priorite": "P2",
+          "slot": "kde_help_center",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.kuserfeedback-console": {
+          "labelFr": "Retours utilisateur",
+          "priorite": "P2",
+          "slot": "kde_user_feedback",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.plasma.emojier": {
+          "labelFr": "Sélecteur d'émoticônes",
+          "priorite": "P2",
+          "slot": "kde_emoji_selector",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "org.kde.kdeconnect.sms": {
+          "labelFr": "SMS par KDE Connect",
+          "priorite": "P2",
+          "slot": "kde_sms",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "overview"
+        },
+        "kasumi": {
+          "labelFr": "Anthy Dictionary editor",
+          "priorite": "P2",
+          "slot": null,
+          "statut": "decorative",
+          "requiresSlot": false,
+          "placement": "menu",
+          "note": "IME outil système"
+        },
+        "display-im6.q16": {
+          "labelFr": "ImageMagick",
+          "priorite": "P2",
+          "slot": null,
+          "statut": "decorative",
+          "requiresSlot": false,
+          "placement": "menu",
+          "note": "outil CLI graphisme"
+        },
+        "org.kde.keepsecret": {
+          "labelFr": "KeepSecret",
+          "priorite": "P2",
+          "slot": "kwallet",
+          "statut": "ok",
+          "requiresSlot": true,
+          "placement": "menu"
         }
       },
       "capsuleOnly": [
@@ -3935,7 +4388,10 @@
           "slot": "themes",
           "statut": "partiel",
           "requiresSlot": true,
-          "vmManifestIds": ["systemsettings", "kdesystemsettings"],
+          "vmManifestIds": [
+            "systemsettings",
+            "kdesystemsettings"
+          ],
           "placement": {
             "dash": false,
             "overview": false,
@@ -3975,7 +4431,9 @@
           "slot": "lecteur_multimedia",
           "statut": "partiel",
           "requiresSlot": true,
-          "vmManifestIds": ["vlc"],
+          "vmManifestIds": [
+            "vlc"
+          ],
           "placement": {
             "dash": false,
             "overview": false,

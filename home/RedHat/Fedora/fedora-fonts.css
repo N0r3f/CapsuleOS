@@ -20,6 +20,14 @@
 
 @font-face {
     font-family: "Adwaita Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/fedora/AdwaitaMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Adwaita Mono";
     src: url("../../../usr/share/capsuleos/assets/fonts/vendors/fedora/AdwaitaMono-BoldItalic.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;

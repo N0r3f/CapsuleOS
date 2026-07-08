@@ -1,1 +1,186 @@
-update_manager_gnome.html
+<main id="updateManagerApp" class="update-manager update-manager--cosmic cosmic-store" aria-label="COSMIC Store" data-um-cosmic-view="explore">
+    <nav class="cosmic-store__sidebar" aria-label="Navigation">
+        <div class="cosmic-store__sidebar-top">
+            <button type="button" class="cosmic-store__sidebar-icon" data-um-cosmic-action="home" aria-label="Accueil">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/apps/overview/cosmic-store.svg" alt="" width="20" height="20">
+            </button>
+            <button type="button" class="cosmic-store__sidebar-icon" data-um-cosmic-action="toggleSearch" aria-label="Rechercher">
+                <img src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/system-search-symbolic.svg" alt="" width="18" height="18" class="cosmic-store__nav-icon">
+            </button>
+        </div>
+
+        <ul class="cosmic-store__nav" role="list">
+            <li><button type="button" class="cosmic-store__navitem is-active" data-um-cosmic-nav="explore">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/go-home-symbolic.svg" alt="" width="18" height="18">
+                <span>Explorer</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="creation">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-graphics-symbolic.svg" alt="" width="18" height="18">
+                <span>Création</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="work">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-engineering-symbolic.svg" alt="" width="18" height="18">
+                <span>Travail</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="development">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-system-symbolic.svg" alt="" width="18" height="18">
+                <span>Développement</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="learn">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-science-symbolic.svg" alt="" width="18" height="18">
+                <span>Apprentissage</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="games">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-games-symbolic.svg" alt="" width="18" height="18">
+                <span>Jeux</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="relax">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-multimedia-symbolic.svg" alt="" width="18" height="18">
+                <span>Détente</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="social">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/chat-symbolic.svg" alt="" width="18" height="18">
+                <span>Socialisation</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="utilities">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-utilities-symbolic.svg" alt="" width="18" height="18">
+                <span>Utilitaires</span>
+            </button></li>
+            <li><button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="applets">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/applications-utilities-symbolic.svg" alt="" width="18" height="18">
+                <span>Applets</span>
+            </button></li>
+        </ul>
+
+        <div class="cosmic-store__sidebar-bottom">
+            <button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="installed">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/checkbox-checked-symbolic.svg" alt="" width="18" height="18">
+                <span>Applis installées</span>
+            </button>
+            <button type="button" class="cosmic-store__navitem" data-um-cosmic-nav="updates">
+                <img class="cosmic-store__nav-icon" src="../../../usr/share/capsuleos/assets/images/toolkits/cosmic/nav/software-update-available-symbolic.svg" alt="" width="18" height="18">
+                <span>Mises à jour</span>
+                <span class="cosmic-store__badge" data-um-cosmic-badge hidden></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="cosmic-store__main" aria-label="Contenu principal">
+        <header class="cosmic-store__titlebar window-drag-region" data-window-drag-region aria-label="Barre de titre">
+            <div class="cosmic-store__search-bar" data-um-cosmic-search-bar hidden>
+                <span class="cosmic-store__search-bar-icon" aria-hidden="true"></span>
+                <input class="cosmic-store__search-input" type="search"
+                       placeholder="Rechercher des applications…" aria-label="Rechercher des applications"
+                       data-um-cosmic-search>
+                <button type="button" class="cosmic-store__search-close" data-um-cosmic-action="closeSearch" aria-label="Fermer"></button>
+            </div>
+            <div class="cosmic-store__chrome-actions">
+                <button type="button" class="cosmic-store__chrome-btn" data-um-cosmic-action="settings" aria-label="Paramètres" title="Paramètres">
+                    <span class="cosmic-store__chrome-icon cosmic-store__chrome-icon--settings" aria-hidden="true"></span>
+                </button>
+            </div>
+        </header>
+
+        <div class="cosmic-store__scroll">
+            <div class="cosmic-store__pane" data-um-cosmic-pane="explore">
+                <section class="cosmic-store__section" data-um-cosmic-editors-section aria-labelledby="cs-editors-title">
+                    <header class="cosmic-store__section-head">
+                        <h2 class="cosmic-store__section-title" id="cs-editors-title">Choix de l'éditeur</h2>
+                        <button type="button" class="cosmic-store__see-all" data-um-cosmic-see-all="editors">Voir tout &#x276F;</button>
+                    </header>
+                    <div class="cosmic-store__grid" role="list" data-um-cosmic-editors-grid></div>
+                </section>
+
+                <section class="cosmic-store__section" data-um-cosmic-popular-section aria-labelledby="cs-popular-title">
+                    <header class="cosmic-store__section-head">
+                        <h2 class="cosmic-store__section-title" id="cs-popular-title">Applis populaires</h2>
+                        <button type="button" class="cosmic-store__see-all" data-um-cosmic-see-all="popular">Voir tout &#x276F;</button>
+                    </header>
+                    <div class="cosmic-store__grid" role="list" data-um-cosmic-popular-grid></div>
+                </section>
+
+                <section class="cosmic-store__section" data-um-cosmic-cosmic-section aria-labelledby="cs-cosmic-title">
+                    <header class="cosmic-store__section-head">
+                        <h2 class="cosmic-store__section-title" id="cs-cosmic-title">Applis faites pour COSMIC</h2>
+                        <button type="button" class="cosmic-store__see-all" data-um-cosmic-see-all="cosmic">Voir tout &#x276F;</button>
+                    </header>
+                    <div class="cosmic-store__grid" role="list" data-um-cosmic-cosmic-grid></div>
+                </section>
+            </div>
+
+            <div class="cosmic-store__pane" data-um-cosmic-pane="category" hidden>
+                <header class="cosmic-store__page-head">
+                    <button type="button" class="cosmic-store__back" data-um-cosmic-nav="explore" aria-label="Retour"></button>
+                    <h2 class="cosmic-store__page-title" data-um-cosmic-category-title>Catégorie</h2>
+                </header>
+                <div class="cosmic-store__grid" role="list" data-um-cosmic-category-grid></div>
+            </div>
+
+            <div class="cosmic-store__pane" data-um-cosmic-pane="search" hidden>
+                <header class="cosmic-store__page-head">
+                    <h2 class="cosmic-store__page-title">Résultats</h2>
+                    <p class="cosmic-store__page-sub" data-um-cosmic-search-sub></p>
+                </header>
+                <div class="cosmic-store__grid" role="list" data-um-cosmic-search-grid></div>
+                <p class="cosmic-store__empty" data-um-cosmic-search-empty hidden>Aucune application ne correspond.</p>
+            </div>
+
+            <div class="cosmic-store__pane" data-um-cosmic-pane="installed" hidden>
+                <header class="cosmic-store__page-head">
+                    <h2 class="cosmic-store__page-title">Installées</h2>
+                    <p class="cosmic-store__page-sub">Applications installées sur ce système</p>
+                </header>
+                <div class="cosmic-store__installed-list" data-um-cosmic-installed-list></div>
+            </div>
+
+            <div class="cosmic-store__pane" data-um-cosmic-pane="updates" hidden>
+                <header class="cosmic-store__page-head">
+                    <h2 class="cosmic-store__page-title">Mises à jour</h2>
+                    <p class="cosmic-store__page-sub" data-um-cosmic-updates-sub></p>
+                    <div class="cosmic-store__page-actions">
+                        <button type="button" class="cosmic-store__btn" data-um-cosmic-action="check">Rechercher</button>
+                        <button type="button" class="cosmic-store__btn cosmic-store__btn--primary" data-um-cosmic-action="updateAll">Tout mettre à jour</button>
+                    </div>
+                </header>
+                <div class="cosmic-store__updates-list" data-um-cosmic-updates-rows></div>
+                <p class="cosmic-store__empty" data-um-cosmic-updates-empty hidden>Le système est à jour.</p>
+            </div>
+
+            <div class="cosmic-store__pane" data-um-cosmic-pane="detail" hidden>
+                <header class="cosmic-store__detail-head">
+                    <button type="button" class="cosmic-store__back" data-um-cosmic-action="detailBack" aria-label="Retour"></button>
+                    <span class="cosmic-store__detail-icon" data-um-cosmic-detail-icon aria-hidden="true"></span>
+                    <div class="cosmic-store__detail-titles">
+                        <h2 class="cosmic-store__detail-title" data-um-cosmic-detail-title></h2>
+                        <p class="cosmic-store__detail-sub" data-um-cosmic-detail-sub></p>
+                        <p class="cosmic-store__detail-developer" data-um-cosmic-detail-developer hidden></p>
+                        <p class="cosmic-store__detail-rating" data-um-cosmic-detail-rating hidden></p>
+                    </div>
+                    <div class="cosmic-store__detail-actions">
+                        <span class="cosmic-store__source-chip" data-um-cosmic-detail-source-chip hidden>
+                            <span data-um-cosmic-detail-source-text></span>
+                        </span>
+                        <button type="button" class="cosmic-store__btn cosmic-store__btn--outline" data-um-cosmic-action="uninstall" hidden>Désinstaller</button>
+                        <button type="button" class="cosmic-store__btn cosmic-store__btn--primary" data-um-cosmic-action="install">Installer</button>
+                    </div>
+                </header>
+                <div class="cosmic-store__install-progress" data-um-cosmic-install-progress hidden>
+                    <div class="cosmic-store__install-track">
+                        <div class="cosmic-store__install-bar" data-um-cosmic-install-bar></div>
+                    </div>
+                    <p class="cosmic-store__install-label" data-um-cosmic-install-label>Téléchargement…</p>
+                </div>
+                <div class="cosmic-store__detail-body">
+                    <p class="cosmic-store__detail-long" data-um-cosmic-detail-long></p>
+                    <dl class="cosmic-store__detail-meta">
+                        <div><dt>Version</dt><dd data-um-cosmic-detail-version></dd></div>
+                        <div><dt>Taille</dt><dd data-um-cosmic-detail-size></dd></div>
+                        <div><dt>Licence</dt><dd data-um-cosmic-detail-license></dd></div>
+                        <div><dt>Origine</dt><dd data-um-cosmic-detail-origin></dd></div>
+                        <div><dt>Source</dt><dd data-um-cosmic-detail-source></dd></div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,4 +1,6 @@
 (function attachMainMenuPlasmaChrome() {
+    'use strict';
+
     if (!document.body || document.body.id !== 'opensuse') {
         return;
     }

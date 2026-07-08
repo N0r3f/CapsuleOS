@@ -35,7 +35,7 @@
           "position": 2,
           "item": {
             "@type": "SoftwareApplication",
-            "name": "Ubuntu 25.10",
+            "name": "Ubuntu 26.04 LTS",
             "identifier": "linux-ubuntu",
             "applicationCategory": "EducationalApplication",
             "operatingSystem": "Web browser",

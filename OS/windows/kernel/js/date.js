@@ -1,3 +1,4 @@
+'use strict';
 function updateWindowsDateTime() {
     const el = document.getElementById('heure-date');
     if (!el) {

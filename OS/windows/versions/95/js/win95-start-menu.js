@@ -1,6 +1,7 @@
 /**
  * Menu Démarrer Windows 95 (bandeau vertical + entrées classiques).
  */
+'use strict';
 (function () {
     const menu = document.getElementById('menu');
     if (!menu || menu.childElementCount > 0) {

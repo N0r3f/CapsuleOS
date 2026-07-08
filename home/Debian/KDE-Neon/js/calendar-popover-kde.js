@@ -1,4 +1,6 @@
 (function () {
+    'use strict';
+
     const trigger = document.getElementById('taskbar-clock-trigger');
     const popover = document.getElementById('taskbar-calendar-popover');
     if (!trigger || !popover) return;

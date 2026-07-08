@@ -6,12 +6,7 @@ body#mint .gnome-shot__headerbar {
 }
 
 body#mint {
-    --gnome-shot-bg: #2e2e33;
-    --gnome-shot-text: #e1e1e1;
-}
-
-html[data-theme="light"] body#mint {
-    --gnome-shot-bg: #f6f6f6;
+    --gnome-shot-bg: #f8f8f9;
     --gnome-shot-text: #1e1e1e;
 }
 
@@ -22,15 +17,6 @@ body#mint div[data-link="screenshot"].windowElement {
     height: auto;
     min-height: calc(var(--head) * 10);
     max-height: calc(100% - var(--taskbar-height) - calc(var(--head) / 2));
-}
-
-body#mint div[data-link="screenshot"] #windowHeader {
-    background: var(--gnome-shot-bg);
-    border-bottom: 1px solid var(--menu-shell-border);
-}
-
-body#mint div[data-link="screenshot"] #windowTitle {
-    color: var(--gnome-shot-text);
 }
 
 body#mint main#gnomeScreenshotApp {

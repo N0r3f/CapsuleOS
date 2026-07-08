@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par generate-vm-settings-baseline.mjs — ne pas éditer à la main */
 window.CAPSULE_VM_SETTINGS_BASELINE = {
     "wifi": {

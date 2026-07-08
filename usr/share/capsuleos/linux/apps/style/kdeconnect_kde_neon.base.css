@@ -69,7 +69,7 @@ main#kdeconnectApp.kde-kdeconnect {
 .kde-kdeconnect__device-icon {
     width: 1.5rem;
     height: 1.5rem;
-    background: url('../../../assets/images/vendors/neon/kickoff/kdeconnect.svg') center / contain no-repeat;
+    background: url('../../../../../../usr/share/capsuleos/assets/images/vendors/neon/kickoff/kdeconnect.svg') center / contain no-repeat;
 }
 
 .kde-kdeconnect__device-status {

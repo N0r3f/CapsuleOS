@@ -33,3 +33,11 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: "DejaVu Sans Mono";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/mint/DejaVuSansMono.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

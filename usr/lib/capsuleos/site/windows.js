@@ -1,3 +1,4 @@
+'use strict';
 document.addEventListener('DOMContentLoaded', function () {
     const mainElement = document.querySelector('main');
     const images = document.querySelectorAll('a[target="lien"]');

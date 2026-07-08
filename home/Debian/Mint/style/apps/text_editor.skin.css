@@ -1,22 +1,8 @@
 /**
- * xed (Éditeur de texte) — parité VM Mint 22 · Mint-Y-Dark-Aqua.
- * Chrome sombre + zone de saisie claire (GTK TextView), barre d’icônes symboliques.
+ * xed (Éditeur de texte) — Linux Mint 22 · Mint-Y-Blue GTK3 light.
+ * Ground truth VM 192.168.1.70, 2026-06-30.
  */
 body#mint {
-    --xed-chrome-bg: #2e2e33;
-    --xed-status-bg: #27272b;
-    --xed-buffer-bg: #ffffff;
-    --xed-buffer-text: #1a1a1a;
-    --xed-text: #e1e1e1;
-    --xed-border: #303036;
-    --xed-menu-surface-bg: #303036;
-    --xed-menu-hover-bg: rgba(255, 255, 255, 0.08);
-    --xed-toolbar-hover-bg: #3c3c44;
-    --xed-toolbar-active-bg: rgba(31, 158, 222, 0.18);
-    --xed-toolbar-icon-filter: brightness(0) invert(1);
-}
-
-html[data-theme="light"] body#mint {
     --xed-chrome-bg: #ececec;
     --xed-status-bg: #e0e0e0;
     --xed-buffer-bg: #ffffff;
@@ -28,15 +14,6 @@ html[data-theme="light"] body#mint {
     --xed-toolbar-hover-bg: rgba(0, 0, 0, 0.06);
     --xed-toolbar-active-bg: rgba(0, 0, 0, 0.1);
     --xed-toolbar-icon-filter: brightness(0);
-}
-
-body#mint div[data-link="text_editor"] #windowHeader {
-    background: var(--nemo-header-bg, #27272b);
-    border-bottom: 1px solid var(--xed-border);
-}
-
-body#mint div[data-link="text_editor"] #windowTitle {
-    color: var(--xed-text);
 }
 
 body#mint main#xedApp {
@@ -71,13 +48,13 @@ body#mint .xed-menu__item {
     color: var(--xed-text);
 }
 
-html[data-theme="light"] body#mint .xed-menu__item {
+body#mint .xed-menu__item {
     color: #1a1a1a;
 }
 
 body#mint .xed-app__tool:hover {
     background: var(--xed-toolbar-hover-bg);
-    border-color: var(--menu-accent, #1f9ede);
+    border-color: var(--menu-accent, #0c75de);
 }
 
 body#mint .xed-app__tool img {

@@ -2,6 +2,7 @@
  * Menu Démarrer minimal (versions noyau) : raccourcis partagés + bouton alimentation → accueil CapsuleOS.
  * Ignoré si #menu est déjà rempli (ex. Windows 11 + demarrer.js).
  */
+'use strict';
 (function () {
     const menu = document.getElementById('menu');
     if (!menu || menu.childElementCount > 0) {

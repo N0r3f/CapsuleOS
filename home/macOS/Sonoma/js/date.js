@@ -1,3 +1,4 @@
+'use strict';
 // Fonction pour mettre à jour l'heure et la date
 function updateDateTime() {
     var date = new Date();

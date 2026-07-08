@@ -40,3 +40,4 @@
  * `usr/share/capsuleos/themes/linux/variables-linux.css` (repli `--win-default-*`).
  * Appliquées au premier affichage par `windowContainer.js` (`applyInitialLinuxWindowSize`).
  */
+'use strict';

@@ -34,6 +34,7 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
 }
 
 .capsule-browser {
+    position: relative;
     width: var(--full);
     height: var(--full);
     display: flex;
@@ -263,18 +264,18 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
 }
 
 .capsule-browser__btn--icon-back::before {
-    -webkit-mask-image: url("../../../assets/images/toolkits/firefox/chrome/back.svg");
-    mask-image: url("../../../assets/images/toolkits/firefox/chrome/back.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/back.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/back.svg");
 }
 
 .capsule-browser__btn--icon-forward::before {
-    -webkit-mask-image: url("../../../assets/images/toolkits/firefox/chrome/forward.svg");
-    mask-image: url("../../../assets/images/toolkits/firefox/chrome/forward.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/forward.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/forward.svg");
 }
 
 .capsule-browser__btn--icon-reload::before {
-    -webkit-mask-image: url("../../../assets/images/toolkits/firefox/chrome/reload.svg");
-    mask-image: url("../../../assets/images/toolkits/firefox/chrome/reload.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/reload.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/reload.svg");
 }
 
 .capsule-browser__btn--icon-home::before {
@@ -293,8 +294,8 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
 }
 
 .capsule-browser__btn--icon-menu::before {
-    -webkit-mask-image: url("../../../assets/images/toolkits/firefox/chrome/menu.svg");
-    mask-image: url("../../../assets/images/toolkits/firefox/chrome/menu.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/menu.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/menu.svg");
 }
 
 .capsule-browser__btn--active {
@@ -303,6 +304,7 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
 }
 
 .capsule-browser__addressbar {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -346,6 +348,85 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
 
 .capsule-browser__address-input::placeholder {
     color: var(--firefox-address-placeholder);
+}
+
+.capsule-browser__urlbar-popup {
+    position: absolute;
+    z-index: 32;
+    top: calc(100% + 0.3rem);
+    left: 0;
+    right: 0;
+    padding: 0.3rem 0;
+    border: var(--firefox-address-border);
+    border-radius: 0.5rem;
+    color: var(--firefox-text-main);
+    background: var(--firefox-menu-bg, var(--firefox-toolbar-bg, #2b2a33));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.capsule-browser__urlbar-popup[hidden] {
+    display: none !important;
+}
+
+.capsule-browser__urlbar-heading {
+    padding: 0.3rem 0.7rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.5));
+    font-size: 0.66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.capsule-browser__urlbar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+}
+
+.capsule-browser__urlbar-row:hover,
+.capsule-browser__urlbar-row--active {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser__urlbar-row--search {
+    color: #ffffff;
+    background: var(--menu-accent, #0060df);
+}
+
+.capsule-browser__urlbar-row--search:hover {
+    background: var(--menu-accent, #0060df);
+    opacity: 0.92;
+}
+
+.capsule-browser__urlbar-row-icon {
+    flex-shrink: 0;
+    width: 1.1rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.capsule-browser__urlbar-row-hint {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.5));
+    font-size: 0.72rem;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.capsule-browser__urlbar-row--search .capsule-browser__urlbar-row-hint {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.capsule-browser__urlbar-empty {
+    padding: 0.4rem 0.7rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.5));
+    font-size: 0.74rem;
+    font-style: italic;
 }
 
 .capsule-browser__toolbar-actions {
@@ -438,6 +519,477 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
     max-width: 42rem;
     margin: 0 auto;
     text-align: center;
+}
+
+.capsule-browser-preferences {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    background: var(--firefox-frame-bg);
+}
+
+.capsule-browser-prefs {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+.capsule-browser-prefs__sidebar {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 15rem;
+    height: 100%;
+    padding: 1rem 0.6rem;
+    border-right: 1px solid var(--firefox-chrome-border, rgba(255, 255, 255, 0.12));
+    overflow-y: auto;
+    background: var(--firefox-toolbar-bg);
+}
+
+.capsule-browser-prefs__search {
+    height: 1.9rem;
+    margin-bottom: 0.4rem;
+    padding: 0 0.6rem;
+    border: 1px solid var(--firefox-address-border, rgba(255, 255, 255, 0.2));
+    border-radius: 0.32rem;
+    display: flex;
+    align-items: center;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.55));
+    background: var(--firefox-address-bg);
+    font-size: 0.76rem;
+}
+
+.capsule-browser-prefs__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.capsule-browser-prefs__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    height: 1.9rem;
+    padding: 0 0.6rem;
+    border: 0;
+    border-radius: 0.32rem;
+    color: inherit;
+    background: transparent;
+    font-size: 0.78rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.capsule-browser-prefs__nav-item:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser-prefs__nav-item--active {
+    color: var(--firefox-text-main);
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+    font-weight: 600;
+}
+
+.capsule-browser-prefs__nav-icon {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.capsule-browser-prefs__nav-separator {
+    height: 1px;
+    margin: 0.4rem 0.4rem;
+    background: var(--firefox-menu-separator, rgba(255, 255, 255, 0.12));
+}
+
+.capsule-browser-prefs__content {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 1.6rem 2rem 3rem;
+    overflow-y: auto;
+    color: var(--firefox-text-main);
+}
+
+.capsule-browser-prefs__title {
+    margin-bottom: 1.2rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.capsule-browser-prefs__subsection-title {
+    margin: 1.4rem 0 0.6rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--firefox-chrome-border, rgba(255, 255, 255, 0.12));
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.capsule-browser-prefs__subsection-title:first-of-type {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.capsule-browser-prefs__checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    cursor: pointer;
+}
+
+.capsule-browser-prefs__checkbox-row input {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.capsule-browser-prefs__placeholder {
+    padding: 0.3rem 0;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.55));
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.capsule-browser-prefs__description {
+    max-width: 42rem;
+    margin-bottom: 0.6rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.65));
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.capsule-browser-prefs__item-description {
+    display: block;
+    max-width: 40rem;
+    margin-top: 0.1rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.55));
+    font-size: 0.72rem;
+    line-height: 1.35;
+}
+
+.capsule-browser-prefs__infobox {
+    max-width: 40rem;
+    margin: 0.4rem 0;
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.32rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.75));
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.06));
+    font-size: 0.74rem;
+    line-height: 1.4;
+}
+
+.capsule-browser-prefs__button-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin: 0.5rem 0 0.3rem;
+    font-size: 0.8rem;
+}
+
+.capsule-browser-prefs__btn {
+    align-self: flex-start;
+    height: 1.8rem;
+    margin: 0.3rem 0 0.6rem;
+    padding: 0 0.7rem;
+    border: 1px solid var(--firefox-address-border, rgba(255, 255, 255, 0.2));
+    border-radius: 0.3rem;
+    color: inherit;
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.06));
+    font-size: 0.74rem;
+    cursor: pointer;
+}
+
+.capsule-browser-prefs__btn:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.12));
+}
+
+.capsule-browser-prefs__btn--inline {
+    display: inline-block;
+    margin: 0 0 0.3rem 0.5rem;
+}
+
+.capsule-browser-prefs__select-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    font-size: 0.8rem;
+}
+
+.capsule-browser-prefs__select-value {
+    padding: 0.15rem 0.55rem;
+    border: 1px solid var(--firefox-address-border, rgba(255, 255, 255, 0.2));
+    border-radius: 0.3rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.75));
+    font-size: 0.74rem;
+}
+
+.capsule-browser-prefs__shortcut-list,
+.capsule-browser-prefs__table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    margin-top: 0.4rem;
+}
+
+.capsule-browser-prefs__shortcut-row,
+.capsule-browser-prefs__table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--firefox-chrome-border, rgba(255, 255, 255, 0.08));
+    font-size: 0.78rem;
+}
+
+.capsule-browser-devtools {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    min-height: 12rem;
+    max-height: 26rem;
+    border-top: 2px solid #000000;
+    color: #e8e8e8;
+    background: #1d1f20;
+}
+
+.capsule-browser-devtools[hidden] {
+    display: none !important;
+}
+
+.capsule-browser-devtools__tabbar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2rem;
+    padding: 0 0.4rem;
+    border-bottom: 1px solid #000000;
+    background: #232426;
+}
+
+.capsule-browser-devtools__tabs {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow-x: auto;
+}
+
+.capsule-browser-devtools__tab {
+    flex-shrink: 0;
+    height: 100%;
+    padding: 0 0.6rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: #b7b7b7;
+    background: transparent;
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+
+.capsule-browser-devtools__tab:hover {
+    color: #ffffff;
+}
+
+.capsule-browser-devtools__tab--active {
+    color: #ffffff;
+    border-bottom-color: #45a1ff;
+}
+
+.capsule-browser-devtools__controls {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.capsule-browser-devtools__control-btn {
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 0;
+    border-radius: 0.25rem;
+    color: #b7b7b7;
+    background: transparent;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.capsule-browser-devtools__control-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.capsule-browser-devtools__content {
+    flex: 1;
+    min-height: 0;
+    padding: 0.7rem 0.85rem;
+    overflow-y: auto;
+    font-size: 0.76rem;
+}
+
+.capsule-browser-devtools__section-title {
+    margin: 0.7rem 0 0.4rem;
+    color: #b7b7b7;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.capsule-browser-devtools__section-title:first-child {
+    margin-top: 0;
+}
+
+.capsule-browser-devtools__toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.3rem 0;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid #000000;
+    color: #b7b7b7;
+}
+
+.capsule-browser-devtools__toolbar-icon {
+    font-size: 0.72rem;
+}
+
+.capsule-browser-devtools__empty {
+    padding: 0.6rem 0;
+    color: #7d7d7d;
+    font-size: 0.74rem;
+    font-style: italic;
+}
+
+.capsule-browser-devtools__columns {
+    display: flex;
+    height: 100%;
+    min-height: 10rem;
+    gap: 0;
+}
+
+.capsule-browser-devtools__col {
+    flex: 1;
+    min-width: 0;
+    padding: 0 0.7rem;
+    border-right: 1px solid #000000;
+}
+
+.capsule-browser-devtools__col:first-child {
+    padding-left: 0;
+}
+
+.capsule-browser-devtools__col:last-child {
+    border-right: 0;
+}
+
+.capsule-browser-devtools__col--wide {
+    flex: 2;
+}
+
+.capsule-browser-devtools__subtabs {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.capsule-browser-devtools__subtab {
+    color: #7d7d7d;
+    cursor: pointer;
+}
+
+.capsule-browser-devtools__subtab--active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.capsule-browser-devtools__repl {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.2rem;
+    border-top: 1px solid #000000;
+}
+
+.capsule-browser-devtools__repl-prompt {
+    flex-shrink: 0;
+    color: #6b6b6b;
+    font-family: 'Courier New', monospace;
+}
+
+.capsule-browser-devtools__repl-input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    color: #e8e8e8;
+    background: transparent;
+    font-family: 'Courier New', monospace;
+    font-size: 0.76rem;
+}
+
+.capsule-browser-devtools__repl-input:focus {
+    outline: none;
+}
+
+.capsule-browser-devtools__shortcut-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    color: #b7b7b7;
+}
+
+.capsule-browser-devtools__kbd {
+    padding: 0.1rem 0.35rem;
+    border: 1px solid #4a4a4a;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.68rem;
+}
+
+.capsule-browser-devtools__table-header {
+    display: flex;
+    gap: 1rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #000000;
+    color: #7d7d7d;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+}
+
+.capsule-browser-devtools__tree-item {
+    padding: 0.3rem 0;
+    color: #d0d0d0;
+    font-size: 0.74rem;
+}
+
+.capsule-browser-devtools__banner {
+    padding: 0.5rem 0.7rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0.3rem;
+    color: #d0d0d0;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 0.74rem;
+}
+
+.capsule-browser-devtools__center-btn {
+    display: block;
+    margin: 1.4rem auto;
+}
+
+.capsule-browser-devtools .capsule-browser-prefs__checkbox-row,
+.capsule-browser-devtools .capsule-browser-prefs__select-row,
+.capsule-browser-devtools .capsule-browser-prefs__select-value,
+.capsule-browser-devtools .capsule-browser-prefs__btn {
+    color: #e8e8e8;
+    border-color: #4a4a4a;
 }
 
 .capsule-browser-site__title {
@@ -707,29 +1259,344 @@ div[data-link="firefox"].firefox-window--fedora > #windowHeader:not(.firefox-win
     z-index: 30;
     top: 100%;
     right: 0;
-    min-width: 11rem;
+    width: 17.5rem;
     margin-top: 0.25rem;
-    padding: 0.35rem 0;
-    border: 1px solid var(--firefox-toolbar-border, rgba(255, 255, 255, 0.12));
-    border-radius: 6px;
-    background: var(--firefox-toolbar-bg, #2b2a33);
+    padding: 0.3rem 0;
+    border: var(--firefox-toolbar-border, 1px solid rgba(255, 255, 255, 0.12));
+    border-radius: 8px;
+    background: var(--firefox-menu-bg, var(--firefox-toolbar-bg, #2b2a33));
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-.capsule-browser__menu-item {
-    display: block;
-    width: 100%;
-    padding: 0.45rem 0.85rem;
-    border: 0;
-    background: transparent;
+.capsule-browser__menu-view {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.capsule-browser__menu-view[hidden] {
+    display: none !important;
+}
+
+.capsule-browser__menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.55rem 0.85rem 0.65rem;
+    border-bottom: 1px solid var(--firefox-menu-separator, rgba(255, 255, 255, 0.12));
+    margin-bottom: 0.25rem;
+}
+
+.capsule-browser__menu-header-text {
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.capsule-browser__menu-header-btn {
+    flex-shrink: 0;
+    height: 1.6rem;
+    padding: 0 0.6rem;
+    border: 1px solid var(--firefox-menu-separator, rgba(255, 255, 255, 0.12));
+    border-radius: 0.3rem;
     color: inherit;
+    background: var(--firefox-menu-header-btn-bg, transparent);
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+
+.capsule-browser__menu-header-btn:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser__menu-submenu-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem 0.55rem 0.5rem;
+    border-bottom: 1px solid var(--firefox-menu-separator, rgba(255, 255, 255, 0.12));
+    margin-bottom: 0.25rem;
+}
+
+.capsule-browser__menu-back-btn {
+    flex-shrink: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 0;
+    border-radius: 0.3rem;
+    background: transparent;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.capsule-browser__menu-back-btn:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser__menu-back-btn::before {
+    content: "";
+    display: block;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin: 0 auto;
+    background: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.7));
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/back.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/back.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.capsule-browser__menu-submenu-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.capsule-browser__menu-section-label {
+    padding: 0.35rem 0.85rem 0.2rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.5));
+    font-size: 0.66rem;
+}
+
+.capsule-browser__menu-separator {
+    height: 1px;
+    margin: 0.28rem 0;
+    background: var(--firefox-menu-separator, rgba(255, 255, 255, 0.12));
+}
+
+.capsule-browser__menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.4rem 0.85rem;
+    border: 0;
+    color: inherit;
+    background: transparent;
     font: inherit;
     text-align: left;
     cursor: pointer;
 }
 
-.capsule-browser__menu-item:hover {
-    background: rgba(255, 255, 255, 0.08);
+.capsule-browser__menu-item:hover:not(:disabled) {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser__menu-item--disabled,
+.capsule-browser__menu-item:disabled {
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.4));
+    cursor: default;
+}
+
+.capsule-browser__menu-item-label {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    font-size: 0.78rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.capsule-browser__menu-item-shortcut {
+    flex-shrink: 0;
+    margin-left: 0.6rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.45));
+    font-size: 0.68rem;
+}
+
+.capsule-browser__menu-item-arrow {
+    flex-shrink: 0;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-left: 0.6rem;
+    color: transparent;
+    background: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.45));
+    font-size: 0;
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/forward.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/firefox/chrome/forward.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+.capsule-browser__menu-zoom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.4rem 0.85rem;
+}
+
+.capsule-browser__menu-zoom-label {
+    font-size: 0.78rem;
+}
+
+.capsule-browser__menu-zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.capsule-browser__menu-zoom-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--firefox-menu-separator, rgba(255, 255, 255, 0.12));
+    border-radius: 0.3rem;
+    color: inherit;
+    background: transparent;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.capsule-browser__menu-zoom-btn:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser__menu-zoom-value {
+    min-width: 2.6rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.7));
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.capsule-browser__menu-zoom-btn--fullscreen {
+    font-size: 0.7rem;
+}
+
+.capsule-browser__tab-context-menu {
+    position: absolute;
+    z-index: 31;
+    width: 15.5rem;
+    padding: 0.3rem 0;
+    border: var(--firefox-toolbar-border, 1px solid rgba(255, 255, 255, 0.12));
+    border-radius: 8px;
+    background: var(--firefox-menu-bg, var(--firefox-toolbar-bg, #2b2a33));
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.capsule-browser__tab-context-menu[hidden] {
+    display: none !important;
+}
+
+.capsule-browser__tooltip {
+    position: absolute;
+    z-index: 40;
+    max-width: 16rem;
+    padding: 0.35rem 0.55rem;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #0060df;
+    font-size: 0.72rem;
+    line-height: 1.35;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.capsule-browser__tooltip[hidden] {
+    display: none !important;
+}
+
+.capsule-browser__tooltip-line + .capsule-browser__tooltip-line {
+    margin-top: 0.15rem;
+    opacity: 0.85;
+}
+
+.capsule-browser-findbar {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border-top: var(--firefox-toolbar-border, 1px solid rgba(255, 255, 255, 0.12));
+    color: var(--firefox-btn-text, inherit);
+    background: var(--firefox-toolbar-bg, #2b2a33);
+    font-size: 0.76rem;
+}
+
+.capsule-browser-findbar[hidden] {
+    display: none !important;
+}
+
+.capsule-browser-findbar__input {
+    width: 13rem;
+    height: 1.7rem;
+    padding: 0 0.5rem;
+    border: 1px solid var(--firefox-address-border, rgba(255, 255, 255, 0.2));
+    border-radius: 0.25rem;
+    color: #15141a;
+    background: #ffffff;
+    font-size: 0.76rem;
+}
+
+.capsule-browser-findbar__input--nomatch {
+    background: #fce8e6;
+}
+
+.capsule-browser-findbar__nav {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--firefox-address-border, rgba(255, 255, 255, 0.2));
+    border-radius: 0.25rem;
+    color: inherit;
+    background: transparent;
+    font-size: 0.6rem;
+    cursor: pointer;
+}
+
+.capsule-browser-findbar__nav:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser-findbar__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.7));
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.capsule-browser-findbar__count {
+    margin-left: auto;
+    color: var(--firefox-menu-text-muted, rgba(255, 255, 255, 0.7));
+    white-space: nowrap;
+}
+
+.capsule-browser-findbar__close {
+    flex-shrink: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 0;
+    border-radius: 0.25rem;
+    color: inherit;
+    background: transparent;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.capsule-browser-findbar__close:hover {
+    background: var(--firefox-hover-soft, rgba(255, 255, 255, 0.08));
+}
+
+.capsule-browser-findbar__mark {
+    color: #000000;
+    background: #e2f7cb;
+}
+
+.capsule-browser-findbar__mark--dim {
+    color: inherit;
+    background: transparent;
+}
+
+.capsule-browser-findbar__mark--active {
+    color: #000000;
+    background: #ff9632;
 }
 
 .capsule-browser__btn--icon-reload.capsule-browser__btn--loading::before {

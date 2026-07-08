@@ -1,4 +1,6 @@
 (function initMacosTerminalProfile() {
+    'use strict';
+
     window.CAPSULE_TERMINAL_PROFILES = window.CAPSULE_TERMINAL_PROFILES || {};
     window.CAPSULE_TERMINAL_PROFILES['macos:default'] = {
         id: 'macos:default',

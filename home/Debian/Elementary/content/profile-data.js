@@ -1,3 +1,4 @@
+'use strict';
 window.CAPSULE_DISTRO_PROFILE = {
     name: 'Ubuntu',
     version: '25.10 "Questing Quokka"',

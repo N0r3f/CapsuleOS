@@ -4,6 +4,8 @@
   "requiredRewritePatterns": [
     "RewriteCond %{HTTPS} !=on",
     "node_modules",
+    "srv/capsuleos/portal",
+    "REQUEST_URI} !\\^/portal/",
     "REQUEST_METHOD} !\\^\\(GET\\|HEAD\\|OPTIONS\\)"
   ],
   "requiredHeaders": [
@@ -16,6 +18,7 @@
     "Cross-Origin-Resource-Policy",
     "Permissions-Policy"
   ],
+  "requiredPortalEnv": "CAPSULE_PORTAL_ROUTE",
   "requiredFilesMatchDeny": [
     "\\.(?:env|ini|log|sh|md|mdc|jsonl|lock|gitignore|gitattributes)$"
   ]

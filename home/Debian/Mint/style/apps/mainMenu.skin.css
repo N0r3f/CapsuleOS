@@ -1,11 +1,11 @@
 /**
- * Menu Cinnamon Mint v3 — panneau ancré panel (600×480 VM, colonnes 20/25/55 %, gap 2px).
+ * Menu Cinnamon Mint v3 — panneau ancré panel (665×425 VM, colonnes 180/180/1fr px, gap 2px).
  * Remplace mainMenu.base.css pour body#mint (injecté statiquement via imports.css).
  */
 
 body#mint {
-    --mint-menu-width: 600px;
-    --mint-menu-height: 480px;
+    --mint-menu-width: 665px;
+    --mint-menu-height: 425px;
     --mint-menu-col-gap: 2px;
 }
 
@@ -52,7 +52,7 @@ body#mint div[data-link="mainMenu"] .menu-root {
     position: relative;
     inset: 0;
     display: grid;
-    grid-template-columns: 2fr 2.5fr 5.5fr;
+    grid-template-columns: calc(var(--head) * 4.5) calc(var(--head) * 4.5) 1fr;
     grid-template-rows: minmax(0, 1fr) auto;
     column-gap: var(--mint-menu-col-gap);
     align-items: stretch;
@@ -501,4 +501,17 @@ body#mint .menu-app-context-menu__separator {
 
 body#mint div[data-link="mainMenu"] .menu-app-item.is-context-target {
     background: var(--menu-app-hover-bg, rgba(255, 255, 255, 0.08));
+}
+
+/* Thème clair — sidebar #e8e8ec → icônes sombres (inversion du filtre blanc) */
+html[data-theme="light"] body#mint div[data-link="mainMenu"] .menu-user__avatar {
+    filter: brightness(0) opacity(0.65);
+}
+
+html[data-theme="light"] body#mint div[data-link="mainMenu"] .menu-cat__icon {
+    filter: brightness(0) opacity(0.60);
+}
+
+html[data-theme="light"] body#mint div[data-link="mainMenu"] .menu-action img {
+    filter: brightness(0) opacity(0.75);
 }

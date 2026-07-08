@@ -17,6 +17,10 @@
     --lcap-bleu: #332F80;
     --lcap-jaune: #F2BA42;
     --lcap-blanc: #FFFFFF;
+    /** Portail — lisibilité (contraste élevé sur fond sombre, texte blanc) */
+    --blanc: #FFFFFF;
+    --lcap-texte: #FFFFFF;
+    --lcap-texte-muted: #FFFFFF;
     --home-bg-top: #3a3690;
     --home-bg-bottom: #2a2668;
     --home-accent-glow: rgba(242, 186, 66, 0.07);

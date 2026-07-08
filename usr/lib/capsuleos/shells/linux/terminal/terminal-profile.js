@@ -1,4 +1,6 @@
 (function initCapsuleTerminalProfile() {
+    'use strict';
+
     const REDHAT_VENDOR_HINTS = new Set(['rocky', 'alma', 'fedora', 'redhat', 'rhel']);
 
     const bodyId = typeof document !== 'undefined' && document.body

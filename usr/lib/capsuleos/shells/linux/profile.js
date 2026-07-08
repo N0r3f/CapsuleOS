@@ -35,6 +35,8 @@ function initProfileApp() {
 
     const MAX_STARS = 5;
     root.querySelectorAll('[data-stat]').forEach(function renderStat(el) {
+        'use strict';
+
         const key = el.getAttribute('data-stat');
         const val = p.stats[key] || 0;
         el.textContent = '★'.repeat(val) + '☆'.repeat(MAX_STARS - val);

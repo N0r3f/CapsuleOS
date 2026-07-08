@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "doc": "root/docs/convention-portail.md",
+  "controller": {
+    "name": "La Capsule",
+    "site": "https://lacapsule.org",
+    "contactEmail": "contact@lacapsule.org",
+    "dpoEmail": "contact@lacapsule.org"
+  },
+  "footerLinks": [
+    { "id": "protection-donnees", "label": "Protection des données" },
+    { "id": "creation-compte", "label": "Création de compte" },
+    { "id": "donnees-bancaires", "label": "Données bancaires" },
+    { "id": "mentions-legales", "label": "Mentions légales" }
+  ],
+  "consent": {
+    "registerField": "privacy_consent",
+    "registerLabel": "J'accepte la politique de confidentialité et le traitement de mes données pour la gestion de mon compte CapsuleOS.",
+    "privacyAnchor": "protection-donnees"
+  },
+  "pageTitle": "Informations légales & RGPD",
+  "sections": [
+    {
+      "id": "protection-donnees",
+      "title": "Protection des données personnelles",
+      "paragraphs": [
+        "La Capsule, responsable du traitement, s'engage à protéger les données personnelles des utilisateurs de CapsuleOS conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés.",
+        "Données traitées : adresse e-mail, mot de passe (stocké sous forme de empreinte cryptographique Argon2id, jamais en clair), identifiant de session, progression des parcours pédagogiques sauvegardée, statut d'abonnement et horodatages techniques (création de compte, dernière mise à jour).",
+        "Finalités : création et authentification du compte, sauvegarde et reprise de progression, gestion des droits d'accès aux parcours, facturation de l'offre Abonné lorsque le paiement est activé, sécurité (limitation des tentatives de connexion) et respect des obligations légales.",
+        "Bases légales : exécution du contrat (compte et services associés), consentement (inscription), intérêt légitime (sécurité du service).",
+        "Durées de conservation : compte actif : pendant la durée d'utilisation puis suppression sur demande ou après 3 ans d'inactivité ; journaux de sécurité : 12 mois maximum ; progression : tant que le compte est actif ou jusqu'à suppression par l'utilisateur.",
+        "Destinataires : équipe La Capsule habilitée, hébergeur du site. Les paiements sont traités par Stripe (prestataire certifié PCI-DSS) : nous ne stockons pas les numéros de carte bancaire sur nos serveurs.",
+        "Vos droits : accès, rectification, effacement, limitation, opposition, portabilité et retrait du consentement. Pour les exercer : contact@lacapsule.org. Réclamation possible auprès de la CNIL (www.cnil.fr).",
+        "Cookies et sessions : cookies de session strictement nécessaires à l'authentification (HttpOnly, SameSite). Le portail authentifié n'est pas conçu pour un usage hors ligne ; les bureaux simulés restent accessibles localement selon le service worker."
+      ]
+    },
+    {
+      "id": "creation-compte",
+      "title": "Création de compte",
+      "paragraphs": [
+        "La création d'un compte est facultative pour consulter le portail et essayer les bureaux simulés (offre gratuite, durée limitée par session). Elle est requise pour sauvegarder votre progression sur nos serveurs, accéder au parcours pédagogique Abonné et souscrire à l'abonnement.",
+        "Lors de l'inscription, nous collectons uniquement votre adresse e-mail et un mot de passe que vous choisissez. Le mot de passe est immédiatement transformé par hachage Argon2id avant stockage.",
+        "Vous devez cocher la case d'acceptation de la politique de confidentialité pour valider la création du compte. Cette acceptation est enregistrée avec l'horodatage de création du compte.",
+        "Vous pouvez supprimer votre compte et les données associées en nous contactant à contact@lacapsule.org ou, lorsque disponible, depuis votre espace personnel. La suppression efface la progression sauvegardée côté serveur.",
+        "Les mineurs doivent obtenir l'autorisation d'un représentant légal avant de créer un compte."
+      ]
+    },
+    {
+      "id": "donnees-bancaires",
+      "title": "Données bancaires et paiement",
+      "paragraphs": [
+        "L'offre Abonné (15 €/mois) sera réglée via Stripe Checkout lorsque le paiement en ligne sera activé. Les coordonnées bancaires (numéro de carte, cryptogramme) sont saisies directement sur les pages sécurisées de Stripe et ne transitent pas par nos serveurs.",
+        "Nous recevons uniquement de Stripe les informations nécessaires à la gestion de l'abonnement : identifiant client Stripe, statut de l'abonnement, montant et dates de facturation. Aucune donnée de carte n'est stockée dans la base CapsuleOS.",
+        "Stripe agit en tant que sous-traitant au sens du RGPD. Sa politique de confidentialité est disponible sur stripe.com/fr/privacy.",
+        "En cas de résiliation, l'accès Abonné est retiré à l'échéance de la période payée. Les données de facturation conservées par Stripe sont soumises à leurs obligations comptables et légales.",
+        "Tant que le paiement n'est pas activé, aucune donnée bancaire n'est collectée sur CapsuleOS."
+      ]
+    },
+    {
+      "id": "mentions-legales",
+      "title": "Mentions légales",
+      "paragraphs": [
+        "Éditeur du site CapsuleOS : La Capsule, https://lacapsule.org, contact@lacapsule.org",
+        "Directeur de la publication : La Capsule.",
+        "Hébergement : à compléter selon l'environnement de production (coordonnées communiquées sur demande).",
+        "Propriété intellectuelle : l'ensemble des contenus, marques, interfaces et logiciels de CapsuleOS sont protégés. Toute reproduction non autorisée est interdite.",
+        "Pour toute question relative aux données personnelles ou aux présentes mentions : contact@lacapsule.org."
+      ]
+    }
+  ]
+}

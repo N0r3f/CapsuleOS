@@ -1,6 +1,7 @@
 /**
  * Fusion des chaînes par défaut avec les surcharges skin + application dans le DOM.
  */
+'use strict';
 
 function mergeCapsuleStrings(defaults, overrides) {
     const out = Object.assign({}, defaults || {});

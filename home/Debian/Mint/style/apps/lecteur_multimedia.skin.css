@@ -1,4 +1,4 @@
-/* Celluloid 0.21 — Mint Cinnamon (fond sombre, accent #1f9ede) */
+/* Celluloid 0.21 — Mint Cinnamon (fond sombre, accent #0c75de) */
 main#lecteurMultimedia.celluloid-app {
     background: #1a1a1a;
 }
@@ -18,7 +18,7 @@ main#lecteurMultimedia.celluloid-app {
 }
 
 .celluloid-app__timeline-fill {
-    background: #1f9ede;
+    background: #0c75de;
 }
 
 div.windowElement[data-link="lecteur_multimedia"]:not(#mainMenu) {

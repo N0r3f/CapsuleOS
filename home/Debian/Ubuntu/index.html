@@ -45,8 +45,17 @@
                 <a target="windowElement" data-link="firefox" title="Firefox">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.webp" alt="Firefox" width="48" height="48">
                 </a>
+                <a target="windowElement" data-link="thunderbird" title="Evolution">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/evolution.png" alt="Evolution" width="48" height="48">
+                </a>
                 <a target="windowElement" data-link="nemo" title="Fichiers">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/files.png" alt="Fichiers" width="48" height="48">
+                </a>
+                <a target="windowElement" data-link="rhythmbox" title="Rhythmbox">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.Rhythmbox3.svg" alt="Rhythmbox" width="48" height="48">
+                </a>
+                <a target="windowElement" data-link="librewriter" title="LibreOffice Writer">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/libreoffice-writer.webp" alt="LibreOffice Writer" width="48" height="48">
                 </a>
                 <a target="windowElement" data-link="update_manager" title="Logiciels">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/software-store.png" alt="Logiciels" width="48" height="48">
@@ -98,6 +107,17 @@
                 <div class="windowElement" data-link="simple_scan" id="simple_scan" style="display: none;"></div>
                 <div class="windowElement" data-link="warpinator" id="warpinator" style="display: none;"></div>
                 <div class="windowElement" data-link="timeshift" id="timeshift" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_disks" id="gnome_disks" style="display: none;"></div>
+                <div class="windowElement" data-link="font_viewer" id="font_viewer" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_logs" id="gnome_logs" style="display: none;"></div>
+                <div class="windowElement" data-link="screenshot" id="screenshot" style="display: none;"></div>
+                <div class="windowElement" data-link="firmware_updater" id="firmware_updater" style="display: none;"></div>
+                <div class="windowElement" data-link="security_center" id="security_center" style="display: none;"></div>
+                <div class="windowElement" data-link="language_support" id="language_support" style="display: none;"></div>
+                <div class="windowElement" data-link="seahorse" id="seahorse" style="display: none;"></div>
+                <div class="windowElement" data-link="software_updater" id="software_updater" style="display: none;"></div>
+                <div class="windowElement" data-link="sysprof" id="sysprof" style="display: none;"></div>
+                <div class="windowElement" data-link="yelp" id="yelp" style="display: none;"></div>
             </object>
         </main>
     </div>
@@ -159,8 +179,8 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Settings.svg" alt="">
                     <span>Paramètres</span>
                 </button>
-                <button type="button" class="fedora-overview__app" data-overview-link="lecteur_multimedia" aria-label="Rhythmbox">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.Rhythmbox3" alt="">
+                <button type="button" class="fedora-overview__app" data-overview-link="rhythmbox" aria-label="Rhythmbox">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.Rhythmbox3.svg" alt="">
                     <span>Rhythmbox</span>
                 </button>
                 <button type="button" class="fedora-overview__app" data-overview-link="terminal" aria-label="Terminal">
@@ -207,11 +227,11 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/desktop-security-center.png" alt="">
                     <span>Centre de...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Disks">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_disks" aria-label="Disks">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.DiskUtility.svg" alt="">
                     <span>Disks</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Fonts">
+                <button type="button" class="fedora-overview__app" data-overview-link="font_viewer" aria-label="Fonts">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.font-viewer.svg" alt="">
                     <span>Fonts</span>
                 </button>
@@ -219,7 +239,7 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/gnome-language-selector.png" alt="">
                     <span>Language ...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Logs">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_logs" aria-label="Logs">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Logs.svg" alt="">
                     <span>Logs</span>
                 </button>
@@ -231,7 +251,7 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.seahorse.Application.svg" alt="">
                     <span>Passwords...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Resources">
+                <button type="button" class="fedora-overview__app" data-overview-link="system_monitor" aria-label="Resources">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/net.nokyan.Resources.svg" alt="">
                     <span>Resources</span>
                 </button>
@@ -264,7 +284,7 @@
             <button type="button" class="fedora-overview__dash-item" data-overview-link="nemo" aria-label="Fichiers">
                 <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Nautilus.svg" alt="">
             </button>
-            <button type="button" class="fedora-overview__dash-item" data-overview-link="lecteur_multimedia" aria-label="Rhythmbox">
+            <button type="button" class="fedora-overview__dash-item" data-overview-link="rhythmbox" aria-label="Rhythmbox">
                 <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Rhythmbox3.webp" alt="">
             </button>
             <button type="button" class="fedora-overview__dash-item" data-overview-link="librewriter" aria-label="LibreOffice Writer">
@@ -485,6 +505,8 @@
     <script src="../../../usr/lib/capsuleos/shells/linux/tour.js"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/baobab.js"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/system-monitor.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-disks.js"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/screenshot.js"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/calendar-app.js"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/search/appSearch.js"></script>    <script src="../../../usr/lib/capsuleos/shells/linux/file-roller.js"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/thunderbird.js"></script>

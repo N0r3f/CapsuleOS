@@ -18,6 +18,22 @@
 }
 
 @font-face {
+    font-family: "Noto Sans";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/neon/NotoSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Hack";
+    src: url("../../../usr/share/capsuleos/assets/fonts/vendors/neon/Hack-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: "Ubuntu Mono";
     src: url("../../../usr/share/capsuleos/assets/fonts/vendors/neon/UbuntuMono-Italic[wght].ttf") format("truetype");
     font-weight: 400;

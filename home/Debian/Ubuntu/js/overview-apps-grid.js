@@ -2,6 +2,7 @@
  * Hydrate la grille « Afficher les applications » depuis CAPSULE_OVERVIEW_APPS_GRID.
  * Source : generate-overview-apps-grid.mjs
  */
+'use strict';
 (function hydrateOverviewAppsGrid() {
     const gridRoot = document.querySelector('.fedora-overview__apps-grid');
     const grid = window.CAPSULE_OVERVIEW_APPS_GRID;

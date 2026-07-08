@@ -1,3 +1,4 @@
+'use strict';
 function terminalQuery(root, selector, fallbackSelector) {
     if (root.matches && root.matches(selector)) {
         return root;

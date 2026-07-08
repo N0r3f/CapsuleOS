@@ -1,3 +1,4 @@
+'use strict';
 document.addEventListener('DOMContentLoaded', function () {
 // Fonction pour mettre à jour l'heure et la date
 function updateDateTime() {

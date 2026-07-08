@@ -5,7 +5,7 @@
     "url": "https://lacapsule.org"
   },
   "siteName": "CapsuleOS",
-  "siteDescription": "Bureaux simulés pour s'approprier Linux, Windows, macOS et autres OS dans le navigateur — pédagogie, gratuit, hors ligne possible.",
+  "siteDescription": "Bureaux simulés pour s'approprier Linux, Windows, macOS et autres OS dans le navigateur : pédagogie, gratuit, hors ligne possible.",
   "catalogStatuses": ["active"],
   "htmlPages": [
     { "path": "index.html", "graphKey": "portal" },

@@ -1,3 +1,4 @@
+'use strict';
 document.addEventListener('DOMContentLoaded', function () {
     var callButton = document.getElementById('call-button');
     callButton.addEventListener('click', function (e) {

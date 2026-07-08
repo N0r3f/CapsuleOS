@@ -1,6 +1,7 @@
 /**
  * Active la skin « classic95 » dans les pages iframe (Windows 9x / classic).
  */
+'use strict';
 (function () {
     const params = new URLSearchParams(window.location.search);
     let useClassic = params.get('skin') === 'classic95';

@@ -11,15 +11,23 @@
 
     const a11y = global.CapsuleA11y;
     const panel = doc.getElementById('a11y-panel');
-    const toggle = doc.getElementById('header-a11y-toggle');
+    const toggles = doc.querySelectorAll('[data-a11y-panel-toggle]');
     const contrastInput = doc.getElementById('a11y-contrast');
     const reducedMotionInput = doc.getElementById('a11y-reduced-motion');
     const underlineLinksInput = doc.getElementById('a11y-underline-links');
     const scaleButtons = doc.querySelectorAll('[data-a11y-font-scale]');
 
-    if (!panel || !toggle) {
+    if (!panel || !toggles.length) {
         return;
     }
+
+    let activeToggle = toggles[0];
+
+    const setExpanded = (expanded) => {
+        toggles.forEach((toggle) => {
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+    };
 
     const syncUi = () => {
         const state = a11y.getState();
@@ -37,30 +45,35 @@
             btn.classList.toggle('is-active', scale === state.fontScale);
             btn.setAttribute('aria-pressed', scale === state.fontScale ? 'true' : 'false');
         });
-        toggle.classList.toggle('is-active', a11y.isActive());
-        toggle.setAttribute('aria-expanded', panel.hidden ? 'false' : 'true');
+        toggles.forEach((toggle) => {
+            toggle.classList.toggle('is-active', a11y.isActive());
+        });
+        setExpanded(!panel.hidden);
     };
 
     const closePanel = () => {
         panel.hidden = true;
-        toggle.setAttribute('aria-expanded', 'false');
+        setExpanded(false);
     };
 
     const openPanel = () => {
         panel.hidden = false;
-        toggle.setAttribute('aria-expanded', 'true');
+        setExpanded(true);
         const firstControl = panel.querySelector('button, input');
         if (firstControl) {
             firstControl.focus();
         }
     };
 
-    toggle.addEventListener('click', () => {
-        if (panel.hidden) {
-            openPanel();
-        } else {
-            closePanel();
-        }
+    toggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            activeToggle = toggle;
+            if (panel.hidden) {
+                openPanel();
+            } else {
+                closePanel();
+            }
+        });
     });
 
     doc.addEventListener('click', (event) => {
@@ -71,7 +84,8 @@
         if (!(target instanceof Element)) {
             return;
         }
-        if (panel.contains(target) || toggle.contains(target)) {
+        const clickedToggle = [...toggles].some((toggle) => toggle.contains(target));
+        if (panel.contains(target) || clickedToggle) {
             return;
         }
         closePanel();
@@ -80,7 +94,7 @@
     doc.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && !panel.hidden) {
             closePanel();
-            toggle.focus();
+            activeToggle.focus();
         }
     });
 

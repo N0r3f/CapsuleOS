@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par generate-cinnamon-gsettings-bindings.mjs — ne pas éditer à la main */
 window.CAPSULE_CINNAMON_GSETTINGS_BINDINGS = {
     "mint-desktop-show-icons": {

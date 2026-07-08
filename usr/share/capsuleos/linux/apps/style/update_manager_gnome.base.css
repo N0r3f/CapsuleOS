@@ -623,75 +623,75 @@
 }
 
 .update-manager--gnome .gnome-software__cardicon--firefox {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/firefox.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--libreoffice-writer {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--files {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/org.gnome.Nautilus.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Nautilus.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--text-editor {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/dash/org.gnome.TextEditor.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.TextEditor.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--calculator {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/org.gnome.Calculator.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Calculator.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--terminal {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/org.gnome.Ptyxis.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Ptyxis.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--file-roller {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/org.gnome.FileRoller");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.FileRoller");
 }
 
 .update-manager--gnome .gnome-software__cardicon--calendar {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/dash/org.gnome.Calendar.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Calendar.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--libreoffice {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--thunderbird {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/thunderbird");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/thunderbird");
 }
 
 .update-manager--gnome .gnome-software__cardicon--transmission {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/transmission-gtk");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/transmission-gtk");
 }
 
 .update-manager--gnome .gnome-software__cardicon--rhythmbox {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/org.gnome.Rhythmbox3");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.gnome.Rhythmbox3");
 }
 
 .update-manager--gnome .gnome-software__cardicon--lecteur-multimedia {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/io.github.celluloid_player.Celluloid");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/io.github.celluloid_player.Celluloid");
 }
 
 .update-manager--gnome .gnome-software__cardicon--drawing {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/com.github.maoschanz.drawing");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/com.github.maoschanz.drawing");
 }
 
 .update-manager--gnome .gnome-software__cardicon--simple-scan {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/simple-scan");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/simple-scan");
 }
 
 .update-manager--gnome .gnome-software__cardicon--warpinator {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/org.x.Warpinator");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/org.x.Warpinator");
 }
 
 .update-manager--gnome .gnome-software__cardicon--timeshift {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/timeshift-gtk");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/timeshift-gtk");
 }
 
 .update-manager--gnome .gnome-software__appicon--software {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/dash/org.gnome.Software.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Software.svg");
 }
 
 .update-manager--gnome .gnome-software__rowbtn--secondary {
@@ -858,11 +858,11 @@
 }
 
 .update-manager--gnome .gnome-software__appicon--text-editor {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/dash/org.gnome.TextEditor.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.TextEditor.svg");
 }
 
 .update-manager--gnome .gnome-software__appicon--calculator {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/org.gnome.Calculator.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Calculator.svg");
 }
 
 .update-manager--gnome .gnome-software__empty {
@@ -1174,7 +1174,7 @@ html[data-theme="light"] .update-manager--gnome[data-um-gnome-chrome="gs50-tabs"
 }
 
 .update-manager--gnome .gnome-software__cardicon--netsleuth {
-    background-image: url("../../../assets/images/toolkits/gnome/apps/overview/org.gnome.Connections.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Connections.svg");
 }
 
 .update-manager--gnome .gnome-software__cardicon--has-icon {
@@ -1247,7 +1247,7 @@ html[data-theme="light"] .update-manager--gnome[data-um-gnome-chrome="gs50-tabs"
     width: 1rem;
     height: 1rem;
     border-radius: 999px;
-    background: #294172 url("../../../assets/images/vendors/fedora/fedora-logo.svg") center/70% no-repeat;
+    background: #294172 url("../../../../../../usr/share/capsuleos/assets/images/vendors/fedora/fedora-logo.svg") center/70% no-repeat;
 }
 
 .update-manager--gnome .gnome-software__detail-long {
@@ -1468,5 +1468,5 @@ html[data-theme="light"] .update-manager--gnome[data-um-gnome-chrome="gs50-tabs"
 }
 
 body#ubuntu .update-manager--gnome .gnome-software__detail-source-icon {
-    background: #e95420 url("../../../assets/images/vendors/ubuntu/ubuntu-logo.svg") center/70% no-repeat;
+    background: #e95420 url("../../../../../../usr/share/capsuleos/assets/images/vendors/ubuntu/ubuntu-logo.svg") center/70% no-repeat;
 }

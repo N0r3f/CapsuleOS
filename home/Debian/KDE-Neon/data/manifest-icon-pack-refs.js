@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par apply-manifest-refs.mjs — ne pas éditer à la main */
 window.CAPSULE_MANIFEST_ICON_PACK_REFS = {
   "version": 1,

@@ -29,8 +29,8 @@
 
 .gnome-settings-wallpaper.is-active,
 .cinnamon-settings-wallpaper.is-active {
-    border-color: #1f9ede;
-    box-shadow: 0 0 0 1px #1f9ede;
+    border-color: #0c75de;
+    box-shadow: 0 0 0 1px #0c75de;
 }
 
 .gnome-settings-wallpaper__label,

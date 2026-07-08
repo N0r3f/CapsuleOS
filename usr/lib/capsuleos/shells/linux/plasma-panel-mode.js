@@ -2,6 +2,7 @@
  * Plasma — bascule panel dock ↔ barre pleine largeur (fenêtre maximisée).
  * Skins : body[data-plasma-panel] ou bodyId opensuse | kde-neon | debian-kde | mx-kde.
  */
+'use strict';
 (function initPlasmaPanelMode() {
     const PLASMA_BODY_IDS = new Set(['opensuse', 'kde-neon', 'debian-kde', 'mx-kde']);
 

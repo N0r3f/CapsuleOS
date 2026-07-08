@@ -5,8 +5,8 @@
  * Invite : user@host #33d17a (Adwaita), : ~ $ couleur texte — cf. rocky-dark-ptyxis.png VM.
  * Tokens : style/gnome-shell/tokens.css --fedora-terminal-prompt-* */
 body#fedora .windowElement[data-link="terminal"].terminal-window--fedora {
-    --terminal-font-family: "Red Hat Mono", "Adwaita Mono", "Liberation Mono", ui-monospace, monospace;
-    --terminal-font-size: 11pt;
+    --terminal-font-family: "Source Code Pro", "Liberation Mono", monospace;
+    --terminal-font-size: 12pt;
     --terminal-line-height: 1.38;
     --terminal-body-padding: 0.5rem 0.65rem;
     width: min(52rem, calc(100vw - var(--fedora-dock-width, 0px) - 2.5rem));
@@ -215,4 +215,17 @@ body#fedora .windowElement[data-link="terminal"].terminal-window--fedora > .caps
 body#fedora .windowElement[data-link="terminal"].terminal-window--fedora:not(.windowElementActive) {
     border-color: var(--fedora-app-header-border);
     box-shadow: var(--fedora-window-shadow, 0 4px 28px rgba(0, 0, 0, 0.42));
+}
+body#fedora .windowElement[data-link="terminal"].terminal-window--fedora {
+    --terminal-font-family: "Adwaita Mono", "Liberation Mono", ui-monospace, monospace;
+    --terminal-font-size: 10pt;
+}
+
+/* Ptyxis VM : interface-style=dark — le terminal reste sombre en mode light */
+html[data-theme="light"] body#fedora .windowElement[data-link="terminal"].terminal-window--fedora {
+    --fedora-app-terminal-surface: var(--fedora-terminal-dark-surface, rgba(36, 31, 49, 1));
+    --fedora-app-header-alt-bg: var(--fedora-terminal-dark-header, rgba(43, 43, 48, 1));
+    --fedora-app-header-border: var(--fedora-terminal-dark-border, rgba(31, 31, 36, 1));
+    --fedora-app-text: var(--fedora-terminal-dark-text, rgba(241, 241, 243, 1));
+    --fedora-window-control-color: var(--fedora-terminal-dark-control, rgba(246, 247, 249, 1));
 }

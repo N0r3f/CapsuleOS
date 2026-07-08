@@ -1,3 +1,4 @@
+'use strict';
 const divs = document.querySelectorAll('div[data-link]');
 
 const shouldUseAndroidEmbed = (id) => {

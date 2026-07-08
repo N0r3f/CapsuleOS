@@ -3,6 +3,7 @@
  * Remappés au runtime par CapsuleExplorerIconBase (GNOME Adwaita, KDE, …).
  * Sur skins Plasma/KDE : charger ce fichier, pas fileExplorerInfo.js (alias legacy Cinnamon).
  */
+'use strict';
 const fileExplorerSystemLink = {
     'files': {
         //////////////////////////// DOSSIER ////////////////////////////////

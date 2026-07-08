@@ -2,6 +2,7 @@
  * Application optionnelle de variables CSS depuis un objet ou localStorage.
  * Clés doivent commencer par "--". Aucune dépendance réseau (STRICT_CONTRACT §11).
  */
+'use strict';
 (function initCapsuleTheme() {
     const STORAGE_KEY = 'capsuleCssVars';
 

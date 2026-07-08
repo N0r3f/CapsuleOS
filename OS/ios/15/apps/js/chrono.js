@@ -1,3 +1,4 @@
+'use strict';
 
 let secondes = 0, minutes = 0;
 const chronometre = document.getElementById('chrono');

@@ -3,5 +3,5 @@
  */
 html:has(#kde-neon) {
     --font-ui: "Noto Sans", "Ubuntu", "Cantarell", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+    --font-mono: "Hack", "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
 }

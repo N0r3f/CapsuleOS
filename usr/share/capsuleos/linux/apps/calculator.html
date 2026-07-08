@@ -22,7 +22,7 @@
         <div class="gnome-calc__history" id="gnome-calc-expr" aria-hidden="true"></div>
         <div class="gnome-calc__entry">
             <div class="gnome-calc__value" id="gnome-calc-value" data-calc-gnome-display role="status" aria-live="polite" aria-atomic="true">0</div>
-            <button type="button" class="gnome-calc__backspace" data-calc="backspace" aria-label="Effacer le dernier chiffre" title="Effacer"></button>
+            <button type="button" class="gnome-calc__backspace" data-calc="backspace" aria-label="Effacer le dernier chiffre"></button>
         </div>
     </div>
 
@@ -31,41 +31,31 @@
         <ul class="gnome-calc__history-list" id="gnome-calc-history-list"></ul>
     </aside>
 
-    <div class="gnome-calc__keypad-advanced calc-scientific-mode" id="gnome-calc-keypad-advanced" role="group" aria-label="Fonctions scientifiques" hidden>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn" data-calc="fn" data-fn="sin" aria-label="Sinus">sin</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn" data-calc="fn" data-fn="cos" aria-label="Cosinus">cos</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn" data-calc="fn" data-fn="pi" aria-label="Pi">π</button>
-    </div>
-
     <div class="gnome-calc__keypad math-buttons" id="gnome-calc-keypad" role="group" aria-label="Pavé numérique">
-        <button type="button" class="gnome-calc__key gnome-calc__key--clear" data-calc="clear" aria-label="Effacer">C</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn" data-calc="negate" aria-label="Opposé">±</button>
+        <!-- Ligne 1 : effacement · inversion · pourcentage · division -->
+        <button type="button" class="gnome-calc__key gnome-calc__key--fn gnome-calc__key--clear" data-calc="clear" aria-label="Effacer">C</button>
+        <button type="button" class="gnome-calc__key gnome-calc__key--fn" data-calc="fn" data-fn="invert" aria-label="Inverser le signe">±</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--fn" data-calc="percent" aria-label="Pourcentage">%</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--op" data-calc="op" data-op="/" aria-label="Diviser">÷</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn gnome-calc__key--decor" data-calc="noop" tabindex="-1" aria-hidden="true">mod</button>
-
+        <!-- Ligne 2 : 7 · 8 · 9 · multiplication -->
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="7">7</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="8">8</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="9">9</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--op" data-calc="op" data-op="*" aria-label="Multiplier">×</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn gnome-calc__key--decor" data-calc="noop" tabindex="-1" aria-hidden="true">↑n</button>
-
+        <!-- Ligne 3 : 4 · 5 · 6 · soustraction -->
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="4">4</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="5">5</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="6">6</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--op" data-calc="op" data-op="-" aria-label="Soustraire">−</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn gnome-calc__key--decor" data-calc="noop" tabindex="-1" aria-hidden="true">()</button>
-
+        <!-- Ligne 4 : 1 · 2 · 3 · addition -->
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="1">1</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="2">2</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="digit" data-digit="3">3</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--op" data-calc="op" data-op="+" aria-label="Ajouter">+</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn gnome-calc__key--decor" data-calc="noop" tabindex="-1" aria-hidden="true">↓n</button>
-
+        <!-- Ligne 5 : 0 large · décimale · égal -->
         <button type="button" class="gnome-calc__key gnome-calc__key--digit gnome-calc__key--wide" data-calc="digit" data-digit="0">0</button>
         <button type="button" class="gnome-calc__key gnome-calc__key--digit" data-calc="decimal" aria-label="Décimale">,</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--eq gnome-calc__key--tall" data-calc="equals" aria-label="Égal">=</button>
-        <button type="button" class="gnome-calc__key gnome-calc__key--fn gnome-calc__key--decor" data-calc="noop" tabindex="-1" aria-hidden="true">f(x)</button>
+        <button type="button" class="gnome-calc__key gnome-calc__key--eq" data-calc="equals" aria-label="Égal">=</button>
     </div>
 
     <div class="gnome-calc__toast" data-calc-gnome-toast hidden role="status" aria-live="polite"></div>

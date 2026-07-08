@@ -9,17 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../../../usr/lib/capsuleos/common/user-home.js?v=8651cab1d6"></script>
     <script src="../../../var/lib/capsuleos/generated/capsule-assets-manifest.js?v=fb7d7cc089"></script>
-    <script src="../../../var/lib/capsuleos/generated/capsule-skin-profiles.js?v=06a6e45780"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-skin-profiles.js?v=916c7eb7ee"></script>
     <script>window.CAPSULE_SKIN_PROFILE_ID = 'linux-fedora';</script>
     <script src="../../../usr/lib/capsuleos/common/capsule-resource.js?v=bf2e629c16"></script>
     <script src="../../../usr/lib/capsuleos/core/cluster-registry.js?v=d3bac825ea"></script>
     <script src="../../../usr/lib/capsuleos/common/capsule-skin-boot.js?v=c932ae1095"></script>
     <link rel="icon" href="../../../usr/share/capsuleos/assets/images/vendors/fedora/fedora-logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./style/imports.css?v=55c3030eca" type="text/css">
-    <link rel="stylesheet" href="./fedora-fonts.css?v=6cfa7002d6" type="text/css">
+    <link rel="stylesheet" href="./fedora-fonts.css?v=faa2dc9901" type="text/css">
     <link rel="stylesheet" href="../../../usr/share/capsuleos/linux/apps/style/Dossier personnel.base.css?v=60b6a55e2b" type="text/css">
     <link rel="stylesheet" href="./style/apps/Dossier personnel.skin.css?v=5349cc9e57" type="text/css">
-    <link rel="stylesheet" href="./fedora-overrides.css?v=24bc0f73a6" type="text/css">
+    <link rel="stylesheet" href="./fedora-overrides.css?v=aa2309e357" type="text/css">
     <title>Fedora Workstation - CapsuleOS</title>
 </head>
 <body id="fedora" data-skin="fedora">
@@ -51,14 +51,14 @@
     <div class="fedora-main-row">
         <aside id="tableau" class="fedora-dock" aria-label="Applications favorites">
             <nav class="fedora-dock__nav">
-                <a target="windowElement" data-link="nemo" title="Fichiers">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/files.svg" alt="Fichiers" width="24" height="24">
-                </a>
                 <a target="windowElement" data-link="firefox" title="Firefox">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.svg" alt="Firefox" width="24" height="24">
                 </a>
-                <a target="windowElement" data-link="terminal" title="Terminal">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/terminal.svg" alt="Terminal" width="24" height="24">
+                <a target="windowElement" data-link="calendar" title="Calendrier">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calendar.png" alt="Calendrier" width="24" height="24">
+                </a>
+                <a target="windowElement" data-link="nemo" title="Fichiers">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/files.svg" alt="Fichiers" width="24" height="24">
                 </a>
                 <a target="windowElement" data-link="update_manager" title="Logiciels">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Software.svg" alt="Logiciels" width="24" height="24">
@@ -66,11 +66,8 @@
                 <a target="windowElement" data-link="text_editor" title="Éditeur de texte">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.TextEditor.svg" alt="Éditeur de texte" width="24" height="24">
                 </a>
-                <a target="windowElement" data-link="librewriter" title="LibreOffice Writer">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/libreoffice-writer.svg" alt="LibreOffice Writer" width="24" height="24">
-                </a>
-                <a target="windowElement" data-link="themes" title="Paramètres des thèmes">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/preferences-desktop-theme.svg" alt="Thèmes" width="24" height="24">
+                <a target="windowElement" data-link="calculator" title="Calculatrice">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calculator.png" alt="Calculatrice" width="24" height="24">
                 </a>
                 <a target="windowElement" data-link="checklist" title="Missions de découverte">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/checklist.svg" alt="Missions" width="24" height="24">
@@ -119,6 +116,17 @@
                 <div class="windowElement" data-link="timeshift" id="timeshift" style="display: none;"></div>
 
                 <div class="windowElement" data-link="characters" id="characters" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_disks" id="gnome_disks" style="display: none;"></div>
+                <div class="windowElement" data-link="font_viewer" id="font_viewer" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_logs" id="gnome_logs" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_maps" id="gnome_maps" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_weather" id="gnome_weather" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_connections" id="gnome_connections" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_contacts" id="gnome_contacts" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_boxes" id="gnome_boxes" style="display: none;"></div>
+                <div class="windowElement" data-link="malcontent" id="malcontent" style="display: none;"></div>
+                <div class="windowElement" data-link="yelp" id="yelp" style="display: none;"></div>
+                <div class="windowElement" data-link="fedora_media_writer" id="fedora_media_writer" style="display: none;"></div>
             </object>
         </main>
     </div>
@@ -222,15 +230,15 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Characters.svg" alt="">
                     <span>Caractères</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Cartes">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_maps" aria-label="Cartes">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Maps.svg" alt="">
                     <span>Cartes</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Connexions">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_connections" aria-label="Connexions">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Connections.svg" alt="">
                     <span>Connexions</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Contacts">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_contacts" aria-label="Contacts">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Contacts.svg" alt="">
                     <span>Contacts</span>
                 </button>
@@ -238,7 +246,7 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.freedesktop.MalcontentControl.svg" alt="">
                     <span>Contrôles...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Disques">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_disks" aria-label="Disques">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.DiskUtility.svg" alt="">
                     <span>Disques</span>
                 </button>
@@ -246,15 +254,15 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.fedoraproject.MediaWriter.png" alt="">
                     <span>Fedora Me...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Journaux">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_logs" aria-label="Journaux">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Logs.svg" alt="">
                     <span>Journaux</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Lecteur audio">
+                <button type="button" class="fedora-overview__app" data-overview-link="lecteur_multimedia" aria-label="Lecteur audio">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Decibels.svg" alt="">
                     <span>Lecteur a...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Lecteur vidéo">
+                <button type="button" class="fedora-overview__app" data-overview-link="lecteur_multimedia" aria-label="Lecteur vidéo">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Showtime.svg" alt="">
                     <span>Lecteur v...</span>
                 </button>
@@ -262,11 +270,11 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg" alt="">
                     <span>LibreOffi...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Machines">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_boxes" aria-label="Machines">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Boxes.svg" alt="">
                     <span>Machines</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Météo">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_weather" aria-label="Météo">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Weather.svg" alt="">
                     <span>Météo</span>
                 </button>
@@ -274,11 +282,11 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.SystemMonitor.svg" alt="">
                     <span>Moniteur ...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Numériseur de documents">
+                <button type="button" class="fedora-overview__app" data-overview-link="simple_scan" aria-label="Numériseur de documents">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.SimpleScan.svg" alt="">
                     <span>Numériseu...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Polices">
+                <button type="button" class="fedora-overview__app" data-overview-link="font_viewer" aria-label="Polices">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.font-viewer.svg" alt="">
                     <span>Polices</span>
                 </button>
@@ -408,13 +416,13 @@
     </script>
 
     <script src="../../../usr/lib/capsuleos/site/capsule-pick-return.js?v=5309ff7dda"></script>
-    <script src="../../../var/lib/capsuleos/generated/capsule-app-embed.js?v=78f2e6e19f"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/strings-default.js?v=e76b310aa3"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-strings.js?v=dd21339878"></script>
+    <script src="../../../var/lib/capsuleos/generated/capsule-app-embed.js?v=a973f3f8f9"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/strings-default.js?v=7d9eadcda2"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-strings.js?v=5663e9032a"></script>
     <script src="../../../usr/lib/capsuleos/common/capsule-window.js?v=914c05bc07"></script>
     <script src="../../../usr/lib/capsuleos/common/window/drag-targets.js?v=7b3c0e7dfc"></script>
-    <script src="../../../usr/lib/capsuleos/common/resizeWindow.js?v=7357ef5f06"></script>
-    <script src="../../../usr/lib/capsuleos/common/window-drag.js?v=579b265c36"></script>
+    <script src="../../../usr/lib/capsuleos/common/resizeWindow.js?v=6f78686c3d"></script>
+    <script src="../../../usr/lib/capsuleos/common/window-drag.js?v=6c8b285030"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-window-behaviors.js?v=03c0e92473"></script>
     <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-context.js?v=a37fbdb53a"></script>
     <script src="../../../usr/lib/capsuleos/shells/common/capsule-window-shell.js?v=1402763bc9"></script>
@@ -425,15 +433,15 @@
     <script>window.CAPSULE_WINDOW_FAMILY = 'linux';</script>
     <script src="../../../usr/lib/capsuleos/shells/linux/windowContainer.js?v=204ab96359"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/taskbar-launcher-state.js?v=ca347b1ab9"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme.js?v=b0835fae8c"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme-storage.js?v=7bd1843430"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-gsettings-bindings.js?v=67cda8291d"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme.js?v=e7f248dc5b"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/capsule-theme-storage.js?v=10835f97af"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-gsettings-bindings.js?v=4f8884ce21"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-gsettings-store.js?v=c602c5c5f8"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-settings-vm-baseline-linux-fedora.js?v=4dc368a614"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/gnome-settings-vm-baseline-linux-fedora.js?v=7693fb1b15"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-settings-parity.js?v=edb5e4f1ea"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/themes.js?v=f8e8a5735c"></script>
-    <script src="./content/profile-data.js?v=2185565f8e"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/profile.js?v=c73372d8e9"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/themes.js?v=abb5b2e9d1"></script>
+    <script src="./content/profile-data.js?v=d5afd7b390"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/profile.js?v=95a3991a54"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/checklist.js?v=d8599f92d5"></script>
         <script src="../../../var/lib/capsuleos/generated/capsule-simulated-web-index.js?v=2feaf4ef1b"></script>
     <script src="../../../var/lib/capsuleos/generated/capsule-firefox-contrib.js?v=b5808bf44a"></script>
@@ -444,16 +452,16 @@
 <script src="../../../usr/lib/capsuleos/shells/linux/firefoxBrowser.js?v=fb6848e097"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/firefox-iframe-bridge.js?v=5418ad00e6"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/explorers/explorer-registry.js?v=8e34b0cd47"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerInfo.js?v=5fe9a4cbe2"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerInfo.js?v=22a747077f"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/explorer-toolkit-paths.js?v=843141f9e8"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/nemo-icon-map.js?v=155f60249b"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/explorer-icon-base.js?v=87224c9be1"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/contentLoader.js?v=33322cec56"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/contentLoader.js?v=5994404568"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/capsule-window-instances.js?v=cd89a3ef6d"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerHeader.js?v=00ae0a46a1"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerContainer.js?v=6b53b53a22"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerHeader.js?v=52886f33be"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerContainer.js?v=542163c918"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerVfs.js?v=a9a31955d7"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerCore.js?v=81f3a38e55"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerCore.js?v=cd8f72d91e"></script>
     <script src="../../../usr/lib/capsuleos/shells/common/capsule-user-fs.js?v=b8f22732a1"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerWindowState.js?v=08664c6ada"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerNautilus.js?v=af1b43caaa"></script>
@@ -466,24 +474,24 @@
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerContextMenu.js?v=fb0fdddd71"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerDnD.js?v=5d9cbf1b17"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/mint-viewers.js?v=188c7458c8"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/fileViewerRouter.js?v=857468d443"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerLoader.js?v=fc6dccd89f"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/date.js?v=81a1af8bda"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/calendar-popover.js?v=38b223f82b"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-registry.js?v=3756dda747"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileViewerRouter.js?v=1334df45bc"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/fileExplorer/fileExplorerLoader.js?v=9f85035896"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/date.js?v=1ddba9d0f5"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calendar-popover.js?v=1a4ae1be62"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-registry.js?v=a16e923553"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/command-core.js?v=b4b4995cdf"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/terminal-profile-builder.js?v=8bde29f563"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/profiles/linux/redhat.js?v=5740d7bfb1"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/profiles/linux/redhat.js?v=610dda6554"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/config/terminal-vendor-extensions.js?v=bf6f8fd3b6"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-profile.js?v=c665bed852"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-profile.js?v=0463ca5189"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-bashrc.js?v=de9cd2cee8"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-core.js?v=647f0711c5"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-core.js?v=7556bc8f54"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-listing.js?v=026660c471"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-command-options.js?v=54f050f510"></script>
     <script src="../../../usr/lib/capsuleos/common/terminal-completion.js?v=f391332bc0"></script>
     <script src="../../../usr/lib/capsuleos/common/terminal-editors.js?v=3e951cf402"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-tabs.js?v=bb5a9d677f"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal.js?v=ad04d20f84"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal.js?v=3cc57f0156"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-shell-parse.js?v=ac8ab99be6"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-package-managers.js?v=187cc8e8ae"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-fs-ops.js?v=5a110fc837"></script>
@@ -494,16 +502,16 @@
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-network.js?v=26c7487c87"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-users.js?v=f810ae48f4"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/terminal-system-info.js?v=f92cd9bd70"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/executeCommand.js?v=7b37796517"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/filesystem.js?v=be24c502e1"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/executeCommand.js?v=577c0e4dbd"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/filesystem.js?v=d61176dd32"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/terminal/virtual-shell.js?v=66d9afe2ab"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/manuel.js?v=6299c34f04"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/terminal/manuel.js?v=d8f6addf23"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/volume.js?v=15eb85628b"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/librewriter.js?v=eae8ff4280"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/librecalc.js?v=dca0f84b86"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/libreoffice-suite.js?v=dec6c69194"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/text-editor.js?v=8211dbf2d1"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/calculator.js?v=5d49019c9a"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/calculator.js?v=70a492e158"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/clocks.js?v=1e90539273"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/snapshot.js?v=e2b9234d2e"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/characters.js?v=6449424b26"></script>
@@ -525,13 +533,13 @@
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-store-shell-pin.js?v=33b31c16d0"></script>
 
     <script src="../../../usr/lib/capsuleos/shells/linux/screenshot.js?v=0829b5860f"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/update-manager.js?v=13e35a66b3"></script>
-    <script src="../../../usr/lib/capsuleos/shells/linux/search/appSearch.js?v=e4a0402b22"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/update-manager.js?v=2ff3150ec3"></script>
+    <script src="../../../usr/lib/capsuleos/shells/linux/search/appSearch.js?v=77e5de197b"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-workspaces.js?v=a31cf71833"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-desktop-context-menu.js?v=8d938c0880"></script>
     <script src="../../../usr/lib/capsuleos/shells/linux/gnome-hot-corners.js?v=b057c77fe0"></script>
-    <script src="./data/manifest-icon-pack-refs.js?v=ad7a5755f7"></script>
-    <script src="./data/overview-apps-grid.js?v=9e16c937ef"></script>
-    <script src="./js/overview.js?v=887276090c"></script>
+    <script src="./data/manifest-icon-pack-refs.js?v=71a4764c92"></script>
+    <script src="./data/overview-apps-grid.js?v=65a22203b0"></script>
+    <script src="./js/overview.js?v=146e937bd9"></script>
 </body>
 </html>

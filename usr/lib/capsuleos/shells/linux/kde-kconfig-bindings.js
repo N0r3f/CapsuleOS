@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par generate-kde-kconfig-bindings.mjs — ne pas éditer à la main */
 window.CAPSULE_KDE_KCONFIG_BINDINGS = {
     "kde-global-theme": {

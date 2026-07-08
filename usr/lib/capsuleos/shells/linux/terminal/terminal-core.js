@@ -2,6 +2,7 @@
  * Noyau commun du terminal CapsuleOS.
  * Ne manipule pas le DOM : l'UI de chaque distro consomme ses résultats.
  */
+'use strict';
 (function initCapsuleTerminalCore() {
     const normalizePath = (path) => {
         const normalized = String(path || '/').replace(/\/+/g, '/');

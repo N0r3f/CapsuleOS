@@ -1,3 +1,4 @@
+'use strict';
 const MENU_CATS = [
     { id: 'all', label: 'Applications récentes', icon: './assets/images/toolkits/kde/category/applications-other.png' },
     { id: 'recent_files', label: 'Fichiers récents', icon: './assets/images/toolkits/kde/category/preferences-desktop-default-applications.png', decorative: true, disabled: true },

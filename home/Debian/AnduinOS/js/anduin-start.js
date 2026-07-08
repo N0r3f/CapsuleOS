@@ -1,6 +1,7 @@
 /**
  * AnduinOS — bouton Menu Démarrer (taskbar).
  */
+'use strict';
 (function bindAnduinStartButton() {
     if (!document.body || document.body.id !== 'anduinos') {
         return;

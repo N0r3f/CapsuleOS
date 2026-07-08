@@ -1,6 +1,6 @@
 .update-manager--kde-neon .kde-updates__search-icon {
     background-color: transparent;
-    background-image: url("../../../assets/images/toolkits/kde/discover/categories/system-search.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/system-search.svg");
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: center;
@@ -14,7 +14,7 @@
     margin-left: auto;
     flex-shrink: 0;
     opacity: 0.45;
-    background: url("../../../assets/images/toolkits/kde/discover/categories/go-next-symbolic.svg") center / contain no-repeat;
+    background: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/go-next-symbolic.svg") center / contain no-repeat;
 }
 
 .update-manager--kde-neon .kde-updates__cat.is-active {
@@ -127,13 +127,13 @@
 }
 
 .kde-updates__action-icon--refresh {
-    -webkit-mask-image: url("../../../assets/icons/kde/nemo/refresh.svg");
-    mask-image: url("../../../assets/icons/kde/nemo/refresh.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/refresh.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/refresh.svg");
 }
 
 .kde-updates__action-icon--updateall {
-    -webkit-mask-image: url("../../../assets/images/toolkits/kde/panel/discover-updates.svg");
-    mask-image: url("../../../assets/images/toolkits/kde/panel/discover-updates.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/panel/discover-updates.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/panel/discover-updates.svg");
 }
 
 .kde-updates__list {
@@ -194,7 +194,7 @@
 .kde-updates__row-icon--fallback {
     display: block;
     border-radius: 4px;
-    background: #e6e9ec url("../../../assets/images/toolkits/kde/discover/categories/applications-system.svg") center / 16px no-repeat;
+    background: #e6e9ec url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/discover/categories/applications-system.svg") center / 16px no-repeat;
 }
 
 .kde-updates__row-text {
@@ -560,8 +560,8 @@
     width: 18px;
     height: 18px;
     background: #c0392b;
-    -webkit-mask-image: url("../../../assets/icons/kde/nemo/user-trash-full-symbolic.svg");
-    mask-image: url("../../../assets/icons/kde/nemo/user-trash-full-symbolic.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/user-trash-full-symbolic.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/user-trash-full-symbolic.svg");
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -660,8 +660,8 @@
     width: 14px;
     height: 14px;
     background: #232629;
-    -webkit-mask-image: url("../../../assets/images/vendors/neon/discover/list-add.svg");
-    mask-image: url("../../../assets/images/vendors/neon/discover/list-add.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/vendors/neon/discover/list-add.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/vendors/neon/discover/list-add.svg");
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -699,8 +699,8 @@
 }
 
 .update-manager--kde-neon .kde-updates__action-icon--configure {
-    -webkit-mask-image: url("../../../assets/images/toolkits/kde/panel/settings.svg");
-    mask-image: url("../../../assets/images/toolkits/kde/panel/settings.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/panel/settings.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/panel/settings.svg");
 }
 
 /* À propos — FormCard.AboutPage (Discover 6.6 / Kirigami Addons) */
@@ -928,13 +928,13 @@
 }
 
 .update-manager--kde-neon .kde-form-delegate__mini-icon--mail {
-    -webkit-mask-image: url("../../../assets/images/vendors/neon/discover/mail-message-symbolic.svg");
-    mask-image: url("../../../assets/images/vendors/neon/discover/mail-message-symbolic.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/vendors/neon/discover/mail-message-symbolic.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/vendors/neon/discover/mail-message-symbolic.svg");
 }
 
 .update-manager--kde-neon .kde-form-delegate__mini-icon--web {
-    -webkit-mask-image: url("../../../assets/images/vendors/neon/discover/globe-symbolic.svg");
-    mask-image: url("../../../assets/images/vendors/neon/discover/globe-symbolic.svg");
+    -webkit-mask-image: url("../../../../../../usr/share/capsuleos/assets/images/vendors/neon/discover/globe-symbolic.svg");
+    mask-image: url("../../../../../../usr/share/capsuleos/assets/images/vendors/neon/discover/globe-symbolic.svg");
 }
 
 .update-manager--kde-neon .kde-updates__badge[hidden] {

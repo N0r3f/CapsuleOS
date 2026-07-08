@@ -1,4 +1,6 @@
 (function initRockyOverview() {
+    'use strict';
+
     const shell = document.getElementById('rocky');
     const trigger = document.querySelector('.fedora-overview-trigger');
     const overview = document.querySelector('.fedora-overview');

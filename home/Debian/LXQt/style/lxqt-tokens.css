@@ -1,0 +1,10 @@
+/**
+ * LXQt Plasma — tokens (couleurs à valeurs littérales).
+ * Importé par debian-desktop.css.
+ */
+
+html:has(#lxqt) {
+    --lxqt-plasma-accent: #3daee9;
+    --desktop-shortcut-text: #ffffff;
+    --lxqt-bg-color: #243042;
+}

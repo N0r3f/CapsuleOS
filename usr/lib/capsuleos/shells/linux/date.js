@@ -1,3 +1,4 @@
+'use strict';
 document.addEventListener('DOMContentLoaded', function () {
     const clock = document.getElementById('taskbar-clock');
     const dateLabel = document.getElementById('taskbar-date');

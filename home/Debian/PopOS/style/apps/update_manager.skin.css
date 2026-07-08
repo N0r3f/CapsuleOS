@@ -1,172 +1,572 @@
-/* Surcouche Pop!_OS (COSMIC) — Mises à jour (réf. visuel/update_popos/update_now.png) */
+/* Pop!_OS — COSMIC Store (réf. VM Pop!_OS 24.04, cosmic-store 1.1.0)
+   Tokens : bg #1b1b1b · accent #63d0df · radius s=8 m=16
+   Icônes nav : cosmic-icons (SVG fallback CSS) · cards : 48px rounded */
 
-main#updateManagerApp {
+body#popos .cosmic-store {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    width: 100%;
+    height: 100%;
     padding: 0;
     border-radius: 0;
-    color: #e6e6e6;
-    background: #151515;
+    font-family: 'Fira Sans', 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.88);
+    background: #1b1b1b;
+    overflow: hidden;
 }
 
-div[data-link="update_manager"] #windowHeader {
-    background: #151515;
+body#popos div[data-link="update_manager"] #windowHeader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: 10;
+    width: auto !important;
+    height: 38px;
+    padding: 0 6px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
-div[data-link="update_manager"] #windowTitle {
-    color: #e6e6e6;
-    text-shadow: none;
-    filter: none;
+body#popos div[data-link="update_manager"] #windowHeader #windowTitle {
+    display: none;
 }
 
-.cosmic-updates {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    width: var(--full);
-    height: var(--full);
+body#popos div[data-link="update_manager"] #windowHeader nav:first-child {
+    display: none;
 }
 
-.cosmic-updates__sidebar {
-    display: block;
-    padding: 16px 14px;
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
-    background: #1a1a1a;
-}
-
-.cosmic-updates__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.cosmic-updates__navitem {
+body#popos div[data-link="update_manager"] #windowHeader nav:last-child {
     display: flex;
     align-items: center;
-    gap: 10px;
-    height: 34px;
-    padding: 0 12px;
-    border-radius: 10px;
+    gap: 2px;
+    height: 100%;
+}
+
+body#popos div[data-link="update_manager"] #windowHeader nav:last-child::before {
+    content: '\2699\FE0E';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin-right: 6px;
+    border-radius: 6px;
     color: rgba(255, 255, 255, 0.55);
-    text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     cursor: default;
-    user-select: none;
 }
 
-.cosmic-updates__navitem.is-disabled {
-    opacity: 0.85;
+body#popos div[data-link="update_manager"] #windowHeader button {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0;
+    cursor: default;
+    transition: background 0.1s ease;
 }
 
-.cosmic-updates__navitem.is-active {
-    color: #eaeaea;
+body#popos div[data-link="update_manager"] #windowHeader button:hover {
     background: rgba(255, 255, 255, 0.08);
 }
 
-.cosmic-updates__glyph {
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.16);
+body#popos div[data-link="update_manager"] #windowHeader #minimizeBtn::before {
+    content: '\2013';
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+body#popos div[data-link="update_manager"] #windowHeader #resizeBtn::before {
+    content: '\25A1';
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+body#popos div[data-link="update_manager"] #windowHeader #closeBtn::before {
+    content: '\2715';
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+body#popos div[data-link="update_manager"] #windowHeader #closeBtn:hover {
+    background: rgba(255, 80, 80, 0.25);
+}
+
+body#popos div[data-link="update_manager"] #windowHeader #closeBtn:hover::before {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+body#popos div[data-link="update_manager"] {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #63d0df;
+    border-radius: 12px;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 8px;
+    background: #1b1b1b;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body#popos .cosmic-store__sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+body#popos .cosmic-store__sidebar::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+body#popos .cosmic-store__sidebar-top {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 10px;
+    background: #1b1b1b;
+}
+
+body#popos .cosmic-store__sidebar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    color: #63d0df;
+    cursor: default;
+    transition: background 0.12s ease;
+}
+
+body#popos .cosmic-store__sidebar-icon:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body#popos .cosmic-store__sidebar-icon img,
+body#popos .cosmic-store__sidebar-icon .cosmic-store__nav-icon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(145deg);
+    opacity: 0.9;
+}
+
+body#popos .cosmic-store__search-glyph {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+}
+
+body#popos .cosmic-store__search-glyph::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 2px;
+    margin-top: 1px;
+    margin-left: 10px;
+    background: currentColor;
+    transform: rotate(45deg);
+}
+
+body#popos .cosmic-store__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    padding: 0 6px;
+    margin: 0;
+    list-style: none;
+}
+
+body#popos .cosmic-store__navitem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: none;
+    color: rgba(255, 255, 255, 0.72);
+    background: transparent;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    cursor: default;
+    user-select: none;
+    transition: background 0.12s ease, color 0.12s ease;
+}
+
+body#popos .cosmic-store__navitem:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+body#popos .cosmic-store__navitem.is-active {
+    color: #63d0df;
+    background: rgba(99, 208, 223, 0.12);
+    font-weight: 500;
+}
+
+body#popos .cosmic-store__nav-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    opacity: 0.55;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.12s ease, filter 0.12s ease;
+}
+
+body#popos .cosmic-store__navitem:hover .cosmic-store__nav-icon {
+    opacity: 0.75;
+}
+
+body#popos .cosmic-store__navitem.is-active .cosmic-store__nav-icon {
+    opacity: 1;
+    filter: brightness(0) invert(0.75) sepia(1) saturate(4) hue-rotate(140deg) brightness(1.2);
+}
+
+body#popos .cosmic-store__sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 12px 6px 8px;
+    margin-top: auto;
+}
+
+body#popos .cosmic-store__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    margin-left: auto;
+    border-radius: 9px;
+    background: #63d0df;
+    color: #1b1b1b;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ── Main area ───────────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    padding-top: 38px;
+    overflow: hidden;
+}
+
+body#popos .cosmic-store__titlebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: block;
+    height: 38px;
+    padding: 0;
+    background: transparent;
+    pointer-events: auto;
+}
+
+body#popos .cosmic-store__titlebar .cosmic-store__chrome-actions,
+body#popos .cosmic-store__titlebar .cosmic-store__search-bar {
+    display: none;
+}
+
+body#popos .cosmic-store__scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 24px 28px;
+    scroll-behavior: smooth;
+}
+
+body#popos .cosmic-store__scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+body#popos .cosmic-store__scroll::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+body#popos .cosmic-store__scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 208, 223, 0.35);
+}
+
+body#popos .cosmic-store__scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body#popos .cosmic-store__pane {
+    animation: cosmic-pane-in 0.2s ease-out;
+}
+
+@keyframes cosmic-pane-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Search bar ──────────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__search-bar {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+    height: 32px;
+    margin-right: 8px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    transition: border-color 0.15s ease;
+}
+
+body#popos .cosmic-store__search-bar:focus-within {
+    border-color: #63d0df;
+}
+
+body#popos .cosmic-store__search-bar-icon {
+    width: 13px;
+    height: 13px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
     flex-shrink: 0;
 }
 
-.cosmic-updates__glyph--updates {
-    background: #2aa7ff;
+body#popos .cosmic-store__search-input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13px;
+    outline: none;
 }
 
-.cosmic-updates__main {
-    padding: 22px 24px;
-    background: #151515;
+body#popos .cosmic-store__search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
 }
 
-.cosmic-updates__header {
+body#popos .cosmic-store__search-close {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    cursor: default;
+    line-height: 1;
+}
+
+body#popos .cosmic-store__search-close::before {
+    content: '\2715';
+}
+
+body#popos .cosmic-store__search-close:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Sections & grids ────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__section {
+    margin-bottom: 24px;
+}
+
+body#popos .cosmic-store__section-head {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
-.cosmic-updates__title {
+body#popos .cosmic-store__section-title {
     margin: 0;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #eaeaea;
+    color: rgba(255, 255, 255, 0.92);
+    letter-spacing: -0.01em;
 }
 
-.cosmic-updates__actions {
-    display: flex;
+body#popos .cosmic-store__see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    background: transparent;
+    color: #63d0df;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: default;
+    transition: opacity 0.12s ease;
+}
+
+body#popos .cosmic-store__see-all:hover {
+    opacity: 0.8;
+}
+
+body#popos .cosmic-store__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 10px;
 }
 
-.cosmic-updates__action {
-    height: 34px;
-    padding: 0 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 13px;
-    cursor: default;
-}
-
-.cosmic-updates__action--primary {
-    background: rgba(255, 255, 255, 0.10);
-}
-
-.cosmic-updates__grid {
+body#popos .cosmic-store__card {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-}
-
-.cosmic-update-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 64px 1fr;
+    grid-template-columns: 48px 1fr;
     align-items: center;
     gap: 14px;
-    min-height: 92px;
-    padding: 14px 16px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(255, 255, 255, 0.07);
-}
-
-.cosmic-update-card__icon {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
+    width: 100%;
+    min-height: 80px;
+    padding: 16px 18px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 10px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    text-align: left;
+    text-decoration: none;
+    cursor: default;
+    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.cosmic-update-card__body {
+body#popos .cosmic-store__card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+
+body#popos .cosmic-store__card:active {
+    background: rgba(255, 255, 255, 0.09);
+    transform: scale(0.99);
+}
+
+body#popos .cosmic-store__card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+body#popos .cosmic-store__card-icon--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 208, 223, 0.12);
+    color: #63d0df;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+body#popos .cosmic-store__card-body {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     min-width: 0;
 }
 
-.cosmic-update-card__title {
+body#popos .cosmic-store__card-title {
     margin: 0;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
     color: rgba(255, 255, 255, 0.88);
-}
-
-.cosmic-update-card__subtitle {
-    margin: 0;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.52);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.cosmic-update-card__button {
-    margin-top: 8px;
-    align-self: flex-start;
+body#popos .cosmic-store__card-sub {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ── Page heads ──────────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__page-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+body#popos .cosmic-store__page-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+body#popos .cosmic-store__page-sub {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+body#popos .cosmic-store__page-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+body#popos .cosmic-store__back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.6);
+    cursor: default;
+    transition: background 0.12s ease;
+}
+
+body#popos .cosmic-store__back::before {
+    content: '\2190';
+    font-size: 15px;
+}
+
+body#popos .cosmic-store__back:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__btn {
     height: 30px;
     padding: 0 14px;
     border-radius: 999px;
@@ -175,38 +575,282 @@ div[data-link="update_manager"] #windowTitle {
     color: rgba(255, 255, 255, 0.82);
     font-size: 13px;
     cursor: default;
+    transition: background 0.12s ease, border-color 0.12s ease, transform 0.08s ease;
 }
 
-.cosmic-update-card__info {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 18px;
-    height: 18px;
-    border-radius: 999px;
+body#popos .cosmic-store__btn:hover {
     background: rgba(255, 255, 255, 0.10);
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 12px;
+}
+
+body#popos .cosmic-store__btn:active {
+    transform: scale(0.97);
+}
+
+body#popos .cosmic-store__btn--primary {
+    border-color: #63d0df;
+    background: #63d0df;
+    color: #1b1b1b;
+    font-weight: 600;
+}
+
+body#popos .cosmic-store__btn--primary:hover {
+    background: #7adce8;
+}
+
+body#popos .cosmic-store__btn--outline {
+    border-color: rgba(255, 120, 120, 0.3);
+    color: rgba(255, 120, 120, 0.82);
+    background: transparent;
+}
+
+body#popos .cosmic-store__btn--outline:hover {
+    background: rgba(255, 120, 120, 0.08);
+}
+
+/* ── Installed / Updates lists ───────────────────────────────────────── */
+
+body#popos .cosmic-store__installed-list,
+body#popos .cosmic-store__updates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+body#popos .cosmic-store__installed-row,
+body#popos .cosmic-store__update-row {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    min-height: 62px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.03);
+    transition: background 0.12s ease;
+}
+
+body#popos .cosmic-store__installed-row:hover,
+body#popos .cosmic-store__update-row:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body#popos .cosmic-store__row-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+body#popos .cosmic-store__row-icon--placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(99, 208, 223, 0.12);
+    color: #63d0df;
+    font-size: 16px;
+    font-weight: 700;
 }
 
-/* Pop Shop GS50 — contenu scrollable dans la fenêtre COSMIC */
-body#popos div[data-link="update_manager"] {
-    overflow: hidden;
+body#popos .cosmic-store__row-info {
     display: flex;
     flex-direction: column;
+    gap: 2px;
+    min-width: 0;
 }
 
-body#popos div[data-link="update_manager"] #updateManagerApp.update-manager--gnome,
-body#popos div[data-link="update_manager"] .gnome-software {
+body#popos .cosmic-store__row-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+body#popos .cosmic-store__row-sub {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+body#popos .cosmic-store__row-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* ── Detail pane ─────────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__detail-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+body#popos .cosmic-store__detail-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+body#popos .cosmic-store__detail-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
     flex: 1;
-    min-height: 0;
-    overflow: auto;
+    min-width: 0;
 }
 
-body#popos div[data-link="update_manager"] .gnome-software__main {
-    overflow: auto;
+body#popos .cosmic-store__detail-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
 }
 
+body#popos .cosmic-store__detail-sub {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+body#popos .cosmic-store__detail-developer {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+body#popos .cosmic-store__detail-rating {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #f5c518;
+}
+
+body#popos .cosmic-store__detail-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+body#popos .cosmic-store__source-chip {
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+body#popos .cosmic-store__detail-body {
+    padding: 0 0 0 78px;
+}
+
+body#popos .cosmic-store__detail-long {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+body#popos .cosmic-store__detail-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+    margin: 0;
+    font-size: 13px;
+}
+
+body#popos .cosmic-store__detail-meta div {
+    display: flex;
+    gap: 12px;
+}
+
+body#popos .cosmic-store__detail-meta dt {
+    min-width: 65px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+body#popos .cosmic-store__detail-meta dd {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+/* ── Install progress ────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__install-progress {
+    padding: 0 0 0 78px;
+    margin-bottom: 16px;
+}
+
+body#popos .cosmic-store__install-track {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+body#popos .cosmic-store__install-bar {
+    width: 0;
+    height: 100%;
+    border-radius: 2px;
+    background: #63d0df;
+    transition: width 0.3s ease;
+}
+
+body#popos .cosmic-store__install-label {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+body#popos .cosmic-store__install-bar[data-state="downloading"] {
+    background: #63d0df;
+}
+
+body#popos .cosmic-store__install-bar[data-state="installing"] {
+    background: #f5a623;
+}
+
+body#popos .cosmic-store__install-bar[data-state="done"] {
+    background: #4cd964;
+}
+
+/* ── Empty / loading ─────────────────────────────────────────────────── */
+
+body#popos .cosmic-store__empty {
+    padding: 48px 0;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+body#popos .cosmic-store__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 48px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+}
+
+body#popos .cosmic-store__loading-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-top-color: #63d0df;
+    border-radius: 50%;
+    animation: cosmic-spin 0.8s linear infinite;
+}
+
+@keyframes cosmic-spin {
+    to { transform: rotate(360deg); }
+}

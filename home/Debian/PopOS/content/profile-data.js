@@ -1,3 +1,4 @@
+'use strict';
 window.CAPSULE_DISTRO_PROFILE = {
     name: 'Pop!_OS',
     version: '24.04 LTS (COSMIC)',

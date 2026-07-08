@@ -26,9 +26,9 @@ html[data-theme="light"]:has(#kali) {
 }
 
 body#kali div[data-link="calculator"].windowElement {
-    width: min(calc(60px * 4 + 4px * 3 + 24px), calc(var(--head) * 7.2));
+    width: min(calc(60px * 4 + 4px * 3 + 24px), calc(var(--head) * 7.5));
     min-width: calc(60px * 4 + 4px * 3 + 24px);
-    max-width: calc(var(--head) * 7.6);
+    max-width: calc(var(--head) * 8.5);
     height: auto;
     min-height: calc(44px * 5 + 4px * 4 + var(--gnome-adw-headerbar-h, 2.875rem) + var(--head) * 2.35);
 }

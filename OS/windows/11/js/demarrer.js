@@ -1,3 +1,4 @@
+'use strict';
 
 // Fonction pour charger et inclure les styles CSS du menu
 function loadMenuStyles() {

@@ -25,35 +25,173 @@
   },
   "libadwaita": {
     "slots": {
-      "calculator": { "anchor": "gnome-calc__header" },
-      "text_editor": { "anchor": "xed-app__menubar" },
-      "calendar": { "anchor": "gnome-calendar-app__header" },
-      "clocks": { "anchor": "gnome-clocks__header" },
-      "update_manager": { "anchor": "gnome-software__titlebar" },
-      "profile": { "anchor": "gnome-app__window-chrome", "runtimeAnchor": true },
-      "checklist": { "anchor": "checklist-app__header" },
-      "librewriter": { "anchor": "lw-menubar" },
-      "libreoffice_startcenter": { "anchor": "lsc-app", "runtimeAnchor": true },
-      "librecalc": { "anchor": "lc-menubar", "runtimeAnchor": true },
-      "libreoffice_impress": { "anchor": "lim-app", "runtimeAnchor": true },
-      "libreoffice_draw": { "anchor": "ldr-app", "runtimeAnchor": true },
-      "themes": { "anchor": "gnome-settings__headerbar" },
-      "visionneur_images": { "anchor": "viewer-app__toolbar" },
-      "visionneur_pdf": { "anchor": "viewer-app__toolbar" },
-      "lecteur_multimedia": { "anchor": "viewer-app__toolbar" },
-      "snapshot": { "anchor": "gnome-snapshot__header" },
-      "screenshot": { "anchor": "gnome-shot__headerbar" },
-      "baobab": { "anchor": "gnome-baobab__header" },
-      "system_monitor": { "anchor": "gnome-sysmon__header" },
-      "tour": { "anchor": "gnome-tour__header" },
-      "characters": { "anchor": "gnome-characters__header" },
-      "thunderbird": { "anchor": "tbd-app__menubar", "runtimeAnchor": true },
-      "transmission": { "anchor": "trm-app__toolbar", "runtimeAnchor": true },
-      "rhythmbox": { "anchor": "rb-app__header", "runtimeAnchor": true },
-      "drawing": { "anchor": "drawing-app__menubar", "runtimeAnchor": true },
-      "simple_scan": { "anchor": "scn-app__header", "runtimeAnchor": true },
-      "warpinator": { "anchor": "wrp-app__header", "runtimeAnchor": true },
-      "timeshift": { "anchor": "tsh-app__header", "runtimeAnchor": true }
+      "calculator": {
+        "anchor": "gnome-calc__header"
+      },
+      "text_editor": {
+        "anchor": "xed-app__menubar"
+      },
+      "calendar": {
+        "anchor": "gnome-calendar-app__header"
+      },
+      "clocks": {
+        "anchor": "gnome-clocks__header"
+      },
+      "update_manager": {
+        "anchor": "gnome-software__titlebar"
+      },
+      "profile": {
+        "anchor": "gnome-app__window-chrome",
+        "runtimeAnchor": true
+      },
+      "checklist": {
+        "anchor": "checklist-app__header"
+      },
+      "librewriter": {
+        "anchor": "lw-menubar"
+      },
+      "libreoffice_startcenter": {
+        "anchor": "lsc-app",
+        "runtimeAnchor": true
+      },
+      "librecalc": {
+        "anchor": "lc-menubar",
+        "runtimeAnchor": true
+      },
+      "libreoffice_impress": {
+        "anchor": "lim-app",
+        "runtimeAnchor": true
+      },
+      "libreoffice_draw": {
+        "anchor": "ldr-app",
+        "runtimeAnchor": true
+      },
+      "themes": {
+        "anchor": "gnome-settings__headerbar"
+      },
+      "visionneur_images": {
+        "anchor": "viewer-app__toolbar"
+      },
+      "visionneur_pdf": {
+        "anchor": "viewer-app__toolbar"
+      },
+      "lecteur_multimedia": {
+        "anchor": "viewer-app__toolbar"
+      },
+      "snapshot": {
+        "anchor": "gnome-snapshot__header"
+      },
+      "screenshot": {
+        "anchor": "gnome-shot__headerbar"
+      },
+      "baobab": {
+        "anchor": "gnome-baobab__header"
+      },
+      "system_monitor": {
+        "anchor": "gnome-sysmon__header"
+      },
+      "tour": {
+        "anchor": "gnome-tour__header"
+      },
+      "characters": {
+        "anchor": "gnome-characters__header"
+      },
+      "thunderbird": {
+        "anchor": "tbd-app__menubar",
+        "runtimeAnchor": true
+      },
+      "transmission": {
+        "anchor": "trm-app__toolbar",
+        "runtimeAnchor": true
+      },
+      "rhythmbox": {
+        "anchor": "rb-app__header",
+        "runtimeAnchor": true
+      },
+      "drawing": {
+        "anchor": "drawing-app__menubar",
+        "runtimeAnchor": true
+      },
+      "simple_scan": {
+        "anchor": "scn-app__header",
+        "runtimeAnchor": true
+      },
+      "warpinator": {
+        "anchor": "wrp-app__header",
+        "runtimeAnchor": true
+      },
+      "timeshift": {
+        "anchor": "tsh-app__header",
+        "runtimeAnchor": true
+      },
+      "gnome_disks": {
+        "anchor": "gnomeDisksApp",
+        "runtimeAnchor": true
+      },
+      "font_viewer": {
+        "anchor": "gnome-app__window-chrome",
+        "runtimeAnchor": true
+      },
+      "gnome_logs": {
+        "anchor": "gnomeLogsApp",
+        "runtimeAnchor": true
+      },
+      "gnome_maps": {
+        "anchor": "gnoMapsApp",
+        "runtimeAnchor": true
+      },
+      "gnome_weather": {
+        "anchor": "gnomeWeatherApp",
+        "runtimeAnchor": true
+      },
+      "gnome_connections": {
+        "anchor": "gnomeConnectionsApp",
+        "runtimeAnchor": true
+      },
+      "gnome_contacts": {
+        "anchor": "gnomeContactsApp",
+        "runtimeAnchor": true
+      },
+      "gnome_boxes": {
+        "anchor": "gnomeBoxesApp",
+        "runtimeAnchor": true
+      },
+      "firmware_updater": {
+        "anchor": "firmware-updater__header",
+        "runtimeAnchor": true
+      },
+      "security_center": {
+        "anchor": "security-center__header",
+        "runtimeAnchor": true
+      },
+      "language_support": {
+        "anchor": "language-support__header",
+        "runtimeAnchor": true
+      },
+      "seahorse": {
+        "anchor": "seahorse__header",
+        "runtimeAnchor": true
+      },
+      "software_updater": {
+        "anchor": "software-updater__header",
+        "runtimeAnchor": true
+      },
+      "sysprof": {
+        "anchor": "sysprof__header",
+        "runtimeAnchor": true
+      },
+      "malcontent": {
+        "anchor": "malcontent__header",
+        "runtimeAnchor": true
+      },
+      "fedora_media_writer": {
+        "anchor": "fedora-media-writer__header",
+        "runtimeAnchor": true
+      },
+      "yelp": {
+        "anchor": "yelpApp",
+        "runtimeAnchor": true
+      }
     }
   },
   "sync": {
@@ -63,13 +201,38 @@
         "id": "fedora",
         "bodyId": "fedora",
         "skinRoot": "home/RedHat/Fedora",
-        "profileId": "linux-fedora"
+        "profileId": "linux-fedora",
+        "slotOverlays": {
+          "terminal": "home/RedHat/Fedora/style/apps/terminal.overlay.css"
+        }
       },
-      { "id": "ubuntu", "bodyId": "ubuntu", "skinRoot": "home/Debian/Ubuntu", "profileId": "linux-ubuntu" },
-      { "id": "alma", "bodyId": "alma", "skinRoot": "home/RedHat/Alma", "profileId": "linux-alma" },
-      { "id": "anduinos", "bodyId": "anduinos", "skinRoot": "home/Debian/AnduinOS", "profileId": "linux-anduinos" }
+      {
+        "id": "ubuntu",
+        "bodyId": "ubuntu",
+        "skinRoot": "home/Debian/Ubuntu",
+        "profileId": "linux-ubuntu",
+        "slotOverlays": {
+          "terminal": "home/Debian/Ubuntu/style/apps/terminal.overlay.css"
+        }
+      },
+      {
+        "id": "alma",
+        "bodyId": "alma",
+        "skinRoot": "home/RedHat/Alma",
+        "profileId": "linux-alma"
+      },
+      {
+        "id": "anduinos",
+        "bodyId": "anduinos",
+        "skinRoot": "home/Debian/AnduinOS",
+        "profileId": "linux-anduinos"
+      }
     ],
-    "excludeAppSkins": ["mainMenu.skin.css", "Dossier personnel.skin.css", "nemo.skin.css"],
+    "excludeAppSkins": [
+      "mainMenu.skin.css",
+      "Dossier personnel.skin.css",
+      "nemo.skin.css"
+    ],
     "pipelines": [
       {
         "id": "nautilus",
@@ -82,13 +245,26 @@
         "type": "script",
         "path": "usr/lib/capsuleos/tools/linux/sync-gnome-workstation-skin.mjs",
         "artifact": "style/gnome-workstation.css",
-        "targetIds": ["fedora", "ubuntu", "alma"]
+        "targetIds": [
+          "fedora",
+          "ubuntu",
+          "alma"
+        ]
       },
       {
         "id": "utility-apps",
         "type": "script",
         "path": "usr/lib/capsuleos/tools/linux/sync-gnome-utility-app-skins.mjs",
-        "slots": ["text_editor", "calculator", "clocks", "calendar", "baobab", "system_monitor", "tour", "characters"]
+        "slots": [
+          "text_editor",
+          "calculator",
+          "clocks",
+          "calendar",
+          "baobab",
+          "system_monitor",
+          "tour",
+          "characters"
+        ]
       },
       {
         "id": "extended-app-skins",
@@ -109,7 +285,24 @@
           "screenshot",
           "update_manager",
           "firefox",
-          "terminal"
+          "terminal",
+          "gnome_disks",
+          "font_viewer",
+          "gnome_logs",
+          "gnome_maps",
+          "gnome_weather",
+          "gnome_connections",
+          "gnome_contacts",
+          "gnome_boxes",
+          "firmware_updater",
+          "security_center",
+          "language_support",
+          "seahorse",
+          "software_updater",
+          "sysprof",
+          "malcontent",
+          "fedora_media_writer",
+          "yelp"
         ]
       }
     ]

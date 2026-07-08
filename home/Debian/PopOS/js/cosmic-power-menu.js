@@ -1,6 +1,7 @@
 /**
  * Menu alimentation Cosmic - bouton tray (pas quick-settings Ubuntu).
  */
+'use strict';
 (function () {
     var menu = document.getElementById('cosmic-power-menu');
     var btnPower = document.getElementById('cosmic-tray-power-btn');

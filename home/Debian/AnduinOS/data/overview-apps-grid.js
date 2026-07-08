@@ -1,3 +1,4 @@
+'use strict';
 /* Généré par generate-overview-apps-grid.mjs — ne pas éditer à la main */
 window.CAPSULE_OVERVIEW_APPS_GRID = {
   "version": 2,

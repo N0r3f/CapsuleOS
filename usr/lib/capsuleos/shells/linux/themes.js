@@ -602,6 +602,8 @@ if (typeof window !== 'undefined') {
 }
 
 (function initGnomeAppearanceAtBoot() {
+    'use strict';
+
     const storage = window.CapsuleThemeStorage || {};
     const bodyId = document.body ? document.body.id : '';
     const themeKey = typeof storage.getThemeStorageKey === 'function'
@@ -615,7 +617,10 @@ if (typeof window !== 'undefined') {
     const isGnomeShell = typeof storage.isGnomeShell === 'function'
         ? storage.isGnomeShell(bodyId)
         : false;
-    const defaultTheme = bodyId === 'mint' || isGnomeShell || themeKey === 'cosmic-theme' ? 'dark' : 'light';
+    var profileDefault = typeof storage.getProfileDefaultTheme === 'function'
+        ? storage.getProfileDefaultTheme(bodyId)
+        : null;
+    const defaultTheme = profileDefault || (bodyId === 'mint' || isGnomeShell || themeKey === 'cosmic-theme' ? 'dark' : 'light');
     const resolvedTheme = savedTheme === 'light' ? 'light' : (savedTheme === 'dark' ? 'dark' : defaultTheme);
     document.documentElement.dataset.theme = resolvedTheme;
     document.documentElement.dataset.contrastMode = savedContrast === 'high' ? 'high' : 'normal';
@@ -650,7 +655,10 @@ function resolveCapsuleThemeDefault() {
     const bodyId = document.body ? document.body.id : '';
     const storage = window.CapsuleThemeStorage || {};
     const isGnomeShell = typeof storage.isGnomeShell === 'function' && storage.isGnomeShell(bodyId);
-    return bodyId === 'mint' || isGnomeShell ? 'dark' : 'light';
+    var profileDefault = typeof storage.getProfileDefaultTheme === 'function'
+        ? storage.getProfileDefaultTheme(bodyId)
+        : null;
+    return profileDefault || (bodyId === 'mint' || isGnomeShell ? 'dark' : 'light');
 }
 
 function resolveCapsuleThemeCurrent() {

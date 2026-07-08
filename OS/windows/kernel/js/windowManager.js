@@ -2,6 +2,7 @@
  * Gestion fenêtres iframe Windows (CapsuleOS).
  * Ouverture en cascade (classic) ou centrée (moderne), skin page, maximisation zone utile.
  */
+'use strict';
 document.addEventListener('DOMContentLoaded', function () {
     const mainElement = document.querySelector('main');
     const links = document.querySelectorAll('a[target="lien"]');

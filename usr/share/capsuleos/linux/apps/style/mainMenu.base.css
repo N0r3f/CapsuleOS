@@ -3,8 +3,8 @@ object > div[data-link="mainMenu"] {
     position: var(--abs);
     left: var(--z);
     bottom: calc(var(--taskbar-height) + calc(var(--head) / 10));
-    width: calc(var(--head) * 15);
-    height: calc(var(--head) * 12);
+    width: calc(var(--head) * 16.625);
+    height: calc(var(--head) * 10.625);
     border-radius: var(--z) calc(var(--head) / 8) var(--z) var(--z);
     background: var(--menu-apps-bg);
     border: 1px solid var(--menu-shell-border);
@@ -37,7 +37,7 @@ div[data-link="mainMenu"] > #windowHeader {
     flex-flow: var(--cnw);
     align-items: var(--fs);
     flex-shrink: 0;
-    width: calc(var(--head) * 3.5);
+    width: calc(var(--head) * 4.5);
     height: var(--full);
     background: var(--menu-sidebar-bg);
     border-right: 1px solid var(--menu-sidebar-separator);
@@ -141,7 +141,7 @@ div[data-link="mainMenu"] > #windowHeader {
     flex-flow: var(--rnw);
     align-items: var(--c);
     justify-content: var(--c);
-    gap: calc(var(--head) / 10);
+    gap: calc(var(--head) / 4);
     width: var(--full);
     padding: calc(var(--head) / 5) calc(var(--head) / 4);
     box-sizing: border-box;
@@ -153,10 +153,10 @@ div[data-link="mainMenu"] > #windowHeader {
     display: var(--f);
     align-items: var(--c);
     justify-content: var(--c);
-    width: calc(var(--head) * 0.9);
-    height: calc(var(--head) * 0.9);
+    width: calc(var(--head) * 1);
+    height: calc(var(--head) * 1);
     border: none;
-    border-radius: calc(var(--head) / 8);
+    border-radius: 9999px;
     background: var(--t);
     cursor: var(--p);
     transition: background var(--eas2), border-color var(--eas2);
@@ -171,8 +171,8 @@ div[data-link="mainMenu"] > #windowHeader {
 }
 
 .menu-action img {
-    width: calc(var(--head) / 1.9);
-    height: calc(var(--head) / 1.9);
+    width: calc(var(--head) * 0.6);
+    height: calc(var(--head) * 0.6);
     object-fit: contain;
     filter: brightness(1.3);
 }

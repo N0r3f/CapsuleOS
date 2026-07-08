@@ -1,3 +1,4 @@
+'use strict';
 var iframe = document.getElementsByTagName('iframe')[0];
 var url = iframe.src;
 var getData = function (data) {

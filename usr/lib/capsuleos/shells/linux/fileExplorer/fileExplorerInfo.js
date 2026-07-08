@@ -3,6 +3,7 @@
  * Sur Plasma/KDE : charger fileExplorerCatalog.js uniquement (cloisonnement toolkit).
  * Remappés au runtime par CapsuleExplorerIconBase (GNOME Adwaita, KDE, …).
  */
+'use strict';
 const fileExplorerSystemLink = {
     'files': {
         //////////////////////////// DOSSIER ////////////////////////////////

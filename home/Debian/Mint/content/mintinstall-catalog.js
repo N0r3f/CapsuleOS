@@ -1,3 +1,4 @@
+'use strict';
 window.CAPSULE_MINTINSTALL_CATALOG = {
     version: 2,
     registryId: 'linux-mint',

@@ -1,207 +1,24 @@
-# CapsuleOS
+# CapsuleOS — export applicatif
 
-Sandbox web **statique** : bureaux Linux, Windows, macOS et mobiles simulés en HTML5, CSS3 et ES6 — sans framework, utilisable hors ligne (`file://`) ou derrière un serveur HTTP minimal. Objectif : permettre d’**explorer et comparer** des environnements familiers dans un cadre **pédagogique** à **haute fidélité**.
+Dépôt **miroir** du code exécutable CapsuleOS (HTML / CSS / JS / JSON + assets).
 
-## Vision technique & contribution
+Le dépôt de travail complet (docs, lab, pipeline VM) reste sur le serveur Git #TEAM.
+Ce dépôt peut être poussé sur **GitHub** sans les hooks du monorepo principal.
 
-**Point d’entrée unique** (agents et humains) :
-
-| Document | Rôle |
-|----------|------|
-| **[root/docs/README.md](root/docs/README.md)** | Corpus, vision, pipeline, **P12 clean code** |
-| [root/docs/plan-maitre-reproduction-os.md](root/docs/plan-maitre-reproduction-os.md) | Roadmap d’exécution |
-| [contrib.md](contrib.md) | Guide contribution |
-| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) · [LICENSE.md](LICENSE.md) | Conduite & licence |
+## Lancer en local
 
 ```bash
-# Décision agent / lab
-node usr/lib/capsuleos/tools/lab/run-capsule-pipeline.mjs --id <registryId>
-# Gate dépôt
-node usr/lib/capsuleos/tools/validate-all.mjs
+npm run dev
+# → http://127.0.0.1:2929
 ```
 
-Architecture en une ligne : **noyau agnostique → toolkit → skin vendor → `proc/` → façade `OS/`**.
+Ou tout serveur statique à la racine (`index.html`).
 
-Stade actuel (juin 2026) : **Phase 1e** — triplet GNOME + Ubuntu + Alma + AnduinOS ; magasin **Logiciels** unifié (chrome GS50, `gnome-software-ground.js`). Détail : [plan-phase-1-gnome-triplet.md](root/docs/plan-phase-1-gnome-triplet.md) · store : [analyse-magasins-apps-cross-os.md](root/docs/analyse-magasins-apps-cross-os.md).
-
-[TOC]
-
-## État des lieux et objectifs ▼
-
-L'idée émerge d'une étude à propos des ressources numériques à portée pédagogiques offrant aux personnes éloignées du numérique la possibilité de s'accaparer les TICs, notamment dans l'objectif d'effectuer les démarches en ligne, autrement appelées "démarches dématérialisées".
-
-Celle-ci nous amène à la conclusion que les ressources sont nombreuses, éparses, douteuses mais nullement adaptées à la situation de crise que nous vivons. 
-
-Malgré la mise en place de conseillers numériques et de maison France service sur tout le territoire français, l’illectronisme reste grandissant et les acteurs du numérique que sont ces conseillers n'ont pas révolutionné la pédagogie en matière d'usage numérique.
-
-L'objectif de ce projet est d'utiliser leurs témoignages et ceux de leurs usagers afin de fournir une nouvelle approche, par le biais d'une "sandbox" et de la "gamification".
-
-Ce projet ne peut prétendre devenir la panacée en matière de pédagogie numérique mais il fera l'objet de nombreux tests sur le terrain car il restera gratuit, léger et accessible à tous.
-
-Nous espérons de nombreux retour et de l'enthousiasme.
-
-## Fiche technique et spécificités ▼
-
-Le présent site web est constitué de manière à optimiser les ressources au mieux ▼
-
-- éviter les surcharges de transfert client/serveur
-- charger les styles par le biais de variables afin de privilégier le calcul à la déclaration stricte
-- permettre une exécution orientée navigateur
-- offrir une exécution hors ligne 
-
-### Les langages ▼
-
-Seuls trois langages sont utilisés dans ce projet afin de le rendre accessible, efficient et utilisable hors ligne.
-
-- le HTML (version 5) (sémantique)
-- le CSS (Version 3) (sans nesting)
-- le JavaScript (ecmascript 6)
-
-### Les styles ▼
-
-Tous les styles ne sont déclarés qu'une fois sous forme de variable dans le fichier 📁 style ➤ 📄 variables.css
-Ils sont ensuite utilisés tels quels ou calculés dans chaque feuille de style exemple :
-
-Prenons la variable suivante :
-
-```css
---head: 40px;
-```
-
-Elle sera utilisée dans un `<header>` afin de définir les marges de cette manière :
-
-```css
-margin: calc(var(--head) / 4) calc(var(--head) / 4) calc(var(--head) / 10) calc(var(--head) / 4);
-```
-
-Dans cette exemple, le navigateur interprétera ce code tel quel :
-
-```css
-margin-top: 10px;
-margin-right: 10px;
-margin-bottom: 4px;
-margin-left: 10px;
-```
-
-### La convention des styles ▼ 
-
-Les déclarations CSS suivent un schéma conventionnel.
-
-- position (si absolute, le positionnement est précisé à la suite)
-- display + templating (ex : si flexbox, le flow, l'alignement et la justification sont précisé à la suite)
-- width
-- height
-- margin
-- padding
-- border
-- font
-- color
-- background
-- transform
-- animation
-- transition
-- overflow
-- z-index
-
-### Les scripts ▼
-
-Afin de permettre une exécution pondérée des scripts, de soulager les threads et de permettre une prise en main facile, chaque script est commenté de manière claire.
-Chaque script est écrit from scratch en ecmascript 6 et s’exécute côté navigateur.
-Ils sont tous réutilisables dans chaque environnement.
-Ceci évite d'atteindre un nombre critique de scripts et permet d'alléger la charge sur le navigateur et le système hôte.  
-
-### Ouverture en `file://` et gabarits embarqués ▼
-
-Les navigateurs bloquent ou restreignent `fetch()` sur des fichiers locaux. Pour que les bureaux Linux et Android fonctionnent **sans serveur HTTP** (double-clic sur `index.html`), le dépôt inclut des scripts générés : `var/lib/capsuleos/generated/capsule-app-embed.js` et `var/lib/capsuleos/generated/capsule-android-embed.js`.
-
-Après modification du contenu partagé `home/public/` ou des gabarits sous `usr/share/capsuleos/linux/apps/` (et skins `style/apps/*.skin.css`), régénérer manifeste + embed Linux :
+## Synchroniser depuis le monorepo #TEAM
 
 ```bash
-node usr/lib/capsuleos/tools/generate-public-manifest.mjs
-node usr/lib/capsuleos/tools/linux/build-linux-embed.mjs
+# Dans CapsuleOS (dépôt principal)
+node usr/lib/capsuleos/tools/export-github-repo.mjs
 ```
 
-Après modification des apps sous `OS/android/apps/` ou de `OS/android/ressources/messages.json` :
-
-```bash
-node usr/lib/capsuleos/tools/build-android-embed.mjs
-```
-
-Chaque `index.html` de skin Linux définit `window.CAPSULE_EMBED_SKIN_KEY` (`mint`, `ubuntu` ou `fedora`) avant le script embed, afin d’appliquer les bonnes feuilles `.skin.css` embarquées.
-
-Sous `http://` ou `https://`, le noyau continue de charger les gabarits avec `fetch` pour refléter les fichiers à jour sans régénérer l’embed. Pour forcer l’usage des données embarquées même en HTTP (tests), définir `window.CAPSULE_FORCE_APP_EMBED = true` avant les scripts embed.
-
-## Définition de l'arborescence ▼
-
-Le dépôt est structuré pour ressembler au maximum à une racine Linux.
-
-- **`/`**: `index.html`, `sw.js`, `OS/` (facades d’URLs stables)
-- **`/usr/share/capsuleos/`**: assets statiques (branding, thèmes, médias, pages HTML d’apps)
-- **`/usr/lib/capsuleos/`**: logique JS réutilisable (shells, scripts du portail, outils)
-- **`/var/lib/capsuleos/generated/`**: fichiers générés (embeds offline)
-- **`/home/`**: « skins » / familles et contenus spécifiques
-
-📁 OS ▼
-
-​	📁 linux ▼
-
-​		📁 kernel ▼ (noyau Linux : styles + logique JS)
-
-​			📄 README.md
-
-​			📁 style ▼
-
-​				📄 variables-linux.css
-
-​			📁 js ▼ (scripts du bureau simulé : fenêtres, Nemo, apps, `capsule-app-embed.js` généré, etc.)
-
-​		📁 shared ▼ (apps HTML/CSS `.base.css` + contenu pédagogique commun)
-
-​			📄 README.md
-
-​			📁 apps ▼
-
-​			📁 content ▼ (ex. Dossier_personnel, manifest Nemo)
-
-​		📁 families ▼
-
-​			📁 debian ▼
-
-​				📁 mint ▼
-
-​					📄 index.html
-
-​					📁 media, style, assets (thème Mint)
-
-​				📁 ubuntu ▼
-
-​					📄 index.html (même noyau + shared ; médias réutilisés depuis mint en attendant des assets Ubuntu)
-
-​			📁 redhat ▼
-
-​				📁 fedora ▼
-
-​					📄 index.html (shell GNOME Workstation, Fichiers / Nemo, assets sous media/)
-
-📄 sw.js (entrée SW, scope racine) → `js/sw.js` (implémentation)
-
-📁 pages ▼
-
-📁 style ▼
-
-​	📄 imports.css
-
-​	📄 reset.css
-
-​	📄 variables.css
-
-### Contribuer et agents ▼
-
-- **[contrib.md](contrib.md)** — guide contribution, parcours agents H0–H6, validateurs, ajout d’OS scalable
-- **`root/`** — skills Cursor, [parcours-agent.md](root/docs/parcours-agent.md), [ajouter-os-scalable.md](root/docs/ajouter-os-scalable.md)
-
-### Documentation agents (bureaux Linux) ▼
-
-Guide **GTK / GNOME / Cinnamon / KDE Plasma / COSMIC** pour la fidélité visuelle des skins : [contrib.md § toolkits](contrib.md#bibliotheques-graphiques-linux-toolkits-gui). Voir aussi `root/docs/apps-linux-par-distro.md` pour les mappings d’applications.
-
-
+Voir `etc/capsuleos/contracts/github-export.json` dans le monorepo pour la liste des chemins exportés.

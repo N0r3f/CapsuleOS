@@ -49,14 +49,14 @@
     <div class="fedora-main-row">
         <aside id="tableau" class="fedora-dock" aria-label="Applications favorites">
             <nav class="fedora-dock__nav">
-                <a target="windowElement" data-link="nemo" title="Fichiers">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/files.svg" alt="Fichiers" width="24" height="24">
-                </a>
                 <a target="windowElement" data-link="firefox" title="Firefox">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/firefox.svg" alt="Firefox" width="24" height="24">
                 </a>
-                <a target="windowElement" data-link="terminal" title="Terminal">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/terminal.svg" alt="Terminal" width="24" height="24">
+                <a target="windowElement" data-link="calendar" title="Calendrier">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calendar.png" alt="Calendrier" width="24" height="24">
+                </a>
+                <a target="windowElement" data-link="nemo" title="Fichiers">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/files.svg" alt="Fichiers" width="24" height="24">
                 </a>
                 <a target="windowElement" data-link="update_manager" title="Logiciels">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.Software.svg" alt="Logiciels" width="24" height="24">
@@ -64,11 +64,8 @@
                 <a target="windowElement" data-link="text_editor" title="Éditeur de texte">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/dash/org.gnome.TextEditor.svg" alt="Éditeur de texte" width="24" height="24">
                 </a>
-                <a target="windowElement" data-link="librewriter" title="LibreOffice Writer">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/libreoffice-writer.svg" alt="LibreOffice Writer" width="24" height="24">
-                </a>
-                <a target="windowElement" data-link="themes" title="Paramètres des thèmes">
-                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/preferences-desktop-theme.svg" alt="Thèmes" width="24" height="24">
+                <a target="windowElement" data-link="calculator" title="Calculatrice">
+                    <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/dock/calculator.png" alt="Calculatrice" width="24" height="24">
                 </a>
                 <a target="windowElement" data-link="checklist" title="Missions de découverte">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/checklist.svg" alt="Missions" width="24" height="24">
@@ -117,6 +114,17 @@
                 <div class="windowElement" data-link="timeshift" id="timeshift" style="display: none;"></div>
 
                 <div class="windowElement" data-link="characters" id="characters" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_disks" id="gnome_disks" style="display: none;"></div>
+                <div class="windowElement" data-link="font_viewer" id="font_viewer" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_logs" id="gnome_logs" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_maps" id="gnome_maps" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_weather" id="gnome_weather" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_connections" id="gnome_connections" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_contacts" id="gnome_contacts" style="display: none;"></div>
+                <div class="windowElement" data-link="gnome_boxes" id="gnome_boxes" style="display: none;"></div>
+                <div class="windowElement" data-link="malcontent" id="malcontent" style="display: none;"></div>
+                <div class="windowElement" data-link="yelp" id="yelp" style="display: none;"></div>
+                <div class="windowElement" data-link="fedora_media_writer" id="fedora_media_writer" style="display: none;"></div>
             </object>
         </main>
     </div>
@@ -220,15 +228,15 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Characters.svg" alt="">
                     <span>Caractères</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Cartes">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_maps" aria-label="Cartes">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Maps.svg" alt="">
                     <span>Cartes</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Connexions">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_connections" aria-label="Connexions">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Connections.svg" alt="">
                     <span>Connexions</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Contacts">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_contacts" aria-label="Contacts">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Contacts.svg" alt="">
                     <span>Contacts</span>
                 </button>
@@ -236,7 +244,7 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.freedesktop.MalcontentControl.svg" alt="">
                     <span>Contrôles...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Disques">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_disks" aria-label="Disques">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.DiskUtility.svg" alt="">
                     <span>Disques</span>
                 </button>
@@ -244,15 +252,15 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.fedoraproject.MediaWriter.png" alt="">
                     <span>Fedora Me...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Journaux">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_logs" aria-label="Journaux">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Logs.svg" alt="">
                     <span>Journaux</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Lecteur audio">
+                <button type="button" class="fedora-overview__app" data-overview-link="lecteur_multimedia" aria-label="Lecteur audio">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Decibels.svg" alt="">
                     <span>Lecteur a...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Lecteur vidéo">
+                <button type="button" class="fedora-overview__app" data-overview-link="lecteur_multimedia" aria-label="Lecteur vidéo">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Showtime.svg" alt="">
                     <span>Lecteur v...</span>
                 </button>
@@ -260,11 +268,11 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/libreoffice-writer.svg" alt="">
                     <span>LibreOffi...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Machines">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_boxes" aria-label="Machines">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Boxes.svg" alt="">
                     <span>Machines</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Météo">
+                <button type="button" class="fedora-overview__app" data-overview-link="gnome_weather" aria-label="Météo">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.Weather.svg" alt="">
                     <span>Météo</span>
                 </button>
@@ -272,11 +280,11 @@
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.SystemMonitor.svg" alt="">
                     <span>Moniteur ...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Numériseur de documents">
+                <button type="button" class="fedora-overview__app" data-overview-link="simple_scan" aria-label="Numériseur de documents">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.SimpleScan.svg" alt="">
                     <span>Numériseu...</span>
                 </button>
-                <button type="button" class="fedora-overview__app fedora-overview__app--decorative" data-overview-decorative="true" aria-label="Polices">
+                <button type="button" class="fedora-overview__app" data-overview-link="font_viewer" aria-label="Polices">
                     <img src="../../../usr/share/capsuleos/assets/images/toolkits/gnome/apps/overview/org.gnome.font-viewer.svg" alt="">
                     <span>Polices</span>
                 </button>

@@ -2,6 +2,7 @@
  * Catalogue menu Cinnamon / Linux Mint — généré depuis proc/linux-mint (ManΣ).
  * node usr/lib/capsuleos/tools/lab/generate-mint-menu-data.mjs --write
  */
+'use strict';
 // Catégories + icônes symboliques XApp (xsi-*) — vérité VM menu@cinnamon.org
 const MENU_CAT_ICON_BASE = './assets/images/toolkits/cinnamon/menu/symbolic/';
 const MENU_CATS = [

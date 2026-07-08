@@ -1,3 +1,4 @@
+'use strict';
 function initMainMenu() {
     if (document.getElementById('menu-gnome-root')) {
         if (typeof initMainMenuGnome === 'function') {

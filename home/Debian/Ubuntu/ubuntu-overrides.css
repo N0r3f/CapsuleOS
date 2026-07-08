@@ -2,8 +2,8 @@
  * Surcharges Ubuntu (dernier lien CSS dans index.html).
  */
 html:has(#ubuntu) {
-    --font-ui: "Ubuntu", "Noto Sans", "Cantarell", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "Ubuntu Mono", "DejaVu Sans Mono", ui-monospace, monospace;
+    --font-ui: "Adwaita Sans", "Ubuntu", "Noto Sans", "Cantarell", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Ubuntu Sans Mono", "Adwaita Mono", "Ubuntu Mono", ui-monospace, monospace;
 }
 
 body#ubuntu .fedora-overview__brand,
@@ -16,4 +16,10 @@ body#ubuntu .ubuntu-overview__brand {
 body#ubuntu .fedora-overview-trigger:hover,
 body#ubuntu .fedora-overview-trigger:focus-visible {
     border-color: rgba(233, 84, 32, 0.45);
+}
+
+/* VM button-layout: appmenu:close — close seulement, pas de min/max */
+body#ubuntu #minimizeBtn,
+body#ubuntu #resizeBtn {
+    display: none;
 }

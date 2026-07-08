@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "doc": "root/docs/convention-portail.md",
+  "pageTitle": "Accessibilité",
+  "intro": "CapsuleOS vise la conformité WCAG 2.2 niveau AA sur le portail et la couche d'accessibilité opt-in site-wide (contraste, taille du texte, réduction des animations). Les scans automatisés mesurent le site avec ces réglages activés, conformément au principe P10 du projet.",
+  "contactEmail": "info@noref.fr",
+  "sections": [
+    {
+      "id": "perimetre-couvert",
+      "title": "Périmètre couvert",
+      "paragraphs": [
+        "Portail (index.html), panneau d'accessibilité et chargement initial des façades Linux P0 (ex. Linux Mint) avec bootstrap a11y site-wide."
+      ]
+    },
+    {
+      "id": "limites-connues",
+      "title": "Limites connues",
+      "paragraphs": [
+        "Les bureaux simulés reproduisent fidèlement l'expérience VM ; un audit WCAG exhaustif par application embarquée n'est pas visé. Activez les réglages d'accessibilité via l'icône en en-tête avant d'ouvrir un OS."
+      ]
+    },
+    {
+      "id": "dernier-scan",
+      "title": "Dernier scan automatisé",
+      "paragraphs": [
+        "22 juin 2026 (gate validate-a11y.mjs, axe-core Playwright)"
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "paragraphs": [
+        "Signalez un problème d'accessibilité à info@noref.fr."
+      ]
+    }
+  ]
+}

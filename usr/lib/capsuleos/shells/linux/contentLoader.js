@@ -500,6 +500,22 @@ const loadSlotAssets = (slotId, templateId, skinId, appsBase, skinBase, cssSkinF
             }
         }
 
+        if (templateId === 'calculator' && embedKey === 'mint') {
+            const embeddedMintCalcCss = resolveEmbeddedCssBase(slotId, templateId);
+            if (embeddedMintCalcCss) {
+                return embeddedMintCalcCss;
+            }
+            try {
+                const mintCalcFile = `${appsBase}/style/calculator_cinnamon.base.css`;
+                const mintCalcResp = await fetch(mintCalcFile, { cache: 'no-store' });
+                if (mintCalcResp.ok) {
+                    return await mintCalcResp.text();
+                }
+            } catch (_) {
+                /* repli fetch calculator.base ci-dessous */
+            }
+        }
+
         const fetchOneCss = async (url) => {
             const response = await fetch(url, { cache: 'no-store' });
             if (!response.ok) {

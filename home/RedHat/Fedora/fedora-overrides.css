@@ -6,3 +6,9 @@ html:has(#fedora) {
     --font-ui: "Adwaita Sans", Cantarell, system-ui, sans-serif;
     --font-mono: "Adwaita Mono", "DejaVu Sans Mono", ui-monospace, monospace;
 }
+
+/* VM button-layout: appmenu:close — close seulement, pas de min/max */
+body#fedora #minimizeBtn,
+body#fedora #resizeBtn {
+    display: none;
+}

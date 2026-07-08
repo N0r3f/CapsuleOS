@@ -1,4 +1,6 @@
 (function initKonsoleTerminalChrome() {
+    'use strict';
+
     const KONSOLE_BODY_IDS = new Set(['kde-neon', 'opensuse', 'mx-kde', 'debian-kde']);
     if (!document.body || !KONSOLE_BODY_IDS.has(document.body.id)) {
         return;

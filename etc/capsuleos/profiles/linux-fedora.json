@@ -21,6 +21,7 @@
     "facade": "OS/linux/families/redhat/fedora/index.html",
     "skin": "home/RedHat/Fedora/index.html"
   },
+  "defaultTheme": "light",
   "toolkit": {
     "id": "gnome",
     "shell": "gnome"

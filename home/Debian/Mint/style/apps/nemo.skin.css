@@ -9,42 +9,50 @@ body#mint div[data-link="nemo"] input {
 
 body#mint {
     --nemo-tree-depth: 0;
-    /* Mint-Y-Dark-Aqua gtk-3 (VM Nemo 6.6.3) */
-    --nemo-bg-primary: #2e2e33;
-    --nemo-header-bg: #222226;
-    --nemo-border: #202023;
-    --nemo-text-primary: rgba(255, 255, 255, 0.87);
-    --nemo-text-muted: rgba(255, 255, 255, 0.55);
-    --nemo-item-hover-bg: rgba(255, 255, 255, 0.12);
-    --nemo-item-active-bg: rgba(255, 255, 255, 0.12);
-    --nemo-menu-surface-bg: #303036;
-    --nemo-toolbar-bg: #222226;
-    --nemo-toolbar-border: #202023;
+    /* Mint-Y-Blue gtk-3 (VM 2026-06-30) — thème GTK clair */
+    --nemo-bg-primary: #f6f6f8;
+    --nemo-header-bg: #ececee;
+    --nemo-border: rgba(0, 0, 0, 0.12);
+    --nemo-text-primary: rgba(30, 30, 34, 0.9);
+    --nemo-text-muted: rgba(30, 30, 34, 0.55);
+    --nemo-item-hover-bg: rgba(0, 0, 0, 0.06);
+    --nemo-item-active-bg: rgba(12, 117, 222, 0.14);
+    --nemo-menu-surface-bg: #ffffff;
+    --nemo-toolbar-bg: #f0f0f2;
+    --nemo-toolbar-border: rgba(0, 0, 0, 0.1);
     --nemo-toolbar-button-border: transparent;
     --nemo-toolbar-button-bg: transparent;
-    --nemo-toolbar-button-hover-bg: rgba(255, 255, 255, 0.12);
-    --nemo-toolbar-button-plain-hover: rgba(255, 255, 255, 0.08);
-    --nemo-pathbar-bg: #2e2e33;
-    --nemo-pathbar-border: #202023;
-    --nemo-pathbar-text: #dadada;
-    --nemo-sidebar-bg: #2c2c31;
+    --nemo-toolbar-button-hover-bg: rgba(0, 0, 0, 0.06);
+    --nemo-toolbar-button-plain-hover: rgba(0, 0, 0, 0.04);
+    --nemo-pathbar-bg: #ffffff;
+    --nemo-pathbar-border: rgba(0, 0, 0, 0.14);
+    --nemo-pathbar-text: #2e2e33;
+    --nemo-sidebar-bg: #e8e8ec;
     --nemo-sidebar-width: 170px;
-    --nemo-footer-bg: #222226;
-    --nemo-status-text: rgba(255, 255, 255, 0.72);
-    --nemo-accent: #1f9ede;
-    --nemo-tooltip-bg: #1a1a1b;
-    --nemo-tooltip-text: #e1e1e1;
-    --nemo-symbolic-icon-filter: brightness(0) invert(1);
-    --nemo-toolbar-icon-filter: var(--nemo-symbolic-icon-filter);
-    --nemo-list-row-border: #202023;
+    --nemo-footer-bg: #ececee;
+    --nemo-status-text: rgba(30, 30, 34, 0.72);
+    --nemo-accent: #0c75de;
+    --nemo-tooltip-bg: #f8f8fa;
+    --nemo-tooltip-text: #1e1e22;
+    --nemo-symbolic-icon-filter: brightness(0);
+    --nemo-toolbar-icon-filter: brightness(0);
+    --nemo-list-row-border: rgba(0, 0, 0, 0.08);
     --nemo-list-col-icon: 2.75rem;
     --nemo-list-col-size: 7.5rem;
     --nemo-list-col-modified: 11rem;
     --nemo-list-col-star: 2rem;
     --nemo-list-pad-x: 1.6rem;
     --nemo-list-pad-icon: 1.35rem;
-    --nemo-sidebar-text: var(--texte, #e1e1e1);
-    --nemo-sidebar-icon-filter: brightness(0) invert(1);
+    --nemo-sidebar-text: #1e1e1e;
+    --nemo-sidebar-icon-filter: brightness(0);
+    --nemo-pathbar-crumb-bg: #ffffff;
+    --nemo-pathbar-scroll-bg: #ffffff;
+    --nemo-pathbar-scroll-icon-filter: brightness(0);
+    --nemo-footer-btn-bg: transparent;
+    --nemo-footer-btn-border: transparent;
+    --nemo-footer-btn-active-bg: rgba(0, 0, 0, 0.06);
+    --nemo-footer-btn-active-border: var(--nemo-accent);
+    --nemo-footer-separator: rgba(0, 0, 0, 0.12);
 }
 
 html[data-theme="light"] body#mint {
@@ -54,7 +62,7 @@ html[data-theme="light"] body#mint {
     --nemo-text-primary: rgba(30, 30, 34, 0.9);
     --nemo-text-muted: rgba(30, 30, 34, 0.55);
     --nemo-item-hover-bg: rgba(0, 0, 0, 0.06);
-    --nemo-item-active-bg: rgba(31, 158, 222, 0.14);
+    --nemo-item-active-bg: rgba(12, 117, 222, 0.14);
     --nemo-menu-surface-bg: #ffffff;
     --nemo-toolbar-bg: #f0f0f2;
     --nemo-toolbar-border: rgba(0, 0, 0, 0.1);
@@ -73,6 +81,51 @@ html[data-theme="light"] body#mint {
     --nemo-sidebar-icon-filter: brightness(0);
     --nemo-list-row-border: rgba(0, 0, 0, 0.08);
     --nemo-sidebar-text: var(--texte, #1e1e1e);
+    --nemo-pathbar-crumb-bg: #ffffff;
+    --nemo-pathbar-scroll-bg: #ffffff;
+    --nemo-pathbar-scroll-icon-filter: brightness(0);
+    --nemo-footer-btn-bg: transparent;
+    --nemo-footer-btn-border: transparent;
+    --nemo-footer-btn-active-bg: rgba(0, 0, 0, 0.06);
+    --nemo-footer-btn-active-border: var(--nemo-accent);
+    --nemo-footer-separator: rgba(0, 0, 0, 0.12);
+}
+
+/* Mint-Y-Dark-Aqua — pathbar / footer sombres (défaut bureau Mint) */
+html:not([data-theme="light"]) body#mint {
+    --nemo-bg-primary: #222226;
+    --nemo-header-bg: #2e2e33;
+    --nemo-border: #202023;
+    --nemo-text-primary: rgba(255, 255, 255, 0.87);
+    --nemo-text-muted: rgba(255, 255, 255, 0.55);
+    --nemo-item-hover-bg: rgba(255, 255, 255, 0.12);
+    --nemo-item-active-bg: rgba(31, 158, 222, 0.18);
+    --nemo-menu-surface-bg: #303036;
+    --nemo-toolbar-bg: #222226;
+    --nemo-toolbar-border: #202023;
+    --nemo-toolbar-button-hover-bg: rgba(255, 255, 255, 0.12);
+    --nemo-toolbar-button-plain-hover: rgba(255, 255, 255, 0.08);
+    --nemo-pathbar-bg: #2e2e33;
+    --nemo-pathbar-border: #202023;
+    --nemo-pathbar-text: #dadada;
+    --nemo-sidebar-bg: #2c2c31;
+    --nemo-footer-bg: #222226;
+    --nemo-status-text: rgba(255, 255, 255, 0.72);
+    --nemo-tooltip-bg: #303036;
+    --nemo-tooltip-text: rgba(255, 255, 255, 0.87);
+    --nemo-symbolic-icon-filter: brightness(0) invert(1);
+    --nemo-toolbar-icon-filter: brightness(0) invert(1);
+    --nemo-sidebar-icon-filter: brightness(0) invert(1);
+    --nemo-list-row-border: rgba(255, 255, 255, 0.08);
+    --nemo-sidebar-text: #e1e1e1;
+    --nemo-pathbar-crumb-bg: #1d1d20;
+    --nemo-pathbar-scroll-bg: #36363d;
+    --nemo-pathbar-scroll-icon-filter: brightness(0) invert(0.78);
+    --nemo-footer-btn-bg: #333338;
+    --nemo-footer-btn-border: #18181b;
+    --nemo-footer-btn-active-bg: #27272b;
+    --nemo-footer-btn-active-border: #18181b;
+    --nemo-footer-separator: #26262b;
 }
 
 /* VM : la barre de menus Fichier/Édition/Affichage/Accès/Signets/Aide est visible (défaut nemo Mint)
@@ -204,8 +257,8 @@ body#mint div[data-link="nemo"] .nemo-app__context-submenu--flip-left {
 body#mint div[data-link="nemo"] .nemo-app__item-rename-input {
     background: var(--nemo-bg-primary, #222226);
     color: var(--nemo-text-primary, rgba(255, 255, 255, 0.87));
-    border: 1px solid var(--nemo-accent, #1f9ede);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--nemo-accent, #1f9ede) 40%, transparent);
+    border: 1px solid var(--nemo-accent, #0c75de);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--nemo-accent, #0c75de) 40%, transparent);
     font: inherit;
     font-size: inherit;
     padding: 0.1rem 0.25rem;
@@ -435,9 +488,8 @@ body#mint div[data-link="nemo"] #nemoFooterContainer .nemo-footer-btn:hover {
 }
 
 body#mint div[data-link="nemo"] #nemoFooterContainer .nemo-footer-btn.nemo-footer-btn--active {
-    /* VM : bouton actif assombri, sans liseré accent */
-    background: #27272b;
-    border-color: #18181b;
+    background: var(--nemo-footer-btn-active-bg);
+    border-color: var(--nemo-footer-btn-active-border);
 }
 
 body#mint div[data-link="nemo"] #nemo-sidebar-tree .nemo-sidebar__tree-link:hover {
@@ -527,8 +579,8 @@ body#mint div[data-link="nemo"] .nemo-app__path-crumb-icon {
     filter: var(--nemo-toolbar-icon-filter);
 }
 
-/* Pathbar VM : groupe collé [◄][⌂ capsule][►] — segments avec bordure commune,
-   crumb actif foncé #1d1d20, boutons défilement #36363d */
+/* Pathbar VM : groupe collé [◄][⌂ capsule][►] — segments avec bordure commune ;
+   couleurs via --nemo-pathbar-crumb-bg / --nemo-pathbar-scroll-bg (clair ou sombre). */
 body#mint div[data-link="nemo"] .nemo-app__toolbar-group--path {
     gap: 8px;
 }
@@ -549,7 +601,7 @@ body#mint div[data-link="nemo"] .nemo-app__toolbar-group--path > a:last-child {
     height: 28px;
     padding: 0;
     border: 1px solid var(--nemo-pathbar-border);
-    background: #36363d;
+    background: var(--nemo-pathbar-scroll-bg);
     border-radius: 0;
 }
 
@@ -569,7 +621,7 @@ body#mint div[data-link="nemo"] .nemo-app__toolbar-group--path > a#home > img,
 body#mint div[data-link="nemo"] .nemo-app__toolbar-group--path > a:last-child > img {
     width: 12px;
     height: 12px;
-    filter: brightness(0) invert(0.78);
+    filter: var(--nemo-pathbar-scroll-icon-filter);
 }
 
 /* segments adjacents collés : supprimer les gaps autour du crumb */
@@ -580,7 +632,8 @@ body#mint div[data-link="nemo"] .nemo-app__path-current.nemo-app__path-breadcrum
 
 body#mint div[data-link="nemo"] .nemo-app__path-breadcrumb .nemo-app__path-crumb {
     height: 28px;
-    background: #1d1d20;
+    color: var(--nemo-pathbar-text);
+    background: var(--nemo-pathbar-crumb-bg);
     border-color: var(--nemo-pathbar-border);
 }
 
@@ -659,19 +712,19 @@ body#mint div[data-link="nemo"] .nemo-app__toolbar a[aria-disabled="true"] {
     pointer-events: none;
 }
 
-/* Statusbar VM : 29 px, fond identique au contenu (#2e2e33), liseré haut discret */
+/* Statusbar VM : 29 px, fond identique au contenu, liseré haut discret */
 body#mint div[data-link="nemo"] #nemoFooterContainer.nemo-app__statusbar {
     height: 29px;
     min-height: 29px;
     padding: 0 4px;
     background: var(--nemo-bg-primary);
-    border-top: 1px solid #292930;
+    border-top: 1px solid var(--nemo-border);
     align-items: center;
 }
 
 body#mint div[data-link="nemo"] #nemoFooterContainer .nemo-app__status-center p {
     font-size: 13.3px;
-    color: #d4d4d6;
+    color: var(--nemo-status-text);
     margin: 0;
 }
 
@@ -688,8 +741,8 @@ body#mint div[data-link="nemo"] #nemoFooterContainer .nemo-footer-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #333338;
-    border: 1px solid #18181b;
+    background: var(--nemo-footer-btn-bg);
+    border: 1px solid var(--nemo-footer-btn-border);
     border-radius: 3px;
 }
 
@@ -706,7 +759,7 @@ body#mint div[data-link="nemo"] #nemoFooterContainer #nemo-toggle-sidebar::befor
     top: 2px;
     bottom: 2px;
     width: 1px;
-    background: #26262b;
+    background: var(--nemo-footer-separator);
 }
 
 body#mint div[data-link="nemo"] #nemoFooterContainer .nemo-footer-btn img {

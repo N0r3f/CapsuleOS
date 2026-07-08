@@ -21,7 +21,7 @@ body#mint div[data-link="themes"] input.cs-home__search:focus {
     background-color: #222226 !important;
     color: #e1e1e1 !important;
     border: 1px solid #404046 !important;
-    outline: 2px solid #1f9ede;
+    outline: 2px solid #0c75de;
     outline-offset: 0;
 }
 

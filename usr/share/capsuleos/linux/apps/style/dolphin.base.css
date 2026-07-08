@@ -884,13 +884,13 @@ div[data-link="nemo"] #windowHeader > nav:first-child::after {
 }
 
 div[data-link="nemo"] #windowHeader > nav:first-child::before {
-    background-image: url("../../../assets/images/toolkits/kde/apps/org.kde.dolphin.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/apps/org.kde.dolphin.svg");
 }
 
 div[data-link="nemo"] #windowHeader > nav:first-child::after {
     width: var(--dolphin-titlebar-pin-icon);
     height: var(--dolphin-titlebar-pin-icon);
-    background-image: url("../../../assets/icons/kde/nemo/add-pin.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/add-pin.svg");
     opacity: 0.78;
 }
 
@@ -946,7 +946,7 @@ div[data-link="nemo"] #windowHeader > nav:last-child > button {
 }
 
 div[data-link="nemo"] #windowHeader > nav:last-child > button#minimizeBtn {
-    background-image: url("../../../assets/images/toolkits/kde/header/minimize.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/minimize.svg");
     background-size: var(--dolphin-titlebar-glyph-size);
     background-repeat: no-repeat;
     background-position: center;
@@ -955,7 +955,7 @@ div[data-link="nemo"] #windowHeader > nav:last-child > button#minimizeBtn {
 }
 
 div[data-link="nemo"] #resizeBtn {
-    background-image: url("../../../assets/images/toolkits/kde/header/window-restore.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-restore.svg");
     background-size: var(--dolphin-titlebar-glyph-size);
     background-repeat: no-repeat;
     background-position: center;
@@ -964,7 +964,7 @@ div[data-link="nemo"] #resizeBtn {
 }
 
 div[data-link="nemo"] #closeBtn {
-    background-image: url("../../../assets/images/toolkits/kde/header/window-close.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/window-close.svg");
     background-size: var(--dolphin-titlebar-glyph-size);
     background-repeat: no-repeat;
     background-position: center;
@@ -1049,35 +1049,35 @@ div[data-link="nemo"] .dolphin-app .dolphin-ico {
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--back {
-    background-image: url("../../../assets/icons/kde/nemo/go-previous-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/go-previous-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--forward {
-    background-image: url("../../../assets/icons/kde/nemo/go-next-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/go-next-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--view-grid {
-    background-image: url("../../../assets/icons/kde/nemo/view-grid-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/view-grid-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--view-compact {
-    background-image: url("../../../assets/icons/kde/nemo/view-compact-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/view-compact-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--view-list {
-    background-image: url("../../../assets/icons/kde/nemo/view-list-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/view-list-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--search {
-    background-image: url("../../../assets/icons/kde/nemo/search-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/search-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--preview {
-    background-image: url("../../../assets/icons/kde/nemo/view-preview-symbolic.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/view-preview-symbolic.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-ico--split {
-    background-image: url("../../../assets/icons/kde/nemo/view-split-left-right.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/icons/kde/nemo/view-split-left-right.svg");
 }
 
 div[data-link="nemo"] .dolphin-app .dolphin-toolbar__view {
@@ -1413,7 +1413,7 @@ body#mx-kde div[data-link="nemo"] #windowHeader > nav:last-child > button {
 }
 
 body#mx-kde div[data-link="nemo"] #minimizeBtn {
-    background-image: url("../../../assets/images/toolkits/kde/header/go-down.svg");
+    background-image: url("../../../../../../usr/share/capsuleos/assets/images/toolkits/kde/header/go-down.svg");
     filter: brightness(0) invert(1);
 }
 

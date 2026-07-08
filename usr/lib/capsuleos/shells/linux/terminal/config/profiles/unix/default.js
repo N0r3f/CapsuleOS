@@ -1,4 +1,6 @@
 (function initUnixTerminalProfile() {
+    'use strict';
+
     window.CAPSULE_TERMINAL_PROFILES = window.CAPSULE_TERMINAL_PROFILES || {};
     window.CAPSULE_TERMINAL_PROFILES['unix:default'] = {
         id: 'unix:default',

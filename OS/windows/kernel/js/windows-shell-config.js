@@ -18,3 +18,4 @@
  * @property {string} CAPSULE_WIN_SITE_HOME  Accueil CapsuleOS (iframe navigateur simulé)
  * @property {boolean} [CAPSULE_FORCE_WIN_EMBED]  Forcer embed même en HTTP
  */
+'use strict';

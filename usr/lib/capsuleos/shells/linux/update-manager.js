@@ -1,6 +1,7 @@
 /**
  * Update Manager (simulation) — Mint : accueil VM, liste, installation simulée.
  */
+'use strict';
 (function initUpdateManagerApp() {
     var WELCOME_KEY = 'capsule-mintupdate-welcome-dismissed';
     var MIRROR_KEY = 'capsule-mintupdate-mirror-dismissed';

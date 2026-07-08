@@ -1,4 +1,6 @@
 (function () {
+    'use strict';
+
     const anchorCenter = new Set(['a-propos']);
 
     const getHeaderOffset = () => {

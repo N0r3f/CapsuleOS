@@ -1,4 +1,6 @@
 (function initTerminalManual() {
+    'use strict';
+
     const active = (typeof window.getTerminalActiveCommands === 'function'
         ? window.getTerminalActiveCommands()
         : (window.CAPSULE_TERMINAL_ACTIVE_COMMANDS || {}));

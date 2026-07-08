@@ -3,7 +3,8 @@
  * - network-first pour HTML/CSS/JS/JSON (mises à jour visibles rapidement)
  * - cache-first pour assets statiques lourds (offline performant)
  */
-const CACHE_NAME = 'capsuleos-runtime-v4';
+'use strict';
+const CACHE_NAME = 'capsuleos-runtime-v6';
 const CACHE_PREFIX = 'capsuleos-runtime-';
 
 const isSameOriginGetRequest = (request) => {
@@ -71,9 +72,21 @@ self.addEventListener('activate', (event) => {
     })());
 });
 
+const isApiOrPhpRoute = (url) => {
+    const path = url.pathname || '';
+    return path.startsWith('/portal/api/')
+        || (path.startsWith('/portal/') && path.endsWith('.php'));
+};
+
 self.addEventListener('fetch', (event) => {
     const req = event.request;
     if (!isSameOriginGetRequest(req)) {
+        return;
+    }
+
+    const url = new URL(req.url);
+    if (isApiOrPhpRoute(url)) {
+        event.respondWith(fetch(req));
         return;
     }
 
